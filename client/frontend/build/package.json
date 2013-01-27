@@ -1,0 +1,11 @@
+{
+  "name": "sub2home",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-requirejs": "~0.2.14",
+    "grunt-jasmine-task": "~0.2.3",
+    "grunt-contrib-less": "~0.3.2",
+    "grunt-exec": "~0.3.0"
+  }
+}

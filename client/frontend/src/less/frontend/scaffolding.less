@@ -1,0 +1,355 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+// Global Variables
+
+@timelineHeight:        90px;
+@timelineSelfHeight:    140px;
+
+@noteStoreHeight:       150px;
+@noteSelectionHeight:   285px;
+
+@noteOrdersHeight:       95px;
+@noteOrdersHeight:       400px;
+
+
+
+// Body reset
+// -------------------------
+
+body {
+  margin: 0;
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @textColor;
+  background-color: @bodyBackground;
+  height: 100%;
+  min-width: 930px;
+}
+
+
+// Links
+// -------------------------
+
+a {
+  color: @linkColor;
+  text-decoration: none;
+}
+a:hover {
+  color: @linkColorHover;
+  text-decoration: underline;
+}
+
+
+// Images
+// -------------------------
+
+// // Rounded corners
+// .img-rounded {
+//   .border-radius(2px);
+// }
+
+// // Add polaroid-esque trim
+// .img-polaroid {
+//   padding: 4px;
+//   background-color: #fff;
+//   border: 1px solid #ccc;
+//   border: 1px solid rgba(0,0,0,.2);
+//   .box-shadow(0 1px 3px rgba(0,0,0,.1));
+// }
+
+
+
+// HEADER ---------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------
+
+.header {
+  background: @headerBackground;
+  height: 81px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  min-width: 590px;
+  z-index: 60;
+  &:before {
+    content: " ";
+    position: absolute;
+    left: -74px;
+    background: @headerLeftBackground;
+    height: 81px;
+    width: 74px;
+    top: 0;
+  }
+  .separator {
+    width: 1px;
+    height: 51px;
+    margin: 8px 20px 0;
+    background: #d3b771;
+    border-right: 1px solid #f3ebd5;
+    float: left;
+    &.full {
+      margin: 0 20px;
+      height: 67px;
+    }
+  }
+  .iconInfo {
+    float: right;
+    cursor: pointer;
+    .box-shadow(-1px 0 0 0 #d3b771, inset 1px 0 0 0 #f3ebd5);
+  }
+}
+
+
+
+// MAIN -----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------
+
+.main {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  &.current {
+      top: 0; 
+  }
+  &.bFwd {
+    top: -100%;
+  }
+  &.bBwd {
+    top: 100%;
+  } 
+}
+
+
+// NOTE -----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------
+
+
+.note {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: @noteBackground;
+  overflow: visible !important;
+
+  &.home {
+    height: 35%;
+    text-align: center;
+    
+    z-index: 50;
+  }
+
+  &.store {
+    height: 150px;
+    padding: 0;
+    .container {
+    //  .clearfix;
+      height: 100%;
+      width: 100%;
+    }
+
+  }
+  &.fullheight {
+    height: 100%;
+  }
+  .orderingOverview {
+    padding: 0 3%;
+    position: relative;
+    z-index: 50;
+  }
+  &.full, &.tray {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll !important;
+    padding: 100px 3% 30px;
+  }
+
+  &.tray {
+    top: -475px;
+    padding: 0;
+    background: @darkBackground;
+  }
+  
+  // Timeline
+
+  &.timeline {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    height: @timelineSelfHeight;
+    bottom: -50px;
+    text-align: center;
+
+    .container {
+      .positioned;
+      display: inline-block;
+      .clearfix;
+      text-align: center;
+      margin: 0;
+    }
+
+    &:before{
+      content: " ";
+      height: 7px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -7px;
+      background: @noteTop;
+    }
+  }
+
+  &.home, &.store, &.selection, &.orders {
+    &:after {
+      content: " ";
+      height: 7px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      background: @noteBottom;
+    }    
+  }
+}
+
+.note.selection .container {
+  .info {
+    .clearfix;
+    display: none;
+  }
+}
+
+// NOTE / ORDERING -----------------------------------------------------------------------------------------------
+
+
+
+.articleInfo {
+  margin: 30px 0;
+  .pull-left;
+  .positioned;
+  width: 50%;
+  text-align: center;
+
+  .wrapper {
+    display: inline-block;
+  }
+}
+
+.ingredientInfo {
+  margin: 120px 0 30px;
+  .pull-left;
+}
+
+
+// CONTENT --------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------
+
+
+
+.content {
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  //height: 100%;
+  min-width: 900px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+
+  .container {
+    width: 100%;
+    .clearfix;
+  }
+
+// LOCALS -----------------
+// ------------------------
+
+  
+  &.store {
+    top: @noteStoreHeight;
+    bottom: 0;
+    overflow-x: hidden;
+  }
+
+  &.orders {
+    top: @noteOrdersHeight;
+    bottom: 0;
+  }
+
+  &.home {
+    overflow: none;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    .container {
+      position: absolute;
+      height: 65%;
+      bottom: 0;
+      background: @grayLightest;
+
+    }
+  }
+
+  &.selection {
+    top: 0;
+    bottom: @timelineHeight;
+    overflow: hidden;
+  }
+
+}
+
+// .selection {
+//   height: @selectionHeight;
+//   position: absolute;
+//   top: -@selectionHeight;
+//   right: 0;
+//   left: 0;
+// }
+
+/*
+
+// Common Sizes
+// ------------------------
+
+.sub_big_size {
+  width: 302px;
+  height: 182px;
+}
+
+*/
+
+
+
+// Checkout-Settings
+// -------------------------
+
+
+.checkouSettings {
+  background: @darkBackground;
+  padding-top: 100px;
+  height: 420px;
+  width: 100%;
+  display: block;
+  .positioned;
+  &:after {
+    content: " ";
+    height: 7px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: @noteTop;
+  }
+}

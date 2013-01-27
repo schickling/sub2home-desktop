@@ -1,0 +1,68 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+// Position
+
+.positioned {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+// Quick floats
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+// Toggling content
+.hide, .unfolded {
+  display: none;
+}
+
+.first-hidden {
+	.hide;
+}
+
+
+.show {
+  display: block;
+}
+
+// Visibility
+.invisible {
+  visibility: hidden;
+}
+
+// For Affix plugin
+.affix {
+  position: fixed;
+}
+
+// Bootstrap Map Pin Fix
+
+.location-fixing img {
+max-width: none;
+}
+
+// Small Note in Selection
+
+.smallSelectionNote {
+  .opacity(0);
+  .positioned;
+  display: inline-block;
+}
+
+// Perfect circle
+.img-circle {
+  .border-radius(500px); // crank the border-radius so it works with most reasonably sized images
+}

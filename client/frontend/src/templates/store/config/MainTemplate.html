@@ -1,0 +1,149 @@
+<div class="note full">
+	<div class="container">
+		<section class="storeBasics">
+			<div class="locationFixing">
+
+			</div>
+
+			<div class="storeInfo">
+
+				<h1 class="storeName"><i class="buttonOpen <% if(open) { %>open<% } %>"></i><%= title %></h1>
+
+
+				<div class="storeDescription">
+					<textarea id="storeDescriptionInput" class="barely" placeholder="Hier ist Platz für eine kleine Beschreibung Ihres Stores"><%= description %></textarea>
+				</div>
+
+				<div class="storeData">
+					<div class="storeAddress"></div>
+					<div class="bankDetails darkback">
+						<div class="bankaccountOwner">
+							<label for="bankaccountOwnerInput">Kontoinhaber</label>
+							<input id="bankaccountOwnerInput" value="">
+						</div>
+						<div class="bankaccountNr">
+							<label for="bankaccountNrInput">Kto</label>
+							<input id="bankaccountNrInput" placeholder="Kontonummer" value="">
+						</div>
+						<div class="bankId">
+							<div class="bankCodeNr">
+								<label for="bankCodeNrInput">BLZ</label>
+								<input id="bankCodeNrInput" value="">
+							</div>
+							<div class="bankName">
+								<label for="bankNameInput">Bank</label>
+								<input id="bankNameInput" placeholder="Bankname" value="">
+							</div>
+						</div>
+						<button class="btn bankaccount btnSuccess">Fertig</button>
+					</div>
+
+					<div class="bankOptions">
+						<button class="btn btnDarkInfo bankaccount">Bankdaten</button>
+
+						<button class="btn btnInfo"id="ec">EC</button>
+						<button class="btn btnInfo"id="cash">Cash</button>
+						<button class="btn btnInfo" id="paypal">PayPal</button>
+					</div>
+				</div>
+
+
+			</div>	
+		</section>
+		<section class="storeConfig">
+			<div class="deliveryAreas">
+				<header class="folded">
+					<h3>Liefergebiete</h3>
+					<div class="headingSeparator"></div>
+				</header>
+				<div class="unfolded">
+
+					<!-- delivery areas da rein -->
+
+					<i class="buttonAdd"></i>
+				</div>
+			</div>
+
+			<div class="deliveryTimes">
+				<header class="folded">
+					<h3>Lieferzeiten</h3>
+					<div class="headingSeparator"></div>
+				</header>
+				<div class="unfolded">
+
+					<div class="businessDay" data-day="1">
+						<div class="weekday">Mo</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+					<div class="businessDay" data-day="2">
+						<div class="weekday">Di</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">				
+
+					</div>
+
+					<div class="businessDay" data-day="3">
+						<div class="weekday">Mi</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+					<div class="businessDay" data-day="4">
+						<div class="weekday">Do</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+					<div class="businessDay" data-day="5">
+						<div class="weekday">Fr</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+					<div class="businessDay" data-day="6">
+						<div class="weekday">Sa</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+					<div class="businessDay" data-day="0">
+						<div class="weekday">So</div>
+						<div class="openingHours">
+							<i class="buttonAdd"></i>
+						</div>
+						<br class="clear">
+
+					</div>
+
+				</div>	
+
+			</div>
+			<div class="payments">
+				<i class="icon iconPayment iconPaypal"></i>
+				<i class="icon iconPayment iconPash"></i>
+				<i class="icon iconPayment iconWap disabled"></i>
+				<i class="icon iconPayment iconEc"></i>
+			</div>
+			<br class="clear">
+		</section>
+	</div>
+</div>

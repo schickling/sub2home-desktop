@@ -1,0 +1,36 @@
+// Filename: src/js/collections/StoresCollection.js
+define([
+	'jquery',
+	'underscore',
+	'backbone',
+	'models/StoreModel'
+	], function ($, _, Backbone, StoreModel) {
+
+	var StoresCollection = Backbone.Collection.extend({
+
+		model: StoreModel,
+
+		url: '/api/stores',
+
+		filterByDeliveryPostal: function (postal) {
+			var storesInRange = this.filter(function (storeModel) {
+				var isInRange = false,
+					deliveryAreasCollection = storeModel.get('deliveryAreasCollection');
+
+				_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
+					if (deliveryAreaModel.get('postal') === postal) {
+						isInRange = true;
+						return;
+					}
+				});
+
+				return isInRange;
+			});
+
+			return storesInRange;
+		}
+
+	});
+
+	return StoresCollection;
+});
