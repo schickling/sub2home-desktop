@@ -35,8 +35,8 @@ return array (
 	),
 
 	array (
-		'id' 					=> 6,
-		'order' 				=> 6,
+		'id' 					=> 5,
+		'order' 				=> 5,
 		'title' 				=> 'Getränke',
 		'smallImage'			=> 'images/static/categories/smallimages/getraenk.png',
 		'icon'					=> 'iconBeverage'
