@@ -35,6 +35,16 @@ return array (
 	array (
 		'id' 			=> 4,
 		'order' 		=> 4,
+		'title' 		=> 'Extras',
+		'smallImage'	=> 'images/static/ingredientcategories/smallimages/extras.png',
+		'icon'			=> 'iconExtras',
+		'isSingle'		=> false,
+		'isMandatory'	=> false
+	)
+
+	array (
+		'id' 			=> 5,
+		'order' 		=> 5,
 		'title' 		=> 'Sauce',
 		'smallImage'	=> 'images/static/ingredientcategories/smallimages/sauce.png',
 		'icon'			=> 'iconSauce',
@@ -42,14 +52,6 @@ return array (
 		'isMandatory'	=> false
 	),
 
-	array (
-		'id' 			=> 5,
-		'order' 		=> 5,
-		'title' 		=> 'Extras',
-		'smallImage'	=> 'images/static/ingredientcategories/smallimages/extras.png',
-		'icon'			=> 'iconExtras',
-		'isSingle'		=> false,
-		'isMandatory'	=> false
-	)
+
 
 );
