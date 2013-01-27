@@ -19,7 +19,6 @@ class IngredientModelTable extends Migration {
 			$table->integer('ingredient_category_model_id');
 			$table->integer('order');
 			$table->decimal('price', 5, 2);
-			$table->boolean('isMandatory');
 		});
 	}
 

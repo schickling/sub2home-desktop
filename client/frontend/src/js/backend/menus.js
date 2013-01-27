@@ -61,7 +61,7 @@
 		template: _.template(template_menu),
 
 		events: {
-			'click .switch_overlay.mandatory': 'toggle_mandatory',
+			'click .switch_overlay.isMandatory': 'toggle_isMandatory',
 			'click .folded_menu .icon_remove': 'delete',
 			'focusout .input_title': 'update_title',
 			'keypress .input_title': 'update_title_on_enter',
@@ -84,16 +84,16 @@
 			return this;
 		},
 
-		toggle_mandatory: function (e) {
+		toggle_isMandatory: function (e) {
 			var $switcher = $(e.target).siblings('.switch'),
 				$headline = this.$el.find('.info.menu_type');
 
 			$switcher.toggleClass('right left');
 
-			this.model.set('mandatory', !this.model.get('mandatory'));
+			this.model.set('isMandatory', !this.model.get('isMandatory'));
 			this.model.save();
 
-			if (this.model.get('mandatory')) {
+			if (this.model.get('isMandatory')) {
 				$headline.text('obligatorisch');
 			} else {
 				$headline.text('optional');

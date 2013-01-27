@@ -15,6 +15,12 @@ class MenuComponentOptionModelTable extends Migration {
 			$table->increments('id');
 			$table->integer('menu_component_block_model_id');
 			$table->integer('category_model_id');
+			$table->string('title', 128);
+			$table->string('icon', 128);
+			$table->string('smallImage', 128);
+			$table->string('largeImage', 128);
+			$table->string('placeholderOutline', 128);
+			$table->string('placeholderBackground', 128);
 		});
 	}
 

@@ -83,14 +83,4 @@ class MenuComponentOptionModel extends BaseModel
 		return $this->categoryModel->articlesCollection;
 	}
 
-	/**
-	 * Returns the name of the category as own title
-	 * 
-	 * @return string
-	 */
-	public function getTitle()
-	{
-		return $this->categoryModel->title;
-	}
-
 }

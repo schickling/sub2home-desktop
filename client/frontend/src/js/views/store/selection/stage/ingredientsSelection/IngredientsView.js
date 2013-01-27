@@ -41,11 +41,11 @@ define([
 
 		notifyOtherIngredients: function (ingredientModel) {
 			var otherIngredientsCollection = _(this.collection.without(ingredientModel)),
-				mandatory = this.model.get('mandatory'),
-				single = this.model.get('single');
+				isMandatory = this.model.get('isMandatory'),
+				isSingle = this.model.get('isSingle');
 
 			// if only one ingredient allowed disable others
-			if (mandatory && single) {
+			if (isMandatory && isSingle) {
 				otherIngredientsCollection.each(function(otherIngredientModel) {
 					otherIngredientModel.set('selected', false);
 				});

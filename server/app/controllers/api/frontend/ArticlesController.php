@@ -52,8 +52,6 @@ class ArticlesController extends ApiController
 
 				foreach ($menuComponentBlockModel->menuComponentOptionsCollection as $menuComponentOptionModel) {
 
-					$menuComponentOptionModel->title = $menuComponentOptionModel->title;
-
 					$menuComponentOptionModel->menuComponentOptionArticlesCollection = $menuComponentOptionModel->articlesCollection;
 
 					foreach ($menuComponentOptionModel->menuComponentOptionArticlesCollection as $optionArticleModel) {

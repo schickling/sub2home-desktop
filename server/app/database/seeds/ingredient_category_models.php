@@ -47,9 +47,9 @@ return array (
 		'order' 		=> 5,
 		'title' 		=> 'Extras',
 		'smallImage'	=> 'images/static/ingredientcategories/smallimages/extras.png',
-		'icon'			=> 'iconExtras'
+		'icon'			=> 'iconExtras',
 		'isSingle'		=> false,
 		'isMandatory'	=> false
-	),
+	)
 
 );

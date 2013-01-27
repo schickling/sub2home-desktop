@@ -48,7 +48,7 @@ abstract class ItemModel extends BaseModel
 
 	public function isActive($store_model_id)
 	{
-		return (bool) $this->returnCustomModel($store_model_id)->isActive;
+		return $this->returnCustomModel($store_model_id)->isActive;
 	}
 
 	/**

@@ -35,7 +35,7 @@ define([
 					this.timelineItemsCollection.add(timelineItemModel);
 
 					// update timeline items on ingredient select/unselect
-					if (ingredientCategoryModel.get('mandatory')) {
+					if (ingredientCategoryModel.get('isMandatory')) {
 						var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
 						ingredientsCollection.each(function (ingredientModel) {

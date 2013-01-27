@@ -8,8 +8,8 @@ define([
 
 		defaults: {
 			ingredientsCollection: null,
-			mandatory: false,
-			single: false,
+			isMandatory: false,
+			isSingle: false,
 			title: '',
 			image: '../../../img/static/sub_small.png',
 			icon: ''
