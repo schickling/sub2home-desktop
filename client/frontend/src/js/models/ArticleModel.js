@@ -9,6 +9,8 @@ define([
 
 	var ArticleModel = Backbone.Model.extend({
 
+		idAttribute: 'cid',
+
 		defaults: {
 			title: '',
 			description: '',
@@ -45,13 +47,14 @@ define([
 
 			// throw errors
 			this.on('error', function (model, error) {
+				console.log(error);
 				throw Error(error);
 			});
 
 		},
 
-		urlRoot: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/articles';
+		url: function () {
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/articles/' + this.get('id');
 		},
 
 		toJSON: function () {

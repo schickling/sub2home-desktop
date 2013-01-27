@@ -13,7 +13,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/deliverytimes';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliverytimes';
 		},
 
 		checkIfNow: function () {

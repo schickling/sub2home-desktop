@@ -11,7 +11,7 @@ define([
 		model: DeliveryTimeModel,
 
 		url: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/deliverytimes';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliverytimes';
 		}
 	});
 

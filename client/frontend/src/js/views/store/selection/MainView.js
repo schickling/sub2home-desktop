@@ -75,7 +75,7 @@ define([
 				},
 
 				error: function () {
-					self.pageNotFound();
+					// self.pageNotFound();
 				}
 			});
 		},

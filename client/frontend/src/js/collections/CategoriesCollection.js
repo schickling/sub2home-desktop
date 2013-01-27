@@ -11,7 +11,7 @@ define([
 		model: CategoryModel,
 
 		url: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/categories';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/categories';
 		}
 
 	});

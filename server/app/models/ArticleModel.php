@@ -9,16 +9,7 @@
 class ArticleModel extends ItemModel
 {
 
-	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished');
-
-	/**
-	 * Images paths
-	 */
-	public static $imageOriginalPath;
-	public static $imageSmallPath;
-	public static $imageBigPath;
-	public static $publicImageSmallPath;
-	public static $publicImageBigPath;
+	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
 	/**
 	 * Hook save
@@ -86,11 +77,6 @@ class ArticleModel extends ItemModel
 		foreach ($this->customArticlesCollection as $customArticleModel) {
 			$customArticleModel->delete();
 		}
-
-		// Delete belonging images
-		File::delete(ArticleModel::$imageOriginalPath . $this->image);
-		File::delete(ArticleModel::$imageBigPath . $this->image);
-		File::delete(ArticleModel::$imageSmallPath . $this->image);
 
 		return parent::delete();
 	}
@@ -170,9 +156,3 @@ class ArticleModel extends ItemModel
 	}
 
 }
-
-// ArticleModel::$imageOriginalPath = path('public') . 'img/upload/original/';
-// ArticleModel::$imageSmallPath = path('public') . 'img/upload/subs_small/';
-// ArticleModel::$imageBigPath = path('public') . 'img/upload/subs_big/';
-// ArticleModel::$publicImageSmallPath = URL::base() . '/img/upload/subs_small/';
-// ArticleModel::$publicImageBigPath = URL::base() . '/img/upload/subs_big/';

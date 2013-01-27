@@ -10,7 +10,7 @@ define([
 		model: DeliveryAreaModel,
 
 		url: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/deliveryareas';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliveryareas';
 		}
 	});
 

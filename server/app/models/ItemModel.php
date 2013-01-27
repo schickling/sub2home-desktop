@@ -16,20 +16,6 @@ abstract class ItemModel extends BaseModel
 	abstract public function returnCustomModel($store_model_id);
 
 	/**
-	 * Returns the path to the big image
-	 *
-	 * @return string
-	 */
-	public function getImageBig()
-	{
-		if ($this->image) {
-			return static::$publicImageBigPath . $this->image;
-		} else {
-			return null;
-		}
-	}
-
-	/**
 	 * Returns whether the article and the custom article is published
 	 *
 	 * @return void

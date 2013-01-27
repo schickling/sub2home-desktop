@@ -6,7 +6,7 @@
 class MenuBundleModel extends MenuModel
 {
 
-	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished');
+	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
 	/**
 	 * Hook save

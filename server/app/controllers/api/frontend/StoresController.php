@@ -2,7 +2,7 @@
 
 use App\Controllers\Api\ApiController;
 use StoreModel;
-use Response;
+use App;
 
 /**
 * 
@@ -17,7 +17,7 @@ class StoresController extends ApiController
 										->where('isActive', true)
 										->get();
 
-		return $storesCollection;
+		return $storesCollection->toJson(JSON_NUMERIC_CHECK);
 
 	}
 
@@ -35,12 +35,10 @@ class StoresController extends ApiController
 							->first();
 
 		if ($storeModel == null) {
-			var_dump($storeModel);
-			// return Response::make('', 404);
+			return App::abort(404);
 		}
 
-
-		return $storeModel;
+		return $storeModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
 

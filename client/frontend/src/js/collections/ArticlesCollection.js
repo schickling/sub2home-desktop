@@ -11,7 +11,7 @@ define([
 		model: ArticleModel,
 
 		url: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/articles';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/articles';
 		},
 
 		// combines footlong and 6inch subs

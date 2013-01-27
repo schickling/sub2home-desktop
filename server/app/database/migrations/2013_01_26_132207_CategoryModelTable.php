@@ -16,6 +16,9 @@ class CategoryModelTable extends Migration {
 			$table->string('title', 128);
 			$table->string('icon', 128);
 			$table->string('smallImage', 128);
+			$table->string('largeImage', 128);
+			$table->string('placeholderOutline', 128);
+			$table->string('placeholderBackground', 128);
 			$table->integer('order');
 		});
 	}

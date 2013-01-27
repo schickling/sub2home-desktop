@@ -9,7 +9,7 @@ class DeliveryTimeModel extends BaseModel
 {
 	public $timestamps = false;
 
-	public $hidden = array('store_model_id');
+	public $hidden = array('store_model_id', 'id');
 
 	/**
 	 * Returns the store

@@ -19,7 +19,7 @@ define([
 
 		idAttribute: 'alias',
 
-		urlRoot: '/api/stores/',
+		urlRoot: '/api/frontend/stores/',
 
 		initialize: function () {
 

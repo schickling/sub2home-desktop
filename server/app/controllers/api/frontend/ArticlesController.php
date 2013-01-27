@@ -43,7 +43,6 @@ class ArticlesController extends ApiController
 		// // FIELDS
 
 		$articleModel->price = $articleModel->returnRealPrice($this->storeModel->id);
-		$articleModel->image = $articleModel->getImageBig();
 
 
 	    // fetch menu upgrades
@@ -84,6 +83,7 @@ class ArticlesController extends ApiController
 			});
 
 			$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
+
 			$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
 
 		}
@@ -95,7 +95,7 @@ class ArticlesController extends ApiController
 
 		// RETURN
 
-		return $articleModel;
+		return $articleModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
 }

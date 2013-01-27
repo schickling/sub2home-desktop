@@ -24,7 +24,7 @@ define([
 
 		takeArticle: function () {
 			if (this.model.get('allowsIngredients')) {
-				router.navigate('store/theke/artikel/' + this.model.get('articleId'), true);
+				router.navigate('store/theke/artikel/' + this.model.get('id'), true);
 			} else {
 				alert('Warenkorb yo!');
 			}

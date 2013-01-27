@@ -3,6 +3,7 @@
 use App\Controllers\Api\ApiController;
 use Illuminate\Database\Eloquent\Collection;
 use CategoryModel;
+use ArticleModel;
 
 
 class CategoriesController extends ApiController
@@ -18,7 +19,6 @@ class CategoriesController extends ApiController
 												->orderBy('order')
 												->get();
 
-
 		// pick out "visible" categories
 		foreach ($categoriesCollection as $categoryModel) {
 
@@ -26,11 +26,9 @@ class CategoriesController extends ApiController
 			$orderedItemsCollection = $categoryModel->orderedItemsCollection;
 
 			// get correct prices
-			foreach ($orderedItemsCollection as $item) {
-				if ($item->isPublished && $item->isActive($this->storeModel->id)) {
-					$item->price = $item->returnRealPrice($this->storeModel->id);
-					$item->image = $item->getImageBig();
-					$itemsCollection->add($item);
+			foreach ($orderedItemsCollection as $itemModel) {
+				if ($itemModel->isPublished && $itemModel->isActive($this->storeModel->id)) {
+					$itemsCollection->add($itemModel);
 				}
 			}
 
@@ -45,7 +43,7 @@ class CategoriesController extends ApiController
 			}
 		}
 
-		return $categoriesCollectionWithItems;
+		return $categoriesCollectionWithItems->toJson(JSON_NUMERIC_CHECK);
 	}
 
 }

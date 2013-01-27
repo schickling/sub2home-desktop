@@ -11,6 +11,21 @@ class PopulateTables extends Migration {
 	 */
 	public function up()
 	{
+		$this->populate();
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		//
+	}
+
+	public function populate()
+	{
 		// AddressModel
 		$ad1 = new AddressModel(array(
 			'firstName' => 'Sebastian',
@@ -546,16 +561,6 @@ class PopulateTables extends Migration {
 		// $o2->orderedArticlesCollection()->insert($oa2);
 		// $o2->orderedArticlesCollection()->insert($oa3);
 		// $o2->confirm();
-	}
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		//
 	}
 
 }

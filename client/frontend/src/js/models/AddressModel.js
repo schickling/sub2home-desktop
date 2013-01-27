@@ -18,7 +18,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/address';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/address';
 		}
 	});
 

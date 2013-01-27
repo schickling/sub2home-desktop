@@ -16,7 +16,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/stores/' + stateModel.get('storeAlias') + '/deliveryareas';
+			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliveryareas';
 		}
 	});
 
