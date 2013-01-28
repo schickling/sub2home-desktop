@@ -17,58 +17,10 @@ class StoreModel extends BaseModel
 	public function save()
 	{
 		$exists = $this->exists;
-		$ret = parent::save();
+		$save = parent::save();
 
 		// Inital save new store
 		if (!$exists) {
-
-			// Create custom articlesCollection
-			$articlesCollection = ArticleModel::all();
-			foreach ($articlesCollection as $articleModel) {
-				$customArticleModel = new CustomArticleModel(array(
-					'store_model_id' => $this->id,
-					'isActive' => true, // MOCK
-					'article_model_id' => $articleModel->id,
-					'price' => $articleModel->price
-					));
-				$customArticle->save();
-			}
-
-			// Create custom menu bundles
-			$menuBundlesCollection = MenuBundleModel::all();
-			foreach ($menuBundlesCollection as $menuBundleModel) {
-				$customMenuModel = new CustomMenuModel(array(
-					'store_model_id' => $this->id,
-					'isActive' => true, // MOCK
-					'menu_bundle_model_id' => $menuBundleModel->id,
-					'price' => $menuBundleModel->price
-					));
-				$customMenuModel->save();
-			}
-
-			// Create custom menu upgrades
-			$menuUpgradesCollection = MenuUpgradeModel::all();
-			foreach ($menuUpgradesCollection as $menu_upgrade) {
-				$customMenuModel = new CustomMenuModel(array(
-					'store_model_id' => $this->id,
-					'isActive' => true, // MOCK
-					'menu_upgrade_model_id' => $menu_upgrade->id,
-					'price' => $menu_upgrade->price
-					));
-				$customMenuModel->save();
-			}
-
-			// Create custom ingredientsCollection
-			$ingredientsCollection = IngredientModel::all();
-			foreach ($ingredientsCollection as $ingredientModel) {
-				$customIngredientModel = new CustomIngredientModel(array(
-					'store_model_id' => $this->id,
-					'isActive' => true, // MOCK
-					'ingredient_model_id' => $ingredientModel->id,
-					'price' => $ingredientModel->price
-					));
-				$customIngredientModel->save();
-			}
 
 			// Copy address of owner
 			$addressModel = new AddressModel(array(
@@ -113,7 +65,7 @@ class StoreModel extends BaseModel
 			$deliveryAreaModel->save();
 		}
 
-		return $ret;
+		return $save;
 	}
 
 	/**
@@ -270,48 +222,6 @@ class StoreModel extends BaseModel
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Creates an OAuth HTTP header
-	 * 
-	 * @return string
-	 */
-	public function getAuthHeader()
-	{
-		$paypalController = IoC::resolve('paymentPaypal');
-
-		return $paypalController->authHeader($this->id);
-	}
-
-	/**
-	 * Returns when the store has isOpened next time
-	 * 
-	 * @return string
-	 */
-	public function getNextTimeOpened()
-	{
-		$currentDay = date('w');
-		$currentMinutes = (int) date('G') * 60 + (int) date('i');
-
-		$times = $this->deliveryTimesCollection()->order_by('startMinutes', 'asc')->get();
-
-		// Check today
-		foreach ($times as $time) {
-			if ($time->dayOfWeek == $currentDay && $time->startMinutes > $currentMinutes) {
-				return minutesToTime($time->startMinutes);
-			}
-		}
-
-		// Check other days
-		for ($i = 1 ; $i < 7; $i++) { 
-			$dayOfWeek = ($currentDay + $i) % 7;
-			foreach ($times as $time) {
-				if ($time->dayOfWeek == $dayOfWeek) {
-					return dayOfWeek($time->dayOfWeek) . ', ' . minutesToTime($time->startMinutes);
-				}
-			}
-		}
 	}
 
 	public function getMonthlyTurnover()

@@ -40,7 +40,7 @@ return array (
 		'icon'			=> 'iconExtras',
 		'isSingle'		=> false,
 		'isMandatory'	=> false
-	)
+	),
 
 	array (
 		'id' 			=> 5,

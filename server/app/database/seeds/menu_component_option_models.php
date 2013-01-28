@@ -4,7 +4,7 @@ return array (
 
 	array (
 		'id'							=> 1,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 1,
 		'title'							=> 'Sub',
 		'icon'							=> 'iconSub',
@@ -16,7 +16,7 @@ return array (
 
 	array (
 		'id'							=> 2,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 2,
 		'title'							=> 'Wrap',
 		'icon'							=> 'iconWrap',
@@ -28,7 +28,7 @@ return array (
 
 	array (
 		'id'							=> 3,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 3,
 		'title'							=> 'Salat',
 		'icon'							=> 'iconSalad',
@@ -40,7 +40,7 @@ return array (
 
 	array (
 		'id'							=> 4,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 4,
 		'title'							=> 'Cookie',
 		'icon'							=> 'iconCookie',
@@ -52,7 +52,7 @@ return array (
 
 	array (
 		'id'							=> 5,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 4,
 		'title'							=> 'Muffin',
 		'icon'							=> 'iconMuffin',
@@ -64,7 +64,7 @@ return array (
 
 	array (
 		'id'							=> 6,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 4,
 		'title'							=> 'Donut',
 		'icon'							=> 'iconDonut',
@@ -76,7 +76,7 @@ return array (
 
 	array (
 		'id'							=> 7,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 4,
 		'title'							=> 'Chips',
 		'icon'							=> 'iconChips',
@@ -88,7 +88,7 @@ return array (
 
 	array (
 		'id'							=> 8,
-		'menu_component_block_model_id'	=> ,
+		'menu_component_block_model_id'	=> 0,
 		'category_model_id'				=> 5,
 		'title'							=> 'Getränk',
 		'icon'							=> 'iconBeverage',

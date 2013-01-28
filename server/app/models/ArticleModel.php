@@ -18,41 +18,21 @@ class ArticleModel extends ItemModel
 	 */
 	public function save()
 	{
-		$exists = $this->exists;
 
 		// before initial save
-		if (!$exists) {
+		if (!$this->exists) {
 			// Calculate new order concerning a category
 			$numberOfArticles = ArticleModel::where('category_model_id', $this->category_model_id)->count();
 			$numberOfMenuBundles = MenuBundleModel::where('category_model_id', $this->category_model_id)->count();
 			$this->order = $numberOfArticles + $numberOfMenuBundles;
 		}
 
-		$save = parent::save();
-
 		// Check if article belongs to a category
 		if ($this->category_model_id === 0) {
 			throw new Exception("Menu bundle needs a category");
 		}
 
-		// after initial save
-		if (!$exists) {
-
-			// Create custom articles
-			$storesCollection = StoreModel::all();
-			foreach ($storesCollection as $storeModel) {
-				$customArticleModel = new CustomArticleModel(array(
-					'store_model_id' => $storeModel->id,
-					'isActive' => true, // MOCK
-					'article_model_id' => $this->id,
-					'price' => $this->price
-					));
-				$customArticleModel->save();
-			}
-
-		}
-
-		return $save;
+		return parent::save();
 	}
 	
 	/**
@@ -141,7 +121,20 @@ class ArticleModel extends ItemModel
 	{
 		$this->check();
 
-		return $this->customArticlesCollection()->where('store_model_id', $store_model_id)->first();
+		$customArticleModel = $this->customArticlesCollection()->where('store_model_id', $store_model_id)->first();
+
+		// lazy initialize
+		if ($customArticleModel == null) {
+			$customArticleModel = new CustomArticleModel(array(
+									'store_model_id' => $store_model_id,
+									'isActive' => true, // MOCK
+									'article_model_id' => $this->id,
+									'price' => $this->price
+									));
+			$customArticleModel->save();
+		}
+
+		return $customArticleModel;
 	}
 
 
