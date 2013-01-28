@@ -108,7 +108,7 @@ define([
 
 						self.currentCategoryIndex = currentIndex;
 						self.slideTimeline();
-					}, 10);
+					}, 30);
 
 				}
 

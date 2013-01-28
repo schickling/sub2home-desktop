@@ -8,6 +8,7 @@ require.config({
 		// libs
 		jquery: 'lib/jquery/jquery',
 		jqueryEasing: 'lib/jquery/jquery.easing',
+		jqueryUnveil: 'lib/jquery/jquery.unveil',
 		jqueryEventSpecialDestroyed: 'lib/jquery/jquery.event.special.destroyed',
 		underscore: 'lib/underscore/underscore',
 		backbone: 'lib/backbone/backbone',

@@ -1,24 +1,28 @@
 // Filename: src/js/views/store/home/ItemsView.js
 define([
 	'jquery',
+	'jqueryUnveil',
 	'underscore',
 	'backbone',
 	'views/store/home/ItemView'
-	], function($, _, Backbone, ItemView) {
+	], function ($, jqueryUnveil, _, Backbone, ItemView) {
 
 	var ItemsView = Backbone.View.extend({
 
-		initialize: function() {
+		initialize: function () {
 			this.render();
 		},
 
-		render: function() {
-			_.each(this.collection.models, function(itemModel) {
+		render: function () {
+			_.each(this.collection.models, function (itemModel) {
 				this.renderItem(itemModel);
 			}, this);
+
+			// activate image lazy loading
+			this.$('img').unveil();
 		},
 
-		renderItem: function(itemModel) {
+		renderItem: function (itemModel) {
 			var itemView = new ItemView({
 				model: itemModel
 			});
