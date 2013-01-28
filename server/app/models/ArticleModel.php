@@ -9,7 +9,7 @@
 class ArticleModel extends ItemModel
 {
 
-	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
+	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
 
 	protected function beforeFirstSave()

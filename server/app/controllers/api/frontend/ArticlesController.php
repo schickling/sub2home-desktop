@@ -1,7 +1,5 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use App\Controllers\Api\ApiController;
-
 use Request;
 use ArticleModel;
 use IngredientCategoryModel;
@@ -19,57 +17,53 @@ class ArticlesController extends ApiController
 	 * 
 	 * @return string
 	 */
-	public function show($storeAlias, $id)
+	public function show()
 	{
 		$this->loadStoreModel();
 
-		$id = Request::segment(6);
+		$articleModelId = Request::segment(6);
 		$articleModel = ArticleModel::with(array(
 			'ingredientsCollection',
 			'menuUpgradesCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.categoryModel',
-			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.articlesCollection'
-			))->find($id);
+			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
+			))->find($articleModelId);
 
 
 		if ($articleModel == null) {
-			return Response::make('', 404);
+			$this->error(404);
 		}
 
-
-
-		// // FIELDS
-
+		// get article price
 		$articleModel->price = $articleModel->returnRealPrice($this->storeModel->id);
 
-
-	    // fetch menu upgrades
-		foreach ($articleModel->menuUpgradesCollection as $menuUpgradeModel) {
-
-			foreach ($menuUpgradeModel->menuComponentBlocksCollection as $menuComponentBlockModel) {
-
-				foreach ($menuComponentBlockModel->menuComponentOptionsCollection as $menuComponentOptionModel) {
-
-					$menuComponentOptionModel->menuComponentOptionArticlesCollection = $menuComponentOptionModel->articlesCollection;
-
-					foreach ($menuComponentOptionModel->menuComponentOptionArticlesCollection as $optionArticleModel) {
-
-						// price is zero because article is part of a menu upgrade
-						$optionArticleModel->price = 0;
-
-
-					}
-				}
-			}
-		}
-
-
-		// INGREDIENTS
+		// get menu upgrades price
+		$this->prepareMenuUpgradesCollection($articleModel);
 
 		// wrap ingredients in their ingredient categories
+		$this->prepareIngredientCategoriesCollection($articleModel);
+		
 
+		return $articleModel->toJson(JSON_NUMERIC_CHECK);
+	}
+
+
+
+	private function prepareMenuUpgradesCollection($articleModel)
+	{
+		foreach ($articleModel->menuUpgradesCollection as $menuUpgradeModel) {
+			$menuUpgradeModel->price = $menuUpgradeModel->returnRealPrice($this->storeModel->id);
+		}
+
+		if ($articleModel->menuUpgradesCollection->isEmpty()) {
+			unset($articleModel->menuUpgradesCollection);
+		}
+	}
+
+	private function prepareIngredientCategoriesCollection($articleModel)
+	{
 		$ingredientsCollectionOfArticle = $articleModel->ingredientsCollection;
 
 		$ingredientCategoriesCollection = IngredientCategoryModel::orderBy('order')->get();
@@ -91,14 +85,11 @@ class ArticlesController extends ApiController
 
 		}
 
-		$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
+		if (!$ingredientCategoriesCollection->isEmpty()) {
+			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
+		}
 
 		unset($articleModel->ingredientsCollection);
-
-
-		// RETURN
-
-		return $articleModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
 }

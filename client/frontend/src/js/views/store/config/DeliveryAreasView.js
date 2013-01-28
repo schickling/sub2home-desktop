@@ -9,19 +9,12 @@ define([
 
 	var DeliveryAreasView = Backbone.View.extend({
 		events: {
-			'click .button_add': 'addDeliveryArea',
-			'click .folded': 'toggle_view'
+			'click .buttonAdd': 'addDeliveryArea',
+			'click .folded': 'toggleView'
 		},
 
 		initialize: function () {
-			var self = this;
-
-			this.collection = new DeliveryAreasCollection();
-			this.collection.fetch({
-				success: function() {
-					self.render();
-				}
-			});
+			this.render();
 		},
 
 		render: function () {
@@ -51,7 +44,7 @@ define([
 			});
 		},
 
-		toggle_view: function () {
+		toggleView: function () {
 			var $unfolded = this.$el.find('.unfolded');
 
 			$unfolded.slideToggle();

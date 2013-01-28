@@ -1,8 +1,7 @@
 define([
 	'underscore',
-	'backbone',
-	'models/stateModel'
-	], function (_, Backbone, stateModel) {
+	'backbone'
+	], function (_, Backbone) {
 
 	var AddressModel = Backbone.Model.extend({
 
@@ -18,7 +17,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/address';
+			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/address';
 		}
 	});
 

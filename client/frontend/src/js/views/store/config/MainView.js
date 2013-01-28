@@ -15,9 +15,9 @@ define([
 	var MainView = PageView.extend({
 
 		events: {
-			'focusout #store_descriptionInput': 'updateDescription',
+			'focusout #storeDescriptionInput': 'updateDescription',
 			'focusout .orderEmail': 'updateOrderEmail',
-			'click .buttonOpen': 'toggle_open',
+			'click .buttonOpen': 'toggleOpen',
 			'click .bankaccount': 'toggleBankaccount',
 			'click #paypal': 'togglePaypal'
 		},
@@ -31,16 +31,18 @@ define([
 			this.$el.html(_.template(MainTemplate, this.model.toJSON()));
 
 			this.addressView = new AddressView({
-				el: this.$('.storeAddress')
+				el: this.$('.storeAddress'),
+				model: this.model.get('addressModel')
 			});
 
 			this.deliveryAreasView = new DeliveryAreasView({
-				el: this.$('.deliveryAreas')
+				el: this.$('.deliveryAreas'),
+				collection: this.model.get('deliveryAreasCollection')
 			});
 
-			this.deliveryTimesView = new DeliveryTimesView({
-				el: this.$('.deliveryTimes')
-			});
+			// this.deliveryTimesView = new DeliveryTimesView({
+			// 	el: this.$('.deliveryTimes')
+			// });
 
 			this.append();
 		},
@@ -61,12 +63,12 @@ define([
 			this.model.save();
 		},
 
-		toggle_open: function () {
+		toggleOpen: function () {
 			var $button = this.$el.find('.buttonOpen');
 
 			$button.toggleClass('open');
 
-			this.model.set('open', !this.model.get('open'));
+			this.model.set('isOpen', !this.model.get('isOpen'));
 			this.model.save();
 		},
 

@@ -13,6 +13,8 @@ define([
 
 			alias: '',
 
+			orderEmail: '',
+
 			deliveryAreasCollection: null,
 			deliveryTimesCollection: null
 		},
@@ -26,7 +28,16 @@ define([
 
 			this.on('change:deliveryAreasCollection', function () {
 				this.checkDeliveryAreaSelection();
+				this.listenForDeliveryAreasCollectionChanges();
 			}, this);
+
+			this.on('change:deliveryTimesCollection', function () {
+				this.listenForDeliveryAreasCollectionChanges();
+			}, this);
+
+			// listen for changes in delivery areas/times collection
+			this.listenForDeliveryAreasCollectionChanges();
+			this.listenForDeliveryTimesCollectionChanges();
 
 		},
 
@@ -100,6 +111,26 @@ define([
 				if (numberOfSelected === 0) {
 					deliveryAreasCollection.first().set('selected', true);
 				}
+			}
+		},
+
+		listenForDeliveryAreasCollectionChanges: function () {
+			var deliveryAreasCollection = this.get('deliveryAreasCollection');
+
+			if (deliveryAreasCollection) {
+				deliveryAreasCollection.on('add remove change', function () {
+					this.trigger('change');
+				}, this);
+			}
+		},
+
+		listenForDeliveryTimesCollectionChanges: function () {
+			var deliveryTimesCollection = this.get('deliveryTimesCollection');
+
+			if (deliveryTimesCollection) {
+				deliveryTimesCollection.on('add remove change', function () {
+					this.trigger('change');
+				}, this);
 			}
 		}
 

@@ -2,10 +2,9 @@
 define([
 	'underscore',
 	'backbone',
-	'models/stateModel',
 	'collections/MenuUpgradesCollection',
 	'collections/IngredientCategoriesCollection'
-	], function (_, Backbone, stateModel, MenuUpgradesCollection, IngredientCategoriesCollection) {
+	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection) {
 
 	var ArticleModel = Backbone.Model.extend({
 
@@ -55,7 +54,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/articles/' + this.get('id');
+			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/articles/' + this.get('id');
 		},
 
 		toJSON: function () {

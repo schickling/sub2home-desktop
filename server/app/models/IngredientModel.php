@@ -10,7 +10,7 @@ class IngredientModel extends BaseModel
 
 	public $timestamps = false;
 
-	public $hidden = array('ingredient_category_model_id', 'order');
+	protected $hidden = array('ingredient_category_model_id', 'order');
 
 
 	protected function beforeFirstSave()

@@ -2,16 +2,13 @@
 define([
 	'underscore',
 	'backbone',
-	'backboneLocalStorage',
 	'collections/TimelineItemsCollection',
 	'collections/OrderedArticlesCollection'
-	], function (_, Backbone, backboneLocalStorage, TimelineItemsCollection, OrderedArticlesCollection) {
+	], function (_, Backbone, TimelineItemsCollection, OrderedArticlesCollection) {
 
 	var OrderedItemModel = Backbone.Model.extend({
 
 		defaults: {
-
-			id: 0,
 
 			amount: 1,
 

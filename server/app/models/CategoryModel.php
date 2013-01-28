@@ -10,7 +10,7 @@ class CategoryModel extends BaseModel
 
 	public $timestamps = false;
 
-	public $hidden = array('order');
+	protected $hidden = array('order');
 
 
 	protected function beforeFirstSave()

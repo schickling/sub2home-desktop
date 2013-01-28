@@ -9,7 +9,7 @@ class DeliveryAreaModel extends BaseModel
 {
 	public $timestamps = false;
 
-	public $hidden = array('store_model_id', 'id');
+	protected $hidden = array('store_model_id');
 
 	/**
 	 * Returns the store

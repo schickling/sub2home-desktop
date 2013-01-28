@@ -1,8 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use App\Controllers\Api\ApiController;
 use StoreModel;
-use App;
+use DeliveryAreaModel;
+use DeliveryTimeModel;
+use Input;
 
 /**
 * 
@@ -28,14 +29,40 @@ class StoresController extends ApiController
 	 */
 	public function show($storeAlias)
 	{
-		$storeModel = StoreModel::with(array('deliveryAreasCollection', 'deliveryTimesCollection'))
+		$storeModel = StoreModel::with(array('deliveryAreasCollection', 'deliveryTimesCollection', 'addressModel'))
 							->where('alias', $storeAlias)
-							->where('isOpen', true)
 							->where('isActive', true)
 							->first();
 
 		if ($storeModel == null) {
-			return App::abort(404);
+			$this->error(404);
+		}
+
+		if ($this->isAuthenicatedClient()) {
+
+			$storeModel->setHidden((array(
+				'paypalToken',
+				'paypalTokensecret',
+				'created_at',
+				'updated_at',
+				'isActive',
+				'user_model_id'
+				)));
+
+		} else {
+
+			$storeModel->setHidden((array(
+				'paypalToken',
+				'paypalTokensecret',
+				'created_at',
+				'updated_at',
+				'isActive',
+				'user_model_id',
+				'totalTurnover',
+				'orderEmail',
+				'id'
+				)));
+
 		}
 
 		return $storeModel->toJson(JSON_NUMERIC_CHECK);
@@ -47,46 +74,49 @@ class StoresController extends ApiController
 	 * 
 	 * @return void
 	 */
-	public function put_update()
+	public function update()
 	{
 		
-		$this->checkStore();
-		$store = $this->store;
+		$this->loadStoreModel();
+		$storeModel = $this->storeModel;
 
 		$input = Input::json();
 		
-		// store description
-		$store->description = $input->description;
+		// storeModel description
+		$storeModel->description = $input->description;
 		
 		// isOpen status
-		$store->isOpen = $input->isOpen;
+		$storeModel->isOpen = $input->isOpen;
+
+		var_dump($storeModel->toArray());
 
 		// order mail adress
-		$store->order_email = $input->order_email;
+		$storeModel->orderEmail = $input->orderEmail;
 
 		// payment methods
-		$store->payment_cash = $input->payment_cash;
-		$store->payment_ec = $input->payment_ec;
+		$storeModel->allowsPaymentCash = $input->allowsPaymentCash;
+		$storeModel->allowsPaymentEc = $input->allowsPaymentEc;
 
 
 		// Paypal hook
 		
-		// get paypal authorization
-		if ($input->payment_paypal && (empty($store->paypal_token) || empty($store->paypal_tokensecret))) {
+		// // get paypal authorization
+		// if ($input->payment_paypal && (empty($storeModel->paypal_token) || empty($storeModel->paypal_tokensecret))) {
 
-			$paypal_controller = IoC::resolve('payment_paypal');
-			$url = $paypal_controller->request_permissions($this->store->id);
+		// 	$paypal_controller = IoC::resolve('payment_paypal');
+		// 	$url = $paypal_controller->request_permissions($storeModel->id);
 
-			// Returns the URL to the permission form
-			return Response::make($url, 300);
+		// 	// Returns the URL to the permission form
+		// 	return Response::make($url, 300);
 
-		// already authorized
-		} else {
-			$store->payment_paypal = $input->payment_paypal;
-		}
+		// // already authorized
+		// } else {
+		// 	$storeModel->payment_paypal = $input->payment_paypal;
+		// }
 
-		$store->save();
+		$storeModel->save();
 
 	}
+
 
 }

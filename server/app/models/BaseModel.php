@@ -3,7 +3,6 @@
 class BaseModel extends Eloquent
 {
 
-	
 
 	/**
 	 * Unset an attribute on the model.

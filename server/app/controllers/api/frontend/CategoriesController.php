@@ -1,6 +1,5 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use App\Controllers\Api\ApiController;
 use Illuminate\Database\Eloquent\Collection;
 use CategoryModel;
 use ArticleModel;

@@ -7,6 +7,7 @@
  */
 class AddressModel extends BaseModel
 {
+	protected $hidden = array('user_model_id', 'id', 'store_model_id');
 
 	public $timestamps = false;
 

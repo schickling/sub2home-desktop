@@ -34,8 +34,12 @@ define([
 
 		initialize: function () {
 
-			// fetch if exists
-			this.fetch(0);
+			// laod from localStorage if exists
+			this.fetch();
+
+			if (this.get('storeModel')) {
+				this.listenForStoreInternalChanges();
+			}
 
 
 			// save on change
@@ -50,7 +54,7 @@ define([
 
 			// initialize store model if needed
 			if (!this.get('storeModel') && this.get('storeAlias') !== '') {
-				this.fetchNewStore();
+				this.fetchStoreFromServer();
 			}
 
 
@@ -66,11 +70,16 @@ define([
 
 			// load new store on alias change
 			this.on('change:storeAlias', function () {
-				this.fetchNewStore();
+				this.fetchStoreFromServer();
+
+				// write storeAlias in localstorage for apis
+				window.localStorage.setItem('storeAlias', this.get('storeAlias'));
+
 			}, this);
 
 
 			window.state = this;
+
 
 		},
 
@@ -105,7 +114,7 @@ define([
 		},
 
 		// fetch store from server
-		fetchNewStore: function () {
+		fetchStoreFromServer: function () {
 
 			console.log('fetched');
 
@@ -113,28 +122,38 @@ define([
 				alias: this.get('storeAlias')
 			});
 
-			var self = this;
-
 			storeModel.fetch({
-				success: function () {
-					self.set({
-						storeModel: storeModel,
-
-						// cache store changed in boolean
-						// needed if listener for storeAlias:change wasn't initialized yet in cartModel
-						changedStore: true
-					});
-				},
+				// needed because other views depend on store models
+				async: false,
 				error: function () {
-					// improved that
+					// improve that
 					Backbone.history.navigate('404', {
 						trigger: true,
 						replace: true
 					});
 				}
 			});
+
+			this.set({
+				storeModel: storeModel,
+
+				// cache store changed in boolean
+				// needed if listener for storeAlias:change wasn't initialized yet in cartModel
+				changedStore: true
+			});
+
+			this.listenForStoreInternalChanges();
 		},
 
+		listenForStoreInternalChanges: function () {
+			storeModel = this.get('storeModel');
+
+			storeModel.on('change', function () {
+				this.trigger('change');
+			}, this);
+		},
+
+		// needed for cart model
 		hasChangedStore: function () {
 			if (this.get('changedStore')) {
 				this.set('changedStore', false);

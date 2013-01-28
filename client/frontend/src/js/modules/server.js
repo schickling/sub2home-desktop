@@ -1,55 +1,37 @@
 // Filename: src/js/modules/server.js
 define([
-        'jquery'
-        ], function ($) {
+    'jquery'
+    ], function ($) {
 
-        // set defaults for all api requests
-        $.ajaxSetup({
+    // set defaults for all api requests
+    $.ajaxSetup({
 
-                // // all api requests are called synchronously
-                // async: false,
-
-                // // append token to all api requests to authenticate
-                // headers: {
-                //         token: window.localStorage.getItem('token')
-                // }
-
-        });
+        // // all api requests are called synchronously
+        // async: false,
+        // // append token to all api requests to authenticate
+        // headers: {
+        //         token: window.localStorage.getItem('token')
+        // }
+    });
 
 
-        var server = {
+    var server = {
 
-                // server config
-                url: 'i43pc164.ipd.kit.edu',
-                port: '80',
-                root: '/PSEWS1213MensaGruppe1/MensaAppServer/api/backend/',
+        // server config
+        url: 'i43pc164.ipd.kit.edu',
+        port: '80',
+        root: '/PSEWS1213MensaGruppe1/MensaAppServer/api/backend/',
 
-                // returns the basic server http address
-                getAddress: function () {
-                        return 'http://' + this.url + ':' + this.port + this.root;
-                },
+        // returns the basic server http address
+        getAddress: function () {
+            return 'http://' + this.url + ':' + this.port + this.root;
+        },
 
-                checkToken: function () {
-                        // check if token even avaliable
-                        if (!window.localStorage.hasOwnProperty('token')) {
-                                return false;
-                        }
+        checkToken: function () {
+            return true;
+        }
 
-                        // validate token through server request
-                        var valid = false;
-                        $.ajax({
-                                url: this.getAddress() + 'checkToken',
-                                type: 'post',
-                                async: false,
-                                success: function () {
-                                        valid = true;
-                                }
-                        });
+    };
 
-                        return valid;
-                }
-
-        };
-
-        return server;
+    return server;
 });

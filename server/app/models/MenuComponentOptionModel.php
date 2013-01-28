@@ -54,7 +54,7 @@ class MenuComponentOptionModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function articlesCollection()
+	public function menuComponentOptionArticlesCollection()
 	{
 		return $this->hasMany('ArticleModel');
 	}

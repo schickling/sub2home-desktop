@@ -7,7 +7,21 @@
  */
 class StoreModel extends BaseModel
 {
-	public $hidden = array('paypalToken', 'paypalTokensecret', 'totalTurnover', 'created_at', 'updated_at', 'isActive', 'orderEmail', 'user_model_id', 'id');
+	protected $hidden = array(
+		'allowsPaymentPaypal',
+		'allowsPaymentEc',
+		'allowsPaymentCash',
+		'paypalToken',
+		'paypalTokensecret',
+		'totalTurnover',
+		'number',
+		'created_at',
+		'updated_at',
+		'isActive',
+		'orderEmail',
+		'user_model_id',
+		'id'
+		);
 
 	/**
 	 * Hook save

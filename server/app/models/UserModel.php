@@ -2,7 +2,7 @@
 
 class UserModel extends BaseModel {
 
-	public $hidden = array('password');
+	protected $hidden = array('password');
 
 	/**
 	 * Hook delete

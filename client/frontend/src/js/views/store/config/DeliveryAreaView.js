@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/store/config/DeliveryAreaTemplate.html'
-	], function($, _, Backbone, DeliveryAreaTemplate) {
+	], function ($, _, Backbone, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
 		events: {
@@ -15,11 +15,16 @@ define([
 			'keypress .deliveryAreaPostal': 'updatePostalOnEnter',
 			'focusout .deliveryAreaDescription': 'updateDescription',
 			'keypress .deliveryAreaDescription': 'updateDescriptionOnEnter',
-			'click .button_remove': 'destroy'
+			'click .buttonRemove': 'destroy'
 		},
 
-		initialize: function() {
+		initialize: function () {
 			this.render();
+
+			this.model.on('error', function (model, error) {
+				this.render();
+				alert(error);
+			}, this);
 		},
 
 		render: function () {
@@ -28,7 +33,7 @@ define([
 
 		destroy: function () {
 			var self = this;
-			this.$el.fadeOut(function() {
+			this.$el.fadeOut(function () {
 				self.model.destroy();
 				self.remove();
 			});
@@ -47,7 +52,7 @@ define([
 
 		},
 
-		updateMinimumDurationOnEnter: function(e) {
+		updateMinimumDurationOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryAreaMinimumDuration');
@@ -67,7 +72,7 @@ define([
 
 		},
 
-		updateMinimumValueOnEnter: function(e) {
+		updateMinimumValueOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryAreaMinimumValue');
@@ -78,16 +83,12 @@ define([
 			var $input = this.$el.find('.deliveryAreaPostal'),
 				postal = $input.val();
 
-			if (postal == parseInt(postal, 10) && postal > 9999 && postal < 100000) {
-				this.model.set('postal', postal);
-				this.model.save();
-			} else {
-				alert('Bitte eine Postleitzahl eingeben');
-			}
+			this.model.set('postal', postal);
+			this.model.save();
 
 		},
 
-		updatePostalOnEnter: function(e) {
+		updatePostalOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryAreaPostal');
@@ -103,7 +104,7 @@ define([
 
 		},
 
-		updateDescriptionOnEnter: function(e) {
+		updateDescriptionOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryAreaDescription');

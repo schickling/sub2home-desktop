@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api;
+<?php namespace App\Controllers\Api\Frontend;
 
 use Controller;
 use Request;
@@ -12,8 +12,6 @@ class ApiController extends Controller
 {
 	protected $storeModel;
 
-	public $restful = true;
-
 	/**
 	 * Checks if store exists and sets store as property
 	 * 
@@ -21,29 +19,26 @@ class ApiController extends Controller
 	 */
 	protected function loadStoreModel()
 	{
-		$aliasAlias = Request::segment(4);
-		$this->storeModel = StoreModel::where('alias', $aliasAlias)->first();
+		$storeAlias = Request::segment(4);
+		$this->storeModel = StoreModel::where('alias', $storeAlias)->first();
 
     	if ($this->storeModel == null) {
-    		App::abort(404);
+    		$this->error(404);
     	}
 	}
 
-	/**
-	 * Checks if storeId matches the id of this store
-	 * 
-	 * @return void
-	 */
-	protected function checkOwner($storeId)
-	{
-		// lazy load store
-		if ($this->store == null) {
-			$this->checkStore();
-		}
+	protected function error($errorCode) {
+		App::abort($errorCode);
+	}
 
-		if ($storeId != $this->store->id) {
-			throw new Exception("No access");
-		}
+	/**
+	 * verify!
+	 * 
+	 * @return boolean
+	 */
+	protected function isAuthenicatedClient()
+	{
+		return true;
 	}
 
 	/**

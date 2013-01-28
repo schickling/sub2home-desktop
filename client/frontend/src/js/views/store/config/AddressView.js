@@ -13,18 +13,11 @@ define([
 		},
 
 		initialize: function() {
-			var self = this;
-
-			this.model = new AddressModel();
-			this.model.fetch({
-				success: function() {
-					self.render();
-				}
-			});
+			this.render();
 		},
 
 		render: function() {
-			this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
+			// this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
 		},
 
 		update: function (e) {
