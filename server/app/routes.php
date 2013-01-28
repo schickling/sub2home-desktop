@@ -20,9 +20,9 @@ Route::get('api/frontend/stores/{alias}/articles/{id}',					'App\Controllers\Api
 // delivery areas
 Route::post('api/frontend/stores/{alias}/deliveryareas', 				'App\Controllers\Api\Frontend\DeliveryAreasController@create');
 Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 			'App\Controllers\Api\Frontend\DeliveryAreasController@update');
-Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@destory');
+Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
 
 // delivery times
 Route::post('api/frontend/stores/{alias}/deliverytimes', 				'App\Controllers\Api\Frontend\DeliveryTimesController@create');
 Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 			'App\Controllers\Api\Frontend\DeliveryTimesController@update');
-Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@destory');
+Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');

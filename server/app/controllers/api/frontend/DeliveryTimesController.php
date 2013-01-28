@@ -1,49 +1,54 @@
 <?php namespace App\Controllers\Api\Frontend;
 
+use DeliveryTimeModel;
+use Input;
+use Request;
 
 class DeliveryTimesController extends ApiController
 {
 
+	public function __construct() {
+		$this->isAuthenicatedClient();
+	}
+
 	public function create()
 	{
-		// $this->checkStore();
+		$this->loadStoreModel();
 
-		// $input = Input::json();
-		
-		// $delivery_time = new Delivery_Time(array(
-		// 	'store_id' => $this->store->id,
-		// 	'day_of_week' => $input->day_of_week,
-		// 	'start_minutes' => 0,
-		// 	'end_minutes' => 60
-		// 	));
+		$input = Input::json();
 
-		// $delivery_time->save();
+		$deliveryTimeModel = new DeliveryTimeModel(array(
+			'store_model_id' => $this->storeModel->id,
+			'startMinutes' => 0,
+			'endMinutes' => 60,
+			'dayOfWeek' => $input->dayOfWeek
+			));
 
-		// return eloquent_to_json($delivery_time);
+		$deliveryTimeModel->save();
+
+		return $deliveryTimeModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
 	public function update()
 	{
-		// $input = Input::json();
-		// $id = URI::segment(5);
+		$input = Input::json();
+		$id = Request::segment(6);
 
-		// $delivery_time = Delivery_Time::find($id);
-		// $this->checkOwner($delivery_time->store_id);
+		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
-		// $delivery_time->start_minutes = $input->start_minutes;
-		// $delivery_time->end_minutes = $input->end_minutes;
+		$deliveryTimeModel->startMinutes = $input->startMinutes;
+		$deliveryTimeModel->endMinutes = $input->endMinutes;
 
-		// $delivery_time->save();
+		$deliveryTimeModel->save();
 	}
 
 	public function destroy()
 	{
-		// $id = URI::segment(5);
+		$id = Request::segment(6);
 
-		// $delivery_time = Delivery_Time::find($id);
-		// $this->checkOwner($delivery_time->store_id);
+		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
-		// $delivery_time->delete();
+		$deliveryTimeModel->delete();
 	}	
 
 }

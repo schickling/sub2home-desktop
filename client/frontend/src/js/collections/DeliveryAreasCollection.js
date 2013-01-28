@@ -7,11 +7,8 @@ define([
 
 	var DeliveryAreasCollection = Backbone.Collection.extend({
 
-		model: DeliveryAreaModel,
-
-		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliveryareas';
-		}
+		model: DeliveryAreaModel
+		
 	});
 
 	return DeliveryAreasCollection;

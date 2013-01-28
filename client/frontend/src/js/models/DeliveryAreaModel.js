@@ -20,8 +20,6 @@ define([
 
 		validate: function (attributes) {
 
-			var numbers = ['minimumValue', 'minimumDuration', 'postal'];
-
 
 			var minimumValue = attributes.minimumValue;
 
@@ -33,6 +31,7 @@ define([
 				return  "minimumValue can't be negative";
 			}
 
+
 			var minimumDuration = attributes.minimumDuration;
 
 			if (typeof(minimumDuration) !== 'number' || minimumDuration !== parseFloat(minimumDuration)) {
@@ -42,6 +41,7 @@ define([
 			if (minimumDuration < 0) {
 				return  "minimumDuration can't be negative";
 			}
+			
 
 			var postal = attributes.postal;
 

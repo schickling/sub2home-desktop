@@ -40,9 +40,10 @@ define([
 				collection: this.model.get('deliveryAreasCollection')
 			});
 
-			// this.deliveryTimesView = new DeliveryTimesView({
-			// 	el: this.$('.deliveryTimes')
-			// });
+			this.deliveryTimesView = new DeliveryTimesView({
+				el: this.$('.deliveryTimes'),
+				collection: this.model.get('deliveryTimesCollection')
+			});
 
 			this.append();
 		},

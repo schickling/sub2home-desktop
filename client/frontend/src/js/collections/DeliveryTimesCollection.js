@@ -8,11 +8,8 @@ define([
 
 	var DeliveryTimesCollection = Backbone.Collection.extend({
 
-		model: DeliveryTimeModel,
-
-		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/deliverytimes';
-		}
+		model: DeliveryTimeModel
+		
 	});
 
 	return DeliveryTimesCollection;

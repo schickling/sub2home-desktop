@@ -14,34 +14,34 @@ define([
 		},
 
 		initialize: function () {
-			var self = this;
-
-			this.collection = new DeliveryTimesCollection();
-			this.collection.fetch({
-				success: function() {
-					self.render();
-				}
-			});
+			this.render();
 		},
 
 		render: function () {
-			_.each(this.collection.models, function (item) {
-				this.renderDeliveryTime(item);
+			_.each(this.collection.models, function (deliveryTimeModel) {
+				this.renderDeliveryTime(deliveryTimeModel);
 			}, this);
 		},
 
-		renderDeliveryTime: function (item) {
+		renderDeliveryTime: function (deliveryTimeModel) {
 			var deliveryTimeView = new DeliveryTimeView({
-				model: item
+				model: deliveryTimeModel
 			});
 
-			this.$('.unfolded').append(deliveryTimeView.el);
+			var $matchingBusinessDay = this.$('.businessDay[data-day="' + deliveryTimeModel.get('dayOfWeek') + '"]');
+
+			$matchingBusinessDay.append(deliveryTimeView.el);
 		},
 
-		addDeliveryTime: function () {
-			var deliveryTimeModel = new DeliveryTimeModel();
+		addDeliveryTime: function (e) {
+			var dayOfWeek = $(e.target).parents('.businessDay').first().attr('data-day'),
+				self = this;
 
-			var self = this;
+				console.log('jo');
+
+			var deliveryTimeModel = new DeliveryTimeModel({
+				dayOfWeek: dayOfWeek
+			});
 
 			deliveryTimeModel.save({}, {
 				success: function() {

@@ -3,34 +3,43 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/store/config/DeliveryTimeTemplate.html'
-	], function($, _, Backbone, DeliveryTimeTemplate) {
+	], function ($, _, Backbone, DeliveryTimeTemplate) {
 
 	var DeliveryTimeView = Backbone.View.extend({
 
-		className: 'delivery_time',
+		className: 'deliveryTime',
+
+		template: _.template(DeliveryTimeTemplate),
 
 		events: {
 			'focusout .deliveryTimeStartMinutes': 'updateStartMinutes',
 			'keypress .deliveryTimeStartMinutes': 'updateStartMinutesOnEnter',
 			'focusout .deliveryTimeEndMinutes': 'updateEndMinutes',
 			'keypress .deliveryTimeEndMinutes': 'updateEndMinutesOnEnter',
-			'click .button_remove': 'destroy'
+			'click .buttonRemove': 'destroy'
 		},
 
-		initialize: function() {
+		initialize: function () {
 			this.render();
+
+			this.model.on('error', function (model, error) {
+				this.render();
+				alert(error);
+			}, this);
 		},
 
 		render: function () {
-			this.$el.html(_.template(DeliveryTimeTemplate, {
+			var json = {
 				startTime: this.renderTime(this.model.get('startMinutes')),
 				endTime: this.renderTime(this.model.get('endMinutes'))
-			}));
+			};
+
+			this.$el.html(this.template(json));
 		},
 
 		destroy: function () {
 			var self = this;
-			this.$el.fadeOut(function() {
+			this.$el.fadeOut(function () {
 				self.model.destroy();
 				self.remove();
 			});
@@ -42,14 +51,12 @@ define([
 
 			if (this.checkTime(time)) {
 				this.model.set('startMinutes', this.parseTime(time));
-				if (this.compareTimes()) {
-					this.model.save();
-				}
+				this.model.save();
 			}
 
 		},
 
-		updateStartMinutesOnEnter: function(e) {
+		updateStartMinutesOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryTimeStartMinutes');
@@ -62,30 +69,16 @@ define([
 
 			if (this.checkTime(time)) {
 				this.model.set('endMinutes', this.parseTime(time));
-				if (this.compareTimes()) {
-					this.model.save();
-				}
+				this.model.save();
 			}
 
 		},
 
-		updateEndMinutesOnEnter: function(e) {
+		updateEndMinutesOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
 			var $input = this.$el.find('.deliveryTimeEndMinutes');
 			$input.blur();
-		},
-
-		compareTimes: function () {
-			var start = this.model.get('startMinutes'),
-				end = this.model.get('endMinutes'),
-				ret = start < end;
-
-			if (!ret) {
-				alert('Startzeit muss vor Endzeit sein.');
-			}
-
-			return start < end;
 		},
 
 		checkTime: function (time) {

@@ -32,7 +32,7 @@ define([
 			}, this);
 
 			this.on('change:deliveryTimesCollection', function () {
-				this.listenForDeliveryAreasCollectionChanges();
+				this.listenForDeliveryTimesCollectionChanges();
 			}, this);
 
 			// listen for changes in delivery areas/times collection
