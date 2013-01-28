@@ -6,7 +6,7 @@ return array (
 		'id' 					=> 1,
 		'order' 				=> 1,
 		'title' 				=> 'Subs',
-		'smallImage'			=> 'images/static/categories/smallimages/sub.png',
+		'smallImage'			=> 'img/static/categories/smallimages/sub.png',
 		'icon'					=> 'iconSub'
 	),
 
@@ -14,7 +14,7 @@ return array (
 		'id' 					=> 2,
 		'order' 				=> 2,
 		'title' 				=> 'Wraps',
-		'smallImage'			=> 'images/static/categories/smallimages/wrap.png',
+		'smallImage'			=> 'img/static/categories/smallimages/wrap.png',
 		'icon'					=> 'iconWrap'
 	),
 
@@ -22,7 +22,7 @@ return array (
 		'id' 					=> 3,
 		'order' 				=> 3,
 		'title' 				=> 'Salate',
-		'smallImage'			=> 'images/static/categories/smallimages/salat.png',
+		'smallImage'			=> 'img/static/categories/smallimages/salat.png',
 		'icon'					=> 'iconSalad'
 	),
 
@@ -30,7 +30,7 @@ return array (
 		'id' 					=> 4,
 		'order' 				=> 4,
 		'title' 				=> 'Snacks',
-		'smallImage'			=> 'images/static/categories/smallimages/snack.png',
+		'smallImage'			=> 'img/static/categories/smallimages/snack.png',
 		'icon'					=> 'iconSnack'
 	),
 
@@ -38,7 +38,7 @@ return array (
 		'id' 					=> 5,
 		'order' 				=> 5,
 		'title' 				=> 'Getränke',
-		'smallImage'			=> 'images/static/categories/smallimages/getraenk.png',
+		'smallImage'			=> 'img/static/categories/smallimages/getraenk.png',
 		'icon'					=> 'iconBeverage'
 	)
 	

@@ -8,8 +8,8 @@ return array (
 		'category_model_id'				=> 1,
 		'title'							=> 'Sub',
 		'icon'							=> 'iconSub',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/sub.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/sub.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/sub.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/sub.png',
 		'placeholderOutline'			=> 'placeholderOutlineSub',
 		'placeholderBackground'			=> 'placeholderBackgroundSub'
 	),
@@ -20,8 +20,8 @@ return array (
 		'category_model_id'				=> 2,
 		'title'							=> 'Wrap',
 		'icon'							=> 'iconWrap',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/wrap.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/wrap.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/wrap.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/wrap.png',
 		'placeholderOutline'			=> 'placeholderOutlineWrap',
 		'placeholderBackground'			=> 'placeholderBackgroundWrap'
 	),
@@ -32,8 +32,8 @@ return array (
 		'category_model_id'				=> 3,
 		'title'							=> 'Salat',
 		'icon'							=> 'iconSalad',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/salat.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/salat.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/salat.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/salat.png',
 		'placeholderOutline'			=> 'placeholderOutlineSalad',
 		'placeholderBackground'			=> 'placeholderBackgroundSalad'
 	),
@@ -44,8 +44,8 @@ return array (
 		'category_model_id'				=> 4,
 		'title'							=> 'Cookie',
 		'icon'							=> 'iconCookie',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/cookie.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/cookie.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
 		'placeholderOutline'			=> 'placeholderOutlineCookie',
 		'placeholderBackground'			=> 'placeholderBackgroundCookie'
 	),
@@ -56,8 +56,8 @@ return array (
 		'category_model_id'				=> 4,
 		'title'							=> 'Muffin',
 		'icon'							=> 'iconMuffin',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/muffin.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/muffin.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/muffin.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/muffin.png',
 		'placeholderOutline'			=> 'placeholderOutlineMuffin',
 		'placeholderBackground'			=> 'placeholderBackgroundMuffin'
 	),
@@ -68,8 +68,8 @@ return array (
 		'category_model_id'				=> 4,
 		'title'							=> 'Donut',
 		'icon'							=> 'iconDonut',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/donut.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/donut.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/donut.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/donut.png',
 		'placeholderOutline'			=> 'placeholderOutlineDonut',
 		'placeholderBackground'			=> 'placeholderBackgroundDonut'
 	),
@@ -80,8 +80,8 @@ return array (
 		'category_model_id'				=> 4,
 		'title'							=> 'Chips',
 		'icon'							=> 'iconChips',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/chips.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/chips.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/chips.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/chips.png',
 		'placeholderOutline'			=> 'placeholderOutlineChips',
 		'placeholderBackground'			=> 'placeholderBackgroundChips'
 	),
@@ -92,8 +92,8 @@ return array (
 		'category_model_id'				=> 5,
 		'title'							=> 'Getränk',
 		'icon'							=> 'iconBeverage',
-		'smallImage'					=> 'images/static/menucomponentoptions/smallimages/getraenk.png',
-		'largeImage'					=> 'images/static/menucomponentoptions/largeimages/getraenk.png',
+		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
+		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
 		'placeholderOutline'			=> 'placeholderOutlineBeverage',
 		'placeholderBackground'			=> 'placeholderBackgroundBeverage'
 	)

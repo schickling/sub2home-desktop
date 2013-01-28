@@ -11,7 +11,7 @@ return array (
 		'order' 						=> 1,
 		'ingredient_category_model_id'	=> 1,
 		'title' 						=> 'Cheese Oregano',
-		'largeImage'					=> 'images/static/ingredients/largeimages/bread/cheeseoregano.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/bread/cheeseoregano.png',
 		'price'							=> 0.00
 	),
 
@@ -20,7 +20,7 @@ return array (
 		'order' 						=> 2,
 		'ingredient_category_model_id'	=> 1,
 		'title' 						=> 'Sesam',
-		'largeImage'					=> 'images/static/ingredients/largeimages/bread/sesam.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/bread/sesam.png',
 		'price'							=> 0.00
 	),
 
@@ -29,7 +29,7 @@ return array (
 		'order' 						=> 3,
 		'ingredient_category_model_id'	=> 1,
 		'title' 						=> 'Italian',
-		'largeImage'					=> 'images/static/ingredients/largeimages/bread/italian.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/bread/italian.png',
 		'price'							=> 0.00
 	),
 
@@ -38,7 +38,7 @@ return array (
 		'order' 						=> 4,
 		'ingredient_category_model_id'	=> 1,
 		'title' 						=> 'Vollkorn',
-		'largeImage'					=> 'images/static/ingredients/largeimages/bread/vollkorn.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/bread/vollkorn.png',
 		'price'							=> 0.00
 	),
 
@@ -47,7 +47,7 @@ return array (
 		'order' 						=> 5,
 		'ingredient_category_model_id'	=> 1,
 		'title' 						=> 'Honey Oat',
-		'largeImage'					=> 'images/static/ingredients/largeimages/bread/honeyoat.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/bread/honeyoat.png',
 		'price'							=> 0.00
 	),
 
@@ -61,7 +61,7 @@ return array (
 		'order' 						=> 6,
 		'ingredient_category_model_id'	=> 2,
 		'title' 						=> 'Scheibenkäse',
-		'largeImage'					=> 'images/static/ingredients/largeimages/cheese/scheibenkaese.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
 		'price'							=> 0.00
 	),
 
@@ -70,7 +70,7 @@ return array (
 		'order' 						=> 7,
 		'ingredient_category_model_id'	=> 2,
 		'title' 						=> 'Cheddar Cheese',
-		'largeImage'					=> 'images/static/ingredients/largeimages/cheese/cheddar.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
 		'price'							=> 0.00
 	),
 
@@ -79,7 +79,7 @@ return array (
 		'order' 						=> 8,
 		'ingredient_category_model_id'	=> 2,
 		'title' 						=> 'Streichkäse',
-		'largeImage'					=> 'images/static/ingredients/largeimages/cheese/streichkaese.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
 		'price'							=> 0.00
 	),
 
@@ -93,7 +93,7 @@ return array (
 		'order' 						=> 9,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Eisbergsalat',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/eisbergsalat.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/eisbergsalat.png',
 		'price'							=> 0.00
 	),
 
@@ -102,7 +102,7 @@ return array (
 		'order' 						=> 10,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Tomaten',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/tomate.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/tomate.png',
 		'price'							=> 0.00
 	),
 
@@ -111,7 +111,7 @@ return array (
 		'order' 						=> 11,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Salatgurke',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/salatgurke.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/salatgurke.png',
 		'price'							=> 0.00
 	),
 
@@ -120,7 +120,7 @@ return array (
 		'order' 						=> 12,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Grüne Paprika',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/paprika.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/paprika.png',
 		'price'							=> 0.00
 	),
 
@@ -129,7 +129,7 @@ return array (
 		'order' 						=> 13,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Rote Zwiebeln',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/zwiebel.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/zwiebel.png',
 		'price'							=> 0.00
 	),
 
@@ -138,7 +138,7 @@ return array (
 		'order' 						=> 14,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'schwarze Oliven',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/olive.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/olive.png',
 		'price'							=> 0.00
 	),
 
@@ -147,7 +147,7 @@ return array (
 		'order' 						=> 15,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Jalapeños (scharf)',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/jalapeno.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/jalapeno.png',
 		'price'							=> 0.00
 	),
 
@@ -156,7 +156,7 @@ return array (
 		'order' 						=> 16,
 		'ingredient_category_model_id'	=> 3,
 		'title' 						=> 'Essiggurken',
-		'largeImage'					=> 'images/static/ingredients/largeimages/vegetables/essiggurke.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/essiggurke.png',
 		'price'							=> 0.00
 	),
 
@@ -170,7 +170,7 @@ return array (
 		'order' 						=> 17,
 		'ingredient_category_model_id'	=> 4,
 		'title' 						=> 'Extra Portion Fleisch',
-		'largeImage'					=> 'images/static/ingredients/largeimages/extras/extrafleisch.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
 		'price'							=> 1.00
 	),
 
@@ -179,7 +179,7 @@ return array (
 		'order' 						=> 18,
 		'ingredient_category_model_id'	=> 4,
 		'title' 						=> 'Knuspriger Bacon',
-		'largeImage'					=> 'images/static/ingredients/largeimages/extras/bacon.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/bacon.png',
 		'price'							=> 0.60
 	),
 
@@ -188,7 +188,7 @@ return array (
 		'order' 						=> 19,
 		'ingredient_category_model_id'	=> 4,
 		'title' 						=> 'Doppelt Käse',
-		'largeImage'					=> 'images/static/ingredients/largeimages/extras/doppeltkaese.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/doppeltkaese.png',
 		'price'							=> 0.60
 	),
 
@@ -197,7 +197,7 @@ return array (
 		'order' 						=> 20,
 		'ingredient_category_model_id'	=> 4,
 		'title' 						=> 'Doppelt belegt',
-		'largeImage'					=> 'images/static/ingredients/largeimages/extras/doppeltbelegt.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/doppeltbelegt.png',
 		'price'							=> 0.60
 	),
 
@@ -211,7 +211,7 @@ return array (
 		'order' 						=> 21,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Chipotle Southwest',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/chipotle.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/chipotle.png',
 		'price'							=> 0.00
 	),
 
@@ -220,7 +220,7 @@ return array (
 		'order' 						=> 22,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Asiago Cesar',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/asiagocesar.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/asiagocesar.png',
 		'price'							=> 0.00
 	),
 
@@ -229,7 +229,7 @@ return array (
 		'order' 						=> 23,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'BBQ-Sauce',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/bbq.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/bbq.png',
 		'price'							=> 0.00
 	),
 
@@ -238,7 +238,7 @@ return array (
 		'order' 						=> 24,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Joghurt-Dressing',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/joghurtdressing.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/joghurtdressing.png',
 		'price'							=> 0.00
 	),
 
@@ -247,7 +247,7 @@ return array (
 		'order' 						=> 25,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Sweet Onion',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/sweetonion.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/sweetonion.png',
 		'price'							=> 0.00
 	),
 
@@ -256,7 +256,7 @@ return array (
 		'order' 						=> 26,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Honey Mustard',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/honeymustard.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/honeymustard.png',
 		'price'							=> 0.00
 	),
 
@@ -265,7 +265,7 @@ return array (
 		'order' 						=> 27,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Lite Mayonaise',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/litemayonaise.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/litemayonaise.png',
 		'price'							=> 0.00
 	),
 
@@ -274,7 +274,7 @@ return array (
 		'order' 						=> 28,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Hot Sauce',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/hotsauce.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/hotsauce.png',
 		'price'							=> 0.00
 	),
 
@@ -283,7 +283,7 @@ return array (
 		'order' 						=> 29,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Oregano',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/oregano.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/oregano.png',
 		'price'							=> 0.00
 	),
 
@@ -292,7 +292,7 @@ return array (
 		'order' 						=> 30,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Salz',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/salz.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/salz.png',
 		'price'							=> 0.00
 	),
 
@@ -301,7 +301,7 @@ return array (
 		'order' 						=> 31,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Pfeffer',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/pfeffer.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/pfeffer.png',
 		'price'							=> 0.00
 	),
 
@@ -310,7 +310,7 @@ return array (
 		'order' 						=> 32,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Parmesan',
-		'largeImage'					=> 'images/static/ingredients/largeimages/sauces/parmesam.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/parmesam.png',
 		'price'							=> 0.00
 	)
 
