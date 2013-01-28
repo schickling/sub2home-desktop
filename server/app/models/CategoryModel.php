@@ -12,22 +12,11 @@ class CategoryModel extends BaseModel
 
 	public $hidden = array('order');
 
-	/**
-	 * Hook save
-	 * 
-	 * @return boolean
-	 */
-	public function save()
+
+	protected function beforeFirstSave()
 	{
-		// Inital save
-		if (!$this->exists) {
-
-			// Calculate new order concerning a category
-			$this->order = static::count();
-
-		}
-
-		return parent::save();
+		// Calculate new order concerning a category
+		$this->order = static::count();
 	}
 
 	/**
@@ -81,18 +70,18 @@ class CategoryModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function getOrderedItemsCollection()
+	public function getSortedItemsCollection()
 	{
 		$articles = $this->articlesCollection->isEmpty() ? array() : $this->articlesCollection->all();
 		$menuBundles = $this->menuBundlesCollection->isEmpty() ? array() : $this->menuBundlesCollection->all();
 
-		$orderedItems = array_merge($menuBundles, $articles);
+		$sortedItems = array_merge($menuBundles, $articles);
 
 		// sort itemsCollection
-		usort($orderedItems, function($a, $b) {
+		usort($sortedItems, function($a, $b) {
 			return $a->order > $b->order ? 1 : -1;
 		});
 
-		return $this->newCollection($orderedItems); 
+		return $this->newCollection($sortedItems); 
 	}
 }

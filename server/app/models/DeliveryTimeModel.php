@@ -21,12 +21,12 @@ class DeliveryTimeModel extends BaseModel
 		return $this->belongsTo('StoreModel');
 	}
 
-	public function set_dayOfWeek($dayOfWeek)
+	public function setDayOfWeek($dayOfWeek)
 	{
 		if ($dayOfWeek < 0 || $dayOfWeek > 6) {
 			throw new Exception("No valid week day");
 		}
-		$this->setAttribute('dayOfWeek', $dayOfWeek);
+		$this->attributes['dayOfWeek'] = $dayOfWeek;
 	}
 
 	public function setStartMinutes($startMinutes)

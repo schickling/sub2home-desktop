@@ -23,10 +23,10 @@ class CategoriesController extends ApiController
 		foreach ($categoriesCollection as $categoryModel) {
 
 			$itemsCollection = new Collection();
-			$orderedItemsCollection = $categoryModel->orderedItemsCollection;
+			$sortedItemsCollection = $categoryModel->sortedItemsCollection;
 
 			// get correct prices
-			foreach ($orderedItemsCollection as $itemModel) {
+			foreach ($sortedItemsCollection as $itemModel) {
 				if ($itemModel->isPublished && $itemModel->isActive($this->storeModel->id)) {
 					$itemsCollection->add($itemModel);
 				}

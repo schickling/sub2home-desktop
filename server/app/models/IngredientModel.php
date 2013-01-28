@@ -12,43 +12,11 @@ class IngredientModel extends BaseModel
 
 	public $hidden = array('ingredient_category_model_id', 'order');
 
-	/**
-	 * Hook save
-	 * 
-	 * @return boolean
-	 */
-	public function save()
+
+	protected function beforeFirstSave()
 	{
-		if ($this->ingredient_category_model_id === 0) {
-			throw new Exception('IngredientModel "' . $this->title . '" needs an ingredient category');
-		}
-
-		$exists = $this->exists;
-
-		if (!$exists) {
-			// Calculate new order concerning a category
-			$this->order = static::where('ingredient_category_model_id', $this->ingredient_category_model_id)->count();
-		}
-
-		$save = parent::save();
-
-		// Inital save
-		if (!$exists) {
-
-			// Create custom ingredients
-			$storesCollection = StoreModel::all();
-			foreach ($storesCollection as $storeModel) {
-				$customIngredientModel = new CustomIngredientModel(array(
-					'store_model_id' => $storeModel->id,
-					'ingredient_model_id' => $this->id,
-					'price' => $this->price
-					));
-				$customIngredientModel->save();
-			}
-
-		}
-
-		return $save;
+		// Calculate new order concerning a category
+		$this->order = static::where('ingredient_category_model_id', $this->ingredient_category_model_id)->count();
 	}
 
 	/**
@@ -113,7 +81,19 @@ class IngredientModel extends BaseModel
 	 */
 	public function returnCustomModel($store_model_id)
 	{
-		return $this->customIngredientsCollection()->where('store_model_id', $store_model_id)->first();
+		$customIngredientModel = $this->customIngredientsCollection()->where('store_model_id', $store_model_id)->first();
+
+		// lazy initialize
+		if ($customIngredientModel == null) {
+			$customIngredientModel = new CustomIngredientModel(array(
+				'store_model_id' => $storeModel->id,
+				'ingredient_model_id' => $this->id,
+				'price' => $this->price
+				));
+			$customIngredientModel->save();
+		}
+
+		return $customIngredientModel;
 	}
 
 	/**

@@ -8,10 +8,8 @@ class IngredientCategoryModel extends BaseModel
 
 	public $timestamps = false;
 
-	public function __construct($attributes = array(), $exists = false)
+	protected function beforeFirstSave()
 	{
-		parent::__construct($attributes, $exists);
-
 		// Calculate new order concerning a category
 		$this->order = static::count();
 	}

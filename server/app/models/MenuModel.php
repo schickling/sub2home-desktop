@@ -7,15 +7,6 @@
  */
 abstract class MenuModel extends ItemModel
 {
-
-	/**
-	 * Images paths
-	 */
-	public static $imageOriginalPath;
-	public static $imageSmallPath;
-	public static $imageBigPath;
-	public static $publicImageSmallPath;
-	public static $publicImageBigPath;
 	
 	/**
 	 * Hook delete
@@ -27,11 +18,6 @@ abstract class MenuModel extends ItemModel
 
 		// Delete all belonging custom menu upgrades
 		$this->customMenuModelsCollection()->delete();
-
-		// Delete belonging images
-		File::delete(static::$imageOriginalPath . $this->image);
-		File::delete(static::$imageBigPath . $this->image);
-		File::delete(static::$imageSmallPath . $this->image);
 
 		return parent::delete();
 	}
@@ -55,7 +41,29 @@ abstract class MenuModel extends ItemModel
 	public function returnCustomModel($store_model_id)
 	{
 		$this->check();
-		return $this->customMenuModelsCollection()->where('store_model_id', $store_model_id)->first();
+
+		$customMenuModel = $this->customMenusCollection()->where('store_model_id', $store_model_id)->first();
+
+		// lazy initialize
+		if ($customMenuModel == null) {
+
+			// check if menu is a bundle or an upgrade
+			if ($this instanceof MenuBundleModel) {
+				$menuModelType = 'menu_bundle_model_id';
+			} else {
+				$menuModelType = 'menu_upgrade_model_id';
+			}
+
+			$customMenuModel = new CustomMenuModel(array(
+									'store_model_id' => $store_model_id,
+									'isActive' => true, // MOCK
+									$menuModelType => $this->id,
+									'price' => $this->price
+									));
+			$customMenuModel->save();
+		}
+
+		return $customMenuModel;
 	}
 
 	/**
@@ -69,9 +77,3 @@ abstract class MenuModel extends ItemModel
 	}
 
 }
-
-// MenuModel::$imageOriginalPath = path('public') . 'img/upload/original/';
-// MenuModel::$imageSmallPath = path('public') . 'img/upload/menus_small/';
-// MenuModel::$imageBigPath = path('public') . 'img/upload/menus_big/';
-// MenuModel::$publicImageSmallPath = URL::base() . '/img/upload/menus_small/';
-// MenuModel::$publicImageBigPath = URL::base() . '/img/upload/menus_big/';

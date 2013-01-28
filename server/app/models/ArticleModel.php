@@ -11,28 +11,13 @@ class ArticleModel extends ItemModel
 
 	public $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
-	/**
-	 * Hook save
-	 * 
-	 * @return boolean
-	 */
-	public function save()
+
+	protected function beforeFirstSave()
 	{
-
-		// before initial save
-		if (!$this->exists) {
-			// Calculate new order concerning a category
-			$numberOfArticles = ArticleModel::where('category_model_id', $this->category_model_id)->count();
-			$numberOfMenuBundles = MenuBundleModel::where('category_model_id', $this->category_model_id)->count();
-			$this->order = $numberOfArticles + $numberOfMenuBundles;
-		}
-
-		// Check if article belongs to a category
-		if ($this->category_model_id === 0) {
-			throw new Exception("Menu bundle needs a category");
-		}
-
-		return parent::save();
+		// Calculate new order concerning a category
+		$numberOfArticles = ArticleModel::where('category_model_id', $this->category_model_id)->count();
+		$numberOfMenuBundles = MenuBundleModel::where('category_model_id', $this->category_model_id)->count();
+		$this->order = $numberOfArticles + $numberOfMenuBundles;
 	}
 	
 	/**

@@ -14,58 +14,51 @@ class StoreModel extends BaseModel
 	 * 
 	 * @return boolean
 	 */
-	public function save()
+	public function afterFirstSave()
 	{
-		$exists = $this->exists;
-		$save = parent::save();
 
-		// Inital save new store
-		if (!$exists) {
+		// Copy address of owner
+		$addressModel = new AddressModel(array(
+			'firstName' => $this->userModel->addressModel->firstName,
+			'lastName' => $this->userModel->addressModel->lastName,
+			'street' => $this->userModel->addressModel->street,
+			'streetAdditional' => $this->userModel->addressModel->streetAdditional,
+			'postal' => $this->userModel->addressModel->postal,
+			'city' => $this->userModel->addressModel->city,
+			'phone' => $this->userModel->addressModel->phone,
+			'email' => $this->userModel->addressModel->email
+			));
+		$this->addressModel()->save($addressModel);
 
-			// Copy address of owner
-			$addressModel = new AddressModel(array(
-				'firstName' => $this->userModel->addressModel->firstName,
-				'lastName' => $this->userModel->addressModel->lastName,
-				'street' => $this->userModel->addressModel->street,
-				'streetAdditional' => $this->userModel->addressModel->streetAdditional,
-				'postal' => $this->userModel->addressModel->postal,
-				'city' => $this->userModel->addressModel->city,
-				'phone' => $this->userModel->addressModel->phone,
-				'email' => $this->userModel->addressModel->email
-				));
-			$this->addressModel()->save($addressModel);
-
-			// Create default delivery times
-			for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
-				$noon = new DeliveryTimeModel(array(
-					'store_model_id' => $this->id,
-					'dayOfWeek' => $dayOfWeek,
-					'startMinutes' => 690, // 11:30
-					'end_minutes' => 840 // 14:00
-					));
-				$noon->save();
-
-				$evening = new DeliveryTimeModel(array(
-					'store_model_id' => $this->id,
-					'dayOfWeek' => $dayOfWeek,
-					'startMinutes' => 1020, // 17:00
-					'end_minutes' => 1320 // 22:00
-					));
-				$evening->save();
-			}
-
-			// Create default delivery area
-			$deliveryAreaModel = new DeliveryAreaModel(array(
+		// Create default delivery times
+		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
+			$noon = new DeliveryTimeModel(array(
 				'store_model_id' => $this->id,
-				'postal' => $this->userModel->addressModel->postal,
-				'minimumValue' => 5.00,
-				'minimumDuration' => 20,
-				'description' => $this->addressModel->city
+				'dayOfWeek' => $dayOfWeek,
+				'startMinutes' => 690, // 11:30
+				'end_minutes' => 840 // 14:00
 				));
-			$deliveryAreaModel->save();
+			$noon->save();
+
+			$evening = new DeliveryTimeModel(array(
+				'store_model_id' => $this->id,
+				'dayOfWeek' => $dayOfWeek,
+				'startMinutes' => 1020, // 17:00
+				'end_minutes' => 1320 // 22:00
+				));
+			$evening->save();
 		}
 
-		return $save;
+		// Create default delivery area
+		$deliveryAreaModel = new DeliveryAreaModel(array(
+			'store_model_id' => $this->id,
+			'postal' => $this->userModel->addressModel->postal,
+			'minimumValue' => 5.00,
+			'minimumDuration' => 20,
+			'description' => $this->addressModel->city
+			));
+		$deliveryAreaModel->save();
+		
 	}
 
 	/**

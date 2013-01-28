@@ -7,27 +7,13 @@ class MenuComponentOptionModel extends BaseModel
 {
 	public $timestamps = false;
 
-	/**
-	 * Hook save
-	 * 
-	 * @return boolean
-	 */
-	public function save()
+
+	protected function afterFirstSave()
 	{
-		$exists = $this->exists;
-		$ret = parent::save();
-
-		// Inital save new option
-		if (!$exists) {
-
-			// copy all articles from category on initialize
-			foreach ($this->availableArticlesCollection as $articleModel) {
-				$this->articlesCollection()->attach($articleModel->id);
-			}
-			
+		// copy all articles from category on initialize
+		foreach ($this->availableArticlesCollection as $articleModel) {
+			$this->articlesCollection()->attach($articleModel->id);
 		}
-
-		return $ret;
 	}
 
 	/**
