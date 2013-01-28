@@ -1,0 +1,14 @@
+<div class="folded_client">	
+	<div class="client_number">#<%= this.leading_zeros(number) %></div>
+	<div class="client_title"><%= address.first_name %> <%= address.last_name %></div>
+	<div class="icon_edit_yellow_small"></div>
+	<div class="icon_add_small" title="Neuer Store"></div>
+	<div class="client_member_since"><%= created_at %></div>
+	<div class="client_monthly_turnover"><%= monthly_turnover %> €</div>
+	<div class="client_total_turnover"><%= total_turnover %> €</div>
+	<div class="client_monthly_orders"><%= monthly_orders %></div>
+	<div class="client_total_orders"><%= total_orders %></div>
+	<br class="clear">
+</div>
+<div class="unfolded_client"></div>
+<div class="edit_client"></div>

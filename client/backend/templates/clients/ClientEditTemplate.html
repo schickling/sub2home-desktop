@@ -1,0 +1,48 @@
+<div class="error_container">
+</div>
+<div class="edit_basic_data">
+	<span>#</span>
+	<input type="text" data-field="number" class="edit_client_number" value="<%= number %>">
+	<label class="label_edit_client_firstname" for="edit_client_firstname_<%= id %>">Vorname</label>
+	<input id="edit_client_firstname_<%= id %>" type="text" data-field="first_name" class="edit_client_address edit_client_firstname" value="<%= address.first_name %>">
+	<label class="label_edit_client_lastname" for="edit_client_lastname_<%= id %>">Nachname</label>
+	<input id="edit_client_lastname_<%= id %>" type="text" data-field="last_name" class="edit_client_address edit_client_lastname" value="<%= address.last_name %>">
+</div>
+<div class="edit_contact_data">
+	<div class="column">
+		<label for="edit_client_street_<%= id %>">Straße</label>
+		<input id="edit_client_street_<%= id %>" type="text" data-field="street" class="edit_client_address edit_client_street" value="<%= address.street %>">
+		<label class="second_row" for="edit_client_street_additional_<%= id %>">Zusatz</label>
+		<input id="edit_client_street_additional_<%= id %>" type="text" data-field="street_additional" class="edit_client_address edit_client_street_additional" value="<%= address.street_additional %>">
+	</div>	
+	<div class="column">
+		<label for="edit_client_postal_<%= id %>">PLZ</label>	
+		<input id="edit_client_postal_<%= id %>" type="text" data-field="postal" class="edit_client_address edit_client_postal" value="<%= address.postal %>">
+		<label class="second_row" for="edit_client_city_<%= id %>">STADT</label>
+		<input id="edit_client_city_<%= id %>" type="text" data-field="city" class="edit_client_address edit_client_city" value="<%= address.city %>">
+	</div>
+	<div class="column">
+		<label for="edit_client_phone_<%= id %>">Tel</label>
+		<input id="edit_client_phone_<%= id %>" type="text" data-field="phone" class="edit_client_address edit_client_phone" value="<%= address.phone %>">
+		<label class="second_row" for="edit_client_email_<%= id %>">Email</label>
+		<input id="edit_client_email_<%= id %>" type="text" data-field="email" class="edit_client_address edit_client_email" value="<%= address.email %>">
+	</div>
+	<br class="clear">
+</div>
+<div>
+	<div class="column">
+		<label for="edit_client_password_<%= id %>">Passwort</label>
+		<input id="edit_client_password_<%= id %>" type="password" class="edit_client_password">
+	</div>
+	<div class="column">
+		<label for="edit_client_password_repeat_<%= id %>">WDH</label>
+		<input id="edit_client_password_repeat_<%= id %>" type="password" class="edit_client_password_repeat">
+	</div>
+	<div class="column">
+		<div class="btn-group">
+			<button class="delete_client btn">Löschen</button>
+			<button class="confirm_client btn">Bestätigen</button>
+		</div>
+	</div>
+	<br class="clear">
+</div>

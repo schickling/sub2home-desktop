@@ -20,7 +20,7 @@ class StoreModelTable extends Migration {
 			$table->string('paypalToken', 128);
 			$table->string('paypalTokensecret', 128);
 			$table->integer('number');
-			$table->integer('user_model_id');
+			$table->integer('client_model_id');
 			$table->float('latitude');
 			$table->float('longitude');
 			$table->decimal('totalTurnover', 12, 2);

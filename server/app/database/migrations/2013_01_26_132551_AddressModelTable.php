@@ -22,7 +22,7 @@ class AddressModelTable extends Migration {
 			$table->string('email', 128);
 			$table->integer('postal');
 			$table->integer('store_model_id');
-			$table->integer('user_model_id');
+			$table->integer('client_model_id');
 		});
 	}
 

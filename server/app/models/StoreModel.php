@@ -19,7 +19,7 @@ class StoreModel extends BaseModel
 		'updated_at',
 		'isActive',
 		'orderEmail',
-		'user_model_id',
+		'client_model_id',
 		'id'
 		);
 
@@ -33,14 +33,14 @@ class StoreModel extends BaseModel
 
 		// Copy address of owner
 		$addressModel = new AddressModel(array(
-			'firstName' => $this->userModel->addressModel->firstName,
-			'lastName' => $this->userModel->addressModel->lastName,
-			'street' => $this->userModel->addressModel->street,
-			'streetAdditional' => $this->userModel->addressModel->streetAdditional,
-			'postal' => $this->userModel->addressModel->postal,
-			'city' => $this->userModel->addressModel->city,
-			'phone' => $this->userModel->addressModel->phone,
-			'email' => $this->userModel->addressModel->email
+			'firstName' => $this->clientModel->addressModel->firstName,
+			'lastName' => $this->clientModel->addressModel->lastName,
+			'street' => $this->clientModel->addressModel->street,
+			'streetAdditional' => $this->clientModel->addressModel->streetAdditional,
+			'postal' => $this->clientModel->addressModel->postal,
+			'city' => $this->clientModel->addressModel->city,
+			'phone' => $this->clientModel->addressModel->phone,
+			'email' => $this->clientModel->addressModel->email
 			));
 		$this->addressModel()->save($addressModel);
 
@@ -66,7 +66,7 @@ class StoreModel extends BaseModel
 		// Create default delivery area
 		$deliveryAreaModel = new DeliveryAreaModel(array(
 			'store_model_id' => $this->id,
-			'postal' => $this->userModel->addressModel->postal,
+			'postal' => $this->clientModel->addressModel->postal,
 			'minimumValue' => 5.00,
 			'minimumDuration' => 20,
 			'description' => $this->addressModel->city
@@ -127,13 +127,9 @@ class StoreModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function userModel()
+	public function clientModel()
 	{
-		$userModel = $this->belongsTo('UserModel');
-
-		if ($userModel->first()->isClient()) {
-			return $userModel;
-		}
+		return $this->belongsTo('ClientModel');
 	}
 
 	/**

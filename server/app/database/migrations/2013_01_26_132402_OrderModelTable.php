@@ -17,7 +17,7 @@ class OrderModelTable extends Migration {
 			$table->boolean('isDelivered');
 			$table->integer('store_model_id');
 			$table->integer('address_model_id');
-			$table->integer('user_model_id');
+			$table->integer('client_model_id');
 			$table->integer('credit');
 			$table->decimal('total', 7, 2);
 			$table->timestamps();

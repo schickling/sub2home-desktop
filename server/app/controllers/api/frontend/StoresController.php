@@ -46,7 +46,7 @@ class StoresController extends ApiController
 				'created_at',
 				'updated_at',
 				'isActive',
-				'user_model_id'
+				'client_model_id'
 				)));
 
 		} else {
@@ -57,7 +57,7 @@ class StoresController extends ApiController
 				'created_at',
 				'updated_at',
 				'isActive',
-				'user_model_id',
+				'client_model_id',
 				'totalTurnover',
 				'orderEmail',
 				'id'

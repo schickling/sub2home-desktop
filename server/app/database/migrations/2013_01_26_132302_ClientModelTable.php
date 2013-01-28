@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class UserModelTable extends Migration {
+class ClientModelTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,12 +11,11 @@ class UserModelTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_models', function($table) {
+		Schema::create('client_models', function($table) {
 			$table->increments('id');
-			$table->string('role', 128);
 			$table->string('password', 255);
 			$table->string('email')->unique();
-			$table->integer('number');
+			$table->integer('number')->unique();
 			$table->timestamps();
 		});
 	}
@@ -28,7 +27,7 @@ class UserModelTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('user_models');
+		Schema::dropIfExists('client_models');
 	}
 
 }

@@ -113,16 +113,14 @@ class PopulateTables extends Migration {
 			));
 
 		// Admin
-		$u1 = new UserModel(array(
-			'role' => 'admin',
+		$u1 = new ClientModel(array(
 			'email' => 'johannes.enjoy@gmail.com',
 			'password' => Hash::make('test')
 			));
 		$u1->save();
 
 		// Clients
-		$u2 = new UserModel(array(
-			'role' => 'client',
+		$u2 = new ClientModel(array(
 			'number' => 23,
 			'password' => Hash::make('hallo'),
 			'email' => 'office@my-sub.de'
@@ -130,8 +128,7 @@ class PopulateTables extends Migration {
 		$u2->save();
 		$u2->addressModel()->save($ad1);
 
-		$u3 = new UserModel(array(
-			'role' => 'client',
+		$u3 = new ClientModel(array(
 			'number' => 25,
 			'password' => Hash::make('hallo'),
 			'email' => 'test@web.de'
@@ -139,8 +136,7 @@ class PopulateTables extends Migration {
 		$u3->save();
 		$u3->addressModel()->save($ad2);
 
-		$u4 = new UserModel(array(
-			'role' => 'client',
+		$u4 = new ClientModel(array(
 			'number' => 215,
 			'password' => Hash::make('hallo'),
 			'email' => 'test2@web.de'
@@ -148,8 +144,7 @@ class PopulateTables extends Migration {
 		$u4->save();
 		$u4->addressModel()->save($ad7);
 
-		$u5 = new UserModel(array(
-			'role' => 'client',
+		$u5 = new ClientModel(array(
 			'number' => 2115,
 			'password' => Hash::make('haallo'),
 			'email' => 'tesdgst2@web.de'
@@ -157,9 +152,8 @@ class PopulateTables extends Migration {
 		$u5->save();
 		$u5->addressModel()->save($ad8);
 
-		$u6 = new UserModel(array(
-			'role' => 'client',
-			'number' => 215,
+		$u6 = new ClientModel(array(
+			'number' => 2215,
 			'password' => Hash::make('haaallo'),
 			'email' => 'tesdsst2@web.de'
 			));
@@ -172,7 +166,7 @@ class PopulateTables extends Migration {
 			'number' => 41786,
 			'isActive' => true,
 			'isOpen' => true,
-			'user_model_id' => $u2->id
+			'client_model_id' => $u2->id
 			));
 		$s1->save();
 
@@ -180,7 +174,7 @@ class PopulateTables extends Migration {
 			'title' => 'Ulm 2',
 			'number' => 23345,
 			'isActive' => true,
-			'user_model_id' => $u3->id
+			'client_model_id' => $u3->id
 			));
 		$s2->save();
 
@@ -189,7 +183,7 @@ class PopulateTables extends Migration {
 			'number' => 22345,
 			'isActive' => true,
 			'isOpen' => true,
-			'user_model_id' => $u3->id
+			'client_model_id' => $u3->id
 			));
 		$s3->save();
 
@@ -197,7 +191,7 @@ class PopulateTables extends Migration {
 			'title' => 'Berlin 2',
 			'number' => 22355,
 			'isActive' => true,
-			'user_model_id' => $u3->id
+			'client_model_id' => $u3->id
 			));
 		$s4->save();
 
@@ -206,7 +200,7 @@ class PopulateTables extends Migration {
 			'number' => 21355,
 			'isActive' => true,
 			'isOpen' => true,
-			'user_model_id' => $u4->id
+			'client_model_id' => $u4->id
 			));
 		$s5->save();
 
@@ -215,7 +209,7 @@ class PopulateTables extends Migration {
 			'number' => 25355,
 			'isActive' => true,
 			'isOpen' => true,
-			'user_model_id' => $u5->id
+			'client_model_id' => $u5->id
 			));
 		$s6->save();
 
@@ -224,7 +218,7 @@ class PopulateTables extends Migration {
 			'number' => 25345,
 			'isActive' => true,
 			'isOpen' => true,
-			'user_model_id' => $u6->id
+			'client_model_id' => $u6->id
 			));
 		$s7->save();
 

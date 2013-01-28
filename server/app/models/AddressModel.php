@@ -7,7 +7,7 @@
  */
 class AddressModel extends BaseModel
 {
-	protected $hidden = array('user_model_id', 'id', 'store_model_id');
+	protected $hidden = array('client_model_id', 'id', 'store_model_id');
 
 	public $timestamps = false;
 
@@ -32,9 +32,9 @@ class AddressModel extends BaseModel
 		return $save;
 	}
 
-	public function userModel()
+	public function clientModel()
 	{
-		return $this->belongsTo('UserModel');
+		return $this->belongsTo('ClientModel');
 	}
 
 	public function storeModel()
@@ -43,16 +43,16 @@ class AddressModel extends BaseModel
 	}
 
 	/**
-	 * Returns either its storeModel or userModel
+	 * Returns either its storeModel or clientModel
 	 * 
-	 * @return StoreModel | UserModel
+	 * @return StoreModel | ClientModel
 	 */
 	public function getOwnerModel()
 	{
 		if ($this->storeModel != null) {
 			return $this->storeModel;
-		} elseif ($this->userModel != null) {
-			return $this->userModel;
+		} elseif ($this->clientModel != null) {
+			return $this->clientModel;
 		} else {
 			throw new Exception("Address has no owner");
 		}

@@ -1,0 +1,21 @@
+<div class="icon_active <% if (active) { %>active<% } %>">
+	<div class="icon_open <% if (open) { %>open<% } %>"></div>
+</div>
+<div class="store_info">
+	<div class="store_number_container">
+		<h3 class="store_number"><%= number %></h3>
+		<input data-attribute="" class="store_number_input" type="text" value="<%= number %>" />
+	</div>
+	<div class="store_title_container">
+		<h1 class="store_title"><%= title %></h1>
+		<input data-attribute="" class="store_title_input" placeholder="Store-Name" type="text" value="<%= title %>" />
+	</div>
+	<p class="store_location"><%= address.street %>, <%= address.postal %> <%= address.city %></p>
+</div>
+<div class="icon icon_remove"></div>
+<div class="client_member_since"><%= created_at %></div>
+<div class="client_monthly_turnover"><%= monthly_turnover %> €</div>
+<div class="client_total_turnover"><%= total_turnover %> €</div>
+<div class="client_monthly_orders"><%= monthly_orders %></div>
+<div class="client_total_orders"><%= total_orders %></div>
+<br class="clear">
