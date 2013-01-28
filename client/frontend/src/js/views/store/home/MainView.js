@@ -12,8 +12,6 @@ define([
 
 	var MainView = PageView.extend({
 
-		template: _.template(MainTemplate),
-
 		pageTitle: 'Subway Memmingen',
 
 		events: {
@@ -25,7 +23,7 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template());
+			this.$el.html(MainTemplate);
 
 			var categoriesView = new CategoriesView({
 				el: this.$('.categories')
