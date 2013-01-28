@@ -28,6 +28,13 @@ class CategoriesController extends ApiController
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
 				if ($itemModel->isPublished && $itemModel->isActive($this->storeModel->id)) {
+
+
+					// discard unused attributes
+					unset($itemModel->allowsDeposit);
+					unset($itemModel->allowsMenuUpgrades);
+					unset($itemModel->smallImage);
+
 					$itemsCollection->add($itemModel);
 				}
 			}

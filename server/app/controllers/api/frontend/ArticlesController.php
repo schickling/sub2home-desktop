@@ -74,15 +74,20 @@ class ArticlesController extends ApiController
 
 		$ingredientCategoriesCollection = IngredientCategoryModel::orderBy('order')->get();
 
-		foreach ($ingredientCategoriesCollection as $ingredientCategoryModel) {
+		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
 
 			$filteredIngredients = array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
 				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
 			});
 
-			$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
+			if (count($filteredIngredients) > 0) {
+				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
+				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
+			} else {
+				// check this, might not work
+				$ingredientCategoriesCollection->offsetUnset($index);
+			}
 
-			$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
 
 		}
 
