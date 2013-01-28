@@ -3323,7 +3323,7 @@ div.pricetag span {
   left: 0;
   right: 0;
   text-align: center;
-  top: 14px;
+  top: 18px;
 }
 div.pricetag span:after {
   content: "€";
