@@ -81,8 +81,7 @@ define([
 
 		initializeScrollListneres: function () {
 			var self = this,
-				currentIndex, timer,
-				$content = this.$content,
+				currentIndex, timer, $content = this.$content,
 				$categories = this.$categories,
 				antepenultimate = $categories.length - 3;
 
@@ -103,7 +102,7 @@ define([
 						});
 
 						// check if bottom reached
-						if (currentIndex > antepenultimate && $content.scrollTop() === $content[0].scrollHeight - $content.height()) {
+						if (currentIndex > antepenultimate && currentIndex < ($categories.length - 1) && $content.scrollTop() === $content[0].scrollHeight - $content.height()) {
 							currentIndex++;
 						}
 

@@ -201,7 +201,7 @@ define([
 				$new.removeClass('bFwd');
 			});
 
-			$current.animate({
+			$current.stop().animate({
 				top: '100%'
 			}, this.animationTime, 'easeInOutQuad', function () {
 				$current.remove();
@@ -220,7 +220,7 @@ define([
 				$new.removeClass('bBwd');
 			});
 
-			$current.animate({
+			$current.stop().animate({
 				top: '-100%'
 			}, this.animationTime, 'easeInOutQuad', function () {
 				$current.remove();
