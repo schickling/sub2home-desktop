@@ -166,16 +166,18 @@ img.cookie    { margin: 0 -10px;}
 @pricetagShadow :       0 0 3px 0 rgba(0, 0, 0, 0.1);
 @pricetagSepColor :     rgba(255,255,255, 0.3);
 
-.pricetag {
+div.pricetag {
   .positioned;
   .clearfix;
-  height: 42px;
+  height: 53px;
   text-align: center;
   font-family: @headingsFontFamily;
   color: @white;
   font-size: @headingsFontSize;
   position: absolute;
   cursor: default;
+  background: @pricetagImage;
+  width: 87px;
   .backface-visibility(hidden);
 //  .rotate(355deg);
 
@@ -191,81 +193,86 @@ img.cookie    { margin: 0 -10px;}
     content: "€";
     margin-left: 4px;
   }
+
+  // div.tag {
+  //   display: none;
+  //   .positioned;
+  //   background: @greenDark;
+  //   width: 18px;
+  //   height: 42px;
+  //   overflow: hidden;
+  //   float: left;
+  //   margin-left: -1px;
+  //   .box-shadow(@pricetagShadow);
+
+  //   &:before {
+  //     content: " ";
+  //     width: 1px;
+  //     height: 100%;
+  //     background: @pricetagSepColor;
+  //     position: absolute;
+  //     right: 1px;
+  //   }
+  //   &:after {
+  //     content: " ";
+  //     height: 36px;
+  //     width: 36px;
+  //     .border-radius(500px);
+  //     border: 1px solid @pricetagSepColor;
+  //     position: absolute;
+  //     background: @greenDark;
+  //     top: 50%;
+  //     left: 11px;
+  //     margin-top: -18px;
+  //   }
+
+  //   &.fst {
+  //     background: none;
+  //     width: 10px;
+  //     .box-shadow(none);
+  //     &:before {
+  //       background: none;
+  //     }
+  //     &:after {
+  //       border: none;
+  //       left: 4px;
+  //       .box-shadow(@pricetagShadow);
+  //     }
+  //   }
+
+  //   &.lst2 {
+  //     &:before {
+  //       background: none;
+  //       width: 16px;
+  //     }
+  //     &:after {
+  //       background: none;
+  //       border: none;
+  //       left: 0;
+  //     }
+  //   }
+
+  //   &.lst {
+  //     background: none;
+  //     width: 10px;
+  //     .box-shadow(none);
+  //     &:before {
+  //       background: none;
+  //     }
+  //     &:after {
+  //       border: none;
+  //       left: auto;
+  //       right: 4px;
+  //       .box-shadow(@pricetagShadow);
+  //     }
+  //   }
+
+  // }
 }
 
-[class^="tag"], [class*=" tag"] {
 
-  .positioned;
-  background: @greenDark;
-  width: 18px;
-  height: 42px;
-  overflow: hidden;
-  float: left;
-  margin-left: -1px;
-  .box-shadow(@pricetagShadow);
 
-  &:before {
-    content: " ";
-    width: 1px;
-    height: 100%;
-    background: @pricetagSepColor;
-    position: absolute;
-    right: 1px;
-  }
-  &:after {
-    content: " ";
-    height: 36px;
-    width: 36px;
-    .border-radius(500px);
-    border: 1px solid @pricetagSepColor;
-    position: absolute;
-    background: @greenDark;
-    top: 50%;
-    left: 11px;
-    margin-top: -18px;
-  }
-}
 
-.tagFst {
-  background: none;
-  width: 10px;
-  .box-shadow(none);
-  &:before {
-    background: none;
-  }
-  &:after {
-    border: none;
-    left: 4px;
-    .box-shadow(@pricetagShadow);
-  }
-}
-
-.tag2ndlst {
-  &:before {
-    background: none;
-    width: 16px;
-  }
-  &:after {
-    background: none;
-    border: none;
-    left: 0;
-  }
-}
-
-.tagLst {
-  background: none;
-  width: 10px;
-  .box-shadow(none);
-  &:before {
-    background: none;
-  }
-  &:after {
-    border: none;
-    left: auto;
-    right: 4px;
-    .box-shadow(@pricetagShadow);
-  }
-}
 
 
 // TIMELINE-LIKE NAVIGATION

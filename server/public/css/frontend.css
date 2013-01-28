@@ -3293,121 +3293,41 @@ img.cookie {
   left: -76px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-.pricetag {
+div.pricetag {
   position: relative;
   *zoom: 1;
-  height: 42px;
+  height: 53px;
   text-align: center;
   font-family: "VAGRounded LT Thin";
   color: #ffffff;
   font-size: 20px;
   position: absolute;
   cursor: default;
+  background: url("../img/static/common/pricetag.png") no-repeat;
+  width: 87px;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.pricetag:before,
-.pricetag:after {
+div.pricetag:before,
+div.pricetag:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.pricetag:after {
+div.pricetag:after {
   clear: both;
 }
-.pricetag span {
+div.pricetag span {
   position: absolute;
   left: 0;
   right: 0;
   text-align: center;
   top: 14px;
 }
-.pricetag span:after {
+div.pricetag span:after {
   content: "€";
   margin-left: 4px;
-}
-[class^="tag"],
-[class*=" tag"] {
-  position: relative;
-  background: #13493b;
-  width: 18px;
-  height: 42px;
-  overflow: hidden;
-  float: left;
-  margin-left: -1px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-}
-[class^="tag"]:before,
-[class*=" tag"]:before {
-  content: " ";
-  width: 1px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  position: absolute;
-  right: 1px;
-}
-[class^="tag"]:after,
-[class*=" tag"]:after {
-  content: " ";
-  height: 36px;
-  width: 36px;
-  behavior: url(../css/border-radius.htc);
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  position: absolute;
-  background: #13493b;
-  top: 50%;
-  left: 11px;
-  margin-top: -18px;
-}
-.tagFst {
-  background: none;
-  width: 10px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.tagFst:before {
-  background: none;
-}
-.tagFst:after {
-  border: none;
-  left: 4px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-}
-.tag2ndlst:before {
-  background: none;
-  width: 16px;
-}
-.tag2ndlst:after {
-  background: none;
-  border: none;
-  left: 0;
-}
-.tagLst {
-  background: none;
-  width: 10px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.tagLst:before {
-  background: none;
-}
-.tagLst:after {
-  border: none;
-  left: auto;
-  right: 4px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
 }
 .magnifier {
   background: url("../img/static/common/magnifier.png") no-repeat;
