@@ -15,17 +15,16 @@ define([
 		timer: 0,
 
 		events: {
-			'click .bClose': 'destroy'
+			'click .bClose': 'close'
 		},
 
 		initialize: function () {
 			this.render();
-			// this.countdown();
+			this.countdown();
 		},
 
 		render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
-
 			this.$el.addClass(this.model.get('type'));
 		},
 
@@ -33,14 +32,24 @@ define([
 			var self = this;
 
 			this.timer = setTimeout(function () {
-				self.remove();
+				self.destroy();
 			}, this.model.get('duration'));
 		},
 
-		destroy: function () {
+		close: function () {
 			clearTimeout(this.timer);
+			this.destroy();
+		},
 
-			this.remove();
+		destroy: function () {
+			var $el = this.$el;
+
+			$el.animate({
+				marginTop: -($el.outerHeight(true)),
+				opacity: 0
+			}, 400, function () {
+				$el.remove();
+			});
 		}
 
 	});

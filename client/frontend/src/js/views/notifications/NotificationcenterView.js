@@ -10,8 +10,6 @@ define([
 
 		el: $('#notificationcenter'),
 
-		notificationViews: [],
-
 		renderNotification: function (notificationModel) {
 			var notificationView = new NotificationView({
 				model: notificationModel
