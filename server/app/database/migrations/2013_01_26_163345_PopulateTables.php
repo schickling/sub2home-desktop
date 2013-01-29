@@ -112,13 +112,6 @@ class PopulateTables extends Migration {
 			'email' => 'offi23ce@my-sub.de'
 			));
 
-		// Admin
-		$u1 = new ClientModel(array(
-			'email' => 'johannes.enjoy@gmail.com',
-			'password' => Hash::make('test')
-			));
-		$u1->save();
-
 		// Clients
 		$u2 = new ClientModel(array(
 			'number' => 23,

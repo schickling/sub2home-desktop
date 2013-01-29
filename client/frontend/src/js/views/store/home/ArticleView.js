@@ -13,12 +13,15 @@ define([
 			'click': 'takeArticle'
 		},
 
+		template: _.template(ArticleTemplate),
+
 		initialize: function () {
 			this.render();
+			// this.prepareForLazyLoading();
 		},
 
 		render: function () {
-			this.$el.html(_.template(ArticleTemplate, this.model.toJSON()));
+			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.addClass('article');
 		},
 
@@ -28,6 +31,14 @@ define([
 			} else {
 				alert('Warenkorb yo!');
 			}
+		},
+
+		prepareForLazyLoading: function () {
+			this.$('img').one('unveil', function () {
+				var source = this.getAttribute('data-src');
+				this.setAttribute('src', source);
+				this.removeAttribute('data-src');
+			});
 		}
 
 	});

@@ -7,6 +7,43 @@ define([
 	'views/store/shared/timeline/TimelineBaseView'
 	], function ($, _, Backbone, TimelineItemsCollection, TimelineBaseView) {
 
+
+	$.fn.unveil = function ($container, threshold) {
+		var $w = $container || $(window),
+			th = threshold || 0,
+			images = this,
+			loaded, inview, source;
+
+		this.one('unveil', function () {
+			source = this.getAttribute('data-src');
+			this.setAttribute('src', source);
+			this.removeAttribute('data-src');
+		});
+
+		function unveil() {
+			inview = images.filter(function () {
+				var $e = $(this),
+					wt = $w.scrollTop(),
+					wb = wt + $w.height(),
+					et = $e.offset().top,
+					eb = et + $e.height();
+
+				return eb >= wt - th && et <= wb + th;
+			});
+
+			loaded = inview.trigger('unveil');
+			images = images.not(loaded);
+		}
+
+		// $w.scroll(unveil);
+		$w.resize(unveil);
+
+		unveil();
+
+		return this;
+	};
+
+
 	var CategoriesNavigationView = Backbone.View.extend({
 
 		timelineItemsCollection: null,
@@ -81,13 +118,16 @@ define([
 
 		initializeScrollListneres: function () {
 			var self = this,
-				currentIndex, timer, $content = this.$content,
+				$content = this.$content,
 				$categories = this.$categories,
-				antepenultimate = $categories.length - 3;
+				antepenultimate = $categories.length - 3,
+				currentIndex, timer;
 
 			// Bind to scroll
 			$content.on('scroll', function () {
 
+
+				// navigation
 				if (self.scrollListnening) {
 
 					// wrap in timeout to buffer events
@@ -108,11 +148,15 @@ define([
 
 						self.currentCategoryIndex = currentIndex;
 						self.slideTimeline();
-					}, 30);
+					}, 20);
 
 				}
 
 			});
+
+
+			// activate image lazy loading
+			this.$('img').unveil(this.$('.content'));
 		},
 
 		navigate: function () {

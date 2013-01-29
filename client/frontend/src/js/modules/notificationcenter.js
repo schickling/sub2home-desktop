@@ -1,20 +1,59 @@
 // Filename: src/js/modules/notificationcenter.js
 define([
-	'views/NotificationcenterView'
-	], function (NotificationcenterView) {
+	'models/NotificationModel',
+	'views/notifications/NotificationcenterView'
+	], function (NotificationModel, NotificationcenterView) {
 
 	var Notificationcenter = {
+
+		view: null,
 
 		init: function () {
 			this.view = new NotificationcenterView();
 		},
 
-		error: function(msg) {
-			this.view.popup(msg, 'error');
+		error: function (title, description) {
+			this.notify({
+				title: title,
+				description: description,
+				type: 'error',
+				duration: 20000
+			});
 		},
 
-		info: function(msg) {
-			this.view.popup(msg, 'info');
+		info: function (title, description) {
+			this.notify({
+				title: title,
+				description: description,
+				type: 'info',
+				duration: 2000
+			});
+		},
+
+		success: function (title, description) {
+			this.notify({
+				title: title,
+				description: description,
+				type: 'success',
+				duration: 2000
+			});
+		},
+
+		warning: function (title, description) {
+			this.notify({
+				title: title,
+				description: description,
+				type: 'warning',
+				duration: 2000
+			});
+		},
+
+		notify: function (item) {
+
+			var notificationModel = new NotificationModel(item);
+
+			this.view.renderNotification(notificationModel);
+
 		}
 
 	};

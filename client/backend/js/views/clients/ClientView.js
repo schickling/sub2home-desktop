@@ -21,7 +21,19 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
+			var addressModel = this.model.get('addressModel'),
+				json = {
+					name: addressModel.get('firstName') + ' ' + addressModel.get('lastName'),
+					number: this.leading_zeros(this.model.get('number')),
+					created_at: this.model.get('created_at'),
+					monthlyTurnover: 0,
+					totalTurnover: 0,
+					monthlyOrders: 0,
+					totalOrders: 0
+				};
+
+			this.$el.html(this.template(json));
+
 			return this;
 		},
 

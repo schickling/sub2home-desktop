@@ -10,6 +10,7 @@ define([
 	'text!templates/store/home/MainTemplate.html'
 	], function ($, _, Backbone, router, PageView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
+
 	var MainView = PageView.extend({
 
 		pageTitle: 'Subway Memmingen',

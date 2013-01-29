@@ -4,10 +4,11 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'notificationcenter',
 	'models/stateModel',
 	'views/header/CartView',
 	'text!templates/header/HeaderTemplate.html'
-	], function ($, _, Backbone, router, stateModel, CartView, HeaderTemplate) {
+	], function ($, _, Backbone, router, notificationcenter, stateModel, CartView, HeaderTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -17,7 +18,8 @@ define([
 
 		events: {
 			'click .back': 'back',
-			'click .logo': 'reset'
+			'click .logo': 'reset',
+			'click .currentInfo': 'notifyTest'
 		},
 
 		initialize: function () {
@@ -56,6 +58,10 @@ define([
 
 		reset: function () {
 			window.localStorage.clear();
+		},
+
+		notifyTest: function () {
+			notificationcenter.error('Test', 'Das ist ein test!');
 		}
 
 	});

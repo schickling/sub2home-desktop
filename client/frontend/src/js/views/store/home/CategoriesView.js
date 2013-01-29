@@ -6,6 +6,7 @@ define([
 	'collections/CategoriesCollection',
 	'views/store/home/CategoryView'
 	], function ($, _, Backbone, CategoriesCollection, CategoryView) {
+	
 
 	var CategoriesView = Backbone.View.extend({
 

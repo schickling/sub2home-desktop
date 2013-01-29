@@ -27,7 +27,9 @@ define([
 			this.$list = this.$('.client_listing section');
 
 			this.collection = new ClientsCollection();
-			this.collection.fetch();
+			this.collection.fetch({
+				parse: true
+			});
 
 			this.render(this.collection.models);
 
@@ -37,23 +39,23 @@ define([
 			// Reset list
 			this.$list.html('');
 
-			// _.each(clientModels, function (clientModel) {
-			// 	this.renderClient(clientModel);
-			// }, this);
+			_.each(clientModels, function (clientModel) {
+				this.renderClient(clientModel);
+			}, this);
 		},
 
 		renderClient: function (clientModel, add) {
-			var client_view = new ClientView({
+			var clientView = new ClientView({
 				model: clientModel
 			});
 
 			if (add) {
-				this.$list.prepend(client_view.render().el);
+				this.$list.prepend(clientView.render().el);
 			} else {
-				this.$list.append(client_view.render().el);
+				this.$list.append(clientView.render().el);
 			}
 
-			return client_view;
+			return clientView;
 		},
 
 		sort: function (e) {
@@ -81,8 +83,8 @@ define([
 
 			client.save({}, {
 				success: function () {
-					var client_view = self.renderClient(client, true);
-					client_view.show_edit();
+					var clientView = self.renderClient(client, true);
+					clientView.show_edit();
 
 					self.collection.add(client);
 				}
