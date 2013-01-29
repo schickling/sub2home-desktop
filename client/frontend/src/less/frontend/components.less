@@ -8,33 +8,128 @@
 img.beverage  { margin: 0 -18px;}
 img.cookie    { margin: 0 -10px;}
 
-// Popups
+// Notifications
 // -------------------
+
 
 .popup {
   position: fixed;
   z-index: 5000;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  height: 30px;
-  text-align: center;
-  color: @gray;
-  display: none;
-  .backface-visibility(hidden);
-  
-  span {
-    padding: 15px 20px 12px;
+  right: 30px;
+  top: 104px;
+  width: 270px;
+  .notificationBackground;
+  .border-radius(3px);
+  border: 1px solid #c0a053;
+  .box-shadow(0 2px 8px 0 rgba(0,0,0,0.25));
+  padding: 15px;
+
+  header {
+    
+    h4 {
+      color: inherit;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      font-size: 20px;
+      text-transform: uppercase;
+      margin: 0 0 15px 0;
+      line-height: 15px;
+      &:before {
+        font-family: "Homicons";
+        content: "e";
+        text-transform: none;
+        .positioned;
+        top: 3px;
+        margin-right: 12px;
+      }  
+    }
+    .bClose {
+      .header-engraved-text;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      &:before {
+        font-size: 20px;
+        position: relative;
+        top: -4px;
+      }
+      .transition(color .1s linear);
+      &:hover {
+        color: @red;
+      }
+    }
+  }
+
+  p {
+    font-size: 15px;
     font-family: @headingsFontFamily;
-    font-size: 20px;
-    color: inherit;
-    text-transform: uppercase;
-    background: @white;
-    letter-spacing: 1px;
-    .border-radius(2px);
-    .box-shadow(0 0px 7px rgba(0,0,0,0.55));
+    color: darken(@onHeaderColor, 5%);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  &.error {
+    header {
+      color: @red;
+      h4:before {
+        content: "e";
+      }
+    }
+
+  }
+
+  &.warning {
+    header {
+      color: @orange;
+      h4:before {
+        content: "e";
+      }
+    }
+  }
+
+  &.info {
+    header {
+      color: @blue;
+      h4:before {
+        content: "e";
+      }
+    }
+  }
+
+  &.success {
+    header {
+      color: @green;
+      h4:before {
+        content: "e";
+      }
+    }
   }
 }
+
+// .popup {
+//   position: fixed;
+
+//   bottom: 40px;
+//   left: 0;
+//   right: 0;
+//   height: 30px;
+//   text-align: center;
+//   color: @gray;
+//   display: none;
+//   .backface-visibility(hidden);
+  
+//   span {
+//     padding: 15px 20px 12px;
+//     font-family: @headingsFontFamily;
+//     font-size: 20px;
+//     color: inherit;
+//     text-transform: uppercase;
+//     background: @white;
+//     letter-spacing: 1px;
+//     .border-radius(2px);
+//     .box-shadow(0 0px 7px rgba(0,0,0,0.55));
+//   }
+// }
 
 
 // Tooltips

@@ -494,6 +494,11 @@
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
 }
 
+.notificationGradientBar(@startColor, @endColor, @textColor, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: @textColor;
+  text-shadow: @textShadow;
+  #gradient > .vertical(@startColor, @endColor);
+}
 
 // COMPONENT MIXINS
 // --------------------------------------------------
@@ -514,6 +519,16 @@
   background-color: @top;
   border-bottom: 1px solid @bottom;
 }
+
+// Notification background
+// -----------------------
+
+.notificationBackground(@startColor: #f2e1a6, @endColor: #edd58f, @textColor: @onHeaderColor, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  .notificationGradientBar(@startColor, @endColor, @textColor, @textShadow);
+  *background-color: @endColor;
+  .reset-filter();
+}
+
 
 // Button backgrounds
 // ------------------
