@@ -82,7 +82,7 @@ img.cookie    { margin: 0 -10px;}
     header {
       color: @red;
       h4:before {
-        content: "e";
+        content: "\e071";
       }
     }
 
@@ -92,7 +92,7 @@ img.cookie    { margin: 0 -10px;}
     header {
       color: @orange;
       h4:before {
-        content: "e";
+        content: "\e073";
       }
     }
   }
@@ -101,16 +101,16 @@ img.cookie    { margin: 0 -10px;}
     header {
       color: @blue;
       h4:before {
-        content: "e";
+        content: "\e072";
       }
     }
   }
 
   &.success {
     header {
-      color: @green;
+      color: @greenLight;
       h4:before {
-        content: "e";
+        content: "\e067";
       }
     }
   }
@@ -215,11 +215,11 @@ img.cookie    { margin: 0 -10px;}
   }
 
   &:before {
-    content: "s";
+    content: "\e055";
     left: -82px;
   }
   &:after {
-    content: "t";
+    content: "\e056";
     right: -46px;
   }
 
@@ -256,7 +256,7 @@ img.cookie    { margin: 0 -10px;}
   left: 0;
   right: 0;
   &:before {
-    content:"r";
+    content:"\e054";
     color: darken(@greenLight, 10%);
     font-family: "Homicons";
     font-size: 128px;
@@ -526,7 +526,7 @@ div.pricetag {
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
-.header {
+aside#header {
   .clearfix;
   .backface-visibility(hidden);
   >div {
@@ -567,7 +567,7 @@ div.pricetag {
 
     &.back {
       height: 48px;
-      margin: 8px 0 0 0;
+      margin: 6px 0 0 0;
       float: right;
       line-height: 1;
       .positioned;
@@ -575,13 +575,13 @@ div.pricetag {
       text-align: center;
       .transition(color .1s linear);
       &:before {
-        margin-top: 5px;
+        margin-top: 8px;
         content: "M";
         font-family: "Homicons";
         display: block;
         font-size: 40px;
         position: relative;
-        top: 2px;
+        top: 6px;
         left: 0;
         line-height: 0.3;
       }
@@ -601,9 +601,9 @@ div.pricetag {
       .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
       
       .iCart {
-        margin: 21px 10px 0 0;
+        margin: 12px 10px 0 0;
         .positioned;
-        //top: 5px;
+        top: 7px;
  
         span {
           display: none;
@@ -671,7 +671,7 @@ div.pricetag {
       .transition(e('color .1s linear, background .1s linear'));
       &:before {
         .positioned;
-        top: 23px;
+        top: 19px;
       }
       &:hover {
         color: darken(@onHeaderColor, 10%);

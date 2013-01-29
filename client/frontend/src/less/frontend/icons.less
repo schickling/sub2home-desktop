@@ -19,6 +19,14 @@
   line-height: inherit;
   vertical-align: baseline;
   background: none 0 0 no-repeat;
+  
+  &:before {
+    .positioned;
+    top: 1px;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 
@@ -48,190 +56,9 @@
 
 // ----------------------------------------------------  Icons -------------------------------------------------------
 
-.icn {
-  //width: 27px;
-  //height: 27px;
-  &:before {
-    .positioned;
-    top: 5px;
-  }
-}
-
-.iStar:before {
-  content: "e";
-}
-
-.iCheck, .bCheck {
-  &:before {
-    content: "f";
-  }
-}
-
-.iAdd, .bAdd {
-  &:before {
-    content: "a";
-  }
-}
-
-.iRemove, .bRemove {
-  &:before {
-    content: "b";
-  }
-}
-
-.iClose, .bClose {
-  &:before {
-    content: "g";
-  }
-}
-
-.iTrash, .bTrash {
-  &:before {
-    content: "j";
-  }
-}
-
-.iCart, .bCart {
-  &:before {
-    content: "k";
-  }
-  &.moreInfo {
-
-    &:before {
-      content: "L";
-    }
-  }
-}
-
-.iPayBar, .bPayBar {
-  &:before {
-    content: "2";
-  }
-}
-
-.iPayEC, .bPayEC {
-  &:before {
-    content: "3";
-  }
-}
-
-.iPaypal, .bPaypal {
-  &:before {
-    content: "4";
-  }
-}
-
-.iTurnover, .bTurnover {
-  &:after {
-    content: "Y";
-  }
-}
-
-.iAlert, .bAlert {
-  &:before {
-    content: "Z";
-  }
-}
-
-// TIMELINE ICONS
-
-.iSub, .bSub {
-  &:before {
-    content: "9";
-  }
-}
-
-.iBread, .bBread {
-  &:before {
-    content: "5";
-  }
-}
-
-.iCheese, .bCheese {
-  &:before {
-    content: "6";
-  }
-}
-
-.iVegetables, .bVegetables {
-  &:before {
-    content: "7";
-  }
-}
-
-.iSauce, .bSauce {
-  &:before {
-    content: "8";
-  }
-}
-
-
-// ----------------------------------------------------  Vecs --------------------------------------------------------
-
-.iCircle:before {
-  content: "o";
-  font-size: 200px;
-  display: block;
-}
-
-
-// ----------------------------------------------------  Vec-Buttons -------------------------------------------------
-
 .iBtn {
   cursor: pointer;
 }
-
-
-.bLock:before {
-  content: "h";
-}
-
-.bUnlock:before {
-  content: "i";
-}
-
-.bSettings:before {
-  content: "c";
-}
-
-.bPrev:before {
-  content: "D";
-}
-
-.bNext:before {
-  content: "E";
-}
-
-.bStoreInfo:before {
-  content: "G";
-}
-
-.bMail:before {
-  content: "H";
-}
-
-.bPhone:before {
-  content: "I";
-}
-
-.bEdit:before {
-  content: "J";
-}
-
-.bInfo:before {
-  content: "K";
-}
-
-.bDocument:before {
-  content: "1";
-}
-
-.bPrint:before {
-  content: "0";
-}
-
-
-// ----------------------------------------------------  Dashed Components -------------------------------------------
 
 .phd {
   &:before, &:after {
@@ -243,56 +70,237 @@
   }
 }
 
+// Articles ---------------------------
+// ------------------------------------
+
+.iSub:before {
+  content: "\e000";
+}
+
+
+
+// Ingredients ------------------------
+// ------------------------------------
+
+.iBread:before {
+  content: "\e014";
+}
+
+.iCheese:before {
+  content: "\e015";
+}
+
+.iVegetables:before {
+  content: "\e016";
+}
+
+.iSauce:before {
+  content: "\e017";
+}
+
+
+// Placeholder ------------------------
+// ------------------------------------
+
+.pfootlong:before { content: "\e01e"; }
+
 .pSub {
-  &:before {
-    content: "Q";
-  }
-  &:after {
-    content: "u";
-  }
-}
-
-.pColdBev {
-  &:before {
-    content: "R";
-  }
-  &:after {
-    content: "v";
-  }
-}
-
-.pWarmBev {
-  &:before {
-    content: "S";
-  }
-  &:after {
-    content: "w";
-  }
-}
-
-.pCookie {
-  &:before {
-    content: "T";
-  }
-  &:after {
-    content: "x";
-  }
-}
-
-.pMuffin {
-  &:before {
-    content: "U";
-  }
-  &:after {
-    content: "y";
-  }
+  &:before { content: "\e01f"; }
+  &:after { content: "\e020"; }
 }
 
 .pWrap {
-  &:before {
-    content: "V";
-  }
-  &:after {
-    content: "z";
+  &:before { content: "\e021"; }
+  &:after { content: "\e022"; }
+}
+
+.pSalad {
+  &:before { content: "\e023"; }
+  &:after { content: "\e024"; }
+}
+
+.pCookie {
+  &:before { content: "\e025"; }
+  &:after { content: "\e026"; }
+}
+
+.pMuffin {
+  &:before { content: "\e027"; }
+  &:after { content: "\e028"; }
+}
+
+
+// Donuts, Eis, Chips ...
+
+.pSalad {
+  &:before { content: "\e023"; }
+  &:after { content: "\e024"; }
+}
+
+.pColdBev {
+  &:before { content: "\e02e"; }
+  &:after { content: "\e02f"; }
+}
+
+.pWarmBev {
+  &:before { content: "\e030"; }
+  &:after { content: "\e031"; }
+}
+
+// Space for 5 placeholder-pairs
+
+
+
+// Arrows -----------------------------
+// ------------------------------------
+
+.iPrev, .bPrev {
+  &:before { content: "\e03c"; }
+}
+
+.iNext, .bNext {
+  &:before { content: "\e03d"; }
+}
+
+.iBack, .bBack {
+  &:before { content: "\e03e"; }
+}
+
+.iNextItem, .bNextItem {
+  &:before { content: "\e03f"; }
+}
+
+// Space for 19 Arrows
+
+
+
+// Common Icons -----------------------
+// ------------------------------------
+
+.iCircle:before {
+  content: "\e053";
+  font-size: 200px;
+  display: block;
+}
+
+// Payment
+
+.iPayBar, .bPayBar {
+  &:before { content: "\e057"; }
+}
+
+.iPayEC, .bPayEC {
+  &:before { content: "\e058"; }
+}
+
+.iPaypal, .bPaypal {
+  &:before { content: "\e059"; }
+}
+
+
+// General
+
+.iSettings, .bSettings {
+  &:before { content: "\e05a"; }
+}
+
+.iHeart, .bHeart {
+  &:before { content: "\e05b"; }
+}
+
+.iStar, .bStar {
+  &:before { content: "\e05c"; }
+}
+
+.iAdd, .bAdd {
+  &:before { content: "\e05d"; }
+}
+
+.iRemove, .bRemove {
+  &:before { content: "\e05e"; }
+}
+
+.iClose, .bClose {
+  &:before { content: "\e05f"; }
+}
+
+.iLocked, .bLocked {
+  &:before { content: "\e060"; }
+}
+
+.iUnlocked, .bUnlocked {
+  &:before { content: "\e061"; }
+}
+
+.iTrash, .bTrash {
+  &:before { content: "\e062"; }
+}
+
+.iCart, .bCart {
+  &:before { content: "\e063"; }
+  &.filled {
+    &:before { content: "\e064"; }
   }
 }
+
+.iSearch, .bSearch {
+  &:before { content: "\e065"; }
+}
+
+.iProfile, .bProfile {
+  &:before { content: "\e066"; }
+}
+
+.iFlag, .bFlag {
+  &:before { content: "\e067"; }
+}
+
+.iInfo, .bInfo {
+  &:before { content: "\e068"; }
+}
+
+.iEdit, .bEdit {
+  &:before { content: "\e069"; }
+}
+
+.iPhone, .bPhone {
+  &:before { content: "\e06a"; }
+}
+
+.iMail, .bMail {
+  &:before { content: "\e06b"; }
+}
+
+.iStoreInfo, .bStoreInfo {
+  &:before { content: "\e06c"; }
+}
+
+.iDocument, .bDocument {
+  &:before { content: "\e06d"; }
+}
+
+.iPrint, .bPrint {
+  &:before { content: "\e06e"; }
+}
+
+.iBell, .bBell {
+  &:before { content: "\e06f"; }
+}
+
+.iTurnover, .bTurnover {
+  &:after { content: "\e070"; } 
+}
+
+.iBolt, .bBolt {
+  &:before { content: "\e071"; }
+}
+
+.iLightbulb, .bLightbulb {
+  &:before { content: "\e072"; }
+}
+
+.iWarning, .bWarning {
+  &:before { content: "\e073"; }
+}
+
+

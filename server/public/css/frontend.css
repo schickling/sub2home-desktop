@@ -221,7 +221,7 @@ a:hover {
   color: #030c0a;
   text-decoration: underline;
 }
-.header {
+aside#header {
   background: url("../img/static/common/h_center.png") repeat-x;
   height: 81px;
   position: fixed;
@@ -229,9 +229,9 @@ a:hover {
   right: 0;
   width: 50%;
   min-width: 590px;
-  z-index: 60;
+  z-index: 9999;
 }
-.header:before {
+aside#header:before {
   content: " ";
   position: absolute;
   left: -74px;
@@ -240,7 +240,7 @@ a:hover {
   width: 74px;
   top: 0;
 }
-.header .separator {
+aside#header .separator {
   width: 1px;
   height: 51px;
   margin: 8px 20px 0;
@@ -248,11 +248,11 @@ a:hover {
   border-right: 1px solid #f3ebd5;
   float: left;
 }
-.header .separator.full {
+aside#header .separator.full {
   margin: 0 20px;
   height: 67px;
 }
-.header .iInfo {
+aside#header .iInfo {
   float: right;
   cursor: pointer;
   -webkit-box-shadow: -1px 0 0 0 #d3b771, inset 1px 0 0 0 #f3ebd5;
@@ -2064,6 +2064,15 @@ table [class*=span],
   vertical-align: baseline;
   background: none 0 0 no-repeat;
 }
+.icn:before,
+.iBtn:before,
+.phd:before {
+  position: relative;
+  top: 1px;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
 .icn,
 .iBtn,
 .phd {
@@ -2097,124 +2106,8 @@ table [class*=span],
 .smallNote .phd:active {
   color: #d1ba82;
 }
-.icn:before {
-  position: relative;
-  top: 5px;
-}
-.iStar:before {
-  content: "e";
-}
-.iCheck:before,
-.bCheck:before {
-  content: "f";
-}
-.iAdd:before,
-.bAdd:before {
-  content: "a";
-}
-.iRemove:before,
-.bRemove:before {
-  content: "b";
-}
-.iClose:before,
-.bClose:before {
-  content: "g";
-}
-.iTrash:before,
-.bTrash:before {
-  content: "j";
-}
-.iCart:before,
-.bCart:before {
-  content: "k";
-}
-.iCart.moreInfo:before,
-.bCart.moreInfo:before {
-  content: "L";
-}
-.iPayBar:before,
-.bPayBar:before {
-  content: "2";
-}
-.iPayEC:before,
-.bPayEC:before {
-  content: "3";
-}
-.iPaypal:before,
-.bPaypal:before {
-  content: "4";
-}
-.iTurnover:after,
-.bTurnover:after {
-  content: "Y";
-}
-.iAlert:before,
-.bAlert:before {
-  content: "Z";
-}
-.iSub:before,
-.bSub:before {
-  content: "9";
-}
-.iBread:before,
-.bBread:before {
-  content: "5";
-}
-.iCheese:before,
-.bCheese:before {
-  content: "6";
-}
-.iVegetables:before,
-.bVegetables:before {
-  content: "7";
-}
-.iSauce:before,
-.bSauce:before {
-  content: "8";
-}
-.iCircle:before {
-  content: "o";
-  font-size: 200px;
-  display: block;
-}
 .iBtn {
   cursor: pointer;
-}
-.bLock:before {
-  content: "h";
-}
-.bUnlock:before {
-  content: "i";
-}
-.bSettings:before {
-  content: "c";
-}
-.bPrev:before {
-  content: "D";
-}
-.bNext:before {
-  content: "E";
-}
-.bStoreInfo:before {
-  content: "G";
-}
-.bMail:before {
-  content: "H";
-}
-.bPhone:before {
-  content: "I";
-}
-.bEdit:before {
-  content: "J";
-}
-.bInfo:before {
-  content: "K";
-}
-.bDocument:before {
-  content: "1";
-}
-.bPrint:before {
-  content: "0";
 }
 .phd:before,
 .phd:after {
@@ -2224,41 +2117,208 @@ table [class*=span],
 .phd:after {
   color: #e4e4e4;
 }
+.iSub:before {
+  content: "\e000";
+}
+.iBread:before {
+  content: "\e014";
+}
+.iCheese:before {
+  content: "\e015";
+}
+.iVegetables:before {
+  content: "\e016";
+}
+.iSauce:before {
+  content: "\e017";
+}
+.pfootlong:before {
+  content: "\e01e";
+}
 .pSub:before {
-  content: "Q";
+  content: "\e01f";
 }
 .pSub:after {
-  content: "u";
-}
-.pColdBev:before {
-  content: "R";
-}
-.pColdBev:after {
-  content: "v";
-}
-.pWarmBev:before {
-  content: "S";
-}
-.pWarmBev:after {
-  content: "w";
-}
-.pCookie:before {
-  content: "T";
-}
-.pCookie:after {
-  content: "x";
-}
-.pMuffin:before {
-  content: "U";
-}
-.pMuffin:after {
-  content: "y";
+  content: "\e020";
 }
 .pWrap:before {
-  content: "V";
+  content: "\e021";
 }
 .pWrap:after {
-  content: "z";
+  content: "\e022";
+}
+.pSalad:before {
+  content: "\e023";
+}
+.pSalad:after {
+  content: "\e024";
+}
+.pCookie:before {
+  content: "\e025";
+}
+.pCookie:after {
+  content: "\e026";
+}
+.pMuffin:before {
+  content: "\e027";
+}
+.pMuffin:after {
+  content: "\e028";
+}
+.pSalad:before {
+  content: "\e023";
+}
+.pSalad:after {
+  content: "\e024";
+}
+.pColdBev:before {
+  content: "\e02e";
+}
+.pColdBev:after {
+  content: "\e02f";
+}
+.pWarmBev:before {
+  content: "\e030";
+}
+.pWarmBev:after {
+  content: "\e031";
+}
+.iPrev:before,
+.bPrev:before {
+  content: "\e03c";
+}
+.iNext:before,
+.bNext:before {
+  content: "\e03d";
+}
+.iBack:before,
+.bBack:before {
+  content: "\e03e";
+}
+.iNextItem:before,
+.bNextItem:before {
+  content: "\e03f";
+}
+.iCircle:before {
+  content: "\e053";
+  font-size: 200px;
+  display: block;
+}
+.iPayBar:before,
+.bPayBar:before {
+  content: "\e057";
+}
+.iPayEC:before,
+.bPayEC:before {
+  content: "\e058";
+}
+.iPaypal:before,
+.bPaypal:before {
+  content: "\e059";
+}
+.iSettings:before,
+.bSettings:before {
+  content: "\e05a";
+}
+.iHeart:before,
+.bHeart:before {
+  content: "\e05b";
+}
+.iStar:before,
+.bStar:before {
+  content: "\e05c";
+}
+.iAdd:before,
+.bAdd:before {
+  content: "\e05d";
+}
+.iRemove:before,
+.bRemove:before {
+  content: "\e05e";
+}
+.iClose:before,
+.bClose:before {
+  content: "\e05f";
+}
+.iLocked:before,
+.bLocked:before {
+  content: "\e060";
+}
+.iUnlocked:before,
+.bUnlocked:before {
+  content: "\e061";
+}
+.iTrash:before,
+.bTrash:before {
+  content: "\e062";
+}
+.iCart:before,
+.bCart:before {
+  content: "\e063";
+}
+.iCart.filled:before,
+.bCart.filled:before {
+  content: "\e064";
+}
+.iSearch:before,
+.bSearch:before {
+  content: "\e065";
+}
+.iProfile:before,
+.bProfile:before {
+  content: "\e066";
+}
+.iFlag:before,
+.bFlag:before {
+  content: "\e067";
+}
+.iInfo:before,
+.bInfo:before {
+  content: "\e068";
+}
+.iEdit:before,
+.bEdit:before {
+  content: "\e069";
+}
+.iPhone:before,
+.bPhone:before {
+  content: "\e06a";
+}
+.iMail:before,
+.bMail:before {
+  content: "\e06b";
+}
+.iStoreInfo:before,
+.bStoreInfo:before {
+  content: "\e06c";
+}
+.iDocument:before,
+.bDocument:before {
+  content: "\e06d";
+}
+.iPrint:before,
+.bPrint:before {
+  content: "\e06e";
+}
+.iBell:before,
+.bBell:before {
+  content: "\e06f";
+}
+.iTurnover:after,
+.bTurnover:after {
+  content: "\e070";
+}
+.iBolt:before,
+.bBolt:before {
+  content: "\e071";
+}
+.iLightbulb:before,
+.bLightbulb:before {
+  content: "\e072";
+}
+.iWarning:before,
+.bWarning:before {
+  content: "\e073";
 }
 .dropup,
 .dropdown {
@@ -3301,25 +3361,25 @@ img.cookie {
   color: #9d261d;
 }
 .notification.error header h4:before {
-  content: "e";
+  content: "\e071";
 }
 .notification.warning header {
   color: #dc952b;
 }
 .notification.warning header h4:before {
-  content: "e";
+  content: "\e073";
 }
 .notification.info header {
   color: #049cdb;
 }
 .notification.info header h4:before {
-  content: "e";
+  content: "\e072";
 }
 .notification.success header {
-  color: #46a546;
+  color: #57a827;
 }
 .notification.success header h4:before {
-  content: "e";
+  content: "\e067";
 }
 .tooltip {
   display: none;
@@ -3390,11 +3450,11 @@ img.cookie {
   z-index: 8;
 }
 .flagFront:before {
-  content: "s";
+  content: "\e055";
   left: -82px;
 }
 .flagFront:after {
-  content: "t";
+  content: "\e056";
   right: -46px;
 }
 .flagFront h5 {
@@ -3426,7 +3486,7 @@ img.cookie {
   right: 0;
 }
 .flagBack:before {
-  content: "r";
+  content: "\e054";
   color: #427f1d;
   font-family: "Homicons";
   font-size: 128px;
@@ -3596,22 +3656,22 @@ div.pricetag span:after {
 .categoriesNavigation .overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
 }
-.header {
+aside#header {
   *zoom: 1;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.header:before,
-.header:after {
+aside#header:before,
+aside#header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.header:after {
+aside#header:after {
   clear: both;
 }
-.header > div {
+aside#header > div {
   font-family: "VAGRounded LT Thin";
   font-size: 15px;
   border-left: 1px solid #d1ba82;
@@ -3624,7 +3684,7 @@ div.pricetag span:after {
   color: #a78a44;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
-.header > div.logo {
+aside#header > div.logo {
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -3635,14 +3695,14 @@ div.pricetag span:after {
   position: relative;
   z-index: 2;
 }
-.header > div.currentInfo {
+aside#header > div.currentInfo {
   height: 30px;
   margin: 8px 0 0 0;
   padding-top: 18px;
 }
-.header > div.back {
+aside#header > div.back {
   height: 48px;
-  margin: 8px 0 0 0;
+  margin: 6px 0 0 0;
   float: right;
   line-height: 1;
   position: relative;
@@ -3653,21 +3713,21 @@ div.pricetag span:after {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.header > div.back:before {
-  margin-top: 5px;
+aside#header > div.back:before {
+  margin-top: 8px;
   content: "M";
   font-family: "Homicons";
   display: block;
   font-size: 40px;
   position: relative;
-  top: 2px;
+  top: 6px;
   left: 0;
   line-height: 0.3;
 }
-.header > div.back:hover {
+aside#header > div.back:hover {
   color: #836c35;
 }
-.header > div.trayPreview {
+aside#header > div.trayPreview {
   cursor: pointer;
   float: right;
   background: rgba(184, 126, 0, 0.25);
@@ -3680,11 +3740,12 @@ div.pricetag span:after {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-.header > div.trayPreview .iCart {
-  margin: 21px 10px 0 0;
+aside#header > div.trayPreview .iCart {
+  margin: 12px 10px 0 0;
   position: relative;
+  top: 7px;
 }
-.header > div.trayPreview .iCart span {
+aside#header > div.trayPreview .iCart span {
   display: none;
   font-size: 10px;
   color: #ffffff;
@@ -3695,11 +3756,11 @@ div.pricetag span:after {
   z-index: 2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-.header > div.trayPreview .iCart:before {
+aside#header > div.trayPreview .iCart:before {
   color: #a38743;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 #5f4e26;
 }
-.header > div.trayPreview.filled .iCart:after {
+aside#header > div.trayPreview.filled .iCart:after {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -3715,27 +3776,27 @@ div.pricetag span:after {
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
 }
-.header > div.trayPreview.filled .iCart span {
+aside#header > div.trayPreview.filled .iCart span {
   display: block;
 }
-.header > div.trayPreview.filled > span {
+aside#header > div.trayPreview.filled > span {
   color: #8e753a;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.header > div.trayPreview:hover {
+aside#header > div.trayPreview:hover {
   background: rgba(184, 126, 0, 0.35);
   color: #715d2e;
   -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
 }
-.header > div.trayPreview:hover > span {
+aside#header > div.trayPreview:hover > span {
   color: #715d2e;
 }
-.header > div.bInfo {
+aside#header > div.bInfo {
   width: 30px;
   float: right;
   cursor: pointer;
@@ -3746,11 +3807,11 @@ div.pricetag span:after {
   -o-transition: color .1s linear, background .1s linear;
   transition: color .1s linear, background .1s linear;
 }
-.header > div.bInfo:before {
+aside#header > div.bInfo:before {
   position: relative;
-  top: 23px;
+  top: 19px;
 }
-.header > div.bInfo:hover {
+aside#header > div.bInfo:hover {
   color: #836c35;
   background: rgba(184, 126, 0, 0.08);
 }
