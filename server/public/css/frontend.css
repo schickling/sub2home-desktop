@@ -3702,7 +3702,7 @@ aside#header > div.currentInfo {
 }
 aside#header > div.back {
   height: 48px;
-  margin: 6px 0 0 0;
+  margin: 8px 0 0 0;
   float: right;
   line-height: 1;
   position: relative;
@@ -3714,13 +3714,13 @@ aside#header > div.back {
   transition: color 0.1s linear;
 }
 aside#header > div.back:before {
-  margin-top: 8px;
-  content: "M";
+  margin-top: 5px;
+  content: "\e03e";
   font-family: "Homicons";
   display: block;
   font-size: 40px;
   position: relative;
-  top: 6px;
+  top: 2px;
   left: 0;
   line-height: 0.3;
 }
