@@ -3220,11 +3220,15 @@ img.beverage {
 img.cookie {
   margin: 0 -10px;
 }
-.popup {
+#notificationcenter {
   position: fixed;
   z-index: 5000;
   right: 30px;
   top: 104px;
+  width: 300px;
+}
+.notification {
+  position: relative;
   width: 270px;
   color: #a78a44;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -3247,24 +3251,26 @@ img.cookie {
   -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
   padding: 15px;
+  margin-bottom: 15px;
 }
-.popup header h4 {
+.notification header h4 {
   color: inherit;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   font-size: 20px;
   text-transform: uppercase;
-  margin: 0 0 15px 0;
-  line-height: 15px;
+  margin: 0 30px 15px 30px;
+  line-height: 1.1;
 }
-.popup header h4:before {
+.notification header h4:before {
   font-family: "Homicons";
   content: "e";
   text-transform: none;
-  position: relative;
-  top: 3px;
+  position: absolute;
+  top: 13px;
+  left: 15px;
   margin-right: 12px;
 }
-.popup header .bClose {
+.notification header .bClose {
   color: #a78a44;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 rgba(0, 0, 0, 0.45);
   position: absolute;
@@ -3275,15 +3281,15 @@ img.cookie {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.popup header .bClose:before {
+.notification header .bClose:before {
   font-size: 20px;
   position: relative;
   top: -4px;
 }
-.popup header .bClose:hover {
+.notification header .bClose:hover {
   color: #9d261d;
 }
-.popup p {
+.notification p {
   font-size: 15px;
   font-family: "VAGRounded LT Thin";
   color: #957b3d;
@@ -3291,28 +3297,28 @@ img.cookie {
   margin: 0;
   line-height: 1.3;
 }
-.popup.error header {
+.notification.error header {
   color: #9d261d;
 }
-.popup.error header h4:before {
+.notification.error header h4:before {
   content: "e";
 }
-.popup.warning header {
+.notification.warning header {
   color: #dc952b;
 }
-.popup.warning header h4:before {
+.notification.warning header h4:before {
   content: "e";
 }
-.popup.info header {
+.notification.info header {
   color: #049cdb;
 }
-.popup.info header h4:before {
+.notification.info header h4:before {
   content: "e";
 }
-.popup.success header {
+.notification.success header {
   color: #46a546;
 }
-.popup.success header h4:before {
+.notification.success header h4:before {
   content: "e";
 }
 .tooltip {
@@ -3497,10 +3503,10 @@ div.pricetag span:after {
 .timeline .itemsTimeline .itemTimeline img,
 .categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
-  top: 0px;
+  top: 14px;
   left: 0px;
   width: 70px;
-  height: 70px;
+  height: 41px;
 }
 .timeline .itemsTimeline:first-child .timeline_item:before,
 .categoriesNavigation .itemsTimeline:first-child .timeline_item:before {

@@ -12,17 +12,23 @@ img.cookie    { margin: 0 -10px;}
 // -------------------
 
 
-.popup {
+#notificationcenter {
   position: fixed;
   z-index: 5000;
   right: 30px;
   top: 104px;
+  width: 300px;
+}
+
+.notification {
+  position: relative;
   width: 270px;
   .notificationBackground;
   .border-radius(3px);
   border: 1px solid #c0a053;
   .box-shadow(0 2px 8px 0 rgba(0,0,0,0.25));
   padding: 15px;
+  margin-bottom: 15px;
 
   header {
     
@@ -31,14 +37,18 @@ img.cookie    { margin: 0 -10px;}
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
       font-size: 20px;
       text-transform: uppercase;
-      margin: 0 0 15px 0;
-      line-height: 15px;
+      margin: 0 30px 15px 30px;
+      line-height: 1.1;
+
+      //.positioned;
+
       &:before {
         font-family: "Homicons";
         content: "e";
         text-transform: none;
-        .positioned;
-        top: 3px;
+        position: absolute;
+        top: 13px;
+        left: 15px;
         margin-right: 12px;
       }  
     }
@@ -409,10 +419,10 @@ div.pricetag {
       }
       img {
         position: absolute;
-        top: 0px;
+        top: 14px;
         left: 0px;
         width: 70px;
-        height: 70px;
+        height: 41px;
       }
     }
 
