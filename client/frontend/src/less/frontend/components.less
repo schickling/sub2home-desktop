@@ -128,7 +128,7 @@ img.cookie    { margin: 0 -10px;}
     z-index: 20;
     height: 23px;
     letter-spacing: 0;
-    .iconStar:before {
+    .iStar:before {
       font-size: 20px;
       font-family: "Homicons" !important;
       display: inline-block;
@@ -349,7 +349,7 @@ div.pricetag {
     
     .itemTimeline {
 
-      >div[class^="icon"], >div[class*=" icon"] {
+      .icn {
         margin-top: 21px;
         margin-left: -2px;
         .r-engraved-text;
@@ -492,10 +492,10 @@ div.pricetag {
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
       .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
       
-      .iconCart {
-        margin: 15px 10px 0 0;
+      .iCart {
+        margin: 21px 10px 0 0;
         .positioned;
-        top: 5px;
+        //top: 5px;
  
         span {
           display: none;
@@ -517,7 +517,7 @@ div.pricetag {
 
 
       &.filled {
-        .iconCart {
+        .iCart {
           &:after {
             content: " ";
             .border-radius(500px);
@@ -553,7 +553,7 @@ div.pricetag {
 
     // TO-THE-INFO SECTION
 
-    &.vecbuttonInfo {
+    &.bInfo {
       width: 30px;
       float: right;
       cursor: pointer;
@@ -925,6 +925,12 @@ input[type="text"]#locationSelectionInput {
 // ARTICLE PREVIEW
 // ---------------
 
+.items {
+//  display: inline-block;
+//  text-align: left;
+//  width: auto;
+}
+
 .article, .menuBundle {
   .positioned;
   display: inline-block;
@@ -1026,7 +1032,7 @@ input[type="text"]#locationSelectionInput {
       padding: 20px 0 10px 15px;
       .positioned;
       width: 30px;
-      [class^="icon"], [class*=" icon"], .several {
+      .icn, .several {
         display: block;
         width: 100%;
         margin-bottom: 35px;
@@ -1045,7 +1051,7 @@ input[type="text"]#locationSelectionInput {
         }
       }
       .several {
-        [class^="icon"].small, [class*=" icon"].small {
+        .icn.small, .icn.small {
           display: inline-block;
           margin-bottom: 0;
           margin: 0;
@@ -1271,7 +1277,7 @@ input[type="text"]#locationSelectionInput {
   .toggleRevenues {
     margin: 30px 50px;
     position: absolute;
-    .iconTurnover {
+    .iTurnover {
       cursor: pointer;
 
       &:after {
@@ -3074,7 +3080,7 @@ div.bankOptions {
       white-space: nowrap;
       padding-right: 0;
       .positioned;
-      .iconTools {
+      .iTools {
         position: absolute;
         display: block;
         right: 10px;
@@ -3091,7 +3097,7 @@ div.bankOptions {
       }
     }
   }
-  .iconCart {
+  .iCart {
     position: absolute;
     right: 10px;
     top: 0;

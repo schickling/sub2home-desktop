@@ -12,10 +12,7 @@
 }
 
 /* global styles */
-[class^="icon"], [class*=" icon"],
-[class^="vec"], [class*=" vec"],
-[class^="vecbutton"], [class*=" vecbutton"],
-[class^="componentAlias"], [class*=" componentAlias"] {
+.icn, .iBtn, .phd {
   display: inline-block;
   width: auto;
   height: auto;
@@ -25,31 +22,22 @@
 }
 
 
-[class^="icon"]:before, [class*=" icon"]:before,
-[class^="icon"]:after, [class*=" icon"]:after,
-[class^="vec"]:before, [class*=" vec"]:before,
-[class^="vec"]:after, [class*=" vec"]:after,
-[class^="vecbutton"]:before, [class*=" vecbutton"]:before,
-[class^="vecbutton"]:after, [class*=" vecbutton"]:after,
-[class^="componentAlias"]:before, [class*=" componentAlias"]:before,
-[class^="componentAlias"]:after, [class*=" componentAlias"]:after {
-  font-family: "Homicons";
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: inherit;
-  font-size: 30px;
+.icn, .iBtn, .phd {
+  font-family: "Homicons" !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-decoration: inherit !important;
+  font-size: 30px !important;
 }
 
 .note, .smallNote {
-  [class^="icon"], [class*=" icon"],
-  [class^="vec"], [class*=" vec"] {
+  .icn {
     color: @onNoteColor;
   }
 }
 
 .note, .smallNote {
-  [class^="vecbutton"], [class*=" vecbutton"],
-  [class^="componentAlias"], [class*=" componentAlias"] {
+  .iBtn, .phd {
     color: @onNoteColor50;
     .transition(color .05s linear);
     &:hover, &:active {
@@ -60,7 +48,7 @@
 
 // ----------------------------------------------------  Icons -------------------------------------------------------
 
-[class^="icon"], [class*=" icon"] {
+.icn {
   //width: 27px;
   //height: 27px;
   &:before {
@@ -69,41 +57,41 @@
   }
 }
 
-.iconStar:before {
+.iStar:before {
   content: "e";
 }
 
-.iconCheck, .vecbuttonCheck {
+.iCheck, .bCheck {
   &:before {
     content: "f";
   }
 }
 
-.iconAdd, .vecbuttonAdd {
+.iAdd, .bAdd {
   &:before {
     content: "a";
   }
 }
 
-.iconRemove, .vecbuttonRemove {
+.iRemove, .bRemove {
   &:before {
     content: "b";
   }
 }
 
-.iconClose, .vecbuttonClose {
+.iClose, .bClose {
   &:before {
     content: "g";
   }
 }
 
-.iconTrash, .vecbuttonTrash {
+.iTrash, .bTrash {
   &:before {
     content: "j";
   }
 }
 
-.iconCart, .vecbuttonCart {
+.iCart, .bCart {
   &:before {
     content: "k";
   }
@@ -115,31 +103,31 @@
   }
 }
 
-.iconPayBar, .vecbuttonPayBar {
+.iPayBar, .bPayBar {
   &:before {
     content: "2";
   }
 }
 
-.iconPayEC, .vecbuttonPayEC {
+.iPayEC, .bPayEC {
   &:before {
     content: "3";
   }
 }
 
-.iconPaypal, .vecbuttonPaypal {
+.iPaypal, .bPaypal {
   &:before {
     content: "4";
   }
 }
 
-.iconTurnover, .vecbuttonTurnover {
+.iTurnover, .bTurnover {
   &:after {
     content: "Y";
   }
 }
 
-.iconAlert, .vecbuttonAlert {
+.iAlert, .bAlert {
   &:before {
     content: "Z";
   }
@@ -147,31 +135,31 @@
 
 // TIMELINE ICONS
 
-.iconSub, .vecbuttonSub {
+.iSub, .bSub {
   &:before {
     content: "9";
   }
 }
 
-.iconBread, .vecbuttonBread {
+.iBread, .bBread {
   &:before {
     content: "5";
   }
 }
 
-.iconCheese, .vecbuttonCheese {
+.iCheese, .bCheese {
   &:before {
     content: "6";
   }
 }
 
-.iconVegetables, .vecbuttonVegetables {
+.iVegetables, .bVegetables {
   &:before {
     content: "7";
   }
 }
 
-.iconSauce, .vecbuttonSauce {
+.iSauce, .bSauce {
   &:before {
     content: "8";
   }
@@ -180,7 +168,7 @@
 
 // ----------------------------------------------------  Vecs --------------------------------------------------------
 
-.vecCircle:before {
+.iCircle:before {
   content: "o";
   font-size: 200px;
   display: block;
@@ -189,63 +177,63 @@
 
 // ----------------------------------------------------  Vec-Buttons -------------------------------------------------
 
-[class^="vecbutton"], [class*=" vecbutton"] {
+.iBtn {
   cursor: pointer;
 }
 
 
-.vecbuttonLock:before {
+.bLock:before {
   content: "h";
 }
 
-.vecbuttonUnlock:before {
+.bUnlock:before {
   content: "i";
 }
 
-.vecbuttonSettings:before {
+.bSettings:before {
   content: "c";
 }
 
-.vecbuttonPrev:before {
+.bPrev:before {
   content: "D";
 }
 
-.vecbuttonNext:before {
+.bNext:before {
   content: "E";
 }
 
-.vecbuttonStoreInfo:before {
+.bStoreInfo:before {
   content: "G";
 }
 
-.vecbuttonMail:before {
+.bMail:before {
   content: "H";
 }
 
-.vecbuttonPhone:before {
+.bPhone:before {
   content: "I";
 }
 
-.vecbuttonEdit:before {
+.bEdit:before {
   content: "J";
 }
 
-.vecbuttonInfo:before {
+.bInfo:before {
   content: "K";
 }
 
-.vecbuttonDocument:before {
+.bDocument:before {
   content: "1";
 }
 
-.vecbuttonPrint:before {
+.bPrint:before {
   content: "0";
 }
 
 
 // ----------------------------------------------------  Dashed Components -------------------------------------------
 
-[class^="componentAlias"], [class*=" componentAlias"] {
+.phd {
   &:before, &:after {
     font-size: 300px;
     color: @white;
@@ -255,7 +243,7 @@
   }
 }
 
-.componentAliasSub {
+.pSub {
   &:before {
     content: "Q";
   }
@@ -264,7 +252,7 @@
   }
 }
 
-.componentAliasColdBev {
+.pColdBev {
   &:before {
     content: "R";
   }
@@ -273,7 +261,7 @@
   }
 }
 
-.componentAliasWarmBev {
+.pWarmBev {
   &:before {
     content: "S";
   }
@@ -282,7 +270,7 @@
   }
 }
 
-.componentAliasCookie {
+.pCookie {
   &:before {
     content: "T";
   }
@@ -291,7 +279,7 @@
   }
 }
 
-.componentAliasMuffin {
+.pMuffin {
   &:before {
     content: "U";
   }
@@ -300,7 +288,7 @@
   }
 }
 
-.componentAliasWrap {
+.pWrap {
   &:before {
     content: "V";
   }

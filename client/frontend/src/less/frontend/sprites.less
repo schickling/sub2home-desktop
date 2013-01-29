@@ -14,12 +14,8 @@
 // For the white version of the icons, just add the .foundicon_white class:
 // <i class="foundicon_inbox foundicon_white"></i>
 
-[class^="icon"],
-[class*=" icon"],
-[class^="button"],
-[class*=" button"],
-[class^="badge"],
-[class*=" badge"] {
+.sbtn,
+.sbdg {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -33,42 +29,19 @@
   position: relative;
 }
 
-[class^="button"],
-[class*=" button"] {
+.sbdg {
   cursor: pointer;
 }
 
 
-.buttonAdd         { background-position:      0      0  ; width:  29px; height:  29px; }
-.buttonRemove      { background-position:  -29px      0  ; width:  29px; height:  29px; }
-.buttonChecked     { background-position:  -58px      0  ; width:  29px; height:  29px; }
-.buttonUnchecked   { background-position:  -87px      0  ; width:  29px; height:  29px; }
-.buttonOpen        { background-position:  -61px  -30px  ; width:  61px; height:  61px;
-  &.open            { background-position:      0  -30px  ; width:  61px; height:  61px; }
+.bAdd         { background-position:      0      0  ; width:  29px; height:  29px; }
+.bChecked     { background-position:  -58px      0  ; width:  29px; height:  29px; }
+.bUnchecked   { background-position:  -87px      0  ; width:  29px; height:  29px; }
+.bOpen        { background-position:  -61px  -30px  ; width:  61px; height:  61px;
+  &.open      { background-position:      0  -30px  ; width:  61px; height:  61px; }
 }  
 
-.iconChecked       { background-position: -116px      0  ; width:  16px; height:  16px; }
-.iconUnchecked     { background-position: -132px      0  ; width:  16px; height:  16px; }
-.iconFlag          { background-position: -148px      0  ; width:  16px; height:  16px; }
+.bGreen        { background-position: -122px  -16px  ; width:  35px; height:  35px; }
 
-.badgeGreen        { background-position: -122px  -16px  ; width:  35px; height:  35px; }
-
-.iconInfo          { background-position: -122px  -51px  ; width:  61px; height:  65px;
-  &:hover           { background-position: -122px -117px  ; }
-}  
-
-.buttonNext        { background-position:      0  -91px  ; width:  50px; height:  91px; 
-  &:hover           { background-position:  -50px  -91px  ; }
-}
-
-.buttonPrev        { background-position:      0 -182px  ; width:  50px; height:  91px; 
-  &:hover           { background-position:  -50px -182px  ; }
-}
-/*
-.accentIngredient  { background-position:  -183px      0  ; width:  205px; height:  205px; .opacity(0); .transition( opacity linear 0.1s);
-  &.accented        { .opacity(100); }
-  &:hover           { .opacity(20);}
-}
-*/
 
 
