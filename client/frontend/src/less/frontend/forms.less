@@ -733,15 +733,6 @@ input[type="text"], textarea {
   &:-ms-input-placeholder { color: rgba(0,0,0,0.2); padding-top: 1px; }
 }
 
-.darkback {
-  ::-webkit-input-placeholder  { color: rgba(255,255,255,0.2); }
-  input[type="text"], textarea {
-    &::-webkit-input-placeholder {color: rgba(255,255,255,0.2) !important; padding-top: 1px !important; }
-    &::-moz-placeholder {color: rgba(255,255,255,0.2) !important; }
-    &:-ms-input-placeholder { color: rgba(255,255,255,0.2) !important; }
-  }
-}
-
 .note {
   ::-webkit-input-placeholder  { color: @onNoteColor50; }
   input[type="text"], textarea {
@@ -750,6 +741,17 @@ input[type="text"], textarea {
     &:-ms-input-placeholder { color: @onNoteColor50 !important; }
   }
 }
+
+.darkback {
+  ::-webkit-input-placeholder  { color: rgba(255,255,255,0.2);}
+  input[type="text"], textarea {
+    &::-webkit-input-placeholder {color: rgba(255,255,255,0.2) !important; padding-top: 1px !important; }
+    &::-moz-placeholder {color: rgba(255,255,255,0.2) !important; }
+    &:-ms-input-placeholder { color: rgba(255,255,255,0.2) !important; }
+  }
+}
+
+
 
 .bigInput {
   &::-webkit-input-placeholder { position: relative; top: 4px !important; }
