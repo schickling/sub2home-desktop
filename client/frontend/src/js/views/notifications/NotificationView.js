@@ -12,9 +12,15 @@ define([
 
 		template: _.template(NotificationTemplate),
 
+		timer: 0,
+
+		events: {
+			'click .bClose': 'destroy'
+		},
+
 		initialize: function () {
 			this.render();
-			this.countdown();
+			// this.countdown();
 		},
 
 		render: function () {
@@ -26,9 +32,15 @@ define([
 		countdown: function () {
 			var self = this;
 
-			setTimeout(function () {
+			this.timer = setTimeout(function () {
 				self.remove();
 			}, this.model.get('duration'));
+		},
+
+		destroy: function () {
+			clearTimeout(this.timer);
+
+			this.remove();
 		}
 
 	});

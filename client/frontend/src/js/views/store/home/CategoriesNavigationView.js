@@ -92,7 +92,9 @@ define([
 			this.timelineItemsCollection = new TimelineItemsCollection();
 
 			_.each(this.collection.models, function (categoryModel) {
-				this.timelineItemsCollection.add();
+				this.timelineItemsCollection.add({
+					image: '../' + categoryModel.get('smallImage')
+				});
 			}, this);
 		},
 
@@ -156,7 +158,7 @@ define([
 
 
 			// activate image lazy loading
-			this.$('img').unveil(this.$('.content'));
+			// this.$('img').unveil(this.$('.content'));
 		},
 
 		navigate: function () {

@@ -8,7 +8,10 @@ define([
 	var CategoryModel = Backbone.Model.extend({
 
 		defaults: {
-			itemsCollection: null
+			itemsCollection: null,
+
+			smallImage: '',
+			icon: ''
 		},
 
 		parse: function (response) {
