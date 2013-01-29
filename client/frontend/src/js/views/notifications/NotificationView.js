@@ -14,18 +14,28 @@ define([
 
 		timer: 0,
 
+		zIndex: 0,
+
 		events: {
 			'click .bClose': 'close'
 		},
 
 		initialize: function () {
+			this.zIndex = this.options.zIndex;
+
 			this.render();
-			this.countdown();
+
+			if (this.model.get('duration') > 0) {
+				this.countdown();
+			}
 		},
 
 		render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.addClass(this.model.get('type'));
+			this.$el.css({
+				zIndex: this.zIndex
+			});
 		},
 
 		countdown: function () {

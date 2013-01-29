@@ -122,7 +122,7 @@ define([
 							}
 						});
 					}, function () {
-						notificationcenter.error('Standort konnte nicht ermittelt werden');
+						notificationcenter.warning('Neeeeeeeeein!', 'Standort konnte nicht ermittelt werden');
 					});
 				}); // end deffered
 			}
@@ -242,14 +242,14 @@ define([
 		},
 
 		noStoresFound: function () {
-			notificationcenter.error('Schade sowas gibts nicht in ' + this.postal);
+			notificationcenter.warning('Kein Store gefunden', 'Schade sowas gibts nicht in ' + this.postal);
 
 			this.centerMapToNotFoundPostal();
 		},
 
 		selectStoreNotification: function () {
 
-			notificationcenter.info('Entscheide dich fuer einen tollen Store');
+			notificationcenter.info('Entscheide dich', 'Entscheide dich fuer einen tollen Store');
 
 		},
 

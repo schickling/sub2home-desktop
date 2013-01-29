@@ -61,7 +61,7 @@ define([
 		},
 
 		notifyTest: function () {
-			notificationcenter.error('Test', 'Das ist ein test!');
+			notificationcenter.error('Test', 'Das ist ein test!' + Math.random());
 		}
 
 	});

@@ -12,39 +12,39 @@ define([
 			this.view = new NotificationcenterView();
 		},
 
-		error: function (title, description) {
+		error: function (title, description, duration) {
 			this.notify({
 				title: title,
 				description: description,
 				type: 'error',
-				duration: 20000
+				duration: duration | 7000
 			});
 		},
 
-		info: function (title, description) {
+		info: function (title, description, duration) {
 			this.notify({
 				title: title,
 				description: description,
 				type: 'info',
-				duration: 2000
+				duration: duration | 4000
 			});
 		},
 
-		success: function (title, description) {
+		success: function (title, description, duration) {
 			this.notify({
 				title: title,
 				description: description,
 				type: 'success',
-				duration: 2000
+				duration: duration | 4000
 			});
 		},
 
-		warning: function (title, description) {
+		warning: function (title, description, duration) {
 			this.notify({
 				title: title,
 				description: description,
 				type: 'warning',
-				duration: 2000
+				duration: duration | 5000
 			});
 		},
 

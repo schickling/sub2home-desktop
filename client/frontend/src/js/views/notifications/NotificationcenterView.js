@@ -10,12 +10,15 @@ define([
 
 		el: $('#notificationcenter'),
 
+		currentZIndex: 5000,
+
 		renderNotification: function (notificationModel) {
 			var notificationView = new NotificationView({
-				model: notificationModel
+				model: notificationModel,
+				zIndex: this.currentZIndex++
 			});
 
-			this.$el.append(notificationView.el);
+			this.$el.prepend(notificationView.el);
 		}
 
 	});
