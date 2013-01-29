@@ -10,9 +10,15 @@ class ClientsController extends ApiController
 	
 	public function index()
 	{
-		$clientsCollection = ClientModel::all();
+		$clientsCollection = ClientModel::with('storesCollection')->get();
 
-		return $clientsCollection;
+		foreach ($clientsCollection as $clientModel) {
+			foreach ($clientModel->storesCollection as $storeModel) {
+				$storeModel->setHidden(array());
+			}
+		}
+
+		return $clientsCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
 }

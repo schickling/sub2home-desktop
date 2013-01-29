@@ -3,14 +3,14 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/dashboard/MainTemplate.html'
-	], function ($, _, Backbone, MainTemplate) {
+	'text!templates/clients/ClientTemplate.html'
+	], function ($, _, Backbone, ClientTemplate) {
 
 	var ClientView = Backbone.View.extend({
 
 		className: 'client',
 
-		template: _.template(template_client),
+		template: _.template(ClientTemplate),
 
 		events: {
 			'click .folded_client': 'toggle_stores',

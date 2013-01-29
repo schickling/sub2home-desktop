@@ -2,12 +2,15 @@
 define([
 	'underscore',
 	'backbone',
+	'server',
 	'models/ClientModel'
-	], function (_, Backbone, ClientModel) {
+	], function (_, Backbone, server, ClientModel) {
 
 	var ClientsCollection = Backbone.Collection.extend({
 
-		model: ClientModel
+		model: ClientModel,
+
+		url: server.getAddress() + 'clients'
 
 	});
 
