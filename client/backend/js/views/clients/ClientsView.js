@@ -2,31 +2,58 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+	'backbone',
+	'collections/ClientsCollection',
+	'views/clients/ClientView'
+	], function ($, _, Backbone, ClientsCollection, ClientView) {
 
 	var ClientsView = Backbone.View.extend({
 
-		el: $('#content'),
+		filterCleared: true,
 
-		filter_cleared: true,
+		filterTimeout: 0,
 
-		filter_timeout: 0,
+		$list: null,
 
 		events: {
-			'click .add_new_client': 'add_client',
-			'keyup .searchbar': 'filter_with_timeout',
-			'click .icon_clear': 'clear_searchbar',
+			'click .add_new_client': 'addClient',
+			'keyup .searchbar': 'filterWithTimeout',
+			'click .iconClear': 'clearSearchbar',
 			'click .sort': 'sort'
 		},
 
-		initialize: function (json_clients) {
+		initialize: function () {
 
-			this.$list = this.$el.find('.client_listing section');
+			this.$list = this.$('.client_listing section');
 
-			this.collection = new Clients(json_clients);
+			this.collection = new ClientsCollection();
+			this.collection.fetch();
+
 			this.render(this.collection.models);
 
+		},
+
+		render: function (clientModels) {
+			// Reset list
+			this.$list.html('');
+
+			// _.each(clientModels, function (clientModel) {
+			// 	this.renderClient(clientModel);
+			// }, this);
+		},
+
+		renderClient: function (clientModel, add) {
+			var client_view = new ClientView({
+				model: clientModel
+			});
+
+			if (add) {
+				this.$list.prepend(client_view.render().el);
+			} else {
+				this.$list.append(client_view.render().el);
+			}
+
+			return client_view;
 		},
 
 		sort: function (e) {
@@ -48,36 +75,13 @@ define([
 			this.render(this.collection.models);
 		},
 
-		render: function (items) {
-			// Reset list
-			this.$list.html('');
-
-			_.each(items, function (item) {
-				this.render_client(item);
-			}, this);
-		},
-
-		render_client: function (item, add) {
-			var client_view = new ClientView({
-				model: item
-			});
-
-			if (add) {
-				this.$list.prepend(client_view.render().el);
-			} else {
-				this.$list.append(client_view.render().el);
-			}
-
-			return client_view;
-		},
-
-		add_client: function () {
-			var client = new Client();
+		addClient: function () {
+			var client = new ClientModel();
 			var self = this;
 
 			client.save({}, {
 				success: function () {
-					var client_view = self.render_client(client, true);
+					var client_view = self.renderClient(client, true);
 					client_view.show_edit();
 
 					self.collection.add(client);
@@ -86,41 +90,41 @@ define([
 
 		},
 
-		clear_searchbar: function () {
-			this.$el.find('.searchbar').val('');
-			this.$el.find('.icon_clear').hide();
-			this.reset_filter();
+		clearSearchbar: function () {
+			this.$('.searchbar').val('');
+			this.$('.iconClear').hide();
+			this.resetFilter();
 		},
 
-		filter_with_timeout: function (e) {
-			clearTimeout(this.filter_timeout);
+		filterWithTimeout: function (e) {
+			clearTimeout(this.filterTimeout);
 
 			var self = this;
-			this.filter_timeout = setTimeout(function () {
+			this.filterTimeout = setTimeout(function () {
 				self.filter(e);
 			}, 300);
 		},
 
 		filter: function (e) {
 			var keyword = e.target.value,
-				$icon_clear = this.$el.find('.icon_clear');
+				$iconClear = this.$('.iconClear');
 
 			if (keyword) {
-				$icon_clear.show();
-				this.filter_cleared = false;
+				$iconClear.show();
+				this.filterCleared = false;
 
 				var results = this.collection.search(keyword);
 				this.render(results);
 			} else {
-				if (!this.filter_cleared) {
-					$icon_clear.hide();
-					this.reset_filter();
-					this.filter_cleared = true;
+				if (!this.filterCleared) {
+					$iconClear.hide();
+					this.resetFilter();
+					this.filterCleared = true;
 				}
 			}
 		},
 
-		reset_filter: function () {
+		resetFilter: function () {
 			this.render(this.collection.models);
 		}
 

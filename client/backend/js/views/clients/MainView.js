@@ -1,11 +1,12 @@
-// Filename: js/views/dashboard/MainView.js
+// Filename: js/views/clients/MainView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
 	'views/PageView',
-	'text!templates/dashboard/MainTemplate.html'
-	], function ($, _, Backbone, PageView, MainTemplate) {
+	'views/clients/ClientsView',
+	'text!templates/clients/MainTemplate.html'
+	], function ($, _, Backbone, PageView, ClientsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -17,6 +18,10 @@ define([
 
 		render: function () {
 			this.$el.html(MainTemplate);
+
+			var clientsView = new ClientsView({
+				el: this.$('#content')
+			});
 		}
 
 	});

@@ -7,6 +7,8 @@ define([
 
 	var PageView = Backbone.View.extend({
 
+		el: $('body')
+
 	});
 
 	return PageView;

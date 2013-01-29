@@ -14,6 +14,7 @@ define([
 	'views/error/MainView'
 	], function ($, _, Backbone, DashboardMainView, ArticlesMainView, CategoriesMainView, ClientsMainView, IngredientsMainView, LoginMainView, MenuBundlesMainView, MenuUpgradesMainView, ErrorMainView) {
 
+
 	var Router = Backbone.Router.extend({
 
 		routes: {
