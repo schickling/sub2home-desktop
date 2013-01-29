@@ -17,7 +17,9 @@ define([
 		zIndex: 0,
 
 		events: {
-			'click .bClose': 'close'
+			'click .bClose': 'close',
+			'mouseenter': 'stopTimer',
+			'mouseleave': 'countdown'
 		},
 
 		initialize: function () {
@@ -25,9 +27,7 @@ define([
 
 			this.render();
 
-			if (this.model.get('duration') > 0) {
-				this.countdown();
-			}
+			this.countdown();
 		},
 
 		render: function () {
@@ -39,15 +39,21 @@ define([
 		},
 
 		countdown: function () {
-			var self = this;
+			if (this.model.get('duration') > 0) {
+				var self = this;
 
-			this.timer = setTimeout(function () {
-				self.destroy();
-			}, this.model.get('duration'));
+				this.timer = setTimeout(function () {
+					self.destroy();
+				}, this.model.get('duration'));
+			}
+		},
+
+		stopTimer: function () {
+			clearTimeout(this.timer);
 		},
 
 		close: function () {
-			clearTimeout(this.timer);
+			this.stopTimer();
 			this.destroy();
 		},
 

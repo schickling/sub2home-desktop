@@ -12,7 +12,7 @@ define([
 
 	var HeaderView = Backbone.View.extend({
 
-		className: 'header',
+		el: $('#header'),
 
 		template: _.template(HeaderTemplate),
 
@@ -37,8 +37,6 @@ define([
 				this.$el.html(this.template(json));
 
 				this.renderCart();
-
-				this.$el.appendTo($('body'));
 
 			}
 		},
