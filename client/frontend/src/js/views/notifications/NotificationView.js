@@ -36,7 +36,6 @@ define([
 			this.$el.css({
 				zIndex: this.zIndex
 			});
-			this.slideIn();
 		},
 
 		countdown: function () {
@@ -70,7 +69,11 @@ define([
 		},
 
 		slideIn: function () {
-			this.$el.animate({
+			var $el = this.$el;
+
+			$el.css({
+				marginTop: -($el.outerHeight(true))
+			}).animate({
 				marginTop: 0,
 				opacity: 1
 			}, 300);

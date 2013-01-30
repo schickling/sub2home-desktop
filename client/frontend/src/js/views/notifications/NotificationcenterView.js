@@ -19,6 +19,9 @@ define([
 			});
 
 			this.$el.prepend(notificationView.el);
+
+			// needs to be in dom first
+			notificationView.slideIn();
 		}
 
 	});

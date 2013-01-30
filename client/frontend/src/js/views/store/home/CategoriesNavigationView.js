@@ -58,7 +58,8 @@ define([
 
 			_.each(this.collection.models, function (categoryModel) {
 				this.timelineItemsCollection.add({
-					image: '../' + categoryModel.get('smallImage')
+					image: '../' + categoryModel.get('smallImage'),
+					icon: categoryModel.get('icon')
 				});
 			}, this);
 		},
