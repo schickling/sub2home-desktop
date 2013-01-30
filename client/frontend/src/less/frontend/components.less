@@ -82,37 +82,28 @@ img.cookie    { margin: 0 -10px;}
   &.error {
     header {
       color: @red;
-      h4:before {
-        content: "\e071";
-      }
+      h4:before { content: "\e071"; }
     }
-
   }
 
   &.warning {
     header {
       color: @orange;
-      h4:before {
-        content: "\e073";
-      }
+      h4:before { content: "\e073"; }
     }
   }
 
   &.info {
     header {
-      color: @blue;
-      h4:before {
-        content: "\e072";
-      }
+      color: @greenDark;
+      h4:before { content: "\e072"; }
     }
   }
 
   &.success {
     header {
       color: @greenLight;
-      h4:before {
-        content: "\e067";
-      }
+      h4:before { content: "\e067"; }
     }
   }
 }
@@ -151,33 +142,39 @@ img.cookie    { margin: 0 -10px;}
 .tooltip {
   display: none;
   position: absolute;
+  .border-radius(3px);
+  border: 1px solid #c0a053;
+  color: @onHeaderColor;
+  .box-shadow(0 1px 6px rgba(0,0,0,0.25));
   &:before, &:after {
     content: "▲";
     position: absolute;
     color: rgba(0,0,0,0);
-    text-shadow: 0 0 4px rgba(0,0,0, 0.4);
+    text-shadow: 0 2px 9px rgba(0,0,0, 0.4), 0 -2px 0 #c0a053;
     left: 15px;
-    top: -14px;
+    top: -13px;
     z-index: 5000;
     font-size: 15px;
   }
   &:after {
-    color: @white;
+    color: #f2e1a6;
     text-shadow: none;
     z-index: 5001
     }
 
   .tooltipInner {
     position: relative;
-    .border-radius(2px);
-    .box-shadow(0 0px 4px rgba(0,0,0,0.4));
-    background: @white;
+    .border-radius(3px);
+    .notificationBackground;
+    color: inherit;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     padding: 8px 12px 7px;
     font-family: @headingsFontFamily;
     letter-spacing: 1px;
     font-size: 15px;
     text-transform: uppercase;
     z-index: 5001; 
+    
   }
 
   &.locationSelectionTooltip {
@@ -185,6 +182,11 @@ img.cookie    { margin: 0 -10px;}
     left: 50%;
     margin-left: -21px;
   }
+  
+  &.error { color: @red; }
+  &.warning { color: @orange; }
+  &.info { color: @greenDark; }
+  &.success { color: @greenLight; }
 
 }
 
@@ -462,6 +464,8 @@ div.pricetag {
       .icn {
         margin-top: 13px;
         margin-left: -2px;
+        width: 70px;
+        height: 41px;
         .r-engraved-text;
         &:before {
           font-size: 45px;
@@ -612,10 +616,11 @@ aside#header {
         span {
           display: none;
           font-size: 10px;
+          font-family: @headingsFontFamily;
           color: @white;
           font-style: normal;
           position: absolute;
-          left: 24px;
+          left: 25px;
           top: -5px;
           z-index: 2;
           text-shadow: 0 1px 2px rgba(0,0,0,0.4);
@@ -2467,7 +2472,7 @@ div.bankOptions {
 
 .overlay {
 
-  [class^="vecbutton"], [class*=" vecbutton"] {
+  .iBtn {
     display: none;
     position: absolute;
     
@@ -2487,28 +2492,25 @@ div.bankOptions {
       top: 30px;
      } 
 
-     &:hover {
+    &:hover {
       color: rgba(0,0,0,0.25);
      }
-  }
+    &.bPrev {
+      left: 20px;
+    }
 
-  .vecbuttonPrev {
-    left: 20px;
+    &.bNext {
+      right: 20px;
+    }
 
-  }
-
-  .vecbuttonNext {
-    right: 20px;
-
-  }
-
-  .vecbuttonCart {
-    color: rgba(0,0,0,0.08);
-    right: 100px;
-    right: 20px;
-    width: 80px;
-    &:before {
-      left: -15px;
+    &.bCart {
+      color: rgba(0,0,0,0.08);
+      right: 100px;
+      right: 20px;
+      width: 80px;
+      &:before {
+        left: -15px;
+      }
     }
   }
 }
@@ -2546,19 +2548,27 @@ div.bankOptions {
     background: @white;
     display: inline-block;
     img {
-      margin-top: 20px;
+      margin-top: 25px;
     }
     .smallNote {
       .smallSelectionNote;
+      top: -45px;
     }
     .accentIngredient {
-      .positioned;
-      left: 0;
-      top: -90px;
+      position: absolute;
+      left: -5px;
+      top: 0px;
       color: @greenLighter20;
       .opacity(0);
       .transition(e('opacity linear 0.1s, color linear 0.1s'));
       .backface-visibility(hidden);
+      width: 208px;
+      height: 208px;
+      &:before {
+        display: block;
+        font-size: 215px;
+      }
+
       &.accented:hover {
         .opacity(100);
       }
@@ -2611,7 +2621,7 @@ div.bankOptions {
       width: 200px;
     }
   }
-  [class^="componentAlias"], [class*=" componentAlias"] {
+  .phd {
     position: absolute;
     left: 50%;
     .backface-visibility(hidden);
@@ -2656,7 +2666,7 @@ div.bankOptions {
 
     // COMPONENT-ALIAS-STYLES
 
-  .componentAliasColdBev {
+  .pColdBev {
     top: 0;
     margin-left: -135px;
     &:before, &:after {
@@ -2679,7 +2689,7 @@ div.bankOptions {
 
     // --------------------------
 
-  .componentAliasCookie {
+  .pCookie {
 
     top: 85px;
     margin-left: 20px;
@@ -2765,7 +2775,7 @@ div.bankOptions {
 // HOVER STATE
 
   &:hover {
-    [class^="componentAlias"], [class*=" componentAlias"] {
+    .phd {
       
       &:before, &:after {
         .opacity(0);
@@ -2788,7 +2798,7 @@ div.bankOptions {
 
   &.selected {
 
-    [class^="componentAlias"], [class*=" componentAlias"] {
+    .phd {
       &:before, &:after {
         .opacity(0);
       }
@@ -2952,6 +2962,7 @@ div.bankOptions {
     p {
       font-family: @handFontFamily;
       font-size: 15px;
+      width: 300px;
     }
   }
 

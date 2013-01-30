@@ -197,12 +197,6 @@ textarea {
 .inactive:hover {
   opacity: 0.6;
 }
-.error {
-  color: #dc952b !important;
-}
-.success {
-  color: #57a827 !important;
-}
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -2201,8 +2195,6 @@ table [class*=span],
 }
 .iCircle:before {
   content: "\e053";
-  font-size: 200px;
-  display: block;
 }
 .iPayBar:before,
 .bPayBar:before {
@@ -3372,7 +3364,7 @@ img.cookie {
   content: "\e073";
 }
 .notification.info header {
-  color: #049cdb;
+  color: #13493b;
 }
 .notification.info header h4:before {
   content: "\e072";
@@ -3386,33 +3378,52 @@ img.cookie {
 .tooltip {
   display: none;
   position: absolute;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #c0a053;
+  color: #a78a44;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
 .tooltip:before,
 .tooltip:after {
   content: "▲";
   position: absolute;
   color: rgba(0, 0, 0, 0);
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 9px rgba(0, 0, 0, 0.4), 0 -2px 0 #c0a053;
   left: 15px;
-  top: -14px;
+  top: -13px;
   z-index: 5000;
   font-size: 15px;
 }
 .tooltip:after {
-  color: #ffffff;
+  color: #f2e1a6;
   text-shadow: none;
   z-index: 5001;
 }
 .tooltip .tooltipInner {
   position: relative;
   behavior: url(../css/border-radius.htc);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.4);
-  background: #ffffff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #a78a44;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #f0dc9d;
+  background-image: -moz-linear-gradient(top, #f2e1a6, #edd58f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2e1a6), to(#edd58f));
+  background-image: -webkit-linear-gradient(top, #f2e1a6, #edd58f);
+  background-image: -o-linear-gradient(top, #f2e1a6, #edd58f);
+  background-image: linear-gradient(to bottom, #f2e1a6, #edd58f);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2e1a6', endColorstr='#ffedd58f', GradientType=0);
+  *background-color: #edd58f;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: inherit;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   padding: 8px 12px 7px;
   font-family: "VAGRounded LT Thin";
   letter-spacing: 1px;
@@ -3424,6 +3435,18 @@ img.cookie {
   bottom: -28px;
   left: 50%;
   margin-left: -21px;
+}
+.tooltip.error {
+  color: #9d261d;
+}
+.tooltip.warning {
+  color: #dc952b;
+}
+.tooltip.info {
+  color: #13493b;
+}
+.tooltip.success {
+  color: #57a827;
 }
 .flag {
   position: relative;
@@ -3599,6 +3622,8 @@ div.pricetag span:after {
 .categoriesNavigation .stageTimeline .itemTimeline .icn {
   margin-top: 13px;
   margin-left: -2px;
+  width: 70px;
+  height: 41px;
   text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
   color: #c3a55d;
 }
@@ -3754,10 +3779,11 @@ aside#header > div.trayPreview .iCart {
 aside#header > div.trayPreview .iCart span {
   display: none;
   font-size: 10px;
+  font-family: "VAGRounded LT Thin";
   color: #ffffff;
   font-style: normal;
   position: absolute;
-  left: 24px;
+  left: 25px;
   top: -5px;
   z-index: 2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -5265,8 +5291,7 @@ div.bankOptions button.bankaccount {
   margin-top: 30px;
   font-family: "VAGRounded LT Thin";
 }
-.overlay [class^="vecbutton"],
-.overlay [class*=" vecbutton"] {
+.overlay .iBtn {
   display: none;
   position: absolute;
   height: 76px;
@@ -5279,30 +5304,28 @@ div.bankOptions button.bankaccount {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.overlay [class^="vecbutton"]:before,
-.overlay [class*=" vecbutton"]:before {
+.overlay .iBtn:before {
   font-size: 100px;
   position: absolute;
   left: -30px;
   top: 30px;
 }
-.overlay [class^="vecbutton"]:hover,
-.overlay [class*=" vecbutton"]:hover {
+.overlay .iBtn:hover {
   color: rgba(0, 0, 0, 0.25);
 }
-.overlay .vecbuttonPrev {
+.overlay .iBtn.bPrev {
   left: 20px;
 }
-.overlay .vecbuttonNext {
+.overlay .iBtn.bNext {
   right: 20px;
 }
-.overlay .vecbuttonCart {
+.overlay .iBtn.bCart {
   color: rgba(0, 0, 0, 0.08);
   right: 100px;
   right: 20px;
   width: 80px;
 }
-.overlay .vecbuttonCart:before {
+.overlay .iBtn.bCart:before {
   left: -15px;
 }
 .stage {
@@ -5351,18 +5374,19 @@ div.bankOptions button.bankaccount {
   display: inline-block;
 }
 .slide .item img {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 .slide .item .smallNote {
   opacity: 0;
   filter: alpha(opacity=0);
   position: relative;
   display: inline-block;
+  top: -45px;
 }
 .slide .item .accentIngredient {
-  position: relative;
-  left: 0;
-  top: -90px;
+  position: absolute;
+  left: -5px;
+  top: 0px;
   color: #ebf4d8;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -5373,6 +5397,12 @@ div.bankOptions button.bankaccount {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  width: 208px;
+  height: 208px;
+}
+.slide .item .accentIngredient:before {
+  display: block;
+  font-size: 215px;
 }
 .slide .item .accentIngredient.accented:hover {
   opacity: 1;
@@ -5417,18 +5447,15 @@ div.bankOptions button.bankaccount {
 .menuUpgrade .baseComponent img {
   width: 200px;
 }
-.menuUpgrade [class^="componentAlias"],
-.menuUpgrade [class*=" componentAlias"] {
+.menuUpgrade .phd {
   position: absolute;
   left: 50%;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.menuUpgrade [class^="componentAlias"]:before,
-.menuUpgrade [class*=" componentAlias"]:before,
-.menuUpgrade [class^="componentAlias"]:after,
-.menuUpgrade [class*=" componentAlias"]:after {
+.menuUpgrade .phd:before,
+.menuUpgrade .phd:after {
   font-size: 200px;
   position: absolute;
   opacity: 1;
@@ -5438,8 +5465,7 @@ div.bankOptions button.bankaccount {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.menuUpgrade [class^="componentAlias"] img,
-.menuUpgrade [class*=" componentAlias"] img {
+.menuUpgrade .phd img {
   opacity: 0;
   filter: alpha(opacity=0);
   max-width: 300px;
@@ -5448,8 +5474,7 @@ div.bankOptions button.bankaccount {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.menuUpgrade [class^="componentAlias"] .componentInfo,
-.menuUpgrade [class*=" componentAlias"] .componentInfo {
+.menuUpgrade .phd .componentInfo {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 24px;
   color: #cecece;
@@ -5462,56 +5487,54 @@ div.bankOptions button.bankaccount {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.menuUpgrade [class^="componentAlias"] .componentInfo:before,
-.menuUpgrade [class*=" componentAlias"] .componentInfo:before {
+.menuUpgrade .phd .componentInfo:before {
   content: "+ ";
 }
-.menuUpgrade [class^="componentAlias"] .componentInfo:after,
-.menuUpgrade [class*=" componentAlias"] .componentInfo:after {
+.menuUpgrade .phd .componentInfo:after {
   content: "q";
   font-family: "Homicons";
   font-size: 50px;
   color: #cecece;
   position: absolute;
 }
-.menuUpgrade .componentAliasColdBev {
+.menuUpgrade .pColdBev {
   top: 0;
   margin-left: -135px;
 }
-.menuUpgrade .componentAliasColdBev:before,
-.menuUpgrade .componentAliasColdBev:after {
+.menuUpgrade .pColdBev:before,
+.menuUpgrade .pColdBev:after {
   top: 83px;
   left: 75px;
 }
-.menuUpgrade .componentAliasColdBev img {
+.menuUpgrade .pColdBev img {
   width: 300px;
 }
-.menuUpgrade .componentAliasColdBev .componentInfo {
+.menuUpgrade .pColdBev .componentInfo {
   top: -20px;
   left: -10px;
 }
-.menuUpgrade .componentAliasColdBev .componentInfo:after {
+.menuUpgrade .pColdBev .componentInfo:after {
   left: 40px;
   top: 20px;
 }
-.menuUpgrade .componentAliasCookie {
+.menuUpgrade .pCookie {
   top: 85px;
   margin-left: 20px;
 }
-.menuUpgrade .componentAliasCookie:before,
-.menuUpgrade .componentAliasCookie:after {
+.menuUpgrade .pCookie:before,
+.menuUpgrade .pCookie:after {
   top: 37px;
   left: -19px;
 }
-.menuUpgrade .componentAliasCookie img {
+.menuUpgrade .pCookie img {
   width: 160px;
 }
-.menuUpgrade .componentAliasCookie .componentInfo {
+.menuUpgrade .pCookie .componentInfo {
   top: -85px;
   left: 70px;
   white-space: nowrap;
 }
-.menuUpgrade .componentAliasCookie .componentInfo:after {
+.menuUpgrade .pCookie .componentInfo:after {
   left: 40px;
   top: 50px;
   -moz-transform: scaleX(-1);
@@ -5574,15 +5597,12 @@ div.bankOptions button.bankaccount {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-.menuUpgrade:hover [class^="componentAlias"]:before,
-.menuUpgrade:hover [class*=" componentAlias"]:before,
-.menuUpgrade:hover [class^="componentAlias"]:after,
-.menuUpgrade:hover [class*=" componentAlias"]:after {
+.menuUpgrade:hover .phd:before,
+.menuUpgrade:hover .phd:after {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.menuUpgrade:hover [class^="componentAlias"] img,
-.menuUpgrade:hover [class*=" componentAlias"] img {
+.menuUpgrade:hover .phd img {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -5594,15 +5614,12 @@ div.bankOptions button.bankaccount {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.menuUpgrade.selected [class^="componentAlias"]:before,
-.menuUpgrade.selected [class*=" componentAlias"]:before,
-.menuUpgrade.selected [class^="componentAlias"]:after,
-.menuUpgrade.selected [class*=" componentAlias"]:after {
+.menuUpgrade.selected .phd:before,
+.menuUpgrade.selected .phd:after {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.menuUpgrade.selected [class^="componentAlias"] img,
-.menuUpgrade.selected [class*=" componentAlias"] img {
+.menuUpgrade.selected .phd img {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -5709,6 +5726,7 @@ div.bankOptions button.bankaccount {
 .orderedItems .itemDescription p {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
+  width: 300px;
 }
 .orderedItems .controls {
   display: none;

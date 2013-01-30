@@ -1,13 +1,15 @@
-<div class="smallNote">
-	<div class="centerContent">
-		<h4><%= title %></h4>
-		<img src="img/static/common/pin.png" alt="">
-		<div class="deliveryStatus">
-			<% if (true) { %>
-			<span class="deliveryIndicator delivering"></span>liefert in <span class="deliveryTime">1 min</span>
-			<% } else { %>
-			<span class="deliveryIndicator notDelivering"></span>oeffnet wieder <span class="notDeliveryTime">Morgen</span>
-			<% } %>
+<div class="storePreview">
+	<img src="img/static/common/pin.png" alt="">
+	<div class="smallNote">
+		<div class="centerContent">
+			<h4><%= title %></h4>
+			<div class="deliveryStatus">
+				<% if (true) { %>
+				<span class="deliveryIndicator delivering"></span>liefert in <span class="deliveryTime">1 min</span>
+				<% } else { %>
+				<span class="deliveryIndicator notDelivering"></span>oeffnet wieder <span class="notDeliveryTime">Morgen</span>
+				<% } %>
+			</div>
 		</div>
 	</div>
 </div>
