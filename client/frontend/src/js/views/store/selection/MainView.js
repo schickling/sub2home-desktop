@@ -71,6 +71,8 @@ define([
 						orderedItemModel: self.orderedItemModel
 					});
 
+					console.log(articleModel.toJSON());
+
 					self.render();
 				},
 

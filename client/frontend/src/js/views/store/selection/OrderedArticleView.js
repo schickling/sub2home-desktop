@@ -58,7 +58,7 @@ define([
 		renderMenuUpgradeSelection: function () {
 			var articleModel = this.model.get('articleModel');
 
-			if (articleModel && articleModel.get('allowsMenuUprades') && articleModel.get('menuUpgradesCollection').length > 0) {
+			if (articleModel && articleModel.get('allowsMenuUpgrades') && articleModel.get('menuUpgradesCollection').length > 0) {
 				this.menuUpgradeSelectionView = new MenuUpgradeSelectionView({
 					model: this.model,
 					el: this.$el
