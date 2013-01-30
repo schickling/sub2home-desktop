@@ -11,6 +11,42 @@ define([
 	], function ($, _, Backbone, router, PageView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 
+
+	$.fn.unveil = function ($content) {
+		var th = 200,
+			images = this,
+			loaded, inview, source;
+
+		this.one('unveil', function () {
+			source = this.getAttribute('data-src');
+			this.setAttribute('src', source);
+			this.removeAttribute('data-src');
+		});
+
+		function unveil() {
+			inview = images.filter(function () {
+				var $e = $(this),
+					wt = $content.scrollTop(),
+					wb = wt + $content.height(),
+					et = $e.offset().top,
+					eb = et + $e.height();
+
+				return eb >= wt - th && et <= wb + th;
+			});
+
+			loaded = inview.trigger('unveil');
+			images = images.not(loaded);
+		}
+
+		$content.scroll(unveil);
+		$content.resize(unveil);
+
+		unveil();
+
+		return this;
+	};
+
+
 	var MainView = PageView.extend({
 
 		pageTitle: 'Subway Memmingen',
@@ -26,12 +62,16 @@ define([
 		render: function () {
 			this.$el.html(MainTemplate);
 
+
+			var self = this,
+				$content = this.$('.content'),
+				$categories = $content.find('.categories');
+
 			var categoriesView = new CategoriesView({
-				el: this.$('.categories')
+				el: $categories
 			});
 
 			// render navigation
-			var self = this;
 			categoriesView.deffered.done(function () {
 				var categoriesNavigationView = new CategoriesNavigationView({
 					collection: categoriesView.collection,
@@ -39,6 +79,9 @@ define([
 				});
 
 				self.append();
+
+				// activate image lazy loading
+				$categories.find('img').unveil($content);
 			});
 		},
 
