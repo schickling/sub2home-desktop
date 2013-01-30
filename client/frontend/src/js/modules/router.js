@@ -19,6 +19,7 @@ define([
 			':alias': 'showStoreHome',
 			':alias/theke/:resourceType/:resourceId': 'showStoreSelection',
 			':alias/tablett': 'showStoreTray',
+			':alias/danke': 'showStoreCheckout',
 			':alias/einstellungen': 'showStoreConfig',
 			':alias/bestellungen': 'showStoreOrders',
 
@@ -102,6 +103,16 @@ define([
 			});
 
 			this.loadMainView('views/store/tray/MainView');
+
+		},
+
+		showStoreCheckout: function () {
+
+			stateModel.set({
+				currentRoute: 'store.checkout'
+			});
+
+			this.loadMainView('views/store/checkout/MainView');
 
 		},
 

@@ -84,6 +84,16 @@ define([
 					origin: 'store.selection',
 					destination: 'store.tray',
 					type: 'b.backward'
+				},
+					{
+					origin: 'store.tray',
+					destination: 'store.checkout',
+					type: 'b.backward'
+				},
+					{
+					origin: 'store.checkout',
+					destination: 'store.home',
+					type: 'b.forward'
 				}
 				];
 

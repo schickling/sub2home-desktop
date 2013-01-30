@@ -3,17 +3,19 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'router',
 	'views/PageView',
 	'views/store/tray/CheckoutSettingsView',
 	'views/store/tray/OrderedItemsView',
 	'text!templates/store/tray/MainTemplate.html'
-	], function ($, _, Backbone, PageView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+	], function ($, _, Backbone, router, PageView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		events: {
 			'click .deliveryAddress': 'showCheckoutSettings',
-			'click #save': 'hideCheckoutSettings'
+			'click #save': 'hideCheckoutSettings',
+			'click .iCart': 'checkout'
 		},
 
 		initialize: function () {
@@ -51,8 +53,14 @@ define([
 			$tray.animate({
 				top: -475
 			});
-		}
+		},
 
+		checkout: function () {
+			router.navigate('store/danke', {
+				trigger: true,
+				replace: true
+			});
+		}
 
 
 	});
