@@ -5,9 +5,8 @@ define([
 	'underscore',
 	'backbone',
 	'models/stateModel',
-	'notificationcenter', // Request notificationcenter.js,
-	'views/header/HeaderView'
-	], function (require, $, _, Backbone, stateModel, notificationcenter, HeaderView) {
+	'notificationcenter' // Request notificationcenter.js
+	], function (require, $, _, Backbone, stateModel, notificationcenter) {
 
 	var Router = Backbone.Router.extend({
 
@@ -31,7 +30,10 @@ define([
 
 		init: function () {
 			// init header
-			new HeaderView();
+			require(['views/header/HeaderView'], function (HeaderView) {
+				var headerView = new HeaderView();
+			});
+
 
 			// start notificationcenter
 			notificationcenter.init();

@@ -40,7 +40,7 @@ return array (
 
 	array (
 		'id'							=> 4,
-		'menu_component_block_model_id'	=> 0,
+		'menu_component_block_model_id'	=> 2,
 		'category_model_id'				=> 4,
 		'title'							=> 'Cookie',
 		'icon'							=> 'iconCookie',
@@ -76,7 +76,7 @@ return array (
 
 	array (
 		'id'							=> 7,
-		'menu_component_block_model_id'	=> 0,
+		'menu_component_block_model_id'	=> 2,
 		'category_model_id'				=> 4,
 		'title'							=> 'Chips',
 		'icon'							=> 'iconChips',
@@ -88,7 +88,7 @@ return array (
 
 	array (
 		'id'							=> 8,
-		'menu_component_block_model_id'	=> 0,
+		'menu_component_block_model_id'	=> 1,
 		'category_model_id'				=> 5,
 		'title'							=> 'Getränk',
 		'icon'							=> 'iconBeverage',

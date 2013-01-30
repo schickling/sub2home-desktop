@@ -28,7 +28,7 @@ define([
 			var json = {
 				title: articleModel.get('title'),
 				description: articleModel.get('description'),
-				image: articleModel.get('image'),
+				image: articleModel.get('largeImage'),
 				total: this.model.get('total'),
 				amount: this.model.get('amount')
 			};

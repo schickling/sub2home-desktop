@@ -3,8 +3,9 @@ define([
 	'underscore',
 	'backbone',
 	'collections/MenuUpgradesCollection',
-	'collections/IngredientCategoriesCollection'
-	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection) {
+	'collections/IngredientCategoriesCollection',
+	'notificationcenter'
+	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
 
 	var ArticleModel = Backbone.Model.extend({
 
@@ -47,8 +48,7 @@ define([
 
 			// throw errors
 			this.on('error', function (model, error) {
-				console.log(error);
-				throw Error(error);
+				notificationcenter.error('Preisberechnung', error);
 			});
 
 		},
@@ -99,11 +99,11 @@ define([
 					value = attributes[number];
 
 				if (typeof (value) !== 'number' || value !== parseFloat(value)) {
-					return number + " has to be numeric";
+					return number + " has to be numeric: " + value;
 				}
 
 				if (value < 0) {
-					return number + " can't be negative";
+					return number + " can't be negative: " + value;
 				}
 			}
 

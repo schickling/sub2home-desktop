@@ -27,7 +27,6 @@ class ArticlesController extends ApiController
 			'menuUpgradesCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
-			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.categoryModel',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
 			))->find($articleModelId);
 
@@ -40,7 +39,7 @@ class ArticlesController extends ApiController
 		$articleModel->price = $articleModel->returnRealPrice($this->storeModel->id);
 
 		// get menu upgrades price
-		$this->prepareMenuUpgradesCollection($articleModel);
+		// $this->prepareMenuUpgradesCollection($articleModel);
 
 		// wrap ingredients in their ingredient categories
 		$this->prepareIngredientCategoriesCollection($articleModel);
@@ -70,9 +69,10 @@ class ArticlesController extends ApiController
 
 		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
 
-			$filteredIngredients = array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
+			// filter and reindex ingredients
+			$filteredIngredients = array_values(array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
 				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
-			});
+			}));
 
 			if (count($filteredIngredients) > 0) {
 				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
