@@ -8,41 +8,6 @@ define([
 	], function ($, _, Backbone, TimelineItemsCollection, TimelineBaseView) {
 
 
-	$.fn.unveil = function ($container, threshold) {
-		var $w = $container || $(window),
-			th = threshold || 0,
-			images = this,
-			loaded, inview, source;
-
-		this.one('unveil', function () {
-			source = this.getAttribute('data-src');
-			this.setAttribute('src', source);
-			this.removeAttribute('data-src');
-		});
-
-		function unveil() {
-			inview = images.filter(function () {
-				var $e = $(this),
-					wt = $w.scrollTop(),
-					wb = wt + $w.height(),
-					et = $e.offset().top,
-					eb = et + $e.height();
-
-				return eb >= wt - th && et <= wb + th;
-			});
-
-			loaded = inview.trigger('unveil');
-			images = images.not(loaded);
-		}
-
-		// $w.scroll(unveil);
-		$w.resize(unveil);
-
-		unveil();
-
-		return this;
-	};
-
 
 	var CategoriesNavigationView = Backbone.View.extend({
 
@@ -128,7 +93,6 @@ define([
 			// Bind to scroll
 			$content.on('scroll', function () {
 
-
 				// navigation
 				if (self.scrollListnening) {
 
@@ -154,11 +118,8 @@ define([
 
 				}
 
+
 			});
-
-
-			// activate image lazy loading
-			// this.$('img').unveil(this.$('.content'));
 		},
 
 		navigate: function () {
