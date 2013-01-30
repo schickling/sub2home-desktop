@@ -4690,13 +4690,13 @@ input[type="text"]#locationSelectionInput {
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:before,
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:after {
-  content: "6";
+  content: "\e015";
   font-family: "Homicons";
   color: #cd9100;
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:before,
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:after {
-  content: "7";
+  content: "\e016";
   font-family: "Homicons";
   color: #c64b00;
 }
@@ -4708,22 +4708,22 @@ input[type="text"]#locationSelectionInput {
   padding: 0 10px 0 5px;
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .bread:before {
-  content: "5";
+  content: "\e014";
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .cheese:before {
-  content: "6";
+  content: "\e015";
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .vegetables:before {
-  content: "7";
+  content: "\e016";
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .sauce:before {
-  content: "8";
+  content: "\e017";
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .extras:before {
-  content: "e";
+  content: "\e05c";
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients .toasted:before {
-  content: "f";
+  content: "\e05c";
 }
 .content.orders .orderListing .order .orderContent .articleItem.additional {
   display: inline-block;
@@ -5501,7 +5501,7 @@ div.bankOptions button.bankaccount {
   content: "+ ";
 }
 .menuUpgrade .phd .componentInfo:after {
-  content: "q";
+  content: "\e040";
   font-family: "Homicons";
   font-size: 50px;
   color: #cecece;
@@ -5681,7 +5681,7 @@ div.bankOptions button.bankaccount {
 }
 .itemsTimeline .itemTimeline:first-child:before {
   font-family: "Homicons";
-  content: "p";
+  content: "\e03f";
   position: absolute;
   font-size: 70px;
   left: -67px;
