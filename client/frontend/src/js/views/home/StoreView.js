@@ -15,36 +15,10 @@ define([
 			// needed in StoresView.js
 			this.position = new gmaps.LatLng(model.get('latitude'), model.get('longitude'));
 
-			// create new marker
-			var marker = this.marker = new gmaps.Marker({
-				position: this.position,
-				icon: new gmaps.MarkerImage("img/static/pin.png", null, null, new gmaps.Point(29, 87)),
-				map: parentView.map,
-				model: model
-			});
-
-			// bind marker event listeners
-			var self = this;
-
-			gmaps.event.addListener(marker, 'click', function () {
-				self.redirect();
-			});
-
-			gmaps.event.addListener(marker, 'mouseover', function () {
-				self.mouseenter();
-			});
-
-			gmaps.event.addListener(marker, 'mouseout', function () {
-				self.mouseleave();
-			});
-
 			// set map
 			this.setValues({
 				map: parentView.map
 			});
-
-			// bind position
-			this.bindTo('position', marker, 'position');
 
 			// load template
 			this.$el = $(this.template(model.toJSON())).clone();
@@ -85,7 +59,7 @@ define([
 	// Implement draw
 	StoreView.prototype.draw = function () {
 		var projection = this.getProjection(),
-			position = projection.fromLatLngToDivPixel(this.get('position')),
+			position = projection.fromLatLngToDivPixel(this.position),
 			$el = this.$el;
 
 		$el.css({
@@ -133,12 +107,8 @@ define([
 	};
 
 	StoreView.prototype.remove = function () {
-		// destroy note
 		this.setMap(null);
 		this.$el.remove();
-
-		// destroy marker
-		this.marker.setMap(null);
 	};
 
 	return StoreView;

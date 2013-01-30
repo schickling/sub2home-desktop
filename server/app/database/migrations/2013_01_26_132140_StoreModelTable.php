@@ -21,8 +21,8 @@ class StoreModelTable extends Migration {
 			$table->string('paypalTokensecret', 128);
 			$table->integer('number');
 			$table->integer('client_model_id');
-			$table->float('latitude');
-			$table->float('longitude');
+			$table->decimal('latitude', 8, 6);
+			$table->decimal('longitude', 8, 6);
 			$table->decimal('totalTurnover', 12, 2);
 			$table->boolean('isActive');
 			$table->boolean('isOpen');
