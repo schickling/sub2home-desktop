@@ -4009,6 +4009,16 @@ input[type="text"]#locationSelectionInput {
 .smallNote .deliveryStatus .notDeliveryTime {
   color: #dc952b;
 }
+.storePreview {
+  position: absolute;
+}
+.storePreview > img {
+  position: absolute;
+  left: -20px;
+}
+.storePreview .smallNote {
+  top: 90px;
+}
 .categoriesNavigation {
   width: 50%;
   text-align: center;
