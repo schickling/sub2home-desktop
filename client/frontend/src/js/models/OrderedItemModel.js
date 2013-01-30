@@ -10,6 +10,8 @@ define([
 
 		defaults: {
 
+			id: 0,
+
 			amount: 1,
 
 			total: 0,
@@ -164,6 +166,20 @@ define([
 
 			this.get('orderedArticlesCollection').destroy();
 
+		},
+
+		// remove ordered articles belonging to an old menu upgrade
+		reduceOrderedArticles: function () {
+			var orderedArticlesCollection = this.get('orderedArticlesCollection'),
+				orderedArticleModel;
+
+			for (var i = 0; i < orderedArticlesCollection.length; i++) {
+				orderedArticleModel = orderedArticlesCollection.models[i];
+				if (!orderedArticleModel.isMenuUpgradeBase()) {
+					orderedArticleModel.destroy();
+					i--;
+				}
+			}
 		}
 
 	});

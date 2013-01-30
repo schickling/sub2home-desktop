@@ -390,7 +390,7 @@ define([
 				});
 
 			} else {
-				notificationcenter.error('Bitte erst mal fertig machen. Danke');
+				notificationcenter.error('Noch nicht fertig!', 'Bitte erst mal fertig machen. Danke');
 				this.markBlockedTimelineItems();
 			}
 		},

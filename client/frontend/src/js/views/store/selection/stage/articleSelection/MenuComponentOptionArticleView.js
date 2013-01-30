@@ -28,7 +28,14 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
+
+			var json = {
+				title: this.model.get('title'),
+				image: this.model.get('largeImage'),
+				description: this.model.get('description')
+			};
+
+			this.$el.html(this.template(json));
 
 			return this;
 		},

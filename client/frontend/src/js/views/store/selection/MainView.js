@@ -83,7 +83,30 @@ define([
 		},
 
 		createOrderedItemFromMenuBundle: function () {
-
+			// var self = this;
+			// // fetch article from server
+			// var menuBundleModel = new ArticleModel({
+			// 	id: stateModel.get('selectionRessourceId')
+			// });
+			// menuBundleModel.fetch({
+			// 	success: function () {
+			// 		// create new ordered article
+			// 		var orderedArticleModel = new OrderedArticleModel();
+			// 		self.orderedItemModel = new OrderedItemModel({
+			// 			orderedArticlesCollection: new OrderedArticlesCollection(orderedArticleModel)
+			// 		});
+			// 		// append ordered item to ordered article
+			// 		orderedArticleModel.set({
+			// 			menuBundleModel: menuBundleModel,
+			// 			orderedItemModel: self.orderedItemModel
+			// 		});
+			// 		console.log(menuBundleModel.toJSON());
+			// 		self.render();
+			// 	},
+			// 	error: function () {
+			// 		// self.pageNotFound();
+			// 	}
+			// });
 		},
 
 		loadOrderedItemFromLocalStorage: function () {
@@ -166,13 +189,7 @@ define([
 			var orderedArticlesCollection = this.orderedItemModel.get('orderedArticlesCollection');
 
 			// remove ordered articles belonging to an old menu upgrade
-			for (var i = 0; i < orderedArticlesCollection.length; i++) {
-				var orderedArticleModel = orderedArticlesCollection.models[i];
-				if (!orderedArticleModel.isMenuUpgradeBase()) {
-					orderedArticleModel.destroy();
-					i--;
-				}
-			}
+			this.orderedItemModel.reduceOrderedArticles();
 
 			// create new ordered articles for each menu component block
 			menuUpgradeModel.get('menuComponentBlocksCollection').each(function (menuComponentBlockModel) {

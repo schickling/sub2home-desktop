@@ -27,7 +27,7 @@ define([
 		render: function () {
 			var articleModel = this.model.get('articleModel'),
 				json = {
-					currentArticleImage: articleModel.get('image'),
+					currentArticleImage: articleModel.get('largeImage'),
 					currentArticleTitle: articleModel.get('title')
 				};
 
@@ -36,6 +36,7 @@ define([
 
 		resetMenuUpgrade: function () {
 			this.model.set('menuUpgradeModel', null);
+			this.model.get('orderedItemModel').reduceOrderedArticles();
 		}
 
 	});

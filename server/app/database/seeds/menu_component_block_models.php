@@ -9,12 +9,39 @@ return array (
 		'id' 						=> 1,
 		'menu_bundle_model_id'		=> 0,
 		'menu_upgrade_model_id'		=> 1
-	),
+		),
 
 	array (
 		'id' 						=> 2,
 		'menu_bundle_model_id'		=> 0,
 		'menu_upgrade_model_id'		=> 1
-	)
+		),
 
-);
+// Kids Pak --------------------
+// -----------------------------
+
+	array ( // sub
+		'id' 						=> 3,
+		'menu_bundle_model_id'		=> 1,
+		'menu_upgrade_model_id'		=> 0
+		),
+
+	array ( // drink
+		'id' 						=> 4,
+		'menu_bundle_model_id'		=> 1,
+		'menu_upgrade_model_id'		=> 0
+		),
+
+	array ( // cookie
+		'id' 						=> 5,
+		'menu_bundle_model_id'		=> 1,
+		'menu_upgrade_model_id'		=> 0
+		)
+
+	// array ( // toy
+	// 	'id' 						=> 6,
+	// 	'menu_bundle_model_id'		=> 1,
+	// 	'menu_upgrade_model_id'		=> 0
+	// 	)
+
+	);

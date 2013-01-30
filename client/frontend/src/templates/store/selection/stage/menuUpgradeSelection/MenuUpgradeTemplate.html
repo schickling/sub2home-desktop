@@ -1,21 +1,21 @@
 
 	<div class="optionalComponent phd pColdBev">
-		<img src="../../../img/articles/getraenke/kaltgetraenk.png" alt="">
-		<div class="componentInfo">0,5l Getränk</div>
+		<img src="../../../<%= firstMenuComponentOptionImage %>" alt="">
+		<div class="componentInfo"><%= firstMenuComponentOptionTitle %></div>
 	</div>
 	<div class="optionalComponent phd pCookie">
-		<img src="../../../img/articles/cookies/macadamia_nut.png" alt="">
-		<div class="componentInfo">Cookie<br/>nach Wahl</div>
+		<img src="../../../<%= secondMenuComponentOptionImage %>" alt="">
+		<div class="componentInfo"><%= secondMenuComponentOptionTitle %><br/>nach Wahl</div>
 	</div>
-	<div class="baseComponent"><img src="<%= currentArticleImage %>" alt=""></div>
+	<div class="baseComponent"><img src="../../../<%= currentArticleImage %>" alt=""></div>
 
 	<div class="pricetag">
-		<span class="firstVisible">2.00</span>
+		<span class="firstVisible"><%= price %></span>
 	</div>
 
 	<div class="menuUpgradeBasics">
 		<div class="smallNote">
 			<h3><i class="iBtn bCheck"></i><%= title %></h3>
 		</div>
-		<p class="itemDescription">zusätzlich zu deinem <%= currentArticleTitle %> ein 0,5l Getränk und einen leckeren Cookie nach Wahl</p>
+		<p class="itemDescription"><%= description %></p>
 	</div>

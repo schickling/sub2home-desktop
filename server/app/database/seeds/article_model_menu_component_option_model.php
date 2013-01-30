@@ -2,20 +2,43 @@
 
 $menuComponentOptionArticlesPairs = array (
 
+// Sparmenu --------------------
+// -----------------------------
+
 	array (
-		'menu_component_option_model_id'	=> 4, // Cookies
+		'menu_component_option_model_id'	=> 1, // Getraenke
+		'article_model_ids'					=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
+		),
+
+	array (
+		'menu_component_option_model_id'	=> 2, // Cookies
 		'article_model_ids'					=> array(46, 47, 48, 49)
 		),
 
 	array (
-		'menu_component_option_model_id'	=> 7, // Chips
+		'menu_component_option_model_id'	=> 3, // Chips
 		'article_model_ids'					=> array(54, 55, 56, 57, 58, 59, 60, 61)
 		),
 
+// Kids Pak --------------------
+// -----------------------------
+
 	array (
-		'menu_component_option_model_id'	=> 8, // Getraenke
+		'menu_component_option_model_id'	=> 4, // Subs
+		'article_model_ids'					=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+		),
+
+	array (
+		'menu_component_option_model_id'	=> 5, // Getraenke
 		'article_model_ids'					=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
+		),
+
+	array (
+		'menu_component_option_model_id'	=> 6, // Cookies
+		'article_model_ids'					=> array(46, 47, 48, 49)
 		)
+
+
 
 	);
 

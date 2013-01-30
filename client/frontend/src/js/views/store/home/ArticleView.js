@@ -17,7 +17,6 @@ define([
 
 		initialize: function () {
 			this.render();
-			// this.prepareForLazyLoading();
 		},
 
 		render: function () {
@@ -31,14 +30,6 @@ define([
 			} else {
 				alert('Warenkorb yo!');
 			}
-		},
-
-		prepareForLazyLoading: function () {
-			this.$('img').one('unveil', function () {
-				var source = this.getAttribute('data-src');
-				this.setAttribute('src', source);
-				this.removeAttribute('data-src');
-			});
 		}
 
 	});

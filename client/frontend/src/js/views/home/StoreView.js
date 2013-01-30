@@ -62,10 +62,10 @@ define([
 			position = projection.fromLatLngToDivPixel(this.position),
 			$el = this.$el;
 
-		$el.css({
-			left: position.x - $el.width() / 2,
-			top: position.y + 8
-		});
+		// $el.css({
+		// 	left: position.x - $el.width() / 2,
+		// 	top: position.y + 8
+		// });
 	};
 
 	StoreView.prototype.mouseenter = function () {

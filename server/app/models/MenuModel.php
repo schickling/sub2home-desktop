@@ -71,7 +71,7 @@ abstract class MenuModel extends ItemModel
 	 * 
 	 * @return object
 	 */
-	public function customMenuModelsCollection()
+	public function customMenusCollection()
 	{
 		return $this->hasMany('CustomMenuModel');
 	}

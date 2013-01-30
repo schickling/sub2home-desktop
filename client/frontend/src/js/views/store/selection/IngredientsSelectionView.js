@@ -27,8 +27,8 @@ define([
 				ingredientCategoriesCollection.each(function (ingredientCategoryModel) {
 
 					var timelineItemModel = new TimelineItemModel({
-						image: ingredientCategoryModel.get('image'),
-						icon: ingredientCategoryModel.get('image'),
+						image: '../../../' + ingredientCategoryModel.get('smallImage'),
+						icon: ingredientCategoryModel.get('icon'),
 						phrase: 'Waehle deine Zutaten'
 					});
 

@@ -6,6 +6,8 @@ define([
 
 	var ItemModel = Backbone.Model.extend({
 
+		idAttribute: 'cid',
+
 		defaults: {
 			image: '../img/static/article_gray_big.png'
 		}

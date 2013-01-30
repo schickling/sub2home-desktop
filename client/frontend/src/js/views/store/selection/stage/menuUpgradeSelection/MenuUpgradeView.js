@@ -16,20 +16,45 @@ define([
 			'click': 'select'
 		},
 
-		initialize: function() {
+		initialize: function () {
 			this.orderedArticleModel = this.options.orderedArticleModel;
 
 			this.render();
 		},
 
 		render: function () {
-			var currentArticleModel = this.orderedArticleModel.get('articleModel');
+			var currentArticleModel = this.orderedArticleModel.get('articleModel'),
+				menuComponentBlocksCollection = this.model.get('menuComponentBlocksCollection'),
+				firstMenuComponentBlockModel, menuComponentOptionsCollection, firstMenuComponentOptionModel, secondMenuComponentBlockModel, secondMenuComponentOptionModel;
 
 			var json = {
 				title: this.model.get('title'),
-				currentArticleImage: currentArticleModel.get('image'),
+				price: this.model.get('price'),
+				description: this.model.get('description'),
+				currentArticleImage: currentArticleModel.get('largeImage'),
 				currentArticleTitle: currentArticleModel.get('title')
 			};
+
+			// first menu component option
+			if (menuComponentBlocksCollection.length > 0) {
+				firstMenuComponentBlockModel = menuComponentBlocksCollection.first();
+				menuComponentOptionsCollection = firstMenuComponentBlockModel.get('menuComponentOptionsCollection');
+				firstMenuComponentOptionModel = menuComponentOptionsCollection.first();
+
+				json.firstMenuComponentOptionImage = firstMenuComponentOptionModel.get('largeImage');
+				json.firstMenuComponentOptionTitle = firstMenuComponentOptionModel.get('title');
+			}
+
+			// second menu component option
+			if (menuComponentBlocksCollection.length > 1) {
+				secondMenuComponentBlockModel = menuComponentBlocksCollection.at(1);
+				menuComponentOptionsCollection = secondMenuComponentBlockModel.get('menuComponentOptionsCollection');
+				secondMenuComponentOptionModel = menuComponentOptionsCollection.first();
+
+				json.secondMenuComponentOptionImage = secondMenuComponentOptionModel.get('largeImage');
+				json.secondMenuComponentOptionTitle = secondMenuComponentOptionModel.get('title');
+			}
+
 
 			this.$el.html(this.template(json));
 		},
