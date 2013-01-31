@@ -5364,18 +5364,38 @@ div.bankOptions button.bankaccount {
 .stage {
   position: absolute;
   width: 40000px;
+  *zoom: 1;
   height: 100%;
   overflow: hidden;
   text-align: left;
 }
+.stage:before,
+.stage:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.stage:after {
+  clear: both;
+}
 .slideContainer {
+  *zoom: 1;
+  float: left;
   overflow: auto;
-  display: inline-block;
   text-align: left;
 }
+.slideContainer:before,
+.slideContainer:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.slideContainer:after {
+  clear: both;
+}
 .slide {
+  float: left;
   text-align: center;
-  display: inline-block;
   margin: 0;
   padding: 0;
   padding: 0 50px;
