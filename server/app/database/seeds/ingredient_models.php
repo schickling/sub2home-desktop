@@ -201,14 +201,50 @@ return array (
 		'price'							=> 0.60
 	),
 
+		array (
+		'id' 							=> 21,
+		'order' 						=> 21,
+		'ingredient_category_model_id'	=> 4,
+		'title' 						=> 'Oregano',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/oregano.png',
+		'price'							=> 0.00
+	),
+
+	array (
+		'id' 							=> 22,
+		'order' 						=> 22,
+		'ingredient_category_model_id'	=> 4,
+		'title' 						=> 'Salz',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/salz.png',
+		'price'							=> 0.00
+	),
+
+	array (
+		'id' 							=> 23,
+		'order' 						=> 23,
+		'ingredient_category_model_id'	=> 4,
+		'title' 						=> 'Pfeffer',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/pfeffer.png',
+		'price'							=> 0.00
+	),
+
+	array (
+		'id' 							=> 24,
+		'order' 						=> 24,
+		'ingredient_category_model_id'	=> 4,
+		'title' 						=> 'Parmesan',
+		'largeImage'					=> 'img/static/ingredients/largeimages/extras/parmesan.png',
+		'price'							=> 0.00
+	),
+
 
 // SAUCEN ----------------------
 // -----------------------------
 
 
 	array (
-		'id' 							=> 21,
-		'order' 						=> 21,
+		'id' 							=> 25,
+		'order' 						=> 25,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Chipotle Southwest',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/chipotle.png',
@@ -216,8 +252,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 22,
-		'order' 						=> 22,
+		'id' 							=> 26,
+		'order' 						=> 26,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Asiago Cesar',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/asiago.png',
@@ -225,8 +261,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 23,
-		'order' 						=> 23,
+		'id' 							=> 27,
+		'order' 						=> 27,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'BBQ-Sauce',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/barbecue.png',
@@ -234,8 +270,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 24,
-		'order' 						=> 24,
+		'id' 							=> 28,
+		'order' 						=> 28,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Joghurt-Dressing',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/joghurt.png',
@@ -243,8 +279,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 25,
-		'order' 						=> 25,
+		'id' 							=> 29,
+		'order' 						=> 29,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Sweet Onion',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/sweetonion.png',
@@ -252,8 +288,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 26,
-		'order' 						=> 26,
+		'id' 							=> 30,
+		'order' 						=> 30,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Honey Mustard',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/honeymustard.png',
@@ -261,8 +297,8 @@ return array (
 	),
 
 	array (
-		'id' 							=> 27,
-		'order' 						=> 27,
+		'id' 							=> 31,
+		'order' 						=> 31,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Lite Mayonaise',
 		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/litemayonaise.png',
@@ -270,47 +306,11 @@ return array (
 	),
 
 	array (
-		'id' 							=> 28,
-		'order' 						=> 28,
-		'ingredient_category_model_id'	=> 5,
-		'title' 						=> 'Hot Sauce',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/hotsauce.png',
-		'price'							=> 0.00
-	),
-
-	array (
-		'id' 							=> 29,
-		'order' 						=> 29,
-		'ingredient_category_model_id'	=> 5,
-		'title' 						=> 'Oregano',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/oregano.png',
-		'price'							=> 0.00
-	),
-
-	array (
-		'id' 							=> 30,
-		'order' 						=> 30,
-		'ingredient_category_model_id'	=> 5,
-		'title' 						=> 'Salz',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/salz.png',
-		'price'							=> 0.00
-	),
-
-	array (
-		'id' 							=> 31,
-		'order' 						=> 31,
-		'ingredient_category_model_id'	=> 5,
-		'title' 						=> 'Pfeffer',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/pfeffer.png',
-		'price'							=> 0.00
-	),
-
-	array (
 		'id' 							=> 32,
 		'order' 						=> 32,
 		'ingredient_category_model_id'	=> 5,
-		'title' 						=> 'Parmesan',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/parmesan.png',
+		'title' 						=> 'Hot Sauce',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/hotsauce.png',
 		'price'							=> 0.00
 	)
 
