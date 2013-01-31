@@ -7,7 +7,7 @@ return array (
 		'order' 		=> 1,
 		'title' 		=> 'Brot',
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/bread.png',
-		'icon'			=> 'iconBread',
+		'icon'			=> 'iBread',
 		'isSingle'		=> true,
 		'isMandatory'	=> true
 	),
@@ -17,7 +17,7 @@ return array (
 		'order' 		=> 2,
 		'title' 		=> 'Käse',
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/cheese.png',
-		'icon'			=> 'iconCheese',
+		'icon'			=> 'iCheese',
 		'isSingle'		=> true,
 		'isMandatory'	=> true
 	),
@@ -27,7 +27,7 @@ return array (
 		'order' 		=> 3,
 		'title' 		=> 'Gemüse',
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/vegetables.png',
-		'icon'			=> 'iconVegetables',
+		'icon'			=> 'iVegetables',
 		'isSingle'		=> false,
 		'isMandatory'	=> false
 	),
@@ -37,7 +37,7 @@ return array (
 		'order' 		=> 4,
 		'title' 		=> 'Extras',
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/extras.png',
-		'icon'			=> 'iconExtras',
+		'icon'			=> 'iExtras',
 		'isSingle'		=> false,
 		'isMandatory'	=> false
 	),
@@ -47,7 +47,7 @@ return array (
 		'order' 		=> 5,
 		'title' 		=> 'Sauce',
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/sauce.png',
-		'icon'			=> 'iconSauce',
+		'icon'			=> 'iSauce',
 		'isSingle'		=> false,
 		'isMandatory'	=> false
 	),
