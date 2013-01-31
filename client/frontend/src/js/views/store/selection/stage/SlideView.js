@@ -20,7 +20,7 @@ define([
 
 			this.afterInitialize();
 
-			this.$el.parent().bind('align', function () {
+			this.$el.parent().on('align', function () {
 				self._alignView();
 			});
 

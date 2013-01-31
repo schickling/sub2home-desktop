@@ -392,7 +392,7 @@ define([
 				});
 
 			} else {
-
+				console.log(this.collection.toJSON());
 				_.each(lockedTimelineItems, function (timelineItemModel) {
 					notificationcenter.error('Noch nicht fertig!', timelineItemModel.get('phrase') + ' ist noch nicht ausgewaehlt.');
 					timelineItemModel.trigger('highlight');

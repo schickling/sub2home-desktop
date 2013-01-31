@@ -4,9 +4,8 @@ define([
 	'underscore',
 	'backbone',
 	'collections/TimelineItemsCollection',
-	'views/store/selection/timeline/TimelineView',
-	'views/store/selection/SelectionCounter'
-	], function ($, _, Backbone, TimelineItemsCollection, TimelineView, SelectionCounter) {
+	'views/store/selection/timeline/TimelineView'
+	], function ($, _, Backbone, TimelineItemsCollection, TimelineView) {
 
 	// little hack to get height of hidden dom element
 	$.fn.hiddenHeight = function () {
@@ -32,6 +31,10 @@ define([
 
 		return height;
 	};
+
+	// global variable needed for info note sliding
+	var indexOfSelectionView = 0;
+
 
 	var SelectionView = Backbone.View.extend({
 
@@ -73,6 +76,7 @@ define([
 			// increase selection counter
 			this.increaseSelectionCounter();
 
+
 		},
 
 		prepare: function () {},
@@ -85,13 +89,13 @@ define([
 
 			// append selection index to all items for info switching
 			this.timelineItemsCollection.each(function (timelineItemModel) {
-				timelineItemModel.set('selectionIndex', SelectionCounter.count);
+				timelineItemModel.set('selectionIndex', indexOfSelectionView);
 			}, this);
 		},
 
 		increaseSelectionCounter: function () {
 			if (this.active) {
-				SelectionCounter.count++;
+				indexOfSelectionView++;
 			}
 		},
 
@@ -102,12 +106,12 @@ define([
 				this.renderInfoView();
 				this.renderStageView();
 
-				this.compensateHeights();
+				this.compensateSize();
 
 				// adjust height on resize
 				var self = this;
 				$(window).resize(function () {
-					self.compensateHeights();
+					self.compensateSize();
 				});
 
 			}
@@ -148,7 +152,7 @@ define([
 
 		},
 
-		compensateHeights: function () {
+		compensateSize: function () {
 			var mainHeight = this.$el.height(),
 				timelineHeight = this.$('.note.timeline').height(),
 				infoHeight = this.infoView.$el.hiddenHeight();
