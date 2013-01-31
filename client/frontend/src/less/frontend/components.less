@@ -2541,24 +2541,34 @@ div.bankOptions {
 .stage {
   position: absolute;
   width: 40000px;
-  .clearfix;
+  //.clearfix;
   height: 100%;
   overflow: hidden;
-
+  text-align: left;
+  //white-space: normal;
 }
 
 .slideContainer {
-  .clearfix;
-  float: left;
+  //.clearfix;
+  //float: left;
   overflow: auto;
-  width: 100%;
+  //width: 100%;
+  display: inline-block;
+  text-align: left;
+  //white-space: nowrap;
 }
 
 .slide {
   //overflow: auto;
-  float: left;
+  //float: left;
   text-align: center;
-
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  //white-space: normal;
+  //.border-box;
+  padding: 0 50px;
+  width: 1340px !important;
   .positioned;
   .item {
     overflow: visible;
