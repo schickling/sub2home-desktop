@@ -1114,7 +1114,7 @@ input[type="text"]#locationSelectionInput {
     width: 230px;
     height: 130px;
     &:before {
-      content:"C";
+      content:"\e01e";
       font-family: "Homicons";
       font-size: 300px;
       color: @onNoteColor;
@@ -1170,15 +1170,16 @@ input[type="text"]#locationSelectionInput {
       .icn, .several {
         display: block;
         width: 100%;
-        margin-bottom: 35px;
+        margin-bottom: 5px;
         .engraved-text;
 
         &:after {
-          content: "a";
+          content: "\e05d";
           font-family: "Homicons";
           font-size: 8px;
           display: block;
           text-align: center;
+          margin-top: 10px;
         }
 
         &:last-child:after {
@@ -1191,6 +1192,7 @@ input[type="text"]#locationSelectionInput {
           margin-bottom: 0;
           margin: 0;
           width: auto;
+          height: 15px;
           &:before {
             font-size: 13px;
           }

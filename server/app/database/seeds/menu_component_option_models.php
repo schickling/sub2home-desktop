@@ -10,11 +10,10 @@ return array (
 		'menu_component_block_model_id'	=> 1,
 		'category_model_id'				=> 5,
 		'title'							=> 'Getränk',
-		'icon'							=> 'iconBeverage',
+		'icon'							=> 'iBeverage',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-		'placeholderOutline'			=> 'placeholderOutlineBeverage',
-		'placeholderBackground'			=> 'placeholderBackgroundBeverage'
+		'placeholder'					=> 'pBeverage'
 		),
 
 	array (
@@ -22,11 +21,10 @@ return array (
 		'menu_component_block_model_id'	=> 2,
 		'category_model_id'				=> 4,
 		'title'							=> 'Cookie',
-		'icon'							=> 'iconCookie',
+		'icon'							=> 'iCookie',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-		'placeholderOutline'			=> 'placeholderOutlineCookie',
-		'placeholderBackground'			=> 'placeholderBackgroundCookie'
+		'placeholder'					=> 'pCookie'
 		),
 
 	array (
@@ -34,11 +32,10 @@ return array (
 		'menu_component_block_model_id'	=> 2,
 		'category_model_id'				=> 4,
 		'title'							=> 'Chips',
-		'icon'							=> 'iconChips',
+		'icon'							=> 'iChips',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/chips.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/chips.png',
-		'placeholderOutline'			=> 'placeholderOutlineChips',
-		'placeholderBackground'			=> 'placeholderBackgroundChips'
+		'placeholder'					=> 'pChips'
 		),
 
 
@@ -51,11 +48,10 @@ return array (
 		'menu_component_block_model_id'	=> 3,
 		'category_model_id'				=> 1,
 		'title'							=> 'Sub',
-		'icon'							=> 'iconSub',
+		'icon'							=> 'iSub',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/sub.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/sub.png',
-		'placeholderOutline'			=> 'placeholderOutlineSub',
-		'placeholderBackground'			=> 'placeholderBackgroundSub'
+		'placeholder'					=> 'pSub'
 		),
 
 	array (
@@ -63,11 +59,10 @@ return array (
 		'menu_component_block_model_id'	=> 4,
 		'category_model_id'				=> 5,
 		'title'							=> 'Getränk',
-		'icon'							=> 'iconBeverage',
+		'icon'							=> 'iBeverage',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-		'placeholderOutline'			=> 'placeholderOutlineBeverage',
-		'placeholderBackground'			=> 'placeholderBackgroundBeverage'
+		'placeholder'					=> 'pBeverage'
 		),
 
 	array (
@@ -75,11 +70,10 @@ return array (
 		'menu_component_block_model_id'	=> 5,
 		'category_model_id'				=> 4,
 		'title'							=> 'Cookie',
-		'icon'							=> 'iconCookie',
+		'icon'							=> 'iCookie',
 		'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
 		'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-		'placeholderOutline'			=> 'placeholderOutlineCookie',
-		'placeholderBackground'			=> 'placeholderBackgroundCookie'
+		'placeholder'					=> 'pCookie'
 		)
 
 	// array (

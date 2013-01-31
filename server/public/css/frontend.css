@@ -4155,7 +4155,7 @@ input[type="text"]#locationSelectionInput {
 }
 .article .footlongOption:before,
 .menuBundle .footlongOption:before {
-  content: "C";
+  content: "\e01e";
   font-family: "Homicons";
   font-size: 300px;
   color: #d1ba82;
@@ -4217,17 +4217,18 @@ input[type="text"]#locationSelectionInput {
 .menuBundle .bundleItems .several {
   display: block;
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 5px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   color: #c3a55d;
 }
 .menuBundle .bundleItems .icn:after,
 .menuBundle .bundleItems .several:after {
-  content: "a";
+  content: "\e05d";
   font-family: "Homicons";
   font-size: 8px;
   display: block;
   text-align: center;
+  margin-top: 10px;
 }
 .menuBundle .bundleItems .icn:last-child:after,
 .menuBundle .bundleItems .several:last-child:after {
@@ -4239,6 +4240,7 @@ input[type="text"]#locationSelectionInput {
   margin-bottom: 0;
   margin: 0;
   width: auto;
+  height: 15px;
 }
 .menuBundle .bundleItems .several .icn.small:before,
 .menuBundle .bundleItems .several .icn.small:before {
