@@ -2,8 +2,9 @@ define([
 	'jquery',
 	'underscore',
 	'gmaps',
+	'notificationcenter',
 	'text!templates/home/StoreTemplate.html'
-	], function ($, _, gmaps, StoreTemplate) {
+	], function ($, _, gmaps, notificationcenter, StoreTemplate) {
 
 	var StoreView = function (model, parentView) {
 
@@ -23,6 +24,9 @@ define([
 			// load template
 			this.$el = $(this.template(model.toJSON())).clone();
 
+			// cache note
+			this.$note = this.$el.find('.smallNote');
+
 		};
 
 	StoreView.prototype = new gmaps.OverlayView();
@@ -31,7 +35,16 @@ define([
 
 	// wrapper around parents redirect method
 	StoreView.prototype.redirect = function () {
-		this.parentView.redirect(this.model);
+		switch (this.state) {
+		case 'initialized':
+			notificationcenter.warning('Liefergebiet auswaehlen', 'Bitte waehle zu erst ein Liefergebiet aus.');
+			break;
+		case 'available':
+			this.parentView.redirect(this.model);
+			break;
+		case 'unavailable':
+			notificationcenter.error('Store nicht in Reichweite', 'Leider liefert dieser Store nicht in dein Liefergebiet.');
+		}
 	};
 
 	// Implement onAdd
@@ -40,20 +53,14 @@ define([
 			self = this,
 			$el = this.$el;
 
-		// bind storeview event handlers
-		$el.on('click', function () {
+		$(pane).append($el);
+
+		// set state
+		this.state = 'initialized';
+
+		this.$el.on('click', function () {
 			self.redirect();
 		});
-
-		$el.on('mouseenter', function () {
-			self.mouseenter();
-		});
-
-		$el.on('mouseleave', function () {
-			self.mouseleave();
-		});
-
-		$(pane).append($el);
 	};
 
 	// Implement draw
@@ -62,21 +69,9 @@ define([
 			position = projection.fromLatLngToDivPixel(this.position),
 			$el = this.$el;
 
-		// $el.css({
-		// 	left: position.x - $el.width() / 2,
-		// 	top: position.y + 8
-		// });
-	};
-
-	StoreView.prototype.mouseenter = function () {
-		this.$el.stop().animate({
-			marginTop: -5
-		});
-	};
-
-	StoreView.prototype.mouseleave = function () {
-		this.$el.stop().animate({
-			marginTop: 0
+		$el.css({
+			left: position.x - $el.width() / 2,
+			top: position.y
 		});
 	};
 
@@ -95,15 +90,41 @@ define([
 	};
 
 	StoreView.prototype.markAvailable = function () {
-		this.$el.animate({
+		var self = this,
+			$el = this.$el,
+			$note = this.$note;
+
+		this.state = 'available';
+
+		$el.animate({
 			opacity: 1
 		});
+
+		// bind storeview event handlers
+		$el.on('mouseenter', function () {
+			$note.stop().animate({
+				marginTop: -5
+			});
+		});
+
+		$el.on('mouseleave', function () {
+			$note.stop().animate({
+				marginTop: 0
+			});
+		});
+
 	};
 
 	StoreView.prototype.markUnavailable = function () {
-		this.$el.animate({
+		var $el = this.$el;
+
+		this.state = 'unavailable';
+
+		$el.animate({
 			opacity: 0.5
 		});
+
+		$el.off('mouseenter mouseleave');
 	};
 
 	StoreView.prototype.remove = function () {

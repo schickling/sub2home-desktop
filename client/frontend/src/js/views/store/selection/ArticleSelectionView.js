@@ -3,10 +3,11 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'models/TimelineItemModel',
 	'views/store/selection/info/articleSelection/InfoView',
 	'views/store/selection/SelectionView',
 	'views/store/selection/stage/articleSelection/MenuComponentOptionsView'
-	], function ($, _, Backbone, InfoView, SelectionView, MenuComponentOptionsView) {
+	], function ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) {
 
 	var ArticleSelectionView = SelectionView.extend({
 
@@ -16,20 +17,41 @@ define([
 
 		prepare: function () {
 
+			var timelineItemModel = new TimelineItemModel({
+				phrase: 'Waehle deinen Artikel',
+				locked: true
+			});
 
-			var timelineItem = {
-				phrase: 'Waehle deinen Artikel'
-			};
 
 			if (this.model.get('menuComponentBlockModel')) {
 				this.active = true;
+				this.timelineItemsCollection.add(timelineItemModel);
 			} else {
-				timelineItem.disabled = true;
+				// just symbolizes base article
+				timelineItemModel.set('disabled', true);
 			}
 
 
-			this.timelineItemsCollection.add(timelineItem);
 
+		},
+
+		listenForArticleSelection: function () {
+			var menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
+				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
+				timelineItemModel = this.timelineItemsCollection.first(),
+				menuComponentOptionArticlesCollection;
+
+			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel) {
+				menuComponentOptionArticlesCollection = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
+
+				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
+					menuComponentOptionArticleModel.on('change:selected', function () {
+						if (menuComponentOptionArticleModel.get('selected')) {
+							timelineItemModel.set('locked', false);
+						}
+					});
+				});
+			});
 		}
 
 	});

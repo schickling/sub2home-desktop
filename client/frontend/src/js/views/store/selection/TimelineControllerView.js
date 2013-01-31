@@ -174,7 +174,7 @@ define([
 			timelineItemModel.on('change', function () {
 				if (timelineItemModel.hasChanged('active') && timelineItemModel.get('active')) {
 
-					// deactive prev timeline item
+					// deactivate prev timeline item
 					this.currentTimelineItemModel.set('active', false);
 
 					// set new timeline item

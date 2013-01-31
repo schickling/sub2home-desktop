@@ -36,6 +36,7 @@ define([
 		},
 
 		renderArticle: function (articleModel) {
+			console.log(articleModel);
 			var orderedArticleMenuView = new OrderedArticleMenuView({
 				model: articleModel
 			});
