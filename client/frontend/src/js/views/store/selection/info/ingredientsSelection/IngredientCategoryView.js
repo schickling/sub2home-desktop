@@ -1,4 +1,4 @@
- // Filename: src/js/views/store/selection/info/IngredientCategoryView.js
+// Filename: src/js/views/store/selection/info/IngredientCategoryView.js
 define([
 	'jquery',
 	'underscore',
@@ -13,15 +13,21 @@ define([
 
 		template: _.template(IngredientCategoryTemplate),
 
+		initialize: function () {
+			this.render();
+		},
+
 		render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
-			
+			var json = {
+				title: this.model.get('title')
+			};
+
+			this.$el.html(this.template(json));
+
 			var ingredientsView = new IngredientsView({
 				collection: this.model.get('ingredientsCollection'),
 				el: this.$('.ingredients')
 			});
-
-			return this;
 		}
 
 	});

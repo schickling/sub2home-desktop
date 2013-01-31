@@ -19,7 +19,7 @@ return array (
 		'smallImage'	=> 'img/static/ingredientcategories/smallimages/cheese.png',
 		'icon'			=> 'iCheese',
 		'isSingle'		=> true,
-		'isMandatory'	=> true
+		'isMandatory'	=> false
 	),
 
 	array (

@@ -16,7 +16,7 @@ define([
 			disabled: false,
 			locked: false,
 			visited: false,
-			selectionIndex: 0,
+			selectionIndex: 0, // needed for info switching
 			menuUpgradeSelection: false // just needed for no upgrade detection in TimelineControllerView.js
 		}
 

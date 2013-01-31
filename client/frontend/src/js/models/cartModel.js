@@ -53,7 +53,7 @@ define([
 			// fetch if exists
 			this.fetch(0);
 
-			this.bind('change', function () {
+			this.on('change', function () {
 				console.log('cart saved');
 				console.log(this.changedAttributes());
 				this.save({}, {

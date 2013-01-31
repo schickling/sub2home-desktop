@@ -10,6 +10,7 @@ define([
 
 		defaults: {
 
+			// needed to be overwritten by unique id
 			id: 0,
 
 			amount: 1,
@@ -50,7 +51,7 @@ define([
 			// cascading remove
 			// timelineItemsCollection doesn't need to be destoryed
 			// since its included in orderedArticlesCollection
-			this.bind('destroy', this.destroyOrderedArticlesCollection);
+			this.on('destroy', this.destroyOrderedArticlesCollection);
 
 			// listeners for total price calculation
 			this.initializeListeners();
@@ -108,7 +109,7 @@ define([
 			// bind all ordered articles wheather their price has changed
 			var orderedArticlesCollection = this.get('orderedArticlesCollection');
 
-			orderedArticlesCollection.each(function (orderedArticleModel) {
+			_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
 				this.addOrderedArticleListener(orderedArticleModel);
 			}, this);
 
@@ -158,7 +159,7 @@ define([
 				}
 			}
 
-			console.log(total);
+			// console.log(total);
 			this.set('total', total * this.get('amount'));
 		},
 

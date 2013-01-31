@@ -9,44 +9,30 @@ define([
 
 	var IngredientsView = Backbone.View.extend({
 
-		activeIngredientsCollection: null,
-
 		initialize: function () {
 
-			this.activeIngredientsCollection = new IngredientsCollection();
+			// listen for further selection / deselection
+			_.each(this.collection.models, function (ingredientModel) {
 
-			this.collection.each(function (ingredientModel) {
-
-				// add already selected to active collection
-				if (ingredientModel.get('selected')) {
-					this.activeIngredientsCollection.add(ingredientModel);
-				}
-
-				// listen for further selection / deselection
-				ingredientModel.bind('change:selected', function () {
-					if (ingredientModel.get('selected')) {
-						this.activeIngredientsCollection.add(ingredientModel);
-					} else {
-						this.activeIngredientsCollection.remove(ingredientModel);
-					}
-				}, this);
-
+				ingredientModel.on('change:selected', this.render, this);
 
 			}, this);
 
 			this.render();
 
-			// bind collection events
-			this.activeIngredientsCollection.bind('add remove', this.render, this);
-
 		},
 
 		render: function () {
 
-			// clean old ingredient views
+			// reset view
 			this.$el.empty();
 
-			this.activeIngredientsCollection.each(function (ingredientModel) {
+			// filter active ingredients
+			var activeIngredients = this.collection.where({
+				selected: true
+			});
+
+			_.each(activeIngredients, function (ingredientModel) {
 				this.renderIngredient(ingredientModel);
 			}, this);
 		},
@@ -56,9 +42,7 @@ define([
 				model: ingredientModel
 			});
 
-			var $item = ingredientView.render().$el;
-
-			this.$el.append($item);
+			this.$el.append(ingredientView.el);
 		}
 
 	});

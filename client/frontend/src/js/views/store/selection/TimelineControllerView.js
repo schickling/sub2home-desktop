@@ -378,6 +378,8 @@ define([
 				locked: true
 			}).length;
 
+			console.log(this.collection.toJSON());
+
 			if (lockCount === 0) {
 				// save ordered item in cart
 				var orderedItemsCollection = cartModel.get('orderedItemsCollection');

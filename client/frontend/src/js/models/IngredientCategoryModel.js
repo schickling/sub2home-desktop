@@ -11,7 +11,7 @@ define([
 			isMandatory: false,
 			isSingle: false,
 			title: '',
-			image: '../../../img/static/sub_small.png',
+			image: '',
 			icon: ''
 		},
 
@@ -19,7 +19,6 @@ define([
 
 			var attributes = _.clone(this.attributes);
 				
-
 			if (this.get('ingredientsCollection')) {
 				attributes.ingredientsCollection = attributes.ingredientsCollection.toJSON();
 			}
@@ -42,14 +41,6 @@ define([
 					'ingredientsCollection': new IngredientsCollection()
 				});
 			}
-
-			this.bind('destroy', this.destroyIngredientsCollection);
-		},
-
-		destroyIngredientsCollection: function () {
-
-			this.get('ingredientsCollection').reset();
-
 		}
 
 	});

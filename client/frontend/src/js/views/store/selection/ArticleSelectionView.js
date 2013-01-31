@@ -18,28 +18,29 @@ define([
 		prepare: function () {
 
 			var timelineItemModel = new TimelineItemModel({
-				phrase: 'Waehle deinen Artikel',
-				locked: true
+				phrase: 'Waehle deinen Artikel'
 			});
 
 
 			if (this.model.get('menuComponentBlockModel')) {
 				this.active = true;
-				this.timelineItemsCollection.add(timelineItemModel);
+				timelineItemModel.set('locked', true);
+				this.listenForArticleSelection();
 			} else {
 				// just symbolizes base article
 				timelineItemModel.set('disabled', true);
 			}
 
 
+			this.timelineItemsCollection.add(timelineItemModel);
 
 		},
 
 		listenForArticleSelection: function () {
 			var menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
 				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
-				timelineItemModel = this.timelineItemsCollection.first(),
-				menuComponentOptionArticlesCollection;
+				timelineItemsCollection = this.timelineItemsCollection,
+				timelineItemModel, menuComponentOptionArticlesCollection;
 
 			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel) {
 				menuComponentOptionArticlesCollection = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
@@ -47,6 +48,7 @@ define([
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
 					menuComponentOptionArticleModel.on('change:selected', function () {
 						if (menuComponentOptionArticleModel.get('selected')) {
+							timelineItemModel = timelineItemModel = timelineItemsCollection.first();
 							timelineItemModel.set('locked', false);
 						}
 					});

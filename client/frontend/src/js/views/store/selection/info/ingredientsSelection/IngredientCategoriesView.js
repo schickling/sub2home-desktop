@@ -13,19 +13,17 @@ define([
 		},
 
 		render: function () {
-			_.each(this.collection.models, function (item) {
-				this.renderIngredientCategory(item);
+			_.each(this.collection.models, function (ingredientCategoryModel) {
+				this.renderIngredientCategory(ingredientCategoryModel);
 			}, this);
 		},
 
-		renderIngredientCategory: function (item) {
+		renderIngredientCategory: function (ingredientCategoryModel) {
 			var ingredientCategoryView = new IngredientCategoryView({
-				model: item
+				model: ingredientCategoryModel
 			});
 
-			var $item = ingredientCategoryView.render().$el;
-
-			this.$el.append($item);
+			this.$el.append(ingredientCategoryView.el);
 		}
 
 	});
