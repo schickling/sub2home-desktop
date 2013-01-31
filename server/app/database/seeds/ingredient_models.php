@@ -220,7 +220,7 @@ return array (
 		'order' 						=> 22,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Asiago Cesar',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/asiagocesar.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/asiago.png',
 		'price'							=> 0.00
 	),
 
@@ -229,7 +229,7 @@ return array (
 		'order' 						=> 23,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'BBQ-Sauce',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/bbq.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/barbecue.png',
 		'price'							=> 0.00
 	),
 
@@ -238,7 +238,7 @@ return array (
 		'order' 						=> 24,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Joghurt-Dressing',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/joghurtdressing.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/joghurt.png',
 		'price'							=> 0.00
 	),
 
@@ -310,7 +310,7 @@ return array (
 		'order' 						=> 32,
 		'ingredient_category_model_id'	=> 5,
 		'title' 						=> 'Parmesan',
-		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/parmesam.png',
+		'largeImage'					=> 'img/static/ingredients/largeimages/sauces/parmesan.png',
 		'price'							=> 0.00
 	)
 

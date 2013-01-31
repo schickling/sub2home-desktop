@@ -575,7 +575,7 @@ h2 {
 }
 h3 {
   font-size: 24px;
-  line-height: 40px;
+  line-height: 30px;
 }
 h4 {
   font-size: 18px;
@@ -2114,6 +2114,12 @@ table [class*=span],
 .iSub:before {
   content: "\e000";
 }
+.iWrap:before {
+  content: "\e001";
+}
+.iBeverage:before {
+  content: "\e003";
+}
 .iBread:before {
   content: "\e014";
 }
@@ -3588,10 +3594,9 @@ div.pricetag span:after {
 .timeline .itemsTimeline .itemTimeline img,
 .categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
-  top: 14px;
   left: 0px;
   width: 70px;
-  height: 41px;
+  height: auto;
 }
 .timeline .itemsTimeline:first-child .timeline_item:before,
 .categoriesNavigation .itemsTimeline:first-child .timeline_item:before {
@@ -3620,7 +3625,6 @@ div.pricetag span:after {
 }
 .timeline .stageTimeline .itemTimeline .icn,
 .categoriesNavigation .stageTimeline .itemTimeline .icn {
-  margin-top: 13px;
   margin-left: -2px;
   width: 70px;
   height: 41px;
@@ -3629,7 +3633,7 @@ div.pricetag span:after {
 }
 .timeline .stageTimeline .itemTimeline .icn:before,
 .categoriesNavigation .stageTimeline .itemTimeline .icn:before {
-  font-size: 45px;
+  font-size: 68px;
 }
 .timeline .stageTimeline .itemTimeline img,
 .categoriesNavigation .stageTimeline .itemTimeline img {
@@ -4017,6 +4021,7 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   left: 18px;
   top: -6px;
+  cursor: pointer;
 }
 .storePreview .smallNote {
   top: -6px;
