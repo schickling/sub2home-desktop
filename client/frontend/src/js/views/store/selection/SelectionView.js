@@ -130,17 +130,12 @@ define([
 			var $stage = this.$('.stage'),
 				$stageContainer = $('<div class="slideContainer">').appendTo($stage);
 
-
 			this.$stageContainer = $stageContainer;
 
 			this.stageView = new this.stageViewClass({
 				model: this.model,
 				el: $stageContainer
 			});
-
-
-			// increase stage width
-			$stage.width($stage.width() + $stageContainer.width());
 		},
 
 		renderTimelineView: function () {
