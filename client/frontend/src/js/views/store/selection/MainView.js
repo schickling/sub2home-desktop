@@ -83,30 +83,7 @@ define([
 		},
 
 		createOrderedItemFromMenuBundle: function () {
-			// var self = this;
-			// // fetch article from server
-			// var menuBundleModel = new ArticleModel({
-			// 	id: stateModel.get('selectionRessourceId')
-			// });
-			// menuBundleModel.fetch({
-			// 	success: function () {
-			// 		// create new ordered article
-			// 		var orderedArticleModel = new OrderedArticleModel();
-			// 		self.orderedItemModel = new OrderedItemModel({
-			// 			orderedArticlesCollection: new OrderedArticlesCollection(orderedArticleModel)
-			// 		});
-			// 		// append ordered item to ordered article
-			// 		orderedArticleModel.set({
-			// 			menuBundleModel: menuBundleModel,
-			// 			orderedItemModel: self.orderedItemModel
-			// 		});
-			// 		console.log(menuBundleModel.toJSON());
-			// 		self.render();
-			// 	},
-			// 	error: function () {
-			// 		// self.pageNotFound();
-			// 	}
-			// });
+
 		},
 
 		loadOrderedItemFromLocalStorage: function () {
@@ -124,10 +101,11 @@ define([
 		render: function () {
 
 			// render template
-			this.$el.html(_.template(MainTemplate));
+			this.$el.html(MainTemplate);
 
-			// append to body
-			this.append();
+			// set width for internal dom calculation
+			this.$el.width(window.innerWidth);
+			this.$el.height(window.innerHeight);
 
 			// add cart timeline item
 			this.renderCartTimelineItem();
@@ -135,11 +113,15 @@ define([
 			// render ordered articles
 			this.renderOrderedArticles();
 
+			// append to body
+			this.append();
+
 			// initalize TimelineControllerView
 			this.initializeTimelineController();
 
 			// listen for menu upgrade selection
 			this.startMenuUpgradeSelectionListener();
+
 
 		},
 

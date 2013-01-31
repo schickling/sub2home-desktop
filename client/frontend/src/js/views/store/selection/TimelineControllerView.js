@@ -123,6 +123,8 @@ define([
 			// set width of overlay wrapper
 			this.$timelineOverlayWrapper.width(this.$timelineStage.width());
 
+			console.log(this.$timelineStage.width());
+
 			// get current item and calculate relative and total offset
 			var $currentTimelineItem = this.$timelineStage.find('.itemTimeline').eq(this.currentTimelineItemIndex),
 				timelineOffsetRelative = $currentTimelineItem.position().left;
@@ -373,14 +375,12 @@ define([
 		},
 
 		finish: function () {
-			// count locked items
-			var lockCount = this.collection.where({
+
+			var lockedTimelineItems = this.collection.where({
 				locked: true
-			}).length;
+			});
 
-			console.log(this.collection.toJSON());
-
-			if (lockCount === 0) {
+			if (lockedTimelineItems.length === 0) {
 				// save ordered item in cart
 				var orderedItemsCollection = cartModel.get('orderedItemsCollection');
 				orderedItemsCollection.add(this.model);
@@ -392,13 +392,12 @@ define([
 				});
 
 			} else {
-				notificationcenter.error('Noch nicht fertig!', 'Bitte erst mal fertig machen. Danke');
-				this.markBlockedTimelineItems();
+
+				_.each(lockedTimelineItems, function (timelineItemModel) {
+					notificationcenter.error('Noch nicht fertig!', timelineItemModel.get('phrase') + ' ist noch nicht ausgewaehlt.');
+					timelineItemModel.trigger('highlight');
+				});
 			}
-		},
-
-		markBlockedTimelineItems: function () {
-
 		},
 
 		cleanUp: function () {

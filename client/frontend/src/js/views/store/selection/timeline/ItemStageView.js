@@ -21,9 +21,9 @@ define([
 
 			this.update();
 
-			this.model.bind('change', function () {
-				self.update.call(self);
-			});
+			this.model.on('change', this.update, this);
+
+			this.model.on('highlight', this.highlight, this);
 		},
 
 		update: function () {
@@ -43,6 +43,12 @@ define([
 			if (!this.model.get('disabled')) {
 				this.model.set('active', true);
 			}
+		},
+
+		highlight: function () {
+			this.$el.css({
+				backgroundColor: '#000000'
+			});
 		}
 
 	});

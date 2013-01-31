@@ -22,40 +22,44 @@ define([
 
 				var ingredientCategoriesCollection = articleModel.get('ingredientCategoriesCollection');
 
-				this.active = true;
+				if (ingredientCategoriesCollection) {
 
-				ingredientCategoriesCollection.each(function (ingredientCategoryModel) {
+					this.active = true;
 
-					var timelineItemModel = new TimelineItemModel({
-						image: '../../../' + ingredientCategoryModel.get('smallImage'),
-						icon: ingredientCategoryModel.get('icon'),
-						phrase: 'Waehle deine Zutaten'
-					});
+					_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
 
-					this.timelineItemsCollection.add(timelineItemModel);
-
-					// update timeline items on ingredient select/unselect
-					if (ingredientCategoryModel.get('isMandatory')) {
-						var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
-
-						ingredientsCollection.each(function (ingredientModel) {
-							ingredientModel.bind('change:selected', function () {
-								// count selected items
-								var selectedCount = ingredientModel.collection.where({
-									selected: true
-								}).length;
-								// mark as locked if no ingredient selected
-								timelineItemModel.set('locked', (selectedCount === 0));
-							});
-
+						var timelineItemModel = new TimelineItemModel({
+							image: '../../../' + ingredientCategoryModel.get('smallImage'),
+							icon: ingredientCategoryModel.get('icon'),
+							phrase: 'Waehle deine Zutaten'
 						});
 
-						// lock on init
-						timelineItemModel.set('locked', true);
-					}
+						this.timelineItemsCollection.add(timelineItemModel);
+
+						// update timeline items on ingredient select/unselect
+						if (ingredientCategoryModel.get('isMandatory')) {
+							var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
+
+							ingredientsCollection.each(function (ingredientModel) {
+								ingredientModel.bind('change:selected', function () {
+									// count selected items
+									var selectedCount = ingredientModel.collection.where({
+										selected: true
+									}).length;
+									// mark as locked if no ingredient selected
+									timelineItemModel.set('locked', (selectedCount === 0));
+								});
+
+							});
+
+							// lock on init
+							timelineItemModel.set('locked', true);
+						}
 
 
-				}, this);
+					}, this);
+
+				}
 
 			}
 
