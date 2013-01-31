@@ -19,8 +19,7 @@ class MenuComponentOptionModelTable extends Migration {
 			$table->string('icon', 128);
 			$table->string('smallImage', 128);
 			$table->string('largeImage', 128);
-			$table->string('placeholderOutline', 128);
-			$table->string('placeholderBackground', 128);
+			$table->string('placeholder', 128);
 		});
 	}
 

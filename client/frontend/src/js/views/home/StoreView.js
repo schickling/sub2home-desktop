@@ -43,7 +43,7 @@ define([
 			this.parentView.redirect(this.model);
 			break;
 		case 'unavailable':
-			notificationcenter.error('Store nicht in Reichweite', 'Leider liefert dieser Store nicht in dein Liefergebiet.');
+			notificationcenter.error('Nicht in Reichweite', 'Leider liefert dieser Store nicht in dein Liefergebiet.');
 		}
 	};
 
