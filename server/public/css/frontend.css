@@ -2117,6 +2117,9 @@ table [class*=span],
 .iWrap:before {
   content: "\e001";
 }
+.iSalad:before {
+  content: "\e002";
+}
 .iBeverage:before {
   content: "\e003";
 }
@@ -2317,6 +2320,14 @@ table [class*=span],
 .iWarning:before,
 .bWarning:before {
   content: "\e073";
+}
+.iCheck:before,
+.bCheck:before {
+  content: "\e074";
+}
+.iReset:before,
+.bReset:before {
+  content: "\e075";
 }
 .dropup,
 .dropdown {
@@ -5352,7 +5363,6 @@ div.bankOptions button.bankaccount {
 }
 .stage {
   position: absolute;
-  width: 600%;
   *zoom: 1;
   height: 100%;
   overflow: hidden;
