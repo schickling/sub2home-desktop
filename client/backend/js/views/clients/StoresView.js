@@ -12,11 +12,11 @@ define([
 		},
 
 		initialize: function (client_view) {
-			this.$el = client_view.$el.find('.unfolded_client');
+			// this.$el = client_view.$el.find('.unfolded_client');
 
-			this.collection = new ClientStores(client_view.model.get('stores'));
+			// this.collection = new ClientStores(client_view.model.get('stores'));
 
-			this.render();
+			// this.render();
 		},
 
 		render: function () {

@@ -50,9 +50,9 @@ define([
 			});
 
 			if (add) {
-				this.$list.prepend(clientView.render().el);
+				this.$list.prepend(clientView.el);
 			} else {
-				this.$list.append(clientView.render().el);
+				this.$list.append(clientView.el);
 			}
 
 			return clientView;
