@@ -16,6 +16,14 @@ define([
 			}
 
 			return response;
+		},
+
+		initialize: function () {
+			var addressModel = this.get('addressModel');
+
+			addressModel.on('change', function () {
+				this.trigger('change');
+			}, this);
 		}
 
 	});

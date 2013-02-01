@@ -52,7 +52,7 @@ define([
 		timelineView: null,
 
 		// dom
-		$stageContainer: null,
+		$slideContainer: null,
 
 		// backbone class gets set in child classes
 		stageViewClass: null,
@@ -132,13 +132,13 @@ define([
 
 		renderStageView: function () {
 			var $stage = this.$('.stage'),
-				$stageContainer = $('<div class="slideContainer">').appendTo($stage);
+				$slideContainer = $('<div class="slideContainer">').appendTo($stage);
 
-			this.$stageContainer = $stageContainer;
+			this.$slideContainer = $slideContainer;
 
 			this.stageView = new this.stageViewClass({
 				model: this.model,
-				el: $stageContainer
+				el: $slideContainer
 			});
 		},
 
@@ -157,7 +157,7 @@ define([
 				timelineHeight = this.$('.note.timeline').height(),
 				infoHeight = this.infoView.$el.hiddenHeight();
 
-			this.$stageContainer.css({
+			this.$slideContainer.css({
 				marginTop: infoHeight,
 
 				// add 50 because of timeline bottom height
@@ -165,7 +165,7 @@ define([
 			});
 
 			// realign slides
-			this.$stageContainer.trigger('align');
+			this.$slideContainer.trigger('align');
 		},
 
 		// delegate remove

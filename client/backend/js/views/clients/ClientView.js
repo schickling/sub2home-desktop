@@ -3,8 +3,10 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'views/clients/ClientEditView',
+	'views/clients/StoresView',
 	'text!templates/clients/ClientTemplate.html'
-	], function ($, _, Backbone, ClientTemplate) {
+	], function ($, _, Backbone, ClientEditView, StoresView, ClientTemplate) {
 
 	var ClientView = Backbone.View.extend({
 
@@ -13,18 +15,22 @@ define([
 		template: _.template(ClientTemplate),
 
 		events: {
-			'click .folded_client': 'toggle_stores',
-			'click .icon_edit_yellow_small': 'toggle_edit',
-			'click .confirm_client': 'update_client',
-			'click .delete_client': 'delete_client',
-			'click .icon_add_small': 'add_store'
+			'click .foldedClient': 'toggleStoresView',
+			'click .editClient': 'toggleEditView',
+			'click .iconAddSmall': 'addStore'
+		},
+
+		initialize: function () {
+			this.render();
+
+			this.model.on('change', this.render, this);
 		},
 
 		render: function () {
 			var addressModel = this.model.get('addressModel'),
 				json = {
 					name: addressModel.get('firstName') + ' ' + addressModel.get('lastName'),
-					number: this.leading_zeros(this.model.get('number')),
+					number: this.leadingZeros(this.model.get('number')),
 					created_at: this.model.get('created_at'),
 					monthlyTurnover: 0,
 					totalTurnover: 0,
@@ -37,186 +43,108 @@ define([
 			return this;
 		},
 
-		update_view: function () {
-			// Update number
-			this.$el.find('.client_number').text('#' + this.leading_zeros(this.model.get('number')));
-
-			// Update name
-			var address = this.model.get('address');
-			this.$el.find('.client_title').text(address.first_name + ' ' + address.last_name);
-		},
-
-		update_client: function () {
-			var $edit_client = this.$el.find('.edit_client'),
-				$address = $edit_client.find('.edit_client_address'),
-				password = $edit_client.find('.edit_client_password').val(),
-				password_repeat = $edit_client.find('.edit_client_password_repeat').val(),
-				client = this.model,
-				self = this;
-
-			// Update address
-			_.each($address, function (field) {
-				var $field = $(field),
-					key = $field.attr('data-field'),
-					val = $field.val();
-				client.get('address')[key] = val;
-			});
-
-			// Update number
-			client.set('number', $edit_client.find('.edit_client_number').val());
-
-			client.save({}, {
-				success: function () {
-					self.update_view();
-
-					// Save password
-					if (password) {
-						$.ajax({
-							url: './update_password/',
-							type: 'post',
-							data: {
-								id: client.id,
-								password: password,
-								password_confirmation: password_repeat
-							},
-
-							success: function () {
-								app.popup('Password gespeichert. YES!', 'success');
-								self.hide_edit();
-							},
-
-							error: function (error) {
-								app.popup($.parseJSON(error.responseText), 'error');
-							}
-						});
-						// Password not changed
-					} else {
-						app.popup('Daten gespeichert. YES!', 'success');
-						self.hide_edit();
-					}
-				},
-
-				error: function (model, error) {
-					app.popup($.parseJSON(error.responseText), 'error');
-				}
-			});
-
-		},
-
-		toggle_stores: function () {
-			if (this.model.get('stores').length) {
-				if (this.$el.find('.unfolded_client').is(':visible')) {
-					this.hide_stores();
+		toggleStoresView: function () {
+			if (this.model.get('storesCollection').length) {
+				if (this.$('.unfoldedClient').is(':visible')) {
+					this.hideStoresView();
 				} else {
-					this.show_stores();
+					this.showStoresView();
 				}
 			}
 		},
 
-		show_stores: function () {
-			this.hide_edit();
+		showStoresView: function () {
+			this.hideEditView();
 
-			var $folded_client = this.$el.find('.folded_client'),
-				$unfolded_client = this.$el.find('.unfolded_client'),
-				$client_siblings = $folded_client.closest('.client').siblings(),
-				$edit_client_siblings = $client_siblings.find('.edit_client'),
-				$unfolded_client_siblings = $client_siblings.find('.unfolded_client');
+			var $foldedClient = this.$('.foldedClient'),
+				$unfoldedClient = this.$('.unfoldedClient'),
+				$clientSiblings = $foldedClient.closest('.client').siblings(),
+				$editClientSiblings = $clientSiblings.find('.editClient'),
+				$unfoldedClientSiblings = $clientSiblings.find('.unfoldedClient');
 
-			$edit_client_siblings.hide();
-			$unfolded_client_siblings.hide();
+			$editClientSiblings.hide();
+			$unfoldedClientSiblings.hide();
 
-			$client_siblings.addClass('inactive');
+			$clientSiblings.addClass('inactive');
 
 			this.$el.removeClass('inactive');
 
-			if (!this.client_stores_view) {
-				this.client_stores_view = new ClientStoresView(this);
+			if (!this.storesView) {
+				this.renderStoresView();
 			}
 
-			$unfolded_client.fadeIn();
+			$unfoldedClient.fadeIn();
 		},
 
-		hide_stores: function () {
-			var $folded_client = this.$el.find('.folded_client'),
-				$unfolded_client = this.$el.find('.unfolded_client'),
-				$client_siblings = $folded_client.closest('.client').siblings();
-
-			$client_siblings.removeClass('inactive');
-
-			$unfolded_client.fadeOut();
+		renderStoresView: function () {
+			this.storesView = new StoresView({
+				collection: this.model.get('storesCollection'),
+				el: this.$('.unfoldedClient')
+			});
 		},
 
-		toggle_edit: function () {
-			if (this.$el.find('.edit_client').is(':visible')) {
-				this.hide_edit();
+		hideStoresView: function () {
+			var $foldedClient = this.$('.foldedClient'),
+				$unfoldedClient = this.$('.unfoldedClient'),
+				$clientSiblings = $foldedClient.closest('.client').siblings();
+
+			$clientSiblings.removeClass('inactive');
+
+			$unfoldedClient.fadeOut();
+		},
+
+		toggleEditView: function () {
+			if (this.$('.editClient').is(':visible')) {
+				this.hideEditView();
 			} else {
-				this.show_edit();
+				this.showEditView();
 			}
 
 			return false;
 		},
 
-		show_edit: function () {
-			this.hide_stores();
+		showEditView: function () {
+			this.hideStoresView();
 
-			var $folded_client = this.$el.find('.folded_client'),
-				$edit_client = this.$el.find('.edit_client'),
-				$client_siblings = $folded_client.closest('.client').siblings(),
-				$edit_client_siblings = $client_siblings.find('.edit_client'),
-				$unfolded_client_siblings = $client_siblings.find('.unfolded_client');
+			var $foldedClient = this.$('.foldedClient'),
+				$editClient = this.$('.editClient'),
+				$clientSiblings = $foldedClient.closest('.client').siblings(),
+				$editClientSiblings = $clientSiblings.find('.editClient'),
+				$unfoldedClientSiblings = $clientSiblings.find('.unfoldedClient');
 
-			$edit_client_siblings.hide();
-			$unfolded_client_siblings.hide();
-			$client_siblings.addClass('inactive');
+			// hide other client edit views
+			$editClientSiblings.hide();
+			$unfoldedClientSiblings.hide();
+			$clientSiblings.addClass('inactive');
 
 			this.$el.removeClass('inactive');
 
-			if (!$edit_client.html().trim()) {
-				this.render_edit();
+			// lazy initalize client edit view
+			if (!$editClient.html().trim()) {
+				this.renderEditView();
 			}
 
-			$edit_client.fadeIn();
+			$editClient.fadeIn();
 		},
 
-		hide_edit: function () {
-			var $folded_client = this.$el.find('.folded_client'),
-				$edit_client = this.$el.find('.edit_client'),
-				$client_siblings = $folded_client.closest('.client').siblings();
+		hideEditView: function () {
+			var $foldedClient = this.$('.foldedClient'),
+				$editClient = this.$('.editClient'),
+				$clientSiblings = $foldedClient.closest('.client').siblings();
 
-			$client_siblings.removeClass('inactive');
+			$clientSiblings.removeClass('inactive');
 
-			$edit_client.fadeOut();
+			$editClient.fadeOut();
 		},
 
-		leading_zeros: function (number) {
-			var str = '' + number,
-				length = 4;
-			while (str.length < length) {
-				str = '0' + str;
-			}
-			return str;
+		renderEditView: function () {
+			var clientEditView = new ClientEditView({
+				model: this.model,
+				el: this.$('.editClient')
+			});
 		},
 
-		delete_client: function () {
-			var check = confirm("Kunden wirklich löschen?");
-			if (check) {
-				var self = this;
-				this.$el.fadeOut(function () {
-					self.hide_edit();
-					self.model.destroy();
-					self.remove();
-				});
-			}
-		},
-
-		render_edit: function () {
-			var html = _.template(template_edit_client, this.model.toJSON()),
-				$edit_client = this.$el.find('.edit_client');
-
-			$edit_client.html(html);
-		},
-
-		add_store: function () {
+		addStore: function () {
 			var str, number;
 
 			do {
@@ -229,14 +157,14 @@ define([
 			var self = this,
 				store = new Store({
 					number: number,
-					user_id: this.model.id
+					client_model_id: this.model.get('id')
 				});
 
 			store.save({}, {
 				success: function () {
-					self.show_stores();
-					self.client_stores_view.collection.add(store);
-					self.client_stores_view.render_store(store);
+					self.showStoresView();
+					self.storesView.collection.add(store);
+					self.storesView.renderStore(store);
 				},
 
 				error: function (model, error) {
@@ -245,6 +173,15 @@ define([
 			});
 
 			return false;
+		},
+
+		leadingZeros: function (number) {
+			var str = '' + number,
+				length = 4;
+			while (str.length < length) {
+				str = '0' + str;
+			}
+			return str;
 		}
 
 	});
