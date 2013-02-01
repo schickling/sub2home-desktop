@@ -52,17 +52,17 @@ article {
 
 // INGREDIENT-HEAD  --------------------------------------------------------------------
 
-article.ingredient_listing {
+article.ingredientListing {
 	header div {
 		&.article_title {
 			float: left;
 			margin-left: 82px;
 		}
-		&.sort_option.price {
+		&.sortOption.price {
 			float: right;
 			margin-right: 85px;
 		}
-		&.add_new_category {
+		&.addNewCategory {
 			float: left;
 			i {
 				margin: 3px 10px 0 -4px; 
@@ -73,35 +73,35 @@ article.ingredient_listing {
 
 // ARTICLE-HEAD  --------------------------------------------------------------------
 
-article.article_listing {
+article.articleListing {
 
 	header div {
 		text-align: right;
 
-		&.icon_add_small {
+		&.iconAddSmall {
 			float: left;
 			margin: 3px 0 0 -4px;
 		}
 
-		&.article_title {
+		&.articleTitle {
 			float: left;
 			margin-left: 115px;
 		}
 
-		&.sort_option.orders, &.sort_option.changed, &.sort_option.price {
+		&.sortOption.orders, &.sortOption.changed, &.sortOption.price {
 			float: right;
 			margin-right: 20px;
 		}
 
-		&.sort_option.orders {
+		&.sortOption.orders {
 			width: 94px;
 		}
 
-		&.sort_option.changed {
+		&.sortOption.changed {
 
 		}
 
-		&.sort_option.price {
+		&.sortOption.price {
 			width: 66px;
 			margin-right: 67px;
 		}
@@ -133,7 +133,7 @@ article.article_listing {
 		
 	}
 
-	.remove, .category_single, .category_including, .category_phrase {
+	.remove, .categorySingle, .categoryIncluding, .categoryPhrase {
 		margin-top: 8px;
 		float: right;
 		position: relative;
@@ -145,7 +145,7 @@ article.article_listing {
 		border-right: 10px solid @white;
 	}
 
-	.category_single {
+	.categorySingle {
 		margin-top: 9px;
 		border-right: 10px solid @white;
 		border-left: 10px solid @white;
@@ -154,7 +154,7 @@ article.article_listing {
 		.icon_notok;
 	}
 
-	.category_including, .category_phrase {
+	.categoryIncluding, .categoryPhrase {
 		padding: 0 10px;
 		&:after {
 			content: "Gratis";
@@ -170,7 +170,7 @@ article.article_listing {
 		}
 	}
 
-	.category_including {
+	.categoryIncluding {
 		width: 55px;
 		padding-right: 20px;
 		text-align: right;
@@ -190,7 +190,7 @@ article.article_listing {
 		}
 	}
 
-	.category_phrase {
+	.categoryPhrase {
 		display: inline-block;
 		float: none;
 		margin-right: 0 10px 0 20px;
@@ -223,7 +223,7 @@ article.article_listing {
 		}
 	}
 
-	.sort_up_down {
+	.sortUpDown {
 		float: right;
 		margin: 3px 0 0 0 ;
 		padding: 0 7px 0 28px;
@@ -245,13 +245,13 @@ article.article_listing {
 			background-color: @grayLightest;
 			border-color: @grayLightest;
 		}
-		.sort_up_down {
+		.sortUpDown {
 			visibility: visible;
 		}
 	}
 
 }
-.headline .category_title {
+.headline .categoryTitle {
 	padding: 0 0 0 0;
 	display: inline-block;
 	input {
@@ -267,7 +267,7 @@ article.article_listing {
 	}
 }
 
-.icon_add_small, .icon_edit_yellow_small {
+.iconAddSmall, .iconEditYellowSmall {
 	position: relative;
 	top: -8px;
 	margin-left: 10px;
@@ -279,7 +279,7 @@ article.article_listing {
 .ingredients {
 	padding: 0 15px;
 }
-.ingredient, .folded_article, .folded_menu {
+.ingredient, .foldedArticle, .foldedMenu {
 	border-top: 1px solid @grayLight;
 	&:first-child {
 		border: none;
@@ -291,10 +291,10 @@ article.article_listing {
 	&:hover {
 		background-color: @grayLightest;
 		
-		.sort_up_down {
+		.sortUpDown {
 			visibility: visible !important;
 		}
-		.icon_edit_small, .icon_add_white {
+		.iconEditSmall, .iconAddWhite {
 			display: block !important;
 		}
 	}
@@ -302,7 +302,7 @@ article.article_listing {
 		float: left;
 	}
 
-	.table_thumb {
+	.tableThumb {
 		width: 70px;
 		margin: 10px 0 10px 20px;
 		position: relative;
@@ -310,7 +310,7 @@ article.article_listing {
 			width: 70px;
 			height: 43px;
 		}
-		.icon_edit_small, .icon_add_white {
+		.iconEditSmall, .iconAddWhite {
 			position: absolute;
 			left: 50px;
 			top: 0px;
@@ -319,7 +319,7 @@ article.article_listing {
 		}
 	}
 
-	.article_title, .ingredient_title, .menu_title {
+	.articleTitle, .ingredientTitle, .menuTitle {
 	
 	text-align: left;
 	padding: 20px 0 0 30px;
@@ -329,11 +329,11 @@ article.article_listing {
 	width: 50%;
 	}
 
-	.ingredient_title {
+	.ingredientTitle {
 		text-transform: none;
 	}
 
-	.sort_option.price {
+	.sortOption.price {
 		float: right;
 		padding: 24px 0 0 0;
 		position: relative;
@@ -356,7 +356,7 @@ article.article_listing {
 		cursor: pointer;
 	}
 
-	.sort_up_down {
+	.sortUpDown {
 		float: right;
 		margin: 17px 10px 0 0 ;
 		visibility: hidden;
@@ -369,7 +369,7 @@ article.article_listing {
 		}
 	}
 
-	.ingredient_title_input, .ingredient_price_input {
+	.ingredientTitleInput, .ingredientPriceInput {
 		display: none;
 		font-size: 16px;
 		font-family: @headingsFontFamily;
@@ -384,7 +384,7 @@ article.article_listing {
 		}
 	}
 
-	.ingredient_price_input {
+	.ingredientPriceInput {
 		font-family: @sansFontFamily;
 		font-size: 13px;
 		text-align: right;
@@ -398,20 +398,20 @@ article.article_listing {
 
 // ARTICLE ROWS (FOLDED ARTICLE)  --------------------------------------------------------------------
 
-.folded_article {
+.foldedArticle {
 	&:hover {
 		cursor: pointer;
 	}
-	.article_title {
+	.articleTitle {
 		width: auto;
 	}
 
-	.sort_option_container {
+	.sortOptionContainer {
 		float: right;
 		width: 66px;
 		text-align: right;
 		
-		.sort_option {
+		.sortOption {
 			display: inline-block;
 			float: none !important;
 		}
@@ -419,13 +419,13 @@ article.article_listing {
 			text-align: right;
 			display: inline-block;
 		}
-		&.price_container {
+		&.priceContainer {
 			margin-right: 20px;
 		}
 	}
 
 
-	.sort_option.orders, .sort_option.changed, .sort_option.price {
+	.sortOption.orders, .sortOption.changed, .sortOption.price {
 		float: right;
 		padding: 24px 0 0 0;
 		margin-right: 20px;
@@ -436,37 +436,37 @@ article.article_listing {
 		cursor: pointer;
 	}
 
-	.sort_option.price {
+	.sortOption.price {
 		float: right;
 		padding: 24px 0 0 0;
 		position: relative;
 		margin-right: 0;
 	}
 
-	.sort_option.orders {
+	.sortOption.orders {
 		width: 94px;
 	}
 }	
 
 // UNFOLDED ARTICLE  --------------------------------------------------------------------
 
-.unfolded_article {
+.unfoldedArticle {
 	display: none;
 	padding: 20px;
 	position: relative;
 	.clearfix;
 }
 
-.detail_image, .detail_description {
+.detailImage, .detailDescription {
 	float: left;
 }
 
-.unfolded_options_wrapper {
+.unfoldedOptionsWrapper {
 	clear: both;
 	border-top: 1px solid @grayLight;
 }
 
-.detail_image {
+.detailImage {
 		padding-left: 20px;
 		margin-bottom: 20px;
 		float:left;
@@ -476,7 +476,7 @@ article.article_listing {
 			width: 302px;
 			height: 183px;
 		}
-		.icon_edit_big {
+		.iconEditBig {
 			position: absolute;
 			left: 255px;
 			top: -5px;
@@ -486,14 +486,14 @@ article.article_listing {
 
 
 
-.detail_description {
+.detailDescription {
 	float: left;
 	padding-top: 10px;
 	position: relative;
 	>label {
 		top: 31px;
 		left: 50px;
-		&.label_input_description {
+		&.labelInputDescription {
 			top: auto;
 			bottom: 40px;
 		}
@@ -505,7 +505,7 @@ article.article_listing {
 	//	box-shadow: none;
 		margin-left: 40px;
 		width: 380px;
-		&.input_title {
+		&.inputTitle {
 			font-family: @headingsFontFamily;
 			color: @greenDark;
 			background: none;
@@ -514,7 +514,7 @@ article.article_listing {
 			padding-left: 44px;
 			width: 346px;
 		}
-		&.input_description {
+		&.inputDescription {
 			font-size: 16px;
 			margin-bottom: 9px;
 			background: none;
@@ -533,10 +533,10 @@ article.article_listing {
 
 
 
-.detail_price {
+.detailPrice {
 	margin: 0 0 0px 40px;
 
-	.detail_price_input {
+	.detailPriceInput {
 		.floatleft;
 		margin: 0 20px 0 0;
 		position: relative;
@@ -577,23 +577,23 @@ article.article_listing {
 	}
 }
 
-.detail_menu_upgrades {
+.detailMenuUpgrades {
 	float: left;
 	position: relative;
 	padding-left: 100px;
 	margin: 25px 0 0 25px;
-	.menu_upgrade_title {
+	.menuUpgradeTitle {
 		width: 100px;
 		position: absolute;
 		left: 0;
 		top: 5px;
 	}
-	.menu_upgrade {
+	.menuUpgrade {
 		display: inline-block;
 	}
 }
 
-.toggle_allows {
+.toggleAllows {
 	clear: both;
 	position:absolute;
 	top: -40px;
@@ -610,14 +610,14 @@ article.article_listing {
 	}
 }
 
-.unfolded_options {
+.unfoldedOptions {
 	clear: both;
 	padding: 10px;
 	border-bottom: 1px solid @grayLighter;
 	margin: 0 10px;
 }
 
-.option_title, .menu_upgrade_title {
+.optionTitle, .menuUpgradeTitle {
 	font-family: @headingsFontFamily;
 	font-size: 16px;
 	color: @greenDark;
@@ -626,7 +626,7 @@ article.article_listing {
 	display: inline-block;
 }
 	
-.option_item, .menu_upgrade {
+.optionItem, .menuUpgrade {
 		font-size: 12px;
 		font-weight: bold;
 		padding: 3px 7px;
@@ -651,25 +651,25 @@ article.article_listing {
 
 // SEARCHBAR  ---------------------------------------------------------------
 
-article.searchbar_container {
+article.searchbarContainer {
 	height: 61px;
 	section {
 		position: relative;
-		.add_new_client {
+		.addNewClient {
 			float: left;
 			font-size: 16px;
 			font-family: @headingsFontFamily;
 			text-transform: uppercase;
 			padding: 18px 0 0 0;
 			cursor: pointer;
-			.icon_add_big {
+			.iconAddBig {
 				margin-right: 15px;
 				position: relative;
 				top: -13px;
 			}
 		}
 
-		.icon_wait {
+		.iconWait {
 			display: none;
 			position: absolute;
 			right: 15px;
@@ -679,7 +679,7 @@ article.searchbar_container {
 			width: 24px;
 		}
 
-		.icon_clear {
+		.iconClear {
 			position: absolute;
 			right: 17px;
 			top: 17px;
@@ -708,7 +708,7 @@ article.searchbar_container {
 
 }	
 
-article.client_listing {
+article.clientListing {
 
 
 	header {
@@ -724,28 +724,28 @@ article.client_listing {
 			}
  
 			
-			&.client_number, &.client_title {
+			&.clientNumber, &.clientTitle {
 				float: left;
 				margin-right: 15px;
 				//margin-top: 9px;
 			}
 
-			&.client_number {
+			&.clientNumber {
 				width: 36px;
 				margin-left: 10px;
 				margin-right: 31px;
 				text-align: left;
 			}
 
-			&.client_monthly_turnover, &.client_member_since, &.client_total_turnover, &.client_monthly_orders, &.client_total_orders {
+			&.clientMonthlyTurnover, &.clientMemberSince, &.clientTotalTurnover, &.clientMonthlyOrders, &.clientTotalOrders {
 				margin-left: 20px;
 			}
 
-			&.client_member_since { width: 85px; margin: 0px 62px 0 20px;}
-			&.client_monthly_turnover { width: 64px; }
-			&.client_total_turnover { width: 71px; }
-			&.client_monthly_orders { width: 53px; }
-			&.client_total_orders { width: 49px; margin-left: 0; }
+			&.clientMemberSince { width: 85px; margin: 0px 62px 0 20px;}
+			&.clientMonthlyTurnover { width: 64px; }
+			&.clientTotalTurnover { width: 71px; }
+			&.clientMonthlyOrders { width: 53px; }
+			&.clientTotalOrders { width: 49px; margin-left: 0; }
 			span {
 				font-size: 15px;
 			}
@@ -764,7 +764,7 @@ article.client_listing {
 				}
 			}
 
-			.folded_client {
+			.foldedClient {
 				padding: 11px 10px 0px 10px;
 				position: relative;
 				cursor: pointer;
@@ -782,46 +782,46 @@ article.client_listing {
 						font-size: 13px;
 					}
 
-					&.client_number {
+					&.clientNumber {
 						margin-left: 10px;
 						width: 50px;
 						float: left;
 						text-align: left;
 						margin-right: 35px;
 					}
-					&.client_title {
+					&.clientTitle {
 						left: 50px;
 						float: left;
 					}
-					&.icon_sort_green {
+					&.iconSortGreen {
 						position: relative;
 						top: 3px;
 						margin-left: 5px;
 					}
-					&.icon_add_small, &.icon_edit_yellow_small {
+					&.iconAddSmall, &.iconEditYellowSmall {
 						visibility: hidden;
 						top: -5px;
 					}
-					&.icon_edit_yellow_small {
+					&.iconEditYellowSmall {
 						margin-left: 5px;
 					}
 
-					&.client_monthly_turnover, &.client_member_since, &.client_total_turnover, &.client_monthly_orders, &.client_total_orders {
+					&.clientMonthlyTurnover, &.clientMemberSince, &.clientTotalTurnover, &.clientMonthlyOrders, &.clientTotalOrders {
 						margin-left: 37px;
 					}
 
-					&.client_member_since { width: 85px; margin: 0 10px 0 37px; }
-					&.client_monthly_turnover { width: 64px; }
-					&.client_total_turnover { width: 71px; }
-					&.client_monthly_orders { width: 53px }
-					&.client_total_orders { width: 49px; margin-left: 0; }
+					&.clientMemberSince { width: 85px; margin: 0 10px 0 37px; }
+					&.clientMonthlyTurnover { width: 64px; }
+					&.clientTotalTurnover { width: 71px; }
+					&.clientMonthlyOrders { width: 53px }
+					&.clientTotalOrders { width: 49px; margin-left: 0; }
 				}
 
 				// OVERLAY HOVER
 
 				&:hover {
 					background-color: @grayLightest;
-					.icon_add_small, .icon_edit_yellow_small {
+					.iconAddSmall, .iconEditYellowSmall {
 						visibility: visible;
 					}
 				}				
@@ -839,7 +839,7 @@ article.client_listing {
 					&:last-child {
 						border-bottom: 1px solid @grayLighter;
 					}
-					.icon_add_small, .icon_edit_yellow_small {
+					.iconAddSmall, .iconEditYellowSmall {
 						visibility: hidden;
 					}
 				}
@@ -850,7 +850,7 @@ article.client_listing {
 
 // EDIT CLIENT
 
-.edit_client {
+.editClient {
 	display: none;
 	background: @grayLightest;
 	padding: 20px 30px 20px 20px;
@@ -863,11 +863,11 @@ article.client_listing {
 		top: 9px;
 		font-size: 10px;
 		text-transform: uppercase;
-		&.label_edit_client_firstname {
+		&.labelEditClientFirstname {
 			
 			left: 120px;
 		}
-		&.label_edit_client_lastname {
+		&.labelEditClientLastname {
 			left: 350px;
 		}
 	}
@@ -882,7 +882,7 @@ article.client_listing {
 		position: relative;
 		width: 100%;
 	}
-	>div.edit_basic_data {
+	>div.editBasicData {
 		padding-bottom: 10px;
 		border-bottom: 1px solid @grayLight;
 		margin-bottom: 20px;
@@ -904,20 +904,20 @@ article.client_listing {
 	// PADDING-LEFT FOR LABELS
 
 
-	.edit_client_address, .edit_client_password, .edit_client_password_repeat {
+	.editClientAddress, .editClientPassword, .editClientPasswordRepeat {
 		.border-box;
 	}
 		
-	.edit_client_firstname 			{ padding-left: 65px; }
-	.edit_client_lastname 			{ padding-left: 71px; }
-	.edit_client_street,
-	.edit_client_street_additional 	{ padding-left: 59px; }
-	.edit_client_postal,
-	.edit_client_city 				{ padding-left: 48px; }
-	.edit_client_phone,
-	.edit_client_email 				{ padding-left: 47px; }
-	.edit_client_password 			{ padding-left: 70px; }
-	.edit_client_password_repeat 	{ padding-left: 39px; }
+	.editClientFirstname 			{ padding-left: 65px; }
+	.editClientLastname 			{ padding-left: 71px; }
+	.editClientStreet,
+	.editClientStreetAdditional 	{ padding-left: 59px; }
+	.editClientPostal,
+	.editClientCity 				{ padding-left: 48px; }
+	.editClientPhone,
+	.editClientEmail 				{ padding-left: 47px; }
+	.editClientPassword 			{ padding-left: 70px; }
+	.editClientPasswordRepeat 	{ padding-left: 39px; }
 
 
 	>div:last-child {
@@ -945,7 +945,7 @@ article.client_listing {
 			box-shadow: none;
 			border-color: @greenLighter;
 		}
-		&.edit_client_number {
+		&.editClientNumber {
 			width: 50px;
 			padding-left: 20px;
 			height: 25px;
@@ -967,7 +967,7 @@ article.client_listing {
 
 // UNFOLDED CLIENT
 
-.unfolded_client {
+.unfoldedClient {
 	padding: 0px 0px 10px 0px;
 	display: none;
 	.store {
@@ -983,22 +983,22 @@ article.client_listing {
 			font-size: 16px;
 			font-family: @headingsFontFamily;
 
-			&.icon_active {
+			&.iconActive {
 				margin: 4px 30px 0 0;
 				cursor: pointer;
 				float: left;
 				position: relative;
-				.icon_open {
+				.iconOpen {
 					display: none;
 					position: absolute;
 				}
 				&.active {
-					.icon_open {
+					.iconOpen {
 						display: block;
 					}
 				}
 			}
-			&.store_info {
+			&.storeInfo {
 				margin: 4px 0 0 0;
 				float: left;
 			//	width: 50%;
@@ -1011,7 +1011,7 @@ article.client_listing {
 						position: relative;
 						margin: 0;
 					}
-					&.store_number_container {
+					&.storeNumberContainer {
 						margin: 10px 10px 0 0;
 						input {
 							font-size: 16px;
@@ -1022,7 +1022,7 @@ article.client_listing {
 							margin-bottom: -5px;
 						}
 					}
-					&.store_title_container {
+					&.storeTitleContainer {
 						width: 300px;
 						input {
 							font-size: 30px;
@@ -1035,24 +1035,24 @@ article.client_listing {
 						}
 					}
 				}
-				.store_location {
+				.storeLocation {
 					margin: 2px 0 0 0;
 					display: block;
 				}
 			}
 
-			&.client_monthly_turnover, &.client_member_since, &.client_total_turnover, &.client_monthly_orders, &.client_total_orders {
+			&.clientMonthlyTurnover, &.clientMemberSince, &.clientTotalTurnover, &.clientMonthlyOrders, &.clientTotalOrders {
 				margin: 27px 0 0 37px;
 				text-transform: uppercase;
 				text-align: right;
 				color: @greenDark;
 			}
-			&.icon_remove { width: 17px; margin: 27px 20px 0 51px}
-			&.client_member_since { width: 85px; margin: 27px 0 0 37px; }
-			&.client_monthly_turnover { width: 62px; }
-			&.client_total_turnover { width: 71px; }
-			&.client_monthly_orders { width: 53px }
-			&.client_total_orders { width: 49px; margin-left: 0; }
+			&.iconRemove { width: 17px; margin: 27px 20px 0 51px}
+			&.clientMemberSince { width: 85px; margin: 27px 0 0 37px; }
+			&.clientMonthlyTurnover { width: 62px; }
+			&.clientTotalTurnover { width: 71px; }
+			&.clientMonthlyOrders { width: 53px }
+			&.clientTotalOrders { width: 49px; margin-left: 0; }
 		}
 		&:hover {
 			background-color: @grayLightest;
@@ -1062,7 +1062,7 @@ article.client_listing {
 
 // ADD NEW STORE
 
-.add_new_store {
+.addNewStore {
 	display: none;
 	height: 58px;
 	background: @grayLightest;
@@ -1081,7 +1081,7 @@ article.client_listing {
 }
 
 // ERROR CONTAINER {
-	.error_container {
+	.errorContainer {
 		display: none;
 		background: @orange;
 		color: #894d00;
@@ -1098,7 +1098,7 @@ article.client_listing {
 
 // ORDER LISTING
 
-article.order_listing {
+article.orderListing {
 
 	header {
 		height: 20px;
@@ -1106,19 +1106,19 @@ article.order_listing {
 			float: right;
 			text-align: right;
 			
-			&.order_delivered, &.order_id, &.order_date, &.order_store, &.order_city {
+			&.orderDelivered, &.orderId, &.orderDate, &.orderStore, &.orderCity {
 				float: left;
 				margin-right: 20px;
 				text-align: left;
 			}
-			&.order_id 		{ width: 72px; }
-			&.order_date	{ width: 80px; margin-right: 40px;}
-			&.order_store 	{ width: 61px; margin-right: 10px;}
+			&.orderId 		{ width: 72px; }
+			&.orderDate		{ width: 80px; margin-right: 40px;}
+			&.orderStore 	{ width: 61px; margin-right: 10px;}
 
-			&.order_sum 	{ width: 62px; margin-right: 47px;}
+			&.orderSum 	{ width: 62px; margin-right: 47px;}
 
 
-			&.order_itemnumber, &.order_sum, &.order_checked {
+			&.orderItemnumber, &.orderSum, &.orderChecked {
 				margin-left: 20px;
 			}
 		}
@@ -1132,7 +1132,7 @@ article.order_listing {
 				border-bottom: none;
 			}
 
-			.folded_order {
+			.foldedOrder {
 				padding: 10px 10px 0px 10px;
 				position: relative;
 				cursor: pointer;
@@ -1147,18 +1147,18 @@ article.order_listing {
 					text-transform: uppercase;
 					font-family: @headingsFontFamily;
 
-					&.order_delivered, &.order_id, &.order_date, &.order_store, &.order_city {
+					&.orderDelivered, &.orderId, &.orderDate, &.orderStore, &.orderCity {
 						float: left;
 						margin-right: 20px;
 						text-align: left;
 					}
 
-					&.order_id 		{ width: 72px; }
-					&.order_date	{ width: 80px; margin-right: 40px;}
-					&.order_store 	{ width: 61px; margin-right: 10px;}
+					&.orderId 		{ width: 72px; }
+					&.orderDate	{ width: 80px; margin-right: 40px;}
+					&.orderStore 	{ width: 61px; margin-right: 10px;}
 
-					&.order_sum 	{ width: 62px; margin: 0 10px 0 20px;}
-					&.order_delivered {
+					&.orderSum 	{ width: 62px; margin: 0 10px 0 20px;}
+					&.order_Delivered {
 						background-image: url("@{iconSpritePath}");
 						background-repeat: no-repeat;
 						background-position:  -15px -58px;
@@ -1166,10 +1166,10 @@ article.order_listing {
 						height: 12px;
 						padding-right: 3px;
 					}
-					&.icon_payment {
+					&.iconPayment {
 						margin-top: 1px;
 					}
-					&.order_add_credit, &.order_delete_credit {
+					&.orderDddCredit, &.orderDeleteCredit {
 						position: relative;
 						top: -3px;
 						margin-right: 15px;
@@ -1193,14 +1193,14 @@ article.order_listing {
 					background-color: @grayLightest;
 				}
 				&.delivered {
-					div.order_delivered {
+					div.orderDelivered {
 						background-position:    0px -58px;
 						width: 15px;
 						height: 13px;
 						padding-right: 0;
 					}
 					&:hover {
-						div.order_add_credit, div.order_delete_credit {
+						div.orderAddCredit, div.orderDeleteCredit {
 							display: block;
 						}
 					}
@@ -1209,7 +1209,7 @@ article.order_listing {
 			}
 		}
 	}			
-	button.btn.load_more {
+	button.btn.loadMore {
 		margin: 20px auto 0;
 		display: block;
 		width: 100%;
@@ -1222,7 +1222,7 @@ article.order_listing {
 
 // CATEGORY-LISTING --------------------------------------------------------------------
 
-article.category_listing {
+article.categoryListing {
 	header {
 		.icon_add_small {
 			float: left;
@@ -1231,7 +1231,7 @@ article.category_listing {
 	}
 	section {
 		.category {
-			.folded_category {
+			.foldedCategory {
 				cursor: pointer;
 				height: 47px;
 				padding: 17px 0 0 42px;
@@ -1239,17 +1239,17 @@ article.category_listing {
 			
 				div {
 					float: right;
-					&.category_title {
+					&.categoryTitle {
 						float: left;
 					}
-					&.category_contents {
+					&.categoryContents {
 						margin: 7px 20px 0 20px;
 					}
 					&.remove {
 						margin: 6px 20px 0 0 ;
 						cursor: pointer;
 					}
-					&.sort_up_down {
+					&.sortUpDown {
 						float: right;
 						margin: 1px 10px 0 0 ;
 						visibility: hidden;
@@ -1265,7 +1265,7 @@ article.category_listing {
 
 				&:hover {
 					background-color: @grayLightest;
-					div.sort_up_down {
+					div.sortUpDown {
 						visibility: visible;
 					}
 				}
@@ -1286,13 +1286,13 @@ article.category_listing {
 				
 				}
 			}
-			&:first-child .folded_category {
+			&:first-child .foldedCategory {
 				border-top: none;
 			}
-			.unfolded_category {
+			.unfoldedCategory {
 				margin: 0 30px 20px;
 				display: none;
-				.category_item {
+				.categoryItem {
 					padding: 10px 5px 7px 25px;
 					border-top: 1px solid @grayLighter;
 					&:first-child {
@@ -1305,7 +1305,7 @@ article.category_listing {
 						color: lighten(@gray, 5%);
 					}
 
-					.sort_up_down {
+					.sortUpDown {
 						float: right;
 						margin: -2px 10px 0 0 ;
 						visibility: hidden;
@@ -1335,22 +1335,22 @@ article.category_listing {
 
 // MENU-HEAD  --------------------------------------------------------------------
 
-article.menu_listing {
+article.menuListing {
 
 	header div {
 		text-align: right;
 
-		&.icon_add_small {
+		&.iconAddSmall {
 			float: left;
 			margin: 3px 0 0 -4px;
 		}
 
-		&.menu_title {
+		&.menuTitle {
 			float: left;
 			margin-left: 87px;
 		}
 
-		&.info.price_type, &.info.menu_type, &.info.orders, &.info.changed, &.info.price {
+		&.info.priceType, &.info.menuType, &.info.orders, &.info.changed, &.info.price {
 			float: right;
 			margin-right: 20px;
 		}
@@ -1381,15 +1381,15 @@ article.menu_listing {
 
 // MENU ROWS (FOLDED MENU)  --------------------------------------------------------------------
 
-.folded_menu {
+.foldedMenu {
 	&:hover {
 		cursor: pointer;
 	}
-	.menu_title {
+	.menuTitle {
 		width: auto;
 	}
 
-	.info_container {
+	.infoContainer {
 		float: right;
 		width: 66px;
 		text-align: right;
@@ -1404,13 +1404,13 @@ article.menu_listing {
 		}
 
 
-		&.price_container {
+		&.priceContainer {
 			margin-right: 0px;
 		}
 	}
 
 
-	.info.orders, .info.changed, .info.price, .info.menu_type {
+	.info.orders, .info.changed, .info.price, .info.menuType {
 		float: right;
 		padding: 24px 0 0 0;
 		margin-right: 20px;
@@ -1433,7 +1433,7 @@ article.menu_listing {
 		text-align: center;
 	}
 
-	.info.menu_type {
+	.info.menuType {
 		margin-right: 60px;
 	}
 
@@ -1442,21 +1442,21 @@ article.menu_listing {
 
 // UNFOLDED ARTICLE  --------------------------------------------------------------------
 
-.unfolded_menu {
+.unfoldedMenu {
 //	display: none;
 	padding: 20px;
 }
 
-.detail_image, .detail_description {
+.detailImage, .detailDescription {
 	float: left;
 }
 
-.unfolded_options_wrapper {
+.unfoldedOptionsWrapper {
 	clear: both;
 	border-top: 1px solid @grayLight;
 }
 
-.detail_image {
+.detailImage {
 		padding-left: 20px;
 		margin-bottom: 20px;
 		float:left;
@@ -1466,7 +1466,7 @@ article.menu_listing {
 			width: 302px;
 			height: 183px;
 		}
-		.icon_edit_big {
+		.iconEditBig {
 			position: absolute;
 			left: 255px;
 			top: -5px;
@@ -1476,14 +1476,14 @@ article.menu_listing {
 
 
 
-.detail_description {
+.detailDescription {
 	float: left;
 	padding-top: 10px;
 	position: relative;
 	>label {
 		top: 31px;
 		left: 50px;
-		&.label_input_description {
+		&.labelInputDescription {
 			top: auto;
 			bottom: 40px;
 		}
@@ -1495,7 +1495,7 @@ article.menu_listing {
 	//	box-shadow: none;
 		margin-left: 40px;
 		width: 380px;
-		&.input_title {
+		&.inputTitle {
 			font-family: @headingsFontFamily;
 			color: @greenDark;
 			background: none;
@@ -1504,7 +1504,7 @@ article.menu_listing {
 			padding-left: 44px;
 			width: 346px;
 		}
-		&.input_description {
+		&.inputDescription {
 			font-size: 16px;
 			margin-bottom: 9px;
 			background: none;
@@ -1522,10 +1522,10 @@ article.menu_listing {
 
 
 
-.detail_price {
+.detailPrice {
 	margin: 0 0 0px 40px;
 
-	.detail_price_input, .detail_deposit_input {
+	.detailPriceInput, .detailDepositInput {
 		.floatleft;
 		margin: 0 20px 0 0;
 		position: relative;
@@ -1565,7 +1565,7 @@ article.menu_listing {
 			top: 7px;
 		}
 	}
-	.detail_deposit_input {
+	.detailDepositInput {
 		margin: 0;
 	}
 }
@@ -1573,7 +1573,7 @@ article.menu_listing {
 // MENU CUSTOMIZER
 
 
-.menu_customizer {
+.menuCustomizer {
 	clear: both;
 	padding: 20px;
 	border-top: 1px solid @grayLighter;
@@ -1604,7 +1604,7 @@ article.menu_listing {
 			top: 11px;
 			left: 5px;
 		}
-		.hor_border {
+		.horBorder {
 			width: 28px;
 			height: 16px;
 			background: @white;
@@ -1623,7 +1623,7 @@ article.menu_listing {
 
 		#gradient > .vertical( #f65a1c, #9e2d00 );
 		cursor: pointer;
-		.vert, .hor_border {
+		.vert, .horBorder {
 			display: none;
 		}
 		.hor {
@@ -1636,7 +1636,7 @@ article.menu_listing {
 	}
 
 
-	.menu_component_option {
+	.menuComponentOption {
 			border-bottom: 1px solid darken(@grayLightest , 20%);
 			width: 100%;
 			display: block;
@@ -1649,24 +1649,9 @@ article.menu_listing {
 			font-family: @headingsFontFamily;
 			font-size: 15px;
 			text-decoration: none;
-
-		//	@transition: border linear .2s;
-  		//		.transition(@transition);
-		//	.caret {
-		//		position: relative;
-		//		top: 7px;
-		//		margin-right: 5px;
-		//	}
-		//	&:hover {
-		//		.caret {
-		//			border-top: 4px solid @greenDark;
-		//		}
-		//		border-bottom: 1px solid @greenLight;
-		//		
-		//	}
-
 		}
-		.dropdown_menu {
+
+		.dropdownMenu {
 			display: none;
 			list-style-type: none;
 			padding: 10px 10px 10px 5px;
@@ -1694,12 +1679,12 @@ article.menu_listing {
 
 	// MENU OPTIONS
 
-	.menu_options {
+	.menuOptions {
 		position: absolute;
 		left: 230px;
 	}
 
-	.switch_option {
+	.switchOption {
 		float: left;
 		margin: 0 0 0 40px;
 		>div {
@@ -1709,7 +1694,7 @@ article.menu_listing {
 			color: @grayDark;
 			text-transform: uppercase;
 
-			&.switch_container {
+			&.switchContainer {
 				position: relative;
 				top: 1px;
 				width: 40px;
@@ -1767,7 +1752,7 @@ article.menu_listing {
 	  				//	}
 					}
 				}
-				.switch_overlay {
+				.switchOverlay {
 					position: absolute;
 					width: 100%;
 					height: 100%;
@@ -1780,7 +1765,7 @@ article.menu_listing {
 
 	// ADDITIONAL ITEMS
 
-	.icon_add_big {
+	.iconAddBig {
 		position: relative;
 		top: 5px;
 		left: -21px;
@@ -1788,34 +1773,34 @@ article.menu_listing {
 		float: left;
 	}
 
-	.menu_component_blocks {
+	.menuComponentBlocks {
 		position: relative;
 	//	top: 50px;
 	}
-	.menu_component_block {
+	.menuComponentBlock {
 		position: relative;
 	//	background: @grayLightest;
 		margin: 0;
 		width: 160px;
 		padding: 10px 30px 20px 30px;
 		float: left;
-		.menu_component_options {
+		.menuComponentOptions {
 			position: relative;
-			.icon_remove {
+			.iconRemove {
 				margin: 0;
 				position: absolute;
 				right: 10px;
 			}
-			.icon_filter {
+			.iconFilter {
 				margin: 0;
 				position: absolute;
 				right: 30px;
 			}
-			.filter_articles {
+			.filterArticles {
 				color: @gray;
 			}
 		}
-		.icon_add_small {
+		.iconAddSmall {
 			position: relative;
 			float: right;
 			top: 0px;
@@ -1850,7 +1835,7 @@ article.menu_listing {
 	}
 }
 
-.filter_articles {
+.filterArticles {
 	padding-left: 0px;
 	margin-bottom: 15px;
 	display: none;
@@ -1865,7 +1850,7 @@ article.menu_listing {
 	}
 }
 
-.trigger_filter_articles {
+.triggerFilterArticles {
 	cursor: pointer;
 	&:hover {
 		i {
@@ -1877,7 +1862,7 @@ article.menu_listing {
 
 // INPUT IMAGE  --------------------------------------------------------------------
 
-.input_image {
+.inputImage {
 	position:absolute;
 	left: -1000px;
 }
