@@ -50,7 +50,7 @@ class StoreModel extends BaseModel
 				'store_model_id' => $this->id,
 				'dayOfWeek' => $dayOfWeek,
 				'startMinutes' => 690, // 11:30
-				'end_minutes' => 840 // 14:00
+				'endMinutes' => 840 // 14:00
 				));
 			$noon->save();
 
@@ -58,7 +58,7 @@ class StoreModel extends BaseModel
 				'store_model_id' => $this->id,
 				'dayOfWeek' => $dayOfWeek,
 				'startMinutes' => 1020, // 17:00
-				'end_minutes' => 1320 // 22:00
+				'endMinutes' => 1320 // 22:00
 				));
 			$evening->save();
 		}
