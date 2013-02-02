@@ -3,24 +3,44 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/store/home/ArticleView',
-	'views/store/home/MenuBundleView'
-	], function ($, _, Backbone, ArticleView, MenuBundleView) {
+	'views/store/home/ArticleDetailsView',
+	'views/store/home/MenuBundleDetailsView',
+	'text!templates/store/home/ItemTemplate.html'
+	], function ($, _, Backbone, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
 
 	var ItemView = Backbone.View.extend({
 
+		template: _.template(ItemTemplate),
+
 		className: 'item',
 
+		events: {
+			'click': 'showDetails'
+		},
+
 		initialize: function () {
+			this.render();
+		},
+
+		render: function () {
+			var json = {
+				title: this.model.get('title'),
+				image: this.model.get('largeImage'),
+				description: this.model.get('description'),
+				price: this.model.get('price')
+			};
+
+			this.$el.html(this.template(json));
+		},
+
+		showDetails: function () {
 			if (this.model.has('allowsIngredients')) {
-				new ArticleView({
-					model: this.model,
-					el: this.$el
+				new ArticleDetailsView({
+					model: this.model
 				});
 			} else {
-				new MenuBundleView({
-					model: this.model,
-					el: this.$el
+				new MenuBundleDetailsView({
+					model: this.model
 				});
 			}
 		}

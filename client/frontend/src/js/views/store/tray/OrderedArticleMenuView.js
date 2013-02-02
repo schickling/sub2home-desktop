@@ -9,7 +9,9 @@ define([
 	var OrderedArticleMenuView = Backbone.View.extend({
 
 		template: _.template(OrderedArticleMenuTemplate),
-		
+
+		className: 'menuItem',
+
 		initialize: function () {
 			this.render();
 		},

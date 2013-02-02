@@ -25,14 +25,14 @@ define([
 
 		_alignView: function () {
 			// center vertical
-			// var wrappedHeight = this.$el.parent().height(),
-			// 	totalHeight = this.$el[0].scrollHeight;
+			var wrappedHeight = this.$el.parent().height(),
+				totalHeight = this.$el[0].scrollHeight;
 
-			// if (totalHeight < wrappedHeight) {
-			// 	this.$el.css({
-			// 		paddingTop: (wrappedHeight - totalHeight) / 2
-			// 	});
-			// }
+			if (totalHeight < wrappedHeight) {
+				this.$el.css({
+					paddingTop: (wrappedHeight - totalHeight) / 2
+				});
+			}
 
 			// adjust width
 			this.adjustWidth();
