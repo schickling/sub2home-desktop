@@ -21,8 +21,11 @@ define([
 				map: parentView.map
 			});
 
-			// load template
-			this.$el = $(this.template(model.toJSON())).clone();
+			// render template
+			var json = {
+				title: this.model.get('title')
+			};
+			this.$el = $(this.template(json));
 
 			// cache note
 			this.$note = this.$el.find('.smallNote');
@@ -58,7 +61,7 @@ define([
 		// set state
 		this.state = 'initialized';
 
-		this.$el.on('click', function () {
+		$el.on('click', function () {
 			self.redirect();
 		});
 	};

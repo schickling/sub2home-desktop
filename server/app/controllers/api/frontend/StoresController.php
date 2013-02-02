@@ -13,7 +13,7 @@ class StoresController extends ApiController
 
 	public function index()
 	{
-		$storesCollection = StoreModel::with(array('deliveryAreasCollection', 'deliveryTimesCollection'))
+		$storesCollection = StoreModel::with(array('deliveryAreasCollection'))
 										->where('isOpen', true)
 										->where('isActive', true)
 										->get();
@@ -29,7 +29,10 @@ class StoresController extends ApiController
 	 */
 	public function show($storeAlias)
 	{
-		$storeModel = StoreModel::with(array('deliveryAreasCollection', 'deliveryTimesCollection', 'addressModel'))
+		$storeModel = StoreModel::with(array(
+			'deliveryAreasCollection',
+			'deliveryTimesCollection',
+			'addressModel'))
 							->where('alias', $storeAlias)
 							->where('isActive', true)
 							->first();

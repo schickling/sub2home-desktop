@@ -27,11 +27,7 @@ define([
 		},
 
 		showDetails: function () {
-			if (this.model.get('allowsIngredients')) {
-				router.navigate('store/theke/artikel/' + this.model.get('id'), true);
-			} else {
-				alert('Warenkorb yo!');
-			}
+			router.navigate('store/theke/menu/' + this.model.get('id'), true);
 		}
 
 	});

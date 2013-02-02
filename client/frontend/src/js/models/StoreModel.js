@@ -26,7 +26,7 @@ define([
 		initialize: function () {
 
 
-	
+
 			// listen for changes in delivery areas/times collection
 			this.on('change:deliveryAreasCollection', function () {
 				this.listenForDeliveryAreasCollectionChanges();
@@ -45,11 +45,11 @@ define([
 
 			var attributes = _.clone(this.attributes);
 
-			if (attributes.hasOwnProperty('deliveryAreasCollection')) {
+			if (attributes.hasOwnProperty('deliveryAreasCollection') && attributes.deliveryAreasCollection) {
 				attributes.deliveryAreasCollection = attributes.deliveryAreasCollection.toJSON();
 			}
 
-			if (attributes.hasOwnProperty('deliveryTimesCollection')) {
+			if (attributes.hasOwnProperty('deliveryTimesCollection') && attributes.deliveryTimesCollection) {
 				attributes.deliveryTimesCollection = attributes.deliveryTimesCollection.toJSON();
 			}
 

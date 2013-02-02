@@ -91,7 +91,7 @@ define([
 				$.when(this.mapDeffered, this.collectionDeffered).done(function () {
 					navigator.geolocation.getCurrentPosition(function (position) {
 
-						self.$search.val('Standort wird ermittelt');
+						notificationcenter.info('Standort wird ermittelt', 'goo');
 
 						var latlng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -118,11 +118,11 @@ define([
 								self.lookUpStoresForPostal(postal, false);
 
 							} else {
-								self.$search.val('wtf');
+								notificationcenter.warning('Neeeeeeeeein!', 'Standort konnte nicht ermittelt werden');
 							}
 						});
 					}, function () {
-						notificationcenter.warning('Neeeeeeeeein!', 'Standort konnte nicht ermittelt werden');
+						notificationcenter.warning('Neeeeeeeeein!', 'Leider willst du das nicht :/');
 					});
 				}); // end deffered
 			}
@@ -144,15 +144,16 @@ define([
 					this.selectStoreNotification();
 				}
 
+				// render stores
+				this.renderStores(storesInRange);
+
 				// render delivery areas
 				var matchingDeliveryAreas = this.getMatchingDeliveryAreas(storesInRange);
 				if (matchingDeliveryAreas.length > 1) {
 					this.renderDeliveryAreas(matchingDeliveryAreas);
 				} else {
-					console.log('nur ein liefergebiet');
+					this.storeViews[0].markAvailable();
 				}
-
-				this.renderStores(storesInRange);
 
 			} else {
 				this.noStoresFound();
