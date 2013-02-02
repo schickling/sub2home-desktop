@@ -349,9 +349,12 @@ define([
 			if (this.currentTimelineItemModel.get('selectionIndex') !== this.previousTimelineItemModel.get('selectionIndex')) {
 
 				var self = this,
-					currentSelectionIndex = this.currentTimelineItemModel.get('selectionIndex'),
+					selectionIndexOffset = Math.abs(this.currentTimelineItemModel.get('selectionIndex') - this.previousTimelineItemModel.get('selectionIndex')) - 1,
+					currentSelectionIndex = selectionIndexOffset + this.currentTimelineItemModel.get('selectionIndex'),
 					animationTime = this.animationTime,
 					$container = this.$infoContainer;
+
+				console.log(currentSelectionIndex);
 
 				// slide up
 				$container.stop().animate({
@@ -365,9 +368,13 @@ define([
 					$prevInfo.removeClass('active').hide();
 					$currentInfo.addClass('active').show();
 
+					$container.css({
+						marginTop: -($currentInfo.height()) + 35
+					});
+
 
 					// slide down
-					$container.animate({
+					$container.stop().animate({
 						marginTop: 0
 					}, animationTime);
 				});

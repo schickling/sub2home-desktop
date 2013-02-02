@@ -22,7 +22,8 @@ class CategoriesController extends ApiController
 		foreach ($categoriesCollection as $categoryModel) {
 
 			$itemsCollection = new Collection();
-			$sortedItemsCollection = $categoryModel->sortedItemsCollection;
+			// TODO: make that more convenient
+			$sortedItemsCollection = $categoryModel->getSortedItemsCollection();
 
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
