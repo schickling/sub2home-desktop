@@ -18,7 +18,9 @@ require.config({
 		templates: '../templates',
 		// module alias
 		notificationcenter: 'modules/notificationcenter',
-		router: 'modules/router'
+		router: 'modules/router',
+		server: 'modules/server',
+		global: 'modules/global'
 	},
 
 	shim: {

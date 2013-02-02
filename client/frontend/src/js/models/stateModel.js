@@ -3,8 +3,9 @@ define([
 	'underscore',
 	'backbone',
 	'backboneLocalStorage',
-	'models/StoreModel'
-	], function (_, Backbone, backboneLocalStorage, StoreModel) {
+	'models/StoreModel',
+	'global'
+	], function (_, Backbone, backboneLocalStorage, StoreModel, global) {
 
 	var StateModel = Backbone.Model.extend({
 
@@ -32,6 +33,7 @@ define([
 
 		},
 
+		// TODO: clean up
 		initialize: function () {
 
 			// laod from localStorage if exists
@@ -58,6 +60,10 @@ define([
 			}
 
 
+			// write storeAlias in global for apis
+			global.setStoreAlias(this.get('storeAlias'));
+
+
 			// save old route
 			this.on('change:currentRoute', function () {
 				this.set({
@@ -72,8 +78,8 @@ define([
 			this.on('change:storeAlias', function () {
 				this.fetchStoreFromServer();
 
-				// write storeAlias in localstorage for apis
-				window.localStorage.setItem('storeAlias', this.get('storeAlias'));
+				// write storeAlias in global for apis
+				global.setStoreAlias(this.get('storeAlias'));
 
 			}, this);
 

@@ -2,13 +2,14 @@
 define([
 	'underscore',
 	'backbone',
+	'global',
 	'models/MenuModel'
-	], function (_, Backbone, MenuModel) {
+	], function (_, Backbone, global, MenuModel) {
 
 	var MenuBundleModel = MenuModel.extend({
 
 		urlRoot: function () {
-			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/menubundles';
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/menubundles';
 		}
 
 	});

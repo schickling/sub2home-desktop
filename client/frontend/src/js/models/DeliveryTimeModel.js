@@ -1,7 +1,8 @@
 define([
 	'underscore',
-	'backbone'
-	], function (_, Backbone) {
+	'backbone',
+	'global'
+	], function (_, Backbone, global) {
 
 	var DeliveryTimeModel = Backbone.Model.extend({
 
@@ -12,7 +13,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/deliverytimes';
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/deliverytimes';
 		},
 
 		checkIfNow: function () {

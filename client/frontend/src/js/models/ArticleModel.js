@@ -4,8 +4,9 @@ define([
 	'backbone',
 	'collections/MenuUpgradesCollection',
 	'collections/IngredientCategoriesCollection',
-	'notificationcenter'
-	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
+	'notificationcenter',
+	'global'
+	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter, global) {
 
 	var ArticleModel = Backbone.Model.extend({
 
@@ -54,7 +55,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/articles/' + this.get('id');
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles/' + this.get('id');
 		},
 
 		toJSON: function () {

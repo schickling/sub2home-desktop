@@ -1,7 +1,8 @@
 define([
 	'underscore',
-	'backbone'
-	], function (_, Backbone) {
+	'backbone',
+	'global'
+	], function (_, Backbone, global) {
 
 	var AddressModel = Backbone.Model.extend({
 
@@ -17,7 +18,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/frontend/stores/' + window.localStorage.getItem('storeAlias') + '/address';
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/address';
 		}
 	});
 
