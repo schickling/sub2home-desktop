@@ -422,7 +422,7 @@ div.pricetag {
       }
       img {
         position: absolute;
-      //  top: 14px;
+        top: 0;
       
         left: 0px;
         width: 70px;
@@ -2556,10 +2556,12 @@ div.bankOptions {
 .slideContainer {
   .clearfix;
   float: left;
-  overflow: auto;
+  overflow: hidden;
   //width: 100%;
   //display: inline-block;
   text-align: left;
+  outline: 0px;
+  outline-offset: 0px;
   //white-space: nowrap;
 }
 
@@ -2567,12 +2569,15 @@ div.bankOptions {
   //overflow: auto;
   float: left;
   text-align: center;
+  height: inherit;
   //display: inline-block;
   margin: 0;
   padding: 0;
   //white-space: normal;
   //.border-box;
   padding: 0 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
   .positioned;
   .item {
     overflow: visible;
@@ -2589,6 +2594,7 @@ div.bankOptions {
     .smallNote {
       .smallSelectionNote;
       top: -45px;
+
     }
     .accentIngredient {
       position: absolute;
@@ -2927,6 +2933,8 @@ div.bankOptions {
         cursor: default;
       }
     }
+    .iCheese:before { font-size: 73px; }
+    .iVegetables:before { font-size: 73px; }
   }
 
   &:first-child {

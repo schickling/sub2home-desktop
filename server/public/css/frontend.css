@@ -362,6 +362,9 @@ aside#header .iInfo {
   bottom: -7px;
   background: url("../img/static/common/note_bottom.png") repeat-x;
 }
+.note.selection {
+  width: 100%;
+}
 .note.selection .container .info {
   *zoom: 1;
   display: none;
@@ -3608,6 +3611,7 @@ div.pricetag span:after {
 .timeline .itemsTimeline .itemTimeline img,
 .categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
+  top: 0;
   left: 0px;
   width: 70px;
   height: auto;
@@ -5388,8 +5392,10 @@ div.bankOptions button.bankaccount {
 .slideContainer {
   *zoom: 1;
   float: left;
-  overflow: auto;
+  overflow: hidden;
   text-align: left;
+  outline: 0px;
+  outline-offset: 0px;
 }
 .slideContainer:before,
 .slideContainer:after {
@@ -5403,9 +5409,12 @@ div.bankOptions button.bankaccount {
 .slide {
   float: left;
   text-align: center;
+  height: inherit;
   margin: 0;
   padding: 0;
   padding: 0 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
 }
 .slide .item {
@@ -5424,6 +5433,7 @@ div.bankOptions button.bankaccount {
 .slide .item .smallNote {
   opacity: 0;
   filter: alpha(opacity=0);
+  z-index: 5;
   position: relative;
   display: inline-block;
   top: -45px;
@@ -5616,6 +5626,7 @@ div.bankOptions button.bankaccount {
   top: 0;
   opacity: 0;
   filter: alpha(opacity=0);
+  z-index: 5;
   position: relative;
   display: inline-block;
   opacity: 1;
@@ -5727,6 +5738,12 @@ div.bankOptions button.bankaccount {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   color: #c3a55d;
   cursor: default;
+}
+.itemsTimeline .itemTimeline .iCheese:before {
+  font-size: 73px;
+}
+.itemsTimeline .itemTimeline .iVegetables:before {
+  font-size: 73px;
 }
 .itemsTimeline:first-child .itemTimeline:before {
   content: " ";
@@ -6184,6 +6201,7 @@ div.bankOptions button.bankaccount {
 .smallSelectionNote {
   opacity: 0;
   filter: alpha(opacity=0);
+  z-index: 5;
   position: relative;
   display: inline-block;
 }
