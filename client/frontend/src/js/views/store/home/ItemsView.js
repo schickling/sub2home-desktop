@@ -19,11 +19,13 @@ define([
 		},
 
 		renderItem: function (itemModel) {
+
 			var itemView = new ItemView({
 				model: itemModel
 			});
 
-			this.$el.append(itemView.$el);
+			this.$el.append(itemView.el);
+
 		}
 
 	});
