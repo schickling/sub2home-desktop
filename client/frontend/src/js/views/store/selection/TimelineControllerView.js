@@ -349,8 +349,8 @@ define([
 			if (this.currentTimelineItemModel.get('selectionIndex') !== this.previousTimelineItemModel.get('selectionIndex')) {
 
 				var self = this,
-					selectionIndexOffset = Math.abs(this.currentTimelineItemModel.get('selectionIndex') - this.previousTimelineItemModel.get('selectionIndex')) - 1,
-					currentSelectionIndex = selectionIndexOffset + this.currentTimelineItemModel.get('selectionIndex'),
+					selectionIndexOffset = this.collection.first().get('selectionIndex'),
+					currentSelectionIndex = this.currentTimelineItemModel.get('selectionIndex') - selectionIndexOffset,
 					animationTime = this.animationTime,
 					$container = this.$infoContainer;
 
