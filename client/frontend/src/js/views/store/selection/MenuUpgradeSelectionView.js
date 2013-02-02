@@ -13,7 +13,7 @@ define([
 		stageViewClass: MenuUpgradesView,
 
 		infoViewClass: InfoView,
-		
+
 		prepare: function () {
 
 			if (this.model.isMenuUpgradeBase()) {
@@ -31,7 +31,44 @@ define([
 					menuUpgradeSelection: true
 				});
 
+
+				this.listenForSelection();
+
 			}
+
+		},
+
+		listenForSelection: function () {
+
+			var baseOrderedArticleModel = this.model;
+
+			// listen for new menu upgrade selection
+			baseOrderedArticleModel.on('change:menuUpgradeModel', function () {
+				if (baseOrderedArticleModel.get('menuUpgradeModel')) {
+					this.selectMenuUpgrade(baseOrderedArticleModel.get('menuUpgradeModel'));
+				}
+			}, this);
+
+		},
+
+		selectMenuUpgrade: function (menuUpgradeModel) {
+
+			var orderedArticlesCollection = this.model.collection,
+				orderedItemModel = this.model.get('orderedItemModel'),
+				menuComponentBlocksCollection = menuUpgradeModel.get('menuComponentBlocksCollection');
+
+			// remove ordered articles belonging to an old menu upgrade
+			orderedItemModel.reduceOrderedArticles();
+
+			// create new ordered articles for each menu component block
+			_.each(menuComponentBlocksCollection.models, function (menuComponentBlockModel) {
+
+				orderedArticlesCollection.add({
+					menuComponentBlockModel: menuComponentBlockModel,
+					orderedItemModel: orderedItemModel
+				});
+
+			});
 
 		}
 

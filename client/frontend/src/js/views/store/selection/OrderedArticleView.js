@@ -26,10 +26,7 @@ define([
 			this.render();
 
 			// remove view if model was destoryed
-			var self = this;
-			this.model.bind('destroy', function () {
-				self.remove();
-			});
+			this.model.on('destroy', this.remove, this);
 
 		},
 

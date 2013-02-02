@@ -10,6 +10,9 @@ define([
 
 		initialize: function () {
 			this.render();
+
+			// listen for further ordered articles to be added
+			this.collection.on('add', this.renderOrderedArticle, this);
 		},
 
 		render: function () {
