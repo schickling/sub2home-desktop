@@ -36,6 +36,13 @@ define([
 		// TODO: clean up
 		initialize: function () {
 
+
+			// mirror changes in store alias to global
+			this.on('change:storeAlias', function () {
+				global.setStoreAlias(this.get('storeAlias'));
+			}, this);
+			
+
 			// laod from localStorage if exists
 			this.fetch();
 
@@ -59,11 +66,6 @@ define([
 				this.fetchStoreFromServer();
 			}
 
-
-			// write storeAlias in global for apis
-			global.setStoreAlias(this.get('storeAlias'));
-
-
 			// save old route
 			this.on('change:currentRoute', function () {
 				this.set({
@@ -77,11 +79,8 @@ define([
 			// load new store on alias change
 			this.on('change:storeAlias', function () {
 				this.fetchStoreFromServer();
-
-				// write storeAlias in global for apis
-				global.setStoreAlias(this.get('storeAlias'));
-
 			}, this);
+
 
 
 			window.state = this;

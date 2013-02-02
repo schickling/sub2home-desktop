@@ -26,8 +26,9 @@ define([
 		initialize: function () {
 
 
+	
+			// listen for changes in delivery areas/times collection
 			this.on('change:deliveryAreasCollection', function () {
-				this.checkDeliveryAreaSelection();
 				this.listenForDeliveryAreasCollectionChanges();
 			}, this);
 
@@ -35,7 +36,6 @@ define([
 				this.listenForDeliveryTimesCollectionChanges();
 			}, this);
 
-			// listen for changes in delivery areas/times collection
 			this.listenForDeliveryAreasCollectionChanges();
 			this.listenForDeliveryTimesCollectionChanges();
 
@@ -98,19 +98,17 @@ define([
 			return minimumValue;
 		},
 
-		checkDeliveryAreaSelection: function () {
-
-			// mark first delivery area as selected if none selected
-			var deliveryAreasCollection = this.get('deliveryAreasCollection');
-
-			if (deliveryAreasCollection) {
-				var numberOfSelected = deliveryAreasCollection.where({
+		getSelectedDeliveryAreaModel: function () {
+			var deliveryAreasCollection = this.get('deliveryAreasCollection'),
+				selectedDeliveryAreas = deliveryAreasCollection.where({
 					selected: true
-				}).length;
+				});
 
-				if (numberOfSelected === 0) {
-					deliveryAreasCollection.first().set('selected', true);
-				}
+			// mark first delivery area as selected if no one was selected
+			if (selectedDeliveryAreas.length === 0) {
+				return deliveryAreasCollection.first().set('selected', true);
+			} else {
+				return selectedDeliveryAreas[0];
 			}
 		},
 
