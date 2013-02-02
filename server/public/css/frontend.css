@@ -4121,10 +4121,26 @@ input[type="text"]#locationSelectionInput {
   vertical-align: top;
   overflow: visible;
 }
-.item .itemOverlay {
+.item h3 {
+  width: 302px;
+  text-align: center;
+}
+.item .itemDescription {
+  font-family: "Handlee", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  width: 302px;
+  text-align: center;
+}
+.item .pricetag {
+  top: 103px;
+  left: 183px;
+}
+.item .detailsArticle {
   position: absolute;
+  width: 500px;
   padding: 25px;
-  left: 0;
+  top: 0;
+  left: -99px;
   text-align: left;
   overflow: hidden;
   background: url("../img/static/common/note_background.jpg") repeat;
@@ -4140,21 +4156,7 @@ input[type="text"]#locationSelectionInput {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.item .itemOverlayBackground {
-  display: none;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-}
-.item .itemBasics {
-  width: 302px;
-  position: relative;
-  text-align: center;
-}
 .item .footlongOption {
-  display: none;
   position: absolute;
   cursor: pointer;
   left: 250px;
@@ -4169,7 +4171,7 @@ input[type="text"]#locationSelectionInput {
   color: #d1ba82;
   position: relative;
   left: -30px;
-  top: 72px;
+  top: 52px;
 }
 .item .footlongOption span {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
@@ -4179,14 +4181,6 @@ input[type="text"]#locationSelectionInput {
   left: 50px;
   top: 55px;
   width: 120px;
-}
-.item .pricetag {
-  top: 103px;
-  left: 183px;
-}
-.item .itemDescription {
-  font-family: "Handlee", Helvetica, Arial, sans-serif;
-  font-size: 15px;
 }
 .item.selected .itemOverlayBackground {
   display: block;
@@ -5806,6 +5800,8 @@ div.bankOptions button.bankaccount {
 .orderedArticle .itemPreview {
   display: block;
   float: left;
+  height: 160px;
+  width: 257px;
 }
 .orderedArticle .itemDescription {
   float: left;
