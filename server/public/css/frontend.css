@@ -4111,8 +4111,7 @@ input[type="text"]#locationSelectionInput {
   height: 1px;
   background: rgba(209, 186, 130, 0.5);
 }
-.article,
-.menuBundle {
+.item {
   position: relative;
   display: inline-block;
   width: 302px;
@@ -4122,8 +4121,7 @@ input[type="text"]#locationSelectionInput {
   vertical-align: top;
   overflow: visible;
 }
-.article .itemOverlay,
-.menuBundle .itemOverlay {
+.item .itemOverlay {
   position: absolute;
   padding: 25px;
   left: 0;
@@ -4142,8 +4140,7 @@ input[type="text"]#locationSelectionInput {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.article .itemOverlayBackground,
-.menuBundle .itemOverlayBackground {
+.item .itemOverlayBackground {
   display: none;
   position: absolute;
   top: 5px;
@@ -4151,14 +4148,12 @@ input[type="text"]#locationSelectionInput {
   right: 5px;
   bottom: 5px;
 }
-.article .itemBasics,
-.menuBundle .itemBasics {
+.item .itemBasics {
   width: 302px;
   position: relative;
   text-align: center;
 }
-.article .footlongOption,
-.menuBundle .footlongOption {
+.item .footlongOption {
   display: none;
   position: absolute;
   cursor: pointer;
@@ -4167,8 +4162,7 @@ input[type="text"]#locationSelectionInput {
   width: 230px;
   height: 130px;
 }
-.article .footlongOption:before,
-.menuBundle .footlongOption:before {
+.item .footlongOption:before {
   content: "\e01e";
   font-family: "Homicons";
   font-size: 300px;
@@ -4177,8 +4171,7 @@ input[type="text"]#locationSelectionInput {
   left: -30px;
   top: 72px;
 }
-.article .footlongOption span,
-.menuBundle .footlongOption span {
+.item .footlongOption span {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   color: #d1ba82;
   font-size: 15px;
@@ -4187,18 +4180,15 @@ input[type="text"]#locationSelectionInput {
   top: 55px;
   width: 120px;
 }
-.article .pricetag,
-.menuBundle .pricetag {
+.item .pricetag {
   top: 103px;
   left: 183px;
 }
-.article .itemDescription,
-.menuBundle .itemDescription {
+.item .itemDescription {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-.article.selected .itemOverlayBackground,
-.menuBundle.selected .itemOverlayBackground {
+.item.selected .itemOverlayBackground {
   display: block;
 }
 .menuBundle {
