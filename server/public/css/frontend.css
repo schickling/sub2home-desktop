@@ -375,6 +375,9 @@ aside#header .iInfo {
 .note.selection .container .info:after {
   clear: both;
 }
+.note.selection .container .info > div {
+  margin: 30px;
+}
 .articleInfo {
   margin: 30px 0;
   float: left;
@@ -5468,6 +5471,9 @@ div.bankOptions button.bankaccount {
 .slide.menuUpgrades .menuUpgradesContainer {
   height: inherit;
   overflow: auto;
+}
+.menuUpgradeInfo {
+  margin-left: 30px;
 }
 .menuUpgrade {
   width: 310px;
