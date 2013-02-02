@@ -2,10 +2,16 @@
 define([
 	'underscore',
 	'backbone',
-	'models/AddressModel'
-	], function (_, Backbone, AddressModel) {
+	'models/AddressModel',
+	'collections/StoresCollection'
+	], function (_, Backbone, AddressModel, StoresCollection) {
 
 	var ClientModel = Backbone.Model.extend({
+
+		defaults: {
+			addressModel: null,
+			storesCollection: null
+		},
 
 		urlRoot: '/api/backend/clients',
 
@@ -13,6 +19,12 @@ define([
 
 			if (response.hasOwnProperty('addressModel')) {
 				response.addressModel = new AddressModel(response.addressModel);
+			}
+
+			if (response.hasOwnProperty('storesCollection')) {
+				response.storesCollection = new StoresCollection(response.storesCollection, {
+					parse: true
+				});
 			}
 
 			return response;

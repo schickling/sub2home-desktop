@@ -2,75 +2,98 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+	'backbone',
+	'text!templates/clients/StoreTemplate.html'
+	], function ($, _, Backbone, StoreTemplate) {
 
 	var StoreView = Backbone.View.extend({
 
-		template: _.template(template_store),
+		template: _.template(StoreTemplate),
 
 		className: 'store',
 
 		events: {
-			'click .icon_active': 'toggle_active',
-			'click .icon_open': 'toggle_open',
-			'click .store_title': 'show_store_title_input',
-			'keypress .store_title_input': 'update_title_on_enter',
-			'focusout .store_title_input': 'update_title',
-			'click .store_number': 'show_store_number_input',
-			'keypress .store_number_input': 'update_number_on_enter',
-			'focusout .store_number_input': 'update_number',
-			'click': 'redirect_store',
-			'click .icon_remove': 'destroy'
+			'click .iconActive': 'toggleActive',
+			'click .iconOpen': 'toggleOpen',
+			'click .storeTitle': 'showStoreTitleInput',
+			'keypress .storeTitleInput': 'updateTitleOnEnter',
+			'focusout .storeTitleInput': 'updateTitle',
+			'click .storeNumber': 'showStoreNumberInput',
+			'keypress .storeNumberInput': 'updateNumberOnEnter',
+			'focusout .storeNumberInput': 'updateNumber',
+			'click': 'redirectStore',
+			'click .iconRemove': 'destroy'
+		},
+
+		initialize: function () {
+			this.render();
 		},
 
 		render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
-			return this;
+
+			var storeModel = this.model,
+				addressModel = storeModel.get('addressModel');
+
+			var json = {
+				isActive: storeModel.get('isActive'),
+				isOpen: storeModel.get('isOpen'),
+				number: storeModel.get('number'),
+				title: storeModel.get('title'),
+				created_at: storeModel.get('created_at'),
+				monthlyTurnover: storeModel.get('monthlyTurnover'),
+				totalTurnover: storeModel.get('totalTurnover'),
+				monthlyOrders: storeModel.get('monthlyOrders'),
+				totalOrders: storeModel.get('totalOrders'),
+				street: addressModel.get('street'),
+				postal: addressModel.get('postal'),
+				city: addressModel.get('city')
+			};
+
+			this.$el.html(this.template(json));
 		},
 
-		toggle_active: function () {
-			var $icon_active = this.$el.find('.icon_active');
+		toggleActive: function () {
+			var $iconActive = this.$el.find('.iconActive');
 
-			$icon_active.toggleClass('active');
+			$iconActive.toggleClass('active');
 			this.model.set('active', !(this.model.get('active')));
 			this.model.save();
 
 			return false;
 		},
 
-		toggle_open: function () {
-			var $icon_open = this.$el.find('.icon_open');
+		toggleOpen: function () {
+			var $iconOpen = this.$el.find('.iconOpen');
 
-			$icon_open.toggleClass('open');
+			$iconOpen.toggleClass('open');
 			this.model.set('open', !(this.model.get('open')));
 			this.model.save();
 
 			return false;
 		},
 
-		show_store_title_input: function () {
-			this.$el.find('.store_title').hide();
-			this.$el.find('.store_title_input').show().focus();
+		showStoreTitleInput: function () {
+			this.$el.find('.storeTitle').hide();
+			this.$el.find('.storeTitleInput').show().focus();
 
 			return false;
 		},
 
-		show_store_number_input: function () {
-			this.$el.find('.store_number').hide();
-			this.$el.find('.store_number_input').show().focus();
+		showStoreNumberInput: function () {
+			this.$el.find('.storeNumber').hide();
+			this.$el.find('.storeNumberInput').show().focus();
 
 			return false;
 		},
 
-		update_title_on_enter: function (e) {
+		updateTitleOnEnter: function (e) {
 			if (e.keyCode != 13) return;
-			this.update_title();
+			this.updateTitle();
 		},
 
-		update_title: function () {
-			var $input = this.$el.find('.store_title_input'),
-				$headline = this.$el.find('.store_title'),
+		updateTitle: function () {
+			var $input = this.$el.find('.storeTitleInput'),
+				$headline = this.$el.find('.storeTitle'),
 				val = $input.val();
 
 			$headline.text(val);
@@ -82,14 +105,14 @@ define([
 			this.model.save();
 		},
 
-		update_number_on_enter: function (e) {
+		updateNumberOnEnter: function (e) {
 			if (e.keyCode != 13) return;
-			this.update_number();
+			this.updateNumber();
 		},
 
-		update_number: function () {
-			var $input = this.$el.find('.store_number_input'),
-				$headline = this.$el.find('.store_number'),
+		updateNumber: function () {
+			var $input = this.$el.find('.storeNumberInput'),
+				$headline = this.$el.find('.storeNumber'),
 				val = $input.val(),
 				number = parseInt(val, 10);
 
@@ -108,7 +131,7 @@ define([
 			this.model.save();
 		},
 
-		redirect_store: function () {
+		redirectStore: function () {
 			if (this.model.get('active')) {
 				var url = '../../' + this.model.get('alias') + '/einstellungen';
 				window.open(url, '_newtab');

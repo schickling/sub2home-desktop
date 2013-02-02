@@ -12,5 +12,3 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.html [L]
 </IfModule>
-
-Satisfy Any
