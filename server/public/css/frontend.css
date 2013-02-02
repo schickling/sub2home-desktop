@@ -4202,6 +4202,10 @@ input[type="text"]#locationSelectionInput {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
+.article.selected .itemOverlayBackground,
+.menuBundle.selected .itemOverlayBackground {
+  display: block;
+}
 .menuBundle {
   width: auto;
 }
