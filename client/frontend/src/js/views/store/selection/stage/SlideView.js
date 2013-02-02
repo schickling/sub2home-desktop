@@ -9,9 +9,6 @@ define([
 
 		className: 'slide',
 
-		// cache window
-		$window: $(window),
-
 		initialize: function () {
 
 			var self = this;
@@ -28,14 +25,14 @@ define([
 
 		_alignView: function () {
 			// center vertical
-			var wrappedHeight = this.$el.parent().height(),
-				totalHeight = this.$el[0].scrollHeight;
+			// var wrappedHeight = this.$el.parent().height(),
+			// 	totalHeight = this.$el[0].scrollHeight;
 
-			if (totalHeight < wrappedHeight) {
-				this.$el.css({
-					paddingTop: (wrappedHeight - totalHeight) / 2
-				});
-			}
+			// if (totalHeight < wrappedHeight) {
+			// 	this.$el.css({
+			// 		paddingTop: (wrappedHeight - totalHeight) / 2
+			// 	});
+			// }
 
 			// adjust width
 			this.adjustWidth();
@@ -43,7 +40,7 @@ define([
 
 		adjustWidth: function () {
 			// -100 because of padding
-			this.$el.width(this.$window.width() - 100);
+			this.$el.width(window.innerWidth - 100);
 		},
 
 		afterInitialize: function () {},
@@ -54,7 +51,8 @@ define([
 			var $el = $('<div>').addClass(this.className).appendTo(this.$el);
 			this.$el = $el;
 
-			this.$el.width(this.$window.width());
+			// adjust width
+			this.adjustWidth();
 
 		}
 

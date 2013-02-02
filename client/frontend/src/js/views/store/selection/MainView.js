@@ -7,6 +7,7 @@ define([
 	'models/stateModel',
 	'models/cartModel',
 	'models/ArticleModel',
+	'models/MenuBundleModel',
 	'models/OrderedItemModel',
 	'models/OrderedArticleModel',
 	'collections/OrderedArticlesCollection',
@@ -16,7 +17,7 @@ define([
 	'views/store/selection/OrderedArticlesView',
 	'views/store/selection/timeline/TimelineView',
 	'text!templates/store/selection/MainTemplate.html'
-	], function ($, jqueryEventSpecialDestroyed, _, Backbone, stateModel, cartModel, ArticleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
+	], function ($, jqueryEventSpecialDestroyed, _, Backbone, stateModel, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -83,7 +84,48 @@ define([
 		},
 
 		createOrderedItemFromMenuBundle: function () {
-			
+			var self = this;
+
+			// fetch menuBundleModel from server
+			var menuBundleModel = new MenuBundleModel({
+				id: stateModel.get('selectionRessourceId')
+			});
+
+			menuBundleModel.fetch({
+				success: function () {
+
+					var menuComponentBlocksCollection = menuBundleModel.get('menuComponentBlocksCollection'),
+						orderedArticlesCollection = new OrderedArticlesCollection();
+
+
+					self.orderedItemModel = new OrderedItemModel({
+						orderedArticlesCollection: orderedArticlesCollection,
+						menuBundleModel: menuBundleModel
+					});
+
+
+					// create new ordered article for each menu component block
+					_.each(menuComponentBlocksCollection.models, function (menuComponentBlockModel) {
+
+						var orderedArticleModel = new OrderedArticleModel({
+							menuComponentBlockModel: menuComponentBlockModel,
+							orderedItemModel: self.orderedItemModel
+						});
+
+						orderedArticlesCollection.add(orderedArticleModel);
+
+					});
+
+
+					console.log(menuBundleModel.toJSON());
+
+					self.render();
+				},
+
+				error: function () {
+					// self.pageNotFound();
+				}
+			});
 		},
 
 		loadOrderedItemFromLocalStorage: function () {
@@ -102,10 +144,9 @@ define([
 
 			// render template
 			this.$el.html(MainTemplate);
-
-			// set width for internal dom calculation
-			this.$el.width(window.innerWidth);
-			this.$el.height(window.innerHeight);
+			
+			// append to body
+			this.append();
 
 			// add cart timeline item
 			this.renderCartTimelineItem();
@@ -113,21 +154,19 @@ define([
 			// render ordered articles
 			this.renderOrderedArticles();
 
-			// append to body
-			this.append();
 
 			// initalize TimelineControllerView
 			this.initializeTimelineController();
 
 			// listen for menu upgrade selection
-			this.startMenuUpgradeSelectionListener();
-
+			// this.startMenuUpgradeSelectionListener();
 
 		},
 
 		renderCartTimelineItem: function () {
 			var timelineItemsCollection = new TimelineItemsCollection({
-				disabled: true
+				disabled: true,
+				icon: 'iCart'
 			});
 
 			var $timeline = this.$('.note.timeline');

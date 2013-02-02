@@ -154,14 +154,14 @@ define([
 
 		compensateSize: function () {
 			var mainHeight = this.$el.height(),
-				timelineHeight = this.$('.note.timeline').height(),
+				timelineHeight = 90,
 				infoHeight = this.infoView.$el.hiddenHeight();
 
 			this.$slideContainer.css({
 				marginTop: infoHeight,
 
 				// add 50 because of timeline bottom height
-				height: mainHeight - infoHeight - timelineHeight + 50
+				height: mainHeight - infoHeight - timelineHeight
 			});
 
 			// realign slides

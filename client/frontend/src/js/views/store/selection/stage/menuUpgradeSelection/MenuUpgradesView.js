@@ -31,7 +31,7 @@ define([
 		},
 
 		adjustWidth: function () {
-			this.$el.width(this.$window.width() - 301);
+			this.$el.width(window.innerWidth - 301);
 		},
 
 		renderMenuUpgrades: function () {
