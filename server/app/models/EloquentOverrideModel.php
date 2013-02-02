@@ -87,7 +87,7 @@ class EloquentOverrideModel extends Eloquent
 	 *
 	 * @return string
 	 */
-	public function getTable()
+	public function giveTable()
 	{
 		return $this->table ?: lcfirst(str_plural(get_class($this)));
 	}
@@ -98,7 +98,7 @@ class EloquentOverrideModel extends Eloquent
 	 *
 	 * @return string
 	 */
-	public function getForeignKey()
+	public function giveForeignKey()
 	{
 		return lcfirst(class_basename($this)).'Id';
 	}

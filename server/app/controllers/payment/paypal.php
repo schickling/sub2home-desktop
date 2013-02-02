@@ -41,7 +41,7 @@ class Payment_Paypal_Controller implements Payment_Interface
 	 * @param  string $verifier
 	 * @return array
 	 */
-	public function get_access_token($token, $verifier)
+	public function give_access_token($token, $verifier)
 	{
 		$params = sprintf('&token=%s&verifier=%s', $token, $verifier);
 		$response = $this->call_api('Permissions/GetAccessToken', $params);

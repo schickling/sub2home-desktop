@@ -7,6 +7,8 @@ class MenuComponentOptionModel extends BaseModel
 {
 	public $timestamps = false;
 
+	protected $hidden = array('menu_component_block_model_id', 'category_model_id');
+
 
 	protected function afterFirstSave()
 	{
@@ -64,7 +66,7 @@ class MenuComponentOptionModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function getAvailableArticlesCollection()
+	public function giveAvailableArticlesCollection()
 	{
 		return $this->categoryModel->articlesCollection;
 	}

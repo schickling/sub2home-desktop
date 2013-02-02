@@ -37,7 +37,7 @@ class OrderModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function getCompleteOrderedArticlesCollection()
+	public function giveCompleteOrderedArticlesCollection()
 	{
 		$orderedMenusCollection = $this->orderedMenusCollection;
 
@@ -75,7 +75,7 @@ class OrderModel extends BaseModel
 	 * @return void
 	 * @throws Exception
 	 */
-	public function setPayment($payment)
+	public function takePayment($payment)
 	{
 		$validPayments = array('cash', 'ec', 'paypal', 'credit');
 

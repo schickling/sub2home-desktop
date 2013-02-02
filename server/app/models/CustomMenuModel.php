@@ -33,7 +33,7 @@ class CustomMenuModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function getMenu()
+	public function giveMenu()
 	{
 		if ($this->menuUpgradeModel != null) {
 			return $this->menuUpgradeModel;

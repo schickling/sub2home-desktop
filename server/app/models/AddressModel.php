@@ -47,7 +47,7 @@ class AddressModel extends BaseModel
 	 * 
 	 * @return StoreModel | ClientModel
 	 */
-	public function getOwnerModel()
+	public function giveOwnerModel()
 	{
 		if ($this->storeModel != null) {
 			return $this->storeModel;

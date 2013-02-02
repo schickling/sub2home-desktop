@@ -217,7 +217,7 @@ class StoreModel extends BaseModel
 	 * 
 	 * @return boolean
 	 */
-	public function getIsDelivering()
+	public function giveIsDelivering()
 	{
 		foreach ($this->deliveryTimesCollection as $deliveryTimeModel) {
 			if ($deliveryTimeModel->check()) {
@@ -227,7 +227,7 @@ class StoreModel extends BaseModel
 		return false;
 	}
 
-	public function getMonthlyTurnover()
+	public function giveMonthlyTurnover()
 	{
 		$totalTurnover = $this->totalTurnover;
 
@@ -249,12 +249,12 @@ class StoreModel extends BaseModel
 		return $monthyTurnover;
 	}
 
-	public function getTotalOrders()
+	public function giveTotalOrders()
 	{
 		return $this->ordersCollection()->count();
 	}
 
-	public function getMonthlyOrders()
+	public function giveMonthlyOrders()
 	{
 		$totalOrders = $this->totalOrders;
 
@@ -281,7 +281,7 @@ class StoreModel extends BaseModel
 	 * 
 	 * @param string $title
 	 */
-	public function setTitle($title) {
+	public function takeTitle($title) {
 		$this->attributes['title'] = $title;
 
 		// Parse and set alias

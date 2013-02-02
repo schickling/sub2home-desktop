@@ -66,7 +66,7 @@ class OrderedMenuModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function getMenuModel()
+	public function giveMenuModel()
 	{
 		if ($this->menuUpgradeModel != null) {
 			return $this->menuUpgradeModel;

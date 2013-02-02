@@ -7,6 +7,9 @@ class MenuComponentBlockModel extends BaseModel
 {
 	public $timestamps = false;
 
+	protected $hidden = array('menu_bundle_model_id', 'menu_upgrade_model_id');
+	
+
 	/**
 	 * Hook delete
 	 * 
@@ -52,20 +55,5 @@ class MenuComponentBlockModel extends BaseModel
 		return $this->belongsTo('MenuBundleModel');
 	}
 
-	/**
-	 * Returns the menu upgrade or menu bundle
-	 * 
-	 * @return object
-	 */
-	public function get_menu()
-	{
-		if ($this->menuUpgradeModel != null) {
-			return $this->menuUpgradeModel;
-		} elseif ($this->menuBundleModel != null) {
-			return $this->menuBundleModel;
-		} else {
-			throw new Exception("Custom menu has no parent menu");
-		}
-	}
 
 }

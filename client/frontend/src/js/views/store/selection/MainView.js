@@ -83,7 +83,7 @@ define([
 		},
 
 		createOrderedItemFromMenuBundle: function () {
-
+			
 		},
 
 		loadOrderedItemFromLocalStorage: function () {
