@@ -34,15 +34,21 @@ define([
 		},
 
 		showDetails: function () {
+			var detailsView;
+
 			if (this.model.has('allowsIngredients')) {
-				new ArticleDetailsView({
+				detailsView = new ArticleDetailsView({
 					model: this.model
 				});
 			} else {
-				new MenuBundleDetailsView({
+				detailsView = new MenuBundleDetailsView({
 					model: this.model
 				});
 			}
+
+			this.$el.append(detailsView.el);
+
+			// check if item is too close to border
 		}
 
 	});

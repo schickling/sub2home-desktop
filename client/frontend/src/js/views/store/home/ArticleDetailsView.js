@@ -10,7 +10,7 @@ define([
 
 	var ArticleDetailsView = Backbone.View.extend({
 
-		className: 'article',
+		className: 'detailsArticle',
 
 		template: _.template(ArticleDetailsTemplate),
 
@@ -23,7 +23,14 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template());
+			var json = {
+				title: this.model.get('title'),
+				image: this.model.get('largeImage'),
+				description: this.model.get('description'),
+				price: this.model.get('price')
+			};
+
+			this.$el.html(this.template(json));
 		},
 
 		showDetails: function () {

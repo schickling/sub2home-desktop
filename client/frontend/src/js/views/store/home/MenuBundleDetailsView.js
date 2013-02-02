@@ -10,7 +10,7 @@ define([
 
 	var MenuBundleDetailsView = Backbone.View.extend({
 
-		className: 'menu',
+		className: 'detailsMenu',
 
 		template: _.template(MenuBundleDetailsTemplate),
 
