@@ -1,31 +1,21 @@
-<div class="itemOverlay">
-	<div class="itemOverlayBackground"></div>
-	<div class="itemBasics">
+<img class="itemPreview" src="<%= image %>" alt="" >
 
-		<img class="itemPreview" src="<%= image %>" alt="" >
+<div class="pricetag"><%= price.toFixed(2) %> €</div>
 
-		<!-- Pricetag -->
-		
-		<div class="pricetag">
-			<span class="firstVisible"><%= price.toFixed(2) %></span>
-		</div>
+<h3><%= title %></h3>
+<p class="itemDescription">Beschreibung</p>
 
-		<h3><%= title %></h3>
-		<p class="itemDescription">Beschreibung</p>
+<!-- Bundle's ingredients -->
 
-	</div>
-	<!-- Bundle's ingredients -->
-	
-	<div class="bundleItems">
+<div class="bundleItems">
 
-			<div class="icn iStar"></div>
-			<div class="icn iStar"></div>
-			<div class="several">
-				<div class="icn iStar small"></div>
-				<div class="icn iStar small"></div>
-				<div class="icn iStar small"></div>
-				<div class="icn iStar small"></div>
-			</div>	
+	<div class="icn iStar"></div>
+	<div class="icn iStar"></div>
+	<div class="several">
+		<div class="icn iStar small"></div>
+		<div class="icn iStar small"></div>
+		<div class="icn iStar small"></div>
+		<div class="icn iStar small"></div>
+	</div>	
 
-	</div>
 </div>

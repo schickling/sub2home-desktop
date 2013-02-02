@@ -3555,6 +3555,7 @@ div.pricetag {
   cursor: default;
   background: url("../img/static/common/pricetag.png") no-repeat;
   width: 87px;
+  padding-top: 18px;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -3567,17 +3568,6 @@ div.pricetag:after {
 }
 div.pricetag:after {
   clear: both;
-}
-div.pricetag span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  text-align: center;
-  top: 18px;
-}
-div.pricetag span:after {
-  content: "€";
-  margin-left: 4px;
 }
 .magnifier {
   background: url("../img/static/common/magnifier.png") no-repeat;
@@ -4126,6 +4116,7 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   display: inline-block;
   width: 302px;
+  height: 305px;
   margin: 28px;
   padding: 0;
   vertical-align: top;
@@ -4133,20 +4124,11 @@ input[type="text"]#locationSelectionInput {
 }
 .article .itemOverlay,
 .menuBundle .itemOverlay {
-  position: relative;
+  position: absolute;
   padding: 25px;
   left: 0;
   text-align: left;
   overflow: hidden;
-}
-.article .itemOverlayBackground,
-.menuBundle .itemOverlayBackground {
-  display: none;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
   background: url("../img/static/common/note_background.jpg") repeat;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
@@ -4159,6 +4141,15 @@ input[type="text"]#locationSelectionInput {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+.article .itemOverlayBackground,
+.menuBundle .itemOverlayBackground {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
 }
 .article .itemBasics,
 .menuBundle .itemBasics {

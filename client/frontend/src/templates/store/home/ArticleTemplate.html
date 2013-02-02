@@ -1,27 +1,9 @@
-<div class="itemOverlay">
-	<div class="itemOverlayBackground"></div>
-	<div class="itemBasics">
-
-		<img class="itemPreview" src="" data-src="<%= largeImage %>" alt="" >
-		<div class="footlongOption">
-			<span>Es kommt doch auf die Größe an. Mach's footlong.</span>
-		</div>
-
-		<!-- Pricetag -->
-		
-		<div class="pricetag">
-			<!-- <div class="tag fst"></div>
-			<div class="tag"></div>
-			<div class="tag"></div>
-			<div class="tag"></div>
-			<div class="tag lst2"></div>
-			<div class="tag lst"></div> -->
-			<span class="firstVisible"><%= price.toFixed(2) %></span>
-		</div>
-
-		<h3><%= title %></h3>
-		<p class="itemDescription"><%= description %></p>
-
-	</div>
-
+<img class="itemPreview" src="" data-src="<%= largeImage %>" alt="" >
+<div class="footlongOption">
+	<span>Es kommt doch auf die Größe an. Mach's footlong.</span>
 </div>
+
+<div class="pricetag"><%= price.toFixed(2) %> €</div>
+
+<h3><%= title %></h3>
+<p class="itemDescription"><%= description %></p>

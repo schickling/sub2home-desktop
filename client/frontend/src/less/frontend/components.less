@@ -289,21 +289,22 @@ div.pricetag {
   cursor: default;
   background: @pricetagImage;
   width: 87px;
+  padding-top: 18px;
   .backface-visibility(hidden);
  // .rotate(355deg);
 
-  span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    top: 18px;
-  }
+  // span {
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   text-align: center;
+  //   top: 18px;
+  // }
 
-  span:after {
-    content: "€";
-    margin-left: 4px;
-  }
+  // span:after {
+  //   content: "€";
+  //   margin-left: 4px;
+  // }
 
   // div.tag {
   //   display: none;
@@ -1071,18 +1072,24 @@ input[type="text"]#locationSelectionInput {
   .positioned;
   display: inline-block;
   width: 302px;
+  height: 305px;
   margin: 28px;
   padding: 0;
   vertical-align: top;
   overflow: visible;
 
   .itemOverlay {
-    .positioned;
+    position: absolute;
     //width: 302px;
     padding: 25px;
     left: 0;
     text-align: left;
     overflow: hidden;
+    background: @noteBackground;
+    .border-radius(3px);
+    border: 1px solid @onNoteColor;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+    .backface-visibility(hidden);
   }
 
 
@@ -1093,11 +1100,7 @@ input[type="text"]#locationSelectionInput {
     left: 5px;
     right: 5px;
     bottom: 5px;
-    background: @noteBackground;
-    .border-radius(3px);
-    border: 1px solid @onNoteColor;
-    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
-    .backface-visibility(hidden);
+    
   }
 
   .itemBasics {
