@@ -24,7 +24,7 @@ define([
 
 		initialize: function () {
 
-			this.$list = this.$('.client_listing section');
+			this.$list = this.$('.clientListing section');
 
 			this.collection = new ClientsCollection();
 			this.collection.fetch({

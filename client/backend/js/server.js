@@ -1,7 +1,8 @@
 // Filename: server.js
 define([
-	'jquery'
-	], function ($) {
+	'jquery',
+	'backbone'
+	], function ($, Backbone) {
 
 	// set defaults for all api requests
 	$.ajaxSetup({
@@ -13,8 +14,26 @@ define([
 		// headers: {
 		// 	token: window.localStorage.getItem('token')
 		// }
-
 	});
+
+
+	var proxiedSync = Backbone.sync;
+
+	Backbone.sync = function (method, model, options) {
+		options = options || (options = {});
+
+		if (!options.crossDomain) {
+			options.crossDomain = true;
+		}
+
+		if (!options.xhrFields) {
+			options.xhrFields = {
+				withCredentials: true
+			};
+		}
+
+		return proxiedSync(method, model, options);
+	};
 
 
 	var server = {
@@ -34,7 +53,6 @@ define([
 			// if (!window.localStorage.hasOwnProperty('token')) {
 			// 	return false;
 			// }
-
 			// // validate token through server request
 			// var valid = false;
 			// $.ajax({
@@ -45,7 +63,6 @@ define([
 			// 		valid = true;
 			// 	}
 			// });
-
 			// return valid;
 		}
 

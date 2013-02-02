@@ -9,7 +9,7 @@ define([
 
 		model: StoreModel,
 
-		sort_field: 'number',
+		sortField: 'number',
 
 		direction: 1,
 
@@ -36,7 +36,7 @@ define([
 		comparator: function (client) {
 			var val;
 
-			if (this.sort_field == 'name') {
+			if (this.sortField == 'name') {
 				val = client.get('address').last_name;
 
 				// Hack for reverse string sort
@@ -46,7 +46,7 @@ define([
 					}));
 				}
 			} else {
-				val = this.direction * client.get(this.sort_field);
+				val = this.direction * client.get(this.sortField);
 			}
 
 			return val;

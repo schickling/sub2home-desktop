@@ -2,8 +2,9 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+	'backbone',
+	'views/clients/StoreView'
+	], function ($, _, Backbone, StoreView) {
 
 	var StoresView = Backbone.View.extend({
 
@@ -12,25 +13,21 @@ define([
 		},
 
 		initialize: function (client_view) {
-			// this.$el = client_view.$el.find('.unfolded_client');
-
-			// this.collection = new ClientStores(client_view.model.get('stores'));
-
-			// this.render();
+			this.render();
 		},
 
 		render: function () {
-			_.each(this.collection.models, function (item) {
-				this.render_store(item);
+			_.each(this.collection.models, function (storeModel) {
+				this.renderStore(storeModel);
 			}, this);
 		},
 
-		render_store: function (item) {
-			var store_view = new StoreView({
-				model: item
+		renderStore: function (storeModel) {
+			var storeView = new StoreView({
+				model: storeModel
 			});
 
-			this.$el.prepend(store_view.render().el);
+			this.$el.prepend(storeView.el);
 		}
 
 	});

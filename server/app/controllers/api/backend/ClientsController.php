@@ -10,7 +10,11 @@ class ClientsController extends ApiController
 	
 	public function index()
 	{
-		$clientsCollection = ClientModel::with(array('storesCollection', 'addressModel'))->get();
+		$clientsCollection = ClientModel::with(array(
+			'storesCollection',
+			'storesCollection.addressModel',
+			'addressModel'
+			))->get();
 
 		foreach ($clientsCollection as $clientModel) {
 			foreach ($clientModel->storesCollection as $storeModel) {
