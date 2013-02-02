@@ -1077,6 +1077,7 @@ input[type="text"]#locationSelectionInput {
   padding: 0;
   vertical-align: top;
   overflow: visible;
+  cursor: pointer;
 
   h3 {
     width: 302px;
@@ -1096,11 +1097,11 @@ input[type="text"]#locationSelectionInput {
   }
 
   .detailsArticle {
-
+    cursor: default;
     position: absolute;
-    width: 500px;
+    width: 450px;
     padding: 25px;
-    top: 0;
+    top: -25px;
     left: -99px;
     text-align: left;
     overflow: hidden;
@@ -1109,16 +1110,25 @@ input[type="text"]#locationSelectionInput {
     border: 1px solid @onNoteColor;
     .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
     .backface-visibility(hidden);
+    z-index: 5;
+    img {
+      .positioned;
+      z-index: 6;
+    }
+    .pricetag {
+      z-index: 7;
+    }
   }
 
   .footlongOption {
     //display: none;
     position: absolute;
     cursor: pointer;
-    left: 250px;
-    top: 0;
+    left: 255px;
+    top: 13px;
     width: 230px;
     height: 130px;
+    
     &:before {
       content:"\e01e";
       font-family: "Homicons";
