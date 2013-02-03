@@ -7,6 +7,9 @@
  */
 class OrderedItemModel extends BaseModel
 {
+
+	public $timestamps = false;
+
 	public function delete()
 	{
 		throw new Exception("Can not delete an ordered item");

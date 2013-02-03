@@ -71,10 +71,18 @@ class OrderController extends ApiController
 		foreach ($orderedItems as $orderedItem) {
 			$orderedItemModel = new OrderedItemModel();
 
-			// check if as menu
+			// check if is menu bundle
+			if ($orderedItem->menuBundleModel) {
+				$orderedItemModel->menu_bundle_model_id = $orderedItemModel->menuBundleModel->id;
+			}
 
 			// add ordered articles
-			foreach ($orderedItem->orderedArticlesCollection as $orderedArticle) {
+			foreach ($orderedItem->orderedArticlesCollection as $index => $orderedArticle) {
+				// check first ordered article for menu upgrade
+				if ($index == 0 && $orderedArticle->menuUpgradeModel) {
+					$orderedItemModel->menu_upgrade_model_id = $orderedArticle->menuUpgradeModel->id;
+				}
+
 				$orderedArticleModel = $this->createOrderedArticleModel($orderedArticle);
 				$orderedItemModel->orderedArticlesCollection->add($orderedArticleModel);
 			}
@@ -92,15 +100,21 @@ class OrderController extends ApiController
 
 		$orderedArticleModel->article_model_id = $orderedArticle->articleModel->id;
 
-		// pick out selected ingredients and add to ingredients collection
-		$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
-		foreach ($ingredientCategoriesCollection as $ingredientCategory) {
-			foreach ($ingredientCategory->ingredientsCollection as $ingredient) {
-				if ($ingredient->isSelected) {
-					$ingredientModel = IngredientModel::find($ingredient->id);
-					$orderedArticleModel->ingredientsCollection->add($ingredientModel);
+		$articleModel = $orderedArticleModel->articleModel;
+
+		if ($articleModel->allowsIngredients) {
+
+			// pick out selected ingredients and add to ingredients collection
+			$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
+			foreach ($ingredientCategoriesCollection as $ingredientCategory) {
+				foreach ($ingredientCategory->ingredientsCollection as $ingredient) {
+					if ($ingredient->isSelected) {
+						$ingredientModel = IngredientModel::find($ingredient->id);
+						$orderedArticleModel->ingredientsCollection->add($ingredientModel);
+					}
 				}
 			}
+
 		}
 
 		return $orderedArticleModel;

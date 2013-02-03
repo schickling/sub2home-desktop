@@ -16,7 +16,6 @@ class OrderedItemModelTable extends Migration {
 			$table->integer('order_model_id');
 			$table->integer('menu_bundle_model_id');
 			$table->integer('menu_upgrade_model_id');
-			$table->timestamps();
 		});
 	}
 
