@@ -44,6 +44,9 @@ define([
 			'click .overlay .vecbuttonPrev': 'backward',
 			'click .overlay .vecbuttonCart': 'finish',
 
+			// timeline
+			'click .iCart': 'finish',
+
 			// stage
 			'click .stage .noUpgrade': 'finish'
 		},

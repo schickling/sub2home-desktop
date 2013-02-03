@@ -41,7 +41,7 @@ define([
 		},
 
 		update: function() {
-			this.$el.toggleClass('isSelected', this.model.get('isSelected'));
+			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 
 		select: function () {
