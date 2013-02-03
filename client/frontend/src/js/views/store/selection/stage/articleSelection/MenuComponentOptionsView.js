@@ -43,24 +43,24 @@ define([
 
 			var menuComponentOptionsCollection = this.collection;
 
-			// unmark other articles if one gets selected
+			// unmark other articles if one gets isSelected
 			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel) {
 
 				var menuComponentOptionArticlesCollection = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
 
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
 
-					menuComponentOptionArticleModel.on('change:selected', function () {
+					menuComponentOptionArticleModel.on('change:isSelected', function () {
 
-						if (menuComponentOptionArticleModel.get('selected')) {
+						if (menuComponentOptionArticleModel.get('isSelected')) {
 
 							_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModelToFilter) {
 
 								var menuComponentOptionArticlesCollectionToFilter = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
 
 								_.each(menuComponentOptionArticlesCollectionToFilter.models, function (menuComponentOptionArticleModelToFilter) {
-									if (menuComponentOptionArticleModelToFilter.get('selected') && menuComponentOptionArticleModelToFilter !== menuComponentOptionArticleModel) {
-										menuComponentOptionArticleModelToFilter.set('selected', false);
+									if (menuComponentOptionArticleModelToFilter.get('isSelected') && menuComponentOptionArticleModelToFilter !== menuComponentOptionArticleModel) {
+										menuComponentOptionArticleModelToFilter.set('isSelected', false);
 									}
 								});
 

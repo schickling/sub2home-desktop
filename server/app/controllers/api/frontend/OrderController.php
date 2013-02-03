@@ -2,7 +2,11 @@
 
 use OrderModel;
 use AddressModel;
+use IngredientModel;
+use OrderedArticleModel;
+use OrderedItemModel;
 use Input;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
 * 
@@ -20,13 +24,17 @@ class OrderController extends ApiController
 
 
 		// parse ordered items
-		// $orderModel->orderedItemsCollection = $this->createOrderedItemsCollection($input->orderedItemsCollection);
+		$orderedItemsCollection = $this->createOrderedItemsCollection($input->orderedItemsCollection);
+		$orderModel->setRelation('orderedItemsCollection', $orderedItemsCollection);
+
+
+		var_dump($orderModel->orderedItemsCollection->toArray());
 
 		// recalculate and compare totals
 		$orderModel->calculateTotal();
 
 		if ($orderModel->total != $input->total) {
-			$this->error(400);
+			// $this->error(400);
 		}
 
 		// save other order data
@@ -48,12 +56,26 @@ class OrderController extends ApiController
 	}
 
 
+	/**
+	 * Creates the ordered items collection without saving it to the database
+	 * 
+	 * @param  array	$orderedItems
+	 * @return object
+	 */
 	private function createOrderedItemsCollection($orderedItems)
 	{
 		$orderedItemsCollection = new Collection();
 
 		foreach ($orderedItems as $orderedItem) {
 			$orderedItemModel = new OrderedItemModel();
+
+			// check if as menu
+
+			// add ordered articles
+			foreach ($orderedItem->orderedArticlesCollection as $orderedArticle) {
+				$orderedArticleModel = $this->createOrderedArticleModel($orderedArticle);
+				$orderedItemModel->orderedArticlesCollection->add($orderedArticleModel);
+			}
 
 			$orderedItemsCollection->add($orderedItemModel);
 		}
@@ -62,9 +84,25 @@ class OrderController extends ApiController
 	}
 
 
-	private function recalculateTotal($orderedItemsCollection)
+	private function createOrderedArticleModel($orderedArticle)
 	{
-		# code...
+		$orderedArticleModel = new OrderedArticleModel();
+
+		$orderedArticleModel->article_model_id = $orderedArticle->articleModel->id;
+
+		// pick out selected ingredients and add to ingredients collection
+		$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
+		foreach ($ingredientCategoriesCollection as $ingredientCategory) {
+			foreach ($ingredientCategory->ingredientsCollection as $ingredient) {
+				if ($ingredient->isSelected) {
+					$ingredientModel = IngredientModel::find($ingredient->id);
+					$orderedArticleModel->ingredientsCollection->add($ingredientModel);
+				}
+			}
+		}
+
+		return $orderedArticleModel;
+
 	}
 
 

@@ -170,7 +170,7 @@ define([
 
 		},
 
-		// listen if timeline item gets selected and thus active
+		// listen if timeline item gets isSelected and thus active
 		listenToTimelineItem: function (timelineItemModel) {
 
 			timelineItemModel.on('change', function () {

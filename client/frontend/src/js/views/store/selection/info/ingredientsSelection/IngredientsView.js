@@ -14,7 +14,7 @@ define([
 			// listen for further selection / deselection
 			_.each(this.collection.models, function (ingredientModel) {
 
-				ingredientModel.on('change:selected', this.render, this);
+				ingredientModel.on('change:isSelected', this.render, this);
 
 			}, this);
 
@@ -29,7 +29,7 @@ define([
 
 			// filter active ingredients
 			var activeIngredients = this.collection.where({
-				selected: true
+				isSelected: true
 			});
 
 			_.each(activeIngredients, function (ingredientModel) {

@@ -20,8 +20,8 @@ define([
 		initialize: function () {
 			this.orderedArticleModel = this.options.orderedArticleModel;
 
-			// listen if model gets selected
-			this.model.on('change:selected', this.update, this);
+			// listen if model gets isSelected
+			this.model.on('change:isSelected', this.update, this);
 
 			this.update();
 
@@ -41,7 +41,7 @@ define([
 		},
 
 		update: function() {
-			this.$el.toggleClass('selected', this.model.get('selected'));
+			this.$el.toggleClass('isSelected', this.model.get('isSelected'));
 		},
 
 		select: function () {
@@ -55,8 +55,8 @@ define([
 					// add to ordered article
 					self.orderedArticleModel.set('articleModel', completeArticleModel);
 
-					// mark current as selected
-					self.model.set('selected', true);
+					// mark current as isSelected
+					self.model.set('isSelected', true);
 				}
 			});
 		}

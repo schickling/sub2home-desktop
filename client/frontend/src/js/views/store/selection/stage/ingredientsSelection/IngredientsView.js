@@ -47,7 +47,7 @@ define([
 			// if only one ingredient allowed disable others
 			if (isMandatory && isSingle) {
 				otherIngredientsCollection.each(function(otherIngredientModel) {
-					otherIngredientModel.set('selected', false);
+					otherIngredientModel.set('isSelected', false);
 				});
 			}
 		}

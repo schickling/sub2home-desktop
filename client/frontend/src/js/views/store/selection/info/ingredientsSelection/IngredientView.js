@@ -25,7 +25,7 @@ define([
 		},
 
 		unselect: function () {
-			this.model.set('selected', false);
+			this.model.set('isSelected', false);
 		}
 
 	});

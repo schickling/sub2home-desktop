@@ -15,9 +15,6 @@ class OrderedArticleModelTable extends Migration {
 			$table->increments('id');
 			$table->integer('article_model_id');
 			$table->integer('ordered_item_model_id');
-			$table->integer('amount');
-			$table->decimal('total', 5, 2);
-			$table->timestamps();
 		});
 	}
 

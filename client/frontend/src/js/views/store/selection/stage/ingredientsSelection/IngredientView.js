@@ -33,7 +33,7 @@ define([
 		},
 
 		initialize: function () {
-			this.model.bind('change:selected', this.updateView, this);
+			this.model.bind('change:isSelected', this.updateView, this);
 		},
 
 		render: function () {
@@ -49,11 +49,11 @@ define([
 		},
 
 		updateView: function() {
-			this.$el.toggleClass('selected', this.model.get('selected'));
+			this.$el.toggleClass('isSelected', this.model.get('isSelected'));
 		},
 
 		toggleSelected: function () {
-			this.model.set('selected', !this.model.get('selected'));
+			this.model.set('isSelected', !this.model.get('isSelected'));
 			this.parentView.notifyOtherIngredients(this.model);
 		}
 

@@ -46,8 +46,8 @@ define([
 				menuComponentOptionArticlesCollection = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
 
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
-					menuComponentOptionArticleModel.on('change:selected', function () {
-						if (menuComponentOptionArticleModel.get('selected')) {
+					menuComponentOptionArticleModel.on('change:isSelected', function () {
+						if (menuComponentOptionArticleModel.get('isSelected')) {
 							timelineItemModel = timelineItemModel = timelineItemsCollection.first();
 							timelineItemModel.set('locked', false);
 						}
