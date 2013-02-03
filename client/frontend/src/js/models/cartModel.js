@@ -66,7 +66,7 @@ define([
 				this.set('orderedItemsCollection', new OrderedItemsCollection());
 			}
 
-			// initialize ordered items collection
+			// initialize address model
 			if (!this.get('addressModel')) {
 				this.set('addressModel', new AddressModel());
 			}

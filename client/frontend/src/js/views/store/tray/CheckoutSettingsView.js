@@ -17,6 +17,8 @@ define([
 
 		render: function () {
 
+			console.log(stateModel);
+
 			var storeModel = stateModel.get('storeModel'),
 				deliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
 				json = {

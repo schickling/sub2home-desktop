@@ -4,11 +4,14 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'models/OrderModel',
+	'models/stateModel',
+	'models/cartModel',
 	'views/PageView',
 	'views/store/tray/CheckoutSettingsView',
 	'views/store/tray/OrderedItemsView',
 	'text!templates/store/tray/MainTemplate.html'
-	], function ($, _, Backbone, router, PageView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+	], function ($, _, Backbone, router, OrderModel, stateModel, cartModel, PageView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -56,9 +59,27 @@ define([
 		},
 
 		checkout: function () {
-			router.navigate('store/danke', {
-				trigger: true,
-				replace: true
+
+			var orderModel = new OrderModel({
+				addressModel: cartModel.get('addressModel'),
+				orderedItemsCollection: cartModel.get('orderedItemsCollection'),
+				payment: 'paypal',
+				total: cartModel.get('total'),
+				credit: 5.87
+			});
+
+			console.log(orderModel);
+
+			orderModel.save({}, {
+				success: function () {
+					router.navigate('store/danke', {
+						trigger: true,
+						replace: true
+					});
+				},
+				error: function (error, b) {
+					console.log(b);
+				}
 			});
 		}
 

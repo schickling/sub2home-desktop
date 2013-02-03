@@ -13,15 +13,6 @@ class OrderedArticleModel extends BaseModel
 		throw new Exception("Can not delete an ordered article");
 	}
 
-	public function save()
-	{
-		$ret = parent::save();
-
-		$this->calculateTotal();
-
-		return $ret;
-	}
-
 	/**
 	 * Returns the article
 	 * 
@@ -37,9 +28,9 @@ class OrderedArticleModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function orderModel()
+	public function orderedItemModel()
 	{
-		return $this->belongsTo('OrderModel');
+		return $this->belongsTo('OrderedItemModel');
 	}
 
 	/**
@@ -49,31 +40,7 @@ class OrderedArticleModel extends BaseModel
 	 */
 	public function ingredientsCollection()
 	{
-		return $this->hasMany('IngredientModel');
-	}
-
-	/**
-	 * Returns the ordered menu if the article is part of one
-	 * 
-	 * @return object
-	 */
-	public function orderedMenu()
-	{
-		return $this->belongsTo('OrderedMenuModel');
-	}
-
-	/**
-	 * Sets the total
-	 *
-	 * @return void
-	 */
-	private function calculateTotal()
-	{
-		$this->articleModel->check();
-
-		$total = 1;
-
-		$this->total = $total;
+		return $this->belongsToMany('IngredientModel');
 	}
 
 }

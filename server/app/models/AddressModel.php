@@ -7,7 +7,7 @@
  */
 class AddressModel extends BaseModel
 {
-	protected $hidden = array('client_model_id', 'id', 'store_model_id');
+	protected $hidden = array('client_model_id', 'id', 'store_model_id', 'order_model_id');
 
 	public $timestamps = false;
 
@@ -40,6 +40,11 @@ class AddressModel extends BaseModel
 	public function storeModel()
 	{
 		return $this->belongsTo('StoreModel');
+	}
+
+	public function orderModel()
+	{
+		return $this->belongsTo('OrderModel');
 	}
 
 	/**

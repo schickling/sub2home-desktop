@@ -96,30 +96,33 @@ define([
 
 		},
 
-		showStoreTray: function () {
+		showStoreTray: function (alias) {
 
 			stateModel.set({
-				currentRoute: 'store.tray'
+				currentRoute: 'store.tray',
+				storeAlias: alias
 			});
 
 			this.loadMainView('views/store/tray/MainView');
 
 		},
 
-		showStoreCheckout: function () {
+		showStoreCheckout: function (alias) {
 
 			stateModel.set({
-				currentRoute: 'store.checkout'
+				currentRoute: 'store.checkout',
+				storeAlias: alias
 			});
 
 			this.loadMainView('views/store/checkout/MainView');
 
 		},
 
-		showStoreOrders: function () {
+		showStoreOrders: function (alias) {
 
 			stateModel.set({
-				currentRoute: 'store.orders'
+				currentRoute: 'store.orders',
+				storeAlias: alias
 			});
 
 			this.loadMainView('views/store/orders/MainView');

@@ -5,20 +5,11 @@
  *
  * An orderd menu
  */
-class OrderedMenuModel extends BaseModel
+class OrderedItemModel extends BaseModel
 {
 	public function delete()
 	{
-		throw new Exception("Can not delete an ordered menu");
-	}
-
-	public function save()
-	{
-		$ret = parent::save();
-
-		$this->calculateTotal();
-
-		return $ret;
+		throw new Exception("Can not delete an ordered item");
 	}
 
 	/**
@@ -26,7 +17,7 @@ class OrderedMenuModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function menuBundleModel()
+	private function menuBundleModel()
 	{
 		return $this->belongsTo('MenuBundleModel');
 	}
@@ -36,7 +27,7 @@ class OrderedMenuModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function menuUpgradeModel()
+	private function menuUpgradeModel()
 	{
 		return $this->belongsTo('MenuUpgradeModel');
 	}
@@ -73,19 +64,8 @@ class OrderedMenuModel extends BaseModel
 		} elseif ($this->menuBundleModel != null) {
 			return $this->menuBundleModel;
 		} else {
-			throw new Exception("Ordered menu has no parent menu");
+			return null;
 		}
-	}
-
-	/**
-	 * Sets the total
-	 *
-	 * @return void
-	 */
-	private function calculateTotal()
-	{
-		
-		$this->total = 1;
 	}
 
 }

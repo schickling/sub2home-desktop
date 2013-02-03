@@ -13,12 +13,10 @@ class OrderModelTable extends Migration {
 	{
 		Schema::create('order_models', function($table) {
 			$table->increments('id');
-			$table->string('payment', 128);
+			$table->enum('paymentMethod', array('cash', 'ec', 'paypal'));
 			$table->boolean('isDelivered');
 			$table->integer('store_model_id');
-			$table->integer('address_model_id');
-			$table->integer('client_model_id');
-			$table->integer('credit');
+			$table->decimal('credit', 7, 2);
 			$table->decimal('total', 7, 2);
 			$table->timestamps();
 		});

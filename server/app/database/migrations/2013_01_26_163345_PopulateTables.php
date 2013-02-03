@@ -249,7 +249,7 @@ class PopulateTables extends Migration {
 		// Empty orders
 		for ($i = 0; $i < 1000; $i++) {
 			$order = new OrderModel(array(
-				'payment' => 'cash',
+				'paymentMethod' => 'cash',
 				'store_model_id' => 1
 				));
 			$order->save();
