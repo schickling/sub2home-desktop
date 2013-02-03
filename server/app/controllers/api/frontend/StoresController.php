@@ -52,20 +52,6 @@ class StoresController extends ApiController
 				'client_model_id'
 				)));
 
-		} else {
-
-			$storeModel->setHidden((array(
-				'paypalToken',
-				'paypalTokensecret',
-				'created_at',
-				'updated_at',
-				'isActive',
-				'client_model_id',
-				'totalTurnover',
-				'orderEmail',
-				'id'
-				)));
-
 		}
 
 		return $storeModel->toJson(JSON_NUMERIC_CHECK);

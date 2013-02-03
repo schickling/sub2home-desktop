@@ -36,14 +36,14 @@ define([
 
 	StoreView.prototype.template = _.template(StoreTemplate);
 
-	// wrapper around parents redirect method
-	StoreView.prototype.redirect = function () {
+	// wrapper around parents selectStore method
+	StoreView.prototype.selectStore = function () {
 		switch (this.state) {
 		case 'initialized':
 			notificationcenter.warning('Liefergebiet auswaehlen', 'Bitte waehle zu erst ein Liefergebiet aus.');
 			break;
 		case 'available':
-			this.parentView.redirect(this.model);
+			this.parentView.selectStore(this.model);
 			break;
 		case 'unavailable':
 			notificationcenter.error('Nicht in Reichweite', 'Leider liefert dieser Store nicht in dein Liefergebiet.');
@@ -62,7 +62,7 @@ define([
 		this.state = 'initialized';
 
 		$el.on('click', function () {
-			self.redirect();
+			self.selectStore();
 		});
 	};
 

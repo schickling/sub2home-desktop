@@ -8,9 +8,6 @@
 class StoreModel extends BaseModel
 {
 	protected $hidden = array(
-		'allowsPaymentPaypal',
-		'allowsPaymentEc',
-		'allowsPaymentCash',
 		'paypalToken',
 		'paypalTokensecret',
 		'totalTurnover',

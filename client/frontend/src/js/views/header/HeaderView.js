@@ -24,6 +24,8 @@ define([
 
 		initialize: function () {
 			this.render();
+
+			stateModel.on('change:storeModel', this.render, this);
 		},
 
 		render: function () {

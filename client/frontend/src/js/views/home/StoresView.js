@@ -212,8 +212,6 @@ define([
 
 		renderStores: function (stores) {
 
-
-
 			var latLngBounds = new gmaps.LatLngBounds();
 
 			_.each(stores, function (storeModel) {
@@ -226,7 +224,7 @@ define([
 
 		},
 
-		redirect: function (storeModel) {
+		selectStore: function (storeModel) {
 
 			// adjust store alias without notifying
 			// (stateModel gets saved through storeModel change)
