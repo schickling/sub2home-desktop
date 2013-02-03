@@ -12,7 +12,7 @@ define([
 			description: '',
 			postal: 0,
 
-			selected: false
+			isSelected: false
 		},
 
 		urlRoot: function () {

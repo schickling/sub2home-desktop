@@ -123,8 +123,6 @@ define([
 			// set width of overlay wrapper
 			this.$timelineOverlayWrapper.width(this.$timelineStage.width());
 
-			console.log(this.$timelineStage.width());
-
 			// get current item and calculate relative and total offset
 			var $currentTimelineItem = this.$timelineStage.find('.itemTimeline').eq(this.currentTimelineItemIndex),
 				timelineOffsetRelative = $currentTimelineItem.position().left;
@@ -384,7 +382,7 @@ define([
 		finish: function () {
 
 			var lockedTimelineItems = this.collection.where({
-				locked: true
+				isLocked: true
 			});
 
 			if (lockedTimelineItems.length === 0) {

@@ -24,11 +24,11 @@ define([
 
 			if (this.model.get('menuComponentBlockModel')) {
 				this.active = true;
-				timelineItemModel.set('locked', true);
+				timelineItemModel.set('isLocked', true);
 				this.listenForArticleSelection();
 			} else {
 				// just symbolizes base article
-				timelineItemModel.set('disabled', true);
+				timelineItemModel.set('isDisabled', true);
 			}
 
 
@@ -49,7 +49,7 @@ define([
 					menuComponentOptionArticleModel.on('change:isSelected', function () {
 						if (menuComponentOptionArticleModel.get('isSelected')) {
 							timelineItemModel = timelineItemModel = timelineItemsCollection.first();
-							timelineItemModel.set('locked', false);
+							timelineItemModel.set('isLocked', false);
 						}
 					});
 				});

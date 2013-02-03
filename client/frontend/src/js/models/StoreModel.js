@@ -68,7 +68,7 @@ define([
 			if (response.hasOwnProperty('addressModel')) {
 				response.addressModel = new AddressModel(response.addressModel);
 			}
-			
+
 			if (response.hasOwnProperty('deliveryAreasCollection')) {
 				response.deliveryAreasCollection = new DeliveryAreasCollection(response.deliveryAreasCollection);
 			}
@@ -102,14 +102,14 @@ define([
 		getSelectedDeliveryAreaModel: function () {
 			var deliveryAreasCollection = this.get('deliveryAreasCollection'),
 				selectedDeliveryAreaModel = deliveryAreasCollection.find(function (deliveryAreaModel) {
-					return deliveryAreaModel.get('selected');
+					return deliveryAreaModel.get('isSelected');
 				});
 
 			if (selectedDeliveryAreaModel) {
 				return selectedDeliveryAreaModel;
 			} else {
 				// mark first delivery area as selected if no one was selected
-				return deliveryAreasCollection.first().set('selected', true);
+				return deliveryAreasCollection.first().set('isSelected', true);
 			}
 		},
 

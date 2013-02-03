@@ -14,7 +14,7 @@ define([
 			info: '',
 			image: '../../../img/articles/subs/bbq_rib.png',
 
-			selected: false
+			isSelected: false
 		}
 
 	});

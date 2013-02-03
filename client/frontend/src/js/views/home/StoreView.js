@@ -82,7 +82,7 @@ define([
 	StoreView.prototype.updateView = function () {
 		var deliveryAreasCollection = this.model.get('deliveryAreasCollection'),
 			storeAvailable = deliveryAreasCollection.where({
-				selected: true
+				isSelected: true
 			}).length;
 
 		if (storeAvailable) {

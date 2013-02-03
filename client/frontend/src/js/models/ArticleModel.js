@@ -119,7 +119,7 @@ define([
 					var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
 					ingredientsCollection.each(function (ingredientModel) {
-						ingredientModel.on('change:selected', function () {
+						ingredientModel.on('change:isSelected', function () {
 							this.calculateTotal();
 						}, this);
 					}, this);
@@ -137,7 +137,7 @@ define([
 
 				ingredientCategoriesCollection.each(function (ingredientCategoryModel) {
 					var selectedIngredientsCollection = _(ingredientCategoryModel.get('ingredientsCollection').where({
-						selected: true
+						isSelected: true
 					}));
 
 					selectedIngredientsCollection.each(function (ingredientModel) {

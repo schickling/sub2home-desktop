@@ -159,7 +159,7 @@ define([
 
 		renderCartTimelineItem: function () {
 			var timelineItemsCollection = new TimelineItemsCollection({
-				disabled: true,
+				isDisabled: true,
 				icon: 'iCart'
 			});
 

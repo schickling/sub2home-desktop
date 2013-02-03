@@ -101,11 +101,11 @@ class OrderController extends ApiController
 		$orderedArticleModel->article_model_id = $orderedArticle->articleModel->id;
 
 		$articleModel = $orderedArticleModel->articleModel;
+			$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
 
-		if ($articleModel->allowsIngredients) {
+		if ($articleModel->allowsIngredients && $ingredientCategoriesCollection) {
 
 			// pick out selected ingredients and add to ingredients collection
-			$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
 			foreach ($ingredientCategoriesCollection as $ingredientCategory) {
 				foreach ($ingredientCategory->ingredientsCollection as $ingredient) {
 					if ($ingredient->isSelected) {

@@ -49,7 +49,7 @@ define([
 		},
 
 		updateView: function() {
-			this.$el.toggleClass('isSelected', this.model.get('isSelected'));
+			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 
 		toggleSelected: function () {

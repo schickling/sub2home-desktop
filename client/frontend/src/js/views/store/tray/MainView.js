@@ -60,18 +60,22 @@ define([
 
 		checkout: function () {
 
+			var orderedItemsCollection = cartModel.get('orderedItemsCollection');
+
 			var orderModel = new OrderModel({
 				addressModel: cartModel.get('addressModel'),
-				orderedItemsCollection: cartModel.get('orderedItemsCollection'),
+				orderedItemsCollection: orderedItemsCollection,
 				payment: 'paypal',
 				total: cartModel.get('total'),
 				credit: 5.87
 			});
 
-			console.log(orderModel);
-
 			orderModel.save({}, {
 				success: function () {
+					orderedItemsCollection.reset();
+
+					console.log(cartModel.toJSON());
+
 					router.navigate('store/danke', {
 						trigger: true,
 						replace: true

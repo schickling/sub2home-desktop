@@ -42,18 +42,21 @@ define([
 
 							ingredientsCollection.each(function (ingredientModel) {
 								ingredientModel.bind('change:isSelected', function () {
+									
 									// count isSelected items
 									var isSelectedCount = ingredientModel.collection.where({
 										isSelected: true
 									}).length;
+
 									// mark as locked if no ingredient isSelected
-									timelineItemModel.set('locked', (isSelectedCount === 0));
+									timelineItemModel.set('isLocked', (isSelectedCount === 0));
 								});
 
 							});
 
+
 							// lock on init
-							timelineItemModel.set('locked', true);
+							timelineItemModel.set('isLocked', true);
 						}
 
 

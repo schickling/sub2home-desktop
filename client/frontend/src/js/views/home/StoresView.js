@@ -195,7 +195,7 @@ define([
 
 						// mark delivery areas
 						_.each(deliveryAreas, function (deliveryAreaModelToMark) {
-							deliveryAreaModelToMark.set('selected', deliveryAreaModelToMark.get('description') === description);
+							deliveryAreaModelToMark.set('isSelected', deliveryAreaModelToMark.get('description') === description);
 						});
 
 						// update storeviews
