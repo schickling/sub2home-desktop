@@ -3484,7 +3484,7 @@ img.cookie {
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.45);
   background: none;
   min-width: 2px;
-  margin-left: 82px;
+  margin-left: 58px;
   height: 28px;
   top: -2px;
   z-index: 13;
@@ -3529,7 +3529,7 @@ img.cookie {
   position: absolute;
   background: none;
   min-width: 2px;
-  margin-left: 76px;
+  margin-left: 52px;
   height: 28px;
   top: 10px;
   left: 0;
@@ -4089,27 +4089,16 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   top: 6px;
 }
-.category header {
+.category header,
+.menuComponentOption header {
   overflow: hidden;
   text-align: left;
   height: 60px;
   margin: 10px 28px 0;
   position: relative;
 }
-.category header .categoriesNavigation {
-  position: absolute;
-  text-align: center;
-}
-.category header .categoriesNavigation > div {
-  display: inline-block;
-  margin: 0 7px;
-  cursor: pointer;
-  color: #d1ba82;
-  text-transform: uppercase;
-  font-size: 15px;
-  font-family: "VAGRounded LT Thin";
-}
-.category header .separator {
+.category header .separator,
+.menuComponentOption header .separator {
   position: absolute;
   display: inline-block;
   margin-left: 20px;
@@ -4123,8 +4112,8 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   display: inline-block;
   width: 265px;
-  margin: 28px;
-  padding: 25px;
+  margin: 22px;
+  padding: 26px 25px;
   vertical-align: top;
   overflow: visible;
   cursor: pointer;
@@ -4138,7 +4127,7 @@ input[type="text"]#locationSelectionInput {
 .article .itemDescription {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  width: 265px;
+  width: inherit;
   text-align: center;
 }
 .item .pricetag,
@@ -4175,10 +4164,14 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   z-index: 6;
 }
-.item .detailsArticle > h3,
-.article .detailsArticle > h3 {
+.item .detailsArticle .itemDescription > h3,
+.article .detailsArticle .itemDescription > h3 {
   width: 265px;
   text-align: center;
+}
+.item .detailsArticle .itemDescription p,
+.article .detailsArticle .itemDescription p {
+  width: 265px;
 }
 .item .detailsArticle .pricetag,
 .article .detailsArticle .pricetag {
@@ -5427,7 +5420,6 @@ div.bankOptions button.bankaccount {
   text-align: left;
   outline: 0px;
   outline-offset: 0px;
-  padding-right: 25px;
 }
 .slideContainer:before,
 .slideContainer:after {
@@ -5528,6 +5520,10 @@ div.bankOptions button.bankaccount {
 .slide.menuUpgrades .menuUpgradesContainer {
   height: inherit;
   overflow: auto;
+}
+.slide.menuComponentOptions {
+  padding: 0 50px;
+  margin: 0;
 }
 .menuUpgradeInfo {
   margin-left: 30px;
@@ -5831,7 +5827,7 @@ div.bankOptions button.bankaccount {
 .orderedItems .itemDescription p {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  width: 265px;
+  width: inherit;
   text-align: center;
 }
 .orderedItems .controls {
@@ -5848,7 +5844,7 @@ div.bankOptions button.bankaccount {
 .orderedArticle {
   position: relative;
   *zoom: 1;
-  padding: 15px 15px 15px 65px;
+  padding: 15px 15px 15px 25px;
   border-top: 1px solid #d1ba82;
 }
 .orderedArticle:before,
@@ -5958,7 +5954,7 @@ div.bankOptions button.bankaccount {
   margin-left: 15px;
 }
 .menuItems {
-  padding: 0 50px;
+  padding: 0 10px;
 }
 .menuItem {
   display: inline-block;

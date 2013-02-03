@@ -203,7 +203,7 @@ img.cookie    { margin: 0 -10px;}
   .box-shadow(0 2px 3px 0 rgba(0,0,0,0.45));
   background: none;
   min-width: 2px;
-  margin-left: 82px;
+  margin-left: 58px;
   height: 28px;
   top: -2px;
   z-index: 13;
@@ -252,7 +252,7 @@ img.cookie    { margin: 0 -10px;}
   position: absolute;
   background: none;
   min-width: 2px;
-  margin-left: 76px;
+  margin-left: 52px;
   //top: 12px;
   height: 28px;
   top: 10px;
@@ -1023,7 +1023,7 @@ input[type="text"]#locationSelectionInput {
 // ----------------------
 
 
-.category {
+.category, .menuComponentOption {
   header {
     overflow: hidden;
     text-align: left;
@@ -1031,19 +1031,19 @@ input[type="text"]#locationSelectionInput {
     margin: 10px @sidemargin 0;
     .positioned;
 
-    .categoriesNavigation {
-      position: absolute;
-      text-align: center;
-      >div {
-        display: inline-block;
-        margin: 0 7px;
-        cursor: pointer;
-        color: @onNoteColor;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-family: @headingsFontFamily;
-      }
-    }
+    // .categoriesNavigation {
+    //   position: absolute;
+    //   text-align: center;
+    //   >div {
+    //     display: inline-block;
+    //     margin: 0 7px;
+    //     cursor: pointer;
+    //     color: @onNoteColor;
+    //     text-transform: uppercase;
+    //     font-size: 15px;
+    //     font-family: @headingsFontFamily;
+    //   }
+    // }
 
     
     .separator {
@@ -1075,8 +1075,8 @@ input[type="text"]#locationSelectionInput {
   .positioned;
   display: inline-block;
   width: @itemWidth;
-  margin: 28px;
-  padding: 25px;
+  margin: 22px;
+  padding: 26px 25px;
   vertical-align: top;
   overflow: visible;
   cursor: pointer;
@@ -1089,7 +1089,7 @@ input[type="text"]#locationSelectionInput {
   .itemDescription {
     font-family: @handFontFamily;
     font-size: 15px;
-    width: @itemWidth;
+    width: inherit;
     text-align: center;
   }
 
@@ -1117,10 +1117,14 @@ input[type="text"]#locationSelectionInput {
       .positioned;
       z-index: 6;
     }
-
-    >h3 {
-      width: @itemWidth;
-      text-align: center;
+    .itemDescription {
+      >h3 {
+        width: @itemWidth;
+        text-align: center;
+      }
+      p {
+        width: @itemWidth;
+      }
     }
 
     .pricetag {
@@ -2586,7 +2590,7 @@ div.bankOptions {
   text-align: left;
   outline: 0px;
   outline-offset: 0px;
-  padding-right: 25px;
+  //padding-right: 25px;
   //margin-right: -25px;
   //white-space: nowrap;
 }
@@ -2595,6 +2599,7 @@ div.bankOptions {
   //overflow: auto;
   float: left;
   text-align: center;
+  padding: 0 50px;
   //height: inherit;
   //display: inline-block;
   &:last-child {
@@ -2677,7 +2682,13 @@ div.bankOptions {
       overflow: auto;
     }
   }
+
+  &.menuComponentOptions {
+    padding: 0 50px;
+    margin: 0;
+  }
 }
+
 
 // MENU UPGRADE
 
@@ -3042,7 +3053,7 @@ div.bankOptions {
     p {
       font-family: @handFontFamily;
       font-size: 15px;
-      width: 265px;
+      width: inherit;
       text-align: center;
     }
   }
@@ -3062,7 +3073,7 @@ div.bankOptions {
 .orderedArticle {
   .positioned;
   .clearfix;
-  padding: 15px 15px 15px 65px;
+  padding: 15px 15px 15px 25px;
   border-top: 1px solid @onNoteColor;
   &:first-child {
     border-top: none;
@@ -3176,7 +3187,7 @@ div.bankOptions {
   // }
 }
 .menuItems {
-  padding: 0 50px;
+  padding: 0 10px;
 }
 .menuItem {
   display: inline-block;
