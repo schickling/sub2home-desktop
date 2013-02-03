@@ -55,6 +55,11 @@ class OrderedItemModel extends BaseModel
 		return $this->hasMany('OrderedArticleModel');
 	}
 
+	protected function giveBaseArticleModel()
+	{
+		return $this->orderedArticlesCollection->first()->articleModel;
+	}
+
 	/**
 	 * Returns the menu
 	 * 
@@ -62,13 +67,35 @@ class OrderedItemModel extends BaseModel
 	 */
 	public function giveMenuModel()
 	{
-		if ($this->menuUpgradeModel != null) {
-			return $this->menuUpgradeModel;
-		} elseif ($this->menuBundleModel != null) {
-			return $this->menuBundleModel;
+		// TODO: rewrite
+		if ($this->menuUpgradeModel()->get() != null) {
+			return $this->menuUpgradeModel()->get();
+		} elseif ($this->menuBundleModel()->get() != null) {
+			return $this->menuBundleModel()->get();
 		} else {
 			return null;
 		}
+	}
+
+	public function calculateTotal($store_model_id)
+	{
+		$orderedArticlesCollection = $this->orderedArticlesCollection;
+		$total = (float) $this->baseArticleModel->returnRealPrice($store_model_id);
+
+		if ($this->menuModel instanceof MenuBundleModel) {
+			$total = (float) $this->menuModel->returnRealPrice($store_model_id);
+		} elseif ($this->menuModel instanceof MenuUpgradeModel) {
+			$total += (float) $this->menuModel->returnRealPrice($store_model_id);
+		}
+
+		// sum up ingredients
+		foreach ($orderedArticlesCollection as $orderedArticleModel) {
+			foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
+				$total += (float) $ingredientModel->returnRealPrice($store_model_id);
+			}
+		}
+
+		$this->total = $total;
 	}
 
 }

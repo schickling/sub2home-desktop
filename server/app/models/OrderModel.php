@@ -44,7 +44,14 @@ class OrderModel extends BaseModel
 
 	public function calculateTotal()
 	{
-		
+		$total = 0;
+
+		foreach ($this->orderedItemsCollection as $orderedItemModel) {
+			$orderedItemModel->calculateTotal($this->storeModel->id);
+			$total += $orderedItemModel->total;
+		}
+
+		$this->total = $total;
 	}
 
 	/**
@@ -54,8 +61,6 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
-		$this->calculateTotal();
-
 		// Do other stuff with the order like payment stuff
 	}
 }

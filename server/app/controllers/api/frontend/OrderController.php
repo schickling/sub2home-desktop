@@ -28,20 +28,18 @@ class OrderController extends ApiController
 		$orderModel->setRelation('orderedItemsCollection', $orderedItemsCollection);
 
 
-		var_dump($orderModel->orderedItemsCollection->toArray());
-
-		// recalculate and compare totals
+		// recalculate and compare totals (relation to store needed)
+		$orderModel->store_model_id = $this->storeModel->id;
 		$orderModel->calculateTotal();
 
 		if ($orderModel->total != $input->total) {
-			// $this->error(400);
+			$this->error(400);
 		}
 
 		// save other order data
 		$orderModel->paymentMethod = $input->paymentMethod;
 		$orderModel->isDelivered = false;
 		$orderModel->credit = $input->credit;
-		$orderModel->store_model_id = $this->storeModel->id;
 
 		// save order
 		$orderModel->save();
@@ -54,7 +52,9 @@ class OrderController extends ApiController
 		// save ordered items since they are not yet in the database
 		$this->saveTempRelations($orderModel);
 
-		// var_dump($input);
+
+		$orderModel->confirm();
+
 	}
 
 
