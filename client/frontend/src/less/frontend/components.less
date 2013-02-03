@@ -205,14 +205,14 @@ img.cookie    { margin: 0 -10px;}
   min-width: 2px;
   margin-left: 82px;
   height: 28px;
-  top: 0;
+  top: -2px;
   z-index: 13;
   &:before, &:after {
     color: @greenLighter;
     font-family: "Homicons";
     font-size: 128px;
     position: absolute;
-    top: 4px;
+    top: 6px;
     text-shadow: 0 2px 3px rgba(0,0,0,0.45);
     z-index: 8;
   }
@@ -462,13 +462,14 @@ div.pricetag {
     }  
     
     .itemTimeline {
-
+      color: @onNoteColor;
       .icn {
         //margin-top: 13px;
         margin-left: -2px;
         width: 70px;
         height: 41px;
         .r-engraved-text;
+        color: inherit;
         &:before {
           font-size: 68px;
         }
@@ -1062,32 +1063,33 @@ input[type="text"]#locationSelectionInput {
 // ARTICLE PREVIEW
 // ---------------
 
+@itemWidth:   265px;
+
 .items {
 //  display: inline-block;
 //  text-align: left;
 //  width: auto;
 }
 
-.item {
+.item, .article {
   .positioned;
   display: inline-block;
-  width: 302px;
-  height: 305px;
+  width: @itemWidth;
   margin: 28px;
-  padding: 0;
+  padding: 25px;
   vertical-align: top;
   overflow: visible;
   cursor: pointer;
 
-  h3 {
-    width: 302px;
+  >h3 {
+    width: @itemWidth;
     text-align: center;
   }
 
   .itemDescription {
     font-family: @handFontFamily;
     font-size: 15px;
-    width: 302px;
+    width: @itemWidth;
     text-align: center;
   }
 
@@ -1101,7 +1103,7 @@ input[type="text"]#locationSelectionInput {
     position: absolute;
     width: 450px;
     padding: 25px;
-    top: -25px;
+    top: 0;
     left: -99px;
     text-align: left;
     overflow: hidden;
@@ -1115,6 +1117,12 @@ input[type="text"]#locationSelectionInput {
       .positioned;
       z-index: 6;
     }
+
+    >h3 {
+      width: @itemWidth;
+      text-align: center;
+    }
+
     .pricetag {
       z-index: 7;
     }
@@ -1152,13 +1160,23 @@ input[type="text"]#locationSelectionInput {
 
     }
   }
+}
 
+.article {
+    background: none;
+    .border-radius(3px);
+    border: 1px solid #fff;
+    .box-shadow(none);
+    .backface-visibility(hidden);
+    .transition(e('background .1s linear, .border .1s linear, .box-shadow .1s linear'));
 
-  &.selected {
-    .itemOverlayBackground {
-      display: block;
+    &.selected {
+      background: @noteBackground;
+      .border-radius(3px);
+      border: 1px solid @onNoteColor;
+      .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+      .backface-visibility(hidden);
     }
-  }
 }
 
 .menuBundle {
@@ -2597,11 +2615,12 @@ div.bankOptions {
     display: inline-block;
     img {
       margin-top: 25px;
+      height: 160px;
+      width: 200px;
     }
     .smallNote {
       .smallSelectionNote;
       top: -45px;
-
     }
     .accentIngredient {
       position: absolute;
@@ -2725,7 +2744,7 @@ div.bankOptions {
     top: 0;
     margin-left: -135px;
     &:before, &:after {
-      top: 83px;
+      top: -7px;
       left: 75px;
     }
 
@@ -2749,7 +2768,7 @@ div.bankOptions {
     top: 85px;
     margin-left: 20px;
     &:before, &:after {
-      top: 37px;
+      top: -70px;
       left: -19px;
     }
     img {
