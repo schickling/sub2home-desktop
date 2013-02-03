@@ -4164,13 +4164,13 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   z-index: 6;
 }
-.item .detailsArticle .itemDescription > h3,
-.article .detailsArticle .itemDescription > h3 {
+.item .detailsArticle > h3,
+.article .detailsArticle > h3 {
   width: 265px;
   text-align: center;
 }
-.item .detailsArticle .itemDescription p,
-.article .detailsArticle .itemDescription p {
+.item .detailsArticle .itemDescription,
+.article .detailsArticle .itemDescription {
   width: 265px;
 }
 .item .detailsArticle .pricetag,
@@ -4203,7 +4203,7 @@ input[type="text"]#locationSelectionInput {
   font-size: 15px;
   position: absolute;
   left: 50px;
-  top: 55px;
+  top: 67px;
   width: 120px;
 }
 .article {
@@ -5472,6 +5472,16 @@ div.bankOptions button.bankaccount {
   position: relative;
   display: inline-block;
   top: -45px;
+}
+.slide .item.ingredient .smallNote .pricetag {
+  width: 63px;
+  background-size: contain;
+  top: -14px;
+  left: auto;
+  right: -75px;
+  z-index: 50;
+  font-size: 14px;
+  padding-top: 11px;
 }
 .slide .item .accentIngredient {
   position: absolute;

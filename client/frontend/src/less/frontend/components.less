@@ -1117,14 +1117,12 @@ input[type="text"]#locationSelectionInput {
       .positioned;
       z-index: 6;
     }
+    >h3 {
+      width: @itemWidth;
+      text-align: center;
+    }
     .itemDescription {
-      >h3 {
-        width: @itemWidth;
-        text-align: center;
-      }
-      p {
-        width: @itemWidth;
-      }
+      width: @itemWidth;
     }
 
     .pricetag {
@@ -1159,7 +1157,7 @@ input[type="text"]#locationSelectionInput {
       font-size: 15px;
       position: absolute;
       left: 50px;
-      top: 55px;
+      top: 67px;
       width: 120px;
 
     }
@@ -2633,6 +2631,16 @@ div.bankOptions {
       .smallNote {
         .smallSelectionNote;
         top: -45px;
+        .pricetag {
+          width: 63px;
+          background-size: contain;
+          top: -14px;
+          left: auto;
+          right: -75px;
+          z-index: 50;
+          font-size: 14px;
+          padding-top: 11px;
+        }
       }
     }
     
