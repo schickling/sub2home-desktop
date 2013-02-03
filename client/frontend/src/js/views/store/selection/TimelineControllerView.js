@@ -105,7 +105,7 @@ define([
 		initializeCurrentTimelineItem: function () {
 			// get first enabled item
 			this.currentTimelineItemModel = _(this.collection.where({
-				disabled: false
+				isDisabled: false
 			})).first();
 
 			// set index
@@ -129,8 +129,8 @@ define([
 			var $currentTimelineItem = this.$timelineStage.find('.itemTimeline').eq(this.currentTimelineItemIndex),
 				timelineOffsetRelative = $currentTimelineItem.position().left;
 
-			// mark current timeline item as visited
-			this.currentTimelineItemModel.set('visited', true);
+			// mark current timeline item as wasVisited
+			this.currentTimelineItemModel.set('wasVisited', true);
 
 			// align timeline overlay
 			this.$timelineOverlay.css({
@@ -174,10 +174,10 @@ define([
 		listenToTimelineItem: function (timelineItemModel) {
 
 			timelineItemModel.on('change', function () {
-				if (timelineItemModel.hasChanged('active') && timelineItemModel.get('active')) {
+				if (timelineItemModel.hasChanged('isActive') && timelineItemModel.get('isActive')) {
 
 					// deactivate prev timeline item
-					this.currentTimelineItemModel.set('active', false);
+					this.currentTimelineItemModel.set('isActive', false);
 
 					// set new timeline item
 					this.setCurrentTimelineItem(timelineItemModel);
@@ -250,7 +250,7 @@ define([
 				this.currentTimelineItemIndex++;
 
 				var currentTimelineItemModel = this.collection.at(this.currentTimelineItemIndex);
-				if (currentTimelineItemModel.get('disabled')) {
+				if (currentTimelineItemModel.get('isDisabled')) {
 					// call recrusive
 					this.forward();
 				} else {
@@ -267,7 +267,7 @@ define([
 				this.currentTimelineItemIndex--;
 
 				var currentTimelineItemModel = this.collection.at(this.currentTimelineItemIndex);
-				if (currentTimelineItemModel.get('disabled')) {
+				if (currentTimelineItemModel.get('isDisabled')) {
 					// call recrusive
 					this.backward();
 				} else {
@@ -287,9 +287,9 @@ define([
 
 		slideStage: function () {
 
-			// adjust index to skip disabled items and thus non exsisting slides
+			// adjust index to skip isDisabled items and thus non exsisting slides
 			var filteredCollection = this.collection.filter(function (timelineItemModel, index) {
-				return ((index < this.currentTimelineItemIndex) && !timelineItemModel.get('disabled'));
+				return ((index < this.currentTimelineItemIndex) && !timelineItemModel.get('isDisabled'));
 			}, this);
 
 			var factor = filteredCollection.length,
@@ -334,7 +334,7 @@ define([
 			this.$timelineOverlay.stop().animate({
 				left: timelineOffsetRelative - 10
 			}, this.animationTime, function () {
-				self.currentTimelineItemModel.set('visited', true);
+				self.currentTimelineItemModel.set('wasVisited', true);
 			});
 
 			this.$timelineOverlayWrapper.stop().animate({
@@ -435,7 +435,7 @@ define([
 
 			// look if enabled items with higher index exists
 			var filteredCollection = this.collection.filter(function (timelineItemModel, index) {
-				return ((index > this.currentTimelineItemIndex) && !timelineItemModel.get('disabled'));
+				return ((index > this.currentTimelineItemIndex) && !timelineItemModel.get('isDisabled'));
 			}, this);
 			return filteredCollection.length > 0;
 		},
@@ -448,7 +448,7 @@ define([
 
 			// look if enabled items with lower index exists
 			var filteredCollection = this.collection.filter(function (timelineItemModel, index) {
-				return ((index < this.currentTimelineItemIndex) && !timelineItemModel.get('disabled'));
+				return ((index < this.currentTimelineItemIndex) && !timelineItemModel.get('isDisabled'));
 			}, this);
 
 			return filteredCollection.length > 0;

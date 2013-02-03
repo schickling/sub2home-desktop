@@ -7,7 +7,7 @@ define([
 		defaults: {
 			title: '',
 			largeImage: 'default',
-			selected: false,
+			isSelected: false,
 			price: 0
 		}
 	});

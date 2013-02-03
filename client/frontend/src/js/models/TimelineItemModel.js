@@ -13,9 +13,9 @@ define([
 			phrase: '',
 
 			// logic data
-			disabled: false,
-			locked: false,
-			visited: false,
+			isDisabled: false,
+			isLocked: false,
+			wasVisited: false,
 			selectionIndex: 0, // needed for info switching
 			menuUpgradeSelection: false // just needed for no upgrade detection in TimelineControllerView.js
 		}

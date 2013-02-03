@@ -50,9 +50,11 @@ class OrderController extends ApiController
 		// save address
 		$addressModel = $this->createAddressModel($input->addressModel);
 		$orderModel->addressModel()->save($addressModel);
-		
 
-		var_dump($input);
+		// save ordered items since they are not yet in the database
+		$this->saveTempRelations($orderModel);
+
+		// var_dump($input);
 	}
 
 
@@ -120,6 +122,22 @@ class OrderController extends ApiController
 		$addressModel->phone = $address->phone;
 
 		return $addressModel;
+	}
+
+
+	private function saveTempRelations($orderModel)
+	{
+		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {
+			$orderModel->orderedItemsCollection()->save($orderedItemModel);
+
+			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
+				$orderedItemModel->orderedArticlesCollection()->save($orderedArticleModel);
+
+				foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
+					$orderedArticleModel->ingredientsCollection()->attach($ingredientModel->id);
+				}
+			}
+		}
 	}
 
 

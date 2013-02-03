@@ -29,19 +29,19 @@ define([
 		update: function () {
 
 			// locked
-			this.$el.toggleClass('locked', this.model.get('locked'));
+			this.$el.toggleClass('locked', this.model.get('isLocked'));
 
 			// disabled
-			this.$el.toggleClass('disabled', this.model.get('disabled'));
+			this.$el.toggleClass('disabled', this.model.get('isDisabled'));
 
 			// visited
-			this.$el.toggleClass('visited', this.model.get('visited'));
+			this.$el.toggleClass('visited', this.model.get('wasVisited'));
 
 		},
 
 		navigate: function () {
-			if (!this.model.get('disabled')) {
-				this.model.set('active', true);
+			if (!this.model.get('isDisabled')) {
+				this.model.set('isActive', true);
 			}
 		},
 
