@@ -7,6 +7,9 @@ define([
 	'router'
 	], function ($, jqueryEasing, _, Backbone, stateModel, router) {
 
+	// "static" variable needed here
+	var pageWasInitialized = false;
+
 	var PageView = Backbone.View.extend({
 
 		className: 'main',
@@ -16,13 +19,12 @@ define([
 		animationTime: 600,
 
 		append: function () {
-			// page already loaded
-			var pageHasSwiched = $('.main').length > 0;
 
-			if (pageHasSwiched) {
+			if (pageWasInitialized) {
 				this.transition();
 			} else {
 				this.$el.appendTo($('body'));
+				pageWasInitialized = true;
 			}
 
 			// set page title
@@ -105,22 +107,22 @@ define([
 				switch (currentTransition.type) {
 
 				case 'a.forward':
-					this.transitionAFoward();
+					this._transitionAFoward();
 					break;
 				case 'a.backward':
-					this.transitionABackward();
+					this._transitionABackward();
 					break;
 				case 'b.forward':
-					this.transitionBFoward();
+					this._transitionBFoward();
 					break;
 				case 'b.backward':
-					this.transitionBBackward();
+					this._transitionBBackward();
 					break;
 				}
 			}
 		},
 
-		transitionAFoward: function () {
+		_transitionAFoward: function () {
 			var $new = this.$el,
 				$newNote = $new.find('.note'),
 				$newNoteContainer = $newNote.children('.container'),
@@ -161,7 +163,7 @@ define([
 
 		},
 
-		transitionABackward: function () {
+		_transitionABackward: function () {
 			var $new = this.$el,
 				$newNote = $new.find('.note'),
 				$newNoteContainer = $newNote.children('.container'),
@@ -199,7 +201,7 @@ define([
 
 		},
 
-		transitionBFoward: function () {
+		_transitionBFoward: function () {
 			var $new = this.$el,
 				$current = $('.main');
 
@@ -218,7 +220,7 @@ define([
 			});
 		},
 
-		transitionBBackward: function () {
+		_transitionBBackward: function () {
 			var $new = this.$el,
 				$current = $('.main');
 

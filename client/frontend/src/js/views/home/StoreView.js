@@ -103,6 +103,8 @@ define([
 			opacity: 1
 		});
 
+		$el.removeClass('unavailable');
+
 		// bind storeview event handlers
 		$el.on('mouseenter', function () {
 			$note.stop().animate({
@@ -126,6 +128,8 @@ define([
 		$el.animate({
 			opacity: 0.5
 		});
+
+		$el.addClass('unavailable');
 
 		$el.off('mouseenter mouseleave');
 	};
