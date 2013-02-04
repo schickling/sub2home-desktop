@@ -1086,6 +1086,11 @@ input[type="text"]#locationSelectionInput {
     text-align: center;
   }
 
+  img {
+    height: 160px;
+    width: auto;
+  }
+
   .itemDescription {
     font-family: @handFontFamily;
     font-size: 15px;
@@ -1455,7 +1460,7 @@ input[type="text"]#locationSelectionInput {
         top: 10px;
       }
       &:before {
-        content: "g";
+        content: "\e05f";
         position: relative;
         top: 0px;
         margin-right: 5px;
@@ -1706,11 +1711,11 @@ input[type="text"]#locationSelectionInput {
 
           // RIGHT ALIGNED CONTENT
 
-          &.orderTimeLimit, &.vecbuttonPrint, &.orderPaymentMethod, &.orderValue {
+          &.orderTimeLimit, &.bPrint, &.orderPaymentMethod, &.orderValue {
             float: right;
           }
 
-          &.vecbuttonPrint {
+          &.bPrint {
             margin-right: 20px;
             color: @grayLighter;
             .transition(color .1s linear);
@@ -1773,7 +1778,7 @@ input[type="text"]#locationSelectionInput {
           .transition(e('background .1s linear, border-color .1s linear'));
 
           &:after {
-            content: "0";
+            content: "\e06e";
             font-family: "Homicons";
             font-size: 150px;
             position: absolute;

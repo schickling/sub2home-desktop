@@ -4123,6 +4123,11 @@ input[type="text"]#locationSelectionInput {
   width: 265px;
   text-align: center;
 }
+.item img,
+.article img {
+  height: 160px;
+  width: auto;
+}
 .item .itemDescription,
 .article .itemDescription {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
@@ -4317,7 +4322,7 @@ input[type="text"]#locationSelectionInput {
   top: 10px;
 }
 .note.orders .toggleRevenues .iTurnover:before {
-  content: "g";
+  content: "\e05f";
   position: relative;
   top: 0px;
   margin-right: 5px;
@@ -4571,12 +4576,12 @@ input[type="text"]#locationSelectionInput {
   content: "nach ";
 }
 .content.orders .orderListing .order .orderHeader > div.orderTimeLimit,
-.content.orders .orderListing .order .orderHeader > div.vecbuttonPrint,
+.content.orders .orderListing .order .orderHeader > div.bPrint,
 .content.orders .orderListing .order .orderHeader > div.orderPaymentMethod,
 .content.orders .orderListing .order .orderHeader > div.orderValue {
   float: right;
 }
-.content.orders .orderListing .order .orderHeader > div.vecbuttonPrint {
+.content.orders .orderListing .order .orderHeader > div.bPrint {
   margin-right: 20px;
   color: #e4e4e4;
   -webkit-transition: color 0.1s linear;
@@ -4584,10 +4589,10 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.content.orders .orderListing .order .orderHeader > div.vecbuttonPrint:before {
+.content.orders .orderListing .order .orderHeader > div.bPrint:before {
   color: inherit;
 }
-.content.orders .orderListing .order .orderHeader > div.vecbuttonPrint:hover {
+.content.orders .orderListing .order .orderHeader > div.bPrint:hover {
   color: #555555;
 }
 .content.orders .orderListing .order .orderHeader > div.orderValue {
@@ -4645,7 +4650,7 @@ input[type="text"]#locationSelectionInput {
   transition: background .1s linear, border-color .1s linear;
 }
 .content.orders .orderListing .order .orderContent .printOrder:after {
-  content: "0";
+  content: "\e06e";
   font-family: "Homicons";
   font-size: 150px;
   position: absolute;
