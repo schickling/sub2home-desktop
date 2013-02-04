@@ -12,29 +12,33 @@ define([
 
 
 
-	$.fn.unveil = function ($content) {
-		var th = -200,
-			images = this,
+	$.fn.lazyload = function () {
+
+		var $content = this,
+			images = $content.find('img'),
 			loaded, inview, source;
 
-		this.one('unveil', function () {
+		images.one('load', function () {
 			source = this.getAttribute('data-src');
 			this.setAttribute('src', source);
 			this.removeAttribute('data-src');
 		});
 
-		function unveil() {
-			inview = images.filter(function () {
-				var $e = $(this),
-					wt = $content.scrollTop(),
-					wb = wt + $content.height(),
-					et = $e.offset().top,
-					eb = et + $e.height();
 
-				return eb >= wt - th && et <= wb + th;
+		function unveil() {
+
+			// needs to be calculated here because it might change with resizing
+			var viewHeight = window.innerHeight,
+				contentOffsetTop = $content.offset().top;
+
+			inview = images.filter(function () {
+				var $image = $(this),
+					imageOffsetTop = $image.offset().top;
+
+				return imageOffsetTop - contentOffsetTop < viewHeight;
 			});
 
-			loaded = inview.trigger('unveil');
+			loaded = inview.trigger('load');
 			images = images.not(loaded);
 		}
 
@@ -81,7 +85,7 @@ define([
 				self.append();
 
 				// activate image lazy loading
-				$categories.find('img').unveil($content);
+				$content.lazyload();
 			});
 		},
 
