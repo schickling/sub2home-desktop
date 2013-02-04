@@ -12,10 +12,14 @@ define([
 
 		className: 'detailsArticle',
 
+		hideTimer: 0,
+
 		template: _.template(ArticleDetailsTemplate),
 
 		events: {
-			'click': 'showDetails'
+			'click': 'showDetails',
+			'mouseleave': 'hide',
+			'mouseenter': 'stopHiding'
 		},
 
 		initialize: function () {
@@ -39,6 +43,20 @@ define([
 			} else {
 				alert('Warenkorb yo!');
 			}
+		},
+
+		hide: function () {
+			var self = this;
+
+			this.hideTimer = setTimeout(function () {
+				self.$el.fadeOut(function () {
+					self.remove();
+				});
+			}, 300);
+		},
+
+		stopHiding: function () {
+			clearTimeout(this.hideTimer);
 		}
 
 	});

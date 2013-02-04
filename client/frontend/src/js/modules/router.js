@@ -11,19 +11,25 @@ define([
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			// hard routes first
-			// Define some URL routes
+			// home
 			'': 'showHome',
-			'404': 'showPageNotFound',
 
+			// info
+			'impressum': 'showHome',
+
+			// store
 			':alias': 'showStoreHome',
 			':alias/theke/:resourceType/:resourceId': 'showStoreSelection',
 			':alias/tablett': 'showStoreTray',
 			':alias/danke': 'showStoreCheckout',
+
+			// client
 			':alias/einstellungen': 'showStoreConfig',
+			':alias/sortiment': 'showStoreAssortment',
 			':alias/bestellungen': 'showStoreOrders',
 
-			// Default
+			// common
+			'404': 'showPageNotFound',
 			'*actions': 'defaultAction'
 		},
 
@@ -93,6 +99,17 @@ define([
 			});
 
 			this.loadMainView('views/store/config/MainView');
+
+		},
+
+		showStoreAssortment: function (alias) {
+
+			stateModel.set({
+				currentRoute: 'store.assortment',
+				storeAlias: alias
+			});
+
+			this.loadMainView('views/store/assortment/MainView');
 
 		},
 

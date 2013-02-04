@@ -13,7 +13,7 @@ define([
 
 
 	$.fn.unveil = function ($content) {
-		var th = 200,
+		var th = -200,
 			images = this,
 			loaded, inview, source;
 
