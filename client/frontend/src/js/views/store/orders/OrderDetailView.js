@@ -4,9 +4,8 @@ define([
 	'underscore',
 	'backbone',
 	'views/PageView',
-	'views/store/orders/OrdersView',
 	'text!templates/store/orders/MainTemplate.html'
-	], function ($, _, Backbone, PageView, OrdersView, MainTemplate) {
+	], function ($, _, Backbone, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -15,20 +14,13 @@ define([
 		},
 
 		render: function () {
-
 			this.$el.html(MainTemplate);
-
-			this.renderOrders();
 
 			this.append();
 
-		},
-
-		renderOrders: function () {
-			new OrdersView({
-				el: this.$('.content')
-			});
 		}
+
+
 
 	});
 

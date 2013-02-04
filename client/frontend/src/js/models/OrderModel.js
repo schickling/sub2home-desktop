@@ -3,8 +3,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'global'
-	], function ($, _, Backbone, global) {
+	'global',
+	'models/AddressModel'
+	], function ($, _, Backbone, global, AddressModel) {
 
 	var OrderModel = Backbone.Model.extend({
 
@@ -15,6 +16,15 @@ define([
 			credit: 0,
 			addressModel: null,
 			orderedItemsCollection: null
+		},
+
+		parse: function (response) {
+
+			if (response.hasOwnProperty('addressModel')) {
+				response.addressModel = new AddressModel(response.addressModel);
+			}
+
+			return response;
 		},
 
 		toJSON: function () {

@@ -2,16 +2,16 @@
 define([
 	'underscore',
 	'backbone',
-	'models/stateModel',
+	'global',
 	'models/CategoryModel'
-	], function (_, Backbone, stateModel, CategoryModel) {
+	], function (_, Backbone, global, CategoryModel) {
 
 	var CategoriesCollection = Backbone.Collection.extend({
 
 		model: CategoryModel,
 
 		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/categories';
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/categories';
 		}
 
 	});

@@ -224,6 +224,18 @@ define([
 
 		},
 
+		noStoresFound: function () {
+			notificationcenter.warning('Kein Store gefunden', 'Schade sowas gibts nicht in ' + this.postal);
+
+			this.centerMapToNotFoundPostal();
+		},
+
+		selectStoreNotification: function () {
+
+			notificationcenter.info('Entscheide dich', 'Entscheide dich fuer einen tollen Store');
+
+		},
+
 		selectStore: function (storeModel) {
 
 			// adjust store alias without notifying
@@ -239,18 +251,6 @@ define([
 
 
 			router.navigate(storeModel.get('alias'), true);
-		},
-
-		noStoresFound: function () {
-			notificationcenter.warning('Kein Store gefunden', 'Schade sowas gibts nicht in ' + this.postal);
-
-			this.centerMapToNotFoundPostal();
-		},
-
-		selectStoreNotification: function () {
-
-			notificationcenter.info('Entscheide dich', 'Entscheide dich fuer einen tollen Store');
-
 		},
 
 		/*

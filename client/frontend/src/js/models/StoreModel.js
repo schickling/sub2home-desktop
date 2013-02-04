@@ -106,8 +106,10 @@ define([
 				});
 
 			if (selectedDeliveryAreaModel) {
+				console.log(selectedDeliveryAreaModel.toJSON());
 				return selectedDeliveryAreaModel;
 			} else {
+				console.log('dsfdgfisdfughishf');
 				// mark first delivery area as selected if no one was selected
 				return deliveryAreasCollection.first().set('isSelected', true);
 			}

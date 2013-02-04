@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 /**
 * 
 */
-class OrderController extends ApiController
+class OrderCreateController extends ApiController
 {
 
 

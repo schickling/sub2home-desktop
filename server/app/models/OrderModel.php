@@ -7,6 +7,9 @@
  */
 class OrderModel extends BaseModel
 {
+
+	protected $hidden = array('store_model_id', 'updated_at');
+
 	public function delete()
 	{
 		throw new Exception("Can not delete an order");

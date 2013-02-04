@@ -2,16 +2,16 @@
 define([
 	'underscore',
 	'backbone',
-	'models/stateModel',
+	'global',
 	'models/ArticleModel'
-	], function (_, Backbone, stateModel, ArticleModel) {
+	], function (_, Backbone, global, ArticleModel) {
 
 	var ArticlesCollection = Backbone.Collection.extend({
 
 		model: ArticleModel,
 
 		url: function () {
-			return '/api/frontend/stores/' + stateModel.get('storeAlias') + '/articles';
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles';
 		},
 
 		// combines footlong and 6inch subs

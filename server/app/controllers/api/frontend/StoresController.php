@@ -13,10 +13,13 @@ class StoresController extends ApiController
 
 	public function index()
 	{
-		$storesCollection = StoreModel::with(array('deliveryAreasCollection'))
-										->where('isOpen', true)
-										->where('isActive', true)
-										->get();
+		$storesCollection = StoreModel::with(array(
+			'deliveryAreasCollection',
+			'deliveryTimesCollection'
+			))
+		->where('isOpen', true)
+		->where('isActive', true)
+		->get();
 
 		return $storesCollection->toJson(JSON_NUMERIC_CHECK);
 
@@ -33,9 +36,9 @@ class StoresController extends ApiController
 			'deliveryAreasCollection',
 			'deliveryTimesCollection',
 			'addressModel'))
-							->where('alias', $storeAlias)
-							->where('isActive', true)
-							->first();
+		->where('alias', $storeAlias)
+		->where('isActive', true)
+		->first();
 
 		if ($storeModel == null) {
 			$this->error(404);

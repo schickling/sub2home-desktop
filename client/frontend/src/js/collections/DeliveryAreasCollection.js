@@ -1,9 +1,9 @@
 define([
 	'underscore',
 	'backbone',
-	'models/stateModel',
+	'global',
 	'models/DeliveryAreaModel'
-	], function (_, Backbone, stateModel, DeliveryAreaModel) {
+	], function (_, Backbone, global, DeliveryAreaModel) {
 
 	var DeliveryAreasCollection = Backbone.Collection.extend({
 

@@ -31,8 +31,8 @@ Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 			'App\Controllers
 Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
 
 // orders
-Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderController@index');
-Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderController@create');
+Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderIndexController@index');
+Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
 
 
 

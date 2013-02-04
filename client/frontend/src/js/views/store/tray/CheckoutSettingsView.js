@@ -3,9 +3,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/stateModel',
+	'models/cartModel',
 	'text!templates/store/tray/CheckoutSettingsTemplate.html'
-	], function ($, _, Backbone, stateModel, CheckoutSettingsTemplate) {
+	], function ($, _, Backbone, cartModel, CheckoutSettingsTemplate) {
 
 	var CheckoutSettingsView = Backbone.View.extend({
 
@@ -17,13 +17,16 @@ define([
 
 		render: function () {
 
-			console.log(stateModel);
-
-			var storeModel = stateModel.get('storeModel'),
-				deliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
+			var addressModel = cartModel.get('addressModel'),
 				json = {
-					postal: deliveryAreaModel.get('postal'),
-					city: deliveryAreaModel.get('description')
+					firstName: addressModel.get('firstName'),
+					lastName: addressModel.get('lastName'),
+					street: addressModel.get('street'),
+					streetAdditional: addressModel.get('streetAdditional'),
+					city: addressModel.get('city'),
+					phone: addressModel.get('phone'),
+					email: addressModel.get('email'),
+					postal: addressModel.get('postal')
 				};
 
 			this.$el.html(this.template(json));

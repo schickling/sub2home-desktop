@@ -2,9 +2,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/stateModel',
+	'global',
 	'models/DeliveryTimeModel'
-	], function ($, _, Backbone, stateModel, DeliveryTimeModel) {
+	], function ($, _, Backbone, global, DeliveryTimeModel) {
 
 	var DeliveryTimesCollection = Backbone.Collection.extend({
 

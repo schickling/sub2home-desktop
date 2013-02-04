@@ -37,12 +37,6 @@ define([
 		initialize: function () {
 
 
-			// mirror changes in store alias to global
-			this.on('change:storeAlias', function () {
-				global.setStoreAlias(this.get('storeAlias'));
-			}, this);
-			
-
 			// laod from localStorage if exists
 			this.fetch();
 
@@ -58,6 +52,8 @@ define([
 				this.save({}, {
 					silent: true
 				});
+
+				this.setGlobalStoreAlias();
 			}, this);
 
 
@@ -81,6 +77,8 @@ define([
 				this.fetchStoreFromServer();
 			}, this);
 
+			
+			this.setGlobalStoreAlias();
 
 
 			window.state = this;
@@ -116,6 +114,11 @@ define([
 			}
 
 			return response;
+		},
+
+		setGlobalStoreAlias: function () {
+			// mirror changes in store alias to global
+			global.setStoreAlias(this.get('storeAlias'));
 		},
 
 		// fetch store from server

@@ -118,6 +118,16 @@ define([
 			// set minimum
 			var storeModel = stateModel.get('storeModel');
 			this.set('minimum', storeModel.getMinimumValue());
+
+			// copy postal and city to customer address
+			var addressModel = this.get('addressModel'),
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
+
+			addressModel.set({
+				postal: selectedDeliveryAreaModel.get('postal'),
+				city: selectedDeliveryAreaModel.get('description')
+			});
+
 		},
 
 		processOrderedItems: function () {

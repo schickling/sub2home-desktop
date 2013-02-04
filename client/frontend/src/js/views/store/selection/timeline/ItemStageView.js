@@ -47,7 +47,7 @@ define([
 
 		highlight: function () {
 			this.$el.css({
-				backgroundColor: '#000000'
+				color: '#dc952b'
 			});
 		}
 

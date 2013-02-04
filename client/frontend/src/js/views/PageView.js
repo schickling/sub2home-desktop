@@ -78,12 +78,12 @@ define([
 					{
 					origin: 'store.tray',
 					destination: 'store.selection',
-					type: 'b.forward'
+					type: 'b.backward'
 				},
 					{
 					origin: 'store.selection',
 					destination: 'store.tray',
-					type: 'b.backward'
+					type: 'b.forward'
 				},
 					{
 					origin: 'store.tray',

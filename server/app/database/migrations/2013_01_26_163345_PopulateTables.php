@@ -253,6 +253,20 @@ class PopulateTables extends Migration {
 				'store_model_id' => 1
 				));
 			$order->save();
+
+			$customerAddress = new AddressModel(array(
+				'firstName' => 'Max',
+				'lastName' => 'Mustermann',
+				'street' => 'Tuerkenstr 24',
+				'streetAdditional' => 'Oben',
+				'postal' => 13340,
+				'city' => 'Berlin',
+				'phone' => 112,
+				'email' => 'julian@my-sub.de'
+				));
+
+			$order->addressModel()->save($customerAddress);
+			unset($customerAddress);
 			unset($order);
 		}
 
