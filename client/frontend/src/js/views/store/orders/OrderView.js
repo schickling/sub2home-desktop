@@ -4,14 +4,19 @@ define([
 	'underscore',
 	'backbone',
 	'lib/moment',
+	'views/store/orders/OrderDetailsView',
 	'text!templates/store/orders/OrderTemplate.html'
-	], function ($, _, Backbone, momentLib, OrderTemplate) {
+	], function ($, _, Backbone, momentLib, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({
 
 		template: _.template(OrderTemplate),
 
 		className: 'order',
+
+		events: {
+			'click .orderHeader': 'toggleDetailsView'
+		},
 
 		initialize: function () {
 			this.render();
@@ -42,6 +47,24 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+		},
+
+		toggleDetailsView: function () {
+			var $orderContent = this.$('.orderContent');
+
+			if ($orderContent.html().trim()) {
+				$orderContent.toggle();
+			} else {
+				this.renderDetailsView();
+			}
+		},
+
+		renderDetailsView: function () {
+			// this.model.fetch();
+			new OrderDetailsView({
+				el: this.$('.orderContent'),
+				model: this.model
+			});
 		}
 
 	});
