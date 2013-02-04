@@ -11,7 +11,6 @@ define([
 	], function ($, _, Backbone, router, PageView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 
-
 	$.fn.lazyload = function () {
 
 		var $content = this,

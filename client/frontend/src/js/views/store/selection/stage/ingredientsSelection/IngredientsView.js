@@ -45,7 +45,7 @@ define([
 
 			// if only one ingredient allowed disable others
 			if (isSingle) {
-				otherIngredientsCollection.each(function(otherIngredientModel) {
+				otherIngredientsCollection.each(function (otherIngredientModel) {
 					otherIngredientModel.set('isSelected', false);
 				});
 			}

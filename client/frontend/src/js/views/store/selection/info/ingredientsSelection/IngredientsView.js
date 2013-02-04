@@ -25,7 +25,7 @@ define([
 		render: function () {
 
 			// reset view
-			this.$el.empty();
+			this.$el.html('');
 
 			// filter active ingredients
 			var activeIngredients = this.collection.where({
@@ -35,6 +35,11 @@ define([
 			_.each(activeIngredients, function (ingredientModel) {
 				this.renderIngredient(ingredientModel);
 			}, this);
+
+			// mark penultimate ingredient
+			if (this.collection.length > 1) {
+				this.$('.ingredient:last').prev().addClass('penultimate');
+			}
 		},
 
 		renderIngredient: function (ingredientModel) {
