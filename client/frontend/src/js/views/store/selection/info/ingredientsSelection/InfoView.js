@@ -41,7 +41,7 @@ define([
 			var articleModel = this.model.get('articleModel');
 
 			this.ingredientCategoriesView = new IngredientCategoriesView({
-				el: this.$('.ingredientCategories'),
+				el: this.$('.ingredientInfo'),
 				collection: articleModel.get('ingredientCategoriesCollection')
 			});
 

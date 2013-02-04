@@ -8,14 +8,26 @@ define([
 
 	var IngredientCategoriesView = Backbone.View.extend({
 
+		$firstColumn: null,
+
+		$secondColumn: null,
+
+		isFirstColumn: true,
+
 		initialize: function () {
 			this.render();
 		},
 
 		render: function () {
+
+			// cache dom
+			this.$firstColumn = this.$('.ingredientCategories').first();
+			this.$secondColumn = this.$('.ingredientCategories').last();
+
 			_.each(this.collection.models, function (ingredientCategoryModel) {
 				this.renderIngredientCategory(ingredientCategoryModel);
 			}, this);
+
 		},
 
 		renderIngredientCategory: function (ingredientCategoryModel) {
@@ -23,7 +35,14 @@ define([
 				model: ingredientCategoryModel
 			});
 
-			this.$el.append(ingredientCategoryView.el);
+			if (this.isFirstColumn) {
+				this.$firstColumn.append(ingredientCategoryView.el);
+			} else {
+				this.$secondColumn.append(ingredientCategoryView.el);
+			}
+
+			// flip
+			this.isFirstColumn = !this.isFirstColumn;
 		}
 
 	});
