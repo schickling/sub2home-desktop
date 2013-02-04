@@ -7,6 +7,9 @@ define([
 	'models/AddressModel'
 	], function ($, _, Backbone, global, AddressModel) {
 
+	// made global for performance reasons
+	var now = new Date();
+
 	var OrderModel = Backbone.Model.extend({
 
 		defaults: {
@@ -15,13 +18,25 @@ define([
 			total: 0,
 			credit: 0,
 			addressModel: null,
-			orderedItemsCollection: null
+			orderedItemsCollection: null,
+			created_at: '',
+			due_at: '',
+			createdDate: null,
+			dueDate: null
 		},
 
 		parse: function (response) {
 
 			if (response.hasOwnProperty('addressModel')) {
 				response.addressModel = new AddressModel(response.addressModel);
+			}
+
+			if (response.hasOwnProperty('created_at')) {
+				response.createdDate = new Date(response.created_at);
+			}
+
+			if (response.hasOwnProperty('due_at')) {
+				response.dueDate = new Date(response.due_at);
 			}
 
 			return response;
@@ -43,6 +58,10 @@ define([
 
 		urlRoot: function () {
 			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+		},
+
+		isToday: function () {
+			return (now.getDay() === this.get('createdDate').getDay());
 		}
 
 	});

@@ -51,7 +51,7 @@ define([
 				model: orderModel
 			});
 
-			if (true) {
+			if (orderModel.isToday()) {
 				this.$ordersToday.append(orderView.el);
 			} else {
 				this.$olderOrders.append(orderView.el);

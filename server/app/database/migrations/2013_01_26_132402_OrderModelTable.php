@@ -18,6 +18,7 @@ class OrderModelTable extends Migration {
 			$table->integer('store_model_id');
 			$table->decimal('credit', 7, 2);
 			$table->decimal('total', 7, 2);
+			$table->timestamp('due_at');
 			$table->timestamps();
 		});
 	}
