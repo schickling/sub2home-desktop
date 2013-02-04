@@ -249,7 +249,6 @@ define([
 			// set store model
 			stateModel.set('storeModel', storeModel);
 
-
 			router.navigate(storeModel.get('alias'), true);
 		},
 

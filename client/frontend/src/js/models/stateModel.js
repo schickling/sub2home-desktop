@@ -40,7 +40,9 @@ define([
 			// laod from localStorage if exists
 			this.fetch();
 
-			if (this.get('storeModel')) {
+			var storeModel = this.get('storeModel');
+
+			if (storeModel) {
 				this.listenForStoreInternalChanges();
 			}
 
@@ -58,7 +60,7 @@ define([
 
 
 			// initialize store model if needed
-			if (!this.get('storeModel') && this.get('storeAlias') !== '') {
+			if (!storeModel && this.get('storeAlias') !== '') {
 				this.fetchStoreFromServer();
 			}
 
@@ -74,10 +76,16 @@ define([
 
 			// load new store on alias change
 			this.on('change:storeAlias', function () {
-				this.fetchStoreFromServer();
+				
+				var currentStoreModel = this.get('storeModel');
+
+				if (!currentStoreModel || this.get('storeAlias') !== currentStoreModel.get('alias')) {
+					this.fetchStoreFromServer();
+				}
+
 			}, this);
 
-			
+
 			this.setGlobalStoreAlias();
 
 
