@@ -7,8 +7,8 @@ return array (
 		'category_model_id'		=> 1,
 		'title' 				=> 'Kids Pak',
 		'description'			=> 'Kids Pak',
-		'smallImage'			=> 'img/static/menubundles/largeimages/menu_gray_big.png',
-		'largeImage'			=> 'img/static/menubundles/smallimages/menu_gray_big.png',
+		'largeImage'			=> 'img/static/menubundles/largeimages/kidspak.png',
+		'smallImage'			=> 'img/static/menubundles/smallimages/kidspak.png',
 		'price'					=> 4.49,
 		'isPublished'			=> true,
 		'buyed'					=> 0

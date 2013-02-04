@@ -4030,19 +4030,24 @@ input[type="text"]#locationSelectionInput {
 }
 .storePreview {
   position: absolute;
+  cursor: pointer;
 }
 .storePreview > img {
   margin-top: -87px;
   position: relative;
   left: 18px;
   top: -6px;
-  cursor: pointer;
+  cursor: inherit;
 }
 .storePreview .smallNote {
   top: -6px;
   position: relative;
   display: inline-block;
   left: 0;
+  cursor: inherit;
+}
+.storePreview.unavailable {
+  cursor: default;
 }
 .categoriesNavigation {
   width: 50%;
@@ -5284,18 +5289,31 @@ div.bankOptions button.bankaccount {
 }
 .ingredientInfo {
   width: 560px;
+  *zoom: 1;
+}
+.ingredientInfo:before,
+.ingredientInfo:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.ingredientInfo:after {
+  clear: both;
+}
+.ingredientInfo .ingredientCategories {
+  float: left;
+  width: 200px;
+}
+.ingredientInfo .ingredientCategories:last-child {
+  margin-left: 40px;
 }
 .ingredientInfo .ingredientCategory {
   position: relative;
   min-height: 19px;
   vertical-align: top;
   padding: 13px 10px 7px 70px;
-  display: inline-block;
-  width: 180px;
+  display: block;
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
-}
-.ingredientInfo .ingredientCategory:nth-child(even) {
-  margin-left: 40px;
 }
 .ingredientInfo .ingredientCategory .label {
   position: absolute;
@@ -5306,15 +5324,21 @@ div.bankOptions button.bankaccount {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
-.ingredientInfo .ingredientCategory .ingredient:before {
+.ingredientInfo .ingredientCategory .ingredient:after {
   content: ",";
   margin-right: 5px;
   cursor: default;
 }
+.ingredientInfo .ingredientCategory .ingredient:nth-last-child(2):after {
+  content: " ";
+}
 .ingredientInfo .ingredientCategory .ingredient:last-child:before {
   content: "&";
-  margin-left: 5px;
+  margin-right: 5px;
   cursor: default;
+}
+.ingredientInfo .ingredientCategory .ingredient:last-child:after {
+  content: " ";
 }
 .ingredientInfo .ingredientCategory .ingredient:first-child:before {
   content: " ";
@@ -5322,6 +5346,7 @@ div.bankOptions button.bankaccount {
 }
 .ingredientInfo .ingredientCategory .ingredient span {
   cursor: pointer;
+  white-space: pre;
 }
 .ingredientInfo .ingredientCategory .ingredient span:hover {
   text-decoration: line-through;

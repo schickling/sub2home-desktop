@@ -908,18 +908,23 @@ input[type="text"]#locationSelectionInput {
 
 .storePreview {
   position: absolute;
+  cursor: pointer;
   >img{
     margin-top: -87px;
     position: relative;
     left: 18px;
     top: -6px;
-    cursor: pointer;
+    cursor: inherit;
   }
   .smallNote {
     top: -6px;
     position: relative;
     display: inline-block;
     left: 0;
+    cursor: inherit;
+  }
+  &.unavailable {
+    cursor: default;
   }
 }
 
@@ -2439,18 +2444,26 @@ div.bankOptions {
 
 .ingredientInfo {
   width: 560px;
+  .clearfix;
 
+  .ingredientCategories {
+    float: left;
+    width: 200px;
+    &:last-child {
+      margin-left: 40px;
+    }
+  }
   .ingredientCategory {
     .positioned;
     min-height: 19px;
     vertical-align: top;
     padding: 13px 10px 7px 70px;
-    display: inline-block;
-    width: 180px;
+    display: block;
+    //width: 100%;
     border-bottom: 1px solid @onNoteColor50;
-    &:nth-child(even) {
-      margin-left: 40px;
-    }
+    // &:nth-child(even) {
+    //   margin-left: 40px;
+    // }
     .label {
       position: absolute;
       left: 10px;
@@ -2460,16 +2473,25 @@ div.bankOptions {
       font-family: @handFontFamily;
       font-size: 16px;
 
-      &:before {
+      &:after {
         content: ",";
         margin-right: 5px;
         cursor: default;
       }
 
-      &:last-child:before {
-        content: "&";
-        margin-left: 5px;
-        cursor: default;
+      &:nth-last-child(2):after {
+        content: " ";
+      }
+
+      &:last-child {
+        &:before {
+          content: "&";
+          margin-right: 5px;
+          cursor: default;
+        }
+        &:after {
+          content: " ";
+        }
       }
 
       &:first-child:before {
@@ -2479,6 +2501,7 @@ div.bankOptions {
 
       span {
         cursor: pointer;
+        white-space: pre;
         &:hover {
           text-decoration: line-through;
           &:before {
