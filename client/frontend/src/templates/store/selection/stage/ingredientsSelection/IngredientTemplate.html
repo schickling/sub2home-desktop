@@ -2,5 +2,7 @@
 <div class="accentIngredient icn iCircle"></div>
 <div class="smallNote">
 	<h3><%= title %></h3>
-	<div class="pricetag">0.99 €</div>
+	<% if (price > 0) { %>
+	<div class="pricetag">+ <%= price.toFixed(2) %> €</div>
+	<% } %>
 </div>
