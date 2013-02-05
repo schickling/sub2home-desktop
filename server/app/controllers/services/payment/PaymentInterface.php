@@ -1,10 +1,10 @@
-<?php
+<?php namespace App\Controllers\Services\Payment;
 
 /**
  * PaymentInterface is the interface implemented by all payment classes.
  *
  */
-interface Payment_Interface
+interface PaymentInterface
 {
 	/**
 	 * Returns weather the order was payed
@@ -12,5 +12,5 @@ interface Payment_Interface
 	 * @param  object $order [description]
 	 * @return bool
 	 */
-	function pay($order);
+	public static function pay($order);
 }

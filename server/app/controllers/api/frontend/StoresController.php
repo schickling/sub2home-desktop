@@ -4,6 +4,8 @@ use StoreModel;
 use DeliveryAreaModel;
 use DeliveryTimeModel;
 use Input;
+use Response;
+use PaypalService;
 
 /**
 * 
@@ -80,8 +82,6 @@ class StoresController extends ApiController
 		// isOpen status
 		$storeModel->isOpen = $input->isOpen;
 
-		var_dump($storeModel->toArray());
-
 		// order mail adress
 		$storeModel->orderEmail = $input->orderEmail;
 
@@ -92,19 +92,18 @@ class StoresController extends ApiController
 
 		// Paypal hook
 		
-		// // get paypal authorization
-		// if ($input->payment_paypal && (empty($storeModel->paypal_token) || empty($storeModel->paypal_tokensecret))) {
+		// get paypal authorization
+		if ($input->allowsPaymentPaypal && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
 
-		// 	$paypal_controller = IoC::resolve('payment_paypal');
-		// 	$url = $paypal_controller->request_permissions($storeModel->id);
+			$url = PaypalService::getRequestPermissionUrl($storeModel->id);
 
-		// 	// Returns the URL to the permission form
-		// 	return Response::make($url, 300);
+			// Returns the URL to the permission form
+			return Response::make($url, 300);
 
-		// // already authorized
-		// } else {
-		// 	$storeModel->payment_paypal = $input->payment_paypal;
-		// }
+		// already authorized
+		} else {
+			$storeModel->allowsPaymentPaypal = $input->allowsPaymentPaypal;
+		}
 
 		$storeModel->save();
 

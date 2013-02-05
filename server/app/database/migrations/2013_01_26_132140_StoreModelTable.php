@@ -16,9 +16,6 @@ class StoreModelTable extends Migration {
 			$table->string('title', 128)->unique();
 			$table->string('alias', 128)->unique();
 			$table->string('orderEmail', 128);
-			// Paypal identification
-			$table->string('paypalToken', 128);
-			$table->string('paypalTokensecret', 128);
 			$table->integer('number');
 			$table->integer('client_model_id');
 			$table->decimal('latitude', 8, 6);
@@ -26,11 +23,15 @@ class StoreModelTable extends Migration {
 			$table->decimal('totalTurnover', 12, 2);
 			$table->boolean('isActive');
 			$table->boolean('isOpen');
+			$table->text('description');
+			$table->timestamps();
+			// payment methods
 			$table->boolean('allowsPaymentCash');
 			$table->boolean('allowsPaymentEc');
 			$table->boolean('allowsPaymentPaypal');
-			$table->text('description');
-			$table->timestamps();
+			// Paypal identification
+			$table->string('paypalToken', 128);
+			$table->string('paypalTokensecret', 128);
 		});
 	}
 

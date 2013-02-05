@@ -83,7 +83,7 @@ define([
 
 			$button.text('Seite wird geladen');
 			// wait spinner :)
-			this.model.set('paymentPaypal', true);
+			this.model.set('allowsPaymentPaypal', true);
 
 			this.model.save({}, {
 				success: function () {

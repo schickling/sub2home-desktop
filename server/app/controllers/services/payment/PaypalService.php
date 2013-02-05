@@ -1,12 +1,16 @@
-<?php
+<?php namespace App\Controllers\Services\Payment;
+
+use URL;
+use Cache;
+use Exception;
 
 /**
 * Paypal Payment controller
 */
-class Payment_Paypal_Controller implements Payment_Interface
+class PaypalService implements PaymentInterface
 {
 
-	public function pay($order = null)
+	public static function pay($order = null)
 	{
 		return true;
 	}
@@ -16,21 +20,21 @@ class Payment_Paypal_Controller implements Payment_Interface
 	 * 
 	 * @return string
 	 */
-	public function request_permissions($store_id)
+	public static function getRequestPermissionUrl($store_model_id)
 	{
 		
-		$callback_url = URL::to_route('paypal_get_access_token');
-		$params = sprintf('&callback=%s?call=GetAccessToken&requestEnvelope_errorLanguage=en_US&scope(0)=EXPRESS_CHECKOUT', $callback_url);
+		$callbackUrl = URL::route('api/services/paypal/savetoken');
+		$params = sprintf('&callback=%s?call=GetAccessToken&requestEnvelope_errorLanguage=en_US&scope(0)=EXPRESS_CHECKOUT', $callbackUrl);
 
-		$response = $this->call_api('Permissions/RequestPermissions', $params);
+		$response = static::callService('Permissions/RequestPermissions', $params);
 
 		// Cache token with store id
-		Cache::put($response->token, $store_id, 50);
+		Cache::put($response->token, $store_model_id, 50);
 
 		// Prepare URL
-		$token_url = sprintf('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_grant-permission&request_token=%s', $response->token);
+		$tokenUrl = sprintf('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_grant-permission&request_token=%s', $response->token);
 
-		return $token_url;
+		return $tokenUrl;
 
 	}
 
@@ -41,10 +45,10 @@ class Payment_Paypal_Controller implements Payment_Interface
 	 * @param  string $verifier
 	 * @return array
 	 */
-	public function give_access_token($token, $verifier)
+	public static function getAccessToken($token, $verifier)
 	{
 		$params = sprintf('&token=%s&verifier=%s', $token, $verifier);
-		$response = $this->call_api('Permissions/GetAccessToken', $params);
+		$response = static::callService('Permissions/GetAccessToken', $params);
 
 		$data = array(
 			'token' => $response->token,
@@ -57,25 +61,25 @@ class Payment_Paypal_Controller implements Payment_Interface
 	/**
 	 * Creates an OAuth HTTP header
 	 * 
-	 * @param  int $store_id
+	 * @param  int $store_model_id
 	 * @return string
 	 */
-	public function auth_header($store_id)
+	public static function auth_header($store_model_id)
 	{
 		require_once(path('app') . 'libraries/paypal/oauth.php');
 
 		$RequestArguments = '';
 
-		$SignatureResult = GenSignature(PayPalAPIUserName, PayPalAPIPassword, $AccessToken, $TokenSecret, 'POST', $Endpoint, $RequestArguments);
+		$signatureResult = GenSignature(PayPalAPIUserName, PayPalAPIPassword, $AccessToken, $TokenSecret, 'POST', $Endpoint, $RequestArguments);
 
 		// GenSignature($key, $secret, $token, $token_secret, $httpMethod, $endpoint, $params)
 
-		$TimeStamp = $SignatureResult['oauth_timestamp'];
-		$Signature = $SignatureResult['oauth_signature'];
+		$timeStamp = $signatureResult['oauth_timestamp'];
+		$signature = $signatureResult['oauth_signature'];
 
-		$PayPalAuthorizationHeader = "timestamp=$TimeStamp,token=$AccessToken,signature=$Signature";
+		$PayPalAuthorizationHeader = "timestamp=$timeStamp,token=$AccessToken,signature=$signature";
 		
-		return ($PayPalAuthorizationHeader);
+		return $PayPalAuthorizationHeader;
 	}
 
 	/**
@@ -85,7 +89,7 @@ class Payment_Paypal_Controller implements Payment_Interface
 	 * @param  string $params get parameters
 	 * @return object         response object
 	 */
-	private function call_api($api, $params)
+	private static function callService($api, $params)
 	{
 		$url = 'https://svcs.sandbox.paypal.com/' . $api;
 
@@ -113,7 +117,7 @@ class Payment_Paypal_Controller implements Payment_Interface
 
 		$json = curl_exec($ch);
 		$response = json_decode($json);
-		curl_close($ch); 
+		curl_close($ch);
 
 		if (isset($response->error)) {
 			throw new Exception("Paypal request failed");

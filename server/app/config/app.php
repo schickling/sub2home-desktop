@@ -172,6 +172,9 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
+		// custom
+		'PaypalService'	  => 'App\Controllers\Services\Payment\PaypalService'
+
 	),
 
 );

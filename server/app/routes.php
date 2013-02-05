@@ -35,6 +35,19 @@ Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Fron
 Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
 
 
+/*
+|--------------------------------------------------------------------------
+| API Services Routes
+|--------------------------------------------------------------------------
+*/
+
+// paypal
+Route::get('api/services/paypal/savetoken', array(
+	'as'	=> 'api/services/paypal/savetoken',
+	'https',
+	'uses'	=> 'App\Controllers\Api\Services\PaypalController@saveToken'));
+
+
 
 
 /*
