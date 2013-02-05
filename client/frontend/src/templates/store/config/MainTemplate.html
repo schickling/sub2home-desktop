@@ -7,37 +7,10 @@
 				<h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %></h1>
 
 				<div class="storeData">
-					<div class="storeAddress">
-						
-											<div class="storeStreet">
-						<label for="storeStreetInput">Addresse</label>
-						<input id="storeStreetInput" data-field="street" value="">
-					</div>
-					<div class="storePostalCity">
-						<div class="storePostal">
-							<label for="storePostalInput">PLZ</label>
-							<input id="storePostalInput" data-field="postal" value="">
-						</div>
-						<div class="storeCity">
-							<label for="storeCityInput">Stadt</label>
-							<input id="storeCityInput" data-field="city" value="">
-						</div>
-					</div>
-					<div class="storeContact">
-						<div class="storePhone">
-							<label for="storePhoneInput">Tel</label>
-							<input id="storePhoneInput" data-field="phone" value="">
-						</div>
-						<div class="storeEmail">
-							<label for="storeEmailInput">Email</label>
-							<input id="storeEmailInput" data-field="email" value="">
-						</div>
-					</div>
+					<div class="storeAddress"></div>
 					<div class="storeOrderingContact well">
 						<label for="storeOrderingContactInput">Bestellungen an</label>
 						<input id="storeOrderingContactInput" placeholder="z.B. bestellungen@subtohome.de" value="">
-					</div>
-
 					</div>
 					<div class="bankDetails darkback">
 						<div class="bankaccountOwner">
@@ -64,96 +37,96 @@
 					<div class="bankOptions">
 						<button class="btn btnDarkInfo bankaccount">Bankdaten</button>
 
-					<div class="btn-group disabled">	
-						<button class="btn btnInfo"id="ec">EC</button>
-						<button class="btn btnInfo" id="checkEC"><i class="icn iCheck"></i></button>
-					</div>
-					<div class="btn-group disabled">	
-						<button class="btn btnInfo"id="bar">Bar</button>
-						<button class="btn btnInfo" id="checkBar"><i class="icn iCheck"></i></button>
-					</div>
-					<div class="btn-group disabled">	
-						<button class="btn btnInfo" id="paypal">PayPal</button>
-						<button class="btn btnInfo" id="checkPaypal"><i class="icn iCheck"></i></button>
-					</div>
-				</div>
-
-
-			</div>	
-		</section>
-		<section class="storeConfig">
-			<div class="deliveryAreas">
-				<header class="folded">
-					<h3>Liefergebiete</h3>
-					<div class="headingSeparator"></div>
-				</header>
-				<div class="unfolded">
-
-					<!-- delivery areas da rein -->
-
-					<i class="sBtn sBAdd"></i>
-				</div>
-			</div>
-
-			<div class="deliveryTimes">
-				<header class="folded">
-					<h3>Lieferzeiten</h3>
-					<div class="headingSeparator"></div>
-				</header>
-				<div class="unfolded">
-
-					<div class="businessDay" data-day="1">
-						<div class="weekday">Mo</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
+						<div class="btn-group disabled">	
+							<button class="btn btnInfo"id="ec">EC</button>
+							<button class="btn btnInfo" id="checkEC"><i class="icn iCheck"></i></button>
+						</div>
+						<div class="btn-group disabled">	
+							<button class="btn btnInfo"id="bar">Bar</button>
+							<button class="btn btnInfo" id="checkBar"><i class="icn iCheck"></i></button>
+						</div>
+						<div class="btn-group disabled">	
+							<button class="btn btnInfo" id="paypal">PayPal</button>
+							<button class="btn btnInfo" id="checkPaypal"><i class="icn iCheck"></i></button>
 						</div>
 					</div>
 
-					<div class="businessDay" data-day="2">
-						<div class="weekday">Di</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
-
-					<div class="businessDay" data-day="3">
-						<div class="weekday">Mi</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
-
-					<div class="businessDay" data-day="4">
-						<div class="weekday">Do</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
-
-					<div class="businessDay" data-day="5">
-						<div class="weekday">Fr</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
-
-					<div class="businessDay" data-day="6">
-						<div class="weekday">Sa</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
-
-					<div class="businessDay" data-day="0">
-						<div class="weekday">So</div>
-						<div class="openingHours">
-							<i class="sBtn sBAdd"></i>
-						</div>
-					</div>
 
 				</div>	
+			</section>
+			<section class="storeConfig">
+				<div class="deliveryAreas">
+					<header class="folded">
+						<h3>Liefergebiete</h3>
+						<div class="headingSeparator"></div>
+					</header>
+					<div class="unfolded">
 
-			</div>
+						<!-- delivery areas da rein -->
+
+						<i class="sBtn sBAdd"></i>
+					</div>
+				</div>
+
+				<div class="deliveryTimes">
+					<header class="folded">
+						<h3>Lieferzeiten</h3>
+						<div class="headingSeparator"></div>
+					</header>
+					<div class="unfolded">
+
+						<div class="businessDay" data-day="1">
+							<div class="weekday">Mo</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="2">
+							<div class="weekday">Di</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="3">
+							<div class="weekday">Mi</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="4">
+							<div class="weekday">Do</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="5">
+							<div class="weekday">Fr</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="6">
+							<div class="weekday">Sa</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+						<div class="businessDay" data-day="0">
+							<div class="weekday">So</div>
+							<div class="openingHours">
+								<i class="sBtn sBAdd"></i>
+							</div>
+						</div>
+
+					</div>	
+
+				</div>
 			<!-- <div class="payments">
 				<i class="icn iPaypal"></i>
 				<i class="icn iBar"></i>

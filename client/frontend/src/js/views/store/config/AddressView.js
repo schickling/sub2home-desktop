@@ -1,3 +1,4 @@
+// Filename: src/js/views/store/config/AddressView.js
 define([
 	'jquery',
 	'underscore',
@@ -17,7 +18,7 @@ define([
 		},
 
 		render: function() {
-			// this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
+			this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
 		},
 
 		update: function (e) {

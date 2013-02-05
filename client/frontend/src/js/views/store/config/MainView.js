@@ -24,7 +24,14 @@ define([
 
 		initialize: function () {
 			this.model = stateModel.get('storeModel');
-			this.render();
+
+			// to be absolutly consistent reload the store model from server
+			var self = this;
+			this.model.fetch({
+				success: function () {
+					self.render();
+				}
+			});
 		},
 
 		render: function () {
