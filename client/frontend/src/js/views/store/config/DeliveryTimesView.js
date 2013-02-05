@@ -28,9 +28,10 @@ define([
 				model: deliveryTimeModel
 			});
 
-			var $matchingBusinessDay = this.$('.businessDay[data-day="' + deliveryTimeModel.get('dayOfWeek') + '"]');
+			var $matchingBusinessDay = this.$('.businessDay[data-day="' + deliveryTimeModel.get('dayOfWeek') + '"]'),
+				$openingHours = $matchingBusinessDay.find('.openingHours');
 
-			$matchingBusinessDay.append(deliveryTimeView.el);
+			$openingHours.append(deliveryTimeView.el);
 		},
 
 		addDeliveryTime: function (e) {
