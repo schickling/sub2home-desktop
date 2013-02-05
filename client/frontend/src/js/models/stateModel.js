@@ -76,7 +76,7 @@ define([
 
 			// load new store on alias change
 			this.on('change:storeAlias', function () {
-				
+
 				var currentStoreModel = this.get('storeModel');
 
 				if (!currentStoreModel || this.get('storeAlias') !== currentStoreModel.get('alias')) {
@@ -159,6 +159,10 @@ define([
 			});
 
 			this.listenForStoreInternalChanges();
+
+			// lazy select delivery area after it got parsed from server
+			// and thus the customer didn't selected a delivery area
+			storeModel.checkForSelectedDeliveryAreaModel();
 		},
 
 		listenForStoreInternalChanges: function () {

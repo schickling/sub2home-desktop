@@ -50,8 +50,14 @@ define([
 		},
 
 		initializeData: function () {
+
 			// fetch if exists
-			this.fetch(0);
+			var couldBeFetched = true;
+			this.fetch({
+				error: function () {
+					couldBeFetched = false;
+				}
+			});
 
 			this.on('change', function () {
 				console.log('cart saved');
@@ -61,15 +67,16 @@ define([
 				});
 			}, this);
 
-			// initialize ordered items collection
-			if (!this.get('orderedItemsCollection')) {
+			// initialize ordered items collection and address model
+			if (!couldBeFetched) {
 				this.set('orderedItemsCollection', new OrderedItemsCollection());
-			}
-
-			// initialize address model
-			if (!this.get('addressModel')) {
 				this.set('addressModel', new AddressModel());
 			}
+
+			// listen for addressmodel
+			this.get('addressModel').on('change', function () {
+				this.trigger('change');
+			}, this);
 		},
 
 		toJSON: function () {
@@ -93,6 +100,9 @@ define([
 
 				var currentOrderedItemsCollection = this.get('orderedItemsCollection');
 
+				// following distinction takes place because parse is called every time
+				// the cart model gets saved
+				// ...
 				// if orderedItemsCollection already initialized it doesn't need to be initialize twice
 				if (currentOrderedItemsCollection) {
 					response.orderedItemsCollection = currentOrderedItemsCollection;
@@ -102,7 +112,12 @@ define([
 					});
 				}
 
-				if (response.hasOwnProperty('addressModel')) {
+				var currentAddressModel = this.get('addressModel');
+
+				// if addressmodel already initialized it doesn't need to be initialize twice
+				if (currentAddressModel) {
+					response.addressModel = currentAddressModel;
+				} else {
 					response.addressModel = new AddressModel(response.addressModel);
 				}
 
@@ -133,8 +148,6 @@ define([
 		processOrderedItems: function () {
 
 			var orderedItemsCollection = this.get('orderedItemsCollection');
-
-			console.log(orderedItemsCollection.toJSON());
 
 			// sum up ordered items and set amount
 			this.set({

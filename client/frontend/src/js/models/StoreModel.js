@@ -28,7 +28,6 @@ define([
 
 		initialize: function () {
 
-
 			// listen for changes in delivery areas/times collection
 			this.on('change:deliveryAreasCollection', function () {
 				this.listenForDeliveryAreasCollectionChanges();
@@ -105,13 +104,16 @@ define([
 					return deliveryAreaModel.get('isSelected');
 				});
 
-			if (selectedDeliveryAreaModel) {
-				console.log(selectedDeliveryAreaModel.toJSON());
-				return selectedDeliveryAreaModel;
-			} else {
-				console.log(this);
-				// mark first delivery area as selected if no one was selected
-				return deliveryAreasCollection.first().set('isSelected', true);
+			return selectedDeliveryAreaModel;
+
+		},
+
+		checkForSelectedDeliveryAreaModel: function () {
+			var selectedDeliveryAreaModel = this.getSelectedDeliveryAreaModel(),
+				deliveryAreasCollection = this.get('deliveryAreasCollection');
+
+			if (!selectedDeliveryAreaModel) {
+				deliveryAreasCollection.first().set('isSelected', true);
 			}
 		},
 
