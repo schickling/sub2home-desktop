@@ -30,6 +30,11 @@ define([
 			// cache note
 			this.$note = this.$el.find('.smallNote');
 
+			// set state
+			this.state = 'initialized';
+
+			console.log('ini');
+
 		};
 
 	StoreView.prototype = new gmaps.OverlayView();
@@ -57,9 +62,6 @@ define([
 			$el = this.$el;
 
 		$(pane).append($el);
-
-		// set state
-		this.state = 'initialized';
 
 		$el.on('click', function () {
 			self.selectStore();
@@ -98,6 +100,8 @@ define([
 			$note = this.$note;
 
 		this.state = 'available';
+
+		console.log('ava');
 
 		$el.animate({
 			opacity: 1
