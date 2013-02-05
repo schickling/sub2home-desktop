@@ -2034,7 +2034,6 @@ input[type="text"]#locationSelectionInput {
       position: absolute;
       width: 50%;
       margin: 0 5% 0 0;
-  //    min-height: 400px;
       top: 20px;
       bottom: 20px;
       background: @onNoteColor30;
@@ -2068,19 +2067,18 @@ input[type="text"]#locationSelectionInput {
 
       .storeAddress {
           
-          padding: 0 0 80px 0;
-          position: relative;
+        padding: 30px 0 90px 0;
+        position: relative;
 
-          >div {
+        >div {
           position: relative;
-          &.store_street {
-            margin-top: 30px;
+          &.storeStreet {
             input {
               padding-left: 72px;
             }  
           }
           &.storePostalCity, &.storeContact, &.storeOrderingContact {
-            margin-top: 10px;
+            margin-top: 20px;
             overflow: hidden;
             height: 27px;
             >div {
@@ -2102,7 +2100,7 @@ input[type="text"]#locationSelectionInput {
             }
           }
           &.storeContact {
-            margin-top: 30px;
+            margin-top: 20px;
             .storePhone {
               width: 210px;
               input {
@@ -2119,8 +2117,19 @@ input[type="text"]#locationSelectionInput {
             }
           }
           &.storeOrderingContact {
+            margin-top: 30px;
+
+            label {
+              color: darken(@onNoteColor, 10%);
+              bottom: 19px;
+              left: 30px;
+            }
             input {
+              font-size: 24px;
               padding-left: 114px;
+              height: 30px;
+              padding-bottom: 7px;
+              color: @greenDark;
             }
           }
         }
@@ -2142,9 +2151,9 @@ input[type="text"]#locationSelectionInput {
 //    top: 0;
     .box-shadow(0 0 3px 0 rgba(0,0,0,0.5));
     .border-radius(2px);
-    z-index: 30;
+    z-index: 50;
     display: none;
-    height: 208px;
+    height: 280px;
 
     .headingSeparator {
       left: 0;
@@ -2155,7 +2164,7 @@ input[type="text"]#locationSelectionInput {
     >div {
       position: relative;
       height: 27px;
-      margin-top: 10px;
+      margin-top: 20px;
       overflow: hidden;
     }
 
@@ -2174,7 +2183,7 @@ input[type="text"]#locationSelectionInput {
     .bankId {
       >div {
         position:absolute;
-        &.bank_code_nr {
+        &.bankCodeNr {
           width: 132px;
           input {
             padding-left: 41px;
@@ -2206,12 +2215,39 @@ div.bankOptions {
   right: 10px;
   bottom: 20px;
   .clearfix;
-  button {
+  .btn-group, >.btn {
     float: right;
     margin-left: 10px;
-    &.bankaccount {
-      margin-left: 30px;
+    #checkEC, #checkBar, #checkPaypal {
+      padding: 0px 10px;
     }
+
+    .iCheck {
+      
+      color: @white;
+      text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+      top: -6px;
+      &:before {
+        font-size: 16px;
+        top: 0;
+      }
+
+    }
+    &.disabled {
+      .iCheck {
+        color: darken(@blueDark, 15%);
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2), 0 -1px 0 darken(@blueDark, 30%);
+      }
+      .btn {
+        //background: @blueDark;
+        color: darken(@blueDark, 20%);
+        text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 darken(@blueDark, 25%);
+      }
+    }
+  }
+
+  .bankaccount {
+    margin-left: 30px;
   }
 }
 
@@ -2479,7 +2515,7 @@ div.bankOptions {
         cursor: default;
       }
 
-      &:nth-last-child(2):after {
+      &.penultimate:after {
         content: " ";
       }
 
