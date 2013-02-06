@@ -18,18 +18,23 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
+			var addressModel = this.model.get('addressModel');
+			this.$el.html(_.template(AddressTemplate, addressModel.toJSON()));
 		},
 
 		update: function (e) {
-			var $input = $(e.target),
+			var storeModel = this.model,
+				addressModel = this.model.get('addressModel'),
+				$input = $(e.target),
 				field = $input.attr('data-field'),
 				val = $input.val();
 
-			this.model.set(field, val);
-			this.model.save({}, {
+			addressModel.set(field, val);
+			addressModel.save({}, {
 				success: function () {
 					notificationcenter.success('Adresse gespeichert', 'Adresse erfolgreich gespeichert');
+					// reload store if address got changed
+					storeModel.fetch();
 				},
 				error: function () {
 					notificationcenter.error('Fehler :(', 'Adresse nicht erfolgreich gespeichert');

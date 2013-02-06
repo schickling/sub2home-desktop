@@ -9,8 +9,7 @@ define([
 
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
-			'click .buttonAdd': 'addDeliveryTime',
-			'click .folded': 'toggleView'
+			'click .buttonAdd': 'addDeliveryTime'
 		},
 
 		initialize: function () {
@@ -50,13 +49,8 @@ define([
 					self.collection.add(deliveryTimeModel);
 				}
 			});
-		},
-
-		toggleView: function () {
-			var $unfolded = this.$('.unfolded');
-
-			$unfolded.slideToggle();
 		}
+		
 	});
 
 	return DeliveryTimesView;

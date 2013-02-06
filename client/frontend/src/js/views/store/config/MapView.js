@@ -9,6 +9,10 @@ define([
 
 	var MapView = Backbone.View.extend({
 
+		map: null,
+
+		marker: null,
+
 		initialize: function () {
 			this.loadMap();
 		},
@@ -16,13 +20,11 @@ define([
 		loadMap: function () {
 
 			var mapOptions = {
-				center: new gmaps.LatLng(52.52, 13.4),
+				center: new gmaps.LatLng(this.model.get('latitude'), this.model.get('longitude')),
 				// Berlin
-				zoom: 13,
+				zoom: 15,
 				keyboardShortcuts: false,
 				disableDefaultUI: true,
-				draggable: false,
-				disableDoubleClickZoom: true,
 				scrollwheel: false,
 				styles: mapStyles,
 				mapTypeId: gmaps.MapTypeId.TERRAIN
@@ -37,8 +39,34 @@ define([
 			var self = this;
 			gmaps.event.addListenerOnce(map, 'idle', function () {
 				gmaps.event.trigger(map, 'resize');
+				self.addMarker();
+				self.listenForCoordinateChanges();
 			});
 
+		},
+
+		addMarker: function () {
+			var icon = new gmaps.MarkerImage('../../img/static/common/pin.png', // url
+			null, // size
+			null, // origin
+			new gmaps.Point(29, 87) // anchor
+			);
+
+			var marker = this.marker = new gmaps.Marker({
+				position: this.map.getCenter(),
+				icon: icon
+			});
+
+			// To add the marker to the map, call setMap();
+			marker.setMap(this.map);
+		},
+
+		listenForCoordinateChanges: function () {
+			this.model.on('change', function () {
+				var newCenter = new gmaps.LatLng(this.model.get('latitude'), this.model.get('longitude'));
+				this.marker.setPosition(newCenter);
+				this.map.setCenter(newCenter);
+			}, this);
 		}
 
 	});

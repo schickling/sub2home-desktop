@@ -36,7 +36,7 @@ define([
 
 			new AddressView({
 				el: this.$('.storeAddress'),
-				model: this.model.get('addressModel')
+				model: this.model
 			});
 		},
 

@@ -20,6 +20,7 @@ define([
 		urlRoot: function () {
 			return '/api/frontend/stores/' + global.getStoreAlias() + '/addresses';
 		}
+		
 	});
 
 	return AddressModel;

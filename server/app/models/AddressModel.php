@@ -13,7 +13,8 @@ class AddressModel extends BaseModel
 
 	protected function afterFirstSave()
 	{
-		if ($this->storeModel != null) {
+		// TODO: replace and issue
+		if ($this->storeModel()->first() != null) {
 			$this->updateStoreModelCoords();
 		}
 	}
@@ -69,9 +70,13 @@ class AddressModel extends BaseModel
 
 		if ($httpCode == 200) {
 			$geocode = json_decode($result);
-			$this->storeModel->latitude = $geocode->results[0]->geometry->location->lat;
-			$this->storeModel->longitude = $geocode->results[0]->geometry->location->lng;
-			$this->storeModel->save();
+
+			if ($geocode->status == 'OK') {
+				$storeModel = $this->storeModel()->first();
+				$storeModel->latitude = $geocode->results[0]->geometry->location->lat;
+				$storeModel->longitude = $geocode->results[0]->geometry->location->lng;
+				$storeModel->save();
+			}
 		}
 
 	}

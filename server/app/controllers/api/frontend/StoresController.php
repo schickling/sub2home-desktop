@@ -82,7 +82,9 @@ class StoresController extends ApiController
 			'isOpen'				=> 'boolean|required',
 			'allowsPaymentCash'		=> 'boolean|required',
 			'allowsPaymentEc'		=> 'boolean|required',
-			'allowsPaymentPaypal'	=> 'boolean|required'
+			'allowsPaymentPaypal'	=> 'boolean|required',
+			'latitude'				=> 'numeric|required',
+			'longitude'				=> 'numeric|required'
 			);
 
 		// var_dump(get_object_vars($input));
@@ -99,6 +101,8 @@ class StoresController extends ApiController
 		$storeModel->isOpen = (bool) $input->isOpen;
 		$storeModel->allowsPaymentCash = (bool) $input->allowsPaymentCash;
 		$storeModel->allowsPaymentEc = (bool) $input->allowsPaymentEc;
+		$storeModel->latitude = $input->latitude;
+		$storeModel->longitude = $input->longitude;
 
 
 		// Paypal hook
