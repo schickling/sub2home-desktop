@@ -3,9 +3,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/AddressModel',
+	'notificationcenter',
 	'text!templates/store/config/AddressTemplate.html'
-	], function($, _, Backbone, AddressModel, AddressTemplate) {
+	], function ($, _, Backbone, notificationcenter, AddressTemplate) {
 
 	var AddressView = Backbone.View.extend({
 
@@ -13,11 +13,11 @@ define([
 			'focusout input': 'update'
 		},
 
-		initialize: function() {
+		initialize: function () {
 			this.render();
 		},
 
-		render: function() {
+		render: function () {
 			this.$el.html(_.template(AddressTemplate, this.model.toJSON()));
 		},
 
@@ -27,7 +27,14 @@ define([
 				val = $input.val();
 
 			this.model.set(field, val);
-			this.model.save();
+			this.model.save({}, {
+				success: function () {
+					notificationcenter.success('Adresse gespeichert', 'Adresse erfolgreich gespeichert');
+				},
+				error: function () {
+					notificationcenter.error('Fehler :(', 'Adresse nicht erfolgreich gespeichert');
+				}
+			});
 		}
 
 	});

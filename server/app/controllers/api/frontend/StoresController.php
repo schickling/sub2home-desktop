@@ -5,6 +5,7 @@ use DeliveryAreaModel;
 use DeliveryTimeModel;
 use Input;
 use Response;
+use Validator;
 use PaypalService;
 
 /**
@@ -75,26 +76,36 @@ class StoresController extends ApiController
 		$storeModel = $this->storeModel;
 
 		$input = Input::json();
-		
-		// storeModel description
+
+		$rules = array(
+			'orderEmail'			=> 'email|required',
+			'isOpen'				=> 'boolean|required',
+			'allowsPaymentCash'		=> 'boolean|required',
+			'allowsPaymentEc'		=> 'boolean|required',
+			'allowsPaymentPaypal'	=> 'boolean|required'
+			);
+
+		// var_dump(get_object_vars($input));
+
+		$validator = Validator::make(get_object_vars($input), $rules);
+
+		if ($validator->fails()) {
+			$this->error(400, $validator->messages());
+		}
+
+
 		$storeModel->description = $input->description;
-		
-		// isOpen status
-		$storeModel->isOpen = $input->isOpen;
-
-		// order mail adress
 		$storeModel->orderEmail = $input->orderEmail;
-
-		// payment methods
-		$storeModel->allowsPaymentCash = $input->allowsPaymentCash;
-		$storeModel->allowsPaymentEc = $input->allowsPaymentEc;
+		$storeModel->isOpen = (bool) $input->isOpen;
+		$storeModel->allowsPaymentCash = (bool) $input->allowsPaymentCash;
+		$storeModel->allowsPaymentEc = (bool) $input->allowsPaymentEc;
 
 
 		// Paypal hook
 		
-		// get paypal authorization
 		if ($input->allowsPaymentPaypal && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
 
+			// get paypal authorization
 			$url = PaypalService::getRequestPermissionUrl($storeModel->id);
 
 			// Returns the URL to the permission form
@@ -102,7 +113,7 @@ class StoresController extends ApiController
 
 		// already authorized
 		} else {
-			$storeModel->allowsPaymentPaypal = $input->allowsPaymentPaypal;
+			$storeModel->allowsPaymentPaypal = (bool) $input->allowsPaymentPaypal;
 		}
 
 		$storeModel->save();

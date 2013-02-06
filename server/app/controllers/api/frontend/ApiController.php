@@ -4,6 +4,8 @@ use Controller;
 use Request;
 use App;
 use StoreModel;
+use Validator;
+
 
 /**
 * 
@@ -27,8 +29,8 @@ class ApiController extends Controller
     	}
 	}
 
-	protected function error($errorCode) {
-		App::abort($errorCode);
+	protected function error($errorCode, $message = null) {
+		App::abort($errorCode, $message);
 	}
 
 	/**
@@ -54,3 +56,8 @@ class ApiController extends Controller
 	}
 
 }
+
+Validator::extend('boolean', function($attribute, $value, $parameters)
+{
+    return is_bool($value) || is_numeric($value);
+});
