@@ -7,7 +7,7 @@ define([
 	'notificationcenter',
 	'gmaps', // returns window.google.maps namespace
 	'models/stateModel',
-	'views/home/mapStyles',
+	'views/assets/mapStyles',
 	'views/home/StoreView',
 	'collections/StoresCollection'
 	], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {

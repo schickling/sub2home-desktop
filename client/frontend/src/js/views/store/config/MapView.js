@@ -3,16 +3,41 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'gmaps'
-	], function ($, _, Backbone, gmaps) {
+	'gmaps',
+	'views/assets/mapStyles'
+	], function ($, _, Backbone, gmaps, mapStyles) {
 
 	var MapView = Backbone.View.extend({
 
 		initialize: function () {
-			this.render();
+			this.loadMap();
 		},
 
-		render: function () {
+		loadMap: function () {
+
+			var mapOptions = {
+				center: new gmaps.LatLng(52.52, 13.4),
+				// Berlin
+				zoom: 13,
+				keyboardShortcuts: false,
+				disableDefaultUI: true,
+				draggable: false,
+				disableDoubleClickZoom: true,
+				scrollwheel: false,
+				styles: mapStyles,
+				mapTypeId: gmaps.MapTypeId.TERRAIN
+			};
+
+			var map = this.map = new gmaps.Map(this.el, mapOptions);
+
+			// initialize geocoder
+			this.geocoder = new gmaps.Geocoder();
+
+			// wait unitl map is loaded
+			var self = this;
+			gmaps.event.addListenerOnce(map, 'idle', function () {
+				gmaps.event.trigger(map, 'resize');
+			});
 
 		}
 
