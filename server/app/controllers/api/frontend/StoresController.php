@@ -72,11 +72,7 @@ class StoresController extends ApiController
 	public function update()
 	{
 		
-		$this->loadStoreModel();
-		$storeModel = $this->storeModel;
-
 		$input = Input::json();
-
 		$rules = array(
 			'orderEmail'			=> 'email|required',
 			'isOpen'				=> 'boolean|required',
@@ -85,13 +81,15 @@ class StoresController extends ApiController
 			'allowsPaymentPaypal'	=> 'boolean|required'
 			);
 
-		// var_dump(get_object_vars($input));
-
 		$validator = Validator::make(get_object_vars($input), $rules);
 
 		if ($validator->fails()) {
 			$this->error(400, $validator->messages());
 		}
+
+
+		$this->loadStoreModel();
+		$storeModel = $this->storeModel;
 
 
 		$storeModel->description = $input->description;

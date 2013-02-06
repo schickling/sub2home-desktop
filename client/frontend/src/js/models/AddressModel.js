@@ -17,8 +17,8 @@ define([
 			postal: 0
 		},
 
-		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/address';
+		urlRoot: function () {
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/addresses';
 		}
 	});
 
