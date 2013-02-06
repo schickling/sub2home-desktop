@@ -25,6 +25,8 @@ define([
 				zoom: 15,
 				keyboardShortcuts: false,
 				disableDefaultUI: true,
+				draggable: false,
+				disableDoubleClickZoom: true,
 				scrollwheel: false,
 				styles: mapStyles,
 				mapTypeId: gmaps.MapTypeId.TERRAIN
@@ -54,7 +56,8 @@ define([
 
 			var marker = this.marker = new gmaps.Marker({
 				position: this.map.getCenter(),
-				icon: icon
+				icon: icon,
+				cursor: 'default'
 			});
 
 			// To add the marker to the map, call setMap();
