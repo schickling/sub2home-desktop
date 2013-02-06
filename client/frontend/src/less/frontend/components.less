@@ -1974,55 +1974,47 @@ input[type="text"]#locationSelectionInput {
 // ---------------------
 
 .folded h3 {
-        color: rgba(0,0,0,0.2);
-        .transition(color .2s linear);
+        color: @onNoteColor;
+      //  .transition(color .2s linear);
       }
 
       .headingSeparator {
         position: absolute;
-        top: 30px;
+        top: 24px;
         left: 146px;
         right: 0;
         height: 1px;
-     //   color: rgba(0,0,0,0.2);
-        background: rgba(0,0,0,0.12);
+        background: @onNoteColor;
 
-        .transition(background .2s linear);
+      //  .transition(background .2s linear);
       }
 
-      .folded {
-        cursor: pointer;
-        &:hover {
-          .headingSeparator {
-            background: @greenDark;
-          }
-          h3 {
-            color: @greenDark;
-          }
-        }
-      }
+      // .folded {
+      //   cursor: pointer;
+      //   &:hover {
+      //     .headingSeparator {
+      //       background: @greenDark;
+      //     }
+      //     h3 {
+      //       color: @greenDark;
+      //     }
+      //   }
+      // }
 
 
 // Basic Store Settings (Map/Contacts)
 // -----------------------------------
 
 .storeBasics {
-  border-bottom: 1px solid rgba(0,0,0,0.22);
   padding: 20px 10px 20px;
-
   overflow: hidden;
-//  min-height: 400px;
-
-  
-
-  
-
 
   input {
     .border-box;
     height: 27px;
     width: 100%;
   }
+
   position: relative;
 
   >div {
@@ -2030,7 +2022,7 @@ input[type="text"]#locationSelectionInput {
     text-align: left;
     
     
-    &.locationFixing {
+    &#storeMap {
       position: absolute;
       width: 50%;
       margin: 0 5% 0 0;
@@ -2052,7 +2044,6 @@ input[type="text"]#locationSelectionInput {
         position: absolute;
         top: -7px;
         left: 0;
-
       }
 
       textarea {
@@ -2065,18 +2056,44 @@ input[type="text"]#locationSelectionInput {
         
       }
 
+      .storeClient {
+        .positioned;
+        overflow: hidden;
+        margin-top: 30px;
+        input {
+          display: inline-block;
+          &#storeClientFirstnameInput {
+            padding-left: 117px;
+            width: 50%;
+          }
+          &#storeClientLastnameInput {
+            position: absolute;
+            left: 50%;
+            margin-left: 10px;
+          }
+        }
+      }
+
+
       .storeAddress {
           
-        padding: 30px 0 90px 0;
+        padding: 10px 0 0 0;
         position: relative;
 
         >div {
           position: relative;
-          &.storeStreet {
+          &.storeStreet, &.storeStreetAdditional {
+            margin-top: 10px;
             input {
               padding-left: 72px;
             }  
           }
+
+          // &.storeStreetAdditional {
+          //   input {
+          //     padding-left: 72px;
+          //   }
+          // }
           &.storePostalCity, &.storeContact, &.storeOrderingContact {
             margin-top: 20px;
             overflow: hidden;
@@ -2100,7 +2117,7 @@ input[type="text"]#locationSelectionInput {
             }
           }
           &.storeContact {
-            margin-top: 20px;
+            margin-top: 10px;
             .storePhone {
               width: 210px;
               input {
@@ -2116,25 +2133,27 @@ input[type="text"]#locationSelectionInput {
 
             }
           }
-          &.storeOrderingContact {
-            margin-top: 30px;
-
-            label {
-              color: darken(@onNoteColor, 10%);
-              bottom: 19px;
-              left: 30px;
-            }
-            input {
-              font-size: 24px;
-              padding-left: 114px;
-              height: 30px;
-              padding-bottom: 7px;
-              color: @greenDark;
-            }
-          }
         }
-     } 
+      } 
     }
+  }
+}
+
+.storeOrderingContact {
+  margin: 30px 0 90px;
+  .positioned;
+
+  label {
+    color: darken(@onNoteColor, 10%);
+    bottom: 22px;
+    left: 30px;
+  }
+  input {
+    font-size: 24px;
+    padding-left: 114px;
+    height: 30px;
+    padding-bottom: 8px;
+    color: @greenDark;
   }
 }
 
@@ -2153,7 +2172,7 @@ input[type="text"]#locationSelectionInput {
     .border-radius(2px);
     z-index: 50;
     display: none;
-    height: 280px;
+    height: 350px;
 
     .headingSeparator {
       left: 0;
@@ -2218,30 +2237,45 @@ div.bankOptions {
   .btn-group, >.btn {
     float: right;
     margin-left: 10px;
+    //color: @white;
+    //text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
     #checkEC, #checkBar, #checkPaypal {
       padding: 0px 10px;
     }
 
-    .iCheck {
-      
-      color: @white;
-      text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-      top: -6px;
+    #checkPaypal {
+      font-size: 18px;
+      padding: 10px 14px;
+    }
+
+    i {
+      height: 15px;
+      .positioned;
+      color: @btnSuccessColor;
+      text-shadow: @btnMoreTextShadow;
+      margin-left: 5px;
       &:before {
         font-size: 16px;
-        top: 0;
+        position: relative;
+        top: -6px;
       }
-
+      &.iSettings {
+        margin: 0;
+      }
     }
+
     &.disabled {
-      .iCheck {
-        color: darken(@blueDark, 15%);
-        text-shadow: 0 1px 0 rgba(255,255,255,0.2), 0 -1px 0 darken(@blueDark, 30%);
+
+      i {
+        color: @onHeaderColor;
+        text-shadow: @btnMoreTextShadow;
       }
       .btn {
         //background: @blueDark;
-        color: darken(@blueDark, 20%);
-        text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 darken(@blueDark, 25%);
+        //color: darken(@blueDark, 20%);
+        //text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 darken(@blueDark, 25%);
+        .buttonBackground(@btnHalfOpBackground, @btnHalfOpBackgroundCenter, 50%, @btnHalfOpBackgroundHighlight, @onHeaderColor, @btnMoreTextShadow);
+        .box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
       }
     }
   }
@@ -2256,7 +2290,7 @@ div.bankOptions {
 
 
 .storeConfig {
-  padding: 20px 10px;
+  padding: 40px 10px 20px;
   position: relative;
   .clearfix;
   
@@ -2332,8 +2366,7 @@ div.bankOptions {
     }
 
     &.deliveryTimes {
-    width: 700px; 
-    //  width: 328px;
+      width: 700px; 
       float: right;
       margin-left: 20px;
       text-align: left;
@@ -2355,49 +2388,44 @@ div.bankOptions {
         margin-left: 20px;
         overflow: hidden;
         padding: 10px 0;
-        .clearfix;
-        >div {
-          float: left;
-          padding: 0 10px;
+        .positioned;
+        
+        .weekday {
+          position: absolute;
+          bottom: 33px;
+          font-family: @headingsFontFamily;
+          text-transform: uppercase;
+          font-size: 40px;
+          color: @greenLighter;
+          .rotate(270deg);
+          width: 50px;
+          height: 30px;
 
+          text-align: left;
+          left: 5%;
+        }
 
-          &.weekday {
-            position: relative;
-            top: 23px;
-            font-family: @headingsFontFamily;
-            text-transform: uppercase;
-            font-size: 40px;
-            color: @greenLighter;
-            .rotate(270deg);
-            width: 50px;
-            height: 30px;
+        .openingHours {
+          position: relative;
+          float: right;
+          padding: 3px 5px 0 20px;
+          min-height: 20px;
+          .sBAdd {
+            right: 6px;
+            bottom: 6px;
+          }
+        }
 
+        .deliveryTime {
+          padding: 5px 35px 0 0;
+          input {
+            width: 45px;
             text-align: right;
-            left: 5%;
           }
-
-          &.openingHours {
-            position: relative;
-            float: right;
-            padding: 3px 5px 0 20px;
-            min-height: 20px;
-            .sBAdd {
-              right: 6px;
-              bottom: 6px;
-            }
+          .sBRemove {
+            top: -6px;
           }
-
-          .deliveryTime {
-            padding: 5px 35px 0 0;
-            input {
-              width: 45px;
-              text-align: right;
-            }
-            .sBRemove {
-              top: -6px;
-            }
-          }
-        } 
+        }
       }
     }
   }

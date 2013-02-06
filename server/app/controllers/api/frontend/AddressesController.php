@@ -1,52 +1,29 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use Validator;
-use Input;
-
 
 class AddressesController extends ApiController
 {
 
+	public function show()
+	{
+		// $this->checkStore();
+		// return eloquent_to_json($this->store->address);
+	}
+
 	public function update()
 	{
-		$input = Input::json();
-		$rules = array(
-			'firstName'			=> 'alpha_dash|required',
-			'lastName'			=> 'alpha_dash|required',
-			'street'			=> 'required',
-			'streetAdditional'	=> 'required',
-			'postal'			=> 'numeric|required|between:10000,99999',
-			'city'				=> 'required',
-			'phone'				=> 'alpha_num|required',
-			'email'				=> 'email|required',
-			);
+		// $input = Input::json();
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		// $this->checkStore();
+		// $address = $this->store->address;
 
-		if ($validator->fails()) {
-			$this->error(400, $validator->messages());
-		}
+		// $address->street = $input->street;
+		// $address->postal = $input->postal;
+		// $address->city = $input->city;
+		// $address->phone = $input->phone;
+		// $address->email = $input->email;
 
-
-		$this->loadStoreModel();
-		$addressModel = $this->storeModel->addressModel;
-
-		$addressModel->firstName = $input->firstName;
-		$addressModel->lastName = $input->lastName;
-		$addressModel->street = $input->street;
-		$addressModel->streetAdditional = $input->streetAdditional;
-		$addressModel->postal = $input->postal;
-		$addressModel->city = $input->city;
-		$addressModel->phone = $input->phone;
-		$addressModel->email = $input->email;
-
-		$addressModel->save();
-
-
-		unset($addressModel->storeModel);
-
-
-		return $addressModel->toJson(JSON_NUMERIC_CHECK);
+		// $address->save();
 	}
 
 

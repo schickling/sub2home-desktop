@@ -7,15 +7,29 @@
  */
 class AddressModel extends BaseModel
 {
-	protected $hidden = array('client_model_id', 'store_model_id', 'order_model_id');
+	protected $hidden = array('client_model_id', 'id', 'store_model_id', 'order_model_id');
 
 	public $timestamps = false;
 
-	protected function afterFirstSave()
+	/**
+	 * Hook save
+	 * 
+	 * @return boolean
+	 */
+	public function save()
 	{
+		$exists = $this->exists;
+		$save = parent::save();
+
+		// check if address belongs to store
 		if ($this->storeModel != null) {
-			$this->updateStoreModelCoords();
+			// check if location specific data has been changed
+			if (!$exists || $this->changed('street') || $this->changed('postal') || $this->changed('city')) {
+				$this->updateStoreModelCoords();
+			}
 		}
+
+		return $save;
 	}
 
 	public function clientModel()
@@ -73,34 +87,7 @@ class AddressModel extends BaseModel
 			$this->storeModel->longitude = $geocode->results[0]->geometry->location->lng;
 			$this->storeModel->save();
 		}
-
-	}
-
-	public function takeStreet($street)
-	{
-		$this->attributes['street'] = $street;
-
-		if ($this->storeModel != null) {
-			$this->updateStoreModelCoords();
-		}
-	}
-
-	public function takePostal($postal)
-	{
-		$this->attributes['postal'] = $postal;
-
-		if ($this->storeModel != null) {
-			$this->updateStoreModelCoords();
-		}
-	}
-
-	public function takeCity($city)
-	{
-		$this->attributes['city'] = $city;
-
-		if ($this->storeModel != null) {
-			$this->updateStoreModelCoords();
-		}
+	
 	}
 
 	public function toString()

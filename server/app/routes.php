@@ -35,10 +35,6 @@ Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Fron
 Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
 
 
-// addresses
-Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
-
-
 /*
 |--------------------------------------------------------------------------
 | API Services Routes
