@@ -24,6 +24,7 @@ define([
 
 		render: function () {
 			var json = {
+				'number': this.model.get('number'),
 				'title': this.model.get('title'),
 				'orderEmail': this.model.get('orderEmail'),
 				'isOpen': this.model.get('isOpen'),

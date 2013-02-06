@@ -1,11 +1,6 @@
-<h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %></h1>
+<h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %></h1>(<%= number %>)
 
 <div class="storeData">
-	<div class="storeClient">
-		<label for="storeOrderingContactInput">Ansprechpartner</label>
-		<input id="storeClientFirstnameInput" placeholder="Vorname" value="">
-		<input id="storeClientLastnameInput" placeholder="Nachname" value="">
-	</div>
 	<div class="storeAddress"></div>
 	<div class="storeOrderingContact well">
 		<label for="storeOrderingContactInput">Bestellungen an</label>
@@ -36,12 +31,12 @@
 	<div class="bankOptions">
 		<button class="btn btnDark bankaccount">Bankdaten</button>
 
-			<button class="btn btnSuccess" id="checkEC">EC <i class="icn iCheck"></i></button>
+			<button class="btn btnSuccess" id="checkEC">EC <i class="icn <% if (allowsPaymentEc) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
 
-			<button class="btn btnSuccess" id="checkBar">Bar <i class="icn iCheck"></i></button>
+			<button class="btn btnSuccess" id="checkBar">Bar <i class="icn <% if (allowsPaymentCash) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
 
-		<div class="btn-group disabled">	
+		<div class="btn-group <% if (!allowsPaymentPaypal) { %>disabled<% } %>">	
 			<button class="btn btnSuccess" id="paypal"><i class="icn iSettings"></i></button>
-			<button class="btn btnSuccess" id="checkPaypal">Paypal <i class="icn iClose"></i></button>
+			<button class="btn btnSuccess" id="checkPaypal">Paypal <i class="icn <% if (allowsPaymentPaypal) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
 		</div>
 	</div>
