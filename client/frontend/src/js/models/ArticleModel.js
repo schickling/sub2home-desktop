@@ -115,10 +115,10 @@ define([
 			var ingredientCategoriesCollection = this.get('ingredientCategoriesCollection');
 
 			if (ingredientCategoriesCollection && this.get('allowsIngredients')) {
-				ingredientCategoriesCollection.each(function (ingredientCategoryModel) {
+				_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
 					var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
-					ingredientsCollection.each(function (ingredientModel) {
+					_.each(ingredientsCollection.models, function (ingredientModel) {
 						ingredientModel.on('change:isSelected', function () {
 							this.calculateTotal();
 						}, this);
@@ -135,12 +135,12 @@ define([
 			// sum up selected ingredients
 			if (this.get('allowsIngredients') && ingredientCategoriesCollection) {
 
-				ingredientCategoriesCollection.each(function (ingredientCategoryModel) {
+				_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
 					var selectedIngredientsCollection = _(ingredientCategoryModel.get('ingredientsCollection').where({
 						isSelected: true
 					}));
 
-					selectedIngredientsCollection.each(function (ingredientModel) {
+					_.each(selectedIngredientsCollection.models, function (ingredientModel) {
 						ingredientsTotal += ingredientModel.get('price');
 					});
 				});

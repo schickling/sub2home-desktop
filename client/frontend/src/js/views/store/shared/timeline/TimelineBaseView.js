@@ -51,7 +51,7 @@ define([
 				this.itemsOverlayView.remove();
 
 				// destroy all timelineitems
-				this.collection.each(function (timelineItemModel) {
+				_.each(this.collection.models, function (timelineItemModel) {
 					timelineItemModel.destroy();
 				});
 			}

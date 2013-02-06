@@ -88,7 +88,7 @@ define([
 			timelineItemsCollectionOfOrderedItemModel.add(this.timelineItemsCollection.models);
 
 			// append selection index to all items for info switching
-			this.timelineItemsCollection.each(function (timelineItemModel) {
+			_.each(this.timelineItemsCollection.models, function (timelineItemModel) {
 				timelineItemModel.set('selectionIndex', indexOfSelectionView);
 			}, this);
 		},

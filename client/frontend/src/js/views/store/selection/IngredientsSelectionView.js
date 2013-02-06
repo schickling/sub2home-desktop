@@ -40,9 +40,9 @@ define([
 						if (ingredientCategoryModel.get('isMandatory')) {
 							var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
-							ingredientsCollection.each(function (ingredientModel) {
+							_.each(ingredientsCollection.models, function (ingredientModel) {
 								ingredientModel.bind('change:isSelected', function () {
-									
+
 									// count isSelected items
 									var isSelectedCount = ingredientModel.collection.where({
 										isSelected: true

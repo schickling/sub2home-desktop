@@ -148,7 +148,7 @@ define([
 		initializeListeners: function () {
 
 			// listen if items get active
-			this.collection.each(function (timelineItemModel) {
+			_.each(this.collection.models, function (timelineItemModel) {
 				this.listenToTimelineItem(timelineItemModel);
 			}, this);
 

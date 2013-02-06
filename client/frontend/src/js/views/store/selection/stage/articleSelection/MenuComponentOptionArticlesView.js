@@ -14,7 +14,7 @@ define([
 		},
 
 		render: function () {
-			this.collection.each(function (menuComponentOptionArticleModel) {
+			_.each(this.collection.models, function (menuComponentOptionArticleModel) {
 				this.renderArticle(menuComponentOptionArticleModel);
 			}, this);
 		},

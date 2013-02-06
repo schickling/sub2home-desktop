@@ -24,7 +24,7 @@ define([
 
 		renderMenuComponentOptions: function () {
 
-			this.collection.each(function (menuComponentOptionModel) {
+			_.each(this.collection.models, function (menuComponentOptionModel) {
 				this.renderMenuComponentOption(menuComponentOptionModel);
 			}, this);
 

@@ -23,7 +23,7 @@ define([
 		},
 
 		render: function () {
-			this.collection.each(function (ingredientCategoryModel) {
+			_.each(this.collection.models, function (ingredientCategoryModel) {
 				this.renderIngredientCategory(ingredientCategoryModel);
 			}, this);
 		},

@@ -23,7 +23,7 @@ define([
 			var $ingredients = this.$('.ingredients');
 			$ingredients.empty();
 
-			this.collection.each(function (ingredientModel) {
+			_.each(this.collection.models, function (ingredientModel) {
 				this.renderIngredient(ingredientModel);
 			}, this);
 		},
@@ -45,7 +45,7 @@ define([
 
 			// if only one ingredient allowed disable others
 			if (isSingle) {
-				otherIngredientsCollection.each(function (otherIngredientModel) {
+				_.each(otherIngredientsCollection.models, function (otherIngredientModel) {
 					otherIngredientModel.set('isSelected', false);
 				});
 			}

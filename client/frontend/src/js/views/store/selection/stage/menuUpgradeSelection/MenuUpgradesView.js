@@ -38,7 +38,7 @@ define([
 			this.$menuUpgradesContainer = $('<div class="menuUpgradesContainer">');
 			this.$el.append(this.$menuUpgradesContainer);
 
-			this.collection.each(function (menuUpgradeModel) {
+			_.each(this.collection.models, function (menuUpgradeModel) {
 				this.renderMenuUpgrade(menuUpgradeModel);
 			}, this);
 		},
