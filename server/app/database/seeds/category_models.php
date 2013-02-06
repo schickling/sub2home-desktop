@@ -30,8 +30,8 @@ return array (
 		'id' 					=> 4,
 		'order' 				=> 4,
 		'title' 				=> 'Snacks',
-		'smallImage'			=> 'img/static/categories/smallimages/snack.png',
-		'icon'					=> 'iSnack'
+		'smallImage'			=> 'img/static/categories/smallimages/snacks.png',
+		'icon'					=> 'iSnacks'
 	),
 
 	array (
