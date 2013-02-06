@@ -312,7 +312,7 @@ aside#header .iInfo {
   padding: 100px 3% 30px;
 }
 .note.tray {
-  top: -475px;
+  top: -535px;
   padding: 0;
   background: url("../img/static/common/dark_background.jpg") repeat;
 }
@@ -2145,8 +2145,11 @@ table [class*=span],
 .iSalad:before {
   content: "\e002";
 }
-.iBeverage:before {
+.iSnacks:before {
   content: "\e003";
+}
+.iBeverage:before {
+  content: "\e004";
 }
 .iBread:before {
   content: "\e014";
@@ -3375,6 +3378,11 @@ div.pricetag:after {
 .categoriesNavigation .itemsTimeline .itemTimeline:first-child {
   margin-left: 0;
 }
+.timeline .itemsTimeline .itemTimeline .iSnacks,
+.categoriesNavigation .itemsTimeline .itemTimeline .iSnacks {
+  position: relative;
+  top: 4px;
+}
 .timeline .itemsTimeline .itemTimeline img,
 .categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
@@ -3990,6 +3998,7 @@ input[type="text"]#locationSelectionInput {
   left: 50px;
   top: 67px;
   width: 120px;
+  text-align: center;
 }
 .article {
   background: none;
@@ -4664,6 +4673,12 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   padding-left: 81px;
 }
+.storeBasics > div.storeInfo h1 span {
+  position: relative;
+  top: -1px;
+  font-size: 30px;
+  color: #d1ba82;
+}
 .storeBasics > div.storeInfo .sBOpen {
   position: absolute;
   top: -7px;
@@ -4694,7 +4709,7 @@ input[type="text"]#locationSelectionInput {
 .storeBasics > div.storeInfo .storeClient input#storeClientLastnameInput {
   position: absolute;
   left: 50%;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .storeBasics > div.storeInfo .storeAddress {
   padding: 10px 0 0 0;
@@ -4704,45 +4719,82 @@ input[type="text"]#locationSelectionInput {
   position: relative;
 }
 .storeBasics > div.storeInfo .storeAddress > div.storeStreet,
-.storeBasics > div.storeInfo .storeAddress > div.storeStreetAdditional {
-  margin-top: 10px;
-}
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet input,
-.storeBasics > div.storeInfo .storeAddress > div.storeStreetAdditional input {
-  padding-left: 72px;
-}
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact {
-  margin-top: 20px;
+  margin-top: 10px;
   overflow: hidden;
   height: 27px;
 }
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div,
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact > div,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div {
   position: absolute;
 }
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storePostal,
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storePostal,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storePostal,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storePostal {
   width: 93px;
 }
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storePostal input,
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storePostal input,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storePostal input,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storePostal input {
   padding-left: 38px;
 }
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeCity,
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeCity,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeCity,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeCity {
   left: 113px;
   right: 0;
 }
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeCity input,
 .storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeCity input,
 .storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeCity input,
 .storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeCity input {
   padding-left: 52px;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetBasic,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetBasic,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetBasic,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetBasic {
+  width: 60%;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetBasic input,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetBasic input,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetBasic input,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetBasic input {
+  padding-left: 72px;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional {
+  width: 40%;
+  padding-left: 20px;
+  right: 0;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional label,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional label,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional label,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional label {
+  left: 50px;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional input,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional input,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional input,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional input {
+  margin-left: 20px;
+  padding-left: 57px;
+}
+.storeBasics > div.storeInfo .storeAddress > div.storeStreet.storeStreet,
+.storeBasics > div.storeInfo .storeAddress > div.storePostalCity.storeStreet,
+.storeBasics > div.storeInfo .storeAddress > div.storeContact.storeStreet,
+.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact.storeStreet {
+  margin-top: 20px;
 }
 .storeBasics > div.storeInfo .storeAddress > div.storeContact {
   margin-top: 10px;
@@ -4836,7 +4888,7 @@ input[type="text"]#locationSelectionInput {
 }
 div.bankOptions {
   position: absolute !important;
-  right: 10px;
+  right: 0;
   bottom: 20px;
   *zoom: 1;
 }
@@ -4930,6 +4982,40 @@ div.bankOptions .btn-group.disabled .btn:active,
 div.bankOptions > .btn.disabled .btn:active,
 div.bankOptions .btn-group.disabled .btn.active,
 div.bankOptions > .btn.disabled .btn.active {
+  background-color: rgba(195, 165, 93, 0.3) \9;
+}
+div.bankOptions .btn.disabled {
+  color: #a78a44;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
+  background-color: rgba(209, 186, 130, 0.3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(209, 186, 130, 0.1)), color-stop(50%, rgba(209, 186, 130, 0.3)), to(rgba(209, 186, 130, 0.3)));
+  background-image: -webkit-linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
+  background-image: -moz-linear-gradient(top, rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
+  background-image: -o-linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
+  background-image: linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ad1ba82', endColorstr='#4dd1ba82', GradientType=0);
+  border-color: rgba(209, 186, 130, 0.3) rgba(209, 186, 130, 0.3) rgba(188, 155, 74, 0.3);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: rgba(209, 186, 130, 0.3);
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+div.bankOptions .btn.disabled:hover,
+div.bankOptions .btn.disabled:active,
+div.bankOptions .btn.disabled.active,
+div.bankOptions .btn.disabled.disabled,
+div.bankOptions .btn.disabled[disabled] {
+  color: #a78a44;
+  background-color: rgba(209, 186, 130, 0.3);
+  *background-color: rgba(202, 176, 111, 0.3);
+}
+div.bankOptions .btn.disabled:active,
+div.bankOptions .btn.disabled.active {
   background-color: rgba(195, 165, 93, 0.3) \9;
 }
 div.bankOptions .bankaccount {
@@ -6028,8 +6114,21 @@ div.bankOptions .bankaccount {
 .deliveryAddressSettings > div.customerName > div.customerLastname input {
   padding-left: 77px;
 }
+.deliveryAddressSettings > div.customerContact .customerPhone {
+  width: 247px;
+}
+.deliveryAddressSettings > div.customerContact .customerPhone input {
+  padding-left: 37px;
+}
+.deliveryAddressSettings > div.customerContact .customerEmail {
+  margin-left: 20px;
+  width: 487px;
+}
+.deliveryAddressSettings > div.customerContact .customerEmail input {
+  padding-left: 50px;
+}
 .deliveryAddressSettings > div.customerAddress > div.customerStreet {
-  width: 367px;
+  width: 472px;
   margin-right: 20px;
 }
 .deliveryAddressSettings > div.customerAddress > div.customerStreet input {

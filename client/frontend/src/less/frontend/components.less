@@ -421,6 +421,10 @@ div.pricetag {
       &:first-child {
         margin-left: 0;
       }
+      .iSnacks {
+        .positioned;
+        top: 4px;
+      }
       img {
         position: absolute;
         top: 0;
@@ -1169,7 +1173,7 @@ input[type="text"]#locationSelectionInput {
       left: 50px;
       top: 67px;
       width: 120px;
-
+      text-align: center;
     }
   }
 }
@@ -2039,6 +2043,12 @@ input[type="text"]#locationSelectionInput {
       h1 {
         .positioned;
         padding-left: 81px;
+        span {
+          .positioned;
+          top: -1px;
+          font-size: 30px;
+          color: @onNoteColor;
+        }
       }
       .sBOpen {
         position: absolute;
@@ -2069,7 +2079,7 @@ input[type="text"]#locationSelectionInput {
           &#storeClientLastnameInput {
             position: absolute;
             left: 50%;
-            margin-left: 10px;
+            margin-left: 20px;
           }
         }
       }
@@ -2082,20 +2092,14 @@ input[type="text"]#locationSelectionInput {
 
         >div {
           position: relative;
-          &.storeStreet, &.storeStreetAdditional {
-            margin-top: 10px;
-            input {
-              padding-left: 72px;
-            }  
-          }
 
           // &.storeStreetAdditional {
           //   input {
           //     padding-left: 72px;
           //   }
           // }
-          &.storePostalCity, &.storeContact, &.storeOrderingContact {
-            margin-top: 20px;
+          &.storeStreet, &.storePostalCity, &.storeContact, &.storeOrderingContact {
+            margin-top: 10px;
             overflow: hidden;
             height: 27px;
             >div {
@@ -2114,7 +2118,31 @@ input[type="text"]#locationSelectionInput {
                   padding-left: 52px;
                 }
               }
+              &.storeStreetBasic {
+                width: 60%;
+                input {
+                  padding-left: 72px;
+                }  
+              }
+
+              &.storeStreetAdditional {
+                width: 40%;
+                padding-left: 20px;
+                right: 0;
+                label { left: 50px; }
+                input {
+                  margin-left: 20px;
+                  padding-left: 57px;
+                }
+              }
             }
+
+            &.storeStreet {
+              margin-top: 20px;
+            }
+
+
+
           }
           &.storeContact {
             margin-top: 10px;
@@ -2231,7 +2259,7 @@ input[type="text"]#locationSelectionInput {
 
 div.bankOptions {
   position: absolute !important;
-  right: 10px;
+  right: 0;
   bottom: 20px;
   .clearfix;
   .btn-group, >.btn {
@@ -2271,13 +2299,14 @@ div.bankOptions {
         text-shadow: @btnMoreTextShadow;
       }
       .btn {
-        //background: @blueDark;
-        //color: darken(@blueDark, 20%);
-        //text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 darken(@blueDark, 25%);
         .buttonBackground(@btnHalfOpBackground, @btnHalfOpBackgroundCenter, 50%, @btnHalfOpBackgroundHighlight, @onHeaderColor, @btnMoreTextShadow);
         .box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
       }
     }
+  }
+  .btn.disabled {
+    .buttonBackground(@btnHalfOpBackground, @btnHalfOpBackgroundCenter, 50%, @btnHalfOpBackgroundHighlight, @onHeaderColor, @btnMoreTextShadow);
+    .box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
   }
 
   .bankaccount {
@@ -3478,10 +3507,26 @@ div.bankOptions {
       }
     }
 
+    &.customerContact {
+      .customerPhone {
+        width: 247px;
+        input {
+          padding-left: 37px;
+        }
+      }
+      .customerEmail {
+        margin-left: 20px;
+        width: 487px;
+        input {
+          padding-left: 50px;
+        }
+      }
+    }
+
     &.customerAddress {
       >div {
         &.customerStreet {
-          width: 367px;
+          width: 472px;
           margin-right: 20px;
           input {
             padding-left: 70px;

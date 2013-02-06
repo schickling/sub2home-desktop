@@ -3,13 +3,17 @@
 		<input id="storeClientFirstnameInput" data-field="firstName" placeholder="Vorname" value="<%= firstName %>">
 		<input id="storeClientLastnameInput" data-field="lastName" placeholder="Nachname" value="<%= lastName %>">
 	</div>
+
+
 <div class="storeStreet">
-	<label for="storeStreetInput">Addresse</label>
-	<input id="storeStreetInput" data-field="street" value="<%= street %>">
-</div>
-<div class="storeStreetAdditional">
-	<label for="storeStreetAdditionalInput">Zusatz</label>
-	<input id="storeStreetAdditionalInput" data-field="streetAdditional" value="<%= streetAdditional %>">
+	<div class="storeStreetBasic">
+		<label for="storeStreetInput">Addresse</label>
+		<input id="storeStreetInput" data-field="street" value="<%= street %>">
+	</div>
+	<div class="storeStreetAdditional">
+		<label for="storeStreetAdditionalInput">Zusatz</label>
+		<input id="storeStreetAdditionalInput" data-field="streetAdditional" value="<%= streetAdditional %>">
+	</div>
 </div>
 <div class="storePostalCity">
 	<div class="storePostal">

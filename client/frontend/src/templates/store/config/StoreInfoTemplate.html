@@ -1,4 +1,4 @@
-<h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %></h1>(<%= number %>)
+<h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %> <span>(<%= number %>)</span></h1>
 
 <div class="storeData">
 	<div class="storeAddress"></div>
@@ -6,7 +6,7 @@
 		<label for="storeOrderingContactInput">Bestellungen an</label>
 		<input id="storeOrderingContactInput" placeholder="z.B. bestellungen@subtohome.de" value="<%= orderEmail %>">
 	</div>
-	<div class="bankDetails darkback">
+	<!-- <div class="bankDetails darkback">
 		<div class="bankaccountOwner">
 			<label for="bankaccountOwnerInput">Kontoinhaber</label>
 			<input id="bankaccountOwnerInput" value="">
@@ -26,14 +26,14 @@
 			</div>
 		</div>
 		<button class="btn bankaccount btnSuccess">Fertig</button>
-	</div>
+	</div> -->
 
 	<div class="bankOptions">
-		<button class="btn btnDark bankaccount">Bankdaten</button>
+		<!-- <button class="btn btnDark bankaccount">Bankdaten</button> -->
 
-			<button class="btn btnSuccess" id="checkEC">EC <i class="icn <% if (allowsPaymentEc) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
+			<button class="btn btnSuccess <% if (!allowsPaymentEc) { %>disabled<% } %>" id="checkEC">EC <i class="icn <% if (allowsPaymentEc) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
 
-			<button class="btn btnSuccess" id="checkBar">Bar <i class="icn <% if (allowsPaymentCash) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
+			<button class="btn btnSuccess <% if (!allowsPaymentCash) { %>disabled<% } %>" id="checkBar">Bar <i class="icn <% if (allowsPaymentCash) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
 
 		<div class="btn-group <% if (!allowsPaymentPaypal) { %>disabled<% } %>">	
 			<button class="btn btnSuccess" id="paypal"><i class="icn iSettings"></i></button>
