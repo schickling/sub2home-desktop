@@ -5,8 +5,9 @@ define([
 	'underscore',
 	'backbone',
 	'models/stateModel',
-	'notificationcenter'
-	], function (require, $, _, Backbone, stateModel, notificationcenter) {
+	'notificationcenter',
+	'authentication'
+	], function (require, $, _, Backbone, stateModel, notificationcenter, authentication) {
 
 	var Router = Backbone.Router.extend({
 
@@ -33,7 +34,8 @@ define([
 			'*actions': '_defaultAction'
 		},
 
-		pageView: null,
+		// needed to overwrite each page view
+		_pageView: null,
 
 		init: function () {
 			// init header
@@ -67,6 +69,16 @@ define([
 			return this;
 		},
 
+		_showHome: function () {
+
+			stateModel.set({
+				currentRoute: 'home'
+			});
+
+			this._loadMainView('views/home/MainView');
+
+		},
+
 		_showStoreHome: function (alias) {
 
 			stateModel.set({
@@ -88,28 +100,6 @@ define([
 			});
 
 			this._loadMainView('views/store/selection/MainView');
-
-		},
-
-		_showStoreConfig: function (alias) {
-
-			stateModel.set({
-				currentRoute: 'store.config',
-				storeAlias: alias
-			});
-
-			this._loadMainView('views/store/config/MainView');
-
-		},
-
-		_showStoreAssortment: function (alias) {
-
-			stateModel.set({
-				currentRoute: 'store.assortment',
-				storeAlias: alias
-			});
-
-			this._loadMainView('views/store/assortment/MainView');
 
 		},
 
@@ -135,7 +125,35 @@ define([
 
 		},
 
+		_showStoreConfig: function (alias) {
+
+			this._checkLogin();
+
+			stateModel.set({
+				currentRoute: 'store.config',
+				storeAlias: alias
+			});
+
+			this._loadMainView('views/store/config/MainView');
+
+		},
+
+		_showStoreAssortment: function (alias) {
+
+			this._checkLogin();
+
+			stateModel.set({
+				currentRoute: 'store.assortment',
+				storeAlias: alias
+			});
+
+			this._loadMainView('views/store/assortment/MainView');
+
+		},
+
 		_showStoreOrders: function (alias) {
+
+			this._checkLogin();
 
 			stateModel.set({
 				currentRoute: 'store.orders',
@@ -143,16 +161,6 @@ define([
 			});
 
 			this._loadMainView('views/store/orders/MainView');
-
-		},
-
-		_showHome: function () {
-
-			stateModel.set({
-				currentRoute: 'home'
-			});
-
-			this._loadMainView('views/home/MainView');
 
 		},
 
@@ -168,7 +176,7 @@ define([
 
 			require([pathToMainView], function (MainView) {
 
-				self.pageView = new MainView();
+				self._pageView = new MainView();
 
 			});
 		},
@@ -191,6 +199,12 @@ define([
 				});
 			}
 
+		},
+
+		_checkLogin: function () {
+			if (!authentication.isLoggedIn()) {
+				console.log('log in!');
+			}
 		}
 
 	});

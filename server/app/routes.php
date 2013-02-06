@@ -34,6 +34,9 @@ Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controlle
 Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderIndexController@index');
 Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
 
+// addresses
+Route::put('api/frontend/stores/{alias}/addresses/{id}', 				'App\Controllers\Api\Frontend\AddressesController@update');
+
 
 /*
 |--------------------------------------------------------------------------

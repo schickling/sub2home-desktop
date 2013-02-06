@@ -18,8 +18,8 @@ define([
 			});
 		},
 
-		checkLogin: function () {
-
+		isLoggedIn: function () {
+			return true;
 		}
 
 	};
