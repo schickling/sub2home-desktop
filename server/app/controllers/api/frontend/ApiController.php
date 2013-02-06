@@ -1,16 +1,14 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use Controller;
+use App\Controllers\Api\BaseApiController;
 use Request;
-use App;
 use StoreModel;
-use Validator;
 
 
 /**
 * 
 */
-class ApiController extends Controller
+class ApiController extends BaseApiController
 {
 	protected $storeModel;
 
@@ -29,10 +27,6 @@ class ApiController extends Controller
     	}
 	}
 
-	protected function error($errorCode, $message = null) {
-		App::abort($errorCode, $message);
-	}
-
 	/**
 	 * verify!
 	 * 
@@ -43,7 +37,6 @@ class ApiController extends Controller
 		return true;
 	}
 
-<<<<<<< HEAD
 	protected function af()
 	{
 		$this->afterFilter(function($response) {
@@ -55,23 +48,3 @@ class ApiController extends Controller
 	}
 
 }
-=======
-	/**
-	 * Catch-all method for requests that can't be matched.
-	 *
-	 * @param  string    $method
-	 * @param  array     $parameters
-	 * @return Response
-	 */
-	public function __call($method, $parameters)
-	{
-		// return App::abort(404);
-	}
-
-}
-
-Validator::extend('boolean', function($attribute, $value, $parameters)
-{
-    return is_bool($value) || is_numeric($value);
-});
->>>>>>> 323a67f6bfa68f59cb813703b4ea09d3041d85cf
