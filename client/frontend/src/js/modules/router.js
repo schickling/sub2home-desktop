@@ -5,32 +5,32 @@ define([
 	'underscore',
 	'backbone',
 	'models/stateModel',
-	'notificationcenter' // Request notificationcenter.js
+	'notificationcenter'
 	], function (require, $, _, Backbone, stateModel, notificationcenter) {
 
 	var Router = Backbone.Router.extend({
 
 		routes: {
 			// home
-			'': 'showHome',
+			'': '_showHome',
 
 			// info
-			'impressum': 'showHome',
+			'impressum': '_showHome',
 
 			// store
-			':alias': 'showStoreHome',
-			':alias/theke/:resourceType/:resourceId': 'showStoreSelection',
-			':alias/tablett': 'showStoreTray',
-			':alias/danke': 'showStoreCheckout',
+			':alias': '_showStoreHome',
+			':alias/theke/:resourceType/:resourceId': '_showStoreSelection',
+			':alias/tablett': '_showStoreTray',
+			':alias/danke': '_showStoreCheckout',
 
-			// client
-			':alias/einstellungen': 'showStoreConfig',
-			':alias/sortiment': 'showStoreAssortment',
-			':alias/bestellungen': 'showStoreOrders',
+			// store (logged in)
+			':alias/einstellungen': '_showStoreConfig',
+			':alias/sortiment': '_showStoreAssortment',
+			':alias/bestellungen': '_showStoreOrders',
 
 			// common
-			'404': 'showPageNotFound',
-			'*actions': 'defaultAction'
+			'404': '_showPageNotFound',
+			'*actions': '_defaultAction'
 		},
 
 		pageView: null,
@@ -67,18 +67,18 @@ define([
 			return this;
 		},
 
-		showStoreHome: function (alias) {
+		_showStoreHome: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.home',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/home/MainView');
+			this._loadMainView('views/store/home/MainView');
 
 		},
 
-		showStoreSelection: function (alias, resourceType, resourceId) {
+		_showStoreSelection: function (alias, resourceType, resourceId) {
 
 			stateModel.set({
 				currentRoute: 'store.selection',
@@ -87,82 +87,82 @@ define([
 				selectionRessourceId: resourceId
 			});
 
-			this.loadMainView('views/store/selection/MainView');
+			this._loadMainView('views/store/selection/MainView');
 
 		},
 
-		showStoreConfig: function (alias) {
+		_showStoreConfig: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.config',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/config/MainView');
+			this._loadMainView('views/store/config/MainView');
 
 		},
 
-		showStoreAssortment: function (alias) {
+		_showStoreAssortment: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.assortment',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/assortment/MainView');
+			this._loadMainView('views/store/assortment/MainView');
 
 		},
 
-		showStoreTray: function (alias) {
+		_showStoreTray: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.tray',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/tray/MainView');
+			this._loadMainView('views/store/tray/MainView');
 
 		},
 
-		showStoreCheckout: function (alias) {
+		_showStoreCheckout: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.checkout',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/checkout/MainView');
+			this._loadMainView('views/store/checkout/MainView');
 
 		},
 
-		showStoreOrders: function (alias) {
+		_showStoreOrders: function (alias) {
 
 			stateModel.set({
 				currentRoute: 'store.orders',
 				storeAlias: alias
 			});
 
-			this.loadMainView('views/store/orders/MainView');
+			this._loadMainView('views/store/orders/MainView');
 
 		},
 
-		showHome: function () {
+		_showHome: function () {
 
 			stateModel.set({
 				currentRoute: 'home'
 			});
 
-			this.loadMainView('views/home/MainView');
+			this._loadMainView('views/home/MainView');
 
 		},
 
-		showPageNotFound: function () {
+		_showPageNotFound: function () {
 
 			$('body').html('404');
 
 		},
 
-		loadMainView: function (pathToMainView) {
+		_loadMainView: function (pathToMainView) {
 
 			var self = this;
 
@@ -173,7 +173,7 @@ define([
 			});
 		},
 
-		defaultAction: function () {
+		_defaultAction: function () {
 
 			var fragment = Backbone.history.fragment;
 
