@@ -11,14 +11,14 @@ class AddressesController extends ApiController
 	{
 		$input = Input::json();
 		$rules = array(
-			'firstName'				=> 'alpha_dash|required',
-			'lastName'				=> 'alpha_dash|required',
-			'street'				=> 'required',
-			'streetAdditional'		=> 'required',
-			'postal'				=> 'numeric|required|between:10000,99999',
-			'city'					=> 'required',
-			'phone'					=> 'alpha_num|required',
-			'email'					=> 'email|required',
+			'firstName'			=> 'alpha_dash|required',
+			'lastName'			=> 'alpha_dash|required',
+			'street'			=> 'required',
+			'streetAdditional'	=> 'required',
+			'postal'			=> 'numeric|required|between:10000,99999',
+			'city'				=> 'required',
+			'phone'				=> 'alpha_num|required',
+			'email'				=> 'email|required',
 			);
 
 		$validator = Validator::make(get_object_vars($input), $rules);
