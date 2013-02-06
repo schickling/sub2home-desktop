@@ -1,16 +1,14 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use Controller;
+use App\Controllers\Api\BaseApiController;
 use Request;
-use App;
 use StoreModel;
-use Validator;
 
 
 /**
 * 
 */
-class ApiController extends Controller
+class ApiController extends BaseApiController
 {
 	protected $storeModel;
 
@@ -29,10 +27,6 @@ class ApiController extends Controller
     	}
 	}
 
-	protected function error($errorCode, $message = null) {
-		App::abort($errorCode, $message);
-	}
-
 	/**
 	 * verify!
 	 * 
@@ -43,21 +37,14 @@ class ApiController extends Controller
 		return true;
 	}
 
-	/**
-	 * Catch-all method for requests that can't be matched.
-	 *
-	 * @param  string    $method
-	 * @param  array     $parameters
-	 * @return Response
-	 */
-	public function __call($method, $parameters)
+	protected function af()
 	{
-		// return App::abort(404);
+		$this->afterFilter(function($response) {
+			$response->headers->set('Access-Control-Allow-Origin', 'http://backend.sub2home.dev');
+			$response->headers->set('Access-Control-Allow-Credentials', 'true');
+			$response->headers->set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD, OPTIONS');
+			$response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+		});
 	}
 
 }
-
-Validator::extend('boolean', function($attribute, $value, $parameters)
-{
-    return is_bool($value) || is_numeric($value);
-});
