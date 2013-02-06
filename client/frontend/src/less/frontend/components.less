@@ -1974,55 +1974,47 @@ input[type="text"]#locationSelectionInput {
 // ---------------------
 
 .folded h3 {
-        color: rgba(0,0,0,0.2);
-        .transition(color .2s linear);
+        color: @onNoteColor;
+      //  .transition(color .2s linear);
       }
 
       .headingSeparator {
         position: absolute;
-        top: 30px;
+        top: 24px;
         left: 146px;
         right: 0;
         height: 1px;
-     //   color: rgba(0,0,0,0.2);
-        background: rgba(0,0,0,0.12);
+        background: @onNoteColor;
 
-        .transition(background .2s linear);
+      //  .transition(background .2s linear);
       }
 
-      .folded {
-        cursor: pointer;
-        &:hover {
-          .headingSeparator {
-            background: @greenDark;
-          }
-          h3 {
-            color: @greenDark;
-          }
-        }
-      }
+      // .folded {
+      //   cursor: pointer;
+      //   &:hover {
+      //     .headingSeparator {
+      //       background: @greenDark;
+      //     }
+      //     h3 {
+      //       color: @greenDark;
+      //     }
+      //   }
+      // }
 
 
 // Basic Store Settings (Map/Contacts)
 // -----------------------------------
 
 .storeBasics {
-  border-bottom: 1px solid rgba(0,0,0,0.22);
   padding: 20px 10px 20px;
-
   overflow: hidden;
-//  min-height: 400px;
-
-  
-
-  
-
 
   input {
     .border-box;
     height: 27px;
     width: 100%;
   }
+
   position: relative;
 
   >div {
@@ -2298,7 +2290,7 @@ div.bankOptions {
 
 
 .storeConfig {
-  padding: 20px 10px;
+  padding: 40px 10px 20px;
   position: relative;
   .clearfix;
   
