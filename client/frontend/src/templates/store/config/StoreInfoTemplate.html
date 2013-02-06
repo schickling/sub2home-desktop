@@ -1,6 +1,11 @@
 <h1 class="storeName"><i class="sBtn sBOpen <% if (isOpen) { %>open<% } %>"></i><%= title %></h1>
 
 <div class="storeData">
+	<div class="storeClient">
+		<label for="storeOrderingContactInput">Ansprechpartner</label>
+		<input id="storeClientFirstnameInput" placeholder="Vorname" value="">
+		<input id="storeClientLastnameInput" placeholder="Nachname" value="">
+	</div>
 	<div class="storeAddress"></div>
 	<div class="storeOrderingContact well">
 		<label for="storeOrderingContactInput">Bestellungen an</label>
@@ -29,18 +34,14 @@
 	</div>
 
 	<div class="bankOptions">
-		<button class="btn btnDarkInfo bankaccount">Bankdaten</button>
+		<button class="btn btnDark bankaccount">Bankdaten</button>
+
+			<button class="btn btnSuccess" id="checkEC">EC <i class="icn iCheck"></i></button>
+
+			<button class="btn btnSuccess" id="checkBar">Bar <i class="icn iCheck"></i></button>
 
 		<div class="btn-group disabled">	
-			<button class="btn btnInfo"id="ec">EC</button>
-			<button class="btn btnInfo" id="checkEC"><i class="icn iCheck"></i></button>
-		</div>
-		<div class="btn-group disabled">	
-			<button class="btn btnInfo"id="bar">Bar</button>
-			<button class="btn btnInfo" id="checkBar"><i class="icn iCheck"></i></button>
-		</div>
-		<div class="btn-group disabled">	
-			<button class="btn btnInfo" id="paypal">PayPal</button>
-			<button class="btn btnInfo" id="checkPaypal"><i class="icn iCheck"></i></button>
+			<button class="btn btnSuccess" id="paypal"><i class="icn iSettings"></i></button>
+			<button class="btn btnSuccess" id="checkPaypal">Paypal <i class="icn iCheck"></i></button>
 		</div>
 	</div>
