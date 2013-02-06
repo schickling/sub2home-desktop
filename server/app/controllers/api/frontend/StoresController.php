@@ -118,6 +118,8 @@ class StoresController extends ApiController
 
 		$storeModel->save();
 
+		return $storeModel->toJson(JSON_NUMERIC_CHECK);
+
 	}
 
 

@@ -53,7 +53,7 @@ define([
 		},
 
 		toggleView: function () {
-			var $unfolded = this.$el.find('.unfolded');
+			var $unfolded = this.$('.unfolded');
 
 			$unfolded.slideToggle();
 		}

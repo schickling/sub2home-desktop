@@ -246,8 +246,6 @@ define([
 				silent: true
 			});
 
-			storeModel.checkForSelectedDeliveryAreaModel();
-
 			// set store model
 			stateModel.set('storeModel', storeModel);
 

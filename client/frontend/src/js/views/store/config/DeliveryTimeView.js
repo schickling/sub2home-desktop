@@ -46,7 +46,7 @@ define([
 		},
 
 		updateStartMinutes: function (e) {
-			var $input = this.$el.find('.deliveryTimeStartMinutes'),
+			var $input = this.$('.deliveryTimeStartMinutes'),
 				time = $input.val();
 
 			if (this.checkTime(time)) {
@@ -59,12 +59,12 @@ define([
 		updateStartMinutesOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryTimeStartMinutes');
+			var $input = this.$('.deliveryTimeStartMinutes');
 			$input.blur();
 		},
 
 		updateEndMinutes: function (e) {
-			var $input = this.$el.find('.deliveryTimeEndMinutes'),
+			var $input = this.$('.deliveryTimeEndMinutes'),
 				time = $input.val();
 
 			if (this.checkTime(time)) {
@@ -77,7 +77,7 @@ define([
 		updateEndMinutesOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryTimeEndMinutes');
+			var $input = this.$('.deliveryTimeEndMinutes');
 			$input.blur();
 		},
 

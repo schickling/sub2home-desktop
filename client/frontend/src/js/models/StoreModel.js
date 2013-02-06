@@ -104,17 +104,14 @@ define([
 					return deliveryAreaModel.get('isSelected');
 				});
 
-			return selectedDeliveryAreaModel;
-
-		},
-
-		checkForSelectedDeliveryAreaModel: function () {
-			var selectedDeliveryAreaModel = this.getSelectedDeliveryAreaModel(),
-				deliveryAreasCollection = this.get('deliveryAreasCollection');
-
-			if (!selectedDeliveryAreaModel) {
-				deliveryAreasCollection.first().set('isSelected', true);
+			// lazy select delivery area after it got parsed from server
+			// and thus the customer didn't selected a delivery area
+			if (selectedDeliveryAreaModel) {
+				return selectedDeliveryAreaModel;
+			} else {
+				return deliveryAreasCollection.first().set('isSelected', true);
 			}
+
 		},
 
 		listenForDeliveryAreasCollectionChanges: function () {

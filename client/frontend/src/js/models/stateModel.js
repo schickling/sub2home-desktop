@@ -159,10 +159,6 @@ define([
 			});
 
 			this.listenForStoreInternalChanges();
-
-			// lazy select delivery area after it got parsed from server
-			// and thus the customer didn't selected a delivery area
-			storeModel.checkForSelectedDeliveryAreaModel();
 		},
 
 		listenForStoreInternalChanges: function () {

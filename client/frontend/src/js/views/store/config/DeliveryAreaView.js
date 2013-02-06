@@ -40,7 +40,7 @@ define([
 		},
 
 		updateMinimumDuration: function () {
-			var $input = this.$el.find('.deliveryAreaMinimumDuration'),
+			var $input = this.$('.deliveryAreaMinimumDuration'),
 				minimumDuration = $input.val();
 
 			if (minimumDuration == parseInt(minimumDuration, 10)) {
@@ -55,12 +55,12 @@ define([
 		updateMinimumDurationOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryAreaMinimumDuration');
+			var $input = this.$('.deliveryAreaMinimumDuration');
 			$input.blur();
 		},
 
 		updateMinimumValue: function () {
-			var $input = this.$el.find('.deliveryAreaMinimumValue'),
+			var $input = this.$('.deliveryAreaMinimumValue'),
 				minimumValue = $input.val();
 
 			if (minimumValue == parseFloat(minimumValue)) {
@@ -75,12 +75,12 @@ define([
 		updateMinimumValueOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryAreaMinimumValue');
+			var $input = this.$('.deliveryAreaMinimumValue');
 			$input.blur();
 		},
 
 		updatePostal: function () {
-			var $input = this.$el.find('.deliveryAreaPostal'),
+			var $input = this.$('.deliveryAreaPostal'),
 				postal = $input.val();
 
 			this.model.set('postal', postal);
@@ -91,12 +91,12 @@ define([
 		updatePostalOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryAreaPostal');
+			var $input = this.$('.deliveryAreaPostal');
 			$input.blur();
 		},
 
 		updateDescription: function () {
-			var $input = this.$el.find('.deliveryAreaDescription'),
+			var $input = this.$('.deliveryAreaDescription'),
 				description = $input.val();
 
 			this.model.set('description', description);
@@ -107,7 +107,7 @@ define([
 		updateDescriptionOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$el.find('.deliveryAreaDescription');
+			var $input = this.$('.deliveryAreaDescription');
 			$input.blur();
 		}
 

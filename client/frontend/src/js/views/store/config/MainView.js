@@ -27,7 +27,7 @@ define([
 
 			new MapView({
 				el: this.$('#storeMap'),
-				model: this.model.get('addressModel')
+				model: this.model
 			});
 
 			new StoreInfoView({

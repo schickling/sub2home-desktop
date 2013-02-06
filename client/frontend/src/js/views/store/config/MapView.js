@@ -2,8 +2,9 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+	'backbone',
+	'gmaps'
+	], function ($, _, Backbone, gmaps) {
 
 	var MapView = Backbone.View.extend({
 
@@ -12,7 +13,7 @@ define([
 		},
 
 		render: function () {
-			
+
 		}
 
 	});
