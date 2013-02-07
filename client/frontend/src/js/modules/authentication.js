@@ -5,21 +5,40 @@ define([
 
 	var authentication = {
 
+		_isSetup: false,
+
 		_hasValidToken: function () {
-			return true;
+			var valid = false;
+
+			$.ajax({
+				url: '/api/frontend/checktoken',
+				type: 'post',
+				async: false,
+				success: function () {
+					valid = true;
+				}
+			});
+
+			return valid;
 		},
 
 		_setupAjax: function () {
 			$.ajaxSetup({
 				// append token to all api requests to authenticate
 				headers: {
-					token: 1
+					Token: 1
 				}
 			});
+
+			this._isSetup = true;
 		},
 
 		isLoggedIn: function () {
-			return true;
+			if (!this._isSetup) {
+				this._setupAjax();
+			}
+
+			return this._hasValidToken();
 		}
 
 	};

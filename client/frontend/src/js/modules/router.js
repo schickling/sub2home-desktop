@@ -18,6 +18,9 @@ define([
 			// info
 			'impressum': '_showHome',
 
+			// client
+			'login': '_showClientLogin',
+
 			// store
 			':alias': '_showStoreHome',
 			':alias/theke/:resourceType/:resourceId': '_showStoreSelection',
@@ -79,6 +82,16 @@ define([
 
 		},
 
+		_showClientLogin: function () {
+
+			stateModel.set({
+				currentRoute: 'client.login'
+			});
+
+			this._loadMainView('views/client/login/MainView');
+
+		},
+
 		_showStoreHome: function (alias) {
 
 			stateModel.set({
@@ -127,40 +140,46 @@ define([
 
 		_showStoreConfig: function (alias) {
 
-			this._checkLogin();
+			if (this._isLoggedIn()) {
 
-			stateModel.set({
-				currentRoute: 'store.config',
-				storeAlias: alias
-			});
+				stateModel.set({
+					currentRoute: 'store.config',
+					storeAlias: alias
+				});
 
-			this._loadMainView('views/store/config/MainView');
+				this._loadMainView('views/store/config/MainView');
+
+			}
 
 		},
 
 		_showStoreAssortment: function (alias) {
 
-			this._checkLogin();
+			if (this._isLoggedIn()) {
 
-			stateModel.set({
-				currentRoute: 'store.assortment',
-				storeAlias: alias
-			});
+				stateModel.set({
+					currentRoute: 'store.assortment',
+					storeAlias: alias
+				});
 
-			this._loadMainView('views/store/assortment/MainView');
+				this._loadMainView('views/store/assortment/MainView');
+
+			}
 
 		},
 
 		_showStoreOrders: function (alias) {
 
-			this._checkLogin();
+			if (this._isLoggedIn()) {
 
-			stateModel.set({
-				currentRoute: 'store.orders',
-				storeAlias: alias
-			});
+				stateModel.set({
+					currentRoute: 'store.orders',
+					storeAlias: alias
+				});
 
-			this._loadMainView('views/store/orders/MainView');
+				this._loadMainView('views/store/orders/MainView');
+
+			}
 
 		},
 
@@ -201,9 +220,15 @@ define([
 
 		},
 
-		_checkLogin: function () {
-			if (!authentication.isLoggedIn()) {
-				console.log('log in!');
+		_isLoggedIn: function () {
+			if (authentication.isLoggedIn()) {
+				return true;
+			} else {
+				this.navigate('login', {
+					trigger: true,
+					replace: true
+				});
+				return false;
 			}
 		}
 

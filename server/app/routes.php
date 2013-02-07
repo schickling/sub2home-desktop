@@ -7,36 +7,39 @@
 */
 
 // stores
-Route::get('api/frontend/stores', 										'App\Controllers\Api\Frontend\StoresController@index');
-Route::get('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@show');
-Route::get('api/frontend/stores/{alias}/updatepaypal',					'App\Controllers\Api\Frontend\StoresController@updatePaypal');
-Route::put('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@update');
+Route::get('api/frontend/stores', 									'App\Controllers\Api\Frontend\StoresController@index');
+Route::get('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@show');
+Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\StoresController@updatePaypal');
+Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@update');
 
 // categories
-Route::get('api/frontend/stores/{alias}/categories',					'App\Controllers\Api\Frontend\CategoriesController@index');
+Route::get('api/frontend/stores/{alias}/categories',				'App\Controllers\Api\Frontend\CategoriesController@index');
 
 // articles
-Route::get('api/frontend/stores/{alias}/articles/{id}',					'App\Controllers\Api\Frontend\ArticlesController@show');
+Route::get('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\Frontend\ArticlesController@show');
 
 // menu bundles
-Route::get('api/frontend/stores/{alias}/menubundles/{id}',				'App\Controllers\Api\Frontend\MenuBundlesController@show');
+Route::get('api/frontend/stores/{alias}/menubundles/{id}',			'App\Controllers\Api\Frontend\MenuBundlesController@show');
 
 // delivery areas
-Route::post('api/frontend/stores/{alias}/deliveryareas', 				'App\Controllers\Api\Frontend\DeliveryAreasController@create');
-Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 			'App\Controllers\Api\Frontend\DeliveryAreasController@update');
-Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
+Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\DeliveryAreasController@create');
+Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@update');
+Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 	'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
 
 // delivery times
-Route::post('api/frontend/stores/{alias}/deliverytimes', 				'App\Controllers\Api\Frontend\DeliveryTimesController@create');
-Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 			'App\Controllers\Api\Frontend\DeliveryTimesController@update');
-Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
+Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\DeliveryTimesController@create');
+Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
+Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
 
 // orders
-Route::get('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderIndexController@index');
-Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
+Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
+Route::post('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderCreateController@create');
 
 // addresses
-Route::put('api/frontend/stores/{alias}/addresses/{id}', 				'App\Controllers\Api\Frontend\AddressesController@update');
+Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
+
+// authentification
+Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
 
 
 /*
@@ -61,10 +64,10 @@ Route::get('api/services/paypal/savetoken', array(
 |--------------------------------------------------------------------------
 */
 
-Route::get('api/backend/clients', 										'App\Controllers\Api\Backend\ClientsController@index');
+Route::get('api/backend/clients', 									'App\Controllers\Api\Backend\ClientsController@index');
 
 
 // stores
-Route::post('api/backend/stores/{id}', 									'App\Controllers\Api\Backend\StoresController@create');
-Route::put('api/backend/stores/{id}', 									'App\Controllers\Api\Backend\StoresController@update');
-Route::delete('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@destroy');
+Route::post('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@create');
+Route::put('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@update');
+Route::delete('api/backend/stores/{id}', 							'App\Controllers\Api\Backend\StoresController@destroy');

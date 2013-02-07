@@ -30,20 +30,25 @@ define([
 				val = $input.val(),
 				shouldReloadStoreModel = _.contains(['street', 'postal', 'city'], field);
 
-			addressModel.set(field, val);
+			// check if value really changed
+			if (val !== addressModel.get(field)) {
 
-			addressModel.save({}, {
-				success: function () {
-					notificationcenter.success('Adresse gespeichert', 'Adresse erfolgreich gespeichert');
-					// reload store if address got changed
-					if (shouldReloadStoreModel) {
-						storeModel.fetch();
+				addressModel.set(field, val);
+
+				addressModel.save({}, {
+					success: function () {
+						notificationcenter.success('Adresse gespeichert', 'Adresse erfolgreich gespeichert');
+						// reload store if address got changed
+						if (shouldReloadStoreModel) {
+							storeModel.fetch();
+						}
+					},
+					error: function () {
+						notificationcenter.error('Fehler :(', 'Adresse nicht erfolgreich gespeichert');
 					}
-				},
-				error: function () {
-					notificationcenter.error('Fehler :(', 'Adresse nicht erfolgreich gespeichert');
-				}
-			});
+				});
+			}
+
 		}
 
 	});
