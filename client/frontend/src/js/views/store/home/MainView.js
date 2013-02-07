@@ -5,10 +5,11 @@ define([
 	'backbone',
 	'router',
 	'views/PageView',
+	'views/store/home/DeliveryView',
 	'views/store/home/CategoriesView',
 	'views/store/home/CategoriesNavigationView',
 	'text!templates/store/home/MainTemplate.html'
-	], function ($, _, Backbone, router, PageView, CategoriesView, CategoriesNavigationView, MainTemplate) {
+	], function ($, _, Backbone, router, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 
 	$.fn.lazyload = function () {
@@ -65,10 +66,13 @@ define([
 		render: function () {
 			this.$el.html(MainTemplate);
 
-
 			var self = this,
 				$content = this.$('.content'),
 				$categories = $content.find('.categories');
+
+			new DeliveryView({
+				el: this.$('.storeDeliveryDetails')
+			});
 
 			var categoriesView = new CategoriesView({
 				el: $categories
