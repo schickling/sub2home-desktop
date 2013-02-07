@@ -4932,15 +4932,28 @@ div.bankOptions > .btn i:before {
   font-size: 16px;
   position: relative;
   top: -6px;
+  content: "\e074";
 }
 div.bankOptions .btn-group i.iSettings,
 div.bankOptions > .btn i.iSettings {
   margin: 0;
 }
+div.bankOptions .btn-group i.iSettings:before,
+div.bankOptions > .btn i.iSettings:before {
+  content: "\e05a";
+}
 div.bankOptions .btn-group.disabled i,
 div.bankOptions > .btn.disabled i {
   color: #a78a44;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
+}
+div.bankOptions .btn-group.disabled i:before,
+div.bankOptions > .btn.disabled i:before {
+  content: "\e05f";
+}
+div.bankOptions .btn-group.disabled i.iSettings:before,
+div.bankOptions > .btn.disabled i.iSettings:before {
+  content: "\e05a";
 }
 div.bankOptions .btn-group.disabled .btn,
 div.bankOptions > .btn.disabled .btn {
