@@ -11,6 +11,10 @@ define([
 
 		template: _.template(DeliveryTemplate),
 
+		events: {
+			'click .bEdit': 'selectDeliveryArea'
+		},
+
 		initialize: function () {
 			this.render();
 		},
@@ -25,6 +29,10 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+		},
+
+		selectDeliveryArea: function () {
+			alert('Julian mach das mal! :)');
 		}
 
 	});
