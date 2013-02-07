@@ -28,15 +28,19 @@
 		<button class="btn bankaccount btnSuccess">Fertig</button>
 	</div> -->
 
-	<div class="bankOptions">
+	<div id="payment" class="bankOptions">
 		<!-- <button class="btn btnDark bankaccount">Bankdaten</button> -->
 
-			<button class="btn btnSuccess <% if (!allowsPaymentEc) { %>disabled<% } %>" id="checkEC">EC <i class="icn <% if (allowsPaymentEc) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
-
-			<button class="btn btnSuccess <% if (!allowsPaymentCash) { %>disabled<% } %>" id="checkBar">Bar <i class="icn <% if (allowsPaymentCash) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
+		<div class="<% if (!allowsPaymentEc) { %>disabled<% } %>">
+			<button data-method="Ec" class="toggle btn btnSuccess">EC <i class="icn"></i></button>
+		</div>
+		
+		<div class="<% if (!allowsPaymentCash) { %>disabled<% } %>">
+			<button data-method="Cash" class="toggle btn btnSuccess">Bar"></i></button>
+		</div>
 
 		<div class="btn-group <% if (!allowsPaymentPaypal) { %>disabled<% } %>">	
-			<button class="btn btnSuccess" id="paypal"><i class="icn iSettings"></i></button>
-			<button class="btn btnSuccess" id="checkPaypal">Paypal <i class="icn <% if (allowsPaymentPaypal) { %>iCheck<% } else { %>iClose<% } %>"></i></button>
+			<button class="btn btnSuccess"><i class="icn iSettings"></i></button>
+			<button data-method="Paypal" class="toggle btn btnSuccess">Paypal <i class="icn"></i></button>
 		</div>
 	</div>
