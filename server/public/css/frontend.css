@@ -4901,62 +4901,49 @@ div.bankOptions:after {
 div.bankOptions:after {
   clear: both;
 }
-div.bankOptions .btn-group,
-div.bankOptions > .btn {
+div.bankOptions > div {
   float: right;
   margin-left: 10px;
 }
-div.bankOptions .btn-group #checkEC,
-div.bankOptions > .btn #checkEC,
-div.bankOptions .btn-group #checkBar,
-div.bankOptions > .btn #checkBar,
-div.bankOptions .btn-group #checkPaypal,
-div.bankOptions > .btn #checkPaypal {
+div.bankOptions > div #checkEC,
+div.bankOptions > div #checkBar,
+div.bankOptions > div #checkPaypal {
   padding: 0px 10px;
 }
-div.bankOptions .btn-group #checkPaypal,
-div.bankOptions > .btn #checkPaypal {
+div.bankOptions > div #checkPaypal {
   font-size: 18px;
   padding: 10px 14px;
 }
-div.bankOptions .btn-group i,
-div.bankOptions > .btn i {
+div.bankOptions > div i {
   height: 15px;
   position: relative;
   color: #4b6f01;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
   margin-left: 5px;
 }
-div.bankOptions .btn-group i:before,
-div.bankOptions > .btn i:before {
+div.bankOptions > div i:before {
   font-size: 16px;
   position: relative;
   top: -6px;
   content: "\e074";
 }
-div.bankOptions .btn-group i.iSettings,
-div.bankOptions > .btn i.iSettings {
+div.bankOptions > div i.iSettings {
   margin: 0;
 }
-div.bankOptions .btn-group i.iSettings:before,
-div.bankOptions > .btn i.iSettings:before {
+div.bankOptions > div i.iSettings:before {
   content: "\e05a";
 }
-div.bankOptions .btn-group.disabled i,
-div.bankOptions > .btn.disabled i {
+div.bankOptions > div.disabled i {
   color: #a78a44;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
 }
-div.bankOptions .btn-group.disabled i:before,
-div.bankOptions > .btn.disabled i:before {
+div.bankOptions > div.disabled i:before {
   content: "\e05f";
 }
-div.bankOptions .btn-group.disabled i.iSettings:before,
-div.bankOptions > .btn.disabled i.iSettings:before {
+div.bankOptions > div.disabled i.iSettings:before {
   content: "\e05a";
 }
-div.bankOptions .btn-group.disabled .btn,
-div.bankOptions > .btn.disabled .btn {
+div.bankOptions > div.disabled .btn {
   color: #a78a44;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
   background-color: rgba(209, 186, 130, 0.3);
@@ -4977,58 +4964,17 @@ div.bankOptions > .btn.disabled .btn {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-div.bankOptions .btn-group.disabled .btn:hover,
-div.bankOptions > .btn.disabled .btn:hover,
-div.bankOptions .btn-group.disabled .btn:active,
-div.bankOptions > .btn.disabled .btn:active,
-div.bankOptions .btn-group.disabled .btn.active,
-div.bankOptions > .btn.disabled .btn.active,
-div.bankOptions .btn-group.disabled .btn.disabled,
-div.bankOptions > .btn.disabled .btn.disabled,
-div.bankOptions .btn-group.disabled .btn[disabled],
-div.bankOptions > .btn.disabled .btn[disabled] {
+div.bankOptions > div.disabled .btn:hover,
+div.bankOptions > div.disabled .btn:active,
+div.bankOptions > div.disabled .btn.active,
+div.bankOptions > div.disabled .btn.disabled,
+div.bankOptions > div.disabled .btn[disabled] {
   color: #a78a44;
   background-color: rgba(209, 186, 130, 0.3);
   *background-color: rgba(202, 176, 111, 0.3);
 }
-div.bankOptions .btn-group.disabled .btn:active,
-div.bankOptions > .btn.disabled .btn:active,
-div.bankOptions .btn-group.disabled .btn.active,
-div.bankOptions > .btn.disabled .btn.active {
-  background-color: rgba(195, 165, 93, 0.3) \9;
-}
-div.bankOptions .btn.disabled {
-  color: #a78a44;
-  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
-  background-color: rgba(209, 186, 130, 0.3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(209, 186, 130, 0.1)), color-stop(50%, rgba(209, 186, 130, 0.3)), to(rgba(209, 186, 130, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
-  background-image: -moz-linear-gradient(top, rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
-  background-image: -o-linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
-  background-image: linear-gradient(rgba(209, 186, 130, 0.1), rgba(209, 186, 130, 0.3) 50%, rgba(209, 186, 130, 0.3));
-  background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ad1ba82', endColorstr='#4dd1ba82', GradientType=0);
-  border-color: rgba(209, 186, 130, 0.3) rgba(209, 186, 130, 0.3) rgba(188, 155, 74, 0.3);
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: rgba(209, 186, 130, 0.3);
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-div.bankOptions .btn.disabled:hover,
-div.bankOptions .btn.disabled:active,
-div.bankOptions .btn.disabled.active,
-div.bankOptions .btn.disabled.disabled,
-div.bankOptions .btn.disabled[disabled] {
-  color: #a78a44;
-  background-color: rgba(209, 186, 130, 0.3);
-  *background-color: rgba(202, 176, 111, 0.3);
-}
-div.bankOptions .btn.disabled:active,
-div.bankOptions .btn.disabled.active {
+div.bankOptions > div.disabled .btn:active,
+div.bankOptions > div.disabled .btn.active {
   background-color: rgba(195, 165, 93, 0.3) \9;
 }
 div.bankOptions .bankaccount {
