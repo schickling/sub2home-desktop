@@ -4,7 +4,7 @@ use App\Controllers\Api\BaseApiController;
 use Input;
 use Cache;
 use StoreModel;
-use Controller;
+use Validator;
 use Redirect;
 use PaypalService;
 

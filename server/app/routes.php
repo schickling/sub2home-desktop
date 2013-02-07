@@ -9,6 +9,7 @@
 // stores
 Route::get('api/frontend/stores', 										'App\Controllers\Api\Frontend\StoresController@index');
 Route::get('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@show');
+Route::get('api/frontend/stores/{alias}/updatepaypal',					'App\Controllers\Api\Frontend\StoresController@updatePaypal');
 Route::put('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@update');
 
 // categories
@@ -48,7 +49,8 @@ Route::put('api/frontend/stores/{alias}/addresses/{id}', 				'App\Controllers\Ap
 Route::get('api/services/paypal/savetoken', array(
 	'as'	=> 'api/services/paypal/savetoken',
 	'https',
-	'uses'	=> 'App\Controllers\Api\Services\PaypalController@saveToken'));
+	'uses'	=> 'App\Controllers\Api\Services\PaypalController@saveToken')
+);
 
 
 

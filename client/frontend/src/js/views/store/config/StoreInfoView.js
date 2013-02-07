@@ -14,8 +14,9 @@ define([
 			'focusout #storeDescriptionInput': 'updateDescription',
 			'focusout #storeOrderingContactInput': 'updateOrderEmail',
 			'click .sBOpen': 'toggleOpen',
-			'click .bankaccount': 'toggleBankaccount',
-			'click #paypal': 'togglePaypal'
+			// payment methods
+			'click #payment button.toggle': 'togglePaymentMethod',
+			'click #paypalSettings': 'updatePaypal'
 		},
 
 		initialize: function () {
@@ -58,12 +59,17 @@ define([
 		},
 
 		toggleOpen: function () {
-			var $button = this.$('.sBOpen');
+			var $button = this.$('.sBOpen'),
+				isOpen = !this.model.get('isOpen');
 
-			this.model.set('isOpen', !this.model.get('isOpen'));
+			this.model.set('isOpen', isOpen);
 			this.model.save({}, {
 				success: function () {
-					notificationcenter.success('Store status geaendert', 'Info erfolgreich gespeichert');
+					if (isOpen) {
+						notificationcenter.success('Store geoeffnet', 'Info erfolgreich gespeichert');
+					} else {
+						notificationcenter.success('Store geschlossen', 'Info erfolgreich gespeichert');
+					}
 					$button.toggleClass('open');
 				},
 				error: function () {
@@ -72,28 +78,47 @@ define([
 			});
 		},
 
-		toggleBankaccount: function () {
-			var $bankDetails = this.$('.bankDetails');
-			$bankDetails.fadeToggle(150);
-		},
+		togglePaymentMethod: function (e) {
+			var self = this,
+				storeModel = this.model,
+				$button = $(e.target),
+				$wrapper = $button.parent(),
+				method = $button.attr('data-method'),
+				attribute = 'allowsPayment' + method,
+				value = !this.model.get(attribute);
 
-		togglePaypal: function () {
-			var $button = this.$('#paypal');
-
-			$button.text('Seite wird geladen');
-			// wait spinner :)
-			this.model.set('allowsPaymentPaypal', true);
+			this.model.set(attribute, value);
 
 			this.model.save({}, {
 				success: function () {
-					$button.text('Passt :)');
+					notificationcenter.success('Bezahlmoeglichkeiten', 'Adresse erfolgreich gespeichert');
+					$wrapper.toggleClass('disabled');
 				},
-
-				error: function (model, error) {
-					var url = error.responseText;
-					window.location = url;
+				error: function () {
+					if (attribute === 'allowsPaymentPaypal') {
+						notificationcenter.error('Paypalfehler', 'Adresse nicht erfolgreich gespeichert');
+						self.updatePaypal();
+					}
 				}
 			});
+		},
+
+		updatePaypal: function () {
+			var url = this.model.url() + '/updatepaypal',
+				$button = this.$('#paypalSettings');
+
+			$button.prepend('Seite wird geladen...');
+
+			notificationcenter.info('Paypal wird geladen', 'Adresse nicht erfolgreich gespeichert');
+
+			$.ajax({
+				url: url,
+				type: 'get',
+				success: function (paypalUrl) {
+					window.location = paypalUrl;
+				}
+			});
+
 		},
 
 		saveModel: function () {

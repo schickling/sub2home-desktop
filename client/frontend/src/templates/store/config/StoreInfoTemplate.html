@@ -34,13 +34,13 @@
 		<div class="<% if (!allowsPaymentEc) { %>disabled<% } %>">
 			<button data-method="Ec" class="toggle btn btnSuccess">EC <i class="icn"></i></button>
 		</div>
-		
+
 		<div class="<% if (!allowsPaymentCash) { %>disabled<% } %>">
-			<button data-method="Cash" class="toggle btn btnSuccess">Bar"></i></button>
+			<button data-method="Cash" class="toggle btn btnSuccess">Bar<i class="icn"></i></button>
 		</div>
 
 		<div class="btn-group <% if (!allowsPaymentPaypal) { %>disabled<% } %>">	
-			<button class="btn btnSuccess"><i class="icn iSettings"></i></button>
+			<button class="btn btnSuccess" id="paypalSettings"><i class="icn iSettings"></i></button>
 			<button data-method="Paypal" class="toggle btn btnSuccess">Paypal <i class="icn"></i></button>
 		</div>
 	</div>

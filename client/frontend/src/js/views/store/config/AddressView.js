@@ -27,14 +27,18 @@ define([
 				addressModel = this.model.get('addressModel'),
 				$input = $(e.target),
 				field = $input.attr('data-field'),
-				val = $input.val();
+				val = $input.val(),
+				shouldReloadStoreModel = _.contains(['street', 'postal', 'city'], field);
 
 			addressModel.set(field, val);
+
 			addressModel.save({}, {
 				success: function () {
 					notificationcenter.success('Adresse gespeichert', 'Adresse erfolgreich gespeichert');
 					// reload store if address got changed
-					storeModel.fetch();
+					if (shouldReloadStoreModel) {
+						storeModel.fetch();
+					}
 				},
 				error: function () {
 					notificationcenter.error('Fehler :(', 'Adresse nicht erfolgreich gespeichert');

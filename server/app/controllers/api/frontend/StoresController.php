@@ -87,8 +87,6 @@ class StoresController extends ApiController
 			'longitude'				=> 'numeric|required'
 			);
 
-		// var_dump(get_object_vars($input));
-
 		$validator = Validator::make(get_object_vars($input), $rules);
 
 		if ($validator->fails()) {
@@ -109,11 +107,7 @@ class StoresController extends ApiController
 		
 		if ($input->allowsPaymentPaypal && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
 
-			// get paypal authorization
-			$url = PaypalService::getRequestPermissionUrl($storeModel->id);
-
-			// Returns the URL to the permission form
-			return Response::make($url, 300);
+			$this->error(400);
 
 		// already authorized
 		} else {
@@ -124,6 +118,13 @@ class StoresController extends ApiController
 
 		return $storeModel->toJson(JSON_NUMERIC_CHECK);
 
+	}
+
+	public function updatePaypal()
+	{
+		$this->loadStoreModel();
+
+		return PaypalService::getRequestPermissionUrl($this->storeModel->id);
 	}
 
 
