@@ -759,6 +759,15 @@ input[type="text"], textarea {
   }
 }
 
+#login {
+  ::-webkit-input-placeholder  { }
+  input[type="text"], input[type="password"] {
+    &::-webkit-input-placeholder { padding-top: 25px !important; }
+    &::-moz-placeholder { padding-top: 15px;}
+    &:-ms-input-placeholder { }
+  }
+}
+
 
 
 .bigInput {

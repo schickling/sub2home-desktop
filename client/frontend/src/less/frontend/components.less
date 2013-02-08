@@ -1452,6 +1452,55 @@ input[type="text"]#locationSelectionInput {
 // }
 
 
+// ----------------------------------------------  CLIENT LOGIN  -----------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+form#login {
+  position: absolute;
+  width: 100%;
+  top:50%;
+  margin-top: -35px;
+  text-align: center;
+  input {
+    display: inline-block;
+    height: 60px;
+    font-size: 60px;
+    width: 30%;
+    color: @onNoteColor;
+    vertical-align: top;
+    &#loginCustomerNumber {
+      width: 300px;
+    }
+    &#loginPassword {
+      margin-left: 50px;
+    }
+  }
+  #loginSubmit {
+    margin: 8px 0 0 50px;
+    display: inline-block;
+    font-size: 75px;
+    position: relative;
+    width: 72px;
+    height: 60px;
+    font-family: "Homicons";
+    color: @onNoteColor;
+    .opacity(50);
+    cursor: pointer;
+    &:before {
+      content: "\e076";
+      position: relative;
+      top: 24px;
+      left: 0;
+    }
+    .transition(color .1s linear);
+    &:hover {
+      color: @greenLighter;
+    }
+  }
+}
+
+
 
 // -----------------------------------------  STORE CLIENT DASHBOARD  ------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
