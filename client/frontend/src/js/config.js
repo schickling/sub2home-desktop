@@ -18,7 +18,7 @@ require.config({
 		templates: '../templates',
 		// module alias
 		notificationcenter: 'modules/notificationcenter',
-		authentication: 'modules/authentication',
+		authentification: 'modules/authentification',
 		router: 'modules/router',
 		server: 'modules/server',
 		global: 'modules/global'

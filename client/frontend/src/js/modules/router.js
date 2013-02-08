@@ -6,8 +6,8 @@ define([
 	'backbone',
 	'models/stateModel',
 	'notificationcenter',
-	'authentication'
-	], function (require, $, _, Backbone, stateModel, notificationcenter, authentication) {
+	'authentification'
+	], function (require, $, _, Backbone, stateModel, notificationcenter, authentification) {
 
 	var Router = Backbone.Router.extend({
 
@@ -84,11 +84,17 @@ define([
 
 		_showClientLogin: function () {
 
-			stateModel.set({
-				currentRoute: 'client.login'
-			});
+			if (!this._isLoggedIn()) {
 
-			this._loadMainView('views/client/login/MainView');
+				stateModel.set({
+					currentRoute: 'client.login'
+				});
+
+				this._loadMainView('views/client/login/MainView');
+
+			} else {
+				this.navigate('/', true);
+			}
 
 		},
 
@@ -221,7 +227,7 @@ define([
 		},
 
 		_isLoggedIn: function () {
-			if (authentication.isLoggedIn()) {
+			if (authentification.isLoggedIn()) {
 				return true;
 			} else {
 				this.navigate('login', {

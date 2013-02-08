@@ -40,6 +40,8 @@ Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api
 
 // authentification
 Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
+Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');
+Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\AuthentificationController@logout');
 
 
 /*

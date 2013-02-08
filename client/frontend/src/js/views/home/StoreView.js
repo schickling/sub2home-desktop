@@ -28,7 +28,7 @@ define([
 			this.$el = $(this.template(json));
 
 			// cache note
-			this.$note = this.$('.smallNote');
+			this.$note = this.$el.find('.smallNote');
 
 			// set state
 			this.state = 'initialized';
