@@ -14,7 +14,7 @@ class MenuComponentOptionModel extends BaseModel
 	{
 		// copy all articles from category on initialize
 		foreach ($this->availableArticlesCollection as $articleModel) {
-			$this->articlesCollection()->attach($articleModel->id);
+			$this->menuComponentOptionArticlesCollection()->attach($articleModel->id);
 		}
 	}
 
