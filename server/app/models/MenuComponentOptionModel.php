@@ -66,7 +66,7 @@ class MenuComponentOptionModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function giveAvailableArticlesCollection()
+	public function getAvailableArticlesCollectionAttribute()
 	{
 		return $this->categoryModel->articlesCollection;
 	}

@@ -55,7 +55,7 @@ class OrderedItemModel extends BaseModel
 		return $this->hasMany('OrderedArticleModel');
 	}
 
-	protected function giveBaseArticleModel()
+	protected function getBaseArticleModelAttribute()
 	{
 		return $this->orderedArticlesCollection->first()->articleModel;
 	}
@@ -65,7 +65,7 @@ class OrderedItemModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function giveMenuModel()
+	public function getMenuModelAttribute()
 	{
 		// TODO: rewrite
 		if ($this->menuUpgradeModel()->get() != null) {

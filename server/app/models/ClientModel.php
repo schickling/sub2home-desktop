@@ -44,12 +44,12 @@ class ClientModel extends BaseModel {
 	 * 
 	 * @return string
 	 */
-	public function giveEmail()
+	public function getEmailAttribute()
 	{
 		return $this->addressModel->email;
 	}
 
-	public function giveTotalTurnover()
+	public function getTotalTurnoverAttribute()
 	{
 		$turnover = 0;
 
@@ -61,7 +61,7 @@ class ClientModel extends BaseModel {
 
 	}
 
-	public function giveMonthlyTurnover()
+	public function getMonthlyTurnoverAttribute()
 	{
 		$turnover = 0;
 
@@ -72,7 +72,7 @@ class ClientModel extends BaseModel {
 		return $turnover;
 	}
 
-	public function giveTotalOrders()
+	public function getTotalOrdersAttribute()
 	{
 		$orders = 0;
 
@@ -83,7 +83,7 @@ class ClientModel extends BaseModel {
 		return $orders;
 	}
 
-	public function giveMonthlyOrders()
+	public function getMonthlyOrdersAttribute()
 	{
 		$orders = 0;
 

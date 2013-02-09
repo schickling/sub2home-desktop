@@ -39,7 +39,7 @@ class AddressModel extends BaseModel
 	 * 
 	 * @return StoreModel | ClientModel
 	 */
-	public function giveOwnerModel()
+	public function getOwnerModelAttribute()
 	{
 		if ($this->storeModel != null) {
 			return $this->storeModel;
@@ -81,7 +81,7 @@ class AddressModel extends BaseModel
 
 	}
 
-	public function takeStreet($street)
+	public function setStreetAttribute($street)
 	{
 		$this->attributes['street'] = $street;
 
@@ -90,7 +90,7 @@ class AddressModel extends BaseModel
 		}
 	}
 
-	public function takePostal($postal)
+	public function setPostalAttribute($postal)
 	{
 		$this->attributes['postal'] = $postal;
 
@@ -99,7 +99,7 @@ class AddressModel extends BaseModel
 		}
 	}
 
-	public function takeCity($city)
+	public function setCityAttribute($city)
 	{
 		$this->attributes['city'] = $city;
 
