@@ -1716,7 +1716,11 @@ textarea:-ms-input-placeholder {
 }
 #login input[type="text"]::-moz-placeholder,
 #login input[type="password"]::-moz-placeholder {
-  padding-top: 15px;
+  padding-top: 25px;
+}
+#login input[type="text"]:-ms-input-placeholder,
+#login input[type="password"]:-ms-input-placeholder {
+  padding-top: 25px;
 }
 .bigInput::-webkit-input-placeholder {
   position: relative;
@@ -4130,10 +4134,11 @@ form#login input {
   vertical-align: top;
 }
 form#login input#loginCustomerNumber {
-  width: 300px;
+  width: 350px;
 }
 form#login input#loginPassword {
   margin-left: 50px;
+  width: 350px;
 }
 form#login #loginSubmit {
   margin: 8px 0 0 50px;
