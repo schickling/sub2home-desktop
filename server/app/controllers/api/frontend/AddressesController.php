@@ -29,6 +29,8 @@ class AddressesController extends ApiController
 
 
 		$this->loadStoreModel();
+		$this->checkAuthentification();
+		
 		$addressModel = $this->storeModel->addressModel;
 
 		$addressModel->firstName = $input->firstName;

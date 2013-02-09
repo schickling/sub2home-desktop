@@ -46,8 +46,8 @@ define([
 				this._setupAjax();
 			}
 
+			// force ssl
 			if (location.protocol !== 'https:') {
-				// reload with ssl
 				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 			}
 

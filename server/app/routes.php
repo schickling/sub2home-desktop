@@ -48,7 +48,7 @@ Route::group(array('https'), function()
 
 	// orders
 	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
-	Route::get('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\OrderShowController@show');
+	Route::get('api/frontend/stores/{alias}/orders/{id}', 				'App\Controllers\Api\Frontend\OrderShowController@show');
 
 	// addresses
 	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
