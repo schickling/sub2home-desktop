@@ -21,7 +21,7 @@ define([
 		append: function () {
 
 			if (pageWasInitialized) {
-				this.transition();
+				this._transition();
 			} else {
 				this.$el.appendTo($('body'));
 				pageWasInitialized = true;
@@ -32,16 +32,24 @@ define([
 
 		},
 
-		transition: function () {
+		_transition: function () {
 
 			var prevRoute = stateModel.get('prevRoute'),
 				currentRoute = stateModel.get('currentRoute'),
 				transitions = [
+				// from home
 					{
 					origin: 'home',
 					destination: 'store.home',
 					type: 'a.forward'
 				},
+				// from client.login
+					{
+					origin: 'client.login',
+					destination: 'client.dashboard',
+					type: 'b.forward'
+				},
+				// from store.home
 					{
 					origin: 'store.home',
 					destination: 'home',
@@ -53,29 +61,37 @@ define([
 					type: 'b.forward'
 				},
 					{
-					origin: 'store.selection',
-					destination: 'store.home',
-					type: 'b.backward'
+					origin: 'store.home',
+					destination: 'store.tray',
+					type: 'b.forward'
 				},
 					{
 					origin: 'store.home',
 					destination: 'store.config',
 					type: 'b.forward'
 				},
+				// from store.selection
+					{
+					origin: 'store.selection',
+					destination: 'store.home',
+					type: 'b.backward'
+				},
+					{
+					origin: 'store.selection',
+					destination: 'store.tray',
+					type: 'b.forward'
+				},
+				// from store.config
 					{
 					origin: 'store.config',
 					destination: 'store.home',
 					type: 'b.backward'
 				},
+				// from store.tray
 					{
 					origin: 'store.tray',
 					destination: 'store.home',
 					type: 'b.backward'
-				},
-					{
-					origin: 'store.home',
-					destination: 'store.tray',
-					type: 'b.forward'
 				},
 					{
 					origin: 'store.tray',
@@ -83,15 +99,11 @@ define([
 					type: 'b.backward'
 				},
 					{
-					origin: 'store.selection',
-					destination: 'store.tray',
-					type: 'b.forward'
-				},
-					{
 					origin: 'store.tray',
 					destination: 'store.checkout',
 					type: 'b.backward'
 				},
+				// from store.checkout
 					{
 					origin: 'store.checkout',
 					destination: 'store.home',

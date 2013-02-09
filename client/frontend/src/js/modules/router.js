@@ -20,6 +20,8 @@ define([
 
 			// client
 			'login': '_showClientLogin',
+			'franchise': '_showClientDashboard',
+			'einstellungen': '_showClientConfig',
 
 			// store
 			':alias': '_showStoreHome',
@@ -93,7 +95,38 @@ define([
 				this._loadMainView('views/client/login/MainView');
 
 			} else {
-				this.navigate('/', true);
+				this.navigate('franchise', {
+					trigger: true,
+					replace: true
+				});
+			}
+
+		},
+
+		_showClientDashboard: function () {
+
+			if (this._isLoggedIn()) {
+
+				stateModel.set({
+					currentRoute: 'client.dashboard'
+				});
+
+				this._loadMainView('views/client/dashboard/MainView');
+
+			}
+
+		},
+
+		_showClientConfig: function () {
+
+			if (this._isLoggedIn()) {
+
+				stateModel.set({
+					currentRoute: 'client.config'
+				});
+
+				this._loadMainView('views/client/config/MainView');
+
 			}
 
 		},

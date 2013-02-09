@@ -35,7 +35,10 @@ define([
 			loginSucceded = authentification.login(number, password);
 
 			if (loginSucceded) {
-				router.navigate('/', true);
+				router.navigate('franchise', {
+					trigger: true,
+					replace: true
+				});
 			} else {
 				notificationcenter.error('Daten falsch', 'Damn it');
 			}
