@@ -5,7 +5,7 @@ define([
 	'backbone',
 	'views/PageView',
 	'views/store/orders/OrdersView',
-	'views/store/orders/RevenuesView',
+	'views/store/orders/revenues/RevenuesView',
 	'text!templates/store/orders/MainTemplate.html'
 	], function ($, _, Backbone, PageView, OrdersView, RevenuesView, MainTemplate) {
 

@@ -4,8 +4,9 @@ define([
 	'underscore',
 	'backbone',
 	'global',
-	'models/AddressModel'
-	], function ($, _, Backbone, global, AddressModel) {
+	'models/AddressModel',
+	'collections/OrderedItemsCollection'
+	], function ($, _, Backbone, global, AddressModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -25,21 +26,34 @@ define([
 			dueDate: null
 		},
 
+		urlRoot: '/api/frontend/orders',
+
 		parse: function (response) {
 
-			if (response.hasOwnProperty('addressModel')) {
-				response.addressModel = new AddressModel(response.addressModel);
+			if (response) {
+
+				if (response.hasOwnProperty('addressModel')) {
+					response.addressModel = new AddressModel(response.addressModel);
+				}
+
+				if (response.hasOwnProperty('orderedItemsCollection')) {
+					response.orderedItemsCollection = new OrderedItemsCollection(response.orderedItemsCollection, {
+						parse: true
+					});
+				}
+
+				if (response.hasOwnProperty('created_at')) {
+					response.createdDate = new Date(response.created_at);
+				}
+
+				if (response.hasOwnProperty('due_at')) {
+					response.dueDate = new Date(response.due_at);
+				}
+
+				return response;
+
 			}
 
-			if (response.hasOwnProperty('created_at')) {
-				response.createdDate = new Date(response.created_at);
-			}
-
-			if (response.hasOwnProperty('due_at')) {
-				response.dueDate = new Date(response.due_at);
-			}
-
-			return response;
 		},
 
 		toJSON: function () {
@@ -54,10 +68,6 @@ define([
 			}
 
 			return attributes;
-		},
-
-		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
 		},
 
 		isToday: function () {

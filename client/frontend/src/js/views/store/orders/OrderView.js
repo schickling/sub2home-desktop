@@ -4,7 +4,7 @@ define([
 	'underscore',
 	'backbone',
 	'lib/moment',
-	'views/store/orders/OrderDetailsView',
+	'views/store/orders/details/OrderDetailsView',
 	'text!templates/store/orders/OrderTemplate.html'
 	], function ($, _, Backbone, momentLib, OrderDetailsView, OrderTemplate) {
 
@@ -60,7 +60,10 @@ define([
 		},
 
 		renderDetailsView: function () {
-			// this.model.fetch();
+			this.model.fetch({
+				async: false
+			});
+
 			new OrderDetailsView({
 				el: this.$('.orderContent'),
 				model: this.model

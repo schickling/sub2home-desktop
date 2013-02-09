@@ -20,6 +20,7 @@ define([
 			$.ajax({
 				url: '/api/frontend/checktoken',
 				type: 'post',
+				crossDomain: true,
 				async: false,
 				success: function () {
 					valid = true;
@@ -45,6 +46,11 @@ define([
 				this._setupAjax();
 			}
 
+			if (location.protocol !== 'https:') {
+				// reload with ssl
+				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+			}
+
 			return this._hasValidToken();
 		},
 
@@ -59,6 +65,7 @@ define([
 					password: password
 				},
 				type: 'post',
+				crossDomain: true,
 				async: false,
 				success: function (token) {
 					window.localStorage.setItem('token', token);

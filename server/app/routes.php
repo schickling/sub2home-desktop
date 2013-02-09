@@ -2,15 +2,13 @@
 
 /*
 |--------------------------------------------------------------------------
-| API Frontend Routes
+| API Frontend Routes (non secure)
 |--------------------------------------------------------------------------
 */
 
 // stores
 Route::get('api/frontend/stores', 									'App\Controllers\Api\Frontend\StoresController@index');
 Route::get('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@show');
-Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\StoresController@updatePaypal');
-Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@update');
 
 // categories
 Route::get('api/frontend/stores/{alias}/categories',				'App\Controllers\Api\Frontend\CategoriesController@index');
@@ -21,27 +19,46 @@ Route::get('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\
 // menu bundles
 Route::get('api/frontend/stores/{alias}/menubundles/{id}',			'App\Controllers\Api\Frontend\MenuBundlesController@show');
 
-// delivery areas
-Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\DeliveryAreasController@create');
-Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@update');
-Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 	'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
-
-// delivery times
-Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\DeliveryTimesController@create');
-Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
-Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
-
 // orders
-Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
 Route::post('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderCreateController@create');
 
-// addresses
-Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
 
-// authentification
-Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
-Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');
-Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\AuthentificationController@logout');
+
+/*
+|--------------------------------------------------------------------------
+| API Frontend Routes (secure)
+|--------------------------------------------------------------------------
+*/
+
+Route::group(array('https'), function()
+{
+	// stores
+	Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\StoresController@updatePaypal');
+	Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@update');
+
+	// delivery areas
+	Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\DeliveryAreasController@create');
+	Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@update');
+	Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 	'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
+
+	// delivery times
+	Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\DeliveryTimesController@create');
+	Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
+	Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
+
+	// orders
+	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
+	Route::get('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\OrderShowController@show');
+
+	// addresses
+	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
+
+	// authentification
+	Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
+	Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');
+	Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\AuthentificationController@logout');
+});
+
 
 
 /*
@@ -56,7 +73,6 @@ Route::get('api/services/paypal/savetoken', array(
 	'https',
 	'uses'	=> 'App\Controllers\Api\Services\PaypalController@saveToken')
 );
-
 
 
 
