@@ -70,7 +70,7 @@ class CategoryModel extends BaseModel
 	 * 
 	 * @return object
 	 */
-	public function giveSortedItemsCollection()
+	public function getSortedItemsCollectionAttribute()
 	{
 		$articles = $this->articlesCollection->isEmpty() ? array() : $this->articlesCollection->all();
 		$menuBundles = $this->menuBundlesCollection->isEmpty() ? array() : $this->menuBundlesCollection->all();

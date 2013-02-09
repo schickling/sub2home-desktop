@@ -6,8 +6,8 @@ define([
 	'backbone',
 	'models/stateModel',
 	'notificationcenter',
-	'authentication'
-	], function (require, $, _, Backbone, stateModel, notificationcenter, authentication) {
+	'authentification'
+	], function (require, $, _, Backbone, stateModel, notificationcenter, authentification) {
 
 	var Router = Backbone.Router.extend({
 
@@ -20,6 +20,8 @@ define([
 
 			// client
 			'login': '_showClientLogin',
+			'franchise': '_showClientDashboard',
+			'einstellungen': '_showClientConfig',
 
 			// store
 			':alias': '_showStoreHome',
@@ -84,11 +86,48 @@ define([
 
 		_showClientLogin: function () {
 
-			stateModel.set({
-				currentRoute: 'client.login'
-			});
+			if (!this._isLoggedIn()) {
 
-			this._loadMainView('views/client/login/MainView');
+				stateModel.set({
+					currentRoute: 'client.login'
+				});
+
+				this._loadMainView('views/client/login/MainView');
+
+			} else {
+				this.navigate('franchise', {
+					trigger: true,
+					replace: true
+				});
+			}
+
+		},
+
+		_showClientDashboard: function () {
+
+			if (this._isLoggedIn()) {
+
+				stateModel.set({
+					currentRoute: 'client.dashboard'
+				});
+
+				this._loadMainView('views/client/dashboard/MainView');
+
+			}
+
+		},
+
+		_showClientConfig: function () {
+
+			if (this._isLoggedIn()) {
+
+				stateModel.set({
+					currentRoute: 'client.config'
+				});
+
+				this._loadMainView('views/client/config/MainView');
+
+			}
 
 		},
 
@@ -221,7 +260,7 @@ define([
 		},
 
 		_isLoggedIn: function () {
-			if (authentication.isLoggedIn()) {
+			if (authentification.isLoggedIn()) {
 				return true;
 			} else {
 				this.navigate('login', {
