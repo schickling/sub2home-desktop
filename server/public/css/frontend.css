@@ -4118,14 +4118,14 @@ input[type="text"]#locationSelectionInput {
 .menuBundle .itemOverlayBackground {
   display: block;
 }
-form#login {
+#login {
   position: absolute;
   width: 100%;
   top: 50%;
   margin-top: -35px;
   text-align: center;
 }
-form#login input {
+#login input {
   display: inline-block;
   height: 60px;
   font-size: 60px;
@@ -4133,14 +4133,14 @@ form#login input {
   color: #d1ba82;
   vertical-align: top;
 }
-form#login input#loginCustomerNumber {
+#login input#loginCustomerNumber {
   width: 350px;
 }
-form#login input#loginPassword {
+#login input#loginPassword {
   margin-left: 50px;
   width: 350px;
 }
-form#login #loginSubmit {
+#login #loginSubmit {
   margin: 8px 0 0 50px;
   display: inline-block;
   font-size: 75px;
@@ -4157,13 +4157,13 @@ form#login #loginSubmit {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-form#login #loginSubmit:before {
+#login #loginSubmit:before {
   content: "\e076";
   position: relative;
   top: 24px;
   left: 0;
 }
-form#login #loginSubmit:hover {
+#login #loginSubmit:hover {
   color: #9cc83e;
 }
 .note.orders .toggleRevenues {
