@@ -26,7 +26,7 @@ class MenuComponentOptionModel extends BaseModel
 	public function delete()
 	{
 		// Delete intermediate rows
-		$this->articlesCollection()->delete();
+		$this->menuComponentOptionArticlesCollection()->delete();
 
 		return parent::delete();
 	}

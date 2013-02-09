@@ -13,12 +13,19 @@ class MenuComponentOptionModelSeeder extends Seeder {
 		$menuComponentOptions = $this->getData();
 
 		foreach ($menuComponentOptions as $menuComponentOption) {
+
+			$article_model_ids = $menuComponentOption['article_model_ids'];
+			unset($menuComponentOption['article_model_ids']);
+
 			$menuComponentOptionModel = new MenuComponentOptionModel($menuComponentOption);
 			$menuComponentOptionModel->save();
+
+			foreach ($article_model_ids as $article_model_id) {
+				$menuComponentOptionModel->menuComponentOptionArticlesCollection()->attach($article_model_id);
+			}
 		}
 
 	}
-
 
 	private function getData()
 	{
@@ -35,7 +42,8 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iBeverage',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-				'placeholder'					=> 'pBeverage'
+				'placeholder'					=> 'pBeverage',
+				'article_model_ids'				=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -46,7 +54,8 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iCookie',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-				'placeholder'					=> 'pCookie'
+				'placeholder'					=> 'pCookie',
+				'article_model_ids'				=> array(46, 47, 48, 49)
 				),
 
 			array (
@@ -57,7 +66,8 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iChips',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/chips.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/chips.png',
-				'placeholder'					=> 'pChips'
+				'placeholder'					=> 'pChips',
+				'article_model_ids'				=> array(4, 55, 56, 57, 58, 59, 60, 61)
 				),
 
 
@@ -73,7 +83,8 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iSub',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/sub.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/sub.png',
-				'placeholder'					=> 'pSub'
+				'placeholder'					=> 'pSub',
+				'article_model_ids'				=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 				),
 
 			array (
@@ -84,7 +95,8 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iBeverage',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-				'placeholder'					=> 'pBeverage'
+				'placeholder'					=> 'pBeverage',
+				'article_model_ids'				=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -95,9 +107,11 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'icon'							=> 'iCookie',
 				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
 				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-				'placeholder'					=> 'pCookie'
+				'placeholder'					=> 'pCookie',
+				'article_model_ids'				=> array(46, 47, 48, 49)
 				)
 
 			);
 }
+
 }

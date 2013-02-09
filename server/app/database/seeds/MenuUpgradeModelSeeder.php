@@ -13,8 +13,17 @@ class MenuUpgradeModelSeeder extends Seeder {
 		$menuUpgrades = $this->getData();
 
 		foreach ($menuUpgrades as $menuUpgrade) {
+
+			$article_model_ids = $menuUpgrade['article_model_ids'];
+			unset($menuUpgrade['article_model_ids']);
+
 			$menuUpgradeModel = new MenuUpgradeModel($menuUpgrade);
 			$menuUpgradeModel->save();
+
+			foreach ($article_model_ids as $article_model_id) {
+				$menuUpgradeModel->articlesCollection()->attach($article_model_id);
+			}
+
 		}
 
 	}
@@ -30,7 +39,8 @@ class MenuUpgradeModelSeeder extends Seeder {
 				'description'			=> 'Sparmenu',
 				'price'					=> 4.49,
 				'isPublished'			=> true,
-				'buyed'					=> 0
+				'buyed'					=> 0,
+				'article_model_ids'		=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
 				)
 
 			);
