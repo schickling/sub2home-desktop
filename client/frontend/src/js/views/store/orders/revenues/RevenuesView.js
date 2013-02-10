@@ -14,7 +14,7 @@ define([
 		initialize: function () {
 			this.render();
 
-			this.$el.overscroll();
+			this.$('.turnoverContainer').overscroll();
 		},
 
 		render: function () {

@@ -12,13 +12,13 @@ class AuthentificationController extends ApiController
 {
 
     /**
-     * Just wraps the checkClientToken method
+     * Just wraps the getClientModelIdFromToken method and suppresses output
      * 
      * @return Response
      */
     public function checkToken()
     {
-        return $this->checkClientToken();
+        $this->getClientModelIdFromToken();
     }
 
 

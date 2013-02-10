@@ -42,7 +42,7 @@ class BaseApiController extends Controller
      * 
      * @return Response
      */
-    protected function checkClientToken()
+    protected function getClientModelIdFromToken()
     {
         $token = Request::header('Token');
 
@@ -56,6 +56,14 @@ class BaseApiController extends Controller
             $this->error(401);
         }
 
+        return $client_model_id;
+
+    }
+
+    protected function hasToken() {
+        $token = Request::header('Token');
+
+        return $token != null;
     }
 
 }

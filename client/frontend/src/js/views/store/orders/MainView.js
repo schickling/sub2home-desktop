@@ -20,10 +20,12 @@ define([
 			this.$el.html(MainTemplate);
 
 			this.renderOrders();
+
+			// needs to be appended first for overscroll to work
+			this.append();
 			
 			this.renderRevenues();
 
-			this.append();
 
 		},
 

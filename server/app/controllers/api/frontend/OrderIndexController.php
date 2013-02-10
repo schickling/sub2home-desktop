@@ -13,6 +13,7 @@ class OrderIndexController extends ApiController
 	public function index()
 	{
 		$this->loadStoreModel();
+		$this->checkAuthentification();
 
 		$page = Input::get('page');
 		$pageSize = 50;

@@ -26,8 +26,6 @@ define([
 			dueDate: null
 		},
 
-		urlRoot: '/api/frontend/orders',
-
 		parse: function (response) {
 
 			if (response) {

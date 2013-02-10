@@ -32,19 +32,29 @@ class ApiController extends BaseApiController
 	 * 
 	 * @return boolean
 	 */
-	protected function isAuthenicatedClient()
+	protected function isAuthentificatedClient()
 	{
-		return true;
+		// load store model if needed
+		if (!$this->storeModel) {
+			$this->loadStoreModel();
+		}
+
+		// get client id from store model
+		$idFromStore = $this->storeModel->clientModel->id;
+
+		// get client id from token
+		$idFromToken = $this->getClientModelIdFromToken();
+
+		return $idFromStore == $idFromToken;
 	}
 
-	protected function af()
+
+	protected function checkAuthentification()
 	{
-		$this->afterFilter(function($response) {
-			$response->headers->set('Access-Control-Allow-Origin', 'http://backend.sub2home.dev');
-			$response->headers->set('Access-Control-Allow-Credentials', 'true');
-			$response->headers->set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD, OPTIONS');
-			$response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
-		});
+		if (!$this->isAuthentificatedClient()) {
+			$this->error(401);
+		}
 	}
+
 
 }

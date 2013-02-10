@@ -47,7 +47,7 @@ class StoresController extends ApiController
 			$this->error(404);
 		}
 
-		if ($this->isAuthenicatedClient()) {
+		if ($this->hasToken() && $storeModel->clientModel->id == $this->getClientModelIdFromToken()) {
 
 			$storeModel->setHidden((array(
 				'paypalToken',
@@ -73,6 +73,8 @@ class StoresController extends ApiController
 	{
 		
 		$this->loadStoreModel();
+		$this->checkAuthentification();
+
 		$storeModel = $this->storeModel;
 
 		$input = Input::json();
@@ -123,6 +125,7 @@ class StoresController extends ApiController
 	public function updatePaypal()
 	{
 		$this->loadStoreModel();
+		$this->checkAuthentification();
 
 		return PaypalService::getRequestPermissionUrl($this->storeModel->id);
 	}

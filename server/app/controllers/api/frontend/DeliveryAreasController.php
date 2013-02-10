@@ -8,7 +8,7 @@ class DeliveryAreasController extends ApiController
 {
 
 	public function __construct() {
-		$this->isAuthenicatedClient();
+		$this->checkAuthentification();
 	}
 
 	public function create()
