@@ -14,7 +14,8 @@ define([
 
 		events: {
 			'click .deliveryAddress': 'showCheckoutSettings',
-			'click #save': 'hideCheckoutSettings'
+			// custom dom event because address needs to be checked first
+			'hide .checkoutSettings': 'hideCheckoutSettings'
 		},
 
 		initialize: function () {
