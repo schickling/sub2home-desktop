@@ -94,9 +94,9 @@ define([
 
 		showSettingsIcon: function (e) {
 			var $span = $(e.target),
-				$icon = $span.find('div');
+				$icon = $span.find('i');
 
-			$icon.delay(100).stop().animate({
+			$icon.stop().delay(100).animate({
 				opacity: 1
 			}, 300);
 
@@ -107,13 +107,13 @@ define([
 
 		hideSettingsIcon: function (e) {
 			var $span = $(e.target),
-				$icon = $span.find('div');
+				$icon = $span.find('i');
 
 			$icon.stop().animate({
-				opacity: 1
+				opacity: 0
 			}, 300);
 
-			$span.delay(100).stop().animate({
+			$span.stop().delay(100).animate({
 				paddingRight: 0
 			}, 300);
 		}
