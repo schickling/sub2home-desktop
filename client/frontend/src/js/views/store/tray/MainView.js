@@ -3,12 +3,14 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'router',
+	'models/cartModel',
 	'views/PageView',
 	'views/store/tray/ControlView',
 	'views/store/tray/CheckoutSettingsView',
 	'views/store/tray/OrderedItemsView',
 	'text!templates/store/tray/MainTemplate.html'
-	], function ($, _, Backbone, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+	], function ($, _, Backbone, router, cartModel, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -19,6 +21,15 @@ define([
 		},
 
 		initialize: function () {
+			// check if cart is not empty
+			if (cartModel.get('amount') === 0) {
+				router.navigate('store', {
+					trigger: true,
+					replace: true
+				});
+				return;
+			}
+
 			this.render();
 		},
 

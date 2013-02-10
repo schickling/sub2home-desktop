@@ -40,12 +40,12 @@ define([
 		},
 
 		notifyOtherIngredients: function (ingredientModel) {
-			var otherIngredientsCollection = _(this.collection.without(ingredientModel)),
+			var otherIngredients = this.collection.without(ingredientModel),
 				isSingle = this.model.get('isSingle');
 
 			// if only one ingredient allowed disable others
 			if (isSingle) {
-				_.each(otherIngredientsCollection.models, function (otherIngredientModel) {
+				_.each(otherIngredients, function (otherIngredientModel) {
 					otherIngredientModel.set('isSelected', false);
 				});
 			}
