@@ -25,6 +25,8 @@ define([
 			amount: 0,
 			total: 0,
 
+			paymentMethod: 'cash',
+
 			// gets calculated from store model
 			minimum: 0
 

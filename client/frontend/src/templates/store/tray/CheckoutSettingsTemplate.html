@@ -50,5 +50,5 @@
 	<button id="save" class="btn btnSuccess">Fertig</button>
 </div>
 <div class="paymentSettings">
-	Du zahlst<span class="bar">Bar</span><span class="ecCard">mit EC-Karte</span><span class="paypal">via PayPal</span>
+	Du zahlst<span data-method="cash" class="bar <% if (paymentMethod === 'cash') { %>selected<% } %>">Bar</span><span data-method="ec" class="ecCard <% if (paymentMethod === 'ec') { %>selected<% } %>">mit EC-Karte</span><span data-method="paypal" class="paypal <% if (paymentMethod === 'paypal') { %>selected<% } %>">via PayPal</span>
 </div>

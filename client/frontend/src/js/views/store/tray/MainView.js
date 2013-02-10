@@ -13,7 +13,7 @@ define([
 	var MainView = PageView.extend({
 
 		events: {
-			'click .deliveryAddress': 'showCheckoutSettings',
+			'click .settings': 'showCheckoutSettings',
 			// custom dom event because address needs to be checked first
 			'hide .checkoutSettings': 'hideCheckoutSettings'
 		},

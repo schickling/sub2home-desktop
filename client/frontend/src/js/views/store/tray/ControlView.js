@@ -21,10 +21,24 @@ define([
 		initialize: function () {
 			this.render();
 
-			this.listenForAddressChanges();
+			this.listenForDataChanges();
 		},
 
 		render: function () {
+
+			var paymentMethod;
+
+			switch (cartModel.get('paymentMethod')) {
+			case 'cash':
+				paymentMethod = 'in Bar';
+				break;
+			case 'ec':
+				paymentMethod = 'mit EC Karte';
+				break;
+			case 'paypal':
+				paymentMethod = 'via Paypal';
+				break;
+			}
 
 			var addressModel = cartModel.get('addressModel'),
 				ready = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
@@ -33,16 +47,18 @@ define([
 					total: cartModel.get('total'),
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
-					street: addressModel.get('street')
+					street: addressModel.get('street'),
+					paymentMethod: paymentMethod
 				};
 
 			this.$el.html(this.template(json));
 		},
 
-		listenForAddressChanges: function () {
+		listenForDataChanges: function () {
 			var addressModel = cartModel.get('addressModel');
 
 			addressModel.on('change', this.render, this);
+			cartModel.on('change', this.render, this);
 		},
 
 		checkout: function () {

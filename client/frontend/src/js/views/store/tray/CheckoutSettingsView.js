@@ -16,7 +16,8 @@ define([
 
 		events: {
 			'click #save': 'hide',
-			'focusout input': 'saveAddressData'
+			'focusout input': 'saveAddressData',
+			'click .paymentSettings span': 'choosePayment'
 		},
 
 		initialize: function () {
@@ -34,7 +35,8 @@ define([
 					city: addressModel.get('city'),
 					phone: addressModel.get('phone'),
 					email: addressModel.get('email'),
-					postal: addressModel.get('postal')
+					postal: addressModel.get('postal'),
+					paymentMethod: cartModel.get('paymentMethod')
 				};
 
 			this.$el.html(this.template(json));
@@ -47,6 +49,15 @@ define([
 				addressModel = cartModel.get('addressModel');
 
 			addressModel.set(attribute, value);
+		},
+
+		choosePayment: function(e) {
+			var $span = $(e.target),
+				method = $span.attr('data-method');
+
+			$span.addClass('selected').siblings().removeClass('selected');
+
+			cartModel.set('paymentMethod', method);
 		},
 
 		hide: function () {
