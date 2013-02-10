@@ -3,10 +3,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'notificationcenter',
 	'models/cartModel',
 	'text!templates/store/tray/CheckoutSettingsTemplate.html'
-	], function ($, _, Backbone, notificationcenter, cartModel, CheckoutSettingsTemplate) {
+	], function ($, _, Backbone, cartModel, CheckoutSettingsTemplate) {
 
 	var CheckoutSettingsView = Backbone.View.extend({
 
@@ -25,6 +24,8 @@ define([
 		},
 
 		render: function () {
+
+			console.log(cartModel.get('addressModel'));
 
 			var addressModel = cartModel.get('addressModel'),
 				json = {
@@ -48,10 +49,17 @@ define([
 				value = $input.val(),
 				addressModel = cartModel.get('addressModel');
 
-			addressModel.set(attribute, value);
+			// array notation needed to interpolate dynamic attribute variable
+			var changedAttributes = [];
+			changedAttributes[attribute] = value;
+
+			// gets saved later
+			addressModel.set(changedAttributes, {
+				silent: true
+			});
 		},
 
-		choosePayment: function(e) {
+		choosePayment: function (e) {
 			var $span = $(e.target),
 				method = $span.attr('data-method');
 
@@ -61,47 +69,17 @@ define([
 		},
 
 		hide: function () {
-			if (this.validateAddress()) {
+			var addressModel = cartModel.get('addressModel');
+
+			// trigger validation and save the address
+			var valid = !! addressModel.set({}, {
+				validate: true
+			});
+
+			if (valid) {
+				addressModel.trigger('change');
 				this.$el.trigger('hide');
 			}
-		},
-
-		validateAddress: function () {
-			var isValid = true,
-				addressModel = cartModel.get('addressModel'),
-				attributes = addressModel.attributes;
-
-			if (attributes.firstName === '') {
-				notificationcenter.error('firstName', 'firstName');
-				isValid = false;
-			}
-
-			if (attributes.lastName === '') {
-				notificationcenter.error('lastName', 'lastName');
-				isValid = false;
-			}
-
-			if (attributes.street === '') {
-				notificationcenter.error('street', 'street');
-				isValid = false;
-			}
-
-			if (attributes.phone === '') {
-				notificationcenter.error('phone', 'phone');
-				isValid = false;
-			}
-
-			if (attributes.email === '' || !this.validateEmail(attributes.email)) {
-				notificationcenter.error('email', 'email');
-				isValid = false;
-			}
-
-			return isValid;
-		},
-
-		validateEmail: function (email) {
-			var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-			return re.test(email);
 		}
 
 	});

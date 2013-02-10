@@ -48,7 +48,7 @@ define([
 
 
 			// throw errors
-			this.on('error', function (model, error) {
+			this.on('invalid', function (model, error) {
 				notificationcenter.error('Preisberechnung', error);
 			});
 

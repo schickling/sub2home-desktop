@@ -79,6 +79,7 @@ define([
 			this.get('addressModel').on('change', function () {
 				this.trigger('change');
 			}, this);
+
 		},
 
 		toJSON: function () {

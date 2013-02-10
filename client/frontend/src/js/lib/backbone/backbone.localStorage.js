@@ -1,6 +1,6 @@
 /**
  * Backbone localStorage Adapter
- * Version 1.0
+ * Version 1.1.0
  *
  * https://github.com/jeromegn/Backbone.localStorage
  */
@@ -8,11 +8,11 @@
    if (typeof define === "function" && define.amd) {
       // AMD. Register as an anonymous module.
       define(["underscore","backbone"], function(_, Backbone) {
-        // Use global variables if the locals is undefined.
+        // Use global variables if the locals are undefined.
         return factory(_ || root._, Backbone || root.Backbone);
       });
    } else {
-      // RequireJS isn't being used. Assume underscore and backbone is loaded in <script> tags
+      // RequireJS isn't being used. Assume underscore and backbone are loaded in <script> tags
       factory(_, Backbone);
    }
 }(this, function(_, Backbone) {
@@ -78,15 +78,21 @@ _.extend(Backbone.LocalStorage.prototype, {
   // Return the array of all models currently in storage.
   findAll: function() {
     return _(this.records).chain()
-      .map(function(id){return this.jsonData(this.localStorage().getItem(this.name+"-"+id));}, this)
+      .map(function(id){
+        return this.jsonData(this.localStorage().getItem(this.name+"-"+id));
+      }, this)
       .compact()
       .value();
   },
 
   // Delete a model from `this.data`, returning it.
   destroy: function(model) {
+    if (model.isNew())
+      return false
     this.localStorage().removeItem(this.name+"-"+model.id);
-    this.records = _.reject(this.records, function(record_id){return record_id == model.id.toString();});
+    this.records = _.reject(this.records, function(id){
+      return id === model.id.toString();
+    });
     this.save();
     return model;
   },
@@ -135,8 +141,13 @@ Backbone.LocalStorage.sync = window.Store.sync = Backbone.localSync = function(m
   }
 
   if (resp) {
+    model.trigger("sync", model, resp, options);
     if (options && options.success)
-      options.success(resp);
+      if (Backbone.VERSION === "0.9.10") {
+        options.success(model, resp, options);
+      } else {
+        options.success(resp);
+      }
     if (syncDfd)
       syncDfd.resolve(resp);
 
@@ -144,8 +155,14 @@ Backbone.LocalStorage.sync = window.Store.sync = Backbone.localSync = function(m
     errorMessage = errorMessage ? errorMessage
                                 : "Record Not Found";
     
+    model.trigger("error", model, errorMessage, options);
     if (options && options.error)
-      options.error(errorMessage);
+      if (Backbone.VERSION === "0.9.10") {
+        options.error(model, errorMessage, options);
+      } else {
+        options.error(errorMessage);
+      }
+      
     if (syncDfd)
       syncDfd.reject(errorMessage);
   }
