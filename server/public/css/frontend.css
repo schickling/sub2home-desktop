@@ -6076,9 +6076,14 @@ div.bankOptions .bankaccount {
   -o-transition: border-bottom-color .1s linear, color .1s linear;
   transition: border-bottom-color .1s linear, color .1s linear;
 }
+#checkoutBasicControls span.paymentMethod span,
+#checkoutBasicControls span.deliveryAddress span {
+  position: relative;
+}
 #checkoutBasicControls span.paymentMethod .iEdit,
 #checkoutBasicControls span.deliveryAddress .iEdit {
   position: absolute;
+  display: block;
   right: 10px;
   color: #c5a862;
   top: 2px;

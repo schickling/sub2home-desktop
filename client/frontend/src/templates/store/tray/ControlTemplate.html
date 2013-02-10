@@ -4,8 +4,8 @@
 
 <div id="checkoutBasicControls">
 	<% if (ready) { %>
-	<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €</span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
-	und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
+	<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €</span>, bezahlen <span class="paymentMethod settings"><span><%= paymentMethod %></span><i class="icn iEdit"></i></span><br/>
+	und liefern <span class="deliveryAddress settings"><span>an <%= firstName %> <%= lastName %> in die <%= street %></span><i class="icn iEdit"></i></span>
 	<div class="icn iCart"></div>
 	<% } else { %>
 	Nur noch deine <span class="deliveryAddress settings">Lieferadresse angeben</span> und dann bestellen für <span class="price"><%= total.toFixed(2) %> €</span>
