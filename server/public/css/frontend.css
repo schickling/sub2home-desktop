@@ -6080,7 +6080,6 @@ div.bankOptions .bankaccount {
 #checkoutBasicControls span.paymentMethod .iEdit,
 #checkoutBasicControls span.deliveryAddress .iEdit {
   position: absolute;
-  display: none;
   right: 10px;
   color: #c5a862;
   top: 2px;
