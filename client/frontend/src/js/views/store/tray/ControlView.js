@@ -94,7 +94,7 @@ define([
 
 		showSettingsIcon: function (e) {
 			var $span = $(e.target),
-				$icon = $span.find('i');
+				$icon = $span.find('div');
 
 			$icon.delay(100).stop().fadeIn(300);
 
@@ -105,7 +105,7 @@ define([
 
 		hideSettingsIcon: function (e) {
 			var $span = $(e.target),
-				$icon = $span.find('i');
+				$icon = $span.find('div');
 
 			$icon.stop().fadeOut(300);
 
