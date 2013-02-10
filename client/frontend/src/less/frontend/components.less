@@ -3509,11 +3509,9 @@ div.bankOptions {
     &.paymentMethod, &.deliveryAddress {
       border-bottom: 2px solid @onDarkNoteColor50;
       white-space: nowrap;
-      //padding-right: 50px;
+      padding-right: 0;
       .positioned;
-      span {
-        .positioned;
-      }
+
       .iEdit {
         position: absolute;
         display: block;
@@ -3521,10 +3519,22 @@ div.bankOptions {
         color: @onDarkNoteColor;
         top: 2px;
         .opacity(0);
+        .transition(opacity .1s linear);
+        z-index: 10;
       }
-      .transition(e('border-bottom-color .1s linear, color .1s linear'));
+      
+      .transition(e('border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out'));
+
       &:hover {
         border-bottom-color: @onDarkNoteColor;
+        padding-right: 50px;
+  
+        .iEdit {
+          .opacity(100);
+          position: absolute;
+          display: block;
+          right: 10px;
+        }
       }
     }
   }

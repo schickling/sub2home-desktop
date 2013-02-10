@@ -6070,15 +6070,12 @@ div.bankOptions .bankaccount {
 #checkoutBasicControls span.deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
   white-space: nowrap;
+  padding-right: 0;
   position: relative;
-  -webkit-transition: border-bottom-color .1s linear, color .1s linear;
-  -moz-transition: border-bottom-color .1s linear, color .1s linear;
-  -o-transition: border-bottom-color .1s linear, color .1s linear;
-  transition: border-bottom-color .1s linear, color .1s linear;
-}
-#checkoutBasicControls span.paymentMethod span,
-#checkoutBasicControls span.deliveryAddress span {
-  position: relative;
+  -webkit-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
+  -moz-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
+  -o-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
+  transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
 }
 #checkoutBasicControls span.paymentMethod .iEdit,
 #checkoutBasicControls span.deliveryAddress .iEdit {
@@ -6089,10 +6086,24 @@ div.bankOptions .bankaccount {
   top: 2px;
   opacity: 0;
   filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+  z-index: 10;
 }
 #checkoutBasicControls span.paymentMethod:hover,
 #checkoutBasicControls span.deliveryAddress:hover {
   border-bottom-color: #c5a862;
+  padding-right: 50px;
+}
+#checkoutBasicControls span.paymentMethod:hover .iEdit,
+#checkoutBasicControls span.deliveryAddress:hover .iEdit {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: absolute;
+  display: block;
+  right: 10px;
 }
 #checkoutBasicControls .iCart {
   position: absolute;
