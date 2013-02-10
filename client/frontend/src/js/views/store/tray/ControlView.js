@@ -96,7 +96,9 @@ define([
 			var $span = $(e.target),
 				$icon = $span.find('div');
 
-			$icon.delay(100).stop().fadeIn(300);
+			$icon.delay(100).stop().animate({
+				opacity: 1
+			}, 300);
 
 			$span.stop().animate({
 				paddingRight: 50
@@ -107,7 +109,9 @@ define([
 			var $span = $(e.target),
 				$icon = $span.find('div');
 
-			$icon.stop().fadeOut(300);
+			$icon.stop().animate({
+				opacity: 1
+			}, 300);
 
 			$span.delay(100).stop().animate({
 				paddingRight: 0
