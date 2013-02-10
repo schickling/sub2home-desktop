@@ -3446,7 +3446,7 @@ div.bankOptions {
 #checkoutControls {
   padding: 50px 0;
   width: 100%;
-  background: @trayControlsArea;
+  background: @darkNote;
 }
 
 
@@ -3484,46 +3484,46 @@ div.bankOptions {
   padding-right: 185px;
   font-size: 40px;
   font-family: @headingsFontFamily;
-  color: @onNoteColor50;
+  color: @onDarkNoteColor50;
   line-height: 1.5;
 
   span {
     .transition(color .1s linear);
     cursor: pointer;
     &:hover {
-      color: @onNoteColor;
+      color: @onDarkNoteColor;
     }
 
     &.price {
-      color: @onNoteColor;
+      color: @onDarkNoteColor;
     }
 
     &.setDeliveryAddress, &.orderNow {
-      color: @onNoteColor;
-      border-bottom: 2px solid @onNoteColor;
+      color: @onDarkNoteColor;
+      border-bottom: 2px solid @onDarkNoteColor;
     }
     &.price {
       cursor: default;
     }
 
     &.paymentMethod, &.deliveryAddress {
-      border-bottom: 2px solid @onNoteColor50;
+      border-bottom: 2px solid @onDarkNoteColor50;
       white-space: nowrap;
-      padding-right: 0;
+      padding-right: 50px;
       .positioned;
-      .iTools {
+      .iEdit {
         position: absolute;
-        display: block;
-        right: 10px;
         display: none;
-        color: @onNoteColor;
+        right: 10px;
+        //display: none;
+        color: @onDarkNoteColor;
         top: 2px;
         //.transition(opacity .1s .1s linear);
 
       }
       .transition(e('border-bottom-color .1s linear, color .1s linear'));
       &:hover {
-        border-bottom-color: @onNoteColor;
+        border-bottom-color: @onDarkNoteColor;
         //padding-right: 50px;
       }
     }
@@ -3562,13 +3562,14 @@ div.bankOptions {
   width: 754px;
   padding-top: 55px;
   margin: 0 auto;
-  input {
+  input, span {
     width: 100%;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     height: 32px;
     font-size: 24px;
     .border-box;
     color: @white;
+    font-family: @headingsFontFamily;
   }
 
   label {
@@ -3645,14 +3646,16 @@ div.bankOptions {
         &.customerPostal {
           width: 115px;
           margin-right: 20px;
-          input {
-            padding-left: 38px;
+          span {
+            display: inline-block;
+            padding: 7px 0 0 38px;
           }
         }
         &.customerCity {
           width: 529px;
-          input {
-            padding-left: 52px;
+          span {
+            display: inline-block;
+            padding: 7px 0 0 52px;
           }
         }
         
@@ -3691,6 +3694,8 @@ div.bankOptions {
     margin-left: 57px;
     cursor: pointer;
     //.transition(color .1s linear);
-    
+    &.selected {
+      color: @grayLightOnDark;
+    }
   }
 }

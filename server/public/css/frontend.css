@@ -6042,7 +6042,7 @@ div.bankOptions .bankaccount {
   padding-right: 185px;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
-  color: rgba(209, 186, 130, 0.5);
+  color: rgba(197, 168, 98, 0.5);
   line-height: 1.5;
 }
 #checkoutBasicControls span {
@@ -6053,42 +6053,41 @@ div.bankOptions .bankaccount {
   cursor: pointer;
 }
 #checkoutBasicControls span:hover {
-  color: #d1ba82;
+  color: #c5a862;
 }
 #checkoutBasicControls span.price {
-  color: #d1ba82;
+  color: #c5a862;
 }
 #checkoutBasicControls span.setDeliveryAddress,
 #checkoutBasicControls span.orderNow {
-  color: #d1ba82;
-  border-bottom: 2px solid #d1ba82;
+  color: #c5a862;
+  border-bottom: 2px solid #c5a862;
 }
 #checkoutBasicControls span.price {
   cursor: default;
 }
 #checkoutBasicControls span.paymentMethod,
 #checkoutBasicControls span.deliveryAddress {
-  border-bottom: 2px solid rgba(209, 186, 130, 0.5);
+  border-bottom: 2px solid rgba(197, 168, 98, 0.5);
   white-space: nowrap;
-  padding-right: 0;
+  padding-right: 50px;
   position: relative;
   -webkit-transition: border-bottom-color .1s linear, color .1s linear;
   -moz-transition: border-bottom-color .1s linear, color .1s linear;
   -o-transition: border-bottom-color .1s linear, color .1s linear;
   transition: border-bottom-color .1s linear, color .1s linear;
 }
-#checkoutBasicControls span.paymentMethod .iTools,
-#checkoutBasicControls span.deliveryAddress .iTools {
+#checkoutBasicControls span.paymentMethod .iEdit,
+#checkoutBasicControls span.deliveryAddress .iEdit {
   position: absolute;
-  display: block;
-  right: 10px;
   display: none;
-  color: #d1ba82;
+  right: 10px;
+  color: #c5a862;
   top: 2px;
 }
 #checkoutBasicControls span.paymentMethod:hover,
 #checkoutBasicControls span.deliveryAddress:hover {
-  border-bottom-color: #d1ba82;
+  border-bottom-color: #c5a862;
 }
 #checkoutBasicControls .iCart {
   position: absolute;
@@ -6121,7 +6120,8 @@ div.bankOptions .bankaccount {
   padding-top: 55px;
   margin: 0 auto;
 }
-.deliveryAddressSettings input {
+.deliveryAddressSettings input,
+.deliveryAddressSettings span {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   height: 32px;
@@ -6130,6 +6130,7 @@ div.bankOptions .bankaccount {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #ffffff;
+  font-family: "VAGRounded LT Thin";
 }
 .deliveryAddressSettings label {
   color: rgba(255, 255, 255, 0.2);
@@ -6201,14 +6202,16 @@ div.bankOptions .bankaccount {
   width: 115px;
   margin-right: 20px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerPostal input {
-  padding-left: 38px;
+.deliveryAddressSettings > div.customerPostalCity > div.customerPostal span {
+  display: inline-block;
+  padding: 7px 0 0 38px;
 }
 .deliveryAddressSettings > div.customerPostalCity > div.customerCity {
   width: 529px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerCity input {
-  padding-left: 52px;
+.deliveryAddressSettings > div.customerPostalCity > div.customerCity span {
+  display: inline-block;
+  padding: 7px 0 0 52px;
 }
 .deliveryAddressSettings button.btn {
   position: absolute;
@@ -6243,6 +6246,9 @@ div.bankOptions .bankaccount {
   color: rgba(255, 255, 255, 0.05);
   margin-left: 57px;
   cursor: pointer;
+}
+.paymentSettings span.selected {
+  color: rgba(255, 255, 255, 0.35);
 }
 .store_selection_container {
   margin: 0 auto;
