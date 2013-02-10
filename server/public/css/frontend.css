@@ -314,7 +314,6 @@ aside#header .iInfo {
 .note.tray {
   top: -535px;
   padding: 0;
-  background: url("../img/static/common/dark_background.jpg") repeat;
 }
 .note.timeline {
   position: absolute;
@@ -5810,7 +5809,7 @@ div.bankOptions .bankaccount {
   content: " ";
 }
 .orderedItems {
-  margin: 0 0 50px;
+  margin: 0;
   padding: 100px 8% 50px;
   position: relative;
   background: url("../img/static/common/note_background.jpg") repeat;
@@ -6017,39 +6016,58 @@ div.bankOptions .bankaccount {
 .menuItem:first-child:before {
   content: " ";
 }
-.checkoutControls {
+#checkoutControls {
+  padding: 50px 0;
+  width: 100%;
+  background: rgba(224, 166, 54, 0.2);
+}
+#checkoutAdditionalOptions {
+  position: relative;
+  padding: 0 8% 50px;
+}
+#checkoutAdditionalOptions:after {
+  content: " ";
+  border-top: 1px solid #d1ba82;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+#checkoutBasicControls {
   position: relative;
   text-align: right;
-  margin: 0 8% 100px;
+  margin: 50px 8% 100px;
   padding-right: 185px;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
   color: rgba(209, 186, 130, 0.5);
   line-height: 1.5;
 }
-.checkoutControls span {
+#checkoutBasicControls span {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
   cursor: pointer;
 }
-.checkoutControls span:hover {
+#checkoutBasicControls span:hover {
   color: #d1ba82;
 }
-.checkoutControls span.price {
+#checkoutBasicControls span.price {
   color: #d1ba82;
 }
-.checkoutControls span.setDeliveryAddress,
-.checkoutControls span.orderNow {
+#checkoutBasicControls span.setDeliveryAddress,
+#checkoutBasicControls span.orderNow {
   color: #d1ba82;
   border-bottom: 2px solid #d1ba82;
 }
-.checkoutControls span.price {
+#checkoutBasicControls span.price {
   cursor: default;
 }
-.checkoutControls span.paymentMethod,
-.checkoutControls span.deliveryAddress {
+#checkoutBasicControls span.paymentMethod,
+#checkoutBasicControls span.deliveryAddress {
   border-bottom: 2px solid rgba(209, 186, 130, 0.5);
   white-space: nowrap;
   padding-right: 0;
@@ -6059,8 +6077,8 @@ div.bankOptions .bankaccount {
   -o-transition: border-bottom-color .1s linear, color .1s linear;
   transition: border-bottom-color .1s linear, color .1s linear;
 }
-.checkoutControls span.paymentMethod .iTools,
-.checkoutControls span.deliveryAddress .iTools {
+#checkoutBasicControls span.paymentMethod .iTools,
+#checkoutBasicControls span.deliveryAddress .iTools {
   position: absolute;
   display: block;
   right: 10px;
@@ -6068,11 +6086,11 @@ div.bankOptions .bankaccount {
   color: #d1ba82;
   top: 2px;
 }
-.checkoutControls span.paymentMethod:hover,
-.checkoutControls span.deliveryAddress:hover {
+#checkoutBasicControls span.paymentMethod:hover,
+#checkoutBasicControls span.deliveryAddress:hover {
   border-bottom-color: #d1ba82;
 }
-.checkoutControls .iCart {
+#checkoutBasicControls .iCart {
   position: absolute;
   right: 10px;
   top: 0;
@@ -6081,14 +6099,17 @@ div.bankOptions .bankaccount {
   cursor: pointer;
   color: rgba(156, 200, 62, 0.4);
 }
-.checkoutControls .iCart:before {
+#checkoutBasicControls .iCart:before {
   font-size: 150px;
   position: absolute;
   left: -10px;
-  top: -49px;
+  top: -10px;
 }
-.checkoutControls .iCart:hover {
+#checkoutBasicControls .iCart:hover {
   color: #9cc83e;
+}
+.checkoutSettings {
+  background: url("../img/static/common/dark_background.jpg") repeat;
 }
 .checkoutSettings h1 {
   color: #ffffff;
@@ -6097,7 +6118,8 @@ div.bankOptions .bankaccount {
 .deliveryAddressSettings {
   position: relative;
   width: 754px;
-  margin: 55px auto 0;
+  padding-top: 55px;
+  margin: 0 auto;
 }
 .deliveryAddressSettings input {
   width: 100%;
@@ -6197,7 +6219,8 @@ div.bankOptions .bankaccount {
   position: relative;
   cursor: default;
   width: 754px;
-  margin: 33px auto 30px;
+  margin: 33px auto 0;
+  padding-bottom: 30px;
   line-height: 1.4;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
