@@ -3509,7 +3509,7 @@ div.bankOptions {
     &.paymentMethod, &.deliveryAddress {
       border-bottom: 2px solid @onDarkNoteColor50;
       white-space: nowrap;
-      padding-right: 50px;
+      //padding-right: 50px;
       .positioned;
       .iEdit {
         position: absolute;
@@ -3517,6 +3517,7 @@ div.bankOptions {
         right: 10px;
         color: @onDarkNoteColor;
         top: 2px;
+        .opacity(0);
       }
       .transition(e('border-bottom-color .1s linear, color .1s linear'));
       &:hover {

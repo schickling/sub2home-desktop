@@ -6070,7 +6070,6 @@ div.bankOptions .bankaccount {
 #checkoutBasicControls span.deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
   white-space: nowrap;
-  padding-right: 50px;
   position: relative;
   -webkit-transition: border-bottom-color .1s linear, color .1s linear;
   -moz-transition: border-bottom-color .1s linear, color .1s linear;
@@ -6083,6 +6082,8 @@ div.bankOptions .bankaccount {
   right: 10px;
   color: #c5a862;
   top: 2px;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 #checkoutBasicControls span.paymentMethod:hover,
 #checkoutBasicControls span.deliveryAddress:hover {
