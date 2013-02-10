@@ -15,7 +15,9 @@ define([
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click .iCart': 'checkout'
+			'click .iCart': 'checkout',
+			'mouseenter .settings': 'showSettingsIcon',
+			'mouseleave .settings': 'hideSettingsIcon'
 		},
 
 		initialize: function () {
@@ -88,6 +90,28 @@ define([
 					console.log(b);
 				}
 			});
+		},
+
+		showSettingsIcon: function (e) {
+			var $span = $(e.target),
+				$icon = $span.find('i');
+
+			$icon.delay(100).stop().fadeIn(300);
+
+			$span.stop().animate({
+				paddingRight: 50
+			}, 400);
+		},
+
+		hideSettingsIcon: function (e) {
+			var $span = $(e.target),
+				$icon = $span.find('i');
+
+			$icon.stop().fadeOut(300);
+
+			$span.delay(100).stop().animate({
+				paddingRight: 0
+			}, 300);
 		}
 
 	});
