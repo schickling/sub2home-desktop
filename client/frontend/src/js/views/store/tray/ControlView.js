@@ -93,29 +93,31 @@ define([
 		},
 
 		showSettingsIcon: function (e) {
-			var $span = $(e.target),
-				$icon = $span.find('i');
+			var $wrapperSpan = $(e.target),
+				$textSpan = $wrapperSpan.find('span'),
+				$icon = $wrapperSpan.find('i');
 
-			$icon.stop().delay(100).animate({
+			$icon.delay(100).stop().animate({
 				opacity: 1
 			}, 300);
 
-			$span.stop().animate({
-				paddingRight: 50
+			$textSpan.stop().animate({
+				marginRight: 50
 			}, 400);
 		},
 
 		hideSettingsIcon: function (e) {
-			var $span = $(e.target),
-				$icon = $span.find('i');
+			var $wrapperSpan = $(e.target),
+				$textSpan = $wrapperSpan.find('span'),
+				$icon = $wrapperSpan.find('i');
 
 			$icon.stop().animate({
 				opacity: 0
 			}, 300);
 
-			$span.stop().delay(100).animate({
-				paddingRight: 0
-			}, 300);
+			$textSpan.stop().animate({
+				marginRight: 0
+			}, 400);
 		}
 
 	});
