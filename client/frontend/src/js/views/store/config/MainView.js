@@ -3,6 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'router',
 	'models/stateModel',
 	'views/PageView',
 	'views/store/config/MapView',
@@ -10,7 +11,7 @@ define([
 	'views/store/config/DeliveryAreasView',
 	'views/store/config/DeliveryTimesView',
 	'text!templates/store/config/MainTemplate.html'
-	], function ($, _, Backbone, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) {
+	], function ($, _, Backbone, router, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -18,6 +19,15 @@ define([
 			// to be absolutly consistent reload the store model from server
 			stateModel.fetchStoreFromServer();
 			this.model = stateModel.get('storeModel');
+
+			// check if client is allowed to view this page
+			if (this.model.get('number') === 0) {
+				router.navigate('login', {
+					trigger: true,
+					replace: true
+				});
+				return;
+			}
 
 			this.render();
 		},

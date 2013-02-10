@@ -26,6 +26,10 @@ define([
 			dueDate: null
 		},
 
+		urlRoot: function() {
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+		},
+
 		parse: function (response) {
 
 			if (response) {

@@ -11,6 +11,10 @@ define([
 
 		template: _.template(CheckoutSettingsTemplate),
 
+		events: {
+
+		},
+
 		initialize: function () {
 			this.render();
 		},

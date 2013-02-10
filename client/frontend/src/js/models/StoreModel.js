@@ -19,7 +19,9 @@ define([
 			deliveryAreasCollection: null,
 			deliveryTimesCollection: null,
 
-			addressModel: null
+			addressModel: null,
+
+			number: 0
 		},
 
 		idAttribute: 'alias',

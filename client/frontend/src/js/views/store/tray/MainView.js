@@ -3,22 +3,18 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'router',
-	'models/OrderModel',
-	'models/stateModel',
-	'models/cartModel',
 	'views/PageView',
+	'views/store/tray/ControlView',
 	'views/store/tray/CheckoutSettingsView',
 	'views/store/tray/OrderedItemsView',
 	'text!templates/store/tray/MainTemplate.html'
-	], function ($, _, Backbone, router, OrderModel, stateModel, cartModel, PageView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+	], function ($, _, Backbone, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		events: {
 			'click .deliveryAddress': 'showCheckoutSettings',
-			'click #save': 'hideCheckoutSettings',
-			'click .iCart': 'checkout'
+			'click #save': 'hideCheckoutSettings'
 		},
 
 		initialize: function () {
@@ -28,11 +24,15 @@ define([
 		render: function () {
 			this.$el.html(MainTemplate);
 
-			var checkoutSettingsView = new CheckoutSettingsView({
+			new ControlView({
+				el: this.$('#checkoutControls')
+			});
+
+			new CheckoutSettingsView({
 				el: this.$('.checkoutSettings')
 			});
 
-			var orderedItemsView = new OrderedItemsView({
+			new OrderedItemsView({
 				el: this.$('.orderedItems')
 			});
 
@@ -54,36 +54,7 @@ define([
 			var $tray = this.$('.note.tray');
 
 			$tray.animate({
-				top: -475
-			});
-		},
-
-		checkout: function () {
-
-			var orderedItemsCollection = cartModel.get('orderedItemsCollection');
-
-			var orderModel = new OrderModel({
-				addressModel: cartModel.get('addressModel'),
-				orderedItemsCollection: orderedItemsCollection,
-				payment: 'paypal',
-				total: cartModel.get('total'),
-				credit: 5.87
-			});
-
-			orderModel.save({}, {
-				success: function () {
-					orderedItemsCollection.reset();
-
-					console.log(cartModel.toJSON());
-
-					router.navigate('store/danke', {
-						trigger: true,
-						replace: true
-					});
-				},
-				error: function (error, b) {
-					console.log(b);
-				}
+				top: -535
 			});
 		}
 
