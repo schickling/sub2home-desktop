@@ -6038,6 +6038,33 @@ div.bankOptions .bankaccount {
 #checkoutAdditionalOptions > div {
   display: inline-block;
 }
+#checkoutAdditionalOptions > div.deliveryTimeClock > span {
+  padding: 4px;
+  background: #d1ba82;
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock input {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+}
 #checkoutBasicControls {
   position: relative;
   text-align: right;

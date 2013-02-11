@@ -3470,6 +3470,28 @@ div.bankOptions {
   }
   >div {
     display: inline-block;
+    &.deliveryTimeClock {
+      >span {
+          padding: 4px;
+          background: @onNoteColor;
+          width: 120px;
+          height: 120px;
+          display: inline-block;
+
+        .border-radius(3px);
+        }
+      input {
+        padding: 0;
+        margin: 0;
+        .border-box;
+        .positioned;
+        width: 120px;
+        height: 120px;
+        background: @white;
+        .border-radius(3px);
+        border: none;
+      }
+    }
   }
 }
 
