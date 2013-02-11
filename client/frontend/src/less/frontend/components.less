@@ -3450,6 +3450,7 @@ div.bankOptions {
 }
 
 
+
 // Checkout-Additional-Options
 // ---------------------------
 
@@ -3466,6 +3467,9 @@ div.bankOptions {
     bottom: -1px;
     height: 1px;
     background: rgba(255,255,255,0.5);
+  }
+  >div {
+    display: inline-block;
   }
 }
 
@@ -3522,7 +3526,7 @@ div.bankOptions {
         .transition(opacity .1s linear);
         z-index: 10;
       }
-      
+
       .transition(e('border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out'));
 
       &:hover {
@@ -3531,9 +3535,6 @@ div.bankOptions {
   
         .iEdit {
           .opacity(100);
-          position: absolute;
-          display: block;
-          right: 10px;
         }
       }
     }
