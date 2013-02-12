@@ -4,10 +4,10 @@
 		<span class="hours">
 			<i class="iBtn iArrowUp"></i>
 			<span class="topTile">
-				<span>00</span>
+				<span><%= dueHours %></span>
 			</span>
 			<span class="bottomTile">
-				<span>00</span>
+				<span><%= dueHours %></span>
 			</span>
 			<i class="iBtn iArrowDown <% if (hoursAreMinimum) { %>inactive <% } %>"></i>
 		</span>
@@ -16,10 +16,10 @@
 		<span class="minutes">
 			<i class="iBtn iArrowUp"></i>
 			<span class="topTile">
-				<span>00</span>
+				<span><%= dueMinutes %></span>
 			</span>
 			<span class="bottomTile">
-				<span>00</span>
+				<span><%= dueMinutes %></span>
 			</span>
 			<i class="iBtn iArrowDown <% if (minutesAreMinimum) { %>inactive <% } %>"></i>
 		</span>
