@@ -3481,20 +3481,20 @@ div.bankOptions {
         .border-radius(3px);
         .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
 
-        &:after {
-          content: "";
-          font-family: "Homicons";
-          position: absolute;
-          line-height: 0.0001;
-          top: 60px;
-          height: 9px;
-          overflow: hidden;
-          width: 130px;
-          font-size: 141px;
-          left: -5px;
-          color: @onNoteColor;
-          text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 #7b6d4b;
-        }
+        // &:after {
+        //   content: "";
+        //   font-family: "Homicons";
+        //   position: absolute;
+        //   line-height: 0.0001;
+        //   top: 60px;
+        //   height: 9px;
+        //   overflow: hidden;
+        //   width: 130px;
+        //   font-size: 141px;
+        //   left: -5px;
+        //   color: @onNoteColor;
+        //   text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 #7b6d4b;
+        // }
         .iBtn {
           position: absolute;
           left: 50%;
@@ -3512,8 +3512,40 @@ div.bankOptions {
           }
           .transition(color .1s linear);
           &:hover {
-            color: darken(@onNoteColor, 5%);
+            color: darken(@onNoteColor, 8%);
           }
+        }
+      }
+
+      .topTile, .bottomTile {
+        .positioned;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        .border-box;
+        width: 120px;
+        height: 59px;
+        background: @white;
+        .border-radius(3px);
+        border: none;
+        #gradient > .vertical(#f4d68d,#e6ba4e);
+        .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
+        font-size: 100px;
+        color: @black;
+        text-align: center;
+        line-height: 0.38;
+        overflow: hidden;
+        cursor: pointer;
+        span {
+          display: inline-block;
+          .positioned;
+          top: 15px;
+        }
+      }
+
+      .bottomTile {
+        span {
+          top: -35px;
         }
       }
 
@@ -3522,8 +3554,8 @@ div.bankOptions {
         width: 11px;
         height: 42px;
         display: inline-block;
-        top: 20px;
-        margin: 0 5px;
+        vertical-align: top;
+        margin: 45px 5px 0;
         &:before, &:after {
           content: " ";
           position: absolute;
@@ -3539,20 +3571,7 @@ div.bankOptions {
       }      
 
       input {
-        padding: 5px 0 0 0;
-        margin: 0;
-        .border-box;
-        .positioned;
-        width: 120px;
-        height: 120px;
-        background: @white;
-        .border-radius(3px);
-        border: none;
-        #gradient > .vertical-clock-style;
-        .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
-        font-size: 100px;
-        color: @black;
-        text-align: center;
+
       }
     }
   }

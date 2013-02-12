@@ -6062,21 +6062,6 @@ div.bankOptions .bankaccount {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours:after,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes:after {
-  content: "";
-  font-family: "Homicons";
-  position: absolute;
-  line-height: 0.0001;
-  top: 60px;
-  height: 9px;
-  overflow: hidden;
-  width: 130px;
-  font-size: 141px;
-  left: -5px;
-  color: #d1ba82;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 -1px 0 #7b6d4b;
-}
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn {
   position: absolute;
@@ -6105,15 +6090,59 @@ div.bankOptions .bankaccount {
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
-  color: #cab06f;
+  color: #c6aa64;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .topTile,
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 120px;
+  height: 59px;
+  background: #ffffff;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  background-color: #eecb74;
+  background-image: -moz-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4d68d), to(#e6ba4e));
+  background-image: -webkit-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -o-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: linear-gradient(to bottom, #f4d68d, #e6ba4e);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4d68d', endColorstr='#ffe6ba4e', GradientType=0);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  font-size: 100px;
+  color: #000000;
+  text-align: center;
+  line-height: 0.38;
+  overflow: hidden;
+  cursor: pointer;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .topTile span,
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span {
+  display: inline-block;
+  position: relative;
+  top: 15px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span {
+  top: -35px;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator {
   position: relative;
   width: 11px;
   height: 42px;
   display: inline-block;
-  top: 20px;
-  margin: 0 5px;
+  vertical-align: top;
+  margin: 45px 5px 0;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:before,
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
@@ -6132,36 +6161,6 @@ div.bankOptions .bankaccount {
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
   top: 30px;
-}
-#checkoutAdditionalOptions > div.deliveryTimeClock input {
-  padding: 5px 0 0 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  width: 120px;
-  height: 120px;
-  background: #ffffff;
-  behavior: url(../css/border-radius.htc);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  border: none;
-  background-color: #edc86e;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4d68d), color-stop(50%, #e6ba4e), color-stop(50%, #f4d68d), to(#e6ba4e));
-  background-image: -webkit-linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
-  background-image: -moz-linear-gradient(top, #f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
-  background-image: -o-linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
-  background-image: linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
-  background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4d68d', endColorstr='#ffe6ba4e', GradientType=0);
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
-  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
-  font-size: 100px;
-  color: #000000;
-  text-align: center;
 }
 #checkoutBasicControls {
   position: relative;
