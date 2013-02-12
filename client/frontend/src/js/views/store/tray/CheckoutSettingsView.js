@@ -25,9 +25,7 @@ define([
 
 		render: function () {
 
-			console.log(cartModel.get('addressModel'));
-
-			var addressModel = cartModel.get('addressModel'),
+			var addressModel = cartModel.getCustomerAddressModel(),
 				json = {
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
@@ -47,7 +45,7 @@ define([
 			var $input = $(e.target),
 				attribute = $input.attr('data-attribute'),
 				value = $input.val(),
-				addressModel = cartModel.get('addressModel');
+				addressModel = cartModel.getCustomerAddressModel();
 
 			// array notation needed to interpolate dynamic attribute variable
 			var changedAttributes = [];
@@ -65,11 +63,11 @@ define([
 
 			$span.addClass('selected').siblings().removeClass('selected');
 
-			cartModel.set('paymentMethod', method);
+			cartModel.setPaymentMethod(method);
 		},
 
 		hide: function () {
-			var addressModel = cartModel.get('addressModel');
+			var addressModel = cartModel.getCustomerAddressModel();
 
 			// trigger validation and save the address
 			var valid = !! addressModel.set({}, {

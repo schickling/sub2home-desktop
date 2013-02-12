@@ -15,20 +15,20 @@ define([
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click .iCart': 'checkout'
+			'click .iCart': '_checkout'
 		},
 
 		initialize: function () {
 			this.render();
 
-			this.listenForDataChanges();
+			this._listenForDataChanges();
 		},
 
 		render: function () {
 
-			var paymentMethod;
+			var paymentMethod = '';
 
-			switch (cartModel.get('paymentMethod')) {
+			switch (cartModel.getPaymentMethod()) {
 			case 'cash':
 				paymentMethod = 'in Bar';
 				break;
@@ -40,7 +40,7 @@ define([
 				break;
 			}
 
-			var addressModel = cartModel.get('addressModel'),
+			var addressModel = cartModel.getCustomerAddressModel(),
 				ready = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
 				json = {
 					ready: ready,
@@ -54,30 +54,20 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		listenForDataChanges: function () {
-			var addressModel = cartModel.get('addressModel');
+		_listenForDataChanges: function () {
+			var addressModel = cartModel.getCustomerAddressModel();
 
 			addressModel.on('change', this.render, this);
 			cartModel.on('change', this.render, this);
 		},
 
-		checkout: function () {
+		_checkout: function () {
 
-			var orderedItemsCollection = cartModel.get('orderedItemsCollection');
-
-			var orderModel = new OrderModel({
-				addressModel: cartModel.get('addressModel'),
-				orderedItemsCollection: orderedItemsCollection,
-				payment: 'paypal',
-				total: cartModel.get('total'),
-				credit: 5.87
-			});
+			var orderModel = cartModel.get('orderModel');
 
 			orderModel.save({}, {
 				success: function () {
-					orderedItemsCollection.reset();
-
-					console.log(cartModel.toJSON());
+					orderModel.reset();
 
 					router.navigate('store/danke', {
 						trigger: true,

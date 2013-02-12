@@ -390,8 +390,7 @@ define([
 
 			if (lockedTimelineItems.length === 0) {
 				// save ordered item in cart
-				var orderedItemsCollection = cartModel.get('orderedItemsCollection');
-				orderedItemsCollection.add(this.model);
+				cartModel.addOrderedItemModel(this.model);
 
 				// back to store.home
 				router.navigate('store', {

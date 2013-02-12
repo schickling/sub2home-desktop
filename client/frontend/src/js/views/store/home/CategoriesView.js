@@ -23,7 +23,6 @@ define([
 				parse: true,
 				success: function () {
 					self.render();
-					console.log(self.collection.toJSON());
 				}
 			});
 		},
