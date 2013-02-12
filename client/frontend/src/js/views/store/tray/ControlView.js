@@ -4,10 +4,11 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'lib/moment',
 	'notificationcenter',
 	'models/cartModel',
 	'text!templates/store/tray/ControlTemplate.html'
-	], function ($, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {
+	], function ($, _, Backbone, router, momentLib, notificationcenter, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
@@ -15,7 +16,11 @@ define([
 
 		events: {
 			'click .iCart': '_checkout',
-			'focusout textarea': '_saveComment'
+			'focusout textarea': '_saveComment',
+			'click .hours .iArrowUp': '_addHour',
+			'click .hours .iArrowDown': '_substractHour',
+			'click .minutes .iArrowUp': '_addMinute',
+			'click .minutes .iArrowDown': '_substractMinute'
 		},
 
 		initialize: function () {
@@ -42,9 +47,10 @@ define([
 			var addressModel = cartModel.getCustomerAddressModel(),
 				isReady = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
 				dueDate = cartModel.getValidDueDate(),
+				dueMoment = moment(dueDate),
 				json = {
-					dueHours: dueDate.getHours(),
-					dueMinutes: dueDate.getMinutes(),
+					dueHours: dueMoment.format('HH'),
+					dueMinutes: dueMoment.format('mm'),
 					isReady: isReady,
 					total: cartModel.get('total'),
 					firstName: addressModel.get('firstName'),
@@ -85,7 +91,39 @@ define([
 				comment = $textarea.val();
 
 			cartModel.setComment(comment);
+		},
+
+		_addHour: function () {
+			this._addMinutesToDueDate(60);
+		},
+
+		_substractHour: function () {
+			this._addMinutesToDueDate(-60);
+		},
+
+		_addMinute: function () {
+			this._addMinutesToDueDate(1);
+		},
+
+		_substractMinute: function () {
+			this._addMinutesToDueDate(-1);
+		},
+
+		_addMinutesToDueDate: function (minutes) {
+			var currentDueDate = cartModel.getValidDueDate(),
+				newDueDate = new Date(currentDueDate.getTime() + minutes * 60000);
+
+			console.log(newDueDate);
+
+			if (cartModel.isDueDateValid(newDueDate)) {
+				console.log('ja');
+				console.log(newDueDate);
+				cartModel.setDueDate(newDueDate);
+			} else {
+				notificationcenter.error('damn', 'yo');
+			}
 		}
+
 
 	});
 

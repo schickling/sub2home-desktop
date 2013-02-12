@@ -190,23 +190,35 @@ define([
 		},
 
 		getValidDueDate: function () {
-			if (!this.isDueDateValid()) {
+			var orderModel = this.get('orderModel'),
+				dueDate = orderModel.get('dueDate');
+
+			if (!dueDate || !this.isDueDateValid(dueDate)) {
+				console.log('nein');
+				this._correctDueDate();
+			}
+
+			return orderModel.get('dueDate');
+		},
+
+		setDueDate: function (dueDate) {
+			if (!this.isDueDateValid(dueDate)) {
+				console.log(dueDate);
 				this._correctDueDate();
 			}
 
 			var orderModel = this.get('orderModel');
 
-			return orderModel.get('dueDate');
+			orderModel.set('dueDate', dueDate);
 		},
 
-		isDueDateValid: function () {
-			var orderModel = this.get('orderModel'),
-				now = new Date(),
-				dueDate = orderModel.get('dueDate'),
+		isDueDateValid: function (dueDate) {
+			var now = new Date(),
 				storeModel = stateModel.get('storeModel'),
 				minimumDuration = storeModel.getMinimumDuration();
 
-			return dueDate.getTime() >= (now.getTime() + minimumDuration * 60000);
+			// one minute tolerance
+			return dueDate.getTime() >= (now.getTime() + minimumDuration * 59000);
 		},
 
 		_correctDueDate: function () {
@@ -216,7 +228,12 @@ define([
 				minimumDuration = storeModel.getMinimumDuration();
 
 			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
-			orderModel.set('dueDate', dueDate);
+
+			orderModel.set({
+				dueDate: dueDate
+			}, {
+				silent: true
+			});
 		}
 
 

@@ -27,7 +27,13 @@ define([
 
 		render: function () {
 
-			this.$el.html(this.template(this.model.toJSON()));
+			var json = {
+				amount: this.model.get('amount'),
+				minimum: this.model.get('minimum'),
+				total: this.model.get('total')
+			};
+
+			this.$el.html(this.template(json));
 
 			this.$el.toggleClass('filled', (this.model.get('amount') > 0));
 		},
