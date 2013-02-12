@@ -35,7 +35,7 @@ define([
 					phone: addressModel.get('phone'),
 					email: addressModel.get('email'),
 					postal: addressModel.get('postal'),
-					paymentMethod: cartModel.get('paymentMethod')
+					paymentMethod: cartModel.getPaymentMethod()
 				};
 
 			this.$el.html(this.template(json));

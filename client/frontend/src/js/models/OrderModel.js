@@ -4,9 +4,10 @@ define([
 	'underscore',
 	'backbone',
 	'global',
+	'notificationcenter',
 	'models/AddressModel',
 	'collections/OrderedItemsCollection'
-	], function ($, _, Backbone, global, AddressModel, OrderedItemsCollection) {
+	], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -27,7 +28,8 @@ define([
 			credit: 0,
 
 			// relations
-			addressModel: null, // customer address
+			addressModel: null,
+			// customer address
 			orderedItemsCollection: null,
 
 			// dates
@@ -45,6 +47,10 @@ define([
 
 			// initialize ordered items collection and address model
 			this._initializeRelations();
+
+			this.on('invalid', function (model, error) {
+				notificationcenter.error(error, error);
+			});
 		},
 
 		_initializeRelations: function () {
@@ -53,6 +59,13 @@ define([
 			if (!this.get('orderedItemsCollection')) {
 				this.set('orderedItemsCollection', new OrderedItemsCollection());
 			}
+
+			// listen for changes in ordered items collection
+			var orderedItemsCollection = this.get('orderedItemsCollection');
+
+			orderedItemsCollection.on('add remove reset', function () {
+				this.set('total', orderedItemsCollection.getTotal());
+			}, this);
 
 
 			// address model
@@ -119,7 +132,10 @@ define([
 		},
 
 		validate: function (attributes) {
-
+			var validPaymentMethods = ['cash', 'ec', 'paypal'];
+			if (!_.contains(validPaymentMethods, attributes.paymentMethod)) {
+				return 'Keine erlaubte Bezahlmethode';
+			}
 		}
 
 	});

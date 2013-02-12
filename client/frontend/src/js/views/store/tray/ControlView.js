@@ -32,11 +32,10 @@ define([
 			setInterval(function () {
 				var spareMinutes = cartModel.getSpareMinutes();
 
-				if (spareMinutes > 0) {
-					cartModel.decreaseSpareMinutesByOne();
-				} else {
+				if (spareMinutes === 0) {
 					self._addMinute();
 				}
+
 			}, 60000);
 		},
 
@@ -67,7 +66,7 @@ define([
 					dueHours: dueMoment.format('HH'),
 					dueMinutes: dueMoment.format('mm'),
 					isReady: isReady,
-					total: cartModel.get('total'),
+					total: cartModel.getTotal(),
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
@@ -88,7 +87,7 @@ define([
 
 			orderModel.save({}, {
 				success: function () {
-					orderModel.reset();
+					orderModel.get('orderedItemsCollection').reset();
 
 					router.navigate('store/danke', {
 						trigger: true,

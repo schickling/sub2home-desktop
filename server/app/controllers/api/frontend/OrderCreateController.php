@@ -7,6 +7,7 @@ use OrderedArticleModel;
 use OrderedItemModel;
 use Input;
 use Illuminate\Database\Eloquent\Collection;
+use DateTime;
 
 /**
 * 
@@ -33,6 +34,7 @@ class OrderCreateController extends ApiController
 		$orderModel->calculateTotal();
 
 		if ($orderModel->total != $input->total) {
+			var_dump($orderModel->total);
 			$this->error(400);
 		}
 
@@ -40,6 +42,8 @@ class OrderCreateController extends ApiController
 		$orderModel->paymentMethod = $input->paymentMethod;
 		$orderModel->isDelivered = false;
 		$orderModel->credit = $input->credit;
+		$orderModel->due_at = DateTime::createFromFormat('U', $input->due_at);
+		$orderModel->comment = $input->comment;
 
 		// save order
 		$orderModel->save();

@@ -18,10 +18,6 @@ define([
 
 			orderModel: null,
 
-			// ordered items
-			amount: 0,
-			total: 0,
-
 			// gets calculated from store model
 			// ... mirrored for convenience reasons
 			minimum: 0
@@ -112,13 +108,6 @@ define([
 			orderModel.on('change', function () {
 				this.trigger('change');
 			}, this);
-
-			// listen for changes in ordered items collection
-			var orderedItemsCollection = orderModel.get('orderedItemsCollection');
-
-			orderedItemsCollection.on('add remove reset', function () {
-				this._processOrderedItems();
-			}, this);
 		},
 
 		_changeStore: function () {
@@ -144,17 +133,6 @@ define([
 				city: selectedDeliveryAreaModel.get('description')
 			});
 
-
-		},
-
-		_processOrderedItems: function () {
-			var orderedItemsCollection = this.getOrderedItemsCollection();
-
-			// sum up ordered items and set amount
-			this.set({
-				total: orderedItemsCollection.getTotal(),
-				amount: orderedItemsCollection.length
-			});
 		},
 
 
@@ -188,8 +166,25 @@ define([
 
 		setPaymentMethod: function (paymentMethod) {
 			var orderModel = this.get('orderModel');
+			console.log('jooaso');
 
-			orderModel.set('paymentMethod', paymentMethod);
+			orderModel.set({
+				paymentMethod: paymentMethod
+			}, {
+				validate: true
+			});
+		},
+
+		getTotal: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('total');
+		},
+
+		getNumberOfOrderedItems: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('orderedItemsCollection').length;
 		},
 
 		getComment: function () {
@@ -232,7 +227,6 @@ define([
 				minimumDuration = storeModel.getMinimumDuration();
 
 			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
-
 			orderModel.set({
 				dueDate: dueDate
 			}, {
@@ -249,7 +243,7 @@ define([
 				minimumDuration = storeModel.getMinimumDuration(),
 				// one minute tolerance
 				spareMilliseconds = dueDate.getTime() - now.getTime() - minimumDuration * 59000;
-				spareMinutes = parseInt(spareMilliseconds / 60000, 10);
+			spareMinutes = parseInt(spareMilliseconds / 60000, 10);
 
 			return spareMinutes;
 		}

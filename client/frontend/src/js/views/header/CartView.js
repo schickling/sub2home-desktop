@@ -27,15 +27,18 @@ define([
 
 		render: function () {
 
-			var json = {
-				amount: this.model.get('amount'),
-				minimum: this.model.get('minimum'),
-				total: this.model.get('total')
-			};
+			var storeModel = stateModel.get('storeModel'),
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
+				amount = cartModel.getNumberOfOrderedItems(),
+				json = {
+					amount: amount,
+					minimum: selectedDeliveryAreaModel.get('minimumValue'),
+					total: cartModel.getTotal()
+				};
 
 			this.$el.html(this.template(json));
 
-			this.$el.toggleClass('filled', (this.model.get('amount') > 0));
+			this.$el.toggleClass('filled', (amount > 0));
 		},
 
 		goToTray: function () {

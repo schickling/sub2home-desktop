@@ -22,7 +22,7 @@ define([
 
 		initialize: function () {
 			// check if cart is not empty
-			if (cartModel.get('amount') === 0) {
+			if (cartModel.getNumberOfOrderedItems() === 0) {
 				router.navigate('store', {
 					trigger: true,
 					replace: true
