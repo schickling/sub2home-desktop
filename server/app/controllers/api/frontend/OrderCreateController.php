@@ -42,8 +42,10 @@ class OrderCreateController extends ApiController
 		$orderModel->paymentMethod = $input->paymentMethod;
 		$orderModel->isDelivered = false;
 		$orderModel->credit = $input->credit;
-		$orderModel->due_at = DateTime::createFromFormat('U', $input->due_at);
 		$orderModel->comment = $input->comment;
+
+		$orderModel->due_at = new DateTime();
+		$orderModel->due_at->setTimestamp($input->due_at / 1000);
 
 		// save order
 		$orderModel->save();
