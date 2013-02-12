@@ -15,19 +15,56 @@ define([
 
 		defaults: {
 			isDelivered: false,
-			paymentMethod: '',
+
+			// paymentMethod
+			paymentMethod: 'cash',
+
+			// comment
+			comment: '',
+
+			// prices
 			total: 0,
 			credit: 0,
-			addressModel: null,
+
+			// relations
+			addressModel: null, // customer address
 			orderedItemsCollection: null,
+
+			// dates
 			created_at: '',
 			due_at: '',
 			createdDate: null,
 			dueDate: null
 		},
 
-		urlRoot: function() {
+		urlRoot: function () {
 			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+		},
+
+		initialize: function () {
+
+			// initialize ordered items collection and address model
+			this._initializeRelations();
+		},
+
+		_initializeRelations: function () {
+
+			// ordered items
+			if (!this.get('orderedItemsCollection')) {
+				this.set('orderedItemsCollection', new OrderedItemsCollection());
+			}
+
+
+			// address model
+			if (!this.get('addressModel')) {
+				this.set('addressModel', new AddressModel());
+			}
+
+			// listen for addressmodel changes
+			this.get('addressModel').on('change', function () {
+				this.trigger('change');
+			}, this);
+
 		},
 
 		parse: function (response) {
@@ -69,11 +106,19 @@ define([
 				attributes.addressModel = attributes.addressModel.toJSON();
 			}
 
+			if (this.get('dueDate')) {
+				attributes.due_at = attributes.dueDate.getTime();
+			}
+
 			return attributes;
 		},
 
-		isToday: function () {
+		wasCreatedToday: function () {
 			return (now.getDay() === this.get('createdDate').getDay());
+		},
+
+		validate: function (attributes) {
+
 		}
 
 	});

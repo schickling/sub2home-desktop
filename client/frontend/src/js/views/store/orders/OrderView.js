@@ -31,7 +31,7 @@ define([
 				dueTime = createdMoment.format('HH:mm'),
 				dateOrTime;
 
-			if (orderModel.isToday()) {
+			if (orderModel.wasCreatedToday()) {
 				dateOrTime = createdMoment.format('HH:mm');
 			} else {
 				dateOrTime = createdMoment.format('DD.MM.YYYY');

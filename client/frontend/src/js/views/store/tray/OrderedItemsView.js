@@ -11,7 +11,7 @@ define([
 
 		initialize: function () {
 
-			this.collection = cartModel.get('orderedItemsCollection');
+			this.collection = cartModel.getOrderedItemsCollection();
 
 			this.render();
 		},

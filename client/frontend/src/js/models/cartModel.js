@@ -4,9 +4,8 @@ define([
 	'backbone',
 	'backboneLocalStorage',
 	'models/stateModel',
-	'models/AddressModel',
-	'collections/OrderedItemsCollection'
-	], function (_, Backbone, backboneLocalStorage, stateModel, AddressModel, OrderedItemsCollection) {
+	'models/OrderModel'
+	], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
 
 	var CartModel = Backbone.Model.extend({
 
@@ -17,41 +16,33 @@ define([
 			// id needed for singleton
 			id: 0,
 
-			// customer address
-			addressModel: null,
+			orderModel: null,
 
 			// ordered items
-			orderedItemsCollection: null,
 			amount: 0,
 			total: 0,
 
-			paymentMethod: 'cash',
-
 			// gets calculated from store model
+			// ... mirrored for convenience reasons
 			minimum: 0
 
 		},
 
 		initialize: function () {
 
-			this.initializeData();
-
-			// listen for changes in ordered items collection
-			this.get('orderedItemsCollection').on('add remove reset', function () {
-				this.processOrderedItems();
-			}, this);
+			this._initializeData();
 
 			// determine if on last reload store was changed
 			if (stateModel.hasChangedStore()) {
-				this.changeStore();
+				this._changeStore();
 			}
 
 			// reset ordered items collection on store change
-			stateModel.on('change:storeModel', this.changeStore, this);
+			stateModel.on('change:storeModel', this._changeStore, this);
 
 		},
 
-		initializeData: function () {
+		_initializeData: function () {
 
 			// fetch if exists
 			var couldBeFetched = true;
@@ -69,15 +60,23 @@ define([
 				});
 			}, this);
 
-			// initialize ordered items collection and address model
 			if (!couldBeFetched) {
-				this.set('orderedItemsCollection', new OrderedItemsCollection());
-				this.set('addressModel', new AddressModel());
+				this.set('orderModel', new OrderModel());
 			}
 
-			// listen for addressmodel
-			this.get('addressModel').on('change', function () {
+			var orderModel = this.get('orderModel');
+
+			// listen for changes in order model
+			orderModel.on('change', function () {
 				this.trigger('change');
+			}, this);
+
+
+			// listen for changes in ordered items collection
+			var orderedItemsCollection = orderModel.get('orderedItemsCollection');
+
+			orderedItemsCollection.on('add remove reset', function () {
+				this._processOrderedItems();
 			}, this);
 
 		},
@@ -86,12 +85,8 @@ define([
 
 			var attributes = _.clone(this.attributes);
 
-			if (attributes.hasOwnProperty('orderedItemsCollection')) {
-				attributes.orderedItemsCollection = attributes.orderedItemsCollection.toJSON();
-			}
-
-			if (attributes.hasOwnProperty('addressModel')) {
-				attributes.addressModel = attributes.addressModel.toJSON();
+			if (attributes.hasOwnProperty('orderModel')) {
+				attributes.orderModel = attributes.orderModel.toJSON();
 			}
 
 			return attributes;
@@ -99,29 +94,19 @@ define([
 
 		parse: function (response) {
 
-			if (response.hasOwnProperty('orderedItemsCollection')) {
-
-				var currentOrderedItemsCollection = this.get('orderedItemsCollection');
+			if (response.hasOwnProperty('orderModel')) {
 
 				// following distinction takes place because parse is called every time
 				// the cart model gets saved
-				// ...
-				// if orderedItemsCollection already initialized it doesn't need to be initialize twice
-				if (currentOrderedItemsCollection) {
-					response.orderedItemsCollection = currentOrderedItemsCollection;
-				} else {
-					response.orderedItemsCollection = new OrderedItemsCollection(response.orderedItemsCollection, {
-						parse: true
-					});
-				}
-
-				var currentAddressModel = this.get('addressModel');
+				var currentOrderModel = this.get('orderModel');
 
 				// if addressmodel already initialized it doesn't need to be initialize twice
-				if (currentAddressModel) {
-					response.addressModel = currentAddressModel;
+				if (currentOrderModel) {
+					response.orderModel = currentOrderModel;
 				} else {
-					response.addressModel = new AddressModel(response.addressModel);
+					response.orderModel = new OrderModel(response.orderModel, {
+						parse: true
+					});
 				}
 
 			}
@@ -129,16 +114,18 @@ define([
 			return response;
 		},
 
-		changeStore: function () {
+		_changeStore: function () {
+			var orderModel = this.get('orderModel');
+
 			// reset ordered items collection
-			this.get('orderedItemsCollection').reset();
+			orderModel.get('orderedItemsCollection').reset();
 
 			// set minimum
 			var storeModel = stateModel.get('storeModel');
 			this.set('minimum', storeModel.getMinimumValue());
 
 			// copy postal and city to customer address
-			var addressModel = this.get('addressModel'),
+			var addressModel = orderModel.get('addressModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
 
 			addressModel.set({
@@ -148,15 +135,49 @@ define([
 
 		},
 
-		processOrderedItems: function () {
-
-			var orderedItemsCollection = this.get('orderedItemsCollection');
+		_processOrderedItems: function () {
+			var orderedItemsCollection = this.getOrderedItemsCollection();
 
 			// sum up ordered items and set amount
 			this.set({
 				total: orderedItemsCollection.getTotal(),
 				amount: orderedItemsCollection.length
 			});
+		},
+
+
+		/*
+		 * Wrapper methods around order model
+		 */
+
+		getCustomerAddressModel: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('addressModel');
+		},
+
+		getOrderedItemsCollection: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('orderedItemsCollection');
+		},
+
+		addOrderedItemModel: function (orderedItemModel) {
+			var orderedItemsCollection = this.getOrderedItemsCollection();
+
+			orderedItemsCollection.add(orderedItemModel);
+		},
+
+		getPaymentMethod: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('paymentMethod');
+		},
+
+		setPaymentMethod: function (paymentMethod) {
+			var orderModel = this.get('orderModel');
+
+			orderModel.set('paymentMethod', paymentMethod);
 		}
 
 	});
