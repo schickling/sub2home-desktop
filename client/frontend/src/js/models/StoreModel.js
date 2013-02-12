@@ -32,15 +32,15 @@ define([
 
 			// listen for changes in delivery areas/times collection
 			this.on('change:deliveryAreasCollection', function () {
-				this.listenForDeliveryAreasCollectionChanges();
+				this._listenForDeliveryAreasCollectionChanges();
 			}, this);
 
 			this.on('change:deliveryTimesCollection', function () {
-				this.listenForDeliveryTimesCollectionChanges();
+				this._listenForDeliveryTimesCollectionChanges();
 			}, this);
 
-			this.listenForDeliveryAreasCollectionChanges();
-			this.listenForDeliveryTimesCollectionChanges();
+			this._listenForDeliveryAreasCollectionChanges();
+			this._listenForDeliveryTimesCollectionChanges();
 
 		},
 
@@ -100,6 +100,12 @@ define([
 			return selectedDeliveryAreaModel.get('minimumValue');
 		},
 
+		getMinimumDuration: function () {
+			var selectedDeliveryAreaModel = this.getSelectedDeliveryAreaModel();
+
+			return selectedDeliveryAreaModel.get('minimumDuration');
+		},
+
 		getSelectedDeliveryAreaModel: function () {
 			var deliveryAreasCollection = this.get('deliveryAreasCollection'),
 				selectedDeliveryAreaModel = deliveryAreasCollection.find(function (deliveryAreaModel) {
@@ -116,7 +122,7 @@ define([
 
 		},
 
-		listenForDeliveryAreasCollectionChanges: function () {
+		_listenForDeliveryAreasCollectionChanges: function () {
 			var deliveryAreasCollection = this.get('deliveryAreasCollection');
 
 			if (deliveryAreasCollection) {
@@ -126,7 +132,7 @@ define([
 			}
 		},
 
-		listenForDeliveryTimesCollectionChanges: function () {
+		_listenForDeliveryTimesCollectionChanges: function () {
 			var deliveryTimesCollection = this.get('deliveryTimesCollection');
 
 			if (deliveryTimesCollection) {

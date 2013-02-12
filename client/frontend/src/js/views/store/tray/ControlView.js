@@ -4,9 +4,10 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'notificationcenter',
 	'models/cartModel',
 	'text!templates/store/tray/ControlTemplate.html'
-	], function ($, _, Backbone, router, cartModel, ControlTemplate) {
+	], function ($, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
@@ -40,7 +41,10 @@ define([
 
 			var addressModel = cartModel.getCustomerAddressModel(),
 				isReady = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
+				dueDate = cartModel.getValidDueDate(),
 				json = {
+					dueHours: dueDate.getHours(),
+					dueMinutes: dueDate.getMinutes(),
 					isReady: isReady,
 					total: cartModel.get('total'),
 					firstName: addressModel.get('firstName'),
@@ -71,7 +75,7 @@ define([
 					});
 				},
 				error: function (error, b) {
-					console.log(b);
+					notificationcenter.error(b, b);
 				}
 			});
 		},

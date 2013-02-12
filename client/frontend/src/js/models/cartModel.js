@@ -115,10 +115,7 @@ define([
 		},
 
 		_changeStore: function () {
-			var orderModel = this.get('orderModel');
-
-			// reset ordered items collection
-			orderModel.get('orderedItemsCollection').reset();
+			var orderModel = new OrderModel();
 
 			// set minimum
 			var storeModel = stateModel.get('storeModel');
@@ -190,7 +187,38 @@ define([
 			var orderModel = this.get('orderModel');
 
 			orderModel.set('comment', comment);
+		},
+
+		getValidDueDate: function () {
+			if (!this.isDueDateValid()) {
+				this._correctDueDate();
+			}
+
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('dueDate');
+		},
+
+		isDueDateValid: function () {
+			var orderModel = this.get('orderModel'),
+				now = new Date(),
+				dueDate = orderModel.get('dueDate'),
+				storeModel = stateModel.get('storeModel'),
+				minimumDuration = storeModel.getMinimumDuration();
+
+			return dueDate.getTime() >= (now.getTime() + minimumDuration * 60000);
+		},
+
+		_correctDueDate: function () {
+			var orderModel = this.get('orderModel'),
+				now = new Date(),
+				storeModel = stateModel.get('storeModel'),
+				minimumDuration = storeModel.getMinimumDuration();
+
+			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
+			orderModel.set('dueDate', dueDate);
 		}
+
 
 	});
 
