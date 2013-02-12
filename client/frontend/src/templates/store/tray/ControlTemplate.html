@@ -15,12 +15,12 @@
 		</span>
 	</div>
 	<div class="deliveryAdditionalNote">
-		<textarea name="" id="" cols="60" rows="5"></textarea>
+		<textarea name="" id="" cols="60" rows="5"><%= comment %></textarea>
 	</div>
 </div>
 
 <div id="checkoutBasicControls">
-	<% if (ready) { %>
+	<% if (isReady) { %>
 	<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €</span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
 	und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
 	<div class="icn iCart"></div>

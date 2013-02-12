@@ -178,6 +178,18 @@ define([
 			var orderModel = this.get('orderModel');
 
 			orderModel.set('paymentMethod', paymentMethod);
+		},
+
+		getComment: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('comment');
+		},
+
+		setComment: function (comment) {
+			var orderModel = this.get('orderModel');
+
+			orderModel.set('comment', comment);
 		}
 
 	});

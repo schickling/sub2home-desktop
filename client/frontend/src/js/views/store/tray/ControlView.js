@@ -4,27 +4,25 @@ define([
 	'underscore',
 	'backbone',
 	'router',
-	'models/OrderModel',
-	'models/stateModel',
 	'models/cartModel',
 	'text!templates/store/tray/ControlTemplate.html'
-	], function ($, _, Backbone, router, OrderModel, stateModel, cartModel, ControlTemplate) {
+	], function ($, _, Backbone, router, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click .iCart': '_checkout'
+			'click .iCart': '_checkout',
+			'focusout textarea': '_saveComment'
 		},
 
 		initialize: function () {
-			this.render();
-
+			this._render();
 			this._listenForDataChanges();
 		},
 
-		render: function () {
+		_render: function () {
 
 			var paymentMethod = '';
 
@@ -41,24 +39,22 @@ define([
 			}
 
 			var addressModel = cartModel.getCustomerAddressModel(),
-				ready = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
+				isReady = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
 				json = {
-					ready: ready,
+					isReady: isReady,
 					total: cartModel.get('total'),
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
-					paymentMethod: paymentMethod
+					paymentMethod: paymentMethod,
+					comment: cartModel.getComment()
 				};
 
 			this.$el.html(this.template(json));
 		},
 
 		_listenForDataChanges: function () {
-			var addressModel = cartModel.getCustomerAddressModel();
-
-			addressModel.on('change', this.render, this);
-			cartModel.on('change', this.render, this);
+			cartModel.on('change', this._render, this);
 		},
 
 		_checkout: function () {
@@ -78,6 +74,13 @@ define([
 					console.log(b);
 				}
 			});
+		},
+
+		_saveComment: function (e) {
+			var $textarea = $(e.target),
+				comment = $textarea.val();
+
+			cartModel.setComment(comment);
 		}
 
 	});
