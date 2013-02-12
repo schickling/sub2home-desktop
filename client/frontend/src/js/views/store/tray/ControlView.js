@@ -26,6 +26,18 @@ define([
 		initialize: function () {
 			this._render();
 			this._listenForDataChanges();
+
+			// keep due date in time
+			var self = this;
+			setInterval(function () {
+				var spareMinutes = cartModel.getSpareMinutes();
+
+				if (spareMinutes > 0) {
+					cartModel.decreaseSpareMinutesByOne();
+				} else {
+					self._addMinute();
+				}
+			}, 60000);
 		},
 
 		_render: function () {
@@ -48,7 +60,10 @@ define([
 				isReady = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
 				dueDate = cartModel.getValidDueDate(),
 				dueMoment = moment(dueDate),
+				spareMinutes = cartModel.getSpareMinutes(),
 				json = {
+					hoursAreMinimum: spareMinutes < 60,
+					minutesAreMinimum: spareMinutes < 1,
 					dueHours: dueMoment.format('HH'),
 					dueMinutes: dueMoment.format('mm'),
 					isReady: isReady,
@@ -111,13 +126,10 @@ define([
 
 		_addMinutesToDueDate: function (minutes) {
 			var currentDueDate = cartModel.getValidDueDate(),
-				newDueDate = new Date(currentDueDate.getTime() + minutes * 60000);
+				newDueDate = new Date(currentDueDate.getTime() + minutes * 60000),
+				spareMinutes = cartModel.getSpareMinutes();
 
-			console.log(newDueDate);
-
-			if (cartModel.isDueDateValid(newDueDate)) {
-				console.log('ja');
-				console.log(newDueDate);
+			if (spareMinutes + minutes >= 0) {
 				cartModel.setDueDate(newDueDate);
 			} else {
 				notificationcenter.error('damn', 'yo');

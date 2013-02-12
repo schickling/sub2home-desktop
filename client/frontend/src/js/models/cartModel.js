@@ -68,7 +68,7 @@ define([
 
 			this._listenToOrderModel();
 
-			
+
 
 		},
 
@@ -105,7 +105,7 @@ define([
 			return response;
 		},
 
-		_listenToOrderModel: function() {
+		_listenToOrderModel: function () {
 			var orderModel = this.get('orderModel');
 
 			// listen for changes in order model
@@ -208,8 +208,7 @@ define([
 			var orderModel = this.get('orderModel'),
 				dueDate = orderModel.get('dueDate');
 
-			if (!dueDate || !this.isDueDateValid(dueDate)) {
-				console.log('nein');
+			if (!dueDate || !this._isDueDateValid()) {
 				this._correctDueDate();
 			}
 
@@ -217,23 +216,13 @@ define([
 		},
 
 		setDueDate: function (dueDate) {
-			if (!this.isDueDateValid(dueDate)) {
-				console.log(dueDate);
-				this._correctDueDate();
-			}
-
 			var orderModel = this.get('orderModel');
 
 			orderModel.set('dueDate', dueDate);
 		},
 
-		isDueDateValid: function (dueDate) {
-			var now = new Date(),
-				storeModel = stateModel.get('storeModel'),
-				minimumDuration = storeModel.getMinimumDuration();
-
-			// one minute tolerance
-			return dueDate.getTime() >= (now.getTime() + minimumDuration * 59000);
+		_isDueDateValid: function () {
+			return this.getSpareMinutes() >= 0;
 		},
 
 		_correctDueDate: function () {
@@ -243,11 +232,26 @@ define([
 				minimumDuration = storeModel.getMinimumDuration();
 
 			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
+
 			orderModel.set({
 				dueDate: dueDate
 			}, {
 				silent: true
 			});
+		},
+
+		// time between duedate and now + mininum duration
+		getSpareMinutes: function () {
+			var now = new Date(),
+				orderModel = this.get('orderModel'),
+				dueDate = orderModel.get('dueDate'),
+				storeModel = stateModel.get('storeModel'),
+				minimumDuration = storeModel.getMinimumDuration(),
+				// one minute tolerance
+				spareMilliseconds = dueDate.getTime() - now.getTime() - minimumDuration * 59000;
+				spareMinutes = parseInt(spareMilliseconds / 60000, 10);
+
+			return spareMinutes;
 		}
 
 

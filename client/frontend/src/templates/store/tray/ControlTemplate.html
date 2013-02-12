@@ -4,14 +4,14 @@
 		<span class="hours">
 			<i class="iBtn iArrowUp"></i>
 			<input type="text" value="<%= dueHours %>">
-			<i class="iBtn iArrowDown"></i>
+			<i class="iBtn iArrowDown <% if (hoursAreMinimum) { %>inactive <% } %>"></i>
 		</span>
 
 		<span class="clockSeparator"></span>
 		<span class="minutes">
 			<i class="iBtn iArrowUp"></i>
 			<input type="text" value="<%= dueMinutes %>">
-			<i class="iBtn iArrowDown"></i>
+			<i class="iBtn iArrowDown <% if (minutesAreMinimum) { %>inactive <% } %>"></i>
 		</span>
 	</div>
 	<div class="deliveryAdditionalNote">
