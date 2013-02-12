@@ -3471,17 +3471,75 @@ div.bankOptions {
   >div {
     display: inline-block;
     &.deliveryTimeClock {
-      >span {
-          padding: 4px;
-          background: @onNoteColor;
-          width: 120px;
-          height: 120px;
-          display: inline-block;
-
+      .hours, .minutes {
+        .positioned;
+        padding: 4px;
+        background: @onNoteColor;
+        width: 120px;
+        height: 120px;
+        display: inline-block;
         .border-radius(3px);
+        .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
+
+        &:after {
+          content: "";
+          font-family: "Homicons";
+          position: absolute;
+          line-height: 0.0001;
+          top: 60px;
+          height: 9px;
+          overflow: hidden;
+          width: 130px;
+          font-size: 141px;
+          left: -5px;
+          color: @onNoteColor;
+          text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 #7b6d4b;
         }
+        .iBtn {
+          position: absolute;
+          left: 50%;
+          margin-left: -15px;
+          .r-engraved-text;
+          color: @onNoteColor;
+          &.iArrowUp {
+            top: -32px;
+          }
+          &.iArrowDown {
+            bottom: -32px;
+          }
+          &.inactive {
+            .opacity(30);
+          }
+          .transition(color .1s linear);
+          &:hover {
+            color: darken(@onNoteColor, 5%);
+          }
+        }
+      }
+
+      .clockSeparator {
+        .positioned;
+        width: 11px;
+        height: 42px;
+        display: inline-block;
+        top: 20px;
+        margin: 0 5px;
+        &:before, &:after {
+          content: " ";
+          position: absolute;
+          width: 11px;
+          height: 11px;
+          .img-circle;
+          background: @onNoteColor;
+          .box-shadow(0 1px 0 0 rgba(255,255,255,0.4), inset 0 1px 2px 0 #a1874d);
+        }
+        &:after {
+          top: 30px;
+        }
+      }      
+
       input {
-        padding: 0;
+        padding: 5px 0 0 0;
         margin: 0;
         .border-box;
         .positioned;
@@ -3490,6 +3548,11 @@ div.bankOptions {
         background: @white;
         .border-radius(3px);
         border: none;
+        #gradient > .vertical-clock-style;
+        .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
+        font-size: 100px;
+        color: @black;
+        text-align: center;
       }
     }
   }

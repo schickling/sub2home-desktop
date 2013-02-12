@@ -2241,6 +2241,14 @@ table [class*=span],
 .bNextItem:before {
   content: "\e03f";
 }
+.iArrowUp:before,
+.bArrowUp:before {
+  content: "\e040";
+}
+.iArrowDown:before,
+.bArrowDown:before {
+  content: "\e041";
+}
 .iCircle:before {
   content: "\e053";
 }
@@ -6038,7 +6046,9 @@ div.bankOptions .bankaccount {
 #checkoutAdditionalOptions > div {
   display: inline-block;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock > span {
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes {
+  position: relative;
   padding: 4px;
   background: #d1ba82;
   width: 120px;
@@ -6048,9 +6058,83 @@ div.bankOptions .bankaccount {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours:after,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes:after {
+  content: "";
+  font-family: "Homicons";
+  position: absolute;
+  line-height: 0.0001;
+  top: 60px;
+  height: 9px;
+  overflow: hidden;
+  width: 130px;
+  font-size: 141px;
+  left: -5px;
+  color: #d1ba82;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 -1px 0 #7b6d4b;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn {
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
+  color: #c3a55d;
+  color: #d1ba82;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowUp,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowUp {
+  top: -32px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowDown,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowDown {
+  bottom: -32px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.inactive,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.inactive {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
+  color: #cab06f;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator {
+  position: relative;
+  width: 11px;
+  height: 42px;
+  display: inline-block;
+  top: 20px;
+  margin: 0 5px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:before,
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
+  content: " ";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  background: #d1ba82;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
+  top: 30px;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock input {
-  padding: 0;
+  padding: 5px 0 0 0;
   margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6064,6 +6148,20 @@ div.bankOptions .bankaccount {
   -moz-border-radius: 3px;
   border-radius: 3px;
   border: none;
+  background-color: #edc86e;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4d68d), color-stop(50%, #e6ba4e), color-stop(50%, #f4d68d), to(#e6ba4e));
+  background-image: -webkit-linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
+  background-image: -moz-linear-gradient(top, #f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
+  background-image: -o-linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
+  background-image: linear-gradient(#f4d68d, #e6ba4e 50%, #f4d68d, 50%, #e6ba4e);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4d68d', endColorstr='#ffe6ba4e', GradientType=0);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  font-size: 100px;
+  color: #000000;
+  text-align: center;
 }
 #checkoutBasicControls {
   position: relative;

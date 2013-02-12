@@ -463,6 +463,19 @@
     background-repeat: no-repeat;
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
   }
+
+  .vertical-clock-style(@startColor: #f4d68d, @colorStopColor1: #e6ba4e, @colorStop1: 50%, @colorStopColor2: #f4d68d, @colorStop2: 50%, @endColor: #e6ba4e) {
+    background-color: mix(@startColor, @endColor, 50%);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop1, @colorStopColor1), color-stop(@colorStop2, @colorStopColor2), to(@endColor));
+    background-image: -webkit-linear-gradient(@startColor, @colorStopColor1 @colorStop1, @colorStopColor2, @colorStop2, @endColor);
+    background-image: -moz-linear-gradient(top, @startColor, @colorStopColor1 @colorStop1, @colorStopColor2, @colorStop2, @endColor);
+    background-image: -o-linear-gradient(@startColor, @colorStopColor1 @colorStop1, @colorStopColor2, @colorStop2, @endColor);
+    background-image: linear-gradient(@startColor, @colorStopColor1 @colorStop1, @colorStopColor2, @colorStop2, @endColor);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+
+
   .radial(@innerColor: #555, @outerColor: #333)  {
     background-color: @outerColor;
     background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
