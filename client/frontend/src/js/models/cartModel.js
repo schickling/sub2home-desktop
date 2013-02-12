@@ -66,18 +66,9 @@ define([
 
 			var orderModel = this.get('orderModel');
 
-			// listen for changes in order model
-			orderModel.on('change', function () {
-				this.trigger('change');
-			}, this);
+			this._listenToOrderModel();
 
-
-			// listen for changes in ordered items collection
-			var orderedItemsCollection = orderModel.get('orderedItemsCollection');
-
-			orderedItemsCollection.on('add remove reset', function () {
-				this._processOrderedItems();
-			}, this);
+			
 
 		},
 
@@ -114,12 +105,35 @@ define([
 			return response;
 		},
 
+		_listenToOrderModel: function() {
+			var orderModel = this.get('orderModel');
+
+			// listen for changes in order model
+			orderModel.on('change', function () {
+				this.trigger('change');
+			}, this);
+
+			// listen for changes in ordered items collection
+			var orderedItemsCollection = orderModel.get('orderedItemsCollection');
+
+			orderedItemsCollection.on('add remove reset', function () {
+				this._processOrderedItems();
+			}, this);
+		},
+
 		_changeStore: function () {
-			var orderModel = new OrderModel();
+
+			var orderModel = new OrderModel(),
+				storeModel = stateModel.get('storeModel');
+
+			this.set('orderModel', orderModel);
+
+			this._listenToOrderModel();
 
 			// set minimum
-			var storeModel = stateModel.get('storeModel');
-			this.set('minimum', storeModel.getMinimumValue());
+			this.set({
+				minimum: storeModel.getMinimumValue()
+			});
 
 			// copy postal and city to customer address
 			var addressModel = orderModel.get('addressModel'),
@@ -129,6 +143,7 @@ define([
 				postal: selectedDeliveryAreaModel.get('postal'),
 				city: selectedDeliveryAreaModel.get('description')
 			});
+
 
 		},
 
@@ -228,7 +243,6 @@ define([
 				minimumDuration = storeModel.getMinimumDuration();
 
 			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
-
 			orderModel.set({
 				dueDate: dueDate
 			}, {

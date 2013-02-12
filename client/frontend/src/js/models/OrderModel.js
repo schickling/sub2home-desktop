@@ -86,7 +86,6 @@ define([
 				}
 
 				if (response.hasOwnProperty('due_at')) {
-				console.log('juhu2');
 					response.dueDate = new Date(response.due_at);
 					console.log(response.dueDate);
 				}
