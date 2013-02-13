@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Input;
+use Request;
 use Validator;
 use ClientModel;
 use Hash;
@@ -49,19 +50,48 @@ class AuthentificationController extends ApiController
             $this->error(400, $validator->messages());
         }
 
+
+
+
+        // check for failed attempts
+
+        // TODO: use laravel function for that
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $cacheKey = 'attempt_' . $number . '_from_' . $ip;
+        $numberOfFailedAttempts = Cache::get($cacheKey, 0);
+
+        if ($numberOfFailedAttempts > 2) {
+
+            $numberOfFailedAttempts++;
+            $exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
+            Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
+
+            $this->error(429);
+        }
+
+
+
         // search client
         $clientModel = ClientModel::where('number', $number)->first();
 
         if (!$clientModel) {
+
             $this->error(404);
         }
+
 
         // check password
         $passwordMatched = Hash::check($password, $clientModel->password);
 
         if (!$passwordMatched) {
+            // cache failed attempt to prevent brute forcing
+            $numberOfFailedAttempts++;
+            Cache::put($cacheKey, $numberOfFailedAttempts, 1);
+
             $this->error(401);
+            // var_dump('damn moddafokr');
         }
+
 
 
         // create, cache and return token
