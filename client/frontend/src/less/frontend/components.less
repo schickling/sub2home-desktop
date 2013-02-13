@@ -544,154 +544,165 @@ div.pricetag {
 aside#header {
   .clearfix;
   .backface-visibility(hidden);
-  >div {
-
-    // COMMON STYLES
-
-    font-family: @headingsFontFamily;
-    font-size: 15px;
-    border-left: 1px solid @onNoteColor;
-    height: 67px;
-    .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
-    padding: 0 15px;
+  
+  .logo {
+    border: none;
+    .box-shadow(none);
+    background: @ourLogo;
+    width: 182px;
+    margin-left: -60px;
+    .positioned;
+    z-index:2;
     float: left;
-    color: @onHeaderColor;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    height: 67px;
+  }
 
-    // LOGO SECTION
+  #headerContent {
+    float: left;
+    .clearfix;
+    >div {
 
-    &.logo {
-      border: none;
-      .box-shadow(none);
-      background: @ourLogo;
-      width: 182px;
-      margin-left: -60px;
-      .positioned;
-      z-index:2;
-    }
+      // COMMON STYLES
 
-    // CURRENT INFO SECTION
+      font-family: @headingsFontFamily;
+      font-size: 15px;
+      border-left: 1px solid @onNoteColor;
+      height: 67px;
+      .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
+      padding: 0 15px;
+      float: left;
+      color: @onHeaderColor;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
 
-    &.currentInfo {
-      height: 30px;
-      margin: 8px 0 0 0;
-      padding-top: 18px;
-    }
+      // LOGO SECTION
 
-    // BACK SECTION
-
-    &.back {
-      height: 48px;
-      margin: 8px 0 0 0;
-      float: right;
-      line-height: 1;
-      .positioned;
-      cursor: pointer;
-      text-align: center;
-      .transition(color .1s linear);
-      &:before {
-        margin-top: 5px;
-        content: "\e03e";
-        font-family: "Homicons";
-        display: block;
-        font-size: 40px;
-        position: relative;
-        top: 2px;
-        left: 0;
-        line-height: 0.3;
+      &.logo {
+        
       }
-      &:hover {
-        color: darken(@onHeaderColor, 10%);
+
+      // CURRENT INFO SECTION
+
+      &.currentInfo {
+        height: 30px;
+        margin: 8px 0 0 0;
+        padding-top: 18px;
       }
-    }
 
-    // TRAY PREVIEW SECTION
+      // BACK SECTION
 
-    &.trayPreview {
-      cursor: pointer;
-      float: right;
-      background: @headerTrayBackground;
-      border-left: 1px solid rgba(255,255,255,0.6);
-      .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
-      .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
-      
-      .iCart {
-        margin: 12px 10px 0 0;
+      &.back {
+        height: 48px;
+        margin: 8px 0 0 0;
+        float: right;
+        line-height: 1;
         .positioned;
-        top: 7px;
- 
-        span {
-          display: none;
-          font-size: 10px;
-          font-family: @headingsFontFamily;
-          color: @white;
-          font-style: normal;
-          position: absolute;
-          left: 25px;
-          top: -5px;
-          z-index: 2;
-          text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-        }
-
-        &:before {
-          color: darken(@onHeaderColor, 1%);
-          text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
-        }  
-      }
-
-
-      &.filled {
-        .iCart {
-          &:after {
-            content: " ";
-            .border-radius(500px);
-            width: 15px;
-            height: 15px;
-            position: absolute;
-            left: 19px;
-            top: -4px;
-            background: @greenLight;
-            .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-          }
-          span {
-            display: block;
-          }
-        }
-
-        >span {
-        color: darken(@onHeaderColor, 7%);
+        cursor: pointer;
+        text-align: center;
         .transition(color .1s linear);
+        &:before {
+          margin-top: 5px;
+          content: "\e03e";
+          font-family: "Homicons";
+          display: block;
+          font-size: 40px;
+          position: relative;
+          top: 2px;
+          left: 0;
+          line-height: 0.3;
+        }
+        &:hover {
+          color: darken(@onHeaderColor, 10%);
         }
       }
 
-      &:hover {
-        background: @headerTrayHoverBackground;
-        color: darken(@onHeaderColor, 15%);
-        .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
+      // TRAY PREVIEW SECTION
 
-        >span {
+      &.trayPreview {
+        cursor: pointer;
+        float: right;
+        background: @headerTrayBackground;
+        border-left: 1px solid rgba(255,255,255,0.6);
+        .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
+        .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
+        
+        .iCart {
+          margin: 12px 10px 0 0;
+          .positioned;
+          top: 7px;
+   
+          span {
+            display: none;
+            font-size: 10px;
+            font-family: @headingsFontFamily;
+            color: @white;
+            font-style: normal;
+            position: absolute;
+            left: 25px;
+            top: -5px;
+            z-index: 2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+          }
+
+          &:before {
+            color: darken(@onHeaderColor, 1%);
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
+          }  
+        }
+
+
+        &.filled {
+          .iCart {
+            &:after {
+              content: " ";
+              .border-radius(500px);
+              width: 15px;
+              height: 15px;
+              position: absolute;
+              left: 19px;
+              top: -4px;
+              background: @greenLight;
+              .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
+            }
+            span {
+              display: block;
+            }
+          }
+
+          >span {
+          color: darken(@onHeaderColor, 7%);
+          .transition(color .1s linear);
+          }
+        }
+
+        &:hover {
+          background: @headerTrayHoverBackground;
           color: darken(@onHeaderColor, 15%);
+          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
+
+          >span {
+            color: darken(@onHeaderColor, 15%);
+          }
         }
       }
-    }
 
-    // TO-THE-INFO SECTION
+      // TO-THE-INFO SECTION
 
-    &.bInfo {
-      width: 30px;
-      float: right;
-      cursor: pointer;
-      border-left: none;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(@onHeaderColor, 20%);
+      &.bInfo {
+        width: 30px;
+        float: right;
+        cursor: pointer;
+        border-left: none;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(@onHeaderColor, 20%);
 
-      .transition(e('color .1s linear, background .1s linear'));
-      &:before {
-        .positioned;
-        top: 19px;
-      }
-      &:hover {
-        color: darken(@onHeaderColor, 10%);
-        background: @headerHoverBackground;
+        .transition(e('color .1s linear, background .1s linear'));
+        &:before {
+          .positioned;
+          top: 19px;
+        }
+        &:hover {
+          color: darken(@onHeaderColor, 10%);
+          background: @headerHoverBackground;
+        }
       }
     }
   }
@@ -3532,7 +3543,7 @@ div.bankOptions {
         .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
         font-size: 100px;
         font-family: @headingsFontFamily;
-        color: @black;
+        color: #37270a;
         text-align: center;
         line-height: 0.47;
         overflow: hidden;

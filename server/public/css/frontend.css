@@ -3531,7 +3531,33 @@ aside#header:after {
 aside#header:after {
   clear: both;
 }
-aside#header > div {
+aside#header .logo {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: url("../img/static/common/subway_logo.png") center no-repeat;
+  width: 182px;
+  margin-left: -60px;
+  position: relative;
+  z-index: 2;
+  float: left;
+  height: 67px;
+}
+aside#header #headerContent {
+  float: left;
+  *zoom: 1;
+}
+aside#header #headerContent:before,
+aside#header #headerContent:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+aside#header #headerContent:after {
+  clear: both;
+}
+aside#header #headerContent > div {
   font-family: "VAGRounded LT Thin";
   font-size: 15px;
   border-left: 1px solid #d1ba82;
@@ -3544,23 +3570,12 @@ aside#header > div {
   color: #a78a44;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
-aside#header > div.logo {
-  border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  background: url("../img/static/common/subway_logo.png") center no-repeat;
-  width: 182px;
-  margin-left: -60px;
-  position: relative;
-  z-index: 2;
-}
-aside#header > div.currentInfo {
+aside#header #headerContent > div.currentInfo {
   height: 30px;
   margin: 8px 0 0 0;
   padding-top: 18px;
 }
-aside#header > div.back {
+aside#header #headerContent > div.back {
   height: 48px;
   margin: 8px 0 0 0;
   float: right;
@@ -3573,7 +3588,7 @@ aside#header > div.back {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header > div.back:before {
+aside#header #headerContent > div.back:before {
   margin-top: 5px;
   content: "\e03e";
   font-family: "Homicons";
@@ -3584,10 +3599,10 @@ aside#header > div.back:before {
   left: 0;
   line-height: 0.3;
 }
-aside#header > div.back:hover {
+aside#header #headerContent > div.back:hover {
   color: #836c35;
 }
-aside#header > div.trayPreview {
+aside#header #headerContent > div.trayPreview {
   cursor: pointer;
   float: right;
   background: rgba(184, 126, 0, 0.25);
@@ -3600,12 +3615,12 @@ aside#header > div.trayPreview {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header > div.trayPreview .iCart {
+aside#header #headerContent > div.trayPreview .iCart {
   margin: 12px 10px 0 0;
   position: relative;
   top: 7px;
 }
-aside#header > div.trayPreview .iCart span {
+aside#header #headerContent > div.trayPreview .iCart span {
   display: none;
   font-size: 10px;
   font-family: "VAGRounded LT Thin";
@@ -3617,11 +3632,11 @@ aside#header > div.trayPreview .iCart span {
   z-index: 2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-aside#header > div.trayPreview .iCart:before {
+aside#header #headerContent > div.trayPreview .iCart:before {
   color: #a38743;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 #5f4e26;
 }
-aside#header > div.trayPreview.filled .iCart:after {
+aside#header #headerContent > div.trayPreview.filled .iCart:after {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -3637,27 +3652,27 @@ aside#header > div.trayPreview.filled .iCart:after {
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
 }
-aside#header > div.trayPreview.filled .iCart span {
+aside#header #headerContent > div.trayPreview.filled .iCart span {
   display: block;
 }
-aside#header > div.trayPreview.filled > span {
+aside#header #headerContent > div.trayPreview.filled > span {
   color: #8e753a;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header > div.trayPreview:hover {
+aside#header #headerContent > div.trayPreview:hover {
   background: rgba(184, 126, 0, 0.35);
   color: #715d2e;
   -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
 }
-aside#header > div.trayPreview:hover > span {
+aside#header #headerContent > div.trayPreview:hover > span {
   color: #715d2e;
 }
-aside#header > div.bInfo {
+aside#header #headerContent > div.bInfo {
   width: 30px;
   float: right;
   cursor: pointer;
@@ -3668,11 +3683,11 @@ aside#header > div.bInfo {
   -o-transition: color .1s linear, background .1s linear;
   transition: color .1s linear, background .1s linear;
 }
-aside#header > div.bInfo:before {
+aside#header #headerContent > div.bInfo:before {
   position: relative;
   top: 19px;
 }
-aside#header > div.bInfo:hover {
+aside#header #headerContent > div.bInfo:hover {
   color: #836c35;
   background: rgba(184, 126, 0, 0.08);
 }
@@ -6122,7 +6137,7 @@ div.bankOptions .bankaccount {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
   font-size: 100px;
   font-family: "VAGRounded LT Thin";
-  color: #000000;
+  color: #37270a;
   text-align: center;
   line-height: 0.47;
   overflow: hidden;
