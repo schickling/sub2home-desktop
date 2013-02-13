@@ -3573,6 +3573,7 @@ aside#header .bInfo:hover {
 aside#header .switch {
   position: absolute;
   z-index: 50;
+  left: 300px;
 }
 aside#header #headerContent {
   position: absolute;
@@ -3703,6 +3704,84 @@ aside#header #headerContent > div.trayPreview:hover {
 }
 aside#header #headerContent > div.trayPreview:hover > span {
   color: #715d2e;
+}
+aside#header #headerContent #clientAreaNavigation {
+  float: right;
+  background: rgba(184, 126, 0, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
+  -moz-box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
+  box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
+}
+aside#header div#roleSwitch {
+  position: absolute;
+  left: 79px;
+  width: 21px;
+  height: 46px;
+  padding: 2px;
+  margin: 5px 0 0 0;
+  border: none;
+  font-size: 10px;
+  background: #d1ba82;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  z-index: 50;
+}
+aside#header div#roleSwitch .icn {
+  color: #a78a44;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  height: 15px;
+  margin-top: 4px;
+}
+aside#header div#roleSwitch .icn:before {
+  font-size: 15px;
+  top: -8px;
+}
+aside#header div#roleSwitch .handle {
+  position: absolute;
+  top: 27px;
+  left: 2px;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 21px;
+  height: 21px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  background-color: #eecb74;
+  background-image: -moz-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4d68d), to(#e6ba4e));
+  background-image: -webkit-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -o-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: linear-gradient(to bottom, #f4d68d, #e6ba4e);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4d68d', endColorstr='#ffe6ba4e', GradientType=0);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  color: #ae7f0f;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: top 0.1s ease-in-out;
+  -moz-transition: top 0.1s ease-in-out;
+  -o-transition: top 0.1s ease-in-out;
+  transition: top 0.1s ease-in-out;
+}
+aside#header div#roleSwitch .handle:before {
+  top: -4px;
+}
+aside#header div#roleSwitch .handle:hover {
+  top: 24px;
 }
 #content {
   padding: 0;
@@ -6131,7 +6210,6 @@ div.bankOptions .bankaccount {
   box-sizing: border-box;
   width: 120px;
   height: 59px;
-  background: #ffffff;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
