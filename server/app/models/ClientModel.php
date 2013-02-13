@@ -36,7 +36,7 @@ class ClientModel extends BaseModel {
 	 */
 	public function addressModel()
 	{
-		return $this->hasOne('AddressModel');
+		return $this->morphOne('AddressModel', 'ownerModel');
 	}
 
 	/**

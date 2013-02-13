@@ -27,7 +27,7 @@ class PopulateTables extends Migration {
 	public function populate()
 	{
 		// AddressModel
-		$ad1 = new AddressModel(array(
+		$ad1 = array(
 			'firstName' => 'Sebastian',
 			'lastName' => 'Weigold',
 			'street' => 'Maximilianstr 4',
@@ -36,9 +36,9 @@ class PopulateTables extends Migration {
 			'city' => 'Memmingen',
 			'phone' => 112,
 			'email' => 'office@my-sub.de'
-			));
+			);
 
-		$ad2 = new AddressModel(array(
+		$ad2 = array(
 			'firstName' => 'Max',
 			'lastName' => 'Mustermann',
 			'street' => 'Tuerkenstr 24',
@@ -47,9 +47,9 @@ class PopulateTables extends Migration {
 			'city' => 'Berlin',
 			'phone' => 112,
 			'email' => 'julian@my-sub.de'
-			));
+			);
 
-		$ad3 = new AddressModel(array(
+		$ad3 = array(
 			'firstName' => 'Sebastian',
 			'lastName' => 'Weigold',
 			'street' => 'Maximilianstr 7',
@@ -57,29 +57,29 @@ class PopulateTables extends Migration {
 			'city' => 'Memmingen',
 			'phone' => 112,
 			'email' => 'store@my-sub.de'
-			));
+			);
 
-		$ad4 = new AddressModel(array(
+		$ad4 = array(
 			'firstName' => 'Max',
 			'lastName' => 'Musterfrau',
 			'street' => 'Memmingerstr 23',
 			'postal' => 89073,
 			'city' => 'Ulm'
-			));
+			);
 
-		$ad5 = new AddressModel(array(
+		$ad5 = array(
 			'street' => 'Blumenstr 17',
 			'postal' => 10557,
 			'city' => 'Berlin'
-			));
+			);
 
-		$ad6 = new AddressModel(array(
+		$ad6 = array(
 			'street' => 'Bahnhofs 3',
 			'postal' => 10117,
 			'city' => 'Berlin'
-			));
+			);
 
-		$ad7 = new AddressModel(array(
+		$ad7 = array(
 			'firstName' => 'Johannes',
 			'lastName' => 'Schickling',
 			'street' => 'Lerchenstr 4',
@@ -88,9 +88,9 @@ class PopulateTables extends Migration {
 			'city' => 'Karlsruhe',
 			'phone' => 112,
 			'email' => 'offi23ce@my-sub.de'
-			));
+			);
 
-		$ad8 = new AddressModel(array(
+		$ad8 = array(
 			'firstName' => 'Johannes',
 			'lastName' => 'Schickling',
 			'street' => 'Kaiserallee 16',
@@ -99,9 +99,9 @@ class PopulateTables extends Migration {
 			'city' => 'Karlsruhe',
 			'phone' => 112,
 			'email' => 'offi23ce@my-sub.de'
-			));
+			);
 
-		$ad9 = new AddressModel(array(
+		$ad9 = array(
 			'firstName' => 'Johannes',
 			'lastName' => 'Schickling',
 			'street' => 'Reihnstr 4',
@@ -110,7 +110,7 @@ class PopulateTables extends Migration {
 			'city' => 'Karlsruhe',
 			'phone' => 112,
 			'email' => 'offi23ce@my-sub.de'
-			));
+			);
 
 		// Clients
 		$u2 = new ClientModel(array(
@@ -119,7 +119,7 @@ class PopulateTables extends Migration {
 			'email' => 'office@my-sub.de'
 			));
 		$u2->save();
-		$u2->addressModel()->save($ad1);
+		$u2->addressModel()->create($ad1);
 
 		$u3 = new ClientModel(array(
 			'number' => 25,
@@ -127,7 +127,7 @@ class PopulateTables extends Migration {
 			'email' => 'test@web.de'
 			));
 		$u3->save();
-		$u3->addressModel()->save($ad2);
+		$u3->addressModel()->create($ad2);
 
 		$u4 = new ClientModel(array(
 			'number' => 215,
@@ -135,7 +135,7 @@ class PopulateTables extends Migration {
 			'email' => 'test2@web.de'
 			));
 		$u4->save();
-		$u4->addressModel()->save($ad7);
+		$u4->addressModel()->create($ad7);
 
 		$u5 = new ClientModel(array(
 			'number' => 2115,
@@ -143,7 +143,7 @@ class PopulateTables extends Migration {
 			'email' => 'tesdgst2@web.de'
 			));
 		$u5->save();
-		$u5->addressModel()->save($ad8);
+		$u5->addressModel()->create($ad8);
 
 		$u6 = new ClientModel(array(
 			'number' => 2215,
@@ -151,7 +151,7 @@ class PopulateTables extends Migration {
 			'email' => 'tesdsst2@web.de'
 			));
 		$u6->save();
-		$u6->addressModel()->save($ad9);
+		$u6->addressModel()->create($ad9);
 
 		// store_models
 		$s1 = new StoreModel(array(
@@ -159,7 +159,8 @@ class PopulateTables extends Migration {
 			'number' => 41786,
 			'isActive' => true,
 			'isOpen' => true,
-			'client_model_id' => $u2->id
+			'client_model_id' => $u2->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s1->save();
 
@@ -167,7 +168,8 @@ class PopulateTables extends Migration {
 			'title' => 'Ulm 2',
 			'number' => 23345,
 			'isActive' => true,
-			'client_model_id' => $u3->id
+			'client_model_id' => $u3->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s2->save();
 
@@ -176,7 +178,8 @@ class PopulateTables extends Migration {
 			'number' => 22345,
 			'isActive' => true,
 			'isOpen' => true,
-			'client_model_id' => $u3->id
+			'client_model_id' => $u3->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s3->save();
 
@@ -184,7 +187,8 @@ class PopulateTables extends Migration {
 			'title' => 'Berlin 2',
 			'number' => 22355,
 			'isActive' => true,
-			'client_model_id' => $u3->id
+			'client_model_id' => $u3->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s4->save();
 
@@ -193,7 +197,8 @@ class PopulateTables extends Migration {
 			'number' => 21355,
 			'isActive' => true,
 			'isOpen' => true,
-			'client_model_id' => $u4->id
+			'client_model_id' => $u4->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s5->save();
 
@@ -202,7 +207,8 @@ class PopulateTables extends Migration {
 			'number' => 25355,
 			'isActive' => true,
 			'isOpen' => true,
-			'client_model_id' => $u5->id
+			'client_model_id' => $u5->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s6->save();
 
@@ -211,7 +217,8 @@ class PopulateTables extends Migration {
 			'number' => 25345,
 			'isActive' => true,
 			'isOpen' => true,
-			'client_model_id' => $u6->id
+			'client_model_id' => $u6->id,
+			'orderEmail' => 'test@test.de'
 			));
 		$s7->save();
 
@@ -254,7 +261,7 @@ class PopulateTables extends Migration {
 				));
 			$order->save();
 
-			$customerAddress = new AddressModel(array(
+			$customerAddress = array(
 				'firstName' => 'Max',
 				'lastName' => 'Mustermann',
 				'street' => 'Tuerkenstr 24',
@@ -263,9 +270,9 @@ class PopulateTables extends Migration {
 				'city' => 'Berlin',
 				'phone' => 112,
 				'email' => 'julian@my-sub.de'
-				));
+				);
 
-			$order->addressModel()->save($customerAddress);
+			$order->addressModel()->create($customerAddress);
 			unset($customerAddress);
 			unset($order);
 		}

@@ -42,7 +42,7 @@ class OrderModel extends BaseModel
 	 */
 	public function addressModel()
 	{
-		return $this->hasOne('AddressModel');
+		return $this->morphOne('AddressModel', 'ownerModel');
 	}
 
 	public function calculateTotal()

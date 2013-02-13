@@ -21,9 +21,8 @@ class AddressModelTable extends Migration {
 			$table->string('phone', 128);
 			$table->string('email', 128);
 			$table->integer('postal');
-			$table->integer('store_model_id');
-			$table->integer('client_model_id');
-			$table->integer('order_model_id');
+			$table->string('ownerModel_type');
+			$table->integer('ownerModel_id');
 		});
 	}
 

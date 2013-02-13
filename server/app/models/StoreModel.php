@@ -29,7 +29,7 @@ class StoreModel extends BaseModel
 	{
 
 		// Copy address of owner
-		$addressModel = new AddressModel(array(
+		$copiedAddress = array(
 			'firstName' => $this->clientModel->addressModel->firstName,
 			'lastName' => $this->clientModel->addressModel->lastName,
 			'street' => $this->clientModel->addressModel->street,
@@ -38,8 +38,8 @@ class StoreModel extends BaseModel
 			'city' => $this->clientModel->addressModel->city,
 			'phone' => $this->clientModel->addressModel->phone,
 			'email' => $this->clientModel->addressModel->email
-			));
-		$this->addressModel()->save($addressModel);
+			);
+		$this->addressModel()->create($copiedAddress);
 
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
@@ -146,7 +146,7 @@ class StoreModel extends BaseModel
 	 */
 	public function addressModel()
 	{
-		return $this->hasOne('AddressModel');
+		return $this->morphOne('AddressModel', 'ownerModel');
 	}
 
 	/**

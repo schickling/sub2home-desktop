@@ -19,35 +19,15 @@ class AddressModel extends BaseModel
 		}
 	}
 
-	public function clientModel()
+	public function ownerModel()
 	{
-		return $this->belongsTo('ClientModel');
+		return $this->morphTo();
 	}
 
+	// TODO: replace and issue
 	public function storeModel()
 	{
 		return $this->belongsTo('StoreModel');
-	}
-
-	public function orderModel()
-	{
-		return $this->belongsTo('OrderModel');
-	}
-
-	/**
-	 * Returns either its storeModel or clientModel
-	 * 
-	 * @return StoreModel | ClientModel
-	 */
-	public function getOwnerModelAttribute()
-	{
-		if ($this->storeModel != null) {
-			return $this->storeModel;
-		} elseif ($this->clientModel != null) {
-			return $this->clientModel;
-		} else {
-			throw new Exception("Address has no owner");
-		}
 	}
 
 	/**
