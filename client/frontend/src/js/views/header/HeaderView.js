@@ -49,13 +49,13 @@ define([
 		renderStoreView: function () {
 			this.childView = new StoreView({
 				model: stateModel.get('storeModel'),
-				el: this.$('.content')
+				el: this.$('#headerContent')
 			});
 		},
 
 		renderClientView: function () {
 			this.childView = new ClientView({
-				el: this.$('.content')
+				el: this.$('#headerContent')
 			});
 		},
 
