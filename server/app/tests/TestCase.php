@@ -1,6 +1,17 @@
-<?php
+<?php namespace App\Tests;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Artisan;
+use Mail;
+
+class TestCase extends BaseTestCase {
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->prepareForTests();
+    }
 
     /**
      * Creates the application.
@@ -13,7 +24,17 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
         $testEnvironment = 'testing';
 
-    	return require __DIR__.'/../../bootstrap/start.php';
+        return require __DIR__.'/../../bootstrap/start.php';
+    }
+
+    /**
+     * Migrates the database and set the mailer to 'pretend'.
+     * This will cause the tests to run quickly.
+     */
+    private function prepareForTests()
+    {
+        Artisan::call('migrate');
+        Mail::pretend(true);
     }
 
 }
