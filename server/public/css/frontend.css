@@ -2312,8 +2312,8 @@ table [class*=span],
 .bSearch:before {
   content: "\e065";
 }
-.iProfile:before,
-.bProfile:before {
+.iUser:before,
+.bUser:before {
   content: "\e066";
 }
 .iFlag:before,
@@ -3736,7 +3736,8 @@ aside#header div#roleSwitch .icn {
   color: #a78a44;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   height: 15px;
-  margin-top: 4px;
+  width: 15px;
+  margin: 4px 0 0 3px;
 }
 aside#header div#roleSwitch .icn:before {
   font-size: 15px;
