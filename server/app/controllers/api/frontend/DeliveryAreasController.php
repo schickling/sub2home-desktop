@@ -35,6 +35,8 @@ class DeliveryAreasController extends ApiController
 
 		$deliveryAreaModel = DeliveryAreaModel::find($id);
 
+		$this->checkBelongsToThisStore($deliveryAreaModel->storeModel->id);
+
 		$deliveryAreaModel->minimumDuration = $input->minimumDuration;
 		$deliveryAreaModel->minimumValue = $input->minimumValue;
 		$deliveryAreaModel->postal = $input->postal;

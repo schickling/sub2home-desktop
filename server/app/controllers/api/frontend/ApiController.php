@@ -56,5 +56,17 @@ class ApiController extends BaseApiController
 		}
 	}
 
+	protected function checkBelongsToThisStore($storeIdOfElement)
+	{
+		// load store model if needed
+		if (!$this->storeModel) {
+			$this->loadStoreModel();
+		}
+
+		if ($this->storeModel->id != $storeIdOfElement) {
+			$this->error(401);
+		}
+	}
+
 
 }

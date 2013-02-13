@@ -1,7 +1,8 @@
 // Filename: src/js/modules/authentification.js
 define([
-	'jquery'
-	], function ($) {
+	'jquery',
+	'notificationcenter',
+	], function ($, notificationcenter) {
 
 	var authentification = {
 
@@ -70,6 +71,17 @@ define([
 				success: function (token) {
 					window.localStorage.setItem('token', token);
 					isLoggedIn = true;
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+
+					var statusCode = jqXHR.status;
+
+					if (statusCode === 429) {
+						notificationcenter.error('Zu viele fehlerhafte Versuche', 'Warte verdammt!');
+					} else {
+						notificationcenter.error('Daten falsch', 'Damn it');
+					}
+					
 				}
 			});
 

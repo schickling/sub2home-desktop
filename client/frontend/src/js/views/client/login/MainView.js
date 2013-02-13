@@ -5,10 +5,9 @@ define([
 	'backbone',
 	'authentification',
 	'router',
-	'notificationcenter',
 	'views/PageView',
 	'text!templates/client/login/MainTemplate.html'
-	], function ($, _, Backbone, authentification, router, notificationcenter, PageView, MainTemplate) {
+	], function ($, _, Backbone, authentification, router, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -49,8 +48,6 @@ define([
 					trigger: true,
 					replace: true
 				});
-			} else {
-				notificationcenter.error('Daten falsch', 'Damn it');
 			}
 
 		},

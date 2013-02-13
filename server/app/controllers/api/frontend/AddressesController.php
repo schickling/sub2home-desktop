@@ -2,6 +2,8 @@
 
 use Validator;
 use Input;
+use Request;
+use AddressModel;
 
 
 class AddressesController extends ApiController
@@ -29,8 +31,11 @@ class AddressesController extends ApiController
 
 		$this->loadStoreModel();
 		$this->checkAuthentification();
-		
-		$addressModel = $this->storeModel->addressModel;
+
+		$id = Request::segment(6);
+		$addressModel = AddressModel::find($id);
+
+		$this->checkBelongsToThisStore($addressModel->ownerModel->id);
 
 		$addressModel->firstName = $input->firstName;
 		$addressModel->lastName = $input->lastName;

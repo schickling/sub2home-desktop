@@ -36,6 +36,8 @@ class DeliveryTimesController extends ApiController
 
 		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
+		$this->checkBelongsToThisStore($deliveryTimeModel->storeModel->id);
+
 		$deliveryTimeModel->startMinutes = $input->startMinutes;
 		$deliveryTimeModel->endMinutes = $input->endMinutes;
 

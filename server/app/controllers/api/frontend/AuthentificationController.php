@@ -52,7 +52,6 @@ class AuthentificationController extends ApiController
 
 
 
-
         // check for failed attempts
 
         // TODO: use laravel function for that
@@ -66,7 +65,8 @@ class AuthentificationController extends ApiController
             $exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
             Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 
-            $this->error(429);
+            $this->error(429, $exponentialWaitingTime);
+
         }
 
 
@@ -89,7 +89,6 @@ class AuthentificationController extends ApiController
             Cache::put($cacheKey, $numberOfFailedAttempts, 1);
 
             $this->error(401);
-            // var_dump('damn moddafokr');
         }
 
 
