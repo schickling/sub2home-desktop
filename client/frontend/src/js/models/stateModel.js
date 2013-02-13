@@ -27,6 +27,9 @@ define([
 			selectionRessourceType: '',
 			selectionRessourceId: '',
 
+			// header state
+			isClientHeaderActive: false,
+
 			// route names
 			currentRoute: '',
 			prevRoute: ''

@@ -3,65 +3,68 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'router',
-	'notificationcenter',
 	'models/stateModel',
-	'views/header/CartView',
+	'views/header/StoreView',
+	'views/header/ClientView',
 	'text!templates/header/HeaderTemplate.html'
-	], function ($, _, Backbone, router, notificationcenter, stateModel, CartView, HeaderTemplate) {
+	], function ($, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
 		el: $('#header'),
 
-		template: _.template(HeaderTemplate),
-
 		events: {
-			'click .back': 'back',
 			'click .logo': 'reset',
-			'click .currentInfo': 'notifyTest'
+			'click .switch': 'switchChildView'
 		},
+
+		childView: null,
 
 		initialize: function () {
 			this.render();
 
-			stateModel.on('change:storeModel', this.render, this);
+			stateModel.on('change:storeModel', this.renderStoreView, this);
+
+			stateModel.on('change:isClientHeaderActive', function () {
+				if (stateModel.get('isClientHeaderActive')) {
+					this.renderClientView();
+				} else {
+					this.renderStoreView();
+				}
+			}, this);
 		},
 
 		render: function () {
-			// TODO
-			if (stateModel.get('storeModel')) {
 
-				var json = {
-					storeTitle: stateModel.get('storeModel').get('title')
-				};
+			this.$el.html(HeaderTemplate);
 
-				this.$el.html(this.template(json));
-
-				this.renderCart();
-
+			if (stateModel.get('isClientHeaderActive')) {
+				this.renderClientView();
+			} else if (stateModel.get('storeModel')) {
+				this.renderStoreView();
 			}
+
 		},
 
-		renderCart: function () {
-
-			if (stateModel.get('storeModel')) {
-				var cartView = new CartView({
-					el: this.$('.trayPreview')
-				});
-			}
+		renderStoreView: function () {
+			this.childView = new StoreView({
+				model: stateModel.get('storeModel'),
+				el: this.$('.content')
+			});
 		},
 
-		back: function () {
-			router.navigate('store', true);
+		renderClientView: function () {
+			this.childView = new ClientView({
+				el: this.$('.content')
+			});
 		},
 
 		reset: function () {
 			window.localStorage.clear();
 		},
 
-		notifyTest: function () {
-			notificationcenter.error('Test', 'Das ist ein test!' + Math.random());
+		switchChildView: function () {
+			stateModel.set('isClientHeaderActive', !stateModel.get('isClientHeaderActive'));
 		}
 
 	});
