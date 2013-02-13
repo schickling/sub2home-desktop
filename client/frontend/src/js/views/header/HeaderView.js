@@ -15,7 +15,7 @@ define([
 
 		events: {
 			'click .logo': 'reset',
-			'click .switch': 'switchChildView'
+			'click #roleSwitch': 'switchChildView'
 		},
 
 		childView: null,
@@ -51,11 +51,27 @@ define([
 				model: stateModel.get('storeModel'),
 				el: this.$('#headerContent')
 			});
+
+			var $handle = this.$('#roleSwitch div');
+
+			$handle.animate({
+				top: 2
+			}, 150, function () {
+				$handle.removeClass('iSettings').addClass('iUser');
+			});
 		},
 
 		renderClientView: function () {
 			this.childView = new ClientView({
 				el: this.$('#headerContent')
+			});
+
+			var $handle = this.$('#roleSwitch div');
+
+			$handle.animate({
+				top: 27
+			}, 150, function () {
+				$handle.removeClass('iUser').addClass('iSettings');
 			});
 		},
 
