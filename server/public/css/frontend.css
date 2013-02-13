@@ -3537,15 +3537,47 @@ aside#header .logo {
   -moz-box-shadow: none;
   box-shadow: none;
   background: url("../img/static/common/subway_logo.png") center no-repeat;
-  width: 182px;
+  width: 150px;
   margin-left: -60px;
   position: relative;
   z-index: 2;
   float: left;
   height: 67px;
+  background-size: 80%;
+}
+aside#header .bInfo {
+  width: 30px;
+  float: right;
+  cursor: pointer;
+  border-left: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 #5f4e26;
+  height: 67px;
+  -webkit-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  padding: 0 15px;
+  color: #a78a44;
+  -webkit-transition: color .1s linear, background .1s linear;
+  -moz-transition: color .1s linear, background .1s linear;
+  -o-transition: color .1s linear, background .1s linear;
+  transition: color .1s linear, background .1s linear;
+}
+aside#header .bInfo:before {
+  position: relative;
+  top: 19px;
+}
+aside#header .bInfo:hover {
+  color: #836c35;
+  background: rgba(184, 126, 0, 0.08);
+}
+aside#header .switch {
+  position: absolute;
+  z-index: 50;
 }
 aside#header #headerContent {
-  float: left;
+  position: absolute;
+  right: 60px;
+  left: 90px;
   *zoom: 1;
 }
 aside#header #headerContent:before,
@@ -3671,25 +3703,6 @@ aside#header #headerContent > div.trayPreview:hover {
 }
 aside#header #headerContent > div.trayPreview:hover > span {
   color: #715d2e;
-}
-aside#header #headerContent > div.bInfo {
-  width: 30px;
-  float: right;
-  cursor: pointer;
-  border-left: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 #5f4e26;
-  -webkit-transition: color .1s linear, background .1s linear;
-  -moz-transition: color .1s linear, background .1s linear;
-  -o-transition: color .1s linear, background .1s linear;
-  transition: color .1s linear, background .1s linear;
-}
-aside#header #headerContent > div.bInfo:before {
-  position: relative;
-  top: 19px;
-}
-aside#header #headerContent > div.bInfo:hover {
-  color: #836c35;
-  background: rgba(184, 126, 0, 0.08);
 }
 #content {
   padding: 0;

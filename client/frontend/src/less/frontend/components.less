@@ -549,18 +549,53 @@ aside#header {
     border: none;
     .box-shadow(none);
     background: @ourLogo;
-    width: 182px;
+    width: 150px;
     margin-left: -60px;
     .positioned;
     z-index:2;
     float: left;
     height: 67px;
+    background-size: 80%;
+  }
+
+
+    // TO-THE-INFO SECTION
+
+  .bInfo {
+    width: 30px;
+    float: right;
+    cursor: pointer;
+    border-left: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(@onHeaderColor, 20%);
+    height: 67px;
+    .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
+    padding: 0 15px;
+    color: @onHeaderColor;
+
+    .transition(e('color .1s linear, background .1s linear'));
+    &:before {
+      .positioned;
+      top: 19px;
+    }
+    &:hover {
+      color: darken(@onHeaderColor, 10%);
+      background: @headerHoverBackground;
+    }
+  }
+  .switch {
+    position: absolute;
+    z-index: 50;
   }
 
   #headerContent {
-    float: left;
+    position: absolute;
+    right: 60px;
+    left: 90px;
+    //float: left;
     .clearfix;
     >div {
+
+
 
       // COMMON STYLES
 
@@ -682,26 +717,6 @@ aside#header {
           >span {
             color: darken(@onHeaderColor, 15%);
           }
-        }
-      }
-
-      // TO-THE-INFO SECTION
-
-      &.bInfo {
-        width: 30px;
-        float: right;
-        cursor: pointer;
-        border-left: none;
-        text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(@onHeaderColor, 20%);
-
-        .transition(e('color .1s linear, background .1s linear'));
-        &:before {
-          .positioned;
-          top: 19px;
-        }
-        &:hover {
-          color: darken(@onHeaderColor, 10%);
-          background: @headerHoverBackground;
         }
       }
     }
