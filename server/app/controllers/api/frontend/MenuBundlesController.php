@@ -1,7 +1,8 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Request;
-use MenuBundleModel;
+
+use App\Models\MenuBundleModel;
 
 /**
 * 

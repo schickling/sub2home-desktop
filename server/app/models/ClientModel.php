@@ -1,8 +1,10 @@
-<?php
+<?php namespace App\Models;
 
 class ClientModel extends BaseModel {
 
 	protected $hidden = array('password');
+
+	protected $table = 'client_models';
 
 	/**
 	 * Hook delete
@@ -26,7 +28,7 @@ class ClientModel extends BaseModel {
 	 */
 	public function storesCollection()
 	{
-		return $this->hasMany('StoreModel');
+		return $this->hasMany('App\\Models\\StoreModel');
 	}
 
 	/**
@@ -36,7 +38,7 @@ class ClientModel extends BaseModel {
 	 */
 	public function addressModel()
 	{
-		return $this->morphOne('AddressModel', 'ownerModel');
+		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
 	}
 
 	/**

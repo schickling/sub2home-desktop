@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Order class
@@ -9,6 +9,8 @@ class OrderModel extends BaseModel
 {
 
 	protected $hidden = array('store_model_id', 'updated_at');
+
+	protected $table = 'order_models';
 
 	public function delete()
 	{
@@ -22,7 +24,7 @@ class OrderModel extends BaseModel
 	 */
 	public function orderedItemsCollection()
 	{
-		return $this->hasMany('OrderedItemModel');
+		return $this->hasMany('App\\Models\\OrderedItemModel');
 	}
 
 	/**
@@ -32,7 +34,7 @@ class OrderModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 	/**
@@ -42,7 +44,7 @@ class OrderModel extends BaseModel
 	 */
 	public function addressModel()
 	{
-		return $this->morphOne('AddressModel', 'ownerModel');
+		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
 	}
 
 	public function calculateTotal()

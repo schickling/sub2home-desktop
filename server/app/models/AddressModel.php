@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Address class
@@ -10,6 +10,8 @@ class AddressModel extends BaseModel
 	protected $hidden = array('ownerModel_id', 'ownerModel_type');
 
 	public $timestamps = false;
+
+	protected $table = 'address_models';
 
 	protected function afterFirstSave()
 	{

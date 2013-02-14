@@ -1,12 +1,13 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use StoreModel;
-use DeliveryAreaModel;
-use DeliveryTimeModel;
 use Input;
 use Response;
 use Validator;
-use PaypalService;
+use App\Controllers\Services\Payment\PaypalService;
+
+use App\Models\StoreModel;
+use App\Models\DeliveryAreaModel;
+use App\Models\DeliveryTimeModel;
 
 /**
 * 

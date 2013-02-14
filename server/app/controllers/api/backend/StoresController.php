@@ -1,7 +1,8 @@
 <?php namespace App\Controllers\Api\Backend;
 
-use StoreModel;
 use Input;
+
+use App\Models\StoreModel;
 
 /**
 * 

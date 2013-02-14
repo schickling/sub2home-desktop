@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\ArticleModel;
+
 class ArticleModelSeeder extends Seeder {
 
 	/**

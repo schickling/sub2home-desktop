@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Custom Ingredient class
@@ -8,6 +8,8 @@
 class CustomIngredientModel extends BaseModel
 {
 
+	protected $table = 'custom_ingredient_models';
+
 	/**
 	 * Returns the ingredient
 	 * 
@@ -15,7 +17,7 @@ class CustomIngredientModel extends BaseModel
 	 */
 	public function ingredientModel()
 	{
-		return $this->belongsTo('IngredientModel');
+		return $this->belongsTo('App\\Models\\IngredientModel');
 	}
 
 	/**
@@ -25,7 +27,7 @@ class CustomIngredientModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 }

@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Migrations\Migration;
 
+use App\Models\ClientModel;
+use App\Models\StoreModel;
+use App\Models\DeliveryAreaModel;
+use App\Models\OrderModel;
+
 class PopulateTables extends Migration {
 
 	/**

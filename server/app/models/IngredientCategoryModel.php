@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Ingredient category class
@@ -7,6 +7,8 @@ class IngredientCategoryModel extends BaseModel
 {
 
 	public $timestamps = false;
+
+	protected $table = 'ingredient_category_models';
 
 	protected function beforeFirstSave()
 	{
@@ -35,6 +37,6 @@ class IngredientCategoryModel extends BaseModel
 
 	public function ingredientsCollection()
 	{
-		return $this->hasMany('IngredientModel');
+		return $this->hasMany('App\\Models\\IngredientModel');
 	}
 }

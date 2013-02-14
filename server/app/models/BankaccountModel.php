@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * bank account class
@@ -9,8 +9,10 @@ class BankaccountModel extends BaseModel
 {
 	public $timestamps = false;
 
+	protected $table = 'bankaccount_models';
+
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 }

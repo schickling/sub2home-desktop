@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * IngredientModel class
@@ -9,6 +9,8 @@ class IngredientModel extends BaseModel
 {
 
 	public $timestamps = false;
+
+	protected $table = 'ingredient_models';
 
 	protected $hidden = array('ingredient_category_model_id', 'order');
 
@@ -50,7 +52,7 @@ class IngredientModel extends BaseModel
 	 */
 	public function articlesCollection()
 	{
-		return $this->belongsToMany('ArticleModel');
+		return $this->belongsToMany('App\\Models\\ArticleModel');
 	}
 
 	/**
@@ -60,7 +62,7 @@ class IngredientModel extends BaseModel
 	 */
 	public function ingredientCategoryModel()
 	{
-		return $this->belongsTo('IngredientCategoryModel');
+		return $this->belongsTo('App\\Models\\IngredientCategoryModel');
 	}
 
 	/**
@@ -70,7 +72,7 @@ class IngredientModel extends BaseModel
 	 */
 	public function customIngredientsCollection()
 	{
-		return $this->hasMany('CustomIngredientModel');
+		return $this->hasMany('App\\Models\\CustomIngredientModel');
 	}
 
 	/**

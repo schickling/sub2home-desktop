@@ -1,7 +1,8 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use OrderModel;
 use Request;
+
+use App\Models\OrderModel;
 
 /**
 * 

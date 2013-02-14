@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Menu component option class
@@ -9,6 +9,7 @@ class MenuComponentOptionModel extends BaseModel
 
 	protected $hidden = array('menu_component_block_model_id', 'category_model_id');
 
+	protected $table = 'menu_component_option_models';
 
 	protected function afterFirstSave()
 	{
@@ -38,7 +39,7 @@ class MenuComponentOptionModel extends BaseModel
 	 */
 	public function menuComponentBlockModel()
 	{
-		return $this->belongsTo('MenuComponentBlockModel');
+		return $this->belongsTo('App\\Models\\MenuComponentBlockModel');
 	}
 
 	/**
@@ -48,7 +49,7 @@ class MenuComponentOptionModel extends BaseModel
 	 */
 	public function categoryModel()
 	{
-		return $this->belongsTo('CategoryModel');
+		return $this->belongsTo('App\\Models\\CategoryModel');
 	}
 
 	/**
@@ -58,7 +59,7 @@ class MenuComponentOptionModel extends BaseModel
 	 */
 	public function menuComponentOptionArticlesCollection()
 	{
-		return $this->belongsToMany('ArticleModel');
+		return $this->belongsToMany('App\\Models\\ArticleModel');
 	}
 
 	/**

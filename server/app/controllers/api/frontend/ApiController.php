@@ -2,7 +2,8 @@
 
 use App\Controllers\Api\BaseApiController;
 use Request;
-use StoreModel;
+
+use App\Models\StoreModel;
 
 
 /**

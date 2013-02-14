@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MenuComponentBlockModel;
+
 class MenuComponentBlockModelSeeder extends Seeder {
 
 	/**

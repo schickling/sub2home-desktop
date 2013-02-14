@@ -3,9 +3,10 @@
 use Input;
 use Request;
 use Validator;
-use ClientModel;
 use Hash;
 use Cache;
+
+use App\Models\ClientModel;
 
 
 

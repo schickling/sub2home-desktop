@@ -3,7 +3,8 @@
 use Validator;
 use Input;
 use Request;
-use AddressModel;
+
+use App\Models\AddressModel;
 
 
 class AddressesController extends ApiController

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\CategoryModel;
+
 class CategoryModelSeeder extends Seeder {
 
 	/**

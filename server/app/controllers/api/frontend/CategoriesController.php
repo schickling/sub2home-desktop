@@ -1,8 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Illuminate\Database\Eloquent\Collection;
-use CategoryModel;
-use ArticleModel;
+
+use App\Models\CategoryModel;
+use App\Models\ArticleModel;
 
 
 class CategoriesController extends ApiController

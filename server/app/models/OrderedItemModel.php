@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Ordered Menu class
@@ -9,6 +9,8 @@ class OrderedItemModel extends BaseModel
 {
 
 	public $timestamps = false;
+
+	protected $table = 'ordered_item_models';
 
 	public function delete()
 	{
@@ -22,7 +24,7 @@ class OrderedItemModel extends BaseModel
 	 */
 	private function menuBundleModel()
 	{
-		return $this->belongsTo('MenuBundleModel');
+		return $this->belongsTo('App\\Models\\MenuBundleModel');
 	}
 
 	/**
@@ -32,7 +34,7 @@ class OrderedItemModel extends BaseModel
 	 */
 	private function menuUpgradeModel()
 	{
-		return $this->belongsTo('MenuUpgradeModel');
+		return $this->belongsTo('App\\Models\\MenuUpgradeModel');
 	}
 
 	/**
@@ -42,7 +44,7 @@ class OrderedItemModel extends BaseModel
 	 */
 	public function orderModel()
 	{
-		return $this->belongsTo('OrderModel');
+		return $this->belongsTo('App\\Models\\OrderModel');
 	}
 
 	/**
@@ -52,7 +54,7 @@ class OrderedItemModel extends BaseModel
 	 */
 	public function orderedArticlesCollection()
 	{
-		return $this->hasMany('OrderedArticleModel');
+		return $this->hasMany('App\\Models\\OrderedArticleModel');
 	}
 
 	protected function getBaseArticleModelAttribute()

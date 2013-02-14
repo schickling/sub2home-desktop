@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MenuBundleModel;
+
 class MenuBundleModelSeeder extends Seeder {
 
 	/**

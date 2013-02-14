@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Delivery time class
@@ -9,6 +9,8 @@ class DeliveryTimeModel extends BaseModel
 {
 	public $timestamps = false;
 
+	protected $table = 'delivery_time_models';
+
 	protected $hidden = array('store_model_id');
 
 	/**
@@ -18,7 +20,7 @@ class DeliveryTimeModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 	public function setDayOfWeekAttribute($dayOfWeek)

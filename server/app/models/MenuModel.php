@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * MenuModel base class
@@ -29,7 +29,7 @@ abstract class MenuModel extends ItemModel
 	 */
 	public function menuComponentBlocksCollection()
 	{
-		return $this->hasMany('MenuComponentBlockModel');
+		return $this->hasMany('App\\Models\\MenuComponentBlockModel');
 	}
 
 	/**
@@ -73,7 +73,7 @@ abstract class MenuModel extends ItemModel
 	 */
 	public function customMenusCollection()
 	{
-		return $this->hasMany('CustomMenuModel');
+		return $this->hasMany('App\\Models\\CustomMenuModel');
 	}
 
 }

@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Custom Article class
@@ -7,6 +7,8 @@
  */
 class CustomArticleModel extends BaseModel
 {
+
+	protected $table = 'custom_article_models';
 	
 	/**
 	 * Returns the article
@@ -15,7 +17,7 @@ class CustomArticleModel extends BaseModel
 	 */
 	public function articleModel()
 	{
-		return $this->belongsTo('ArticleModel');
+		return $this->belongsTo('App\\Models\\ArticleModel');
 	}
 
 	/**
@@ -25,7 +27,7 @@ class CustomArticleModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 }

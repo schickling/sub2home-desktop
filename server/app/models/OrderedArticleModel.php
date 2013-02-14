@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Ordered Article class
@@ -9,6 +9,8 @@ class OrderedArticleModel extends BaseModel
 {
 
 	public $timestamps = false;
+
+	protected $table = 'ordered_article_models';
 
 	public function delete()
 	{
@@ -22,7 +24,7 @@ class OrderedArticleModel extends BaseModel
 	 */
 	public function articleModel()
 	{
-		return $this->belongsTo('ArticleModel');
+		return $this->belongsTo('App\\Models\\ArticleModel');
 	}
 
 	/**
@@ -32,7 +34,7 @@ class OrderedArticleModel extends BaseModel
 	 */
 	public function orderedItemModel()
 	{
-		return $this->belongsTo('OrderedItemModel');
+		return $this->belongsTo('App\\Models\\OrderedItemModel');
 	}
 
 	/**
@@ -42,7 +44,7 @@ class OrderedArticleModel extends BaseModel
 	 */
 	public function ingredientsCollection()
 	{
-		return $this->belongsToMany('IngredientModel');
+		return $this->belongsToMany('App\\Models\\IngredientModel');
 	}
 
 }
