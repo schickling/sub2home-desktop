@@ -1,13 +1,14 @@
 // Filename: src/js/views/header/HeaderView.js
 define([
 	'jquery',
+	'jqueryEasing',
 	'underscore',
 	'backbone',
 	'models/stateModel',
 	'views/header/StoreView',
 	'views/header/ClientView',
 	'text!templates/header/HeaderTemplate.html'
-	], function ($, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate) {
+	], function ($, jqueryEasing, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -56,7 +57,7 @@ define([
 
 			$handle.animate({
 				top: 2
-			}, 150, function () {
+			}, 100, 'easeInExpo', function () {
 				$handle.removeClass('iSettings').addClass('iUser');
 			});
 		},
@@ -70,7 +71,7 @@ define([
 
 			$handle.animate({
 				top: 27
-			}, 150, function () {
+			}, 100, 'easeInExpo', function () {
 				$handle.removeClass('iUser').addClass('iSettings');
 			});
 		},

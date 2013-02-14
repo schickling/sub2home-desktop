@@ -14,7 +14,12 @@ define([
 
 		render: function () {
 
-			this.$el.html(ClientTemplate);
+			var $el = this.$el;
+			
+			$el.fadeOut(150, function() {
+				$el.html(ClientTemplate);
+				$el.fadeIn(150);
+			});
 
 		}
 

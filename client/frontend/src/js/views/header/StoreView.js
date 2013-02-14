@@ -24,13 +24,21 @@ define([
 
 		render: function () {
 
-			var json = {
-				title: this.model.get('title')
-			};
+			var $el = this.$el,
+				self = this,
+				json = {
+					title: this.model.get('title')
+				},
+				renderedTemplate = this.template(json);
 
-			this.$el.html(this.template(json));
 
-			this.renderCart();
+			$el.fadeOut(150, function () {
+				$el.html(renderedTemplate);
+				self.renderCart();
+				$el.fadeIn(150);
+			});
+
+
 		},
 
 		renderCart: function () {
