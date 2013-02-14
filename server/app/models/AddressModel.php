@@ -7,27 +7,26 @@
  */
 class AddressModel extends BaseModel
 {
-	protected $hidden = array('client_model_id', 'store_model_id', 'order_model_id');
+	protected $hidden = array('ownerModel_id', 'ownerModel_type');
 
 	public $timestamps = false;
 
 	protected function afterFirstSave()
 	{
-		// TODO: replace and issue
-		if ($this->storeModel()->first() != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
 
 	public function ownerModel()
 	{
-		return $this->morphTo();
+		return $this->morphTo('ownerModel');
 	}
 
-	// TODO: replace and issue
-	public function storeModel()
+	private function belongsToStoreModel()
 	{
-		return $this->belongsTo('StoreModel');
+		// check for isset because it gets even called if the model wasn't saved yet
+		return isset($this->ownerModel_type) && $this->ownerModel instanceof StoreModel;
 	}
 
 	/**
@@ -52,7 +51,7 @@ class AddressModel extends BaseModel
 			$geocode = json_decode($result);
 
 			if ($geocode->status == 'OK') {
-				$storeModel = $this->storeModel()->first();
+				$storeModel = $this->ownerModel;
 				$storeModel->latitude = $geocode->results[0]->geometry->location->lat;
 				$storeModel->longitude = $geocode->results[0]->geometry->location->lng;
 				$storeModel->save();
@@ -65,7 +64,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['street'] = $street;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
@@ -74,7 +73,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['postal'] = $postal;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
@@ -83,7 +82,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['city'] = $city;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
