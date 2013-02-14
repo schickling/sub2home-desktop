@@ -13,10 +13,10 @@ class CustomIngredientModelTable extends Migration {
 	{
 		Schema::create('custom_ingredient_models', function($table) {
 			$table->increments('id');
-			$table->integer('ingredient_model_id');
-			$table->integer('store_model_id');
-			$table->decimal('price', 5, 2);
-			$table->boolean('hasOwnPrice');
+			$table->integer('ingredient_model_id')->unsigned();
+			$table->integer('store_model_id')->unsigned();
+			$table->decimal('price', 5, 2)->default(0);
+			$table->boolean('hasOwnPrice')->default(false);
 			$table->timestamps();
 		});
 	}

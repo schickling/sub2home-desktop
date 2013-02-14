@@ -13,11 +13,11 @@ class DeliveryAreaModelTable extends Migration {
 	{
 		Schema::create('delivery_area_models', function($table) {
 			$table->increments('id');
-			$table->string('description', 128);
-			$table->integer('store_model_id');
-			$table->integer('postal');
-			$table->integer('minimumDuration');
-			$table->decimal('minimumValue', 5, 2);
+			$table->string('description', 128)->default('');
+			$table->integer('store_model_id')->unsigned();
+			$table->integer('postal')->unsigned()->default(0);
+			$table->integer('minimumDuration')->unsigned()->default(0);
+			$table->decimal('minimumValue', 5, 2)->default(0);
 		});
 	}
 

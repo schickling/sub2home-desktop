@@ -15,9 +15,9 @@ class StoreModelTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 128)->unique();
 			$table->string('alias', 128)->unique();
-			$table->string('orderEmail', 128);
-			$table->integer('number');
-			$table->integer('client_model_id');
+			$table->string('orderEmail', 128)->default('');
+			$table->integer('number')->unsigned()->unique();
+			$table->integer('client_model_id')->unsigned();
 			$table->decimal('latitude', 8, 6)->default(0);
 			$table->decimal('longitude', 8, 6)->default(0);
 			$table->decimal('totalTurnover', 12, 2)->default(0);

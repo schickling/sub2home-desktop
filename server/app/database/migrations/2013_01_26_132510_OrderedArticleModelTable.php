@@ -13,8 +13,8 @@ class OrderedArticleModelTable extends Migration {
 	{
 		Schema::create('ordered_article_models', function($table) {
 			$table->increments('id');
-			$table->integer('article_model_id');
-			$table->integer('ordered_item_model_id');
+			$table->integer('article_model_id')->unsigned();
+			$table->integer('ordered_item_model_id')->unsigned();
 		});
 	}
 
