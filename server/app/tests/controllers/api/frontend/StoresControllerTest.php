@@ -20,8 +20,19 @@ class StoresControllerTest extends TestCase {
 	{
 		$response = $this->call('GET', 'api/frontend/stores');
 
+		$realStoresCollection = StoreModel::with(array(
+												'deliveryAreasCollection',
+												'deliveryTimesCollection'
+												))
+											->where('isOpen', true)
+											->where('isActive', true)
+											->get();
+		$realStores = $realStoresCollection->toArray();
 
-		$this->assertNotNull($response);
+		$jsonStoresFromResponse = $response->getContent();
+		$storesFromResponse = json_decode($jsonStoresFromResponse, true);
+
+		$this->assertEquals($storesFromResponse, $realStores);
 	}
 
 	protected function seedDatabase()
