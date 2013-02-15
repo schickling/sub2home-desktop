@@ -17,8 +17,10 @@ define([
 
 		initialize: function () {
 			// to be absolutly consistent reload the store model from server
-			stateModel.fetchStoreFromServer();
 			this.model = stateModel.get('storeModel');
+			this.model.fetch({
+				async: false
+			});
 
 			// check if client is allowed to view this page
 			if (this.model.get('number') === 0) {

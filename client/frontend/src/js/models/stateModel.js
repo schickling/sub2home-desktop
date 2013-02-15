@@ -23,6 +23,9 @@ define([
 			storeModel: null,
 			changedStore: false,
 
+			// client specific data
+			clientModel: null,
+
 			// parameters for selection
 			selectionRessourceType: '',
 			selectionRessourceId: '',
@@ -46,7 +49,7 @@ define([
 			var storeModel = this.get('storeModel');
 
 			if (storeModel) {
-				this.listenForStoreInternalChanges();
+				this._listenForStoreInternalChanges();
 			}
 
 
@@ -58,13 +61,13 @@ define([
 					silent: true
 				});
 
-				this.setGlobalStoreAlias();
+				this._setGlobalStoreAlias();
 			}, this);
 
 
 			// initialize store model if needed
 			if (!storeModel && this.get('storeAlias') !== '') {
-				this.fetchStoreFromServer();
+				this._fetchStoreModelFromServer();
 			}
 
 			// save old route
@@ -83,13 +86,13 @@ define([
 				var currentStoreModel = this.get('storeModel');
 
 				if (!currentStoreModel || this.get('storeAlias') !== currentStoreModel.get('alias')) {
-					this.fetchStoreFromServer();
+					this._fetchStoreModelFromServer();
 				}
 
 			}, this);
 
 
-			this.setGlobalStoreAlias();
+			this._setGlobalStoreAlias();
 
 
 			window.state = this;
@@ -127,13 +130,12 @@ define([
 			return response;
 		},
 
-		setGlobalStoreAlias: function () {
+		_setGlobalStoreAlias: function () {
 			// mirror changes in store alias to global
 			global.setStoreAlias(this.get('storeAlias'));
 		},
 
-		// fetch store from server
-		fetchStoreFromServer: function () {
+		_fetchStoreModelFromServer: function () {
 
 			console.log('fetched');
 
@@ -145,7 +147,7 @@ define([
 				// needed because other views depend on store models
 				async: false,
 				error: function () {
-					// improve that
+					// TODO
 					Backbone.history.navigate('404', {
 						trigger: true,
 						replace: true
@@ -161,10 +163,10 @@ define([
 				changedStore: true
 			});
 
-			this.listenForStoreInternalChanges();
+			this._listenForStoreInternalChanges();
 		},
 
-		listenForStoreInternalChanges: function () {
+		_listenForStoreInternalChanges: function () {
 			storeModel = this.get('storeModel');
 
 			storeModel.on('change', function () {
