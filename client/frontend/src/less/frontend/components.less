@@ -1524,7 +1524,127 @@ input[type="text"]#locationSelectionInput {
 
 
 
-// -----------------------------------------  STORE CLIENT DASHBOARD  ------------------------------------------------
+// ---------------------------------------------  CLIENT DASHBOARD  --------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+.note.full.split {
+  overflow: hidden !important;
+}
+
+
+// Revenues
+
+
+#clientRevenues {
+  width: 50%;
+  .border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  font-family: @headingsFontFamily;
+  padding: 100px 8%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+
+  // Common Styles
+
+
+
+  #clientYearlyTurnover, #clientCurrentMonthlyTurnover, #clientRecentMonthlyRevenues {
+    font-size: 90px;
+    color: @onNoteColor50;
+    line-height: 1;
+    padding: 0 5% 60px;
+    text-align: center;
+    .positioned;
+
+    >span {
+      text-align: right;
+      display: inline-block;
+      line-height: 0.4;
+    
+      span {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: @onNoteColor;
+      }
+    }
+  }
+
+
+  // Yearly Turnover
+
+
+  #clientYearlyTurnover {
+
+    &:after {
+      content: " ";
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: @onNoteColor;
+      border-bottom: 1px solid rgba(255,255,255,1);
+    }
+  }
+
+
+  // Monthly Revenues
+
+
+  #clientCurrentMonthlyTurnover {
+    margin-top: 85px;
+    color: @greenLighter;
+    font-size: 110px;
+  }
+
+  #clientRecentMonthlyRevenues {
+    font-size: 50px;
+    text-align: right;
+    color: @onNoteColor;
+    .clientMonthlyTurnover {
+      margin-bottom: 15px;
+
+      span {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: @onNoteColor;
+      }
+      i {
+        &:before {
+          font-size: 48px;
+          top: 4px;
+        }
+      }
+    }
+  }
+
+}
+
+#clientStores {
+  position: absolute;
+  width: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+    &:before {
+    content: " ";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: @onNoteColor;
+    border-right: 1px solid rgba(255,255,255,1);
+  }
+}
+
+
+
+// ---------------------------------------------  STORE DASHBOARD  ---------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
 .note.orders {

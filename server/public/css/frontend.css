@@ -4287,6 +4287,96 @@ input[type="text"]#locationSelectionInput {
 #login #loginSubmit:hover {
   color: #9cc83e;
 }
+.note.full.split {
+  overflow: hidden !important;
+}
+#clientRevenues {
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  font-family: "VAGRounded LT Thin";
+  padding: 100px 8%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#clientRevenues #clientYearlyTurnover,
+#clientRevenues #clientCurrentMonthlyTurnover,
+#clientRevenues #clientRecentMonthlyRevenues {
+  font-size: 90px;
+  color: rgba(209, 186, 130, 0.5);
+  line-height: 1;
+  padding: 0 5% 60px;
+  text-align: center;
+  position: relative;
+}
+#clientRevenues #clientYearlyTurnover > span,
+#clientRevenues #clientCurrentMonthlyTurnover > span,
+#clientRevenues #clientRecentMonthlyRevenues > span {
+  text-align: right;
+  display: inline-block;
+  line-height: 0.4;
+}
+#clientRevenues #clientYearlyTurnover > span span,
+#clientRevenues #clientCurrentMonthlyTurnover > span span,
+#clientRevenues #clientRecentMonthlyRevenues > span span {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #d1ba82;
+}
+#clientRevenues #clientYearlyTurnover:after {
+  content: " ";
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #d1ba82;
+  border-bottom: 1px solid #ffffff;
+}
+#clientRevenues #clientCurrentMonthlyTurnover {
+  margin-top: 85px;
+  color: #9cc83e;
+  font-size: 110px;
+}
+#clientRevenues #clientRecentMonthlyRevenues {
+  font-size: 50px;
+  text-align: right;
+  color: #d1ba82;
+}
+#clientRevenues #clientRecentMonthlyRevenues .clientMonthlyTurnover {
+  margin-bottom: 15px;
+}
+#clientRevenues #clientRecentMonthlyRevenues .clientMonthlyTurnover span {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #d1ba82;
+}
+#clientRevenues #clientRecentMonthlyRevenues .clientMonthlyTurnover i:before {
+  font-size: 48px;
+  top: 4px;
+}
+#clientStores {
+  position: absolute;
+  width: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#clientStores:before {
+  content: " ";
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #d1ba82;
+  border-right: 1px solid #ffffff;
+}
 .note.orders .toggleRevenues {
   margin: 30px 50px;
   position: absolute;
