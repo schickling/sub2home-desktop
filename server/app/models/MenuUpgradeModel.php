@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Menu upgrade class
@@ -8,6 +8,7 @@ class MenuUpgradeModel extends MenuModel
 	
 	protected $hidden = array('buyed', 'created_at', 'updated_at', 'isPublished');
 
+	protected $table = 'menu_upgrade_models';
 
 	/**
 	 * Hook delete
@@ -31,7 +32,7 @@ class MenuUpgradeModel extends MenuModel
 	 */
 	public function articlesCollection()
 	{
-		return $this->belongsToMany('ArticleModel');
+		return $this->belongsToMany('App\\Models\\ArticleModel');
 	}
 
 }

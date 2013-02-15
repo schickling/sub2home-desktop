@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Store class
@@ -20,6 +20,8 @@ class StoreModel extends BaseModel
 		'id'
 		);
 
+	protected $table = 'store_models';
+
 	/**
 	 * Hook save
 	 * 
@@ -29,7 +31,7 @@ class StoreModel extends BaseModel
 	{
 
 		// Copy address of owner
-		$addressModel = new AddressModel(array(
+		$copiedAddress = array(
 			'firstName' => $this->clientModel->addressModel->firstName,
 			'lastName' => $this->clientModel->addressModel->lastName,
 			'street' => $this->clientModel->addressModel->street,
@@ -38,8 +40,8 @@ class StoreModel extends BaseModel
 			'city' => $this->clientModel->addressModel->city,
 			'phone' => $this->clientModel->addressModel->phone,
 			'email' => $this->clientModel->addressModel->email
-			));
-		$this->addressModel()->save($addressModel);
+			);
+		$this->addressModel()->create($copiedAddress);
 
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
@@ -126,7 +128,7 @@ class StoreModel extends BaseModel
 	 */
 	public function clientModel()
 	{
-		return $this->belongsTo('ClientModel');
+		return $this->belongsTo('App\\Models\\ClientModel');
 	}
 
 	/**
@@ -136,7 +138,7 @@ class StoreModel extends BaseModel
 	 */
 	public function customArticlesCollection()
 	{
-		return $this->hasMany('CustomArticleModel');
+		return $this->hasMany('App\\Models\\CustomArticleModel');
 	}
 
 	/**
@@ -146,7 +148,7 @@ class StoreModel extends BaseModel
 	 */
 	public function addressModel()
 	{
-		return $this->hasOne('AddressModel');
+		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
 	}
 
 	/**
@@ -156,7 +158,7 @@ class StoreModel extends BaseModel
 	 */
 	public function bankaccountModel()
 	{
-		return $this->hasOne('BankaccountModel');
+		return $this->hasOne('App\\Models\\BankaccountModel');
 	}
 
 	/**
@@ -166,7 +168,7 @@ class StoreModel extends BaseModel
 	 */
 	public function customIngredientsCollection()
 	{
-		return $this->hasMany('CustomIngredientModel');
+		return $this->hasMany('App\\Models\\CustomIngredientModel');
 	}
 
 	/**
@@ -176,7 +178,7 @@ class StoreModel extends BaseModel
 	 */
 	public function customMenusCollection()
 	{
-		return $this->hasMany('CustomMenuModel');
+		return $this->hasMany('App\\Models\\CustomMenuModel');
 	}
 
 	/**
@@ -186,7 +188,7 @@ class StoreModel extends BaseModel
 	 */
 	public function ordersCollection()
 	{
-		return $this->hasMany('OrderModel');
+		return $this->hasMany('App\\Models\\OrderModel');
 	}
 
 	/**
@@ -196,7 +198,7 @@ class StoreModel extends BaseModel
 	 */
 	public function deliveryTimesCollection()
 	{
-		return $this->hasMany('DeliveryTimeModel');
+		return $this->hasMany('App\\Models\\DeliveryTimeModel');
 	}
 
 	/**
@@ -206,7 +208,7 @@ class StoreModel extends BaseModel
 	 */
 	public function deliveryAreasCollection()
 	{
-		return $this->hasMany('DeliveryAreaModel');
+		return $this->hasMany('App\\Models\\DeliveryAreaModel');
 	}
 
 	/**

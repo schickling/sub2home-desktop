@@ -13,12 +13,12 @@ class MenuUpgradeModelTable extends Migration {
 	{
 		Schema::create('menu_upgrade_models', function($table) {
 			$table->increments('id');
-			$table->string('image', 128);
-			$table->string('title', 128);
-			$table->integer('buyed');
-			$table->boolean('isPublished');
-			$table->text('description');
-			$table->decimal('price', 5, 2); // upgrade price
+			$table->string('image', 128)->default('');
+			$table->string('title', 128)->default('');
+			$table->integer('buyed')->unsigned();
+			$table->boolean('isPublished')->default(false);
+			$table->text('description')->default('');
+			$table->decimal('price', 5, 2)->default(0); // upgrade price
 			$table->timestamps();
 		});
 	}

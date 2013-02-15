@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Menu component block class
@@ -8,7 +8,8 @@ class MenuComponentBlockModel extends BaseModel
 	public $timestamps = false;
 
 	protected $hidden = array('menu_bundle_model_id', 'menu_upgrade_model_id');
-	
+
+	protected $table = 'menu_component_block_models';
 
 	/**
 	 * Hook delete
@@ -32,7 +33,7 @@ class MenuComponentBlockModel extends BaseModel
 	 */
 	public function menuComponentOptionsCollection()
 	{
-		return $this->hasMany('MenuComponentOptionModel');
+		return $this->hasMany('App\\Models\\MenuComponentOptionModel');
 	}
 
 	/**
@@ -42,7 +43,7 @@ class MenuComponentBlockModel extends BaseModel
 	 */
 	public function menuUpgradeModel()
 	{
-		return $this->belongsTo('MenuUpgradeModel');
+		return $this->belongsTo('App\\Models\\MenuUpgradeModel');
 	}
 	
 	/**
@@ -52,7 +53,7 @@ class MenuComponentBlockModel extends BaseModel
 	 */
 	public function menuBundleModel()
 	{
-		return $this->belongsTo('MenuBundleModel');
+		return $this->belongsTo('App\\Models\\MenuBundleModel');
 	}
 
 

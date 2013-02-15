@@ -1,13 +1,14 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use OrderModel;
-use AddressModel;
-use IngredientModel;
-use OrderedArticleModel;
-use OrderedItemModel;
 use Input;
 use Illuminate\Database\Eloquent\Collection;
 use DateTime;
+
+use App\Models\OrderModel;
+use App\Models\AddressModel;
+use App\Models\IngredientModel;
+use App\Models\OrderedArticleModel;
+use App\Models\OrderedItemModel;
 
 /**
 * 
@@ -72,6 +73,7 @@ class OrderCreateController extends ApiController
 	 */
 	private function createOrderedItemsCollection($orderedItems)
 	{
+		// TODO
 		$orderedItemsCollection = new Collection();
 
 		foreach ($orderedItems as $orderedItem) {

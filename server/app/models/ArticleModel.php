@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Article class
@@ -11,6 +11,7 @@ class ArticleModel extends ItemModel
 
 	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
+	protected $table = 'article_models';
 
 	protected function beforeFirstSave()
 	{
@@ -53,7 +54,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function ingredientsCollection()
 	{
-		return $this->belongsToMany('IngredientModel');
+		return $this->belongsToMany('App\\Models\\IngredientModel');
 	}
 
 	/**
@@ -63,7 +64,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function menuComponentOptionsCollection()
 	{
-		return $this->belongsToMany('MenuComponentOptionModel');
+		return $this->belongsToMany('App\\Models\\MenuComponentOptionModel');
 	}
 
 	/**
@@ -73,7 +74,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function menuUpgradesCollection()
 	{
-		return $this->belongsToMany('MenuUpgradeModel');
+		return $this->belongsToMany('App\\Models\\MenuUpgradeModel');
 	}
 
 	/**
@@ -83,7 +84,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function categoryModel()
 	{
-		return $this->belongsTo('CategoryModel');
+		return $this->belongsTo('App\\Models\\CategoryModel');
 	}
 
 	/**
@@ -93,7 +94,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function customArticlesCollection()
 	{
-		return $this->hasMany('CustomArticleModel');
+		return $this->hasMany('App\\Models\\CustomArticleModel');
 	}
 
 	/**

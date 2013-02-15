@@ -13,11 +13,11 @@ class BankaccountModelTable extends Migration {
 	{
 		Schema::create('bankaccount_models', function($table) {
 			$table->increments('id');
-			$table->string('name', 128);
-			$table->string('bankName', 128);
-			$table->integer('bankCodeNumber');
-			$table->integer('accountNumber');
-			$table->integer('store_model_id');
+			$table->string('name', 128)->default('');
+			$table->string('bankName', 128)->default('');
+			$table->integer('bankCodeNumber')->unsigned()->default(0);
+			$table->integer('accountNumber')->unsigned()->default(0);
+			$table->integer('client_model_id')->unsigned();
 		});
 	}
 

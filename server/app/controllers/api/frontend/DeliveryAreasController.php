@@ -1,8 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use DeliveryAreaModel;
 use Input;
 use Request;
+
+use App\Models\DeliveryAreaModel;
 
 class DeliveryAreasController extends ApiController
 {

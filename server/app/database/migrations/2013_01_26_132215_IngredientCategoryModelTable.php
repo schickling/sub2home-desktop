@@ -13,12 +13,12 @@ class IngredientCategoryModelTable extends Migration {
 	{
 		Schema::create('ingredient_category_models', function($table) {
 			$table->increments('id');
-			$table->string('title', 128);
-			$table->string('smallImage', 128);
-			$table->string('icon', 128);
-			$table->integer('order');
-			$table->boolean('isSingle');
-			$table->boolean('isMandatory');
+			$table->string('title', 128)->default('');
+			$table->string('smallImage', 128)->default('');
+			$table->string('icon', 128)->default('');
+			$table->integer('order')->unsigned();
+			$table->boolean('isSingle')->default(false);
+			$table->boolean('isMandatory')->default(false);
 		});
 	}
 

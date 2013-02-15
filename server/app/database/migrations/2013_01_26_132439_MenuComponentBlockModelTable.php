@@ -13,8 +13,8 @@ class MenuComponentBlockModelTable extends Migration {
 	{
 		Schema::create('menu_component_block_models', function($table) {
 			$table->increments('id');
-			$table->integer('menu_bundle_model_id');
-			$table->integer('menu_upgrade_model_id');
+			$table->integer('menu_bundle_model_id')->unsigned();
+			$table->integer('menu_upgrade_model_id')->unsigned();
 		});
 	}
 

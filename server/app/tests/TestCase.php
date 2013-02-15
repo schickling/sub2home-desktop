@@ -11,6 +11,7 @@ class TestCase extends BaseTestCase {
         parent::setUp();
 
         $this->prepareForTests();
+        $this->seedDatabase();
     }
 
     /**
@@ -36,5 +37,7 @@ class TestCase extends BaseTestCase {
         Artisan::call('migrate');
         Mail::pretend(true);
     }
+
+    protected function seedDatabase() {}
 
 }

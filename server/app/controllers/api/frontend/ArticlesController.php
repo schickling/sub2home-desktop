@@ -1,8 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Request;
-use ArticleModel;
-use IngredientCategoryModel;
+
+use App\Models\ArticleModel;
+use App\Models\IngredientCategoryModel;
 
 /**
 * 

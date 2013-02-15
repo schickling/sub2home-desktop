@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MenuComponentOptionModel;
+
 class MenuComponentOptionModelSeeder extends Seeder {
 
 	/**

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MenuUpgradeModel;
+
 class MenuUpgradeModelSeeder extends Seeder {
 
 	/**

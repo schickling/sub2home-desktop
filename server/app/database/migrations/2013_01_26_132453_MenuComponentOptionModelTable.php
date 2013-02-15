@@ -13,13 +13,13 @@ class MenuComponentOptionModelTable extends Migration {
 	{
 		Schema::create('menu_component_option_models', function($table) {
 			$table->increments('id');
-			$table->integer('menu_component_block_model_id');
-			$table->integer('category_model_id');
-			$table->string('title', 128);
-			$table->string('icon', 128);
-			$table->string('smallImage', 128);
-			$table->string('largeImage', 128);
-			$table->string('placeholder', 128);
+			$table->integer('menu_component_block_model_id')->unsigned();
+			$table->integer('category_model_id')->unsigned();
+			$table->string('title', 128)->default('');
+			$table->string('icon', 128)->default('');
+			$table->string('smallImage', 128)->default('');
+			$table->string('largeImage', 128)->default('');
+			$table->string('placeholder', 128)->default('');
 		});
 	}
 

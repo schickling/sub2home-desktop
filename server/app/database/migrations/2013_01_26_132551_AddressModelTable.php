@@ -13,17 +13,16 @@ class AddressModelTable extends Migration {
 	{
 		Schema::create('address_models', function($table) {
 			$table->increments('id');
-			$table->string('firstName', 128);
-			$table->string('lastName', 128);
-			$table->string('street', 128);
-			$table->string('streetAdditional', 128);
-			$table->string('city', 128);
-			$table->string('phone', 128);
-			$table->string('email', 128);
-			$table->integer('postal');
-			$table->integer('store_model_id');
-			$table->integer('client_model_id');
-			$table->integer('order_model_id');
+			$table->string('firstName', 128)->default('');
+			$table->string('lastName', 128)->default('');
+			$table->string('street', 128)->default('');
+			$table->string('streetAdditional', 128)->default('');
+			$table->string('city', 128)->default('');
+			$table->string('phone', 128)->default('');
+			$table->string('email', 128)->default('');
+			$table->integer('postal')->unsigned()->default(0);
+			$table->string('ownerModel_type');
+			$table->integer('ownerModel_id')->unsigned();
 		});
 	}
 

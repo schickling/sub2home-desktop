@@ -1,8 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use DeliveryTimeModel;
 use Input;
 use Request;
+
+use App\Models\DeliveryTimeModel;
 
 class DeliveryTimesController extends ApiController
 {

@@ -3,10 +3,11 @@
 use App\Controllers\Api\BaseApiController;
 use Input;
 use Cache;
-use StoreModel;
 use Validator;
 use Redirect;
-use PaypalService;
+use App\Controllers\Services\Payment\PaypalService;
+
+use App\Models\StoreModel;
 
 /**
 * 

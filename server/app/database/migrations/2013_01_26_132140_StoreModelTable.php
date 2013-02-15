@@ -15,23 +15,23 @@ class StoreModelTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 128)->unique();
 			$table->string('alias', 128)->unique();
-			$table->string('orderEmail', 128);
-			$table->integer('number');
-			$table->integer('client_model_id');
-			$table->decimal('latitude', 8, 6);
-			$table->decimal('longitude', 8, 6);
-			$table->decimal('totalTurnover', 12, 2);
-			$table->boolean('isActive');
-			$table->boolean('isOpen');
-			$table->text('description');
+			$table->string('orderEmail', 128)->default('');
+			$table->integer('number')->unsigned()->unique();
+			$table->integer('client_model_id')->unsigned();
+			$table->decimal('latitude', 8, 6)->default(0);
+			$table->decimal('longitude', 8, 6)->default(0);
+			$table->decimal('totalTurnover', 12, 2)->default(0);
+			$table->boolean('isActive')->default(false);
+			$table->boolean('isOpen')->default(false);
+			$table->text('description')->default('');
 			$table->timestamps();
 			// payment methods
-			$table->boolean('allowsPaymentCash');
-			$table->boolean('allowsPaymentEc');
-			$table->boolean('allowsPaymentPaypal');
+			$table->boolean('allowsPaymentCash')->default(false);
+			$table->boolean('allowsPaymentEc')->default(false);
+			$table->boolean('allowsPaymentPaypal')->default(false);
 			// Paypal identification
-			$table->string('paypalToken', 128);
-			$table->string('paypalTokensecret', 128);
+			$table->string('paypalToken', 128)->nullable();
+			$table->string('paypalTokensecret', 128)->nullable();
 		});
 	}
 

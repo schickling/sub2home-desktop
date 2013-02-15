@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Delivery area class
@@ -9,6 +9,8 @@ class DeliveryAreaModel extends BaseModel
 {
 	public $timestamps = false;
 
+	protected $table = 'delivery_area_models';
+
 	protected $hidden = array('store_model_id');
 
 	/**
@@ -18,6 +20,6 @@ class DeliveryAreaModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 }

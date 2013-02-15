@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Menu bundle class
@@ -8,6 +8,7 @@ class MenuBundleModel extends MenuModel
 
 	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
+	protected $table = 'menu_bundle_models';
 
 	protected function beforeFirstSave()
 	{
@@ -40,7 +41,7 @@ class MenuBundleModel extends MenuModel
 	 */
 	public function categoryModel()
 	{
-		return $this->belongsTo('CategoryModel');
+		return $this->belongsTo('App\\Models\\CategoryModel');
 	}
 
 }

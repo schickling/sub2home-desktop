@@ -13,10 +13,10 @@ class CategoryModelTable extends Migration {
 	{
 		Schema::create('category_models', function($table) {
 			$table->increments('id');
-			$table->string('title', 128);
-			$table->string('icon', 128);
-			$table->string('smallImage', 128);
-			$table->integer('order');
+			$table->string('title', 128)->default('');
+			$table->string('icon', 128)->default('');
+			$table->string('smallImage', 128)->default('');
+			$table->integer('order')->unsigned();
 		});
 	}
 

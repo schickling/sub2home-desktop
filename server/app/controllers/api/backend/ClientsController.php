@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api\Backend;
 
-use ClientModel;
+use App\Models\ClientModel;
 
 /**
 * 

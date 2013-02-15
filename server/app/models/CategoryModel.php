@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * CategoryModel class
@@ -12,6 +12,7 @@ class CategoryModel extends BaseModel
 
 	protected $hidden = array('order');
 
+	protected $table = 'category_models';
 
 	protected function beforeFirstSave()
 	{
@@ -52,7 +53,7 @@ class CategoryModel extends BaseModel
 	 */
 	public function articlesCollection()
 	{
-		return $this->hasMany('ArticleModel');
+		return $this->hasMany('App\\Models\\ArticleModel');
 	}
 
 	/**
@@ -62,7 +63,7 @@ class CategoryModel extends BaseModel
 	 */
 	public function menuBundlesCollection()
 	{
-		return $this->hasMany('MenuBundleModel');
+		return $this->hasMany('App\\Models\\MenuBundleModel');
 	}
 
 	/**

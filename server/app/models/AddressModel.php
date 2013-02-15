@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Address class
@@ -7,47 +7,28 @@
  */
 class AddressModel extends BaseModel
 {
-	protected $hidden = array('client_model_id', 'store_model_id', 'order_model_id');
+	protected $hidden = array('ownerModel_id', 'ownerModel_type');
 
 	public $timestamps = false;
 
+	protected $table = 'address_models';
+
 	protected function afterFirstSave()
 	{
-		// TODO: replace and issue
-		if ($this->storeModel()->first() != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
 
-	public function clientModel()
+	public function ownerModel()
 	{
-		return $this->belongsTo('ClientModel');
+		return $this->morphTo('ownerModel');
 	}
 
-	public function storeModel()
+	private function belongsToStoreModel()
 	{
-		return $this->belongsTo('StoreModel');
-	}
-
-	public function orderModel()
-	{
-		return $this->belongsTo('OrderModel');
-	}
-
-	/**
-	 * Returns either its storeModel or clientModel
-	 * 
-	 * @return StoreModel | ClientModel
-	 */
-	public function getOwnerModelAttribute()
-	{
-		if ($this->storeModel != null) {
-			return $this->storeModel;
-		} elseif ($this->clientModel != null) {
-			return $this->clientModel;
-		} else {
-			throw new Exception("Address has no owner");
-		}
+		// check for isset because it gets even called if the model wasn't saved yet
+		return isset($this->ownerModel_type) && $this->ownerModel instanceof StoreModel;
 	}
 
 	/**
@@ -72,7 +53,7 @@ class AddressModel extends BaseModel
 			$geocode = json_decode($result);
 
 			if ($geocode->status == 'OK') {
-				$storeModel = $this->storeModel()->first();
+				$storeModel = $this->ownerModel;
 				$storeModel->latitude = $geocode->results[0]->geometry->location->lat;
 				$storeModel->longitude = $geocode->results[0]->geometry->location->lng;
 				$storeModel->save();
@@ -85,7 +66,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['street'] = $street;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
@@ -94,7 +75,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['postal'] = $postal;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}
@@ -103,7 +84,7 @@ class AddressModel extends BaseModel
 	{
 		$this->attributes['city'] = $city;
 
-		if ($this->storeModel != null) {
+		if ($this->belongsToStoreModel()) {
 			$this->updateStoreModelCoords();
 		}
 	}

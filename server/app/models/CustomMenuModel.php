@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 /**
  * Custom Menu class
@@ -7,6 +7,8 @@
  */
 class CustomMenuModel extends BaseModel
 {
+
+	protected $table = 'custom_menu_models';
 	
 	/**
 	 * Returns the menu upgrade
@@ -15,7 +17,7 @@ class CustomMenuModel extends BaseModel
 	 */
 	public function menuUpgradeModel()
 	{
-		return $this->belongsTo('MenuUpgradeModel');
+		return $this->belongsTo('App\\Models\\MenuUpgradeModel');
 	}
 	
 	/**
@@ -25,7 +27,7 @@ class CustomMenuModel extends BaseModel
 	 */
 	public function menuBundleModel()
 	{
-		return $this->belongsTo('MenuBundleModel');
+		return $this->belongsTo('App\\Models\\MenuBundleModel');
 	}
 
 	/**
@@ -51,7 +53,7 @@ class CustomMenuModel extends BaseModel
 	 */
 	public function storeModel()
 	{
-		return $this->belongsTo('StoreModel');
+		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 }

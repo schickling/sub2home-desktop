@@ -13,8 +13,8 @@ class IngredientModelOrderedArticleModelRelationTable extends Migration {
 	{
 		Schema::create('ingredient_model_ordered_article_model', function($table) {
 			$table->increments('id');
-			$table->integer('ingredient_model_id');
-			$table->integer('ordered_article_model_id');
+			$table->integer('ingredient_model_id')->unsigned();
+			$table->integer('ordered_article_model_id')->unsigned();
 		});
 	}
 
