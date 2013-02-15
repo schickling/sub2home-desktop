@@ -545,17 +545,16 @@ aside#header {
   .clearfix;
   .backface-visibility(hidden);
   
-  .logo {
+  #logo {
+    display: block;
     border: none;
     .box-shadow(none);
-    background: @ourLogo;
-    width: 150px;
-    margin-left: -60px;
+    width: 140px;
+    height: auto;
+    margin: 12px 0 0 -50px;
     .positioned;
     z-index:2;
     float: left;
-    height: 67px;
-    background-size: 80%;
   }
 
 
@@ -3562,6 +3561,7 @@ div.bankOptions {
   >div {
     display: inline-block;
     &.deliveryTimeClock {
+      margin: 35px 0;
       .hours, .minutes {
         .positioned;
         padding: 4px;
@@ -3661,9 +3661,34 @@ div.bankOptions {
           top: 30px;
         }
       }      
+    }
 
-      input {
-
+    &.deliveryAdditionalNote {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      margin-left: 400px;
+      div {
+        width: 100%;
+        height: 29px;
+        border-top: 1px solid @onNoteColor50;
+        border-bottom: 1px solid @onNoteColor50;
+        margin-top: 29px;
+      }
+      textarea {
+        position: absolute;
+        top: 6px;
+        left: 0;
+        .border-box;
+        width: 100%;
+        background: none;
+        font-family: @handFontFamily;
+        line-height: 1.8;
+        color: @onDarkNoteColor;
+        border: none;
+        padding: 0 10px;
+        font-size: 17px;
+        resize: none;
       }
     }
   }

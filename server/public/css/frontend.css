@@ -3531,19 +3531,18 @@ aside#header:after {
 aside#header:after {
   clear: both;
 }
-aside#header .logo {
+aside#header #logo {
+  display: block;
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background: url("../img/static/common/subway_logo.png") center no-repeat;
-  width: 150px;
-  margin-left: -60px;
+  width: 140px;
+  height: auto;
+  margin: 12px 0 0 -50px;
   position: relative;
   z-index: 2;
   float: left;
-  height: 67px;
-  background-size: 80%;
 }
 aside#header .bInfo {
   width: 30px;
@@ -6151,6 +6150,9 @@ div.bankOptions .bankaccount {
 #checkoutAdditionalOptions > div {
   display: inline-block;
 }
+#checkoutAdditionalOptions > div.deliveryTimeClock {
+  margin: 35px 0;
+}
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes {
   position: relative;
@@ -6269,6 +6271,36 @@ div.bankOptions .bankaccount {
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
   top: 30px;
+}
+#checkoutAdditionalOptions > div.deliveryAdditionalNote {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  margin-left: 400px;
+}
+#checkoutAdditionalOptions > div.deliveryAdditionalNote div {
+  width: 100%;
+  height: 29px;
+  border-top: 1px solid rgba(209, 186, 130, 0.5);
+  border-bottom: 1px solid rgba(209, 186, 130, 0.5);
+  margin-top: 29px;
+}
+#checkoutAdditionalOptions > div.deliveryAdditionalNote textarea {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background: none;
+  font-family: "Handlee", Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+  color: #c5a862;
+  border: none;
+  padding: 0 10px;
+  font-size: 17px;
+  resize: none;
 }
 #checkoutBasicControls {
   position: relative;
