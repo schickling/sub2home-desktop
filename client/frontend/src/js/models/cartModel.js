@@ -196,7 +196,11 @@ define([
 		setComment: function (comment) {
 			var orderModel = this.get('orderModel');
 
-			orderModel.set('comment', comment);
+			orderModel.set({
+				comment: comment
+			}, {
+				validate: true
+			});
 		},
 
 		getValidDueDate: function () {

@@ -136,6 +136,11 @@ define([
 			if (!_.contains(validPaymentMethods, attributes.paymentMethod)) {
 				return 'Keine erlaubte Bezahlmethode';
 			}
+
+			var comment = attributes.comment;
+			if (comment.length > 1000 || comment.split(/\n|\f/).length > 6) {
+				return 'Kommentar ist zu lang';
+			}
 		}
 
 	});
