@@ -8,6 +8,10 @@ define([
 
 	var OrderedArticleMenuView = Backbone.View.extend({
 
+		/*
+		 * this.model: ArticleModel
+		 */
+
 		template: _.template(OrderedArticleMenuTemplate),
 
 		className: 'menuItem',
@@ -18,10 +22,33 @@ define([
 
 		render: function () {
 
+			var articleModel = this.model,
+				description = articleModel.get('description');
+
+			if (articleModel.get('allowsIngredients')) {
+				var ingredientCategoriesCollection = articleModel.get('ingredientCategoriesCollection'),
+					ingredientModels = ingredientCategoriesCollection.getAllSelectedIngredientModels();
+
+				for (var i = 0; i < ingredientModels.length; i++) {
+					var ingredientTitle = ingredientModels[i].get('title');
+
+					if (i > 0) {
+						// if penulitmate ingredient
+						if (i === ingredientModels.length - 1) {
+							description += ' und ' + ingredientTitle;
+						} else {
+							description += ', ' + ingredientTitle;
+						}
+					} else {
+						description = ingredientTitle;
+					}
+				}
+			}
+
 			var json = {
-				title: this.model.get('title'),
-				description: this.model.get('description'),
-				image: this.model.get('largeImage')
+				title: articleModel.get('title'),
+				image: articleModel.get('largeImage'),
+				description: description
 			};
 
 			this.$el.html(this.template(json));

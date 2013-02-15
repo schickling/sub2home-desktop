@@ -14,17 +14,6 @@ class AuthentificationController extends ApiController
 {
 
     /**
-     * Just wraps the getClientModelIdFromToken method and suppresses output
-     * 
-     * @return Response
-     */
-    public function checkToken()
-    {
-        $this->getClientModelIdFromToken();
-    }
-
-
-    /**
      * Logs in a user and stores the generated token in the cache
      * 
      * @return Response
@@ -54,9 +43,7 @@ class AuthentificationController extends ApiController
 
 
         // check for failed attempts
-
-        // TODO: use laravel function for that
-        $ip = $_SERVER['REMOTE_ADDR'];
+        $ip = Request::getClientIp();
         $cacheKey = 'attempt_' . $number . '_from_' . $ip;
         $numberOfFailedAttempts = Cache::get($cacheKey, 0);
 
@@ -115,6 +102,16 @@ class AuthentificationController extends ApiController
             $this->error(401);
         }
 
+    }
+
+    /**
+     * Just wraps the getClientModelIdFromToken method and suppresses output
+     * 
+     * @return Response
+     */
+    public function checkToken()
+    {
+        $this->getClientModelIdFromToken();
     }
 
 

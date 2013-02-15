@@ -10,13 +10,7 @@ use App\Models\ClientModel;
 
 class StoresControllerTest extends TestCase {
 
-	public function testIndexAvaiable()
-	{
-		$response = $this->call('GET', 'api/frontend/stores');
-		$this->assertNotNull($response);
-	}
-
-	public function testIndexContent()
+	public function testIndex()
 	{
 		$response = $this->call('GET', 'api/frontend/stores');
 
@@ -28,6 +22,8 @@ class StoresControllerTest extends TestCase {
 											->where('isActive', true)
 											->get();
 		$realStores = $realStoresCollection->toArray();
+
+		$this->assertTrue($response->isOk());
 
 		$jsonStoresFromResponse = $response->getContent();
 		$storesFromResponse = json_decode($jsonStoresFromResponse, true);

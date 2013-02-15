@@ -54,9 +54,9 @@ Route::group(array('https'), function()
 	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
 
 	// authentification
-	Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
 	Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');
 	Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\AuthentificationController@logout');
+	Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
 });
 
 

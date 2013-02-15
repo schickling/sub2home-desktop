@@ -14,6 +14,21 @@ define([
 			this.each(function (ingredientCategoryModel) {
 				ingredientCategoryModel.destroy();
 			});
+		},
+
+		getAllSelectedIngredientModels: function () {
+			var ingredientModels = [];
+
+			_.each(this.models, function (ingredientsCategoryModel) {
+				var ingredientsCollection = ingredientsCategoryModel.get('ingredientsCollection');
+				_.each(ingredientsCollection.models, function (ingredientModel) {
+					if (ingredientModel.get('isSelected')) {
+						ingredientModels.push(ingredientModel);
+					}
+				});
+			});
+
+			return ingredientModels;
 		}
 
 	});

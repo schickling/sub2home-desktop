@@ -11,7 +11,6 @@ class OrderModelTable extends Migration {
 	 */
 	public function up()
 	{
-
 		Schema::create('order_models', function($table) {
 			$table->increments('id');
 			$table->enum('paymentMethod', array('cash', 'ec', 'paypal'))->default('cash');
