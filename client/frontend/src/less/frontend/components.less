@@ -279,107 +279,38 @@ img.cookie    { margin: 0 -10px;}
 
 div.pricetag {
   .positioned;
-  .clearfix;
-  height: 53px;
+  height: 33px;
   text-align: center;
   font-family: @headingsFontFamily;
   color: @white;
   font-size: @headingsFontSize;
   position: absolute;
   cursor: default;
-  background: @pricetagImage;
   width: 87px;
   padding-top: 18px;
   .backface-visibility(hidden);
- // .rotate(355deg);
+  span {
+    .positioned;
+    z-index:5;
+  }
+  &:before, &:after {
+    content: "\e07a";
+    font-family: "Homicons";
+    color: @greenDark;
+    font-size: 128px;
+    position: absolute;
+    left: -19px;
+    top: 12px;
+  }
 
-  // span {
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-  //   text-align: center;
-  //   top: 18px;
-  // }
+  &:before {
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
 
-  // span:after {
-  //   content: "€";
-  //   margin-left: 4px;
-  // }
-
-  // div.tag {
-  //   display: none;
-  //   .positioned;
-  //   background: @greenDark;
-  //   width: 18px;
-  //   height: 42px;
-  //   overflow: hidden;
-  //   float: left;
-  //   margin-left: -1px;
-  //   .box-shadow(@pricetagShadow);
-
-  //   &:before {
-  //     content: " ";
-  //     width: 1px;
-  //     height: 100%;
-  //     background: @pricetagSepColor;
-  //     position: absolute;
-  //     right: 1px;
-  //   }
-  //   &:after {
-  //     content: " ";
-  //     height: 36px;
-  //     width: 36px;
-  //     .border-radius(500px);
-  //     border: 1px solid @pricetagSepColor;
-  //     position: absolute;
-  //     background: @greenDark;
-  //     top: 50%;
-  //     left: 11px;
-  //     margin-top: -18px;
-  //   }
-
-  //   &.fst {
-  //     background: none;
-  //     width: 10px;
-  //     .box-shadow(none);
-  //     &:before {
-  //       background: none;
-  //     }
-  //     &:after {
-  //       border: none;
-  //       left: 4px;
-  //       .box-shadow(@pricetagShadow);
-  //     }
-  //   }
-
-  //   &.lst2 {
-  //     &:before {
-  //       background: none;
-  //       width: 16px;
-  //     }
-  //     &:after {
-  //       background: none;
-  //       border: none;
-  //       left: 0;
-  //     }
-  //   }
-
-  //   &.lst {
-  //     background: none;
-  //     width: 10px;
-  //     .box-shadow(none);
-  //     &:before {
-  //       background: none;
-  //     }
-  //     &:after {
-  //       border: none;
-  //       left: auto;
-  //       right: 4px;
-  //       .box-shadow(@pricetagShadow);
-  //     }
-  //   }
-
-  // }
+  &:after {
+    content: "\e079";
+    color: lighten(@greenDark, 10%);
+  }
 }
 
 

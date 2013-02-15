@@ -3352,29 +3352,39 @@ img.cookie {
 }
 div.pricetag {
   position: relative;
-  *zoom: 1;
-  height: 53px;
+  height: 33px;
   text-align: center;
   font-family: "VAGRounded LT Thin";
   color: #ffffff;
   font-size: 20px;
   position: absolute;
   cursor: default;
-  background: url("../img/static/common/pricetag.png") no-repeat;
   width: 87px;
   padding-top: 18px;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+div.pricetag span {
+  position: relative;
+  z-index: 5;
+}
 div.pricetag:before,
 div.pricetag:after {
-  display: table;
-  content: "";
-  line-height: 0;
+  content: "\e07a";
+  font-family: "Homicons";
+  color: #13493b;
+  font-size: 128px;
+  position: absolute;
+  left: -19px;
+  top: 12px;
+}
+div.pricetag:before {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 div.pricetag:after {
-  clear: both;
+  content: "\e079";
+  color: #1e715c;
 }
 .magnifier {
   background: url("../img/static/common/magnifier.png") no-repeat;
