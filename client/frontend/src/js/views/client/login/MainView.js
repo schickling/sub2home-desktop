@@ -3,12 +3,12 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'authentification',
 	'router',
+	'models/authentificationModel',
 	'models/stateModel',
 	'views/PageView',
 	'text!templates/client/login/MainTemplate.html'
-	], function ($, _, Backbone, authentification, router, stateModel, PageView, MainTemplate) {
+	], function ($, _, Backbone, router, authentificationModel, stateModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -42,7 +42,7 @@ define([
 				password = this.$password.val(),
 				loginSucceded;
 
-			loginSucceded = authentification.login(number, password);
+			loginSucceded = authentificationModel.login(number, password);
 
 			if (loginSucceded) {
 				router.navigate('franchise', {

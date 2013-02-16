@@ -4,10 +4,10 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/stateModel',
 	'notificationcenter',
-	'authentification'
-	], function (require, $, _, Backbone, stateModel, notificationcenter, authentification) {
+	'models/stateModel',
+	'models/authentificationModel'
+	], function (require, $, _, Backbone, notificationcenter, stateModel, authentificationModel) {
 
 	var Router = Backbone.Router.extend({
 
@@ -45,7 +45,7 @@ define([
 		init: function () {
 			// init header
 			require(['views/header/HeaderView'], function (HeaderView) {
-				var headerView = new HeaderView();
+				new HeaderView();
 			});
 
 
@@ -71,6 +71,7 @@ define([
 			}
 
 			Backbone.history.navigate(fragment, options);
+
 			return this;
 		},
 
@@ -260,7 +261,7 @@ define([
 		},
 
 		_isLoggedIn: function () {
-			if (authentification.isLoggedIn()) {
+			if (authentificationModel.isLoggedIn()) {
 				return true;
 			} else {
 				this.navigate('login', {

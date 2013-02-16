@@ -4,12 +4,13 @@ define([
 	'jqueryEasing',
 	'underscore',
 	'backbone',
+	'models/authentificationModel',
 	'models/stateModel',
 	'views/header/StoreView',
 	'views/header/ClientView',
 	'text!templates/header/HeaderTemplate.html',
 	'text!templates/header/RoleSwitchTemplate.html'
-	], function ($, jqueryEasing, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
+	], function ($, jqueryEasing, _, Backbone, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -35,17 +36,24 @@ define([
 				}
 			}, this);
 
-			this._renderRoleSwitch();
+			authentificationModel.on('change:isLoggedIn', this._render, this);
+
 		},
 
 		_render: function () {
 
 			this.$el.html(HeaderTemplate);
 
-			if (stateModel.get('isClientHeaderActive')) {
+			console.log('render');
+
+			if (stateModel.get('isClientHeaderActive') && authentificationModel.isLoggedIn()) {
 				this._renderClientView();
 			} else if (stateModel.get('storeModel')) {
 				this._renderStoreView();
+			}
+
+			if (authentificationModel.isLoggedIn()) {
+				this._renderRoleSwitch();
 			}
 
 		},

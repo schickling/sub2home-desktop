@@ -1,14 +1,20 @@
-// Filename: src/js/modules/authentification.js
+// Filename: src/js/models/authentificationModel.js
 define([
 	'jquery',
+	'underscore',
+	'backbone',
 	'notificationcenter'
-	], function ($, notificationcenter) {
+	], function ($, _, Backbone, notificationcenter) {
 
-	var authentification = {
+	var AuthentificationModel = Backbone.Model.extend({
 
-		_isSetup: false,
+		defaults: {
 
-		_isAlreadyLoggedIn: false,
+			isSetup: false,
+
+			isLoggedIn: false
+
+		},
 
 		_hasValidToken: function () {
 
@@ -44,9 +50,15 @@ define([
 			this._isSetup = true;
 		},
 
+		_forceSSL: function () {
+			if (location.protocol !== 'https:') {
+				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+			}
+		},
+
 		isLoggedIn: function () {
 			// check for cache
-			if (this._isAlreadyLoggedIn) {
+			if (this.get('isLoggedIn')) {
 				return true;
 			}
 
@@ -55,20 +67,21 @@ define([
 			}
 
 			// force ssl
-			if (location.protocol !== 'https:') {
-				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-			}
+			this._forceSSL();
 
 			// validate token
 			var tokenIsValid = this._hasValidToken();
 
 			// cache token validation
-			this._isAlreadyLoggedIn = tokenIsValid;
+			this.set('isLoggedIn', tokenIsValid);
 
 			return tokenIsValid;
 		},
 
 		login: function (number, password) {
+
+			// force ssl
+			this._forceSSL();
 
 			var isLoggedIn = false;
 
@@ -94,17 +107,22 @@ define([
 					} else {
 						notificationcenter.error('Daten falsch', 'Damn it');
 					}
-					
+
 				}
 			});
 
 			this._setupAjax();
+
+			this.set('isLoggedIn', isLoggedIn);
 
 			return isLoggedIn;
 
 		},
 
 		logout: function () {
+
+			// force ssl
+			this._forceSSL();
 
 			var isLoggedOut = false;
 
@@ -118,10 +136,12 @@ define([
 				}
 			});
 
+			this.set('isLoggedIn', !isLoggedOut);
+
 			return isLoggedOut;
 		}
 
-	};
+	});
 
-	return authentification;
+	return new AuthentificationModel();
 });
