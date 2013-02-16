@@ -25,7 +25,7 @@ define([
 			var articleModel = this.model,
 				description = articleModel.get('description');
 
-			if (articleModel.get('allowsIngredients')) {
+			if (articleModel.hasIngredients()) {
 				var ingredientCategoriesCollection = articleModel.get('ingredientCategoriesCollection'),
 					ingredientModels = ingredientCategoriesCollection.getAllSelectedIngredientModels();
 

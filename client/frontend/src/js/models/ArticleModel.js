@@ -161,6 +161,10 @@ define([
 			}
 
 			this.set('total', total);
+		},
+
+		hasIngredients: function () {
+			return this.get('allowsIngredients') && this.get('ingredientCategoriesCollection') !== null;
 		}
 
 	});

@@ -7,47 +7,56 @@ define([
 	'models/stateModel',
 	'views/header/StoreView',
 	'views/header/ClientView',
-	'text!templates/header/HeaderTemplate.html'
-	], function ($, jqueryEasing, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate) {
+	'text!templates/header/HeaderTemplate.html',
+	'text!templates/header/RoleSwitchTemplate.html'
+	], function ($, jqueryEasing, _, Backbone, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
 		el: $('#header'),
 
 		events: {
-			'click .logo': 'reset',
-			'click #roleSwitch': 'switchChildView'
+			'click .logo': '_reset',
+			'click #roleSwitch': '_switchChildView'
 		},
 
 		childView: null,
 
 		initialize: function () {
-			this.render();
+			this._render();
 
-			stateModel.on('change:storeModel', this.renderStoreView, this);
+			stateModel.on('change:storeModel', this._renderStoreView, this);
 
 			stateModel.on('change:isClientHeaderActive', function () {
 				if (stateModel.get('isClientHeaderActive')) {
-					this.renderClientView();
+					this._renderClientView();
 				} else {
-					this.renderStoreView();
+					this._renderStoreView();
 				}
 			}, this);
+
+			this._renderRoleSwitch();
 		},
 
-		render: function () {
+		_render: function () {
 
 			this.$el.html(HeaderTemplate);
 
 			if (stateModel.get('isClientHeaderActive')) {
-				this.renderClientView();
+				this._renderClientView();
 			} else if (stateModel.get('storeModel')) {
-				this.renderStoreView();
+				this._renderStoreView();
 			}
 
 		},
 
-		renderStoreView: function () {
+		_renderRoleSwitch: function () {
+			this.$el.append(RoleSwitchTemplate);
+
+			this.$el.addClass('isLoggedIn');
+		},
+
+		_renderStoreView: function () {
 			this.childView = new StoreView({
 				model: stateModel.get('storeModel'),
 				el: this.$('#headerContent')
@@ -62,7 +71,7 @@ define([
 			});
 		},
 
-		renderClientView: function () {
+		_renderClientView: function () {
 			this.childView = new ClientView({
 				el: this.$('#headerContent')
 			});
@@ -76,11 +85,11 @@ define([
 			});
 		},
 
-		reset: function () {
+		_reset: function () {
 			window.localStorage.clear();
 		},
 
-		switchChildView: function () {
+		_switchChildView: function () {
 			stateModel.set('isClientHeaderActive', !stateModel.get('isClientHeaderActive'));
 		}
 

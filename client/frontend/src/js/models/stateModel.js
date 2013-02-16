@@ -23,9 +23,6 @@ define([
 			storeModel: null,
 			changedStore: false,
 
-			// client specific data
-			clientModel: null,
-
 			// parameters for selection
 			selectionRessourceType: '',
 			selectionRessourceId: '',
