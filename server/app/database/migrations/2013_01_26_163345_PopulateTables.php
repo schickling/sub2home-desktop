@@ -257,32 +257,6 @@ class PopulateTables extends Migration {
 		$da4->save();
 
 		
-		
-		// Empty orders
-		for ($i = 0; $i < 1000; $i++) {
-			$order = new OrderModel(array(
-				'paymentMethod' => 'cash',
-				'store_model_id' => 1
-				));
-			$order->save();
-
-			$customerAddress = array(
-				'firstName' => 'Max',
-				'lastName' => 'Mustermann',
-				'street' => 'Tuerkenstr 24',
-				'streetAdditional' => 'Oben',
-				'postal' => 13340,
-				'city' => 'Berlin',
-				'phone' => 112,
-				'email' => 'julian@my-sub.de'
-				);
-
-			$order->addressModel()->create($customerAddress);
-			unset($customerAddress);
-			unset($order);
-		}
-
-		
 	}
 
 }

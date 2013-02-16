@@ -68,9 +68,10 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
-		// 
-		Queue::push('App\\Controllers\\Jobs\\CalculateTurnoverForStore', array('orderModel' => $this));
+		$jobData = array('order_model_id' => $this->id);
 
-		// Do other stuff with the order like payment stuff
+		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrder', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\CustomerOrderConfirmMail', $jobData);
+
 	}
 }

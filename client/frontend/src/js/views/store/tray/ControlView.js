@@ -87,12 +87,12 @@ define([
 
 			orderModel.save({}, {
 				success: function () {
-					orderModel.get('orderedItemsCollection').reset();
+					// orderModel.get('orderedItemsCollection').reset();
 
-					router.navigate('store/danke', {
-						trigger: true,
-						replace: true
-					});
+					// router.navigate('store/danke', {
+					// 	trigger: true,
+					// 	replace: true
+					// });
 				},
 				error: function (error, b) {
 					notificationcenter.error(b, b);
