@@ -361,6 +361,19 @@ aside#header .iInfo {
   bottom: -7px;
   background: url("../img/static/common/note_bottom.png") repeat-x;
 }
+.note.checkout {
+  bottom: 0;
+  height: 200px;
+}
+.note.checkout:before {
+  content: " ";
+  height: 7px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -7px;
+  background: url("../img/static/common/note_top.png") repeat-x;
+}
 .note.selection {
   width: 100%;
 }
@@ -2173,6 +2186,9 @@ table [class*=span],
 }
 .iSauce:before {
   content: "\e017";
+}
+.iMenuUpgrade:before {
+  content: "\e018";
 }
 .pfootlong:before {
   content: "\e01e";
@@ -6044,9 +6060,6 @@ div.bankOptions .bankaccount {
 .menuUpgrade .menuUpgradeBasics .smallNote:after {
   background: none;
 }
-.menuUpgrade .menuUpgradeBasics .smallNote h3 {
-  margin: 5px -45px 0;
-}
 .menuUpgrade .menuUpgradeBasics .smallNote h3 i {
   margin: 0 10px 0 0;
   position: relative;
@@ -6148,7 +6161,8 @@ div.bankOptions .bankaccount {
 .itemsTimeline .itemTimeline .iBread,
 .itemsTimeline .itemTimeline .iCheese,
 .itemsTimeline .itemTimeline .iVegetables,
-.itemsTimeline .itemTimeline .iSauce {
+.itemsTimeline .itemTimeline .iSauce,
+.itemsTimeline .itemTimeline .iMenuUpgrade {
   position: relative;
   top: 7px;
   left: 2px;
@@ -6336,7 +6350,7 @@ div.bankOptions .bankaccount {
   position: relative;
 }
 .menuItem img {
-  width: 265px;
+  height: 160px;
   max-width: none;
   position: absolute;
   left: 50%;
@@ -6385,28 +6399,23 @@ div.bankOptions .bankaccount {
   width: 100%;
   background: rgba(224, 166, 54, 0.2);
 }
-#checkoutAdditionalOptions {
+#checkoutAdditionalOptions,
+.note.checkout {
   position: relative;
   padding: 0 8% 50px;
 }
-#checkoutAdditionalOptions:after {
-  content: " ";
-  border-top: 1px solid #d1ba82;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.5);
-}
-#checkoutAdditionalOptions > div {
+#checkoutAdditionalOptions > div,
+.note.checkout > div {
   display: inline-block;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock {
+#checkoutAdditionalOptions > div.deliveryTimeClock,
+.note.checkout > div.deliveryTimeClock {
   margin: 35px 0;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes {
+.note.checkout > div.deliveryTimeClock .hours,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes,
+.note.checkout > div.deliveryTimeClock .minutes {
   position: relative;
   padding: 4px;
   background: #d1ba82;
@@ -6421,38 +6430,10 @@ div.bankOptions .bankaccount {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn {
-  position: absolute;
-  left: 50%;
-  margin-left: -15px;
-  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
-  color: #c3a55d;
-  color: #d1ba82;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
-}
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowUp,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowUp {
-  top: -32px;
-}
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowDown,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowDown {
-  bottom: -32px;
-}
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.inactive,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.inactive {
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-}
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
-  color: #c6aa64;
-}
 #checkoutAdditionalOptions > div.deliveryTimeClock .topTile,
-#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile {
+.note.checkout > div.deliveryTimeClock .topTile,
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile,
+.note.checkout > div.deliveryTimeClock .bottomTile {
   position: relative;
   display: inline-block;
   padding: 0;
@@ -6487,18 +6468,23 @@ div.bankOptions .bankaccount {
   cursor: pointer;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .topTile span,
-#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span {
+.note.checkout > div.deliveryTimeClock .topTile span,
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span,
+.note.checkout > div.deliveryTimeClock .bottomTile span {
   display: inline-block;
   position: relative;
   top: 31px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile {
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile,
+.note.checkout > div.deliveryTimeClock .bottomTile {
   margin-top: 1px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span {
+#checkoutAdditionalOptions > div.deliveryTimeClock .bottomTile span,
+.note.checkout > div.deliveryTimeClock .bottomTile span {
   top: -30px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator {
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator,
+.note.checkout > div.deliveryTimeClock .clockSeparator {
   position: relative;
   width: 11px;
   height: 42px;
@@ -6507,7 +6493,9 @@ div.bankOptions .bankaccount {
   margin: 45px 5px 0;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:before,
-#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
+.note.checkout > div.deliveryTimeClock .clockSeparator:before,
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after,
+.note.checkout > div.deliveryTimeClock .clockSeparator:after {
   content: " ";
   position: absolute;
   width: 11px;
@@ -6521,23 +6509,27 @@ div.bankOptions .bankaccount {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after {
+#checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:after,
+.note.checkout > div.deliveryTimeClock .clockSeparator:after {
   top: 30px;
 }
-#checkoutAdditionalOptions > div.deliveryAdditionalNote {
+#checkoutAdditionalOptions > div.deliveryAdditionalNote,
+.note.checkout > div.deliveryAdditionalNote {
   position: absolute;
   left: 8%;
   right: 8%;
   margin-left: 400px;
 }
-#checkoutAdditionalOptions > div.deliveryAdditionalNote div {
+#checkoutAdditionalOptions > div.deliveryAdditionalNote div,
+.note.checkout > div.deliveryAdditionalNote div {
   width: 100%;
   height: 29px;
   border-top: 1px solid rgba(209, 186, 130, 0.5);
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
   margin-top: 29px;
 }
-#checkoutAdditionalOptions > div.deliveryAdditionalNote textarea {
+#checkoutAdditionalOptions > div.deliveryAdditionalNote textarea,
+.note.checkout > div.deliveryAdditionalNote textarea {
   position: absolute;
   top: 6px;
   left: 0;
@@ -6553,6 +6545,46 @@ div.bankOptions .bankaccount {
   padding: 0 10px;
   font-size: 17px;
   resize: none;
+}
+#checkoutAdditionalOptions:after {
+  content: " ";
+  border-top: 1px solid #d1ba82;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn {
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
+  color: #c3a55d;
+  color: #d1ba82;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowUp,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowUp {
+  top: -32px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowDown,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowDown {
+  bottom: -32px;
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.inactive,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.inactive {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
+  color: #c6aa64;
 }
 #checkoutBasicControls {
   position: relative;
@@ -6781,6 +6813,10 @@ div.bankOptions .bankaccount {
 }
 .paymentSettings span.selected {
   color: rgba(255, 255, 255, 0.35);
+}
+.note.checkout {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .store_selection_container {
   margin: 0 auto;

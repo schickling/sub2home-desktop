@@ -3301,7 +3301,7 @@ div.bankOptions {
         background: none;
       }
       h3 {
-        margin: 5px -45px 0;
+        //margin: 5px -45px 0;
         i {
           margin: 0 10px 0 0;
           .positioned;
@@ -3434,7 +3434,7 @@ div.bankOptions {
         cursor: default;
       }
     }
-    .iBread, .iCheese, .iVegetables, .iSauce {
+    .iBread, .iCheese, .iVegetables, .iSauce, .iMenuUpgrade {
       .positioned;
       top: 7px;
       left: 2px;
@@ -3659,7 +3659,7 @@ div.bankOptions {
   width: 265px;
   .positioned;
   img {
-    width: 265px;
+    height: 160px;
     max-width: none;
     position: absolute;
     left: 50%;
@@ -3732,20 +3732,12 @@ div.bankOptions {
 // ---------------------------
 
 
-#checkoutAdditionalOptions {
+#checkoutAdditionalOptions, .note.checkout {
+
   .positioned;
   padding: 0 8% 50px;
-  &:after {
-    content: " ";
-    border-top: 1px solid @onNoteColor;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 1px;
-    background: rgba(255,255,255,0.5);
-  }
-  >div {
+
+    >div {
     display: inline-block;
     &.deliveryTimeClock {
       margin: 35px 0;
@@ -3758,27 +3750,6 @@ div.bankOptions {
         display: inline-block;
         .border-radius(3px);
         .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
-
-        .iBtn {
-          position: absolute;
-          left: 50%;
-          margin-left: -15px;
-          .r-engraved-text;
-          color: @onNoteColor;
-          &.iArrowUp {
-            top: -32px;
-          }
-          &.iArrowDown {
-            bottom: -32px;
-          }
-          &.inactive {
-            .opacity(30);
-          }
-          .transition(color .1s linear);
-          &:hover {
-            color: darken(@onNoteColor, 8%);
-          }
-        }
       }
 
       .topTile, .bottomTile {
@@ -3862,6 +3833,42 @@ div.bankOptions {
         padding: 0 10px;
         font-size: 17px;
         resize: none;
+      }
+    }
+  }
+}
+
+
+#checkoutAdditionalOptions {
+
+  &:after {
+    content: " ";
+    border-top: 1px solid @onNoteColor;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: rgba(255,255,255,0.5);
+  }
+
+  >div {
+    &.deliveryTimeClock {
+      .hours, .minutes {
+        .iBtn {
+          position: absolute;
+          left: 50%;
+          margin-left: -15px;
+          .r-engraved-text;
+          color: @onNoteColor;
+          &.iArrowUp { top: -32px; }
+          &.iArrowDown { bottom: -32px; }
+          &.inactive { .opacity(30); }
+          .transition(color .1s linear);
+          &:hover {
+            color: darken(@onNoteColor, 8%);
+          }
+        }
       }
     }
   }
@@ -4103,4 +4110,15 @@ div.bankOptions {
       color: @grayLightOnDark;
     }
   }
+}
+
+
+// ------------------------------------------------ CHECKOUT ---------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+.note.checkout {
+
+padding-top: 100px;
+padding-bottom: 100px;
+
 }

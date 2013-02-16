@@ -203,7 +203,26 @@ aside#header {
       background: @noteBottom;
     }    
   }
+
+
+  &.checkout {
+    bottom: 0;
+    height: 200px;
+
+    &:before{
+      content: " ";
+      height: 7px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -7px;
+      background: @noteTop;
+    }
+  }
 }
+
+
+
 
 .note.selection {
   width: 100%;

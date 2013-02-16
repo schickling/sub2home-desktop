@@ -1,1 +1,33 @@
-Danke fuer deine Bestellung Horsti!
+<section class="note checkout">
+		<div class="deliveryTimeClock">
+
+			<span class="hours">
+				<i class="iBtn iArrowUp"></i>
+				<span class="topTile">
+					<span><%= dueHours %></span>
+				</span>
+				<span class="bottomTile">
+					<span><%= dueHours %></span>
+				</span>
+				<i class="iBtn iArrowDown <% if (hoursAreMinimum) { %>inactive <% } %>"></i>
+			</span>
+
+			<span class="clockSeparator"></span>
+			<span class="minutes">
+				<i class="iBtn iArrowUp"></i>
+				<span class="topTile">
+					<span><%= dueMinutes %></span>
+				</span>
+				<span class="bottomTile">
+					<span><%= dueMinutes %></span>
+				</span>
+				<i class="iBtn iArrowDown <% if (minutesAreMinimum) { %>inactive <% } %>"></i>
+			</span>
+		</div>
+		<div class="deliveryAdditionalNote">
+			<div></div>
+			<div></div>
+			<div></div>
+			<textarea name="" id="" cols="60" placeholder="Was ich noch loswerden wollte..." rows="6"><%= comment %></textarea>
+		</div>
+</section>
