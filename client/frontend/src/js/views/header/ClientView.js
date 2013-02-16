@@ -12,7 +12,10 @@ define([
 	var ClientView = Backbone.View.extend({
 
 		events: {
-			'click .bSignout': '_logout'
+			'click .bSignout': '_logout',
+			'click .bSettings': '_navigateToStoreSettings',
+			'click .bAssortment': '_navigateToStoreAssortment',
+			'click .bOrders': '_navigateToStoreOrders'
 		},
 
 		initialize: function () {
@@ -36,6 +39,18 @@ define([
 			if (logoutSucceded && stateModel.currentRouteIsClientRelated()) {
 				router.navigate('/', true);
 			}
+		},
+
+		_navigateToStoreSettings: function() {
+			router.navigate('store/einstellungen', true);
+		},
+
+		_navigateToStoreAssortment: function() {
+			router.navigate('store/sortiment', true);
+		},
+
+		_navigateToStoreOrders: function() {
+			router.navigate('store/bestellungen', true);
 		}
 
 	});
