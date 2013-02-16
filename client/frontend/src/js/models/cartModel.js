@@ -60,11 +60,7 @@ define([
 				this.set('orderModel', new OrderModel());
 			}
 
-			var orderModel = this.get('orderModel');
-
 			this._listenToOrderModel();
-
-
 
 		},
 
