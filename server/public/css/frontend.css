@@ -3619,7 +3619,7 @@ aside#header .switch {
 aside#header #headerContent {
   position: absolute;
   right: 60px;
-  left: 90px;
+  left: 105px;
   font-family: "VAGRounded LT Thin";
   font-size: 15px;
   color: #a78a44;
@@ -3797,17 +3797,17 @@ aside#header #headerContent #clientAreaNavigation .bSignout {
 aside#header #headerContent #clientAreaNavigation .bDashboard:hover,
 aside#header #headerContent #clientAreaNavigation .bSignout:hover {
   background: rgba(184, 126, 0, 0.35);
-  -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
-  -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
-  box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
+  -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
 }
 aside#header div#roleSwitch {
   position: absolute;
-  left: 79px;
+  left: 100px;
   width: 21px;
   height: 46px;
   padding: 2px;
-  margin: 5px 0 0 0;
+  margin: 9px 0 0 0;
   border: none;
   font-size: 10px;
   cursor: pointer;
@@ -3868,6 +3868,9 @@ aside#header div#roleSwitch .handle {
 }
 aside#header div#roleSwitch .handle:before {
   top: -4px;
+}
+aside#header.isLoggedIn #headerContent {
+  left: 120px;
 }
 #content {
   padding: 0;
@@ -5727,7 +5730,7 @@ div.bankOptions .bankaccount {
   cursor: default;
 }
 .ingredientInfo .ingredientCategory .ingredient.penultimate:after {
-  content: " ";
+  content: "";
 }
 .ingredientInfo .ingredientCategory .ingredient:last-child:before {
   content: "&";

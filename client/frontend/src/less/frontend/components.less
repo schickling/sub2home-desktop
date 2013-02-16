@@ -523,7 +523,7 @@ aside#header {
   #headerContent {
     position: absolute;
     right: 60px;
-    left: 90px;
+    left: 105px;
     font-family: @headingsFontFamily;
     font-size: 15px;
     color: @onHeaderColor;
@@ -694,7 +694,7 @@ aside#header {
         .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
         &:hover {
           background: @headerTrayHoverBackground;
-          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
+          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%), -1px 0 0 0 rgba(255,255,255,0.4));
         }
       }
     }
@@ -702,11 +702,11 @@ aside#header {
 
   div#roleSwitch {
     position: absolute;
-    left: 79px;
+    left: 100px;
     width: 21px;
     height: 46px;
     padding: 2px;
-    margin: 5px 0 0 0;
+    margin: 9px 0 0 0;
     border: none;
     font-size: 10px;
     cursor: pointer;
@@ -751,6 +751,12 @@ aside#header {
       // &.iUser:hover {
       //   top: 5px !important;
       // }
+    }
+  }
+  &.isLoggedIn {
+    #headerContent {
+      left: 120px;
+
     }
   }
 }
@@ -2932,7 +2938,7 @@ div.bankOptions {
       }
 
       &.penultimate:after {
-        content: " ";
+        content: "";
       }
 
       &:last-child {
