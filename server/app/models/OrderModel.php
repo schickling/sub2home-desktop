@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Queue;
+
 /**
  * Order class
  *
@@ -66,6 +68,9 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
+		// 
+		Queue::push('App\\Controllers\\Jobs\\CalculateTurnoverForStore', array('orderModel' => $this));
+
 		// Do other stuff with the order like payment stuff
 	}
 }

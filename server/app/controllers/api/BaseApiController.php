@@ -44,12 +44,12 @@ class BaseApiController extends Controller
      */
     protected function getClientModelIdFromToken()
     {
-        $token = Request::header('Token');
 
-        if (!$token) {
+        if (!$this->hasToken()) {
             $this->error(401);
         }
 
+        $token = Request::header('Token');
         $client_model_id = Cache::get($token);
 
         if (!$client_model_id) {

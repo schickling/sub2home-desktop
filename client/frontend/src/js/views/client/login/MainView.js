@@ -5,9 +5,10 @@ define([
 	'backbone',
 	'authentification',
 	'router',
+	'models/stateModel',
 	'views/PageView',
 	'text!templates/client/login/MainTemplate.html'
-	], function ($, _, Backbone, authentification, router, PageView, MainTemplate) {
+	], function ($, _, Backbone, authentification, router, stateModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 

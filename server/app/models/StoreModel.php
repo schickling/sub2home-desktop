@@ -1,10 +1,5 @@
 <?php namespace App\Models;
-
-/**
- * Store class
- *
- * Each store is assigned to one or multiple clients.
- */
+ 
 class StoreModel extends BaseModel
 {
 	protected $hidden = array(
@@ -230,7 +225,7 @@ class StoreModel extends BaseModel
 	{
 		$totalTurnover = $this->totalTurnover;
 
-		// inconsitency of laravel
+		// TODO
 		if (is_object($this->created_at)) {
 			$diff = abs($this->created_at->getTimestamp() - time());
 		} else {
@@ -248,16 +243,16 @@ class StoreModel extends BaseModel
 		return $monthyTurnover;
 	}
 
-	public function getTotalOrdersAttribute()
+	public function getNumberOfTotalOrdersAttribute()
 	{
 		return $this->ordersCollection()->count();
 	}
 
-	public function getMonthlyOrdersAttribute()
+	public function getNumberOfMonthlyOrdersAttribute()
 	{
-		$totalOrders = $this->totalOrders;
+		$numberOfTotalOrders = $this->numberOfTotalOrders;
 
-		// inconsitency of laravel
+		// TODO
 		if (is_object($this->created_at)) {
 			$diff = abs($this->created_at->getTimestamp() - time());
 		} else {
@@ -267,12 +262,12 @@ class StoreModel extends BaseModel
 		$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
 
 		if ($months > 0) {
-			$monthyOrders = $totalOrders / $months;
+			$numberOfMonthlyOrders = $numberOfTotalOrders / $months;
 		} else {
-			$monthyOrders = $totalOrders;
+			$numberOfMonthlyOrders = $numberOfTotalOrders;
 		}
 
-		return $monthyOrders;
+		return $numberOfMonthlyOrders;
 	}
 
 	/**

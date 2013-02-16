@@ -49,6 +49,12 @@ define([
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
+				// from client.dashboard
+					{
+					origin: 'client.dashboard',
+					destination: 'store.home',
+					type: 'b.backward'
+				},
 				// from store.home
 					{
 					origin: 'store.home',
@@ -68,6 +74,11 @@ define([
 					{
 					origin: 'store.home',
 					destination: 'store.config',
+					type: 'b.forward'
+				},
+					{
+					origin: 'store.home',
+					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
 				// from store.selection

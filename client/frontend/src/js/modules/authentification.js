@@ -1,7 +1,7 @@
 // Filename: src/js/modules/authentification.js
 define([
 	'jquery',
-	'notificationcenter',
+	'notificationcenter'
 	], function ($, notificationcenter) {
 
 	var authentification = {
