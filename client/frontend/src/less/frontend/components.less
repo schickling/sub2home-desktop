@@ -524,23 +524,36 @@ aside#header {
     position: absolute;
     right: 60px;
     left: 90px;
+    font-family: @headingsFontFamily;
+    font-size: 15px;
+    color: @onHeaderColor;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
     //float: left;
     .clearfix;
+
+    .initial {
+      font-size: 20px;
+      padding: 25px 15px 0 ;
+      display: inline-block;
+      .border-box;
+      width: 100%;
+      text-align: center;
+    }
+
     >div {
 
 
 
       // COMMON STYLES
 
-      font-family: @headingsFontFamily;
-      font-size: 15px;
+
+
       border-left: 1px solid @onNoteColor;
       height: 67px;
       .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
       padding: 0 15px;
       float: left;
-      color: @onHeaderColor;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+
 
       // LOGO SECTION
 
@@ -1129,8 +1142,8 @@ input[type="text"]#locationSelectionInput {
   }
 
   .pricetag {
-    top: 103px;
-    left: 183px;
+    top: 130px;
+    left: 193px;
   }
 
   .detailsArticle {
@@ -1152,12 +1165,27 @@ input[type="text"]#locationSelectionInput {
       .positioned;
       z-index: 6;
     }
-    >h3 {
-      width: @itemWidth;
-      text-align: center;
+
+    .itemInfo {
+      display: inline-block;
+      width: 335px;
+      text-align: left;
+      margin: 30px 0 0 20px;
     }
+
+    h3 {
+      //display: inline-block;
+      //width: 340px;
+      text-align: left
+    }
+
+
+
     .itemDescription {
-      width: @itemWidth;
+      //width: 340px;
+      //display: inline-block;
+      text-align: left;
+      margin-bottom: 0;
     }
 
     .pricetag {
@@ -1166,11 +1194,10 @@ input[type="text"]#locationSelectionInput {
   }
 
   .footlongOption {
-    //display: none;
     position: absolute;
     cursor: pointer;
     left: 255px;
-    top: 13px;
+    top: 33px;
     width: 230px;
     height: 130px;
     
@@ -1180,11 +1207,9 @@ input[type="text"]#locationSelectionInput {
       font-size: 300px;
       color: @onNoteColor;
       .positioned;
-      left: -30px;
-      top: 52px;
+      left: -27px;
+      top: 72px;
     }
-
-    
 
     span {
       font-family: @handFontFamily;
@@ -1192,11 +1217,63 @@ input[type="text"]#locationSelectionInput {
       font-size: 15px;
       position: absolute;
       left: 50px;
-      top: 67px;
+      top: 47px;
       width: 120px;
       text-align: center;
     }
   }
+
+  .customizeArticle {
+    .positioned;
+    vertical-align: top;
+    margin: 35px 0 10px 10px;
+    padding: 4px;
+    background: @onNoteColor;
+    width: 72px;
+    height: 72px;
+    display: inline-block;
+    .border-radius(3px);
+    .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
+    .bFood {
+      padding: 0;
+      margin: 0;
+      width: 72px;
+      height: 72px;
+      .border-radius(3px);
+      border: none;
+      #gradient > .vertical(#f4d68d,#e6ba4e);
+      .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
+      text-align: center;
+      &:before {
+        top: 13px;
+        font-size: 50px;
+        color: #ae7f0f;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(#ae7f0f, 15%);
+        .transition(top .1s linear);
+      }
+
+      .transition(e('margin .1s linear, height .1s linear, width .1s linear'));
+
+      &:active {
+        .box-shadow(0 1px 0 0 rgba(255,255,255,0.4), inset 0 1px 2px 0 rgba(0,0,0,0.4));
+        margin: -3px 0 0 -3px;
+        width: 78px;
+        height: 78px;
+        &:before {
+          top: 16px;
+        }
+      }
+      &:hover {
+        margin: -2px 0 0 -2px;
+        width: 76px;
+        height: 76px;
+        &:before {
+          top: 15px;
+        }
+      }
+    }
+  }
+
 }
 
 .article {
@@ -3682,20 +3759,6 @@ div.bankOptions {
         .border-radius(3px);
         .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
 
-        // &:after {
-        //   content: "";
-        //   font-family: "Homicons";
-        //   position: absolute;
-        //   line-height: 0.0001;
-        //   top: 60px;
-        //   height: 9px;
-        //   overflow: hidden;
-        //   width: 130px;
-        //   font-size: 141px;
-        //   left: -5px;
-        //   color: @onNoteColor;
-        //   text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 #7b6d4b;
-        // }
         .iBtn {
           position: absolute;
           left: 50%;

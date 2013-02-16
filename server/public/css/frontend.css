@@ -2384,6 +2384,10 @@ table [class*=span],
 .bSignout:before {
   content: "\e077";
 }
+.iFood:before,
+.bFood:before {
+  content: "\e07b";
+}
 .close {
   float: right;
   font-size: 20px;
@@ -3588,6 +3592,10 @@ aside#header #headerContent {
   position: absolute;
   right: 60px;
   left: 90px;
+  font-family: "VAGRounded LT Thin";
+  font-size: 15px;
+  color: #a78a44;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   *zoom: 1;
 }
 aside#header #headerContent:before,
@@ -3599,9 +3607,17 @@ aside#header #headerContent:after {
 aside#header #headerContent:after {
   clear: both;
 }
+aside#header #headerContent .initial {
+  font-size: 20px;
+  padding: 25px 15px 0 ;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
 aside#header #headerContent > div {
-  font-family: "VAGRounded LT Thin";
-  font-size: 15px;
   border-left: 1px solid #d1ba82;
   height: 67px;
   -webkit-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
@@ -3609,8 +3625,6 @@ aside#header #headerContent > div {
   box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
   padding: 0 15px;
   float: left;
-  color: #a78a44;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 aside#header #headerContent > div.currentInfo {
   height: 30px;
@@ -4066,8 +4080,8 @@ input[type="text"]#locationSelectionInput {
 }
 .item .pricetag,
 .article .pricetag {
-  top: 103px;
-  left: 183px;
+  top: 130px;
+  left: 193px;
 }
 .item .detailsArticle,
 .article .detailsArticle {
@@ -4098,14 +4112,21 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   z-index: 6;
 }
-.item .detailsArticle > h3,
-.article .detailsArticle > h3 {
-  width: 265px;
-  text-align: center;
+.item .detailsArticle .itemInfo,
+.article .detailsArticle .itemInfo {
+  display: inline-block;
+  width: 335px;
+  text-align: left;
+  margin: 30px 0 0 20px;
+}
+.item .detailsArticle h3,
+.article .detailsArticle h3 {
+  text-align: left;
 }
 .item .detailsArticle .itemDescription,
 .article .detailsArticle .itemDescription {
-  width: 265px;
+  text-align: left;
+  margin-bottom: 0;
 }
 .item .detailsArticle .pricetag,
 .article .detailsArticle .pricetag {
@@ -4116,7 +4137,7 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   cursor: pointer;
   left: 255px;
-  top: 13px;
+  top: 33px;
   width: 230px;
   height: 130px;
 }
@@ -4127,8 +4148,8 @@ input[type="text"]#locationSelectionInput {
   font-size: 300px;
   color: #d1ba82;
   position: relative;
-  left: -30px;
-  top: 52px;
+  left: -27px;
+  top: 72px;
 }
 .item .footlongOption span,
 .article .footlongOption span {
@@ -4137,9 +4158,89 @@ input[type="text"]#locationSelectionInput {
   font-size: 15px;
   position: absolute;
   left: 50px;
-  top: 67px;
+  top: 47px;
   width: 120px;
   text-align: center;
+}
+.item .customizeArticle,
+.article .customizeArticle {
+  position: relative;
+  vertical-align: top;
+  margin: 35px 0 10px 10px;
+  padding: 4px;
+  background: #d1ba82;
+  width: 72px;
+  height: 72px;
+  display: inline-block;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
+}
+.item .customizeArticle .bFood,
+.article .customizeArticle .bFood {
+  padding: 0;
+  margin: 0;
+  width: 72px;
+  height: 72px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  background-color: #eecb74;
+  background-image: -moz-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4d68d), to(#e6ba4e));
+  background-image: -webkit-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: -o-linear-gradient(top, #f4d68d, #e6ba4e);
+  background-image: linear-gradient(to bottom, #f4d68d, #e6ba4e);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4d68d', endColorstr='#ffe6ba4e', GradientType=0);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  text-align: center;
+  -webkit-transition: margin .1s linear, height .1s linear, width .1s linear;
+  -moz-transition: margin .1s linear, height .1s linear, width .1s linear;
+  -o-transition: margin .1s linear, height .1s linear, width .1s linear;
+  transition: margin .1s linear, height .1s linear, width .1s linear;
+}
+.item .customizeArticle .bFood:before,
+.article .customizeArticle .bFood:before {
+  top: 13px;
+  font-size: 50px;
+  color: #ae7f0f;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 #684c09;
+  -webkit-transition: top 0.1s linear;
+  -moz-transition: top 0.1s linear;
+  -o-transition: top 0.1s linear;
+  transition: top 0.1s linear;
+}
+.item .customizeArticle .bFood:active,
+.article .customizeArticle .bFood:active {
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  margin: -3px 0 0 -3px;
+  width: 78px;
+  height: 78px;
+}
+.item .customizeArticle .bFood:active:before,
+.article .customizeArticle .bFood:active:before {
+  top: 16px;
+}
+.item .customizeArticle .bFood:hover,
+.article .customizeArticle .bFood:hover {
+  margin: -2px 0 0 -2px;
+  width: 76px;
+  height: 76px;
+}
+.item .customizeArticle .bFood:hover:before,
+.article .customizeArticle .bFood:hover:before {
+  top: 15px;
 }
 .article {
   background: none;
