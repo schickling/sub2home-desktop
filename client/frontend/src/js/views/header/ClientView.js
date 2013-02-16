@@ -4,9 +4,10 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'models/stateModel',
 	'models/authentificationModel',
 	'text!templates/header/ClientTemplate.html'
-	], function ($, _, Backbone, router, authentificationModel, ClientTemplate) {
+	], function ($, _, Backbone, router, stateModel,authentificationModel, ClientTemplate) {
 
 	var ClientView = Backbone.View.extend({
 
@@ -32,7 +33,7 @@ define([
 		_logout: function () {
 			var logoutSucceded = authentificationModel.logout();
 
-			if (logoutSucceded) {
+			if (logoutSucceded && stateModel.currentRouteIsClientRelated()) {
 				router.navigate('/', true);
 			}
 		}

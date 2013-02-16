@@ -180,6 +180,19 @@ define([
 			}
 
 			return false;
+		},
+
+		currentRouteIsClientRelated: function () {
+			var currentRoute = this.get('currentRoute'),
+				clientRoutes = [
+				'client.dashboard',
+				'client.config',
+				'store.config',
+				'store.orders',
+				'store.assortment'
+				];
+
+			return _.contains(clientRoutes, currentRoute);
 		}
 
 	});
