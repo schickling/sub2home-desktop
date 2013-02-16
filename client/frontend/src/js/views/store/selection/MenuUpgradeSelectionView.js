@@ -28,7 +28,9 @@ define([
 
 				this.timelineItemsCollection.add({
 					phrase: 'Waehle ein Menu Upgrade',
-					menuUpgradeSelection: true
+					menuUpgradeSelection: true,
+					icon: 'iMenuUpgrade',
+					image: '../../../img/static/common/menu_upgrade.png'
 				});
 
 
