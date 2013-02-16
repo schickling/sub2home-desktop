@@ -673,6 +673,30 @@ aside#header {
       background: @headerTrayBackground;
       border-left: 1px solid rgba(255,255,255,0.6);
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
+      padding: 0;
+      .iBtn {
+        margin: 18px 9px 0;
+        height: 49px;
+        .transition(color .1s linear);
+        &:hover {
+          color: darken(@onHeaderColor, 10%);
+        }
+      }
+      .bSettings { margin-left: 18px;}
+      .bTurnover { margin-right: 18px;}
+
+
+
+      .bDashboard, .bSignout {
+        margin: 0;
+        padding: 18px 18px 0;
+        .box-shadow(-1px 0 0 0 darken(@headerTrayBackground,10%), inset 1px 0 0 0 rgba(255,255,255,0.4));
+        .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
+        &:hover {
+          background: @headerTrayHoverBackground;
+          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
+        }
+      }
     }
   }
 
@@ -730,6 +754,7 @@ aside#header {
     }
   }
 }
+
 
 
 // ------------------------------------------------------  HOME  -----------------------------------------------------
@@ -3863,7 +3888,10 @@ div.bankOptions {
           color: @onNoteColor;
           &.iArrowUp { top: -32px; }
           &.iArrowDown { bottom: -32px; }
-          &.inactive { .opacity(30); }
+          &.inactive {
+            .opacity(30);
+            cursor: default;
+          }
           .transition(color .1s linear);
           &:hover {
             color: darken(@onNoteColor, 8%);

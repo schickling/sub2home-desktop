@@ -2404,6 +2404,18 @@ table [class*=span],
 .bFood:before {
   content: "\e07b";
 }
+.iClientSettings:before,
+.bClientSettings:before {
+  content: "\e07c";
+}
+.iAssortment:before,
+.bAssortment:before {
+  content: "\e07d";
+}
+.iDashboard:before,
+.bDashboard:before {
+  content: "\e07e";
+}
 .close {
   float: right;
   font-size: 20px;
@@ -3751,6 +3763,43 @@ aside#header #headerContent #clientAreaNavigation {
   -webkit-box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
   -moz-box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
   box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
+  padding: 0;
+}
+aside#header #headerContent #clientAreaNavigation .iBtn {
+  margin: 18px 9px 0;
+  height: 49px;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+aside#header #headerContent #clientAreaNavigation .iBtn:hover {
+  color: #836c35;
+}
+aside#header #headerContent #clientAreaNavigation .bSettings {
+  margin-left: 18px;
+}
+aside#header #headerContent #clientAreaNavigation .bTurnover {
+  margin-right: 18px;
+}
+aside#header #headerContent #clientAreaNavigation .bDashboard,
+aside#header #headerContent #clientAreaNavigation .bSignout {
+  margin: 0;
+  padding: 18px 18px 0;
+  -webkit-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
+  -webkit-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
+  -moz-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
+  -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
+  transition: background .1s linear, color .1s linear, box-shadow .1s linear;
+}
+aside#header #headerContent #clientAreaNavigation .bDashboard:hover,
+aside#header #headerContent #clientAreaNavigation .bSignout:hover {
+  background: rgba(184, 126, 0, 0.35);
+  -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
+  -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
+  box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
 }
 aside#header div#roleSwitch {
   position: absolute;
@@ -6581,6 +6630,7 @@ div.bankOptions .bankaccount {
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.inactive {
   opacity: 0.3;
   filter: alpha(opacity=30);
+  cursor: default;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
