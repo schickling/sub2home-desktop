@@ -184,7 +184,7 @@ define([
 				'client.dashboard',
 				'client.config',
 				'store.config',
-				'store.orders',
+				'store.dashboard',
 				'store.assortment'
 				];
 

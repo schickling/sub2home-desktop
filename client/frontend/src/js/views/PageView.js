@@ -37,20 +37,20 @@ define([
 			var prevRoute = stateModel.get('prevRoute'),
 				currentRoute = stateModel.get('currentRoute'),
 				transitions = [
-				// from home
-					{
-					origin: 'home',
+					// from home
+				{
+					origin: 'home.home',
 					destination: 'store.home',
 					type: 'a.forward'
 				},
-				// from client.login
-					{
+					// from client.login
+				{
 					origin: 'client.login',
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
-				// from client.dashboard
-					{
+					// from client.dashboard
+				{
 					origin: 'client.dashboard',
 					destination: 'store.home',
 					type: 'b.backward'
@@ -70,16 +70,31 @@ define([
 					destination: 'store.dashboard',
 					type: 'b.backward'
 				},
-				// from client.config
 					{
+					origin: 'client.dashboard',
+					destination: 'home.home',
+					type: 'e'
+				},
+					{
+					origin: 'client.dashboard',
+					destination: 'store.home',
+					type: 'e'
+				},
+					// from client.config
+				{
 					origin: 'client.config',
 					destination: 'client.dashboard',
 					type: 'c.forward'
 				},
-				// from store.home
 					{
+					origin: 'client.config',
+					destination: 'home.home',
+					type: 'e'
+				},
+					// from store.home
+				{
 					origin: 'store.home',
-					destination: 'home',
+					destination: 'home.home',
 					type: 'a.backward'
 				},
 					{
@@ -102,8 +117,8 @@ define([
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
-				// from store.selection
-					{
+					// from store.selection
+				{
 					origin: 'store.selection',
 					destination: 'store.home',
 					type: 'b.backward'
@@ -113,8 +128,8 @@ define([
 					destination: 'store.tray',
 					type: 'b.forward'
 				},
-				// from store.dashboard
-					{
+					// from store.dashboard
+				{
 					origin: 'store.dashboard',
 					destination: 'store.config',
 					type: 'b.forward'
@@ -129,8 +144,13 @@ define([
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
-				// from store.assortment
 					{
+					origin: 'store.dashboard',
+					destination: 'store.home',
+					type: 'e'
+				},
+					// from store.assortment
+				{
 					origin: 'store.assortment',
 					destination: 'store.config',
 					type: 'b.forward'
@@ -145,8 +165,13 @@ define([
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
-				// from store.config
 					{
+					origin: 'client.dashboard',
+					destination: 'store.assortment',
+					type: 'e'
+				},
+					// from store.config
+				{
 					origin: 'store.config',
 					destination: 'store.home',
 					type: 'b.backward'
@@ -166,8 +191,13 @@ define([
 					destination: 'store.dashboard',
 					type: 'b.backward'
 				},
-				// from store.tray
 					{
+					origin: 'store.config',
+					destination: 'store.home',
+					type: 'e'
+				},
+					// from store.tray
+				{
 					origin: 'store.tray',
 					destination: 'store.home',
 					type: 'b.backward'
@@ -182,8 +212,8 @@ define([
 					destination: 'store.checkout',
 					type: 'b.backward'
 				},
-				// from store.checkout
-					{
+					// from store.checkout
+				{
 					origin: 'store.checkout',
 					destination: 'store.home',
 					type: 'b.forward'
@@ -425,22 +455,22 @@ define([
 		},
 
 		_transitionE: function () {
+
 			var $new = this.$el,
 				$current = $('.main');
 
-			$new.addClass('bBwd').appendTo($('body'));
+			$new.css({
+				opacity: 0
+			}).appendTo($('body'));
+
 
 			$new.animate({
-				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
-				$new.removeClass('bBwd');
-			});
-
-			$current.stop().animate({
-				top: '-100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+				opacity: 1
+			}, this.animationTime, function () {
 				$current.remove();
 			});
+
+
 
 		}
 

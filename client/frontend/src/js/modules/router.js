@@ -78,7 +78,7 @@ define([
 		_showHome: function () {
 
 			stateModel.set({
-				currentRoute: 'home'
+				currentRoute: 'home.home'
 			});
 
 			this._loadMainView('views/home/MainView');
