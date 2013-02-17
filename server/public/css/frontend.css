@@ -4338,46 +4338,88 @@ input[type="text"]#locationSelectionInput {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.menuBundle {
-  width: auto;
-}
-.menuBundle .item_overlay {
-  width: auto;
+.detailsMenu {
   *zoom: 1;
+  cursor: default;
+  position: absolute;
+  width: 349px;
+  padding: 25px 25px 25px 25px;
+  top: 0;
+  left: -43px;
   overflow: hidden;
+  background: url("../img/static/common/note_background.jpg") repeat;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #d1ba82;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 5;
 }
-.menuBundle .item_overlay:before,
-.menuBundle .item_overlay:after {
+.detailsMenu:before,
+.detailsMenu:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.menuBundle .item_overlay:after {
+.detailsMenu:after {
   clear: both;
 }
-.menuBundle .itemBasics {
+.detailsMenu img {
+  position: relative;
+  display: block;
   float: left;
 }
-.menuBundle .bundleItems {
-  float: left;
+.detailsMenu .itemInfo {
+  display: inline-block;
+  width: 235px;
+  text-align: left;
+  margin: 30px 0 0 20px;
+}
+.detailsMenu h3,
+.detailsMenu .itemDescription {
+  text-align: left;
+}
+.menuBundleInfo {
+  *zoom: 1;
+}
+.menuBundleInfo:before,
+.menuBundleInfo:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.menuBundleInfo:after {
+  clear: both;
+}
+.menuBundleDescription {
+  text-align: left;
+}
+.bundleItems {
+  float: right;
   border-left: 1px solid #d1ba82;
   -webkit-box-shadow: inset 1px 0 0 0 #ffffff;
   -moz-box-shadow: inset 1px 0 0 0 #ffffff;
   box-shadow: inset 1px 0 0 0 #ffffff;
-  padding: 20px 0 10px 15px;
+  padding: 10px 0 10px 25px;
   position: relative;
   width: 30px;
 }
-.menuBundle .bundleItems .icn,
-.menuBundle .bundleItems .several {
+.bundleItems .icn,
+.bundleItems .several {
   display: block;
   width: 100%;
   margin-bottom: 5px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   color: #c3a55d;
 }
-.menuBundle .bundleItems .icn:after,
-.menuBundle .bundleItems .several:after {
+.bundleItems .icn:after,
+.bundleItems .several:after {
   content: "\e05d";
   font-family: "Homicons";
   font-size: 8px;
@@ -4385,28 +4427,25 @@ input[type="text"]#locationSelectionInput {
   text-align: center;
   margin-top: 10px;
 }
-.menuBundle .bundleItems .icn:last-child:after,
-.menuBundle .bundleItems .several:last-child:after {
+.bundleItems .icn:last-child:after,
+.bundleItems .several:last-child:after {
   content: " ";
 }
-.menuBundle .bundleItems .several .icn.small,
-.menuBundle .bundleItems .several .icn.small {
+.bundleItems .several .icn.small,
+.bundleItems .several .icn.small {
   display: inline-block;
   margin-bottom: 0;
   margin: 0;
   width: auto;
   height: 15px;
 }
-.menuBundle .bundleItems .several .icn.small:before,
-.menuBundle .bundleItems .several .icn.small:before {
+.bundleItems .several .icn.small:before,
+.bundleItems .several .icn.small:before {
   font-size: 13px;
 }
-.menuBundle .bundleItems .several .icn.small:after,
-.menuBundle .bundleItems .several .icn.small:after {
+.bundleItems .several .icn.small:after,
+.bundleItems .several .icn.small:after {
   content: " ";
-}
-.menuBundle .itemOverlayBackground {
-  display: block;
 }
 #login {
   position: absolute;
