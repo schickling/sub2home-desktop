@@ -63,8 +63,17 @@ define([
 			// listen for changes in ordered items collection
 			var orderedItemsCollection = this.get('orderedItemsCollection');
 
-			orderedItemsCollection.on('add remove reset', function () {
-				this.set('total', orderedItemsCollection.getTotal());
+			orderedItemsCollection.on('add remove reset change', function () {
+				
+				// trigger change manually since it won't be triggered if price hasn't changed
+				this.set({
+					total: orderedItemsCollection.getTotal()
+				}, {
+					silent: true
+				});
+
+				this.trigger('change');
+
 			}, this);
 
 

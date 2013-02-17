@@ -23,7 +23,9 @@ define([
 
 			// gathers all timeline items of all ordered articles in right order
 			// gets filled in each selection view
-			timelineItemsCollection: null
+			timelineItemsCollection: null,
+
+			isInCart: false
 
 		},
 

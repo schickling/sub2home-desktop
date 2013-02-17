@@ -40,52 +40,52 @@ define([
 
 		events: {
 			// buttons
-			'click .overlay .vecbuttonNext': 'forward',
-			'click .overlay .vecbuttonPrev': 'backward',
-			'click .overlay .vecbuttonCart': 'finish',
+			'click .overlay .vecbuttonNext': '_forward',
+			'click .overlay .vecbuttonPrev': '_backward',
+			'click .overlay .vecbuttonCart': '_finish',
 
 			// timeline
-			'click .iCart': 'finish',
+			'click .iCart': '_finish',
 
 			// stage
-			'click .stage .noUpgrade': 'finish'
+			'click .stage .noUpgrade': '_finish'
 		},
 
 		initialize: function () {
 
 			// cache DOM
-			this.chacheDOM();
+			this._chacheDOM();
 
 			// initialize currentTimelineItemModel
-			this.initializeCurrentTimelineItem();
+			this._initializeCurrentTimelineItem();
 
 			// bind keyboard input
 			var self = this;
 			$(document).on('keyup', function (e) {
-				self.evalKeyboardInput(e);
+				self._evalKeyboardInput(e);
 			});
 
 			// initialize ui buttons
-			this.adjustButtons();
+			this._adjustButtons();
 
 			// initialize info header
-			this.initializeInfo();
+			this._initializeInfo();
 
 			// initialize timeline
-			this.initializeTimeline();
+			this._initializeTimeline();
 
 			// initialize listeners
-			this.initializeListeners();
+			this._initializeListeners();
 
 
 			// cleanup if view gets destroyed
 			this.$el.on('destroyed', function () {
-				self.cleanUp();
+				self._cleanUp();
 			});
 
 		},
 
-		chacheDOM: function () {
+		_chacheDOM: function () {
 			// ui buttons in overlay
 			var $overlay = this.$('.overlay');
 			this.$buttonNext = $overlay.find('.vecbuttonNext');
@@ -105,7 +105,7 @@ define([
 			this.$timelineStage = this.$('.stageTimeline');
 		},
 
-		initializeCurrentTimelineItem: function () {
+		_initializeCurrentTimelineItem: function () {
 			// get first enabled item
 			this.currentTimelineItemModel = _(this.collection.where({
 				isDisabled: false
@@ -115,13 +115,13 @@ define([
 			this.currentTimelineItemIndex = this.collection.indexOf(this.currentTimelineItemModel);
 		},
 
-		initializeInfo: function () {
+		_initializeInfo: function () {
 			var $currentInfo = this.$infoContainer.children('.info').first();
 
 			$currentInfo.addClass('active').show();
 		},
 
-		initializeTimeline: function () {
+		_initializeTimeline: function () {
 
 			// set width of overlay wrapper
 			this.$timelineOverlayWrapper.width(this.$timelineStage.width());
@@ -145,34 +145,34 @@ define([
 
 		},
 
-		initializeListeners: function () {
+		_initializeListeners: function () {
 
 			// listen if items get active
 			_.each(this.collection.models, function (timelineItemModel) {
-				this.listenToTimelineItem(timelineItemModel);
+				this._listenToTimelineItem(timelineItemModel);
 			}, this);
 
 			// also listen to new items if they get active
 			this.collection.on('add', function (timelineItemModel) {
-				this.listenToTimelineItem(timelineItemModel);
+				this._listenToTimelineItem(timelineItemModel);
 			}, this);
 
 			// adjust buttons on collection change
 			this.collection.on('add remove', function () {
-				this.adjustButtons();
+				this._adjustButtons();
 			}, this);
 
 
 			// adjust stage offset on resize
 			var self = this;
 			$(window).resize(function () {
-				self.slideStage();
+				self._slideStage();
 			});
 
 		},
 
 		// listen if timeline item gets isSelected and thus active
-		listenToTimelineItem: function (timelineItemModel) {
+		_listenToTimelineItem: function (timelineItemModel) {
 
 			timelineItemModel.on('change', function () {
 				if (timelineItemModel.hasChanged('isActive') && timelineItemModel.get('isActive')) {
@@ -181,22 +181,22 @@ define([
 					this.currentTimelineItemModel.set('isActive', false);
 
 					// set new timeline item
-					this.setCurrentTimelineItem(timelineItemModel);
+					this._setCurrentTimelineItem(timelineItemModel);
 					this.currentTimelineItemIndex = this.collection.indexOf(timelineItemModel);
 
-					// navigate
-					this.navigate();
+					// _navigate
+					this._navigate();
 				}
 			}, this);
 
 		},
 
-		adjustButtons: function () {
+		_adjustButtons: function () {
 
-			if (this.hasNoUpgradeView() && this.noUpgradeViewIsActive()) {
+			if (this._hasNoUpgradeView() && this._noUpgradeViewIsActive()) {
 
 				// next/cart button
-				if (this.checkForward()) {
+				if (this._checkForward()) {
 					this.$buttonNext.fadeIn();
 					this.$buttonCart.fadeOut();
 				} else {
@@ -205,7 +205,7 @@ define([
 				}
 
 				// prev button
-				if (this.checkBackward()) {
+				if (this._checkBackward()) {
 					this.$buttonPrev.fadeIn();
 				} else {
 					this.$buttonPrev.fadeOut();
@@ -214,7 +214,7 @@ define([
 			} else {
 
 				// next/cart button
-				if (this.checkForward()) {
+				if (this._checkForward()) {
 					this.$buttonNext.fadeIn();
 					this.$buttonCart.fadeOut();
 				} else {
@@ -223,7 +223,7 @@ define([
 				}
 
 				// prev button
-				if (this.checkBackward()) {
+				if (this._checkBackward()) {
 					this.$buttonPrev.fadeIn();
 				} else {
 					this.$buttonPrev.fadeOut();
@@ -232,61 +232,61 @@ define([
 			}
 		},
 
-		evalKeyboardInput: function (e) {
+		_evalKeyboardInput: function (e) {
 			// cache keyCode
 			var keyCode = e.keyCode;
 
 			if (keyCode === 37) { // left arrow
-				this.backward();
+				this._backward();
 			} else if (keyCode === 39 || keyCode === 32) { // right arrow or spacebar
-				this.forward();
+				this._forward();
 			} else if (keyCode === 13) { // enter
-				this.finish();
+				this._finish();
 			}
 		},
 
-		forward: function () {
-			if (this.checkForward()) {
+		_forward: function () {
+			if (this._checkForward()) {
 
 				this.currentTimelineItemIndex++;
 
 				var currentTimelineItemModel = this.collection.at(this.currentTimelineItemIndex);
 				if (currentTimelineItemModel.get('isDisabled')) {
 					// call recrusive
-					this.forward();
+					this._forward();
 				} else {
-					this.setCurrentTimelineItem(currentTimelineItemModel);
-					this.navigate();
+					this._setCurrentTimelineItem(currentTimelineItemModel);
+					this._navigate();
 				}
 
 			}
 		},
 
-		backward: function () {
-			if (this.checkBackward()) {
+		_backward: function () {
+			if (this._checkBackward()) {
 
 				this.currentTimelineItemIndex--;
 
 				var currentTimelineItemModel = this.collection.at(this.currentTimelineItemIndex);
 				if (currentTimelineItemModel.get('isDisabled')) {
 					// call recrusive
-					this.backward();
+					this._backward();
 				} else {
-					this.setCurrentTimelineItem(currentTimelineItemModel);
-					this.navigate();
+					this._setCurrentTimelineItem(currentTimelineItemModel);
+					this._navigate();
 				}
 
 			}
 		},
 
-		navigate: function () {
-			this.slideStage();
-			this.slideTimeline();
-			this.changeInfo();
-			this.adjustButtons();
+		_navigate: function () {
+			this._slideStage();
+			this._slideTimeline();
+			this._changeInfo();
+			this._adjustButtons();
 		},
 
-		slideStage: function () {
+		_slideStage: function () {
 
 			// adjust index to skip isDisabled items and thus non exsisting slides
 			var filteredCollection = this.collection.filter(function (timelineItemModel, index) {
@@ -301,15 +301,15 @@ define([
 				left: -(factor * documentWidth)
 			}, 600);
 
-			this.slideNoUpgradeView();
+			this._slideNoUpgradeView();
 		},
 
 		// hook in for no menu upgrade
-		slideNoUpgradeView: function () {
+		_slideNoUpgradeView: function () {
 
-			if (this.hasNoUpgradeView()) {
+			if (this._hasNoUpgradeView()) {
 				// no upgrade slide in
-				if (this.noUpgradeViewIsActive()) {
+				if (this._noUpgradeViewIsActive()) {
 					this.$noUpgrade.stop().animate({
 						right: 0
 					});
@@ -326,7 +326,7 @@ define([
 
 		},
 
-		slideTimeline: function () {
+		_slideTimeline: function () {
 
 			var $currentTimelineItem = this.$timelineStage.find('.itemTimeline').eq(this.currentTimelineItemIndex),
 				timelineOffsetRelative = $currentTimelineItem.position().left,
@@ -344,7 +344,7 @@ define([
 
 		},
 
-		changeInfo: function () {
+		_changeInfo: function () {
 
 			// compare timeline items
 			if (this.currentTimelineItemModel.get('selectionIndex') !== this.previousTimelineItemModel.get('selectionIndex')) {
@@ -382,21 +382,15 @@ define([
 			}
 		},
 
-		finish: function () {
+		_finish: function () {
 
 			var lockedTimelineItems = this.collection.where({
 				isLocked: true
 			});
 
 			if (lockedTimelineItems.length === 0) {
-				// save ordered item in cart
-				cartModel.addOrderedItemModel(this.model);
 
-				// back to store.home
-				router.navigate('store', {
-					trigger: true,
-					replace: true
-				});
+				this._saveOrderedItemModel();
 
 			} else {
 				console.log(this.collection.toJSON());
@@ -407,7 +401,23 @@ define([
 			}
 		},
 
-		cleanUp: function () {
+		_saveOrderedItemModel: function () {
+
+			if (!this.model.get('isInCart')) {
+
+				// save ordered item in cart
+				cartModel.addOrderedItemModel(this.model);
+
+			}
+
+			// back to store.home
+			router.navigate('store', {
+				trigger: true,
+				replace: true
+			});
+		},
+
+		_cleanUp: function () {
 
 			// unbind events
 			$(document).off('keyup');
@@ -422,12 +432,12 @@ define([
 		 * helper functions
 		 */
 
-		setCurrentTimelineItem: function (currentTimelineItemModel) {
+		_setCurrentTimelineItem: function (currentTimelineItemModel) {
 			this.previousTimelineItemModel = this.currentTimelineItemModel;
 			this.currentTimelineItemModel = currentTimelineItemModel;
 		},
 
-		checkForward: function () {
+		_checkForward: function () {
 			// end of list
 			if ((this.collection.length - 1) <= this.currentTimelineItemIndex) {
 				return false;
@@ -440,7 +450,7 @@ define([
 			return filteredCollection.length > 0;
 		},
 
-		checkBackward: function () {
+		_checkBackward: function () {
 			// beginning of list
 			if (this.currentTimelineItemIndex <= 0) {
 				return false;
@@ -454,14 +464,13 @@ define([
 			return filteredCollection.length > 0;
 		},
 
-		hasNoUpgradeView: function () {
+		_hasNoUpgradeView: function () {
 			return (this.$noUpgrade !== null);
 		},
 
-		noUpgradeViewIsActive: function () {
+		_noUpgradeViewIsActive: function () {
 			return this.currentTimelineItemModel.get('menuUpgradeSelection');
 		}
-
 
 	});
 

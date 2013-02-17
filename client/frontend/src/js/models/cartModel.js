@@ -152,6 +152,8 @@ define([
 			var orderedItemsCollection = this.getOrderedItemsCollection();
 
 			orderedItemsCollection.add(orderedItemModel);
+
+			orderedItemModel.set('isInCart', true);
 		},
 
 		getPaymentMethod: function () {

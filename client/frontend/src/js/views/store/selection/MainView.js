@@ -4,7 +4,6 @@ define([
 	'jqueryEventSpecialDestroyed',
 	'underscore',
 	'backbone',
-	'models/stateModel',
 	'models/cartModel',
 	'models/ArticleModel',
 	'models/MenuBundleModel',
@@ -17,42 +16,44 @@ define([
 	'views/store/selection/OrderedArticlesView',
 	'views/store/selection/timeline/TimelineView',
 	'text!templates/store/selection/MainTemplate.html'
-	], function ($, jqueryEventSpecialDestroyed, _, Backbone, stateModel, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
+	], function ($, jqueryEventSpecialDestroyed, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		orderedItemModel: null,
 
 		events: {
-			'mouseenter .timeline': 'slideTimelineUp',
-			'mouseleave .timeline': 'slideTimelineDown'
+			'mouseenter .timeline': '_slideTimelineUp',
+			'mouseleave .timeline': '_slideTimelineDown'
 		},
 
 		initialize: function () {
 
+			var selectionRessourceType = this.options.selectionRessourceType;
+
 			// load ordered item and render
-			if (stateModel.get('selectionRessourceType') === 'artikel') {
-				this.createOrderedItemFromArticle();
-			} else if (stateModel.get('selectionRessourceType') === 'menu') {
-				this.createOrderedItemFromMenuBundle();
+			if (selectionRessourceType === 'artikel') {
+				this._createOrderedItemFromArticle();
+			} else if (selectionRessourceType === 'menu') {
+				this._createOrderedItemFromMenuBundle();
 			} else {
-				this.loadOrderedItemFromLocalStorage();
+				this._loadOrderedItemFromLocalStorage();
 			}
 
 			// destory whole view if element gets destroyed
 			var self = this;
 			this.$el.on('destroyed', function () {
-				self.prepareDestroy();
+				self._prepareDestroy();
 			});
 
 		},
 
-		createOrderedItemFromArticle: function () {
+		_createOrderedItemFromArticle: function () {
 			var self = this;
 
 			// fetch article from server
 			var articleModel = new ArticleModel({
-				id: stateModel.get('selectionRessourceId')
+				id: this.options.selectionRessourceId
 			});
 
 			articleModel.fetch({
@@ -72,7 +73,7 @@ define([
 
 					console.log(articleModel.toJSON());
 
-					self.render();
+					self._render();
 				},
 
 				error: function () {
@@ -81,12 +82,12 @@ define([
 			});
 		},
 
-		createOrderedItemFromMenuBundle: function () {
+		_createOrderedItemFromMenuBundle: function () {
 			var self = this;
 
 			// fetch menuBundleModel from server
 			var menuBundleModel = new MenuBundleModel({
-				id: stateModel.get('selectionRessourceId')
+				id: this.options.selectionRessourceId
 			});
 
 			menuBundleModel.fetch({
@@ -117,7 +118,7 @@ define([
 
 					console.log(menuBundleModel.toJSON());
 
-					self.render();
+					self._render();
 				},
 
 				error: function () {
@@ -126,19 +127,19 @@ define([
 			});
 		},
 
-		loadOrderedItemFromLocalStorage: function () {
+		_loadOrderedItemFromLocalStorage: function () {
 			// fetch from localStorage
-			var orderedItemsCollection = cartModel.get('orderedItemsCollection');
+			var orderedItemsCollection = cartModel.getOrderedItemsCollection();
 
-			this.orderedItemModel = orderedItemsCollection.get(stateModel.get('selectionRessourceId'));
+			this.orderedItemModel = orderedItemsCollection.get(this.options.selectionRessourceId);
 
 			console.log(this.orderedItemModel);
 
-			this.render();
+			this._render();
 
 		},
 
-		render: function () {
+		_render: function () {
 
 			// render template
 			this.$el.html(MainTemplate);
@@ -147,17 +148,17 @@ define([
 			this.append();
 
 			// add cart timeline item
-			this.renderCartTimelineItem();
+			this._renderCartTimelineItem();
 
 			// render ordered articles
-			this.renderOrderedArticles();
+			this._renderOrderedArticles();
 
 			// initalize TimelineControllerView
-			this.initializeTimelineController();
+			this._initializeTimelineController();
 
 		},
 
-		renderCartTimelineItem: function () {
+		_renderCartTimelineItem: function () {
 			var timelineItemsCollection = new TimelineItemsCollection({
 				isDisabled: true,
 				icon: 'iCart'
@@ -171,14 +172,14 @@ define([
 			});
 		},
 
-		renderOrderedArticles: function () {
+		_renderOrderedArticles: function () {
 			new OrderedArticlesView({
 				collection: this.orderedItemModel.get('orderedArticlesCollection'),
 				el: this.$el
 			});
 		},
 
-		initializeTimelineController: function () {
+		_initializeTimelineController: function () {
 			new TimelineControllerView({
 				model: this.orderedItemModel,
 				collection: this.orderedItemModel.get('timelineItemsCollection'),
@@ -187,19 +188,19 @@ define([
 
 		},
 
-		slideTimelineUp: function () {
+		_slideTimelineUp: function () {
 			this.$('.timeline, .stage.overlay').stop().animate({
 				bottom: 0
 			}, 300);
 		},
 
-		slideTimelineDown: function () {
+		_slideTimelineDown: function () {
 			this.$('.timeline, .stage.overlay').stop().animate({
 				bottom: -50
 			}, 300);
 		},
 
-		prepareDestroy: function () {
+		_prepareDestroy: function () {
 
 			// TODO
 			this.orderedItemModel = null;

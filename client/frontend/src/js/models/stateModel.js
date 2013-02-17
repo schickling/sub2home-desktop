@@ -23,10 +23,6 @@ define([
 			storeModel: null,
 			changedStore: false,
 
-			// parameters for selection
-			selectionRessourceType: '',
-			selectionRessourceId: '',
-
 			// header state
 			isClientHeaderActive: false,
 

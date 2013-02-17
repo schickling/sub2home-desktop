@@ -147,12 +147,15 @@ define([
 
 			stateModel.set({
 				currentRoute: 'store.selection',
-				storeAlias: alias,
-				selectionRessourceType: resourceType,
-				selectionRessourceId: resourceId
+				storeAlias: alias
 			});
 
-			this._loadMainView('views/store/selection/MainView');
+			var params = {
+				selectionRessourceType: resourceType,
+				selectionRessourceId: resourceId
+			};
+
+			this._loadMainView('views/store/selection/MainView', params);
 
 		},
 
@@ -229,13 +232,15 @@ define([
 
 		},
 
-		_loadMainView: function (pathToMainView) {
+		_loadMainView: function (pathToMainView, params) {
 
 			var self = this;
 
 			require([pathToMainView], function (MainView) {
 
-				self._pageView = new MainView();
+				params = params || {};
+
+				self._pageView = new MainView(params);
 
 			});
 		},

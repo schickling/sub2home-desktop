@@ -73,8 +73,6 @@ define([
 			// role switch
 			var $handle = this.$('#roleSwitch div');
 
-			console.log('soolte');
-
 			$handle.animate({
 				top: 2
 			}, 100, 'easeInExpo', function () {
