@@ -4,6 +4,7 @@ use Controller;
 use App;
 use Validator;
 use Request;
+use Response;
 use Cache;
 
 
@@ -13,15 +14,34 @@ use Cache;
 class BaseApiController extends Controller
 {
 
+    protected $statusCode = 200;
+    protected $message;
+
     /**
-     * Wrapper around app's abort method
+     * convenient method for (error) responses
      * 
      * @param  int          $errorCode
      * @param  string       $message
      * @return void
      */
-    protected function error($errorCode, $message = null) {
-        App::abort($errorCode, $message);
+    protected function respondWithStatus($statusCode, $message = '') {
+        return Response::make($message, $statusCode);
+    }
+
+    protected function respondWithError()
+    {
+        return $this->respondWithStatus($this->statusCode, $this->message);
+    }
+
+    protected function reportError($statusCode, $message = '')
+    {
+        $this->statusCode = $statusCode;
+        $this->message = $message;
+    }
+
+    protected function hasErrorOccured()
+    {
+        return $this->statusCode != 200;
     }
 
     /**
@@ -46,14 +66,14 @@ class BaseApiController extends Controller
     {
 
         if (!$this->hasToken()) {
-            $this->error(401);
+            $this->reportError(401);
         }
 
         $token = Request::header('Token');
         $client_model_id = Cache::get($token);
 
         if (!$client_model_id) {
-            $this->error(401);
+            $this->reportError(401);
         }
 
         return $client_model_id;

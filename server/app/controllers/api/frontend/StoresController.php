@@ -45,7 +45,7 @@ class StoresController extends ApiController
 		->first();
 
 		if ($storeModel == null) {
-			$this->error(404);
+			return $this->respondWithStatus(404);
 		}
 
 		if ($this->hasToken() && $storeModel->clientModel->id == $this->getClientModelIdFromToken()) {
@@ -76,6 +76,10 @@ class StoresController extends ApiController
 		$this->loadStoreModel();
 		$this->checkAuthentification();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$storeModel = $this->storeModel;
 
 		$input = Input::json();
@@ -93,7 +97,7 @@ class StoresController extends ApiController
 		$validator = Validator::make(get_object_vars($input), $rules);
 
 		if ($validator->fails()) {
-			$this->error(400, $validator->messages());
+			return $this->respondWithStatus(400, $validator->messages());
 		}
 
 
@@ -110,7 +114,7 @@ class StoresController extends ApiController
 		
 		if ($input->allowsPaymentPaypal && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
 
-			$this->error(400);
+			return $this->respondWithStatus(400);
 
 		// already authorized
 		} else {
@@ -127,6 +131,10 @@ class StoresController extends ApiController
 	{
 		$this->loadStoreModel();
 		$this->checkAuthentification();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
 
 		return PaypalService::getRequestPermissionUrl($this->storeModel->id);
 	}

@@ -16,6 +16,10 @@ class DeliveryAreasController extends ApiController
 	{
 		$this->loadStoreModel();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$deliveryAreaModel = new DeliveryAreaModel(array(
 			'store_model_id' => $this->storeModel->id,
 			'minimumValue' => 0.00,
@@ -31,12 +35,21 @@ class DeliveryAreasController extends ApiController
 
 	public function update()
 	{
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$input = Input::json();
 		$id = Request::segment(6);
 
 		$deliveryAreaModel = DeliveryAreaModel::find($id);
 
 		$this->checkBelongsToThisStore($deliveryAreaModel->storeModel->id);
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
 
 		$deliveryAreaModel->minimumDuration = $input->minimumDuration;
 		$deliveryAreaModel->minimumValue = $input->minimumValue;
@@ -48,6 +61,10 @@ class DeliveryAreasController extends ApiController
 
 	public function destroy()
 	{
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$id = Request::segment(6);
 
 		$deliveryAreaModel = DeliveryAreaModel::find($id);

@@ -14,6 +14,11 @@ class OrderShowController extends ApiController
 	public function show()
 	{
 		$this->checkAuthentification();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+		
 		$id = Request::segment(6);
 
 		$orderModel = OrderModel::with(array(
@@ -26,7 +31,7 @@ class OrderShowController extends ApiController
 		->find($id);
 
 		if (!$orderModel) {
-			$this->error(404);
+			return $this->respondWithStatus(404);
 		}
 
 		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {

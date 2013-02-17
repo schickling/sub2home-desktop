@@ -24,7 +24,7 @@ class ApiController extends BaseApiController
 		$this->storeModel = StoreModel::where('alias', $storeAlias)->first();
 
     	if ($this->storeModel == null) {
-    		$this->error(404);
+    		$this->reportError(404);
     	}
 	}
 
@@ -53,7 +53,7 @@ class ApiController extends BaseApiController
 	protected function checkAuthentification()
 	{
 		if (!$this->isAuthentificatedClient()) {
-			$this->error(401);
+			$this->reportError(401);
 		}
 	}
 
@@ -65,7 +65,7 @@ class ApiController extends BaseApiController
 		}
 
 		if ($this->storeModel->id != $storeIdOfElement) {
-			$this->error(401);
+			$this->reportError(401);
 		}
 	}
 

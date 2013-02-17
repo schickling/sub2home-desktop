@@ -16,6 +16,10 @@ class DeliveryTimesController extends ApiController
 	{
 		$this->loadStoreModel();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$input = Input::json();
 
 		$deliveryTimeModel = new DeliveryTimeModel(array(
@@ -38,6 +42,10 @@ class DeliveryTimesController extends ApiController
 		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
 		$this->checkBelongsToThisStore($deliveryTimeModel->storeModel->id);
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
 
 		$deliveryTimeModel->startMinutes = $input->startMinutes;
 		$deliveryTimeModel->endMinutes = $input->endMinutes;
