@@ -1,11 +1,11 @@
-// Filename: src/js/views/store/orders/OrderView.js
+// Filename: src/js/views/store/dashboard/OrderView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
 	'lib/moment',
-	'views/store/orders/details/OrderDetailsView',
-	'text!templates/store/orders/OrderTemplate.html'
+	'views/store/dashboard/details/OrderDetailsView',
+	'text!templates/store/dashboard/OrderTemplate.html'
 	], function ($, _, Backbone, momentLib, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({

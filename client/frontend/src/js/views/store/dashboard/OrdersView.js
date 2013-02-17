@@ -1,10 +1,10 @@
-// Filename: src/js/views/store/orders/OrdersView.js
+// Filename: src/js/views/store/dashboard/OrdersView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
 	'collections/OrdersCollection',
-	'views/store/orders/OrderView'
+	'views/store/dashboard/OrderView'
 	], function ($, _, Backbone, OrdersCollection, OrderView) {
 
 	var OrdersView = Backbone.View.extend({

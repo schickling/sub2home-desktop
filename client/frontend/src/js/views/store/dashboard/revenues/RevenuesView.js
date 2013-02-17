@@ -1,10 +1,10 @@
-// Filename: src/js/views/store/orders/RevenuesView.js
+// Filename: src/js/views/store/dashboard/RevenuesView.js
 define([
 	'jquery',
 	'lib/jquery/jquery.overscroll',
 	'underscore',
 	'backbone',
-	'text!templates/store/orders/RevenuesTemplate.html'
+	'text!templates/store/dashboard/RevenuesTemplate.html'
 	], function ($, overscrollLib, _, Backbone, RevenuesTemplate) {
 
 	var RevenuesView = Backbone.View.extend({

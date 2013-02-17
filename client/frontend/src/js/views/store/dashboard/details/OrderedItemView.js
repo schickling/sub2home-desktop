@@ -1,4 +1,4 @@
-// Filename: src/js/views/store/orders/details/OrderedItemView.js
+// Filename: src/js/views/store/dashboard/details/OrderedItemView.js
 define([
 	'jquery',
 	'underscore',

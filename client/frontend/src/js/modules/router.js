@@ -20,7 +20,7 @@ define([
 
 			// client
 			'login': '_showClientLogin',
-			'franchise': '_showClientDashboard',
+			'dashboard': '_showClientDashboard',
 			'einstellungen': '_showClientConfig',
 
 			// store
@@ -32,7 +32,7 @@ define([
 			// store (logged in)
 			':alias/einstellungen': '_showStoreConfig',
 			':alias/sortiment': '_showStoreAssortment',
-			':alias/bestellungen': '_showStoreOrders',
+			':alias/dashboard': '_showStoreDashboard',
 
 			// common
 			'404': '_showPageNotFound',
@@ -96,7 +96,7 @@ define([
 				this._loadMainView('views/client/login/MainView');
 
 			} else {
-				this.navigate('franchise', {
+				this.navigate('dashboard', {
 					trigger: true,
 					replace: true
 				});
@@ -211,16 +211,16 @@ define([
 
 		},
 
-		_showStoreOrders: function (alias) {
+		_showStoreDashboard: function (alias) {
 
 			if (this._isLoggedIn()) {
 
 				stateModel.set({
-					currentRoute: 'store.orders',
+					currentRoute: 'store.dashboard',
 					storeAlias: alias
 				});
 
-				this._loadMainView('views/store/orders/MainView');
+				this._loadMainView('views/store/dashboard/MainView');
 
 			}
 

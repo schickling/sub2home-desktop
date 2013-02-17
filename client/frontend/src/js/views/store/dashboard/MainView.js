@@ -1,12 +1,12 @@
-// Filename: src/js/views/store/orders/MainView.js
+// Filename: src/js/views/store/dashboard/MainView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
 	'views/PageView',
-	'views/store/orders/OrdersView',
-	'views/store/orders/revenues/RevenuesView',
-	'text!templates/store/orders/MainTemplate.html'
+	'views/store/dashboard/OrdersView',
+	'views/store/dashboard/revenues/RevenuesView',
+	'text!templates/store/dashboard/MainTemplate.html'
 	], function ($, _, Backbone, PageView, OrdersView, RevenuesView, MainTemplate) {
 
 	var MainView = PageView.extend({

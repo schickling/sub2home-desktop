@@ -1,9 +1,9 @@
-// Filename: src/js/views/store/orders/details/OrderedItemsView.js
+// Filename: src/js/views/store/dashboard/details/OrderedItemsView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/store/orders/details/OrderedItemView'
+	'views/store/dashboard/details/OrderedItemView'
 	], function ($, _, Backbone, OrderedItemView) {
 
 	var OrderedItemsView = Backbone.View.extend({

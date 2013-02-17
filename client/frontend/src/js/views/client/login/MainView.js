@@ -45,7 +45,7 @@ define([
 			loginSucceded = authentificationModel.login(number, password);
 
 			if (loginSucceded) {
-				router.navigate('franchise', {
+				router.navigate('dashboard', {
 					trigger: true,
 					replace: true
 				});

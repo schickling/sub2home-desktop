@@ -64,6 +64,11 @@ class OrderCreateController extends ApiController
 
 	}
 
+	public function testOrder()
+	{
+		
+	}
+
 
 	/**
 	 * Creates the ordered items collection without saving it to the database

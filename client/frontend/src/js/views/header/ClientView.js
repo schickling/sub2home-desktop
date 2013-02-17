@@ -15,7 +15,8 @@ define([
 			'click .bSignout': '_logout',
 			'click .bSettings': '_navigateToStoreSettings',
 			'click .bAssortment': '_navigateToStoreAssortment',
-			'click .bOrders': '_navigateToStoreOrders'
+			'click .bOrders': '_navigateToStoreOrders',
+			'click .bDashboard': '_navigateToClientDashboard'
 		},
 
 		initialize: function () {
@@ -50,7 +51,11 @@ define([
 		},
 
 		_navigateToStoreOrders: function() {
-			router.navigate('store/bestellungen', true);
+			router.navigate('store/dashboard', true);
+		},
+
+		_navigateToClientDashboard: function() {
+			router.navigate('dashboard', true);
 		}
 
 	});

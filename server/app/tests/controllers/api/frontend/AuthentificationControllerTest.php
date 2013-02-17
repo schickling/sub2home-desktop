@@ -25,6 +25,14 @@ class AuthentificationControllerTest extends TestCase {
 
 	}
 
+	public function testCheckTokenShouldFail()
+	{
+		$secureUrl = URL::secure('api/frontend/checktoken');
+		$response = $this->client->request('POST', $secureUrl);
+
+		$this->assertEquals($response->getStatusCode(), 401);
+	}
+
 
 	protected function seedDatabase()
 	{

@@ -55,6 +55,27 @@ define([
 					destination: 'store.home',
 					type: 'b.backward'
 				},
+					{
+					origin: 'client.dashboard',
+					destination: 'client.config',
+					type: 'c.backward'
+				},
+					{
+					origin: 'client.dashboard',
+					destination: 'store.config',
+					type: 'c.backward'
+				},
+					{
+					origin: 'client.dashboard',
+					destination: 'store.dashboard',
+					type: 'b.backward'
+				},
+				// from client.config
+					{
+					origin: 'client.config',
+					destination: 'client.dashboard',
+					type: 'c.forward'
+				},
 				// from store.home
 					{
 					origin: 'store.home',
@@ -92,10 +113,57 @@ define([
 					destination: 'store.tray',
 					type: 'b.forward'
 				},
+				// from store.dashboard
+					{
+					origin: 'store.dashboard',
+					destination: 'store.config',
+					type: 'b.forward'
+				},
+					{
+					origin: 'store.dashboard',
+					destination: 'store.assortment',
+					type: 'd.forward'
+				},
+					{
+					origin: 'store.dashboard',
+					destination: 'client.dashboard',
+					type: 'b.forward'
+				},
+				// from store.assortment
+					{
+					origin: 'store.assortment',
+					destination: 'store.config',
+					type: 'b.forward'
+				},
+					{
+					origin: 'store.assortment',
+					destination: 'store.dashboard',
+					type: 'd.backward'
+				},
+					{
+					origin: 'store.assortment',
+					destination: 'client.dashboard',
+					type: 'b.forward'
+				},
 				// from store.config
 					{
 					origin: 'store.config',
 					destination: 'store.home',
+					type: 'b.backward'
+				},
+					{
+					origin: 'store.config',
+					destination: 'client.dashboard',
+					type: 'c.backward'
+				},
+					{
+					origin: 'store.config',
+					destination: 'store.assortment',
+					type: 'b.backward'
+				},
+					{
+					origin: 'store.config',
+					destination: 'store.dashboard',
 					type: 'b.backward'
 				},
 				// from store.tray
@@ -140,6 +208,21 @@ define([
 					break;
 				case 'b.backward':
 					this._transitionBBackward();
+					break;
+				case 'c.forward':
+					this._transitionCFoward();
+					break;
+				case 'c.backward':
+					this._transitionCBackward();
+					break;
+				case 'd.forward':
+					this._transitionDFoward();
+					break;
+				case 'd.backward':
+					this._transitionDBackward();
+					break;
+				case 'e':
+					this._transitionE();
 					break;
 				}
 			}
@@ -244,6 +327,104 @@ define([
 		},
 
 		_transitionBBackward: function () {
+			var $new = this.$el,
+				$current = $('.main');
+
+			$new.addClass('bBwd').appendTo($('body'));
+
+			$new.animate({
+				top: 0
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$new.removeClass('bBwd');
+			});
+
+			$current.stop().animate({
+				top: '-100%'
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$current.remove();
+			});
+
+		},
+
+		_transitionCFoward: function () {
+			var $new = this.$el,
+				$current = $('.main');
+
+			$new.addClass('bFwd').appendTo($('body'));
+
+			$new.animate({
+				top: 0
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$new.removeClass('bFwd');
+			});
+
+			$current.stop().animate({
+				top: '100%'
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$current.remove();
+			});
+		},
+
+		_transitionCBackward: function () {
+			var $new = this.$el,
+				$current = $('.main');
+
+			$new.addClass('bBwd').appendTo($('body'));
+
+			$new.animate({
+				top: 0
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$new.removeClass('bBwd');
+			});
+
+			$current.stop().animate({
+				top: '-100%'
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$current.remove();
+			});
+
+		},
+
+		_transitionDFoward: function () {
+			var $new = this.$el,
+				$current = $('.main');
+
+			$new.addClass('bFwd').appendTo($('body'));
+
+			$new.animate({
+				top: 0
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$new.removeClass('bFwd');
+			});
+
+			$current.stop().animate({
+				top: '100%'
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$current.remove();
+			});
+		},
+
+		_transitionDBackward: function () {
+			var $new = this.$el,
+				$current = $('.main');
+
+			$new.addClass('bBwd').appendTo($('body'));
+
+			$new.animate({
+				top: 0
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$new.removeClass('bBwd');
+			});
+
+			$current.stop().animate({
+				top: '-100%'
+			}, this.animationTime, 'easeInOutQuad', function () {
+				$current.remove();
+			});
+
+		},
+
+		_transitionE: function () {
 			var $new = this.$el,
 				$current = $('.main');
 
