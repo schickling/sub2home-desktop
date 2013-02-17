@@ -44,16 +44,16 @@ define([
 
 			this.$el.html(HeaderTemplate);
 
-			console.log('render');
+			var isLoggedIn = authentificationModel.isLoggedIn();
 
-			if (stateModel.get('isClientHeaderActive') && authentificationModel.isLoggedIn()) {
+			if (isLoggedIn) {
+				this._renderRoleSwitch();
+			}
+
+			if (isLoggedIn && stateModel.get('isClientHeaderActive')) {
 				this._renderClientView();
 			} else if (stateModel.get('storeModel')) {
 				this._renderStoreView();
-			}
-
-			if (authentificationModel.isLoggedIn()) {
-				this._renderRoleSwitch();
 			}
 
 		},
@@ -70,7 +70,10 @@ define([
 				el: this.$('#headerContent')
 			});
 
+			// role switch
 			var $handle = this.$('#roleSwitch div');
+
+			console.log('soolte');
 
 			$handle.animate({
 				top: 2
@@ -84,6 +87,7 @@ define([
 				el: this.$('#headerContent')
 			});
 
+			// role switch
 			var $handle = this.$('#roleSwitch div');
 
 			$handle.animate({
