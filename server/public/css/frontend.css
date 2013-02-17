@@ -5154,6 +5154,7 @@ input[type="text"]#locationSelectionInput {
 .storeBasics > div#storeMap {
   position: absolute;
   width: 50%;
+  height: 450px;
   margin: 0 5% 0 0;
   top: 20px;
   bottom: 20px;
@@ -5386,64 +5387,64 @@ input[type="text"]#locationSelectionInput {
 .bankaccount.btnSuccess {
   width: 111px;
 }
-div.bankOptions {
+div#payment {
   position: absolute !important;
   right: 0;
   bottom: 20px;
   *zoom: 1;
 }
-div.bankOptions:before,
-div.bankOptions:after {
+div#payment:before,
+div#payment:after {
   display: table;
   content: "";
   line-height: 0;
 }
-div.bankOptions:after {
+div#payment:after {
   clear: both;
 }
-div.bankOptions > div {
+div#payment > div {
   float: right;
   margin-left: 10px;
 }
-div.bankOptions > div #checkEC,
-div.bankOptions > div #checkBar,
-div.bankOptions > div #checkPaypal {
+div#payment > div #checkEC,
+div#payment > div #checkBar,
+div#payment > div #checkPaypal {
   padding: 0px 10px;
 }
-div.bankOptions > div #checkPaypal {
+div#payment > div #checkPaypal {
   font-size: 18px;
   padding: 10px 14px;
 }
-div.bankOptions > div i {
+div#payment > div .icn {
   height: 15px;
   position: relative;
   color: #4b6f01;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
   margin-left: 5px;
 }
-div.bankOptions > div i:before {
+div#payment > div .icn:before {
   font-size: 16px;
   position: relative;
   top: -6px;
   content: "\e074";
 }
-div.bankOptions > div i.iSettings {
+div#payment > div .icn.iSettings {
   margin: 0;
 }
-div.bankOptions > div i.iSettings:before {
+div#payment > div .icn.iSettings:before {
   content: "\e05a";
 }
-div.bankOptions > div.disabled i {
+div#payment > div.disabled i {
   color: #a78a44;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
 }
-div.bankOptions > div.disabled i:before {
+div#payment > div.disabled i:before {
   content: "\e05f";
 }
-div.bankOptions > div.disabled i.iSettings:before {
+div#payment > div.disabled i.iSettings:before {
   content: "\e05a";
 }
-div.bankOptions > div.disabled .btn {
+div#payment > div.disabled .btn {
   color: #a78a44;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
   background-color: rgba(209, 186, 130, 0.3);
@@ -5464,20 +5465,20 @@ div.bankOptions > div.disabled .btn {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-div.bankOptions > div.disabled .btn:hover,
-div.bankOptions > div.disabled .btn:active,
-div.bankOptions > div.disabled .btn.active,
-div.bankOptions > div.disabled .btn.disabled,
-div.bankOptions > div.disabled .btn[disabled] {
+div#payment > div.disabled .btn:hover,
+div#payment > div.disabled .btn:active,
+div#payment > div.disabled .btn.active,
+div#payment > div.disabled .btn.disabled,
+div#payment > div.disabled .btn[disabled] {
   color: #a78a44;
   background-color: rgba(209, 186, 130, 0.3);
   *background-color: rgba(202, 176, 111, 0.3);
 }
-div.bankOptions > div.disabled .btn:active,
-div.bankOptions > div.disabled .btn.active {
+div#payment > div.disabled .btn:active,
+div#payment > div.disabled .btn.active {
   background-color: rgba(195, 165, 93, 0.3) \9;
 }
-div.bankOptions .bankaccount {
+div#payment .bankaccount {
   margin-left: 30px;
 }
 .storeConfig {
