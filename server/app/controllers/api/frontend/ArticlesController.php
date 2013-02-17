@@ -22,6 +22,10 @@ class ArticlesController extends ApiController
 	{
 		$this->loadStoreModel();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$articleModelId = Request::segment(6);
 		$articleModel = ArticleModel::with(array(
 			'ingredientsCollection',
@@ -33,7 +37,7 @@ class ArticlesController extends ApiController
 
 
 		if ($articleModel == null) {
-			$this->error(404);
+			return $this->respondWithStatus(404);
 		}
 
 		// get article price

@@ -37,7 +37,7 @@ class AuthentificationController extends ApiController
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            $this->error(400, $validator->messages());
+            return $this->respondWithStatus(400, $validator->messages());
         }
 
 
@@ -53,7 +53,7 @@ class AuthentificationController extends ApiController
             $exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
             Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 
-            $this->error(429, $exponentialWaitingTime);
+            return $this->respondWithStatus(429, $exponentialWaitingTime);
 
         }
 
@@ -63,8 +63,7 @@ class AuthentificationController extends ApiController
         $clientModel = ClientModel::where('number', $number)->first();
 
         if (!$clientModel) {
-
-            $this->error(404);
+            return $this->respondWithStatus(404);
         }
 
 
@@ -76,7 +75,7 @@ class AuthentificationController extends ApiController
             $numberOfFailedAttempts++;
             Cache::put($cacheKey, $numberOfFailedAttempts, 1);
 
-            $this->error(401);
+            return $this->respondWithStatus(401);
         }
 
 
@@ -99,7 +98,7 @@ class AuthentificationController extends ApiController
         if ($token) {
             Cache::forget($token);
         } else {
-            $this->error(401);
+            return $this->respondWithStatus(401);
         }
 
     }
@@ -112,6 +111,13 @@ class AuthentificationController extends ApiController
     public function checkToken()
     {
         $this->getClientModelIdFromToken();
+
+        if ($this->hasErrorOccured()) {
+            return $this->respondWithError();
+        } else {
+            return $this->respondWithStatus(200);
+        }
+
     }
 
 

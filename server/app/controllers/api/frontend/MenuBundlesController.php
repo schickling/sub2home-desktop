@@ -15,6 +15,10 @@ class MenuBundlesController extends ApiController
 	{
 		$this->loadStoreModel();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$menuBundleModelId = Request::segment(6);
 		$menuBundleModel = MenuBundleModel::with(array(
 			'menuComponentBlocksCollection',
@@ -24,7 +28,7 @@ class MenuBundlesController extends ApiController
 
 
 		if ($menuBundleModel == null) {
-			$this->error(404);
+			return $this->respondWithStatus(404);
 		}
 
 		// get menuBundle price

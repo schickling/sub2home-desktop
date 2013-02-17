@@ -21,6 +21,11 @@ class OrderCreateController extends ApiController
 	{
 		// prepare
 		$this->loadStoreModel();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+		
 		$input = Input::json();
 		$orderModel = new OrderModel();
 
@@ -36,7 +41,7 @@ class OrderCreateController extends ApiController
 
 		if ($orderModel->total != $input->total) {
 			var_dump($orderModel->total);
-			$this->error(400);
+			return $this->respondWithStatus(400);
 		}
 
 		// save other order data

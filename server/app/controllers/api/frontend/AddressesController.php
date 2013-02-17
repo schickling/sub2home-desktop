@@ -26,17 +26,25 @@ class AddressesController extends ApiController
 		$validator = Validator::make(get_object_vars($input), $rules);
 
 		if ($validator->fails()) {
-			$this->error(400, $validator->messages());
+			return $this->respondWithStatus(400, $validator->messages());
 		}
 
 
 		$this->loadStoreModel();
 		$this->checkAuthentification();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$id = Request::segment(6);
 		$addressModel = AddressModel::find($id);
 
 		$this->checkBelongsToThisStore($addressModel->ownerModel->id);
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
 
 		$addressModel->firstName = $input->firstName;
 		$addressModel->lastName = $input->lastName;

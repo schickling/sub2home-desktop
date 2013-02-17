@@ -27,8 +27,11 @@ class AuthentificationControllerTest extends TestCase {
 
 	public function testCheckTokenShouldFail()
 	{
-		$secureUrl = URL::secure('api/frontend/checktoken');
-		$response = $this->client->request('POST', $secureUrl);
+		// $secureUrl = URL::secure('api/frontend/checktoken');
+		// $response = $this->client->request('POST', $secureUrl);
+
+		// $secureUrl = str_replace('https://:/', 'https://', URL::secure('api/frontend/checktoken') );
+		$response = $this->call('POST', 'https://sub2home.dev/api/frontend/checktoken');
 
 		$this->assertEquals($response->getStatusCode(), 401);
 	}

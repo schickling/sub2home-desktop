@@ -15,14 +15,14 @@ define([
 		className: 'item',
 
 		events: {
-			'click .itemPreview': 'showDetails'
+			'click .itemPreview, .pricetag, h3, .itemDescription': '_showDetails'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var json = {
 				title: this.model.get('title'),
 				image: this.model.get('largeImage'),
@@ -33,7 +33,7 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		showDetails: function () {
+		_showDetails: function () {
 			var detailsView;
 
 			if (this.model.has('allowsIngredients')) {
