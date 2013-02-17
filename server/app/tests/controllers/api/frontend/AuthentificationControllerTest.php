@@ -12,28 +12,50 @@ class AuthentificationControllerTest extends TestCase {
 
 	public function testLoginShouldBeSuccessful()
 	{
-		$loginFormData = array(
-			'number' => 1,
-			'password' => 'hallo'
-			);
-		// $secureUrl = URL::secure('api/frontend/login');
-		// $response = $this->call('POST', 'https://sub2home.dev/api/frontend/login', $loginFormData);
+		// $loginFormData = array(
+		// 	'number' => 1,
+		// 	'password' => 'hallo'
+		// 	);
+		// // $secureUrl = URL::secure('api/frontend/login');
+		// $secureUrl = 'https://sub2home.dev/api/frontend/login';
+		// $response = $this->call('POST', $secureUrl, $loginFormData);
 
-
+		// $this->assertTrue($response->isOk());
 		// $token = $response->getContent();
-
 
 	}
 
-	public function testCheckTokenShouldFail()
+	public function testLoginWithoutHeadersShouldFail()
+	{
+		$secureUrl = 'https://sub2home.dev/api/frontend/login';
+		$response = $this->call('POST', $secureUrl);
+
+		$this->assertEquals($response->getStatusCode(), 400);
+	}
+
+	public function testLoginWithoutDataShouldFail()
+	{
+	}
+
+	public function testLoginWithWrongDataShouldFail()
+	{
+	}
+
+	public function testLoginShouldBlockAfterThreeFailedRequests()
+	{
+	}
+
+	public function testCheckTokenWithoutHeadersShouldFail()
 	{
 		// $secureUrl = URL::secure('api/frontend/checktoken');
-		// $response = $this->client->request('POST', $secureUrl);
-
-		// $secureUrl = str_replace('https://:/', 'https://', URL::secure('api/frontend/checktoken') );
-		$response = $this->call('POST', 'https://sub2home.dev/api/frontend/checktoken');
+		$secureUrl = 'https://sub2home.dev/api/frontend/checktoken';
+		$response = $this->call('POST', $secureUrl);
 
 		$this->assertEquals($response->getStatusCode(), 401);
+	}
+
+	public function testCheckTokenWithoutWrongTokenShouldFail()
+	{
 	}
 
 
@@ -41,7 +63,7 @@ class AuthentificationControllerTest extends TestCase {
 	{
 		$clientModel = new ClientModel(array(
 			'number' => 1,
-			'password' => Hash::make('haallo'),
+			'password' => Hash::make('hallo'),
 			'email' => 'client@test.de'
 			));
 		$clientModel->save();
