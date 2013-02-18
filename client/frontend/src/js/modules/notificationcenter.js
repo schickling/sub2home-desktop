@@ -13,7 +13,7 @@ define([
 		},
 
 		error: function (title, description, duration) {
-			this.notify({
+			this._notify({
 				title: title,
 				description: description,
 				type: 'error',
@@ -22,7 +22,7 @@ define([
 		},
 
 		info: function (title, description, duration) {
-			this.notify({
+			this._notify({
 				title: title,
 				description: description,
 				type: 'info',
@@ -31,7 +31,7 @@ define([
 		},
 
 		success: function (title, description, duration) {
-			this.notify({
+			this._notify({
 				title: title,
 				description: description,
 				type: 'success',
@@ -40,7 +40,7 @@ define([
 		},
 
 		warning: function (title, description, duration) {
-			this.notify({
+			this._notify({
 				title: title,
 				description: description,
 				type: 'warning',
@@ -48,12 +48,16 @@ define([
 			});
 		},
 
-		notify: function (item) {
+		_notify: function (item) {
 
 			var notificationModel = new NotificationModel(item);
 
 			this.view.renderNotification(notificationModel);
 
+		},
+
+		clean: function() {
+			this.view.destroyAllNotificationViews();
 		}
 
 	};

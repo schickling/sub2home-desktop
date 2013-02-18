@@ -3,9 +3,10 @@ define([
 	'jqueryEasing',
 	'underscore',
 	'backbone',
-	'models/stateModel',
-	'router'
-	], function ($, jqueryEasing, _, Backbone, stateModel, router) {
+	'router',
+	'notificationcenter',
+	'models/stateModel'
+	], function ($, jqueryEasing, _, Backbone, router, notificationcenter, stateModel) {
 
 	// "static" variable needed here
 	var pageWasInitialized = false;
@@ -256,6 +257,9 @@ define([
 					break;
 				}
 			}
+
+			// destory all notifications
+			notificationcenter.clean();
 		},
 
 		_transitionAFoward: function () {

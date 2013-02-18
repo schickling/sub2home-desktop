@@ -22,6 +22,10 @@ define([
 
 			// needs to be in dom first
 			notificationView.slideIn();
+		},
+
+		destroyAllNotificationViews: function() {
+			this.$('.notification').trigger('close');
 		}
 
 	});

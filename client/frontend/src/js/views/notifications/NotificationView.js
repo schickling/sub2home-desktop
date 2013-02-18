@@ -17,20 +17,22 @@ define([
 		zIndex: 0,
 
 		events: {
-			'click .bClose': 'close',
-			'mouseenter': 'stopTimer',
-			'mouseleave': 'countdown'
+			'click .bClose': '_close',
+			// custom dom event needed to clear all notifications
+			'close': '_close',
+			'mouseenter': '_stopTimer',
+			'mouseleave': '_countdown'
 		},
 
 		initialize: function () {
 			this.zIndex = this.options.zIndex;
 
-			this.render();
+			this._render();
 
-			this.countdown();
+			this._countdown();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.addClass(this.model.get('type'));
 			this.$el.css({
@@ -38,26 +40,26 @@ define([
 			});
 		},
 
-		countdown: function () {
+		_countdown: function () {
 			if (this.model.get('duration') > 0) {
 				var self = this;
 
 				this.timer = setTimeout(function () {
-					self.destroy();
+					self._destroy();
 				}, this.model.get('duration'));
 			}
 		},
 
-		stopTimer: function () {
+		_stopTimer: function () {
 			clearTimeout(this.timer);
 		},
 
-		close: function () {
-			this.stopTimer();
-			this.destroy();
+		_close: function () {
+			this._stopTimer();
+			this._destroy();
 		},
 
-		destroy: function () {
+		_destroy: function () {
 			var $el = this.$el;
 
 			$el.animate({
