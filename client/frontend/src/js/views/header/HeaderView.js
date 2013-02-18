@@ -4,13 +4,14 @@ define([
 	'jqueryEasing',
 	'underscore',
 	'backbone',
+	'router',
 	'models/authentificationModel',
 	'models/stateModel',
 	'views/header/StoreView',
 	'views/header/ClientView',
 	'text!templates/header/HeaderTemplate.html',
 	'text!templates/header/RoleSwitchTemplate.html'
-	], function ($, jqueryEasing, _, Backbone, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
+	], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -100,7 +101,16 @@ define([
 		},
 
 		_switchChildView: function () {
-			stateModel.set('isClientHeaderActive', !stateModel.get('isClientHeaderActive'));
+			if (stateModel.get('isClientHeaderActive')) {
+				stateModel.set('isClientHeaderActive', false);
+				if (stateModel.currentRouteIsStoreRelated) {
+					router.navigate('store', true);
+				} else {
+					router.navigate('/', true);
+				}
+			} else {
+				stateModel.set('isClientHeaderActive', true);
+			}
 		}
 
 	});

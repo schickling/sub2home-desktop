@@ -181,14 +181,21 @@ define([
 		currentRouteIsClientRelated: function () {
 			var currentRoute = this.get('currentRoute'),
 				clientRoutes = [
-				'client.dashboard',
-				'client.config',
-				'store.config',
-				'store.dashboard',
-				'store.assortment'
-				];
+					'client.dashboard',
+					'client.config',
+					'store.config',
+					'store.dashboard',
+					'store.assortment'
+					];
 
 			return _.contains(clientRoutes, currentRoute);
+		},
+
+		currentRouteIsStoreRelated: function () {
+			var currentRoute = this.get('currentRoute'),
+				routePrefix = currentRoute.split('.')[0];
+
+			return routePrefix === 'store';
 		}
 
 	});
