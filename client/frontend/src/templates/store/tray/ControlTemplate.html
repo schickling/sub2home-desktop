@@ -2,26 +2,26 @@
 	<div class="deliveryTimeClock">
 
 		<span class="hours">
-			<i class="iBtn iArrowUp"></i>
+			<i class="iBtn iArrowUp active"></i>
 			<span class="topTile">
 				<span><%= dueHours %></span>
 			</span>
 			<span class="bottomTile">
 				<span><%= dueHours %></span>
 			</span>
-			<i class="iBtn iArrowDown <% if (hoursAreMinimum) { %>inactive <% } %>"></i>
+			<i class="iBtn iArrowDown <% if (!hoursAreMinimum) { %>active <% } %>"></i>
 		</span>
 
 		<span class="clockSeparator"></span>
 		<span class="minutes">
-			<i class="iBtn iArrowUp"></i>
+			<i class="iBtn iArrowUp active"></i>
 			<span class="topTile">
 				<span><%= dueMinutes %></span>
 			</span>
 			<span class="bottomTile">
 				<span><%= dueMinutes %></span>
 			</span>
-			<i class="iBtn iArrowDown <% if (minutesAreMinimum) { %>inactive <% } %>"></i>
+			<i class="iBtn iArrowDown <% if (!minutesAreMinimum) { %>active <% } %>"></i>
 		</span>
 	</div>
 	<div class="deliveryAdditionalNote">

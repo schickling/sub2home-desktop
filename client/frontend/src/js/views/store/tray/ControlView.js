@@ -17,10 +17,10 @@ define([
 		events: {
 			'click .iCart': '_checkout',
 			'focusout textarea': '_saveComment',
-			'click .hours .iArrowUp': '_addHour',
-			'click .hours .iArrowDown': '_substractHour',
-			'click .minutes .iArrowUp': '_addMinute',
-			'click .minutes .iArrowDown': '_substractMinute'
+			'click .hours .iArrowUp.active': '_addHour',
+			'click .hours .iArrowDown.active': '_substractHour',
+			'click .minutes .iArrowUp.active': '_addMinute',
+			'click .minutes .iArrowDown.active': '_substractMinute'
 		},
 
 		initialize: function () {
