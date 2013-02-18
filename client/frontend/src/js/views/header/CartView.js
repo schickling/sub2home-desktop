@@ -29,11 +29,11 @@ define([
 
 			var storeModel = stateModel.get('storeModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
-				amount = cartModel.getNumberOfOrderedItems(),
+				amount = this.model.getNumberOfOrderedItems(),
 				json = {
 					amount: amount,
 					minimum: selectedDeliveryAreaModel.get('minimumValue'),
-					total: cartModel.getTotal()
+					total: this.model.getTotal()
 				};
 
 			this.$el.html(this.template(json));
@@ -42,7 +42,9 @@ define([
 		},
 
 		goToTray: function () {
-			router.navigate('store/tablett', true);
+			if (this.model.getNumberOfOrderedItems() > 0) {
+				router.navigate('store/tablett', true);
+			}
 		}
 
 	});
