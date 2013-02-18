@@ -4447,6 +4447,33 @@ input[type="text"]#locationSelectionInput {
 .bundleItems .several .icn.small:after {
   content: " ";
 }
+.assortmentControls {
+  position: absolute;
+  right: 3%;
+  top: 91px;
+}
+.assortmentControls .iBtn {
+  position: relative;
+  font-family: "VAGRounded LT Thin" !important;
+  color: #d1ba82;
+  width: 90px;
+  font-size: 14px !important;
+  padding: 4px 0 0 70px;
+}
+.assortmentControls .iBtn:before {
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: rgba(209, 186, 130, 0.5);
+  position: absolute;
+  left: 20px;
+  font-family: "Homicons";
+  font-size: 40px;
+}
+.assortmentControls .iBtn:hover:before {
+  color: #d1ba82;
+}
 #login {
   position: absolute;
   width: 100%;

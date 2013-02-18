@@ -1414,8 +1414,38 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-// // Article Edit Mode
-// // -------------------------------------------------------
+// Article Edit Mode
+// -------------------------------------------------------
+
+.assortmentControls {
+  position: absolute;
+  right: 3%;
+  top: 91px;
+
+
+  .iBtn {
+    .positioned;
+    font-family: @headingsFontFamily !important;
+    color: @onNoteColor;
+    width: 90px;
+    font-size: 14px !important;
+    padding: 4px 0 0 70px;
+    
+    &:before {
+      .transition(color .1s linear);
+      color: @onNoteColor50;
+      position: absolute;
+      left: 20px;
+      font-family: "Homicons";
+      font-size: 40px;
+    }
+    &:hover:before {
+      color: @onNoteColor;
+    }
+  }
+}
+
+
 
 // button.edit_articles {
 //   font-size: 16px;
