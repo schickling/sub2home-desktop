@@ -1307,27 +1307,25 @@ input[type="text"]#locationSelectionInput {
 
 }
 
-// MENU BUNDLE PREVIEW
-
-
-
-
 .article {
-    background: none;
-    .border-radius(3px);
-    border: 1px solid #fff;
-    .box-shadow(none);
-    .backface-visibility(hidden);
+  background: none;
+  .border-radius(3px);
+  border: 1px solid #fff;
+  .box-shadow(none);
+  .backface-visibility(hidden);
 
-    &.selected {
-      background: @noteBackground;
-      .border-radius(3px);
-      border: 1px solid @onNoteColor;
-      .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
-      .backface-visibility(hidden);
-    }
+  &.selected {
+    background: @noteBackground;
+    .border-radius(3px);
+    border: 1px solid @onNoteColor;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+    .backface-visibility(hidden);
+  }
 }
 
+
+
+// MENU BUNDLE PREVIEW
 
 
 .detailsMenu {
@@ -1349,7 +1347,6 @@ input[type="text"]#locationSelectionInput {
     .positioned;
     display: block;
     float: left;
-    //z-index: 6;
   }
 
   .itemInfo {
@@ -3923,19 +3920,21 @@ div#payment {
       .hours, .minutes {
         .iBtn {
           position: absolute;
+          cursor: default;
+          .opacity(30);
           left: 50%;
           margin-left: -15px;
           .r-engraved-text;
           color: @onNoteColor;
           &.iArrowUp { top: -32px; }
           &.iArrowDown { bottom: -32px; }
-          &.inactive {
-            .opacity(30);
-            cursor: default;
-          }
-          .transition(color .1s linear);
-          &:hover {
-            color: darken(@onNoteColor, 8%);
+          &.active {
+            .opacity(100);
+            cursor: pointer;
+            .transition(color .1s linear);
+            &:hover {
+              color: darken(@onNoteColor, 8%);
+            }
           }
         }
       }
@@ -4186,8 +4185,13 @@ div#payment {
 // -------------------------------------------------------------------------------------------------------------------
 
 .note.checkout {
+  position: absolute;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
-padding-top: 100px;
-padding-bottom: 100px;
-
+.content.checkout {
+  top: 0;
+  bottom: 400px;
+  background: @grayLight;
 }

@@ -6651,15 +6651,14 @@ div#payment .bankaccount {
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn {
   position: absolute;
+  cursor: default;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
   left: 50%;
   margin-left: -15px;
   text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
   color: #c3a55d;
   color: #d1ba82;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.iArrowUp,
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowUp {
@@ -6669,14 +6668,18 @@ div#payment .bankaccount {
 #checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.iArrowDown {
   bottom: -32px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.inactive,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.inactive {
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-  cursor: default;
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.active,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
-#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn:hover,
-#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn:hover {
+#checkoutAdditionalOptions > div.deliveryTimeClock .hours .iBtn.active:hover,
+#checkoutAdditionalOptions > div.deliveryTimeClock .minutes .iBtn.active:hover {
   color: #c6aa64;
 }
 #checkoutBasicControls {
@@ -6908,8 +6911,14 @@ div#payment .bankaccount {
   color: rgba(255, 255, 255, 0.35);
 }
 .note.checkout {
+  position: absolute;
   padding-top: 100px;
   padding-bottom: 100px;
+}
+.content.checkout {
+  top: 0;
+  bottom: 400px;
+  background: #cecece;
 }
 .store_selection_container {
   margin: 0 auto;
