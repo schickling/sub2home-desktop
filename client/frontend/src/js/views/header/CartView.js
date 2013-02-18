@@ -4,10 +4,11 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'notificationcenter',
 	'models/stateModel',
 	'models/cartModel',
 	'text!templates/header/CartTemplate.html'
-	], function ($, _, Backbone, router, stateModel, cartModel, CartTemplate) {
+	], function ($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
 
 	var CartView = Backbone.View.extend({
 
@@ -44,6 +45,8 @@ define([
 		goToTray: function () {
 			if (this.model.getNumberOfOrderedItems() > 0) {
 				router.navigate('store/tablett', true);
+			} else {
+				notificationcenter.warning('noch nix drin!', 'kauf mal was');
 			}
 		}
 
