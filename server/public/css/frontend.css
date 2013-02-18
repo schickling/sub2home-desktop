@@ -6582,6 +6582,7 @@ div#payment .bankaccount {
   height: 42px;
   display: inline-block;
   vertical-align: top;
+  text-align: left;
   margin: 45px 5px 0;
 }
 #checkoutAdditionalOptions > div.deliveryTimeClock .clockSeparator:before,
@@ -6912,8 +6913,39 @@ div#payment .bankaccount {
 }
 .note.checkout {
   position: absolute;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+.note.checkout .deliveryTimeClock.countdown {
+  width: 380px;
+  margin: 0;
+  text-align: center;
+}
+.note.checkout .deliveryTimeClock.countdown p {
+  font-family: "VAGRounded LT Thin";
+  font-size: 24px;
+  color: #d1ba82;
+  width: 100%;
+  text-align: center;
+  line-height: 1.3;
+}
+.note.checkout .deliveryTimeClock.countdown p span {
+  font-size: 16px;
+  display: inline-block;
+  font-family: "Handlee", Helvetica, Arial, sans-serif;
+  padding-top: 18px;
+}
+.note.checkout .deliveryTimeClock.countdown p span.emphasized {
+  font-family: "VAGRounded LT Thin";
+  font-size: 24px;
+  color: #57a827;
+  padding: 0;
+}
+.note.checkout div.deliveryAdditionalNote {
+  margin: 60px 0 0 450px;
+}
+.note.checkout div.deliveryAdditionalNote textarea {
+  color: #d1ba82;
 }
 .content.checkout {
   top: 0;
