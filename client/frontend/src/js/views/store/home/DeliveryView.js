@@ -12,27 +12,45 @@ define([
 		template: _.template(DeliveryTemplate),
 
 		events: {
-			'click .bEdit': 'selectDeliveryArea'
+			'click .bEdit': '_toggleSelectDeliveryArea'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var storeModel = stateModel.get('storeModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
 
 			var json = {
 				area: selectedDeliveryAreaModel.get('description'),
-				postal: selectedDeliveryAreaModel.get('postal')
+				postal: selectedDeliveryAreaModel.get('postal'),
+				minimumDuration: selectedDeliveryAreaModel.get('minimumDuration')
 			};
 
 			this.$el.html(this.template(json));
 		},
 
-		selectDeliveryArea: function () {
-			alert('Julian mach das mal! :)');
+		_renderDeliveryAreas: function () {
+			var storeModel = stateModel.get('storeModel'),
+				deliveryAreasCollection = storeModel.get('deliveryAreasCollection'),
+				$deliveryAreas = this.$('#deliveryAreas');
+
+			_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
+				$deliveryAreas.append('<span>' + deliveryAreaModel.get('description') + '</span>');
+			});
+		},
+
+		_toggleSelectDeliveryArea: function () {
+
+			var $deliveryAreas = this.$('#deliveryAreas');
+
+			if ($deliveryAreas.html().trim()) {
+				$deliveryAreas.toggle();
+			} else {
+				this._renderDeliveryAreas();
+			}
 		}
 
 	});
