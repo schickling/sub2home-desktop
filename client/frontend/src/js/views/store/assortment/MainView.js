@@ -4,21 +4,30 @@ define([
 	'underscore',
 	'backbone',
 	'views/PageView',
+	'views/store/assortment/CategoriesView',
 	'text!templates/store/assortment/MainTemplate.html'
-	], function ($, _, Backbone, PageView, MainTemplate) {
+	], function ($, _, Backbone, PageView, CategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 
 			this.$el.html(MainTemplate);
 
+			this._renderCategories();
+
 			this.append();
 
+		},
+
+		_renderCategories: function() {
+			new CategoriesView({
+				el: this.$('.categories')
+			});
 		}
 
 	});
