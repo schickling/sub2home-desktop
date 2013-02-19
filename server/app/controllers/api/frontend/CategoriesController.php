@@ -2,28 +2,45 @@
 
 use Illuminate\Database\Eloquent\Collection;
 
+use Input;
+
 use App\Models\CategoryModel;
-use App\Models\ArticleModel;
 
 
 class CategoriesController extends ApiController
 {
 
-	
 	public function index($storeAlias)
 	{
 		$this->loadStoreModel();
 
-		$categoriesCollectionWithItems = new Collection();
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
+
 		$categoriesCollection = CategoryModel::with('articlesCollection', 'menuBundlesCollection')
 												->orderBy('order')
 												->get();
+
+		// if client is logged in and changes his assortment
+		if (Input::get('showAllItems')) {
+			$preparedCategoriesCollection = $this->prepareAllCategories($categoriesCollection);
+		} else {
+			$preparedCategoriesCollection = $this->prepareVisibleCategories($categoriesCollection);
+		}
+
+		return $preparedCategoriesCollection->toJson(JSON_NUMERIC_CHECK);
+	}
+
+	private function prepareVisibleCategories($categoriesCollection)
+	{
+		$categoriesCollectionWithItems = new Collection();
 
 		// pick out "visible" categories
 		foreach ($categoriesCollection as $categoryModel) {
 
 			$itemsCollection = new Collection();
-			// TODO: make that more convenient
 			$sortedItemsCollection = $categoryModel->sortedItemsCollection;
 
 			// get correct prices
@@ -51,7 +68,40 @@ class CategoriesController extends ApiController
 			}
 		}
 
-		return $categoriesCollectionWithItems->toJson(JSON_NUMERIC_CHECK);
+		return $categoriesCollectionWithItems;
+	}
+
+	private function prepareAllCategories($categoriesCollection)
+	{
+
+		foreach ($categoriesCollection as $categoryModel) {
+
+			$itemsCollection = new Collection();
+			$sortedItemsCollection = $categoryModel->sortedItemsCollection;
+
+			// get correct prices
+			foreach ($sortedItemsCollection as $itemModel) {
+				if ($itemModel->isPublished) {
+
+					// discard unused attributes
+					unset($itemModel->allowsDeposit);
+					unset($itemModel->allowsMenuUpgrades);
+					unset($itemModel->smallImage);
+
+					$itemsCollection->add($itemModel);
+				}
+			}
+
+			$categoryModel->setRelation('itemsCollection', $itemsCollection);
+
+			// discard loaded relationships
+			unset($categoryModel->articlesCollection);
+			unset($categoryModel->menuBundlesCollection);
+
+			
+		}
+
+		return $categoriesCollection;
 	}
 
 }
