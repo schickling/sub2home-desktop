@@ -9,7 +9,9 @@ define([
 		idAttribute: 'cid',
 
 		defaults: {
-			image: '../img/static/article_gray_big.png'
+			image: '../img/static/article_gray_big.png',
+			attachedItemsCollection: null,
+			isAttached: false
 		}
 
 	});
