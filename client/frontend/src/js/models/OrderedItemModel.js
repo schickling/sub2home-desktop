@@ -96,7 +96,7 @@ define([
 				}, this);
 			}
 
-			if (response.hasOwnProperty('menuBundleModel')) {
+			if (response.hasOwnProperty('menuBundleModel') && response.menuBundleModel) {
 				response.menuBundleModel = new MenuBundleModel(response.menuBundleModel, {
 					// parse needed for nested articleModel
 					parse: true
@@ -111,11 +111,11 @@ define([
 		},
 
 		isMenuBundle: function () {
-			return (this.get('menuBundleModel') !== null);
+			return this.get('menuBundleModel') !== null;
 		},
 
 		isMenu: function () {
-			return (this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded());
+			return this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded();
 		},
 
 		_initializeListeners: function () {
@@ -160,6 +160,7 @@ define([
 
 					if (articleModel) {
 						total += articleModel.get('ingredientsTotal');
+						total += articleModel.get('deposit');
 					}
 				});
 
@@ -171,8 +172,6 @@ define([
 				// calculate total of base article
 				total += baseArticleModel.get('total');
 
-				console.log(total);
-
 				// calculate total for menu upgrade
 				if (baseOrderedArticleModel.hasBeenUpgraded()) {
 					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel);
@@ -182,6 +181,7 @@ define([
 
 						if (menuUpgradeArticleModel) {
 							total += menuUpgradeArticleModel.get('ingredientsTotal');
+							total += menuUpgradeArticleModel.get('deposit');
 						}
 					});
 
