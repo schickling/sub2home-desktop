@@ -4,5 +4,8 @@
 		<img class="itemPreview" src="../../../<%= image %>" alt="" >
 		<h3><%= title %></h3>
 		<p class="itemDescription"><%= description %></p>
+		<% if (deposit > 0) { %>
+		<div class="pricetag"><span>+ <%= deposit.toFixed(2) %> € Pfand</span></div>
+		<% } %>
 	</div>
 </div>

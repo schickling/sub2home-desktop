@@ -32,6 +32,7 @@ define([
 			var json = {
 				title: this.model.get('title'),
 				image: this.model.get('largeImage'),
+				deposit: this.model.get('deposit'),
 				description: this.model.get('description')
 			};
 
