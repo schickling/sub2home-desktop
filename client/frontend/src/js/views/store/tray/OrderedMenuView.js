@@ -9,6 +9,10 @@ define([
 
 	var OrderedMenuView = Backbone.View.extend({
 
+		/*
+		 * this.model: orderedItemModel
+		 */
+
 		template: _.template(OrderedMenuTemplate),
 
 		initialize: function () {
@@ -19,7 +23,8 @@ define([
 			this.$el.addClass('orderedMenu');
 
 			var json = {
-				title: 'Sparmenu'
+				title: this.model.getMenuTitle(),
+				total: this.model.get('total')
 			};
 
 			this.$el.html(this.template(json));

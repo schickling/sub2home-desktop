@@ -9,12 +9,15 @@ define([
 	var ItemsView = Backbone.View.extend({
 
 		initialize: function () {
+			this.collection.groupItems();
 			this.render();
 		},
 
 		render: function () {
 			_.each(this.collection.models, function (itemModel) {
-				this.renderItem(itemModel);
+				if (!itemModel.get('isAttached')) {
+					this.renderItem(itemModel);
+				}
 			}, this);
 		},
 

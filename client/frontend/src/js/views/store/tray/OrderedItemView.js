@@ -13,33 +13,33 @@ define([
 		className: 'orderedItem',
 
 		events: {
-			'click .deleteItem': 'destroy',
-			'click .itemPreview': 'edit'
+			'click .deleteItem': '_destroy',
+			'click .itemPreview': '_edit'
 		},
 
 		initialize: function () {
 			if (this.model.isMenu()) {
-				this.renderOrderedMenu();
+				this._renderOrderedMenu();
 			} else {
-				this.renderOrderedArticleSingle();
+				this._renderOrderedArticleSingle();
 			}
 		},
 
-		renderOrderedMenu: function () {
+		_renderOrderedMenu: function () {
 			var orderedMenuView = new OrderedMenuView({
 				model: this.model,
 				el: this.$el
 			});
 		},
 
-		renderOrderedArticleSingle: function () {
+		_renderOrderedArticleSingle: function () {
 			var orderedArticleSingleView = new OrderedArticleSingleView({
 				model: this.model,
 				el: this.$el
 			});
 		},
 
-		destroy: function () {
+		_destroy: function () {
 			var self = this;
 
 			this.model.destroy();
@@ -49,7 +49,7 @@ define([
 			});
 		},
 
-		edit: function () {
+		_edit: function () {
 			router.navigate('store/theke/aendern/' + this.model.get('id'), true);
 		}
 

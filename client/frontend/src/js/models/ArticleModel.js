@@ -38,12 +38,12 @@ define([
 
 			// wait until attributes are set
 			this.on('change:ingredientCategoriesCollection', function () {
-				this.listenForIngredientSelection();
+				this._listenForIngredientSelection();
 			}, this);
 
 			// needed to set total initially
 			this.on('change:price', function () {
-				this.calculateTotal();
+				this._calculateTotal();
 			}, this);
 
 
@@ -110,7 +110,7 @@ define([
 
 		},
 
-		listenForIngredientSelection: function () {
+		_listenForIngredientSelection: function () {
 			// trigger change event if ingredients were selected
 			var ingredientCategoriesCollection = this.get('ingredientCategoriesCollection');
 
@@ -120,7 +120,7 @@ define([
 
 					_.each(ingredientsCollection.models, function (ingredientModel) {
 						ingredientModel.on('change:isSelected', function () {
-							this.calculateTotal();
+							this._calculateTotal();
 						}, this);
 					}, this);
 
@@ -128,7 +128,7 @@ define([
 			}
 		},
 
-		calculateIngredientsTotal: function () {
+		_calculateIngredientsTotal: function () {
 			var ingredientsTotal = 0,
 				ingredientCategoriesCollection = this.get('ingredientCategoriesCollection');
 
@@ -136,11 +136,11 @@ define([
 			if (this.get('allowsIngredients') && ingredientCategoriesCollection) {
 
 				_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
-					var selectedIngredientsCollection = _(ingredientCategoryModel.get('ingredientsCollection').where({
+					var selectedIngredientModels = ingredientCategoryModel.get('ingredientsCollection').where({
 						isSelected: true
-					}));
+					});
 
-					_.each(selectedIngredientsCollection.models, function (ingredientModel) {
+					_.each(selectedIngredientModels, function (ingredientModel) {
 						ingredientsTotal += ingredientModel.get('price');
 					});
 				});
@@ -151,8 +151,8 @@ define([
 
 		},
 
-		calculateTotal: function () {
-			this.calculateIngredientsTotal();
+		_calculateTotal: function () {
+			this._calculateIngredientsTotal();
 
 			var total = this.get('price') + this.get('ingredientsTotal');
 
@@ -163,6 +163,7 @@ define([
 			this.set('total', total);
 		},
 
+		// TODO rework perhaps
 		hasIngredients: function () {
 			return this.get('allowsIngredients') && this.get('ingredientCategoriesCollection') !== null;
 		}

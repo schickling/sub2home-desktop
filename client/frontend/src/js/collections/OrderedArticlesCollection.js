@@ -6,13 +6,7 @@ define([
 
 	var OrderedArticlesCollection = Backbone.Collection.extend({
 
-		model: OrderedArticleModel,
-
-		destroy: function () {
-			this.each(function (orderedArticleModel) {
-				orderedArticleModel.destroy();
-			});
-		}
+		model: OrderedArticleModel
 
 	});
 

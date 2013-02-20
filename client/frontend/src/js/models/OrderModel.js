@@ -107,9 +107,8 @@ define([
 					response.createdDate = new Date(response.created_at);
 				}
 
-				if (response.hasOwnProperty('due_at')) {
+				if (response.hasOwnProperty('due_at') && response.due_at) {
 					response.dueDate = new Date(response.due_at);
-					console.log(response.dueDate);
 				}
 
 				return response;

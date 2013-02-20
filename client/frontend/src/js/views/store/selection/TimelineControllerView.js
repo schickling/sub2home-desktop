@@ -40,9 +40,9 @@ define([
 
 		events: {
 			// buttons
-			'click .overlay .vecbuttonNext': '_forward',
-			'click .overlay .vecbuttonPrev': '_backward',
-			'click .overlay .vecbuttonCart': '_finish',
+			'click .overlay .bNext': '_forward',
+			'click .overlay .bPrev': '_backward',
+			'click .overlay .bCart': '_finish',
 
 			// timeline
 			'click .iCart': '_finish',
@@ -88,9 +88,9 @@ define([
 		_chacheDOM: function () {
 			// ui buttons in overlay
 			var $overlay = this.$('.overlay');
-			this.$buttonNext = $overlay.find('.vecbuttonNext');
-			this.$buttonPrev = $overlay.find('.vecbuttonPrev');
-			this.$buttonCart = $overlay.find('.vecbuttonCart');
+			this.$buttonNext = $overlay.find('.bNext');
+			this.$buttonPrev = $overlay.find('.bPrev');
+			this.$buttonCart = $overlay.find('.bCart');
 
 			// stage
 			this.$stage = this.$('.stage');

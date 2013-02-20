@@ -10,13 +10,11 @@ define([
 	// little hack to get height of hidden dom element
 	$.fn.hiddenHeight = function () {
 		var $this = $(this),
-			currentPosition = $this.css('position'),
 			currentDisplay = $this.css('display'),
 			currentVisibility = $this.css('visibility'),
 			height;
 
 		$this.css({
-			// position: 'absolute',
 			display: 'block',
 			visibility: 'hidden'
 		});
@@ -24,7 +22,6 @@ define([
 		height = $this.height();
 
 		$this.css({
-			// position: currentPosition,
 			display: currentDisplay,
 			visibility: currentVisibility
 		});
@@ -68,20 +65,20 @@ define([
 			// prepare data
 			this.prepare();
 
-			this.render();
+			this._render();
 
 			// append timelineitems from prepare to ordereditem
-			this.deliverTimelineItems();
+			this._deliverTimelineItems();
 
 			// increase selection counter
-			this.increaseSelectionCounter();
+			this._increaseSelectionCounter();
 
 
 		},
 
 		prepare: function () {},
 
-		deliverTimelineItems: function () {
+		_deliverTimelineItems: function () {
 			var orderedItemModel = this.model.get('orderedItemModel'),
 				timelineItemsCollectionOfOrderedItemModel = orderedItemModel.get('timelineItemsCollection');
 
@@ -93,34 +90,34 @@ define([
 			}, this);
 		},
 
-		increaseSelectionCounter: function () {
+		_increaseSelectionCounter: function () {
 			if (this.active) {
 				indexOfSelectionView++;
 			}
 		},
 
-		render: function () {
+		_render: function () {
 
 			if (this.active) {
 
-				this.renderInfoView();
-				this.renderStageView();
+				this._renderInfoView();
+				this._renderStageView();
 
-				this.compensateSize();
+				this._compensateSize();
 
 				// adjust height on resize
 				var self = this;
 				$(window).resize(function () {
-					self.compensateSize();
+					self._compensateSize();
 				});
 
 			}
 
-			this.renderTimelineView();
+			this._renderTimelineView();
 
 		},
 
-		renderInfoView: function () {
+		_renderInfoView: function () {
 			var $info = this.$('.note.selection .container'),
 				$infoContainer = this.$('.note.selection .container');
 
@@ -130,7 +127,7 @@ define([
 			});
 		},
 
-		renderStageView: function () {
+		_renderStageView: function () {
 			var $stage = this.$('.stage'),
 				$slideContainer = $('<div class="slideContainer">').appendTo($stage);
 
@@ -142,7 +139,7 @@ define([
 			});
 		},
 
-		renderTimelineView: function () {
+		_renderTimelineView: function () {
 			var $timeline = this.$('.note.timeline');
 
 			this.timelineView = new TimelineView({
@@ -152,7 +149,7 @@ define([
 
 		},
 
-		compensateSize: function () {
+		_compensateSize: function () {
 			var mainHeight = this.$el.height(),
 				timelineHeight = 90,
 				infoHeight = this.infoView.$el.hiddenHeight();

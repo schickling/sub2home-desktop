@@ -11,6 +11,12 @@ define([
 
 	var ArticleSelectionView = SelectionView.extend({
 
+		/*
+		 * this.$el = $('.main')
+		 *
+		 * this.model = orderedArticle
+		 */
+
 		stageViewClass: MenuComponentOptionsView,
 
 		infoViewClass: InfoView,
@@ -25,7 +31,7 @@ define([
 			if (this.model.get('menuComponentBlockModel')) {
 				this.active = true;
 				timelineItemModel.set('isLocked', true);
-				this.listenForArticleSelection();
+				this._listenForArticleSelection();
 			} else {
 				// just symbolizes base article
 				timelineItemModel.set('isDisabled', true);
@@ -36,8 +42,9 @@ define([
 
 		},
 
-		listenForArticleSelection: function () {
-			var menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
+		_listenForArticleSelection: function () {
+			var orderedArticleModel = this.model,
+				menuComponentBlockModel = orderedArticleModel.get('menuComponentBlockModel'),
 				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
 				timelineItemsCollection = this.timelineItemsCollection,
 				timelineItemModel, menuComponentOptionArticlesCollection;
@@ -47,10 +54,13 @@ define([
 
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
 					menuComponentOptionArticleModel.on('change:isSelected', function () {
+
 						if (menuComponentOptionArticleModel.get('isSelected')) {
-							timelineItemModel = timelineItemModel = timelineItemsCollection.first();
+							timelineItemModel = timelineItemsCollection.first();
 							timelineItemModel.set('isLocked', false);
+							orderedArticleModel.trigger('articleModelWasSelected');
 						}
+
 					});
 				});
 			});

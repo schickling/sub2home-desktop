@@ -3,12 +3,12 @@
 		<div class="flag">
 			<div class="flagBack"></div>
 			<div class="flagFront">
-				<h5>Sparmenü</h5>
+				<h5><%= title %></h5>
 			</div>
 		</div>
 		<div class="separator"></div>
 	</div>
-	<div class="pricetag"><span>3,99 €</span></div>
+	<div class="pricetag"><span><%= total.toFixed(2) %> €</span></div>
 	<div class="controls">
 		<i class="iBtn bAdd addItem"></i>
 		<i class="iBtn bTrash deleteItem"></i>

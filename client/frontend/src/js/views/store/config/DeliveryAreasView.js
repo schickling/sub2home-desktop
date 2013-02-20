@@ -2,28 +2,29 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'notificationcenter',
 	'models/DeliveryAreaModel',
 	'collections/DeliveryAreasCollection',
 	'views/store/config/DeliveryAreaView'
-	], function($, _, Backbone, DeliveryAreaModel, DeliveryAreasCollection, DeliveryAreaView) {
+	], function ($, _, Backbone, notificationcenter, DeliveryAreaModel, DeliveryAreasCollection, DeliveryAreaView) {
 
 	var DeliveryAreasView = Backbone.View.extend({
-		
+
 		events: {
-			'click .buttonAdd': 'addDeliveryArea'
+			'click .sBAdd': '_addDeliveryArea'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (item) {
-				this.renderDeliveryArea(item);
+				this._renderDeliveryArea(item);
 			}, this);
 		},
 
-		renderDeliveryArea: function (item) {
+		_renderDeliveryArea: function (item) {
 			var deliveryAreaView = new DeliveryAreaView({
 				model: item
 			});
@@ -31,15 +32,19 @@ define([
 			this.$('.unfolded').append(deliveryAreaView.el);
 		},
 
-		addDeliveryArea: function () {
+		_addDeliveryArea: function () {
 			var deliveryAreaModel = new DeliveryAreaModel();
 
 			var self = this;
 
 			deliveryAreaModel.save({}, {
-				success: function() {
-					self.renderDeliveryArea(deliveryAreaModel);
+				validate: false,
+				success: function () {
+					self._renderDeliveryArea(deliveryAreaModel);
 					self.collection.add(deliveryAreaModel);
+				},
+				error: function () {
+					notificationcenter.error('damn it', '.');
 				}
 			});
 		}

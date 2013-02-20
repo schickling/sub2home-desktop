@@ -23,36 +23,38 @@ define([
 		menuUpgradeSelectionView: null,
 
 		initialize: function () {
-			this.render();
+			this._render();
 
 			// remove view if model was destoryed
-			this.model.on('destroy', this.remove, this);
+			this.model.on('destroy', this._remove, this);
+
+			this.model.on('articleModelWasSelected', this._renderIngredientsSelection, this);
 
 		},
 
-		render: function () {
+		_render: function () {
 
-			this.renderArticleSelection();
-			this.renderIngredientsSelection();
-			this.renderMenuUpgradeSelection();
+			this._renderArticleSelection();
+			this._renderIngredientsSelection();
+			this._renderMenuUpgradeSelection();
 
 		},
 
-		renderArticleSelection: function () {
+		_renderArticleSelection: function () {
 			this.articleSelectionView = new ArticleSelectionView({
 				model: this.model,
 				el: this.$el
 			});
 		},
 
-		renderIngredientsSelection: function () {
+		_renderIngredientsSelection: function () {
 			this.ingredientsSelectionView = new IngredientsSelectionView({
 				model: this.model,
 				el: this.$el
 			});
 		},
 
-		renderMenuUpgradeSelection: function () {
+		_renderMenuUpgradeSelection: function () {
 			var articleModel = this.model.get('articleModel');
 
 			if (articleModel && articleModel.get('allowsMenuUpgrades') && articleModel.get('menuUpgradesCollection').length > 0) {
@@ -63,7 +65,7 @@ define([
 			}
 		},
 
-		remove: function () {
+		_remove: function () {
 
 			this.articleSelectionView.remove();
 			this.ingredientsSelectionView.remove();

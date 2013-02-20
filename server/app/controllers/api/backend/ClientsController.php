@@ -17,6 +17,7 @@ class ClientsController extends ApiController
 			))->get();
 
 		foreach ($clientsCollection as $clientModel) {
+			$clientModel->setHidden(array());
 			foreach ($clientModel->storesCollection as $storeModel) {
 				$storeModel->setHidden(array());
 			}

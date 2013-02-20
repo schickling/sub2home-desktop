@@ -17,7 +17,7 @@ define([
 		template: _.template(ArticleDetailsTemplate),
 
 		events: {
-			'click': 'showDetails',
+			'click': '_goToSelection',
 			'mouseleave': 'hide',
 			'mouseenter': 'stopHiding'
 		},
@@ -34,10 +34,12 @@ define([
 				price: this.model.get('price')
 			};
 
+			console.log(this.model.get('attachedItemsCollection').toJSON());
+
 			this.$el.html(this.template(json));
 		},
 
-		showDetails: function () {
+		_goToSelection: function () {
 			if (this.model.get('allowsIngredients')) {
 				router.navigate('store/theke/artikel/' + this.model.get('id'), true);
 			} else {

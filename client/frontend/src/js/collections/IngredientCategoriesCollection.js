@@ -10,12 +10,6 @@ define([
 
 		model: IngredientCategoryModel,
 
-		destroy: function () {
-			this.each(function (ingredientCategoryModel) {
-				ingredientCategoryModel.destroy();
-			});
-		},
-
 		getAllSelectedIngredientModels: function () {
 			var ingredientModels = [];
 

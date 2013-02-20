@@ -2,8 +2,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'notificationcenter',
 	'text!templates/store/config/DeliveryTimeTemplate.html'
-	], function ($, _, Backbone, DeliveryTimeTemplate) {
+	], function ($, _, Backbone, notificationcenter, DeliveryTimeTemplate) {
 
 	var DeliveryTimeView = Backbone.View.extend({
 
@@ -12,32 +13,31 @@ define([
 		template: _.template(DeliveryTimeTemplate),
 
 		events: {
-			'focusout .deliveryTimeStartMinutes': 'updateStartMinutes',
-			'keypress .deliveryTimeStartMinutes': 'updateStartMinutesOnEnter',
-			'focusout .deliveryTimeEndMinutes': 'updateEndMinutes',
-			'keypress .deliveryTimeEndMinutes': 'updateEndMinutesOnEnter',
-			'click .buttonRemove': 'destroy'
+			'focusout .deliveryTimeStartMinutes': '_updateStartMinutes',
+			'focusout .deliveryTimeEndMinutes': '_updateEndMinutes',
+			'keypress input': '_blurOnEnter',
+			'click .buttonRemove': '_destroy'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 
-			this.model.on('error', function (model, error) {
-				this.render();
-				alert(error);
+			this.model.on('invalid', function (model, error) {
+				this._render();
+				notificationcenter.error(error, error);
 			}, this);
 		},
 
-		render: function () {
+		_render: function () {
 			var json = {
-				startTime: this.renderTime(this.model.get('startMinutes')),
-				endTime: this.renderTime(this.model.get('endMinutes'))
+				startTime: this._renderTime(this.model.get('startMinutes')),
+				endTime: this._renderTime(this.model.get('endMinutes'))
 			};
 
 			this.$el.html(this.template(json));
 		},
 
-		destroy: function () {
+		_destroy: function () {
 			var self = this;
 			this.$el.fadeOut(function () {
 				self.model.destroy();
@@ -45,52 +45,46 @@ define([
 			});
 		},
 
-		updateStartMinutes: function (e) {
+		_updateStartMinutes: function (e) {
 			var $input = this.$('.deliveryTimeStartMinutes'),
 				time = $input.val();
 
-			if (this.checkTime(time)) {
-				this.model.set('startMinutes', this.parseTime(time));
+			if (this._checkTimeFormat(time)) {
+
+				this.model.set({
+					startMinutes: this._parseTime(time)
+				}, {
+					validate: true
+				});
 				this.model.save();
 			}
 
 		},
 
-		updateStartMinutesOnEnter: function (e) {
-			if (e.keyCode != 13) return;
-
-			var $input = this.$('.deliveryTimeStartMinutes');
-			$input.blur();
-		},
-
-		updateEndMinutes: function (e) {
+		_updateEndMinutes: function (e) {
 			var $input = this.$('.deliveryTimeEndMinutes'),
 				time = $input.val();
 
-			if (this.checkTime(time)) {
-				this.model.set('endMinutes', this.parseTime(time));
+			if (this._checkTimeFormat(time)) {
+				this.model.set({
+					endMinutes: this._parseTime(time)
+				}, {
+					validate: true
+				});
 				this.model.save();
 			}
-
 		},
 
-		updateEndMinutesOnEnter: function (e) {
-			if (e.keyCode != 13) return;
-
-			var $input = this.$('.deliveryTimeEndMinutes');
-			$input.blur();
-		},
-
-		checkTime: function (time) {
+		_checkTimeFormat: function (time) {
 			if (time.match(/^((([01]?[0-9]|2[0-3]):[0-5][0-9])|24:00)$/)) {
 				return true;
 			} else {
-				alert('Bitte Uhrzeit im Format hh:mm eingeben.');
+				notificationcenter.error('Bitte Uhrzeit im Format hh:mm eingeben.', '');
 				return false;
 			}
 		},
 
-		renderTime: function (total_minutes) {
+		_renderTime: function (total_minutes) {
 			var hours = parseInt(total_minutes / 60, 10),
 				minutes = total_minutes % 60;
 
@@ -101,10 +95,17 @@ define([
 			return hours + ':' + minutes;
 		},
 
-		parseTime: function (time) {
+		_parseTime: function (time) {
 			var parts = time.split(':');
 
 			return parts[0] * 60 + parts[1] * 1;
+		},
+
+		_blurOnEnter: function (e) {
+			if (e.keyCode != 13) return;
+
+			var $input = $(e.target);
+			$input.blur();
 		}
 
 	});

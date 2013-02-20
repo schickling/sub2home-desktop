@@ -2,9 +2,10 @@
 define([
 	'underscore',
 	'backbone',
+	'models/MenuBundleModel',
 	'collections/TimelineItemsCollection',
 	'collections/OrderedArticlesCollection'
-	], function (_, Backbone, TimelineItemsCollection, OrderedArticlesCollection) {
+	], function (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) {
 
 	var OrderedItemModel = Backbone.Model.extend({
 
@@ -49,14 +50,8 @@ define([
 				this.set('timelineItemsCollection', new TimelineItemsCollection());
 			}
 
-
-			// cascading remove
-			// timelineItemsCollection doesn't need to be destoryed
-			// since its included in orderedArticlesCollection
-			this.on('destroy', this.destroyOrderedArticlesCollection);
-
 			// listeners for total price calculation
-			this.initializeListeners();
+			this._initializeListeners();
 		},
 
 		toJSON: function () {
@@ -65,6 +60,10 @@ define([
 
 			if (this.get('orderedArticlesCollection')) {
 				attributes.orderedArticlesCollection = attributes.orderedArticlesCollection.toJSON();
+			}
+
+			if (this.get('menuBundleModel')) {
+				attributes.menuBundleModel = attributes.menuBundleModel.toJSON();
 			}
 
 			delete attributes.timelineItemsCollection;
@@ -91,84 +90,27 @@ define([
 				}, this);
 			}
 
+			if (response.hasOwnProperty('menuBundleModel') && response.menuBundleModel) {
+				response.menuBundleModel = new MenuBundleModel(response.menuBundleModel, {
+					// parse needed for nested articleModel
+					parse: true
+				});
+			}
+
 			return response;
 		},
 
+		// needed if an ordered items gets deleted from cart
 		destroy: function () {
 			this.collection.remove(this);
 		},
 
 		isMenuBundle: function () {
-			return (this.get('menuBundleModel') !== null);
+			return this.get('menuBundleModel') !== null;
 		},
 
 		isMenu: function () {
-			return (this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded());
-		},
-
-		initializeListeners: function () {
-
-			// bind all ordered articles wheather their price has changed
-			var orderedArticlesCollection = this.get('orderedArticlesCollection');
-
-			_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
-				this.addOrderedArticleListener(orderedArticleModel);
-			}, this);
-
-
-			// bind listeners in future
-			orderedArticlesCollection.on('add', function (orderedArticleModel) {
-				this.addOrderedArticleListener(orderedArticleModel);
-			}, this);
-
-			orderedArticlesCollection.on('remove', function (orderedArticleModel) {
-				orderedArticleModel.off('priceChanged');
-			});
-		},
-
-		addOrderedArticleListener: function (orderedArticleModel) {
-			orderedArticleModel.on('priceChanged', function () {
-				this.calculateTotal();
-			}, this);
-		},
-
-		calculateTotal: function () {
-			var total = 0;
-
-			// calculate total for menu bundle
-			if (this.isMenuBundle()) {
-				console.log('haben wir noch nicht');
-			} else {
-				var orderedArticlesCollection = this.get('orderedArticlesCollection'),
-					baseOrderedArticleModel = orderedArticlesCollection.first(),
-					baseArticleModel = baseOrderedArticleModel.get('articleModel');
-
-				// calculate total of base article
-				total += baseArticleModel.get('total');
-
-				// calculate total for menu upgrade
-				if (baseOrderedArticleModel.hasBeenUpgraded()) {
-					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel);
-
-					_.each(menuUpgradeOrderedArticleModels, function (menuUpgradeOrderedArticleModel) {
-						var menuUpgradeArticleModel = menuUpgradeOrderedArticleModel.get('articleModel');
-
-						if (menuUpgradeArticleModel) {
-							total += menuUpgradeArticleModel.get('ingredientsTotal');
-						}
-					});
-
-				}
-			}
-
-			// console.log(total);
-			this.set('total', total * this.get('amount'));
-		},
-
-		destroyOrderedArticlesCollection: function () {
-
-			this.get('orderedArticlesCollection').destroy();
-
+			return this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded();
 		},
 
 		// remove ordered articles belonging to an old menu upgrade
@@ -183,6 +125,93 @@ define([
 					i--;
 				}
 			}
+		},
+
+		getMenuTitle: function () {
+			if (this.isMenuBundle()) {
+				var menuBundleModel = this.get('menuBundleModel');
+				console.log(menuBundleModel);
+				return menuBundleModel.get('title');
+			} else {
+				var firstOrderedArticleModel = this.get('orderedArticlesCollection').first(),
+					menuUpgradeModel = firstOrderedArticleModel.get('menuUpgradeModel');
+				return menuUpgradeModel.get('title');
+			}
+		},
+
+		_initializeListeners: function () {
+
+			// bind all ordered articles wheather their price has changed
+			var orderedArticlesCollection = this.get('orderedArticlesCollection');
+
+			_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
+				this._addOrderedArticleListener(orderedArticleModel);
+			}, this);
+
+
+			// bind listeners in future
+			orderedArticlesCollection.on('add', function (orderedArticleModel) {
+				this._addOrderedArticleListener(orderedArticleModel);
+			}, this);
+
+			orderedArticlesCollection.on('remove', function (orderedArticleModel) {
+				orderedArticleModel.off('priceChanged');
+			});
+		},
+
+		_addOrderedArticleListener: function (orderedArticleModel) {
+			orderedArticleModel.on('priceChanged', function () {
+				this._calculateTotal();
+			}, this);
+		},
+
+		_calculateTotal: function () {
+			var total = 0,
+				orderedArticlesCollection = this.get('orderedArticlesCollection');
+
+			// calculate total for menu bundle
+			if (this.isMenuBundle()) {
+
+				var menuBundleModel = this.get('menuBundleModel');
+
+				total = menuBundleModel.get('price');
+
+				_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
+					var articleModel = orderedArticleModel.get('articleModel');
+
+					if (articleModel) {
+						total += articleModel.get('ingredientsTotal');
+						total += articleModel.get('deposit');
+					}
+				});
+
+			} else {
+
+				var baseOrderedArticleModel = orderedArticlesCollection.first(),
+					baseArticleModel = baseOrderedArticleModel.get('articleModel');
+
+				// calculate total of base article
+				total += baseArticleModel.get('total');
+
+				// calculate total for menu upgrade
+				if (baseOrderedArticleModel.hasBeenUpgraded()) {
+					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel);
+
+					_.each(menuUpgradeOrderedArticleModels, function (menuUpgradeOrderedArticleModel) {
+						var menuUpgradeArticleModel = menuUpgradeOrderedArticleModel.get('articleModel');
+
+						if (menuUpgradeArticleModel) {
+							total += menuUpgradeArticleModel.get('ingredientsTotal');
+							total += menuUpgradeArticleModel.get('deposit');
+						}
+					});
+
+				}
+
+			}
+
+			// console.log(total);
+			this.set('total', total * this.get('amount'));
 		}
 
 	});
