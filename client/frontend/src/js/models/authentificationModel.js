@@ -29,7 +29,6 @@ define([
 			$.ajax({
 				url: '/api/frontend/checktoken',
 				type: 'post',
-				crossDomain: true,
 				async: false,
 				success: function () {
 					valid = true;
@@ -92,7 +91,6 @@ define([
 					password: password
 				},
 				type: 'post',
-				crossDomain: true,
 				async: false,
 				success: function (token) {
 					window.localStorage.setItem('token', token);
