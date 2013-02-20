@@ -2,9 +2,10 @@
 define([
 	'underscore',
 	'backbone',
+	'models/MenuBundleModel',
 	'collections/TimelineItemsCollection',
 	'collections/OrderedArticlesCollection'
-	], function (_, Backbone, TimelineItemsCollection, OrderedArticlesCollection) {
+	], function (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) {
 
 	var OrderedItemModel = Backbone.Model.extend({
 
@@ -56,7 +57,7 @@ define([
 			this.on('destroy', this.destroyOrderedArticlesCollection);
 
 			// listeners for total price calculation
-			this.initializeListeners();
+			this._initializeListeners();
 		},
 
 		toJSON: function () {
@@ -65,6 +66,10 @@ define([
 
 			if (this.get('orderedArticlesCollection')) {
 				attributes.orderedArticlesCollection = attributes.orderedArticlesCollection.toJSON();
+			}
+
+			if (this.get('menuBundleModel')) {
+				attributes.menuBundleModel = attributes.menuBundleModel.toJSON();
 			}
 
 			delete attributes.timelineItemsCollection;
@@ -91,6 +96,13 @@ define([
 				}, this);
 			}
 
+			if (response.hasOwnProperty('menuBundleModel')) {
+				response.menuBundleModel = new MenuBundleModel(response.menuBundleModel, {
+					// parse needed for nested articleModel
+					parse: true
+				});
+			}
+
 			return response;
 		},
 
@@ -106,19 +118,19 @@ define([
 			return (this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded());
 		},
 
-		initializeListeners: function () {
+		_initializeListeners: function () {
 
 			// bind all ordered articles wheather their price has changed
 			var orderedArticlesCollection = this.get('orderedArticlesCollection');
 
 			_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
-				this.addOrderedArticleListener(orderedArticleModel);
+				this._addOrderedArticleListener(orderedArticleModel);
 			}, this);
 
 
 			// bind listeners in future
 			orderedArticlesCollection.on('add', function (orderedArticleModel) {
-				this.addOrderedArticleListener(orderedArticleModel);
+				this._addOrderedArticleListener(orderedArticleModel);
 			}, this);
 
 			orderedArticlesCollection.on('remove', function (orderedArticleModel) {
@@ -126,13 +138,13 @@ define([
 			});
 		},
 
-		addOrderedArticleListener: function (orderedArticleModel) {
+		_addOrderedArticleListener: function (orderedArticleModel) {
 			orderedArticleModel.on('priceChanged', function () {
-				this.calculateTotal();
+				this._calculateTotal();
 			}, this);
 		},
 
-		calculateTotal: function () {
+		_calculateTotal: function () {
 			var total = 0,
 				orderedArticlesCollection = this.get('orderedArticlesCollection');
 
@@ -172,7 +184,7 @@ define([
 					});
 
 				}
-				
+
 			}
 
 			// console.log(total);
@@ -196,6 +208,18 @@ define([
 					orderedArticleModel.destroy();
 					i--;
 				}
+			}
+		},
+
+		getMenuTitle: function () {
+			if (this.isMenuBundle()) {
+				var menuBundleModel = this.get('menuBundleModel');
+				console.log(menuBundleModel);
+				return menuBundleModel.get('title');
+			} else {
+				var firstOrderedArticleModel = this.get('orderedArticlesCollection').first(),
+					menuUpgradeModel = firstOrderedArticleModel.get('menuUpgradeModel');
+				return menuUpgradeModel.get('title');
 			}
 		}
 
