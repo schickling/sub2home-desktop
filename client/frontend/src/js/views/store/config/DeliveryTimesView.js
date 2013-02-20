@@ -9,20 +9,20 @@ define([
 
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
-			'click .buttonAdd': 'addDeliveryTime'
+			'click .sBAdd': '_addDeliveryTime'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (deliveryTimeModel) {
-				this.renderDeliveryTime(deliveryTimeModel);
+				this._renderDeliveryTime(deliveryTimeModel);
 			}, this);
 		},
 
-		renderDeliveryTime: function (deliveryTimeModel) {
+		_renderDeliveryTime: function (deliveryTimeModel) {
 			var deliveryTimeView = new DeliveryTimeView({
 				model: deliveryTimeModel
 			});
@@ -33,11 +33,9 @@ define([
 			$openingHours.append(deliveryTimeView.el);
 		},
 
-		addDeliveryTime: function (e) {
+		_addDeliveryTime: function (e) {
 			var dayOfWeek = $(e.target).parents('.businessDay').first().attr('data-day'),
 				self = this;
-
-				console.log('jo');
 
 			var deliveryTimeModel = new DeliveryTimeModel({
 				dayOfWeek: dayOfWeek
@@ -45,7 +43,7 @@ define([
 
 			deliveryTimeModel.save({}, {
 				success: function() {
-					self.renderDeliveryTime(deliveryTimeModel);
+					self._renderDeliveryTime(deliveryTimeModel);
 					self.collection.add(deliveryTimeModel);
 				}
 			});

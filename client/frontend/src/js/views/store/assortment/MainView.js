@@ -32,17 +32,17 @@ define([
 
 		},
 
-		__render: function () {
+		_render: function () {
 
 			this.$el.html(MainTemplate);
 
-			this.__renderCategories();
+			this._renderCategories();
 
 			this.append();
 
 		},
 
-		__renderCategories: function () {
+		_renderCategories: function () {
 			new CategoriesView({
 				el: this.$('.categories')
 			});
