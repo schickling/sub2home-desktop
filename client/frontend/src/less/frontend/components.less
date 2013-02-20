@@ -352,6 +352,9 @@ div.pricetag {
       &:first-child {
         margin-left: 0;
       }
+      .icn:before {
+        top: 1px;
+      }
       .iSnacks {
         .positioned;
         top: 4px;
@@ -627,6 +630,7 @@ aside#header {
           &:before {
             color: darken(@onHeaderColor, 1%);
             text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
+            top: 0;
           }  
         }
 
@@ -675,8 +679,8 @@ aside#header {
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
       padding: 0;
       .iBtn {
-        margin: 18px 9px 0;
-        height: 49px;
+        margin: 24px 9px 0;
+        height: 43px;
         .transition(color .1s linear);
         &:hover {
           color: darken(@onHeaderColor, 10%);
@@ -689,7 +693,7 @@ aside#header {
 
       .bDashboard, .bSignout {
         margin: 0;
-        padding: 18px 18px 0;
+        padding: 24px 18px 0;
         .box-shadow(-1px 0 0 0 darken(@headerTrayBackground,10%), inset 1px 0 0 0 rgba(255,255,255,0.4));
         .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
         &:hover {
@@ -1435,10 +1439,16 @@ input[type="text"]#locationSelectionInput {
       .transition(color .1s linear);
       color: @onNoteColor50;
       position: absolute;
-      left: 20px;
+      left: 25px;
       font-family: "Homicons";
       font-size: 40px;
+      top: 1px;
     }
+
+    &.bReset:before {
+      left: 20px;
+    }
+
     &:hover:before {
       color: @onNoteColor;
     }
@@ -1447,7 +1457,77 @@ input[type="text"]#locationSelectionInput {
 
 .content.store.assortment {
 
+  .items {
+    padding: 28px;
+  }
+
+  .item {
+    cursor: default;
+    width: 100%;
+    //height: 60px;
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 15px 0;
+    .clearfix;
+    border-bottom: 1px solid @grayLightest;
+    &:last-child {
+      border: none;
+    }
+    &.inactive {
+      img {
+        .opacity(50);
+      }
+      h3 {
+        color: @grayLighter;
+        span { display: none; }
+      }
+      .pricetag {
+        &:before {
+          color: @grayLighter;
+          text-shadow: none;
+        }
+        &:after {
+          color: lighten(@grayLighter,3%);
+        }
+      }
+      .bReset {
+        visibility: hidden;
+      }
+      .bLightbulb {
+        color: @orange;
+      }
+    }
+  }
+
+  img.itemPreview {
+    height: 41px;
+    width: auto;
+    display: block;
+    float: left;
+    margin: 4px 15px 0 0;
+  }
+
+  h3 {
+    display: block;
+    float: left;
+    width: auto;
+    vertical-align: top;
+    margin: 12px 0 0;
+    span {
+      color: @grayLight;
+      margin-left: 15px;
+      display: inline-block;
+      font-size: 19px;
+    }
+  }
+
+
   .pricetag {
+    .positioned;
+    top: auto;
+    left: auto;
+    float: right;
     span input {
       color: inherit;
       font-size: inherit;
@@ -1457,16 +1537,30 @@ input[type="text"]#locationSelectionInput {
       padding: 0 14px 3px 4px;
     }
   }
-  .bReset {
-    .opacity(0);
-    position: absolute;
-    right: 5px;
-    top: 40px;
+  
+  .iBtn {
+
+    //.opacity(0);
+
+    &.bLightbulb {
+      float: left;
+      margin: 15px 15px 0;
+    }
+    &.bReset {
+      float: right;
+      margin: 15px 15px 0;
+    }
+
     color: @grayLighter;
     .transition(e('color .1s linear, opacity .1s linear'));
     &:hover {
       color: @gray;
     }
+  }
+
+  .howManyOrders {
+    float: right;
+    margin: 18px 15px 0 0;
   }
 
   .item:hover .bReset {
@@ -1742,9 +1836,10 @@ input[type="text"]#locationSelectionInput {
   left: 0;
   bottom: 0;
   font-family: @headingsFontFamily;
-  padding: 100px 8% 0;
+  padding: 100px 5% 0;
   overflow-y: auto;
   overflow-x: hidden;
+  text-align: center;
 
 
   // Common Styles
@@ -1755,8 +1850,11 @@ input[type="text"]#locationSelectionInput {
     font-size: 90px;
     color: @onNoteColor50;
     line-height: 1;
-    padding: 0 5% 60px;
-    text-align: center;
+    .border-box;
+    width: 465px;
+    padding: 0 40px 60px;
+    text-align: right;
+    display: inline-block;
     .positioned;
 
     >span {
@@ -1882,7 +1980,8 @@ input[type="text"]#locationSelectionInput {
         display: inline-block;
         font-family: @headingsFontFamily;
         font-size: 50px;
-        color: @onNoteColor;
+        color: @onNoteColor50;
+        .transition(color .1s linear);
         span {
           font-size: 20px;
           text-transform: uppercase;
@@ -1895,8 +1994,12 @@ input[type="text"]#locationSelectionInput {
         }
       }
     }
-
-
+     
+    &:hover {
+      .storeOverview>div {
+        color: @onNoteColor;
+      }
+    }
   }
 }
 
@@ -1969,6 +2072,7 @@ input[type="text"]#locationSelectionInput {
       overflow-x: scroll;
       overflow-y: hidden;
       cursor: move;
+      height: 270px;
     }  
 
     .turnoverYear {
@@ -1983,7 +2087,7 @@ input[type="text"]#locationSelectionInput {
         border-right: 1px solid @white;
         position: absolute;
         left: 35px;
-        top: 0;
+        top: 9px;
       }
       .yearlyTurnoverResume {
         position: absolute;
@@ -2198,7 +2302,7 @@ input[type="text"]#locationSelectionInput {
           &.orderPaymentMethod {
             &:before {
               color: inherit;
-              top: -2px;
+              top: -7px;
             }
           }
           &.orderTimeLimit {
@@ -3211,30 +3315,36 @@ div#payment {
         top: -45px;
         .pricetag {
           width: 63px;
-          background-size: contain;
           top: -14px;
           left: auto;
           right: -75px;
           z-index: 50;
           font-size: 14px;
           padding-top: 11px;
+          &:before, &:after {
+            font-size: 100px;
+            left: -16px;
+            top: 6px;
+          }
         }
       }
     }
     
     .accentIngredient {
       position: absolute;
-      left: -5px;
+      left: 0px;
       top: 0px;
       color: @greenLighter20;
       .opacity(0);
       .transition(e('opacity linear 0.1s, color linear 0.1s'));
       .backface-visibility(hidden);
-      width: 208px;
-      height: 208px;
+      width: 200px;
+      height: 200px;
       &:before {
         display: block;
         font-size: 215px;
+        top: -2px;
+        left: -5px;
       }
 
       &.accented:hover {
@@ -3580,12 +3690,22 @@ div#payment {
 
   .itemTimeline {
 
-    &.visited img {
-      display: block;
+    &.visited {
+      .icn {
+        visibility: hidden;
+      }
+      img {
+        display: block;
+      }
     }
 
-    &.locked img {
-      display: none;
+    &.locked {
+      .icn {
+        visibility: visible;
+      }
+      img {
+        display: none;
+      }
     }
   }
 
@@ -3987,6 +4107,9 @@ div#payment {
           margin-left: -15px;
           .r-engraved-text;
           color: @onNoteColor;
+          &:before {
+            top: 1px;
+          }
           &.iArrowUp { top: -32px; }
           &.iArrowDown { bottom: -32px; }
           &.active {
@@ -4055,6 +4178,9 @@ div#payment {
         .opacity(0);
         .transition(opacity .1s linear);
         z-index: 10;
+        &:before {
+          top: 1px;
+        }
       }
 
       .transition(e('border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out'));
