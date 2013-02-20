@@ -133,14 +133,27 @@ define([
 		},
 
 		calculateTotal: function () {
-			var total = 0;
+			var total = 0,
+				orderedArticlesCollection = this.get('orderedArticlesCollection');
 
 			// calculate total for menu bundle
 			if (this.isMenuBundle()) {
-				console.log('haben wir noch nicht');
+
+				var menuBundleModel = this.get('menuBundleModel');
+
+				total = menuBundleModel.get('price');
+
+				_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
+					var articleModel = orderedArticleModel.get('articleModel');
+
+					if (articleModel) {
+						total += articleModel.get('ingredientsTotal');
+					}
+				});
+
 			} else {
-				var orderedArticlesCollection = this.get('orderedArticlesCollection'),
-					baseOrderedArticleModel = orderedArticlesCollection.first(),
+
+				var baseOrderedArticleModel = orderedArticlesCollection.first(),
 					baseArticleModel = baseOrderedArticleModel.get('articleModel');
 
 				// calculate total of base article
@@ -159,6 +172,7 @@ define([
 					});
 
 				}
+				
 			}
 
 			// console.log(total);

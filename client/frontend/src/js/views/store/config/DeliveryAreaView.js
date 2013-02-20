@@ -2,36 +2,34 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'notificationcenter',
 	'text!templates/store/config/DeliveryAreaTemplate.html'
-	], function ($, _, Backbone, DeliveryAreaTemplate) {
+	], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
 		events: {
-			'focusout .deliveryAreaMinimumDuration': 'updateMinimumDuration',
-			'keypress .deliveryAreaMinimumDuration': 'updateMinimumDurationOnEnter',
-			'focusout .deliveryAreaMinimumValue': 'updateMinimumValue',
-			'keypress .deliveryAreaMinimumValue': 'updateMinimumValueOnEnter',
-			'focusout .deliveryAreaPostal': 'updatePostal',
-			'keypress .deliveryAreaPostal': 'updatePostalOnEnter',
-			'focusout .deliveryAreaDescription': 'updateDescription',
-			'keypress .deliveryAreaDescription': 'updateDescriptionOnEnter',
-			'click .buttonRemove': 'destroy'
+			'focusout .deliveryAreaMinimumDuration': '_updateMinimumDuration',
+			'focusout .deliveryAreaMinimumValue': '_updateMinimumValue',
+			'focusout .deliveryAreaPostal': '_updatePostal',
+			'focusout .deliveryAreaDescription': '_updateDescription',
+			'keypress input': '_blurOnEnter',
+			'click .buttonRemove': '_destroy'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 
-			this.model.on('error', function (model, error) {
-				this.render();
-				alert(error);
+			this.model.on('invalid', function (model, error) {
+				this._render();
+				notificationcenter.error(error, error);
 			}, this);
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(_.template(DeliveryAreaTemplate, this.model.toJSON()));
 		},
 
-		destroy: function () {
+		_destroy: function () {
 			var self = this;
 			this.$el.fadeOut(function () {
 				self.model.destroy();
@@ -39,75 +37,58 @@ define([
 			});
 		},
 
-		updateMinimumDuration: function () {
+		_updateMinimumDuration: function () {
 			var $input = this.$('.deliveryAreaMinimumDuration'),
-				minimumDuration = $input.val();
+				minimumDuration = parseInt($input.val(), 10);
 
-			if (minimumDuration == parseInt(minimumDuration, 10)) {
-				this.model.set('minimumDuration', minimumDuration);
-				this.model.save();
-			} else {
-				alert('Bitte eine Ganzzahl eingeben');
-			}
-
-		},
-
-		updateMinimumDurationOnEnter: function (e) {
-			if (e.keyCode != 13) return;
-
-			var $input = this.$('.deliveryAreaMinimumDuration');
-			$input.blur();
-		},
-
-		updateMinimumValue: function () {
-			var $input = this.$('.deliveryAreaMinimumValue'),
-				minimumValue = $input.val();
-
-			if (minimumValue == parseFloat(minimumValue)) {
-				this.model.set('minimumValue', minimumValue);
-				this.model.save();
-			} else {
-				alert('Bitte eine Flieskommazahl eingeben');
-			}
-
-		},
-
-		updateMinimumValueOnEnter: function (e) {
-			if (e.keyCode != 13) return;
-
-			var $input = this.$('.deliveryAreaMinimumValue');
-			$input.blur();
-		},
-
-		updatePostal: function () {
-			var $input = this.$('.deliveryAreaPostal'),
-				postal = $input.val();
-
-			this.model.set('postal', postal);
+			this.model.set({
+				minimumDuration: minimumDuration
+			}, {
+				validate: true
+			});
 			this.model.save();
-
 		},
 
-		updatePostalOnEnter: function (e) {
-			if (e.keyCode != 13) return;
+		_updateMinimumValue: function () {
+			var $input = this.$('.deliveryAreaMinimumValue'),
+				minimumValue = parseFloat($input.val());
 
-			var $input = this.$('.deliveryAreaPostal');
-			$input.blur();
+			this.model.set({
+				minimumValue: minimumValue
+			}, {
+				validate: true
+			});
+			this.model.save();
 		},
 
-		updateDescription: function () {
+		_updatePostal: function () {
+			var $input = this.$('.deliveryAreaPostal'),
+				postal = parseInt($input.val(), 10);
+
+			this.model.set({
+				postal: postal
+			}, {
+				validate: true
+			});
+			this.model.save();
+		},
+
+		_updateDescription: function () {
 			var $input = this.$('.deliveryAreaDescription'),
 				description = $input.val();
 
-			this.model.set('description', description);
+			this.model.set({
+				description: description
+			}, {
+				validate: true
+			});
 			this.model.save();
-
 		},
 
-		updateDescriptionOnEnter: function (e) {
+		_blurOnEnter: function (e) {
 			if (e.keyCode != 13) return;
 
-			var $input = this.$('.deliveryAreaDescription');
+			var $input = $(e.target);
 			$input.blur();
 		}
 
