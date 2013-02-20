@@ -83,12 +83,13 @@ define([
 
 		_checkout: function () {
 
-			var orderModel = cartModel.get('orderModel');
+			var orderModel = cartModel.get('orderModel'),
+				self = this;
 
 			orderModel.save({}, {
 				success: function () {
+					self._ringBell();
 					// orderModel.get('orderedItemsCollection').reset();
-
 					// router.navigate('store/danke', {
 					// 	trigger: true,
 					// 	replace: true
@@ -98,6 +99,11 @@ define([
 					notificationcenter.error(b, b);
 				}
 			});
+		},
+
+		_ringBell: function () {
+			var sound = new Audio('../../audio/bell.mp3'); // buffers automatically when created
+			sound.play();
 		},
 
 		_saveComment: function (e) {

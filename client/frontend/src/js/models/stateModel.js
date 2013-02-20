@@ -196,6 +196,13 @@ define([
 				routePrefix = currentRoute.split('.')[0];
 
 			return routePrefix === 'store';
+		},
+
+		clientOwnsThisStore: function() {
+			var storeModel = this.get('storeModel');
+
+			// check with number since number only gets set if client fetches store model
+			return storeModel.get('number') !== 0;
 		}
 
 	});

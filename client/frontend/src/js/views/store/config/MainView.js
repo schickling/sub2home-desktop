@@ -23,18 +23,17 @@ define([
 			});
 
 			// check if client is allowed to view this page
-			if (this.model.get('number') === 0) {
+			if (stateModel.clientOwnsThisStore()) {
+				this._render();
+			} else {
 				router.navigate('login', {
 					trigger: true,
 					replace: true
 				});
-				return;
 			}
-
-			this.render();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(MainTemplate);
 
 			new MapView({
