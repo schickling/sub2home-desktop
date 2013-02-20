@@ -171,6 +171,8 @@ define([
 				// calculate total of base article
 				total += baseArticleModel.get('total');
 
+				console.log(total);
+
 				// calculate total for menu upgrade
 				if (baseOrderedArticleModel.hasBeenUpgraded()) {
 					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel);
