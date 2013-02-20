@@ -50,12 +50,6 @@ define([
 				this.set('timelineItemsCollection', new TimelineItemsCollection());
 			}
 
-
-			// cascading remove
-			// timelineItemsCollection doesn't need to be destoryed
-			// since its included in orderedArticlesCollection
-			this.on('destroy', this.destroyOrderedArticlesCollection);
-
 			// listeners for total price calculation
 			this._initializeListeners();
 		},
@@ -106,6 +100,7 @@ define([
 			return response;
 		},
 
+		// needed if an ordered items gets deleted from cart
 		destroy: function () {
 			this.collection.remove(this);
 		},
@@ -116,6 +111,32 @@ define([
 
 		isMenu: function () {
 			return this.isMenuBundle() || this.get('orderedArticlesCollection').first().hasBeenUpgraded();
+		},
+
+		// remove ordered articles belonging to an old menu upgrade
+		reduceOrderedArticles: function () {
+			var orderedArticlesCollection = this.get('orderedArticlesCollection'),
+				orderedArticleModel;
+
+			for (var i = 0; i < orderedArticlesCollection.length; i++) {
+				orderedArticleModel = orderedArticlesCollection.models[i];
+				if (!orderedArticleModel.isMenuUpgradeBase()) {
+					orderedArticleModel.destroy();
+					i--;
+				}
+			}
+		},
+
+		getMenuTitle: function () {
+			if (this.isMenuBundle()) {
+				var menuBundleModel = this.get('menuBundleModel');
+				console.log(menuBundleModel);
+				return menuBundleModel.get('title');
+			} else {
+				var firstOrderedArticleModel = this.get('orderedArticlesCollection').first(),
+					menuUpgradeModel = firstOrderedArticleModel.get('menuUpgradeModel');
+				return menuUpgradeModel.get('title');
+			}
 		},
 
 		_initializeListeners: function () {
@@ -191,38 +212,6 @@ define([
 
 			// console.log(total);
 			this.set('total', total * this.get('amount'));
-		},
-
-		destroyOrderedArticlesCollection: function () {
-
-			this.get('orderedArticlesCollection').destroy();
-
-		},
-
-		// remove ordered articles belonging to an old menu upgrade
-		reduceOrderedArticles: function () {
-			var orderedArticlesCollection = this.get('orderedArticlesCollection'),
-				orderedArticleModel;
-
-			for (var i = 0; i < orderedArticlesCollection.length; i++) {
-				orderedArticleModel = orderedArticlesCollection.models[i];
-				if (!orderedArticleModel.isMenuUpgradeBase()) {
-					orderedArticleModel.destroy();
-					i--;
-				}
-			}
-		},
-
-		getMenuTitle: function () {
-			if (this.isMenuBundle()) {
-				var menuBundleModel = this.get('menuBundleModel');
-				console.log(menuBundleModel);
-				return menuBundleModel.get('title');
-			} else {
-				var firstOrderedArticleModel = this.get('orderedArticlesCollection').first(),
-					menuUpgradeModel = firstOrderedArticleModel.get('menuUpgradeModel');
-				return menuUpgradeModel.get('title');
-			}
 		}
 
 	});

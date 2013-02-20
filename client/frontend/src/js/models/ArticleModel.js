@@ -163,6 +163,7 @@ define([
 			this.set('total', total);
 		},
 
+		// TODO rework perhaps
 		hasIngredients: function () {
 			return this.get('allowsIngredients') && this.get('ingredientCategoriesCollection') !== null;
 		}
