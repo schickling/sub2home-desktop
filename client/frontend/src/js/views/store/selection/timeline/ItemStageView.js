@@ -11,7 +11,7 @@ define([
 		disabled: false,
 
 		events: {
-			'click': 'navigate'
+			'click': '_navigate'
 		},
 
 		initialize: function () {
@@ -19,14 +19,14 @@ define([
 
 			this.render();
 
-			this.update();
+			this._update();
 
-			this.model.on('change', this.update, this);
+			this.model.on('change', this._update, this);
 
-			this.model.on('highlight', this.highlight, this);
+			this.model.on('highlight', this._highlight, this);
 		},
 
-		update: function () {
+		_update: function () {
 
 			// locked
 			this.$el.toggleClass('locked', this.model.get('isLocked'));
@@ -39,13 +39,13 @@ define([
 
 		},
 
-		navigate: function () {
+		_navigate: function () {
 			if (!this.model.get('isDisabled')) {
 				this.model.set('isActive', true);
 			}
 		},
 
-		highlight: function () {
+		_highlight: function () {
 			this.$el.css({
 				color: '#dc952b'
 			});
