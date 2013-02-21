@@ -1,6 +1,8 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Request;
+use Input;
+use Validator;
 
 use App\Models\ArticleModel;
 use App\Models\IngredientCategoryModel;
@@ -51,6 +53,42 @@ class ArticlesController extends ApiController
 		
 
 		return $articleModel->toJson(JSON_NUMERIC_CHECK);
+	}
+
+
+	public function update()
+	{
+		// security
+		$this->loadStoreModel();
+		$this->checkAuthentification();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
+		// check input
+		$input = Input::json();
+		$rules = array(
+			'customPrice'		=> 'numeric|required|min:0',
+			'isActive'			=> 'boolean|required'
+			);
+
+		$validator = Validator::make(get_object_vars($input), $rules);
+
+		if ($validator->fails()) {
+			return $this->respondWithStatus(400, $validator->messages());
+		}
+
+		// fetch customArticleModel
+		$id = Request::segment(6);
+		$articleModel = ArticleModel::find($id);
+		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
+
+		// update
+		$customArticleModel->isActive = $input->isActive;
+		$customArticleModel->price = $input->customPrice;
+
+		$customArticleModel->save();
 	}
 
 

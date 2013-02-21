@@ -100,6 +100,9 @@ class CategoriesController extends ApiController
 					$articleModel->isActive = $customArticleModel->isActive;
 					$articleModel->buyedInStore = $customArticleModel->buyed;
 
+					$articleModel->customPrice = $customArticleModel->price;
+
+
 					$articlesCollection->add($articleModel);
 				}
 			}

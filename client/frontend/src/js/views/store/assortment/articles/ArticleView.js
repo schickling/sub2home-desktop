@@ -10,6 +10,10 @@ define([
 
 		className: 'article',
 
+		events: {
+			'click': '_toggleIsActive'
+		},
+
 		template: _.template(ArticleTemplate),
 
 		initialize: function () {
@@ -19,7 +23,7 @@ define([
 		_render: function () {
 			var json = {
 				title: this.model.get('title'),
-				price: this.model.get('price'),
+				price: this.model.get('customPrice'),
 				info: this.model.get('info'),
 				isActive: this.model.get('isActive'),
 				buyed: this.model.get('buyedInStore'),
@@ -27,6 +31,16 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+		},
+
+		_toggleIsActive: function() {
+			var $eye = this.$('.bEye'),
+				isActive = !this.model.get('isActive');
+
+			$eye.toggleClass('open', isActive);
+
+			this.model.set('isActive', isActive);
+			this.model.save();
 		}
 
 	});

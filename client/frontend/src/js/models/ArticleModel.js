@@ -10,8 +10,6 @@ define([
 
 	var ArticleModel = Backbone.Model.extend({
 
-		idAttribute: 'cid',
-
 		defaults: {
 			title: '',
 			description: '',
@@ -31,7 +29,11 @@ define([
 
 			allowsIngredients: false,
 			allowsDeposit: false,
-			allowsMenuUpgrades: false
+			allowsMenuUpgrades: false,
+
+			// for assortment
+			isActive: false,
+			customPrice: 0
 		},
 
 		initialize: function () {
@@ -54,8 +56,8 @@ define([
 
 		},
 
-		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles/' + this.get('id');
+		urlRoot: function() {
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles/';
 		},
 
 		toJSON: function () {

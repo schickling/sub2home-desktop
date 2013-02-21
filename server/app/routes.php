@@ -36,6 +36,9 @@ Route::group(array('https'), function()
 	Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\StoresController@updatePaypal');
 	Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@update');
 
+	// articles
+	Route::put('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\Frontend\ArticlesController@update');
+
 	// delivery areas
 	Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\DeliveryAreasController@create');
 	Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@update');

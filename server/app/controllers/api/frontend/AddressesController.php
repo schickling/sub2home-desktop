@@ -12,6 +12,15 @@ class AddressesController extends ApiController
 
 	public function update()
 	{
+		
+		$this->loadStoreModel();
+		$this->checkAuthentification();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
+		// check input
 		$input = Input::json();
 		$rules = array(
 			'firstName'			=> 'alpha_dash|required',
@@ -29,23 +38,18 @@ class AddressesController extends ApiController
 			return $this->respondWithStatus(400, $validator->messages());
 		}
 
-
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
+		// fetch addressModel
 		$id = Request::segment(6);
 		$addressModel = AddressModel::find($id);
 
+		// verify owner
 		$this->checkBelongsToThisStore($addressModel->ownerModel->id);
 
 		if ($this->hasErrorOccured()) {
 			return $this->respondWithError();
 		}
 
+		// update
 		$addressModel->firstName = $input->firstName;
 		$addressModel->lastName = $input->lastName;
 		$addressModel->street = $input->street;
