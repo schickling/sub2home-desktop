@@ -4592,9 +4592,9 @@ input[type="text"]#locationSelectionInput {
   border-radius: 2px;
 }
 .content.store.assortment .pricetag {
-  top: 13px;
+  position: relative;
+  top: auto;
   left: auto;
-  right: 10px;
   float: right;
 }
 .content.store.assortment .pricetag span input {
@@ -5389,7 +5389,7 @@ input[type="text"]#locationSelectionInput {
   text-align: left;
 }
 .storeBasics > div#storeMap {
-  position: absolute;
+  position: relative;
   width: 50%;
   height: 450px;
   margin: 0 5% 0 0;
@@ -5403,8 +5403,7 @@ input[type="text"]#locationSelectionInput {
 }
 .storeBasics > div.storeInfo {
   width: 45%;
-  margin-left: 55%;
-  padding: 0 0 0 0;
+  padding: 30px 0 0 0;
   position: relative;
 }
 .storeBasics > div.storeInfo h1 {
@@ -5552,6 +5551,7 @@ input[type="text"]#locationSelectionInput {
 }
 .storeOrderingContact {
   margin: 30px 0 90px;
+  height: 34px;
   position: relative;
 }
 .storeOrderingContact label {
@@ -5565,6 +5565,16 @@ input[type="text"]#locationSelectionInput {
   height: 30px;
   padding-bottom: 8px;
   color: #13493b;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  right: 70px;
+  width: auto;
+}
+.storeOrderingContact .bMail {
+  position: absolute;
+  right: 20px;
+  top: 28px;
 }
 .bankDetails {
   position: absolute !important;

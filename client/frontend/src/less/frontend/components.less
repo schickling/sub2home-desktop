@@ -1540,9 +1540,9 @@ input[type="text"]#locationSelectionInput {
 
 
   .pricetag {
-    top: 13px;
+    .positioned;
+    top: auto;
     left: auto;
-    right: 10px;
     float: right;
     span input {
       color: inherit;
@@ -2597,7 +2597,7 @@ input[type="text"]#locationSelectionInput {
     
     
     &#storeMap {
-      position: absolute;
+      .positioned;
       width: 50%;
       height: 450px;
       margin: 0 5% 0 0;
@@ -2608,9 +2608,8 @@ input[type="text"]#locationSelectionInput {
     }
     &.storeInfo {
       width: 45%;
-      margin-left: 55%;
-      padding: 0 0 0 0;
-      position: relative;
+      padding: 30px 0 0 0;
+      .positioned;
       h1 {
         .positioned;
         padding-left: 81px;
@@ -2740,6 +2739,7 @@ input[type="text"]#locationSelectionInput {
 
 .storeOrderingContact {
   margin: 30px 0 90px;
+  height: 34px;
   .positioned;
 
   label {
@@ -2753,6 +2753,18 @@ input[type="text"]#locationSelectionInput {
     height: 30px;
     padding-bottom: 8px;
     color: @greenDark;
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    right: 70px;
+    width: auto;
+  }
+
+  .bMail {
+    
+    position: absolute;
+    right: 20px;
+    top: 28px;
   }
 }
 
