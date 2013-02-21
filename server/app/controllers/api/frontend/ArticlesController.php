@@ -89,6 +89,8 @@ class ArticlesController extends ApiController
 		$customArticleModel->price = $input->customPrice;
 
 		$customArticleModel->save();
+
+		return $this->respondWithStatus(204);
 	}
 
 

@@ -56,7 +56,7 @@ define([
 
 		},
 
-		urlRoot: function() {
+		urlRoot: function () {
 			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles/';
 		},
 
@@ -77,19 +77,22 @@ define([
 
 		parse: function (response) {
 
-			if (response.hasOwnProperty('menuUpgradesCollection') && response.menuUpgradesCollection !== null) {
-				response.menuUpgradesCollection = new MenuUpgradesCollection(response.menuUpgradesCollection, {
-					parse: true
-				});
-			}
+			if (response) {
+				if (response.hasOwnProperty('menuUpgradesCollection') && response.menuUpgradesCollection !== null) {
+					response.menuUpgradesCollection = new MenuUpgradesCollection(response.menuUpgradesCollection, {
+						parse: true
+					});
+				}
 
-			if (response.hasOwnProperty('ingredientCategoriesCollection') && response.ingredientCategoriesCollection !== null) {
-				response.ingredientCategoriesCollection = new IngredientCategoriesCollection(response.ingredientCategoriesCollection, {
-					parse: true
-				});
-			}
+				if (response.hasOwnProperty('ingredientCategoriesCollection') && response.ingredientCategoriesCollection !== null) {
+					response.ingredientCategoriesCollection = new IngredientCategoriesCollection(response.ingredientCategoriesCollection, {
+						parse: true
+					});
+				}
 
-			return response;
+				return response;
+			}
+			
 		},
 
 		validate: function (attributes) {

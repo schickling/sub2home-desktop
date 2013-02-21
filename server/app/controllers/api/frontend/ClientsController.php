@@ -15,6 +15,9 @@ class ClientsController extends ApiController
 									->find($client_model_id);
 
 
+		if ($clientModel == null) {
+			$this->respondWithStatus(401);
+		}
 
 		
 		return $clientModel->toJson(JSON_NUMERIC_CHECK);

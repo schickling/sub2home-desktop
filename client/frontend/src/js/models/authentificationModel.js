@@ -30,6 +30,7 @@ define([
 				url: '/api/frontend/checktoken',
 				type: 'post',
 				async: false,
+				dataType: 'text', // needed because response is empty
 				success: function () {
 					valid = true;
 				}
@@ -92,7 +93,10 @@ define([
 				},
 				type: 'post',
 				async: false,
-				success: function (token) {
+				dataType: 'json',
+				success: function (response) {
+					var token = response.token;
+
 					window.localStorage.setItem('token', token);
 					isLoggedIn = true;
 				},
@@ -128,6 +132,7 @@ define([
 				url: '/api/frontend/logout',
 				type: 'post',
 				async: false,
+				dataType: 'text', // needed because response is empty
 				success: function (token) {
 					window.localStorage.removeItem('token');
 					isLoggedOut = true;

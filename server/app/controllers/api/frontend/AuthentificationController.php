@@ -87,7 +87,9 @@ class AuthentificationController extends ApiController
         Cache::put($token, $clientModel->id, 3 * 24 * 60); // 3 days
 
 
-        return $token;
+        $responseArray = array('token' => $token);
+
+        return json_encode($responseArray);
 
     }
 

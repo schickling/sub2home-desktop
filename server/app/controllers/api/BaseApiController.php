@@ -25,7 +25,11 @@ class BaseApiController extends Controller
      * @return void
      */
     protected function respondWithStatus($statusCode, $message = '') {
-        return Response::make($message, $statusCode);
+
+        $response = Response::make($message, $statusCode);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
     protected function respondWithError()

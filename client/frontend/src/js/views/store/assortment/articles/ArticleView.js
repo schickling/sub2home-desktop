@@ -3,15 +3,18 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'notificationcenter',
 	'text!templates/store/assortment/articles/ArticleTemplate.html'
-	], function ($, _, Backbone, ArticleTemplate) {
+	], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
 
 	var ArticleView = Backbone.View.extend({
 
 		className: 'article',
 
 		events: {
-			'click': '_toggleIsActive'
+			'click': '_toggleIsActive',
+			'click input': '_dropEvent',
+			'focusout input': '_updateCustomPrice'
 		},
 
 		template: _.template(ArticleTemplate),
@@ -33,14 +36,42 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		_toggleIsActive: function() {
+		_dropEvent: function() {
+			return false;
+		},
+
+		_toggleIsActive: function () {
 			var $eye = this.$('.bEye'),
 				isActive = !this.model.get('isActive');
 
-			$eye.toggleClass('open', isActive);
 
 			this.model.set('isActive', isActive);
-			this.model.save();
+			this.model.save({}, {
+				success: function () {
+					$eye.toggleClass('open', isActive);
+
+					if (isActive) {
+						notificationcenter.success('Arikel sichtbar', '');
+					} else {
+						notificationcenter.success('Arikel nicht sichtbar', '');
+					}
+				},
+				error: function (model, error) {
+					notificationcenter.error(error, error);
+				}
+			});
+		},
+
+		_updateCustomPrice: function () {
+			var $input = this.$('.pricetag input'),
+				customPrice = parseFloat($input.val());
+
+			this.model.set('customPrice', customPrice);
+			this.model.save({}, {
+				success: function() {
+					notificationcenter.success('Preis geaendert', '');
+				}
+			});
 		}
 
 	});
