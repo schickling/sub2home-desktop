@@ -1178,7 +1178,7 @@ input[type="text"]#locationSelectionInput {
 
   .pricetag {
     top: 130px;
-    left: 393px;
+    left: 193px;
   }
 
   .detailsArticle {
@@ -1499,7 +1499,7 @@ input[type="text"]#locationSelectionInput {
       .bReset {
         visibility: hidden;
       }
-      .bEyeClose {
+      .bEye {
         color: @orange;
       }
     }
@@ -1520,18 +1520,30 @@ input[type="text"]#locationSelectionInput {
     vertical-align: top;
     margin: 12px 0 0;
     span {
+      padding: 3px 5px 0;
       color: @grayLight;
       margin-left: 15px;
       display: inline-block;
       font-size: 19px;
+      line-height: 1;
+      height: 21px;
+      display: inline-block;
+      margin-top: 1px;
+      vertical-align: top;
+      &.sizeLabel {
+        background: mix(@grayLighter, @grayLightest);
+        color: @gray;
+        .border-radius(2px);
+
+      }
     }
   }
 
 
   .pricetag {
-    .positioned;
-    top: auto;
+    top: 13px;
     left: auto;
+    right: 10px;
     float: right;
     span input {
       color: inherit;
@@ -1547,7 +1559,7 @@ input[type="text"]#locationSelectionInput {
 
     //.opacity(0);
 
-    &.bEyeOpen, &.bEyeClose {
+    &.bEye {
       float: left;
       margin: 15px 20px 0 15px;
     }

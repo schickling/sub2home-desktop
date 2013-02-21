@@ -2430,12 +2430,12 @@ table [class*=span],
 .bDashboard:before {
   content: "\e07e";
 }
-.iEyeClose:before,
-.bEyeClose:before {
+.iEye:before,
+.bEye:before {
   content: "\e07f";
 }
-.iEyeOpen:before,
-.bEyeOpen:before {
+.iEye.open:before,
+.bEye.open:before {
   content: "\e080";
 }
 .close {
@@ -4176,7 +4176,7 @@ input[type="text"]#locationSelectionInput {
 .item .pricetag,
 .article .pricetag {
   top: 130px;
-  left: 393px;
+  left: 193px;
 }
 .item .detailsArticle,
 .article .detailsArticle {
@@ -4555,7 +4555,7 @@ input[type="text"]#locationSelectionInput {
 .content.store.assortment .item.inactive .bReset {
   visibility: hidden;
 }
-.content.store.assortment .item.inactive .bEyeClose {
+.content.store.assortment .item.inactive .bEye {
   color: #dc952b;
 }
 .content.store.assortment img.itemPreview {
@@ -4573,15 +4573,28 @@ input[type="text"]#locationSelectionInput {
   margin: 12px 0 0;
 }
 .content.store.assortment h3 span {
+  padding: 3px 5px 0;
   color: #cecece;
   margin-left: 15px;
-  display: inline-block;
   font-size: 19px;
+  line-height: 1;
+  height: 21px;
+  display: inline-block;
+  margin-top: 1px;
+  vertical-align: top;
+}
+.content.store.assortment h3 span.sizeLabel {
+  background: #ececec;
+  color: #949494;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .content.store.assortment .pricetag {
-  position: relative;
-  top: auto;
+  top: 13px;
   left: auto;
+  right: 10px;
   float: right;
 }
 .content.store.assortment .pricetag span input {
@@ -4599,8 +4612,7 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color .1s linear, opacity .1s linear;
   transition: color .1s linear, opacity .1s linear;
 }
-.content.store.assortment .iBtn.bEyeOpen,
-.content.store.assortment .iBtn.bEyeClose {
+.content.store.assortment .iBtn.bEye {
   float: left;
   margin: 15px 20px 0 15px;
 }
