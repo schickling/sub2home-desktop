@@ -32,9 +32,13 @@ class ProcessNewOrder implements JobInterface {
 
 			foreach ($orderedArticlesCollection as $orderedArticleModel) {
 				$articleModel = $orderedArticleModel->articleModel;
+				$customArticleModel = $articleModel->returnCustomModel($this->orderModel->storeModel->id);
 
 				$articleModel->buyed += $orderedArticleModel->amount;
 				$articleModel->save();
+
+				$customArticleModel->buyed += $orderedArticleModel->amount;
+				$customArticleModel->save();
 			}
 
 			// TODO add menu support

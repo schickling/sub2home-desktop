@@ -14,7 +14,8 @@ define([
 		events: {
 			'click': '_toggleIsActive',
 			'click input': '_dropEvent',
-			'focusout input': '_updateCustomPrice'
+			'focusout input': '_updateCustomPrice',
+			'click .bReset': '_resetCustomPrice'
 		},
 
 		template: _.template(ArticleTemplate),
@@ -34,6 +35,9 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+
+			this.$el.toggleClass('inactive', !this.model.get('isActive'));
+
 		},
 
 		_dropEvent: function() {
@@ -42,6 +46,7 @@ define([
 
 		_toggleIsActive: function () {
 			var $eye = this.$('.bEye'),
+				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
 
@@ -49,6 +54,7 @@ define([
 			this.model.save({}, {
 				success: function () {
 					$eye.toggleClass('open', isActive);
+					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
 						notificationcenter.success('Arikel sichtbar', '');
@@ -72,6 +78,15 @@ define([
 					notificationcenter.success('Preis geaendert', '');
 				}
 			});
+		},
+
+		_resetCustomPrice: function() {
+			var $input = this.$('.pricetag input');
+
+			$input.val(this.model.get('price'));
+			this._updateCustomPrice();
+
+			return false;
 		}
 
 	});
