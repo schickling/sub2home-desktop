@@ -2430,6 +2430,14 @@ table [class*=span],
 .bDashboard:before {
   content: "\e07e";
 }
+.iEyeClose:before,
+.bEyeClose:before {
+  content: "\e07f";
+}
+.iEyeOpen:before,
+.bEyeOpen:before {
+  content: "\e080";
+}
 .close {
   float: right;
   font-size: 20px;
@@ -4486,13 +4494,10 @@ input[type="text"]#locationSelectionInput {
   transition: color 0.1s linear;
   color: rgba(209, 186, 130, 0.5);
   position: absolute;
-  left: 25px;
+  left: 20px;
   font-family: "Homicons";
   font-size: 40px;
   top: 1px;
-}
-.assortmentControls .iBtn.bReset:before {
-  left: 20px;
 }
 .assortmentControls .iBtn:hover:before {
   color: #d1ba82;
@@ -4542,7 +4547,7 @@ input[type="text"]#locationSelectionInput {
 .content.store.assortment .item.inactive .bReset {
   visibility: hidden;
 }
-.content.store.assortment .item.inactive .bLightbulb {
+.content.store.assortment .item.inactive .bEyeClose {
   color: #dc952b;
 }
 .content.store.assortment img.itemPreview {
@@ -4586,9 +4591,10 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color .1s linear, opacity .1s linear;
   transition: color .1s linear, opacity .1s linear;
 }
-.content.store.assortment .iBtn.bLightbulb {
+.content.store.assortment .iBtn.bEyeOpen,
+.content.store.assortment .iBtn.bEyeClose {
   float: left;
-  margin: 15px 15px 0;
+  margin: 15px 20px 0 15px;
 }
 .content.store.assortment .iBtn.bReset {
   float: right;
@@ -6438,6 +6444,10 @@ div#payment .bankaccount {
   top: 7px;
   left: 2px;
 }
+.itemsTimeline .itemTimeline .iMenuUpgrade {
+  top: 1px;
+  left: 0;
+}
 .itemsTimeline:first-child .itemTimeline:before {
   content: " ";
 }
@@ -6801,15 +6811,15 @@ div#payment .bankaccount {
 #checkoutAdditionalOptions > div.deliveryAdditionalNote div,
 .note.checkout > div.deliveryAdditionalNote div {
   width: 100%;
-  height: 29px;
+  height: 40px;
   border-top: 1px solid rgba(209, 186, 130, 0.5);
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
-  margin-top: 29px;
+  margin-top: 40px;
 }
 #checkoutAdditionalOptions > div.deliveryAdditionalNote textarea,
 .note.checkout > div.deliveryAdditionalNote textarea {
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6817,11 +6827,11 @@ div#payment .bankaccount {
   width: 100%;
   background: none;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
-  line-height: 1.8;
+  line-height: 41px;
   color: #c5a862;
   border: none;
   padding: 0 10px;
-  font-size: 17px;
+  font-size: 24px;
   resize: none;
 }
 #checkoutAdditionalOptions:after {
