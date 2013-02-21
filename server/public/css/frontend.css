@@ -4510,10 +4510,10 @@ input[type="text"]#locationSelectionInput {
 .assortmentControls .iBtn:hover:before {
   color: #d1ba82;
 }
-.content.store.assortment .items {
+.content.store.assortment .articles {
   padding: 28px;
 }
-.content.store.assortment .item {
+.content.store.assortment .article {
   cursor: default;
   width: 100%;
   display: block;
@@ -4523,39 +4523,39 @@ input[type="text"]#locationSelectionInput {
   *zoom: 1;
   border-bottom: 1px solid #f4f4f4;
 }
-.content.store.assortment .item:before,
-.content.store.assortment .item:after {
+.content.store.assortment .article:before,
+.content.store.assortment .article:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.content.store.assortment .item:after {
+.content.store.assortment .article:after {
   clear: both;
 }
-.content.store.assortment .item:last-child {
+.content.store.assortment .article:last-child {
   border: none;
 }
-.content.store.assortment .item.inactive img {
+.content.store.assortment .article.inactive img {
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
-.content.store.assortment .item.inactive h3 {
+.content.store.assortment .article.inactive h3 {
   color: #e4e4e4;
 }
-.content.store.assortment .item.inactive h3 span {
+.content.store.assortment .article.inactive h3 span {
   display: none;
 }
-.content.store.assortment .item.inactive .pricetag:before {
+.content.store.assortment .article.inactive .pricetag:before {
   color: #e4e4e4;
   text-shadow: none;
 }
-.content.store.assortment .item.inactive .pricetag:after {
+.content.store.assortment .article.inactive .pricetag:after {
   color: #ececec;
 }
-.content.store.assortment .item.inactive .bReset {
+.content.store.assortment .article.inactive .bReset {
   visibility: hidden;
 }
-.content.store.assortment .item.inactive .bEye {
+.content.store.assortment .article.inactive .bEye {
   color: #dc952b;
 }
 .content.store.assortment img.itemPreview {
