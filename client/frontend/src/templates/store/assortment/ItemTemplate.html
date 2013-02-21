@@ -1,7 +1,7 @@
-<div class="iBtn bEyeOpen"></div>
-<img class="itemPreview" src="http://sub2home.dev/img/static/articles/smallimages/subs/ckfajita6g.png" alt="" >
-<h3><%= title %><span>(15x gekauft)</span></h3>
+<div class="iBtn bEye <% if (isActive) { %>open<% } %>"></div>
+<img class="itemPreview" src="../../<%= image %>" alt="" >
+<h3><%= title %> (<%= info %>)<span>(<%= buyed %>x gekauft)</span></h3>
 
 <div class="iBtn bReset"></div>
-<div class="pricetag"><span><input type="text" value="<%= price %>">€</span></div>
+<div class="pricetag"><span><input type="text" value="<%= price.toFixed(2) %>">€</span></div>
 <div class="howManyOrders"></div>

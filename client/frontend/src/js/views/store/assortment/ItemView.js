@@ -19,7 +19,11 @@ define([
 		_render: function () {
 			var json = {
 				title: this.model.get('title'),
-				price: this.model.get('price')
+				price: this.model.get('price'),
+				info: this.model.get('info'),
+				isActive: this.model.get('isActive'),
+				buyed: this.model.get('buyedInStore'),
+				image: this.model.get('largeImage')
 			};
 
 			this.$el.html(this.template(json));

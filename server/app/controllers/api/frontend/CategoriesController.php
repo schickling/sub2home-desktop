@@ -88,6 +88,11 @@ class CategoriesController extends ApiController
 					unset($itemModel->allowsMenuUpgrades);
 					unset($itemModel->smallImage);
 
+					$customItemModel = $itemModel->returnCustomModel($this->storeModel->id);
+
+					$itemModel->isActive = $customItemModel->isActive;
+					$itemModel->buyedInStore = $customItemModel->buyed;
+
 					$itemsCollection->add($itemModel);
 				}
 			}
