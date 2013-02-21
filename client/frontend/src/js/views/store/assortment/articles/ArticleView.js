@@ -57,9 +57,9 @@ define([
 					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
-						notificationcenter.success('Arikel sichtbar', '');
+						notificationcenter.success('articles.edit.success.isActive', 'articles.edit.success.isActive');
 					} else {
-						notificationcenter.success('Arikel nicht sichtbar', '');
+						notificationcenter.success('articles.edit.success.isNotActive', 'articles.edit.success.isNotActive');
 					}
 				},
 				error: function (model, error) {

@@ -113,7 +113,6 @@ class ArticleModel extends ItemModel
 		if ($customArticleModel == null) {
 			$customArticleModel = new CustomArticleModel(array(
 									'store_model_id' => $store_model_id,
-									'isActive' => true, // MOCK
 									'article_model_id' => $this->id,
 									'price' => $this->price
 									));
