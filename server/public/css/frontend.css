@@ -4176,7 +4176,7 @@ input[type="text"]#locationSelectionInput {
 .item .pricetag,
 .article .pricetag {
   top: 130px;
-  left: 193px;
+  left: 393px;
 }
 .item .detailsArticle,
 .article .detailsArticle {
@@ -4256,6 +4256,14 @@ input[type="text"]#locationSelectionInput {
   top: 47px;
   width: 120px;
   text-align: center;
+}
+.item .footlongOption img,
+.article .footlongOption img {
+  position: absolute;
+  top: -8px;
+  left: -30px;
+  height: 160px;
+  width: auto;
 }
 .item .customizeArticle,
 .article .customizeArticle {
