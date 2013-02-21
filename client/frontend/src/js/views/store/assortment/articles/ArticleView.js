@@ -12,8 +12,7 @@ define([
 		className: 'article',
 
 		events: {
-			'click': '_toggleIsActive',
-			'click input': '_dropEvent',
+			'click .bEye': '_toggleIsActive',
 			'focusout input': '_updateCustomPrice',
 			'click .bReset': '_resetCustomPrice'
 		},
@@ -38,10 +37,6 @@ define([
 
 			this.$el.toggleClass('inactive', !this.model.get('isActive'));
 
-		},
-
-		_dropEvent: function() {
-			return false;
 		},
 
 		_toggleIsActive: function () {
@@ -85,8 +80,6 @@ define([
 
 			$input.val(this.model.get('price'));
 			this._updateCustomPrice();
-
-			return false;
 		}
 
 	});
