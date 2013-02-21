@@ -1,16 +1,16 @@
-// Filename: src/js/views/store/assortment/ItemView.js
+// Filename: src/js/views/store/assortment/ArticleView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/store/assortment/ItemTemplate.html'
-	], function ($, _, Backbone, ItemTemplate) {
+	'text!templates/store/assortment/articles/ArticleTemplate.html'
+	], function ($, _, Backbone, ArticleTemplate) {
 
-	var ItemView = Backbone.View.extend({
+	var ArticleView = Backbone.View.extend({
 
-		className: 'item',
+		className: 'article',
 
-		template: _.template(ItemTemplate),
+		template: _.template(ArticleTemplate),
 
 		initialize: function () {
 			this._render();
@@ -23,7 +23,7 @@ define([
 				info: this.model.get('info'),
 				isActive: this.model.get('isActive'),
 				buyed: this.model.get('buyedInStore'),
-				image: this.model.get('largeImage')
+				image: this.model.get('smallImage')
 			};
 
 			this.$el.html(this.template(json));
@@ -31,6 +31,6 @@ define([
 
 	});
 
-	return ItemView;
+	return ArticleView;
 
 });

@@ -4,7 +4,7 @@ define([
 	'underscore',
 	'backbone',
 	'collections/CategoriesCollection',
-	'views/store/assortment/CategoryView'
+	'views/store/assortment/articles/CategoryView'
 	], function ($, _, Backbone, CategoriesCollection, CategoryView) {
 
 	var CategoriesView = Backbone.View.extend({
@@ -14,7 +14,7 @@ define([
 			this.collection.fetch({
 				async: false,
 				data: $.param({
-					showAllItems: true
+					assortment: true
 				})
 			});
 

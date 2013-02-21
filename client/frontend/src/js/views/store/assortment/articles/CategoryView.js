@@ -3,9 +3,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/store/assortment/ItemsView',
-	'text!templates/store/assortment/CategoryTemplate.html'
-	], function ($, _, Backbone, ItemsView, CategoryTemplate) {
+	'views/store/assortment/articles/ArticlesView',
+	'text!templates/store/assortment/articles/CategoryTemplate.html'
+	], function ($, _, Backbone, ArticlesView, CategoryTemplate) {
 
 	var CategoryView = Backbone.View.extend({
 
@@ -24,13 +24,13 @@ define([
 
 			this.$el.html(this.template(json));
 
-			this._renderItems();
+			this._renderArticles();
 		},
 
-		_renderItems: function() {
-			new ItemsView({
-				el: this.$('.items'),
-				collection: this.model.get('itemsCollection')
+		_renderArticles: function() {
+			new ArticlesView({
+				el: this.$('.articles'),
+				collection: this.model.get('articlesCollection')
 			});
 		}
 

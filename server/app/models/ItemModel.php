@@ -20,29 +20,10 @@ abstract class ItemModel extends BaseModel
 	 *
 	 * @return void
 	 */
-	public function check()
+	protected function check()
 	{
 		if (!$this->isPublished) {
 			throw new Exception("Item not published");
-		}
-	}
-
-	/**
-	 * Returns the price of the item (respects custom items)
-	 *
-	 * @param int $store_model_id
-	 * @return float
-	 */
-	public function returnRealPrice($store_model_id)
-	{
-		$this->check();
-		
-		$customItemModel = $this->returnCustomModel($store_model_id);
-
-		if ($customItemModel->hasOwnPrice) {
-			return $customItemModel->price;
-		} else {
-			return $this->price;
 		}
 	}
 

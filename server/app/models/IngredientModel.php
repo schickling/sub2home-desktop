@@ -76,6 +76,18 @@ class IngredientModel extends BaseModel
 	}
 
 	/**
+	 * Returns whether the article and the custom article is published
+	 *
+	 * @return void
+	 */
+	private function check()
+	{
+		if (!$this->isPublished) {
+			throw new Exception("Item not published");
+		}
+	}
+
+	/**
 	 * Returns the custom ingredient respecting a specific store
 	 * 
 	 * @param  int $store_model_id
@@ -99,20 +111,16 @@ class IngredientModel extends BaseModel
 	}
 
 	/**
-	 * Returns the price of the ingredient (respects custom ingredients)
+	 * Returns the custom price of the item
 	 *
 	 * @param int $store_model_id
-	 * @return int
+	 * @return float
 	 */
-	public function returnRealPrice($store_model_id)
+	public function returnCustomPrice($store_model_id)
 	{
-		$customIngredientModel = $this->returnCustomModel($store_model_id);
+		$this->check();
 
-		if ($customIngredientModel->hasOwnPrice) {
-			return $customIngredientModel->price;
-		} else {
-			return $this->price;
-		}
+		return $this->returnCustomModel($store_model_id)->price;
 	}
 
 }

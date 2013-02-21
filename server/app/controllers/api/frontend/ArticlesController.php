@@ -41,10 +41,10 @@ class ArticlesController extends ApiController
 		}
 
 		// get article price
-		$articleModel->price = $articleModel->returnRealPrice($this->storeModel->id);
+		$articleModel->price = $articleModel->returnCustomPrice($this->storeModel->id);
 
 		// get menu upgrades price
-		// $this->prepareMenuUpgradesCollection($articleModel);
+		$this->prepareMenuUpgradesCollection($articleModel);
 
 		// wrap ingredients in their ingredient categories
 		$this->prepareIngredientCategoriesCollection($articleModel);
@@ -58,7 +58,7 @@ class ArticlesController extends ApiController
 	private function prepareMenuUpgradesCollection($articleModel)
 	{
 		foreach ($articleModel->menuUpgradesCollection as $menuUpgradeModel) {
-			$menuUpgradeModel->price = $menuUpgradeModel->returnRealPrice($this->storeModel->id);
+			$menuUpgradeModel->price = $menuUpgradeModel->returnCustomPrice($this->storeModel->id);
 		}
 
 		if ($articleModel->menuUpgradesCollection->isEmpty()) {

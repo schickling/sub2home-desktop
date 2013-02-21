@@ -2,8 +2,9 @@
 define([
 	'underscore',
 	'backbone',
+	'collections/ArticlesCollection',
 	'collections/ItemsCollection'
-	], function (_, Backbone, ItemsCollection) {
+	], function (_, Backbone, ArticlesCollection, ItemsCollection) {
 
 	var CategoryModel = Backbone.Model.extend({
 
@@ -17,6 +18,10 @@ define([
 		parse: function (response) {
 			if (response.hasOwnProperty('itemsCollection')) {
 				response.itemsCollection = new ItemsCollection(response.itemsCollection);
+			}
+
+			if (response.hasOwnProperty('articlesCollection')) {
+				response.articlesCollection = new ArticlesCollection(response.articlesCollection);
 			}
 
 			return response;

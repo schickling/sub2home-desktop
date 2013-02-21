@@ -82,18 +82,18 @@ class OrderedItemModel extends BaseModel
 	public function calculateTotal($store_model_id)
 	{
 		$orderedArticlesCollection = $this->orderedArticlesCollection;
-		$total = (float) $this->baseArticleModel->returnRealPrice($store_model_id);
+		$total = (float) $this->baseArticleModel->returnCustomPrice($store_model_id);
 
 		if ($this->menuModel instanceof MenuBundleModel) {
-			$total = (float) $this->menuModel->returnRealPrice($store_model_id);
+			$total = (float) $this->menuModel->returnCustomPrice($store_model_id);
 		} elseif ($this->menuModel instanceof MenuUpgradeModel) {
-			$total += (float) $this->menuModel->returnRealPrice($store_model_id);
+			$total += (float) $this->menuModel->returnCustomPrice($store_model_id);
 		}
 
 		// sum up ingredients
 		foreach ($orderedArticlesCollection as $orderedArticleModel) {
 			foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
-				$total += (float) $ingredientModel->returnRealPrice($store_model_id);
+				$total += (float) $ingredientModel->returnCustomPrice($store_model_id);
 			}
 		}
 

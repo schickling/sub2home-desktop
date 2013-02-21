@@ -19,23 +19,27 @@ class CategoriesController extends ApiController
 		}
 
 
-		$categoriesCollection = CategoryModel::with('articlesCollection', 'menuBundlesCollection')
+		$categoriesCollection = CategoryModel::with(array(
+												'articlesCollection',
+												'menuBundlesCollection'
+												))
 												->orderBy('order')
 												->get();
 
 		// if client is logged in and changes his assortment
-		if (Input::get('showAllItems')) {
-			$preparedCategoriesCollection = $this->prepareAllCategories($categoriesCollection);
+		if (Input::get('assortment')) {
+			$preparedCategoriesCollection = $this->prepareCategoriesForAssortmentListing($categoriesCollection);
 		} else {
-			$preparedCategoriesCollection = $this->prepareVisibleCategories($categoriesCollection);
+			$preparedCategoriesCollection = $this->prepareCategoriesWithAllItems($categoriesCollection);
 		}
 
 		return $preparedCategoriesCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
-	private function prepareVisibleCategories($categoriesCollection)
+	private function prepareCategoriesWithAllItems($categoriesCollection)
 	{
 		$categoriesCollectionWithItems = new Collection();
+		$store_model_id = $this->storeModel->id;
 
 		// pick out "visible" categories
 		foreach ($categoriesCollection as $categoryModel) {
@@ -45,8 +49,9 @@ class CategoriesController extends ApiController
 
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
-				if ($itemModel->isPublished && $itemModel->isActive($this->storeModel->id)) {
+				if ($itemModel->isPublished && $itemModel->isActive($store_model_id)) {
 
+					$itemModel->price = $itemModel->returnCustomPrice($store_model_id);
 
 					// discard unused attributes
 					unset($itemModel->allowsDeposit);
@@ -71,36 +76,37 @@ class CategoriesController extends ApiController
 		return $categoriesCollectionWithItems;
 	}
 
-	private function prepareAllCategories($categoriesCollection)
+	private function prepareCategoriesForAssortmentListing($categoriesCollection)
 	{
+		$store_model_id = $this->storeModel->id;
 
 		foreach ($categoriesCollection as $categoryModel) {
 
-			$itemsCollection = new Collection();
-			$sortedItemsCollection = $categoryModel->sortedItemsCollection;
+			$articlesCollection = new Collection();
+			$sortedArticlesCollection = $categoryModel->articlesCollection()->orderBy('order')
+																			->get();
 
 			// get correct prices
-			foreach ($sortedItemsCollection as $itemModel) {
-				if ($itemModel->isPublished) {
+			foreach ($sortedArticlesCollection as $articleModel) {
+				if ($articleModel->isPublished) {
 
 					// discard unused attributes
-					unset($itemModel->allowsDeposit);
-					unset($itemModel->allowsMenuUpgrades);
-					unset($itemModel->smallImage);
+					unset($articleModel->allowsDeposit);
+					unset($articleModel->allowsMenuUpgrades);
+					unset($articleModel->largeImage);
 
-					$customItemModel = $itemModel->returnCustomModel($this->storeModel->id);
+					$customArticleModel = $articleModel->returnCustomModel($store_model_id);
 
-					$itemModel->isActive = $customItemModel->isActive;
-					$itemModel->buyedInStore = $customItemModel->buyed;
+					$articleModel->isActive = $customArticleModel->isActive;
+					$articleModel->buyedInStore = $customArticleModel->buyed;
 
-					$itemsCollection->add($itemModel);
+					$articlesCollection->add($articleModel);
 				}
 			}
 
-			$categoryModel->setRelation('itemsCollection', $itemsCollection);
+			$categoryModel->setRelation('articlesCollection', $articlesCollection);
 
 			// discard loaded relationships
-			unset($categoryModel->articlesCollection);
 			unset($categoryModel->menuBundlesCollection);
 
 			

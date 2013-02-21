@@ -6,7 +6,7 @@ define([
 	'router',
 	'models/stateModel',
 	'views/PageView',
-	'views/store/assortment/CategoriesView',
+	'views/store/assortment/articles/CategoriesView',
 	'text!templates/store/assortment/MainTemplate.html'
 	], function ($, _, Backbone, router, stateModel, PageView, CategoriesView, MainTemplate) {
 
@@ -36,13 +36,13 @@ define([
 
 			this.$el.html(MainTemplate);
 
-			this._renderCategories();
+			this._renderArticleSection();
 
 			this.append();
 
 		},
 
-		_renderCategories: function () {
+		_renderArticleSection: function () {
 			new CategoriesView({
 				el: this.$('.categories')
 			});

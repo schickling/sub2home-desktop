@@ -32,7 +32,7 @@ class MenuBundlesController extends ApiController
 		}
 
 		// get menuBundle price
-		$menuBundleModel->price = $menuBundleModel->returnRealPrice($this->storeModel->id);
+		$menuBundleModel->price = $menuBundleModel->returnCustomPrice($this->storeModel->id);
 		
 
 		return $menuBundleModel->toJson(JSON_NUMERIC_CHECK);
