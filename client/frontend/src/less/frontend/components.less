@@ -4459,3 +4459,136 @@ div#payment {
   bottom: 400px;
   background: @grayLight;
 }
+
+
+// ---------------------------------------------- INFO SECTION -------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+@infoNavigationWidth:   260px;
+
+aside.infoNavigation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: @infoNavigationWidth;
+    background: @darkBackground;
+    padding: 10% 0 0 50px;
+    &:after {
+      content: " ";
+      background: rgba(255,255,255,0.1);
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      border-left: 1px solid @black;
+    }
+
+    ul {
+      list-style-type: none;
+      li {
+        list-style-type: none;
+        color: @onInfoColor;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+        font-size: 20px;
+        font-family: @headingsFontFamily;
+        line-height: 1.5;
+        cursor: pointer;
+        &.active {
+          color: @white;
+          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+          cursor: default;
+        }
+      }
+    }
+  }
+
+
+.content.info {
+
+  .container {
+    margin-left: @infoNavigationWidth;
+    padding: 50px 50px 80px 80px;
+    //.border-box;
+    width: auto;
+    article {
+      margin-top: 100px;
+      text-align: left;
+
+      header {
+        
+        h1 {
+          font-size: 60px;
+          color: @onInfoColor;
+          text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+          margin: 0 0 70px 0;
+        }
+      }
+
+      p {
+        font-size: 24px;
+        color: @onInfoColor;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.1);
+        font-family: @headingsFontFamily;
+        line-height: 32px;
+      }
+
+      >p {
+        margin-left: 20px;
+      }
+
+      .threeColumn, .twoColumn {
+        display: inline-block;
+        width: 33%;
+        .border-box;
+        padding: 0 20px;
+        vertical-align: top;
+        header h3 {
+          color: @white;
+          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+          margin: 0 0 15px 0;
+        }
+      }
+      .twoColumn {
+        header h3 {
+          margin: 0 0 36px 0;
+        }
+        width: 49%;
+      }
+
+      &#howItWorks {
+        div {
+          margin-right: 30px;
+          text-align: center;
+        }
+      }
+
+      &#nutritionInfo {
+        .positioned;
+
+        header h1 {
+          margin: 0 0 20px 0;
+        }
+        p {
+          width: 460px;
+        }
+        .bDocument {
+          color: @white;
+          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+          position: absolute;
+          left: 500px;
+          top: -15px;
+          &:before {
+            font-size: 170px;
+          }
+          .transition(text-shadow .1s linear);
+          &:hover {
+            text-shadow: 0 2px 7px rgba(0,0,0,0.7);
+          }
+        }
+      }
+    } 
+  }
+}
