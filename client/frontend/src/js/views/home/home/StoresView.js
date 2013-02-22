@@ -1,4 +1,4 @@
-// Filename: src/js/views/home/StoresView.js
+// Filename: src/js/views/home/home/StoresView.js
 define([
 	'jquery',
 	'underscore',
@@ -8,7 +8,7 @@ define([
 	'gmaps', // returns window.google.maps namespace
 	'models/stateModel',
 	'views/assets/mapStyles',
-	'views/home/StoreView',
+	'views/home/home/StoreView',
 	'collections/StoresCollection'
 	], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
 

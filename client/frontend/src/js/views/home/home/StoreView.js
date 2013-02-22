@@ -1,9 +1,10 @@
+// Filename: src/js/views/home/home/StoreView.js
 define([
 	'jquery',
 	'underscore',
 	'gmaps',
 	'notificationcenter',
-	'text!templates/home/StoreTemplate.html'
+	'text!templates/home/home/StoreTemplate.html'
 	], function ($, _, gmaps, notificationcenter, StoreTemplate) {
 
 	var StoreView = function (model, parentView) {

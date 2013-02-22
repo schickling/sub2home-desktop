@@ -13,10 +13,10 @@ define([
 
 		routes: {
 			// home
-			'': '_showHome',
+			'': '_showHomeHome',
 
 			// info
-			'impressum': '_showHome',
+			'info': '_showHomeInfo',
 
 			// client
 			'login': '_showClientLogin',
@@ -28,6 +28,7 @@ define([
 			':alias/theke/:resourceType/:resourceId': '_showStoreSelection',
 			':alias/tablett': '_showStoreTray',
 			':alias/danke': '_showStoreCheckout',
+			':alias/info': '_showStoreInfo',
 
 			// store (logged in)
 			':alias/einstellungen': '_showStoreConfig',
@@ -75,13 +76,23 @@ define([
 			return this;
 		},
 
-		_showHome: function () {
+		_showHomeHome: function () {
 
 			stateModel.set({
 				currentRoute: 'home.home'
 			});
 
-			this._loadMainView('views/home/MainView');
+			this._loadMainView('views/home/home/MainView');
+
+		},
+
+		_showHomeInfo: function () {
+
+			stateModel.set({
+				currentRoute: 'home.info'
+			});
+
+			this._loadMainView('views/home/info/MainView');
 
 		},
 
@@ -223,6 +234,17 @@ define([
 				this._loadMainView('views/store/dashboard/MainView');
 
 			}
+
+		},
+
+		_showStoreInfo: function (alias) {
+
+			stateModel.set({
+				currentRoute: 'store.info',
+				storeAlias: alias
+			});
+
+			this._loadMainView('views/store/info/MainView');
 
 		},
 
