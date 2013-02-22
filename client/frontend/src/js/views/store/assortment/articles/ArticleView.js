@@ -12,8 +12,7 @@ define([
 		className: 'article',
 
 		events: {
-			'click': '_toggleIsActive',
-			'click input': '_dropEvent',
+			'click .bEye': '_toggleIsActive',
 			'focusout input': '_updateCustomPrice',
 			'click .bReset': '_resetCustomPrice'
 		},
@@ -40,10 +39,6 @@ define([
 
 		},
 
-		_dropEvent: function() {
-			return false;
-		},
-
 		_toggleIsActive: function () {
 			var $eye = this.$('.bEye'),
 				$el = this.$el,
@@ -57,9 +52,9 @@ define([
 					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
-						notificationcenter.success('Arikel sichtbar', '');
+						notificationcenter.success('articles.edit.success.isActive', 'articles.edit.success.isActive');
 					} else {
-						notificationcenter.success('Arikel nicht sichtbar', '');
+						notificationcenter.success('articles.edit.success.isNotActive', 'articles.edit.success.isNotActive');
 					}
 				},
 				error: function (model, error) {
@@ -85,8 +80,6 @@ define([
 
 			$input.val(this.model.get('price'));
 			this._updateCustomPrice();
-
-			return false;
 		}
 
 	});

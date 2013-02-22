@@ -56,7 +56,6 @@ abstract class MenuModel extends ItemModel
 
 			$customMenuModel = new CustomMenuModel(array(
 									'store_model_id' => $store_model_id,
-									'isActive' => true, // MOCK
 									$menuModelType => $this->id,
 									'price' => $this->price
 									));

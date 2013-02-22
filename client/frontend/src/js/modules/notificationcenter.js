@@ -1,8 +1,9 @@
 // Filename: src/js/modules/notificationcenter.js
 define([
+	'lang/notificationsLanguage',
 	'models/NotificationModel',
 	'views/notifications/NotificationcenterView'
-	], function (NotificationModel, NotificationcenterView) {
+	], function (notificationsLanguage, NotificationModel, NotificationcenterView) {
 
 	var Notificationcenter = {
 
@@ -50,13 +51,17 @@ define([
 
 		_notify: function (item) {
 
+			// get language phrases
+			item.title = notificationsLanguage.getTitle(item.title);
+			item.description = notificationsLanguage.getDescription(item.description);
+
 			var notificationModel = new NotificationModel(item);
 
 			this.view.renderNotification(notificationModel);
 
 		},
 
-		clean: function() {
+		clean: function () {
 			this.view.destroyAllNotificationViews();
 		}
 
