@@ -38,7 +38,7 @@ img.cookie    { margin: 0 -10px;}
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
       font-size: 20px;
       text-transform: uppercase;
-      margin: 0 30px 15px 30px;
+      margin: 0 30px 0 30px;
       line-height: 1.1;
 
       //.positioned;
@@ -75,7 +75,7 @@ img.cookie    { margin: 0 -10px;}
     font-family: @headingsFontFamily;
     color: darken(@onHeaderColor, 5%);
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-    margin: 0;
+    margin: 15px 0 0 0;
     line-height: 1.3;
   }
 
@@ -1485,7 +1485,14 @@ input[type="text"]#locationSelectionInput {
       }
       h3 {
         color: @grayLighter;
-        span { display: none; }
+        span {
+          display: none;
+          &.sizeLabel {
+            display: inline-block;
+            color: @grayLighter;
+            background: @grayVeryLightest;
+          }
+        }
       }
       .pricetag {
         &:before {
@@ -2026,22 +2033,26 @@ input[type="text"]#locationSelectionInput {
 
 .note.orders {
   .toggleRevenues {
-    margin: 30px 50px;
+    margin: 30px;
     position: absolute;
     .iTurnover {
       cursor: pointer;
+      height: 37px;
 
       &:after {
         font-size: 50px;
         .positioned;
-        top: 10px;
+        //top: 10px;
       }
       &:before {
         content: "\e05f";
         position: relative;
-        top: 0px;
+        top: 5px;
         margin-right: 5px;
         color: @onNoteColor50;
+        line-height: 1;
+        vertical-align: top;
+        display: inline-block;
         .transition(color .1s linear);
       }
       &:hover:before {
@@ -2063,7 +2074,7 @@ input[type="text"]#locationSelectionInput {
       margin: 0 0 0 5px;
       display: inline-block;
       .positioned;
-      top: 2px;
+      top: 6px;
       vertical-align: top;
     }
   }
@@ -2103,7 +2114,7 @@ input[type="text"]#locationSelectionInput {
         border-right: 1px solid @white;
         position: absolute;
         left: 35px;
-        top: 9px;
+        bottom: 49px;
       }
       .yearlyTurnoverResume {
         position: absolute;
@@ -2112,11 +2123,11 @@ input[type="text"]#locationSelectionInput {
         font-family: @headingsFontFamily;
         font-size: 50px;
         color: @onNoteColor50;
-        i {
+        .bDocument {
           margin: 0 5px;
           &:before {
           font-size: 50px;
-
+          top: 6px;
           }
         }
 
@@ -2175,9 +2186,9 @@ input[type="text"]#locationSelectionInput {
         text-transform: uppercase;
         .positioned;
 
-         .vecbuttonDocument {
+         .bDocument {
            position: absolute;
-           top: -4px;
+           top: 0;
            right: -34px;
            width: 30px;
            height: 30px;
@@ -2761,7 +2772,7 @@ input[type="text"]#locationSelectionInput {
   }
 
   .bMail {
-    
+
     position: absolute;
     right: 20px;
     top: 28px;

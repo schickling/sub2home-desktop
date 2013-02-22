@@ -3196,7 +3196,7 @@ img.cookie {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   font-size: 20px;
   text-transform: uppercase;
-  margin: 0 30px 15px 30px;
+  margin: 0 30px 0 30px;
   line-height: 1.1;
 }
 .notification header h4:before {
@@ -3232,7 +3232,7 @@ img.cookie {
   font-family: "VAGRounded LT Thin";
   color: #957b3d;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  margin: 0;
+  margin: 15px 0 0 0;
   line-height: 1.3;
 }
 .notification.error header {
@@ -4545,6 +4545,11 @@ input[type="text"]#locationSelectionInput {
 .content.store.assortment .article.inactive h3 span {
   display: none;
 }
+.content.store.assortment .article.inactive h3 span.sizeLabel {
+  display: inline-block;
+  color: #e4e4e4;
+  background: #fdfdfd;
+}
 .content.store.assortment .article.inactive .pricetag:before {
   color: #e4e4e4;
   text-shadow: none;
@@ -4834,23 +4839,26 @@ input[type="text"]#locationSelectionInput {
   color: #d1ba82;
 }
 .note.orders .toggleRevenues {
-  margin: 30px 50px;
+  margin: 30px;
   position: absolute;
 }
 .note.orders .toggleRevenues .iTurnover {
   cursor: pointer;
+  height: 37px;
 }
 .note.orders .toggleRevenues .iTurnover:after {
   font-size: 50px;
   position: relative;
-  top: 10px;
 }
 .note.orders .toggleRevenues .iTurnover:before {
   content: "\e05f";
   position: relative;
-  top: 0px;
+  top: 5px;
   margin-right: 5px;
   color: rgba(209, 186, 130, 0.5);
+  line-height: 1;
+  vertical-align: top;
+  display: inline-block;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -4882,7 +4890,7 @@ input[type="text"]#locationSelectionInput {
   margin: 0 0 0 5px;
   display: inline-block;
   position: relative;
-  top: 2px;
+  top: 6px;
   vertical-align: top;
 }
 .note.orders .revenues {
@@ -4920,7 +4928,7 @@ input[type="text"]#locationSelectionInput {
   border-right: 1px solid #ffffff;
   position: absolute;
   left: 35px;
-  top: 9px;
+  bottom: 49px;
 }
 .note.orders .revenues .turnoverYear .yearlyTurnoverResume {
   position: absolute;
@@ -4930,11 +4938,12 @@ input[type="text"]#locationSelectionInput {
   font-size: 50px;
   color: rgba(209, 186, 130, 0.5);
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume i {
+.note.orders .revenues .turnoverYear .yearlyTurnoverResume .bDocument {
   margin: 0 5px;
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume i:before {
+.note.orders .revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
   font-size: 50px;
+  top: 6px;
 }
 .note.orders .revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
   content: "€";
@@ -4988,9 +4997,9 @@ input[type="text"]#locationSelectionInput {
   text-transform: uppercase;
   position: relative;
 }
-.note.orders .revenues .turnover .turnoverMonth .vecbuttonDocument {
+.note.orders .revenues .turnover .turnoverMonth .bDocument {
   position: absolute;
-  top: -4px;
+  top: 0;
   right: -34px;
   width: 30px;
   height: 30px;
