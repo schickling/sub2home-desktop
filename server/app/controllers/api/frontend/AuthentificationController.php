@@ -37,7 +37,7 @@ class AuthentificationController extends ApiController
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            return $this->respondWithStatus(400, $validator->messages());
+            return $this->respondWithStatus(401, $validator->messages());
         }
 
 
