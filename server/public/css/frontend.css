@@ -4628,6 +4628,7 @@ input[type="text"]#locationSelectionInput {
 .content.store.assortment .iBtn.bEye {
   float: left;
   margin: 15px 20px 0 15px;
+  color: #9cc83e;
 }
 .content.store.assortment .iBtn.bReset {
   float: right;
@@ -4951,7 +4952,7 @@ input[type="text"]#locationSelectionInput {
 }
 .note.orders .revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
   font-size: 50px;
-  top: 6px;
+  top: 1px;
 }
 .note.orders .revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
   content: "€";
@@ -7392,7 +7393,7 @@ aside.infoNavigation ul li.active {
 .clear {
   clear: both;
 }
-.hide {
+.hidden {
   display: none;
 }
 .first-hidden {
