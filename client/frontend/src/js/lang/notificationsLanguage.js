@@ -7,12 +7,16 @@ define([
 
 		_titles: {
 			'articles.edit.success.isActive': 'Arikel sichtbar',
-			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar'
+			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar',
+			'orders.testOrder.success': 'Testbestellung is raus',
+			'orders.testOrder.error': 'Testbestellung ging nicht'
 		},
 
 		_descriptions: {
 			'articles.edit.success.isActive': 'Arikel sichtbar !!',
-			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar !!'
+			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar !!',
+			'orders.testOrder.success': 'Testbestellung is raus',
+			'orders.testOrder.error': 'Testbestellung ging nicht'
 		},
 
 		getTitle: function (title) {

@@ -1,29 +1,31 @@
 // Filename: src/js/views/store/config/StoreInfoView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'views/store/config/AddressView',
-	'text!templates/store/config/StoreInfoTemplate.html'
-	], function ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'global',
+    'notificationcenter',
+    'views/store/config/AddressView',
+    'text!templates/store/config/StoreInfoTemplate.html'
+    ], function ($, _, Backbone, global, notificationcenter, AddressView, StoreInfoTemplate) {
 
 	var StoreInfoView = Backbone.View.extend({
 
 		events: {
-			'focusout #storeDescriptionInput': 'updateDescription',
-			'focusout #storeOrderingContactInput': 'updateOrderEmail',
-			'click .sBOpen': 'toggleOpen',
+			'focusout #storeDescriptionInput': '_updateDescription',
+			'focusout #storeOrderingContactInput': '_updateOrderEmail',
+			'click .bMail': '_sendTestOrder',
+			'click .sBOpen': '_toggleOpen',
 			// payment methods
-			'click #payment button.toggle': 'togglePaymentMethod',
-			'click #paypalSettings': 'updatePaypal'
+			'click #payment button.toggle': '_togglePaymentMethod',
+			'click #paypalSettings': '_updatePaypal'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var json = {
 				'number': this.model.get('number'),
 				'title': this.model.get('title'),
@@ -42,23 +44,36 @@ define([
 			});
 		},
 
-		updateDescription: function (e) {
+		_updateDescription: function (e) {
 			var $textarea = $(e.target),
 				description = $textarea.val();
 
 			this.model.set('description', description);
-			this.saveModel();
+			this._saveModel();
 		},
 
-		updateOrderEmail: function (e) {
+		_updateOrderEmail: function (e) {
 			var $input = $(e.target),
 				val = $input.val();
 
 			this.model.set('orderEmail', val);
-			this.saveModel();
+			this._saveModel();
 		},
 
-		toggleOpen: function () {
+		_sendTestOrder: function () {
+			$.ajax({
+				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
+				type: 'post',
+				success: function () {
+					notificationcenter.success('orders.testOrder.success', 'orders.testOrder.success');
+				},
+				error: function() {
+					notificationcenter.error('orders.testOrder.error', 'orders.testOrder.error');
+				}
+			});
+		},
+
+		_toggleOpen: function () {
 			var $button = this.$('.sBOpen'),
 				isOpen = !this.model.get('isOpen');
 
@@ -78,7 +93,7 @@ define([
 			});
 		},
 
-		togglePaymentMethod: function (e) {
+		_togglePaymentMethod: function (e) {
 			var self = this,
 				storeModel = this.model,
 				$button = $(e.target),
@@ -103,7 +118,7 @@ define([
 			});
 		},
 
-		updatePaypal: function () {
+		_updatePaypal: function () {
 			var url = this.model.url() + '/updatepaypal',
 				$button = this.$('#paypalSettings');
 
@@ -121,7 +136,7 @@ define([
 
 		},
 
-		saveModel: function () {
+		_saveModel: function () {
 			var self = this;
 			this.model.save({}, {
 				success: function () {

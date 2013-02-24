@@ -77,7 +77,7 @@ define([
 				},
 
 				error: function () {
-					// self.pageNotFound();
+					self.pageNotFound();
 				}
 			});
 		},
@@ -122,7 +122,7 @@ define([
 				},
 
 				error: function () {
-					// self.pageNotFound();
+					self.pageNotFound();
 				}
 			});
 		},
@@ -133,9 +133,12 @@ define([
 
 			this.orderedItemModel = orderedItemsCollection.get(this.options.selectionRessourceId);
 
-			console.log(this.orderedItemModel);
+			if (this.orderedItemModel) {
+				this._render();
+			} else {
+				this.pageNotFound();
+			}
 
-			this._render();
 
 		},
 
