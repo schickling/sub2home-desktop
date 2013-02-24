@@ -71,7 +71,29 @@ class OrderCreateController extends ApiController
 
 	public function testOrder()
 	{
+		// prepare
+		$this->loadStoreModel();
+		$this->checkAuthentification();
+
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		
+		$testOrderModel = new OrderModel();
+		$testOrderModel->store_model_id = $this->storeModel->id;
+
+		$compensationOrderModel = new OrderModel();
+		$compensationOrderModel->store_model_id = $this->storeModel->id;
+		$compensationOrderModel->total = - $testOrderModel->total;
+
+
+		$testOrderModel->save();
+		$testOrderModel->confirm();
+
+		$compensationOrderModel->save();
+		$compensationOrderModel->confirm();
+
 	}
 
 

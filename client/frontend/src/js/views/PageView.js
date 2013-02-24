@@ -33,6 +33,13 @@ define([
 
 		},
 
+		pageNotFound: function() {
+			router.navigate('404', {
+				trigger: true,
+				replace: true
+			});
+		},
+
 		_transition: function () {
 
 			var prevRoute = stateModel.get('prevRoute'),
@@ -473,8 +480,6 @@ define([
 			}, this.animationTime, function () {
 				$current.remove();
 			});
-
-
 
 		}
 
