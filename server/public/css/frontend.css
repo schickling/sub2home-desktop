@@ -4191,7 +4191,7 @@ input[type="text"]#locationSelectionInput {
   cursor: default;
   position: absolute;
   width: 450px;
-  padding: 25px;
+  padding: 160px 25px 25px;
   top: 0;
   left: -99px;
   text-align: left;
@@ -4212,8 +4212,10 @@ input[type="text"]#locationSelectionInput {
 }
 .item .detailsArticle img,
 .article .detailsArticle img {
-  position: relative;
+  position: absolute;
   z-index: 6;
+  left: 25px;
+  top: 25px;
 }
 .item .detailsArticle .itemInfo,
 .article .detailsArticle .itemInfo {
@@ -4272,6 +4274,19 @@ input[type="text"]#locationSelectionInput {
   left: -30px;
   height: 160px;
   width: auto;
+}
+.item .uncheckFootlong,
+.article .uncheckFootlong {
+  width: 35px;
+  height: 35px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  background: #9d261d;
+  position: absolute;
+  right: 19px;
+  top: 40px;
 }
 .item .customizeArticle,
 .article .customizeArticle {

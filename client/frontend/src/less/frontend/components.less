@@ -1185,7 +1185,7 @@ input[type="text"]#locationSelectionInput {
     cursor: default;
     position: absolute;
     width: 450px;
-    padding: 25px;
+    padding: 160px 25px 25px;
     top: 0;
     left: -99px;
     text-align: left;
@@ -1197,8 +1197,10 @@ input[type="text"]#locationSelectionInput {
     .backface-visibility(hidden);
     z-index: 5;
     img {
-      .positioned;
+      position: absolute;
       z-index: 6;
+      left: 25px;
+      top: 25px;
     }
 
     .itemInfo {
@@ -1265,6 +1267,16 @@ input[type="text"]#locationSelectionInput {
       width: auto;
     }
 
+  }
+
+  .uncheckFootlong {
+    width: 35px;
+    height: 35px;
+    .img-circle;
+    background: @red;
+    position: absolute;
+    right: 19px;
+    top: 40px;
   }
 
   .customizeArticle {
