@@ -44,7 +44,7 @@ define([
 
 		_renderArticleSection: function () {
 			new CategoriesView({
-				el: this.$('.categories')
+				el: this.$el
 			});
 		}
 

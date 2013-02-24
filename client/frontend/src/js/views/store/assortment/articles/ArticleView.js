@@ -21,6 +21,8 @@ define([
 
 		initialize: function () {
 			this._render();
+
+			this.model.on('renderAgain', this._render, this);
 		},
 
 		_render: function () {
