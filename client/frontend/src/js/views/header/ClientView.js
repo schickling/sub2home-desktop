@@ -19,16 +19,23 @@ define([
 			'click .bDashboard': '_navigateToClientDashboard'
 		},
 
+		template: _.template(ClientTemplate),
+
 		initialize: function () {
 			this._render();
 		},
 
 		_render: function () {
 
-			var $el = this.$el;
+			var $el = this.$el,
+				currentStoreModel = stateModel.get('storeModel'),
+				json = {
+					storeTitle: currentStoreModel.get('title')
+				},
+				renderedHtml = this.template(json);
 
 			$el.fadeOut(150, function () {
-				$el.html(ClientTemplate);
+				$el.html(renderedHtml);
 				$el.fadeIn(150);
 			});
 
