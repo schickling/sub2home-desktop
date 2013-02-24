@@ -43,7 +43,7 @@ define([
 			// destory whole view if element gets destroyed
 			var self = this;
 			this.$el.on('destroyed', function () {
-				self._prepareDestroy();
+				self._unsetOrderedItemModel();
 			});
 
 		},
@@ -156,6 +156,8 @@ define([
 			// initalize TimelineControllerView
 			this._initializeTimelineController();
 
+
+			this._listenForArticleSelection();
 		},
 
 		_renderCartTimelineItem: function () {
@@ -200,11 +202,26 @@ define([
 			}, 300);
 		},
 
-		_prepareDestroy: function () {
-
-			// TODO
+		_unsetOrderedItemModel: function () {
 			this.orderedItemModel = null;
-			// this.orderedItemModel.destroy();
+		},
+
+		_listenForArticleSelection: function () {
+			this.orderedItemModel.on('articleModelWasSelected', function () {
+				// render template
+				this.$el.html(MainTemplate);
+
+				// add cart timeline item
+				this._renderCartTimelineItem();
+
+				// render ordered articles
+				this._renderOrderedArticles();
+
+				// initalize TimelineControllerView
+				this._initializeTimelineController();
+
+
+			}, this);
 		}
 
 	});

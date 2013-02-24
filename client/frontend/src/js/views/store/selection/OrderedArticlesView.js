@@ -9,19 +9,20 @@ define([
 	var OrderedArticlesView = Backbone.View.extend({
 
 		initialize: function () {
-			this.render();
+			this._render();
 
 			// listen for further ordered articles to be added
-			this.collection.on('add', this.renderOrderedArticle, this);
+			this.collection.on('add', this._renderOrderedArticle, this);
+
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (orderedArticleModel) {
-				this.renderOrderedArticle(orderedArticleModel);
+				this._renderOrderedArticle(orderedArticleModel);
 			}, this);
 		},
 
-		renderOrderedArticle: function (orderedArticleModel) {
+		_renderOrderedArticle: function (orderedArticleModel) {
 			var orderedArticleView = new OrderedArticleView({
 				model: orderedArticleModel,
 				el: this.$el

@@ -44,6 +44,7 @@ define([
 
 		_listenForArticleSelection: function () {
 			var orderedArticleModel = this.model,
+				orderedItemModel = orderedArticleModel.get('orderedItemModel'),
 				menuComponentBlockModel = orderedArticleModel.get('menuComponentBlockModel'),
 				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
 				timelineItemsCollection = this.timelineItemsCollection,
@@ -58,7 +59,7 @@ define([
 						if (menuComponentOptionArticleModel.get('isSelected')) {
 							timelineItemModel = timelineItemsCollection.first();
 							timelineItemModel.set('isLocked', false);
-							orderedArticleModel.trigger('articleModelWasSelected');
+							orderedItemModel.trigger('articleModelWasSelected');
 						}
 
 					});
