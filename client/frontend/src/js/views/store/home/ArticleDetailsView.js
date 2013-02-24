@@ -36,12 +36,12 @@ define([
 			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
 				footlongItemModel = attachedItemsCollection.first(),
 				json = {
-				title: this.model.get('title'),
-				image: this.model.get('largeImage'),
-				footlongImage: footlongItemModel.get('largeImage'),
-				description: this.model.get('description'),
-				price: this.model.get('price')
-			};
+					title: this.model.get('title'),
+					image: this.model.get('largeImage'),
+					footlongImage: footlongItemModel.get('largeImage'),
+					description: this.model.get('description'),
+					price: this.model.get('price')
+				};
 
 			console.log(this.model.get('attachedItemsCollection').toJSON());
 
@@ -56,9 +56,10 @@ define([
 			}
 		},
 
-		_makeFootlong: function() {
+		_makeFootlong: function () {
 			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
 				footlongItemModel = attachedItemsCollection.first(),
+				$uncheckFootlong = this.$('.uncheckFootlong'),
 				$images = this.$('img'),
 				$6inch = $images.eq(0),
 				$footlong = $images.eq(1),
@@ -66,6 +67,8 @@ define([
 
 
 			$footlong.fadeIn();
+
+			$uncheckFootlong.fadeIn();
 
 			$pricetag.find('span').text(footlongItemModel.get('price') + ' €');
 			$pricetag.animate({
@@ -75,13 +78,16 @@ define([
 			this.selectedItemModel = footlongItemModel;
 		},
 
-		_make6Inch: function() {
-			var $images = this.$('img'),
+		_make6Inch: function () {
+			var $uncheckFootlong = this.$('.uncheckFootlong'),
+				$images = this.$('img'),
 				$6inch = $images.eq(0),
 				$footlong = $images.eq(1),
 				$pricetag = this.$('.pricetag');
 
 			$footlong.fadeOut();
+
+			$uncheckFootlong.fadeOut();
 
 			$pricetag.find('span').text(this.model.get('price') + ' €');
 			$pricetag.animate({
