@@ -4267,14 +4267,6 @@ input[type="text"]#locationSelectionInput {
   width: 120px;
   text-align: center;
 }
-.item .footlongOption img,
-.article .footlongOption img {
-  position: absolute;
-  top: -8px;
-  left: -30px;
-  height: 160px;
-  width: auto;
-}
 .item .uncheckFootlong,
 .article .uncheckFootlong {
   width: 35px;
@@ -4287,6 +4279,8 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   right: 19px;
   top: 40px;
+  z-index: 50;
+  cursor: pointer;
 }
 .item .customizeArticle,
 .article .customizeArticle {
