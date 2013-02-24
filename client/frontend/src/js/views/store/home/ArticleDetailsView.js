@@ -12,6 +12,8 @@ define([
 
 		className: 'detailsArticle',
 
+		selectedItemModel: null,
+
 		hideTimer: 0,
 
 		template: _.template(ArticleDetailsTemplate),
@@ -19,12 +21,14 @@ define([
 		events: {
 			'click .bFood': '_goToSelection',
 			'click .footlongOption': '_makeFootlong',
-			'click .pricetag': '_make6Inch',
+			'click .uncheckFootlong': '_make6Inch',
 			'mouseleave': '_hide',
 			'mouseenter': '_stopHiding'
 		},
 
 		initialize: function () {
+			this.selectedItemModel = this.model;
+
 			this.render();
 		},
 
@@ -45,25 +49,30 @@ define([
 		},
 
 		_goToSelection: function () {
-			if (this.model.get('allowsIngredients')) {
-				router.navigate('store/theke/artikel/' + this.model.get('id'), true);
+			if (this.selectedItemModel.get('allowsIngredients')) {
+				router.navigate('store/theke/artikel/' + this.selectedItemModel.get('id'), true);
 			} else {
 				alert('Warenkorb yo!');
 			}
 		},
 
 		_makeFootlong: function() {
-			var $images = this.$('img'),
+			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
+				footlongItemModel = attachedItemsCollection.first(),
+				$images = this.$('img'),
 				$6inch = $images.eq(0),
 				$footlong = $images.eq(1),
 				$pricetag = this.$('.pricetag');
 
-			$6inch.addClass('hidden');
-			$footlong.removeClass('hidden');
 
+			$footlong.fadeIn();
+
+			$pricetag.find('span').text(footlongItemModel.get('price') + ' €');
 			$pricetag.animate({
 				left: 393
 			});
+
+			this.selectedItemModel = footlongItemModel;
 		},
 
 		_make6Inch: function() {
@@ -72,12 +81,14 @@ define([
 				$footlong = $images.eq(1),
 				$pricetag = this.$('.pricetag');
 
-			$6inch.removeClass('hidden');
-			$footlong.addClass('hidden');
+			$footlong.fadeOut();
 
+			$pricetag.find('span').text(this.model.get('price') + ' €');
 			$pricetag.animate({
 				left: 193
 			});
+
+			this.selectedItemModel = this.model;
 		},
 
 		_hide: function () {
