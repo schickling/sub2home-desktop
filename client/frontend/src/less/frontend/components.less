@@ -3070,7 +3070,6 @@ div#payment {
   .clearfix;
 }
 
-
 .articleInfo {
 
   .articlePreview {
@@ -3108,32 +3107,32 @@ div#payment {
   height: 182px;
 }
 
-.bGreen {
-  .positioned;
-  font-family: @headingsBoldFontFamily;
-  font-size: 14px;
-  color: @white;
-  text-align: center;
-  .border-box;
-  top: -5px;
-  left: 0;
-  margin-left: 10px;
-  small {
-    font-size: 10px;
-    display: block;
-    color: inherit;
-    letter-spacing: 1px;
-    .positioned;
-    top: -2px;
-  }
-  &.subSize {
-    padding-top: 6px;
-  }
-  &.cupSize {
-    padding-top: 10px;
-    letter-spacing: -1px;
-  }
-}
+// .bGreen {
+//   .positioned;
+//   font-family: @headingsBoldFontFamily;
+//   font-size: 14px;
+//   color: @white;
+//   text-align: center;
+//   .border-box;
+//   top: -5px;
+//   left: 0;
+//   margin-left: 10px;
+//   small {
+//     font-size: 10px;
+//     display: block;
+//     color: inherit;
+//     letter-spacing: 1px;
+//     .positioned;
+//     top: -2px;
+//   }
+//   &.subSize {
+//     padding-top: 6px;
+//   }
+//   &.cupSize {
+//     padding-top: 10px;
+//     letter-spacing: -1px;
+//   }
+// }
 
 .ingredientInfo {
   width: 560px;
@@ -4465,7 +4464,8 @@ div#payment {
 // -------------------------------------------------------------------------------------------------------------------
 
 
-@infoNavigationWidth:   260px;
+@infoNavigationWidth:       260px;
+@infoNavigationPaddingLeft: 50px;
 
 aside.infoNavigation {
     position: absolute;
@@ -4474,7 +4474,7 @@ aside.infoNavigation {
     bottom: 0;
     width: @infoNavigationWidth;
     background: @darkBackground;
-    padding: 10% 0 0 50px;
+    padding: 10% 0 0 @infoNavigationPaddingLeft;
     &:after {
       content: " ";
       background: rgba(255,255,255,0.1);
@@ -4509,7 +4509,7 @@ aside.infoNavigation {
 .content.info {
 
   .container {
-    margin-left: @infoNavigationWidth;
+    margin-left: @infoNavigationWidth + @infoNavigationPaddingLeft;
     padding: 50px 50px 80px 80px;
     //.border-box;
     width: auto;
@@ -4524,6 +4524,14 @@ aside.infoNavigation {
           color: @onInfoColor;
           text-shadow: 0 1px 0 rgba(255,255,255,0.15);
           margin: 0 0 70px 0;
+
+          span {
+            font-size: 24px;
+            color: @white;
+            text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+            margin: 0 0 0 20px;
+          }
+
         }
       }
 
@@ -4551,6 +4559,7 @@ aside.infoNavigation {
           margin: 0 0 15px 0;
         }
       }
+
       .twoColumn {
         header h3 {
           margin: 0 0 36px 0;
@@ -4590,5 +4599,91 @@ aside.infoNavigation {
         }
       }
     } 
+
+    .weekday {
+      .positioned;
+      margin-bottom: 40px;
+      h3 {
+        color: @white;
+        text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+      .openingHours {
+        font-size: 24px;
+        color: @onInfoColor;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.1);
+        font-family: @headingsFontFamily;
+        line-height: 32px;
+        padding-left: 70px;
+        width: 147px;
+        p {
+          margin: 0;
+          display: inline-block;
+          width: 72px;
+          &:first-child {
+            margin-right: 7px;
+            width: 58px;
+            //text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// ---------------------------------------------- INFO SECTION -------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+#error404 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 850px;
+  margin: -160px 0 0 -425px;
+  text-align: center;
+  h1 {
+    font-size: 70px;
+    color: @greenLight;
+    text-align: center;
+    line-height: 1;
+  }
+  p {
+    margin-top: 30px;
+    font-size: 50px;
+    color: @greenLighter;
+    font-family: @headingsFontFamily;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+  }
+  .bigBack {
+    display: inline-block;
+    .positioned;
+    cursor: pointer;
+    margin-top: 33px;
+    font-size: 40px;
+    font-family: @headingsFontFamily;
+    color: @grayLight;
+    text-align: center;
+    .transition(color .1s linear);
+    &:before {
+      content: "\e03e";
+      font-family: "Homicons";
+      display: block;
+      font-size: 180px;
+      position: relative;
+      top: 2px;
+      left: 0;
+      line-height: 0.5;
+    }
+    &:hover {
+      color: @gray;
+    }
   }
 }
