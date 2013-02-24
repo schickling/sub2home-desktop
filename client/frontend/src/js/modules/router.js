@@ -145,16 +145,21 @@ define([
 
 		_showStoreHome: function (alias) {
 
-			stateModel.set({
-				currentRoute: 'store.home',
-				storeAlias: alias
-			});
+			if (this._isValidStoreModel()) {
 
-			this._loadMainView('views/store/home/MainView');
+				stateModel.set({
+					currentRoute: 'store.home',
+					storeAlias: alias
+				});
+
+				this._loadMainView('views/store/home/MainView');
+
+			}
 
 		},
 
 		_showStoreSelection: function (alias, resourceType, resourceId) {
+
 
 			stateModel.set({
 				currentRoute: 'store.selection',
@@ -166,7 +171,11 @@ define([
 				selectionRessourceId: resourceId
 			};
 
-			this._loadMainView('views/store/selection/MainView', params);
+			if (this._isValidStoreModel()) {
+
+				this._loadMainView('views/store/selection/MainView', params);
+
+			}
 
 		},
 
@@ -177,7 +186,11 @@ define([
 				storeAlias: alias
 			});
 
-			this._loadMainView('views/store/tray/MainView');
+			if (this._isValidStoreModel()) {
+
+				this._loadMainView('views/store/tray/MainView');
+
+			}
 
 		},
 
@@ -188,7 +201,11 @@ define([
 				storeAlias: alias
 			});
 
-			this._loadMainView('views/store/checkout/MainView');
+			if (this._isValidStoreModel()) {
+
+				this._loadMainView('views/store/checkout/MainView');
+
+			}
 
 		},
 
@@ -201,8 +218,11 @@ define([
 					storeAlias: alias
 				});
 
-				this._loadMainView('views/store/config/MainView');
+				if (this._isValidStoreModel()) {
 
+					this._loadMainView('views/store/config/MainView');
+
+				}
 			}
 
 		},
@@ -216,7 +236,9 @@ define([
 					storeAlias: alias
 				});
 
-				this._loadMainView('views/store/assortment/MainView');
+				if (this._isValidStoreModel()) {
+					this._loadMainView('views/store/assortment/MainView');
+				}
 
 			}
 
@@ -231,7 +253,11 @@ define([
 					storeAlias: alias
 				});
 
-				this._loadMainView('views/store/dashboard/MainView');
+				if (this._isValidStoreModel()) {
+
+					this._loadMainView('views/store/dashboard/MainView');
+
+				}
 
 			}
 
@@ -244,13 +270,21 @@ define([
 				storeAlias: alias
 			});
 
-			this._loadMainView('views/store/info/MainView');
+			if (this._isValidStoreModel()) {
+
+				this._loadMainView('views/store/info/MainView');
+
+			}
 
 		},
 
 		_showPageNotFound: function () {
 
-			$('body').html('404');
+			stateModel.set({
+				currentRoute: 'error.404'
+			});
+
+			this._loadMainView('views/error/404/MainView');
 
 		},
 
@@ -292,6 +326,18 @@ define([
 				return true;
 			} else {
 				this.navigate('login', {
+					trigger: true,
+					replace: true
+				});
+				return false;
+			}
+		},
+
+		_isValidStoreModel: function () {
+			if (stateModel.doesStoreExist()) {
+				return true;
+			} else {
+				this.navigate('404', {
 					trigger: true,
 					replace: true
 				});

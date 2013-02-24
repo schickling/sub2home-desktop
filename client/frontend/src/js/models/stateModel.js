@@ -82,6 +82,9 @@ define([
 					this._fetchStoreModelFromServer();
 				}
 
+				// switch to store header
+				this.set('isClientHeaderActive', false);
+
 			}, this);
 
 
@@ -132,15 +135,18 @@ define([
 
 			console.log('fetched');
 
-			var storeModel = new StoreModel({
-				alias: this.get('storeAlias')
-			});
+			var errorOccured = false,
+				storeModel = new StoreModel({
+					alias: this.get('storeAlias')
+				});
 
 			storeModel.fetch({
 				// needed because other views depend on store models
 				async: false,
 				error: function () {
-					// TODO
+
+					errorOccured = true;
+
 					Backbone.history.navigate('404', {
 						trigger: true,
 						replace: true
@@ -148,15 +154,25 @@ define([
 				}
 			});
 
-			this.set({
-				storeModel: storeModel,
+			// check if store was avaiable
+			if (errorOccured) {
 
-				// cache store changed in boolean
-				// needed if listener for storeAlias:change wasn't initialized yet in cartModel
-				changedStore: true
-			});
+				console.log('damniit');
+				this.set('storeModel', null);
 
-			this._listenForStoreInternalChanges();
+			} else {
+
+				this.set({
+					storeModel: storeModel,
+
+					// cache store changed in boolean
+					// needed if listener for storeAlias:change wasn't initialized yet in cartModel
+					changedStore: true
+				});
+
+				this._listenForStoreInternalChanges();
+
+			}
 		},
 
 		_listenForStoreInternalChanges: function () {
@@ -176,6 +192,10 @@ define([
 			}
 
 			return false;
+		},
+
+		doesStoreExist: function () {
+			return this.get('storeModel') !== null;
 		},
 
 		currentRouteIsClientRelated: function () {
@@ -198,7 +218,7 @@ define([
 			return routePrefix === 'store';
 		},
 
-		clientOwnsThisStore: function() {
+		clientOwnsThisStore: function () {
 			var storeModel = this.get('storeModel');
 
 			// check with number since number only gets set if client fetches store model
