@@ -14,6 +14,8 @@ define([
 
 		selectedItemModel: null,
 
+		animationTime: 150,
+
 		hideTimer: 0,
 
 		template: _.template(ArticleDetailsTemplate),
@@ -43,8 +45,6 @@ define([
 					price: this.model.get('price')
 				};
 
-			console.log(this.model.get('attachedItemsCollection').toJSON());
-
 			this.$el.html(this.template(json));
 		},
 
@@ -60,39 +60,45 @@ define([
 			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
 				footlongItemModel = attachedItemsCollection.first(),
 				$uncheckFootlong = this.$('.uncheckFootlong'),
+				$footlongOption = this.$('.footlongOption'),
 				$images = this.$('img'),
 				$6inch = $images.eq(0),
 				$footlong = $images.eq(1),
 				$pricetag = this.$('.pricetag');
 
 
-			$footlong.fadeIn();
+			$footlong.fadeIn(this.animationTime);
 
-			$uncheckFootlong.fadeIn();
+			$uncheckFootlong.fadeIn(this.animationTime);
+
+			$footlongOption.fadeOut(this.animationTime);
 
 			$pricetag.find('span').text(footlongItemModel.get('price') + ' €');
 			$pricetag.animate({
 				left: 393
-			});
+			}, this.animationTime);
 
 			this.selectedItemModel = footlongItemModel;
 		},
 
 		_make6Inch: function () {
 			var $uncheckFootlong = this.$('.uncheckFootlong'),
+				$footlongOption = this.$('.footlongOption'),
 				$images = this.$('img'),
 				$6inch = $images.eq(0),
 				$footlong = $images.eq(1),
 				$pricetag = this.$('.pricetag');
 
-			$footlong.fadeOut();
+			$footlong.fadeOut(this.animationTime);
 
-			$uncheckFootlong.fadeOut();
+			$uncheckFootlong.fadeOut(this.animationTime);
+
+			$footlongOption.fadeIn(this.animationTime);
 
 			$pricetag.find('span').text(this.model.get('price') + ' €');
 			$pricetag.animate({
 				left: 193
-			});
+			}, this.animationTime);
 
 			this.selectedItemModel = this.model;
 		},
