@@ -14,7 +14,11 @@ define([
 		initialize: function () {
 			this.render();
 
-			this.$('.turnoverContainer').overscroll();
+			this.$('.turnoverContainer').overscroll({
+				showThumbs: false,
+				direction: 'horizontal',
+				wheelDirection: 'horizontal'
+			});
 		},
 
 		render: function () {

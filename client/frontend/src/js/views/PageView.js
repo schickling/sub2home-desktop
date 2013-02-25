@@ -122,6 +122,11 @@ define([
 				},
 					{
 					origin: 'store.home',
+					destination: 'store.assortment',
+					type: 'b.forward'
+				},
+					{
+					origin: 'store.home',
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},

@@ -30,7 +30,7 @@ define([
 		},
 
 		_navigate: function () {
-			router.navigate(this.model.get('alias'), true);
+			router.navigate(this.model.get('alias') + '/dashboard', true);
 		}
 
 
