@@ -4894,9 +4894,10 @@ input[type="text"]#locationSelectionInput {
   overflow: hidden;
   position: relative;
   margin-top: 50px;
+  padding-top: 6px;
   padding-left: 222px;
   font-family: "VAGRounded LT Thin";
-  height: 180px;
+  height: 190px;
 }
 .clientBasics:before {
   content: " ";
@@ -4929,7 +4930,7 @@ input[type="text"]#locationSelectionInput {
 }
 .clientBasics .triggerEditPassword p .iKey {
   text-decoration: none;
-  margin-right: 7px;
+  margin-right: 15px;
   font-size: 20px;
 }
 .clientBasics .triggerEditPassword p .iKey:before {
@@ -5065,7 +5066,7 @@ input[type="text"]#locationSelectionInput {
 }
 .clientBasics .editPassword {
   position: absolute;
-  top: -15px;
+  top: 0;
   left: 222px;
   display: none;
 }
@@ -5284,15 +5285,17 @@ input[type="text"]#locationSelectionInput {
 .note.orders .toggleRevenues .iTurnover {
   cursor: pointer;
   height: 37px;
+  padding-left: 0px;
 }
 .note.orders .toggleRevenues .iTurnover:after {
   font-size: 50px;
   position: relative;
 }
-.note.orders .toggleRevenues .iTurnover:before {
+.note.orders .toggleRevenues .iTurnover.toggled:before {
   content: "\e05f";
-  position: relative;
+  position: absolute;
   top: 5px;
+  left: 0;
   margin-right: 5px;
   color: rgba(209, 186, 130, 0.5);
   line-height: 1;
@@ -5303,26 +5306,8 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders .toggleRevenues .iTurnover:hover:before {
+.note.orders .toggleRevenues .iTurnover.toggled:hover:before {
   color: #9d261d;
-}
-.note.orders .toggleRevenues .passToRevenues {
-  display: none;
-  color: #13493b;
-  vertical-align: top;
-  font-size: 25px;
-  height: 25px;
-  width: 310px;
-}
-.note.orders .toggleRevenues .passToRevenues::-webkit-input-placeholder {
-  position: relative;
-  top: 4px !important;
-}
-.note.orders .toggleRevenues .passToRevenues::-moz-placeholder {
-  color: rgba(209, 186, 130, 0.5) !important;
-}
-.note.orders .toggleRevenues .passToRevenues:-ms-input-placeholder {
-  color: rgba(209, 186, 130, 0.5) !important;
 }
 .note.orders .toggleRevenues h3 {
   color: #d1ba82;
