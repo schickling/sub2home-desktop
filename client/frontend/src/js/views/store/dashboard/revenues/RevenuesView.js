@@ -29,19 +29,17 @@ define([
 		_render: function () {
 			var $revenues = this.$('.revenues');
 
-			$revenues.show();
-
 			$revenues.html(this.template());
 		},
 
 		_toggle: function () {
 			var $toggleRevenues = this.$('.toggleRevenues'),
-				$iTurnover = $toggleRevenues.find('.iTurnover'),
-				$revenues = this.$('.revenues');
+				$revenues = this.$('.revenues'),
+				$iTurnover = $toggleRevenues.find('.iTurnover');
 
 			if ($toggleRevenues.hasClass('toggled')) { // hide
 
-				$revenues.animate({
+				this.$el.animate({
 					top: 0
 				});
 
@@ -49,14 +47,22 @@ define([
 					paddingLeft: 0
 				});
 
+				$revenues.animate({
+					opacity: 0
+				});
+
 			} else { // show
 
-				$revenues.animate({
+				this.$el.animate({
 					top: 400
 				});
 
 				$iTurnover.animate({
 					paddingLeft: 40
+				});
+
+				$revenues.animate({
+					opacity: 1
 				});
 
 			}
