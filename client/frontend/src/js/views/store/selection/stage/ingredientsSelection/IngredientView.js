@@ -29,30 +29,30 @@ define([
 		template: _.template(IngredientTemplate),
 
 		events: {
-			'click': 'toggleSelected'
+			'click': '_toggleSelected'
 		},
 
 		initialize: function () {
-			this.model.bind('change:isSelected', this.updateView, this);
+			this.model.bind('change:isSelected', this._updateView, this);
+
+			this._render();
+
+			this._updateView();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
 
 			// rotate circle
 			this.$('.accentIngredient').randomRotate();
 
-
-			this.updateView();
-
-			return this;
 		},
 
-		updateView: function() {
+		_updateView: function() {
 			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 
-		toggleSelected: function () {
+		_toggleSelected: function () {
 			this.model.set('isSelected', !this.model.get('isSelected'));
 			this.parentView.notifyOtherIngredients(this.model);
 		}

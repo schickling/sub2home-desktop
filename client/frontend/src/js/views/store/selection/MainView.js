@@ -135,10 +135,10 @@ define([
 
 			if (this.orderedItemModel) {
 				this._render();
+				this._unlockTimelineItemsOnEdit();
 			} else {
 				this.pageNotFound();
 			}
-
 
 		},
 
@@ -205,6 +205,10 @@ define([
 
 		_unsetOrderedItemModel: function () {
 			this.orderedItemModel = null;
+		},
+
+		_unlockTimelineItemsOnEdit: function() {
+			
 		}
 
 	});

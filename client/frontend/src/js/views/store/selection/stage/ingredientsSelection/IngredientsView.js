@@ -24,19 +24,17 @@ define([
 			$ingredients.empty();
 
 			_.each(this.collection.models, function (ingredientModel) {
-				this.renderIngredient(ingredientModel);
+				this._renderIngredient(ingredientModel);
 			}, this);
 		},
 
-		renderIngredient: function (ingredientModel) {
+		_renderIngredient: function (ingredientModel) {
 			var ingredientView = new IngredientView({
 				model: ingredientModel
 			});
 			ingredientView.parentView = this;
 
-			var $ingredient = ingredientView.render().$el;
-
-			this.$el.append($ingredient);
+			this.$el.append(ingredientView.el);
 		},
 
 		notifyOtherIngredients: function (ingredientModel) {

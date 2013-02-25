@@ -1,13 +1,13 @@
 // Filename: src/js/views/store/selection/IngredientsSelectionView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/selection/info/ingredientsSelection/InfoView',
-	'models/TimelineItemModel',
-	'views/store/selection/SelectionView',
-	'views/store/selection/stage/ingredientsSelection/IngredientCategoriesView'
-	], function ($, _, Backbone, InfoView, TimelineItemModel, SelectionView, IngredientCategoriesView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/selection/info/ingredientsSelection/InfoView',
+    'models/TimelineItemModel',
+    'views/store/selection/SelectionView',
+    'views/store/selection/stage/ingredientsSelection/IngredientCategoriesView'
+    ], function ($, _, Backbone, InfoView, TimelineItemModel, SelectionView, IngredientCategoriesView) {
 
 	var IngredientsSelectionView = SelectionView.extend({
 
@@ -26,6 +26,7 @@ define([
 
 					this.active = true;
 
+					// TODO could be optimized
 					_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
 
 						var timelineItemModel = new TimelineItemModel({
@@ -36,27 +37,23 @@ define([
 
 						this.timelineItemsCollection.add(timelineItemModel);
 
-						// update timeline items on ingredient select/unselect
 						if (ingredientCategoryModel.get('isMandatory')) {
-							var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
-
-							_.each(ingredientsCollection.models, function (ingredientModel) {
-								ingredientModel.bind('change:isSelected', function () {
-
-									// count isSelected items
-									var isSelectedCount = ingredientModel.collection.where({
-										isSelected: true
-									}).length;
-
-									// mark as locked if no ingredient isSelected
-									timelineItemModel.set('isLocked', (isSelectedCount === 0));
-								});
-
-							});
-
 
 							// lock on init
 							timelineItemModel.set('isLocked', true);
+
+							
+							var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
+
+							_.each(ingredientsCollection.models, function (ingredientModel) {
+
+								// update timeline items on ingredient select/unselect
+								ingredientModel.bind('change:isSelected', this._updateTimelineModel, this);
+
+								// update timeline items initially for editing ordered items
+								this._updateTimelineModel(ingredientModel, timelineItemModel);
+
+							}, this);
 						}
 
 
@@ -66,19 +63,18 @@ define([
 
 			}
 
-
 		},
 
-		initializeArticleChangeListener: function () {
+		_updateTimelineModel: function (ingredientModel, timelineItemModel) {
+			// count isSelected items
+			var isSelectedCount = ingredientModel.collection.where({
+				isSelected: true
+			}).length;
 
-			// listen for selection
-			this.model.bind('change', function () {
-				if (this.model.hasChanged('articleModel')) {
-					console.log(this.model.get('articleModel').toJSON());
-					// this.renderIngredientsSelection();
-				}
-			}, this);
+			// mark as locked if no ingredient isSelected
+			timelineItemModel.set('isLocked', (isSelectedCount === 0));
 
+			console.log(isSelectedCount);
 		}
 
 	});
