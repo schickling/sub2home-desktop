@@ -1270,15 +1270,29 @@ input[type="text"]#locationSelectionInput {
   }
 
   .uncheckFootlong {
+    display: none;
     width: 35px;
     height: 35px;
     .img-circle;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.3));
     background: @red;
     position: absolute;
-    right: 19px;
+    right: 31px;
     top: 40px;
     z-index: 50;
     cursor: pointer;
+    #gradient > .vertical( #f65a1c, #9e2d00 );
+    border: 1px solid darken(#9e2d00, 3%);
+    color: #651d00;
+    text-shadow: 0 1px 0 #da8665, 0 -1px 0 rgba(100, 100, 100, 0.05);
+    &:before {
+      content: "\e05f";
+      font-family: "Homicons";
+      position: absolute;
+      top: 10px;
+      font-size: 21px;
+      left: 7px;
+    }
   }
 
   .customizeArticle {
@@ -2573,8 +2587,10 @@ input[type="text"]#locationSelectionInput {
 // Foldable Subheadlines
 // ---------------------
 
-.folded h3 {
+.folded h2 {
         color: @onNoteColor;
+        margin-bottom: 20px;
+        font-size: 40px;
       //  .transition(color .2s linear);
       }
 
@@ -3016,13 +3032,13 @@ div#payment {
       text-align: left;
       position: relative;
 
-      h3 {
+      h2 {
         margin-left: 20px;
       }
 
-      .headingSeparator {
-        left: 150px;
-      }
+      // .headingSeparator {
+      //   left: 150px;
+      // }
 
       .unfolded >div.businessDay {
         min-height: 80px;
