@@ -4995,6 +4995,7 @@ input[type="text"]#locationSelectionInput {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   height: 20px;
   padding: 10px 24px;
+  width: 42px;
   margin-top: 30px;
   display: none;
 }
@@ -7642,7 +7643,7 @@ aside.infoNavigation ul li.active {
 .content.info .container article .threeColumn,
 .content.info .container article .twoColumn {
   display: inline-block;
-  width: 33%;
+  width: 32%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -7668,7 +7669,7 @@ aside.infoNavigation ul li.active {
 .content.info .container article#storeInfoPlaceholder {
   font-size: 60px;
   font-family: "VAGRounded LT Thin";
-  color: rgba(12, 12, 12, 0.7);
+  color: rgba(0, 0, 0, 0.65);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
   margin: 70px 0;
   line-height: 1.2;
