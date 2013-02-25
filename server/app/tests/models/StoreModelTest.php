@@ -48,7 +48,7 @@ class StoreModelTest extends TestCase {
 
 		$clientModel = new ClientModel(array(
 			'number' => 1,
-			'password' => Hash::make('haallo'),
+			'hashedPassword' => Hash::make('superSecure'),
 			'email' => 'firstClient@test.de'
 			));
 		$clientModel->save();

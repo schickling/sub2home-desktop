@@ -26,7 +26,23 @@ define([
 		},
 
 		validate: function (attributes) {
-			
+
+			if (attributes.name === '') {
+				return 'name';
+			}
+
+			if (attributes.bankName === '') {
+				return 'bankName';
+			}
+
+			if (attributes.bankCodeNumber < 0) {
+				return 'bankCodeNumber';
+			}
+
+			if (attributes.accountNumber < 0) {
+				return 'accountNumber';
+			}
+
 		}
 
 	});

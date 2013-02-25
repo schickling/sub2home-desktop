@@ -129,7 +129,7 @@ class AuthentificationControllerTest extends TestCase {
 	{
 		$clientModel = new ClientModel(array(
 			'number' => 1,
-			'password' => Hash::make('superSecure'),
+			'hashedPassword' => Hash::make('superSecure'),
 			'email' => 'client@test.de'
 			));
 		$clientModel->save();

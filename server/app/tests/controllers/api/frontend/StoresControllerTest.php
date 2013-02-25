@@ -46,7 +46,7 @@ class StoresControllerTest extends TestCase {
 
 		$firstClientModel = new ClientModel(array(
 			'number' => 1,
-			'password' => Hash::make('haallo'),
+			'hashedPassword' => Hash::make('haallo'),
 			'email' => 'firstClient@test.de'
 			));
 		$firstClientModel->save();

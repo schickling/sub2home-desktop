@@ -50,7 +50,7 @@ class AddressesControllerTest extends TestCase {
 
 		$clientModel = new ClientModel(array(
 			'number' => 1,
-			'password' => Hash::make('haallo'),
+			'hashedPassword' => Hash::make('haallo'),
 			'email' => 'client@test.de'
 			));
 		$clientModel->save();
