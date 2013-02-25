@@ -443,7 +443,7 @@ aside#header .iInfo {
   overflow-x: hidden;
 }
 .content.orders {
-  top: 400px;
+  top: 100px;
   bottom: 0;
 }
 .content.home {
@@ -5278,6 +5278,9 @@ input[type="text"]#locationSelectionInput {
   box-sizing: border-box;
   height: 27px;
 }
+.note.orders {
+  min-height: 100px;
+}
 .note.orders .toggleRevenues {
   margin: 30px;
   position: absolute;
@@ -5321,6 +5324,7 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   margin: 80px 0 50px 0;
   height: 270px;
+  display: none;
 }
 .note.orders .revenues:before {
   content: " ";
