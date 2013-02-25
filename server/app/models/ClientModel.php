@@ -6,6 +6,15 @@ class ClientModel extends BaseModel {
 
 	protected $table = 'client_models';
 
+	public function afterFirstSave()
+	{
+		// initialize mandatory relationships
+
+		// TODO
+		// $this->addressModel()->create(array());
+		$this->bankaccountModel()->create(array());
+	}
+
 	/**
 	 * Hook delete
 	 * 
@@ -17,6 +26,12 @@ class ClientModel extends BaseModel {
 		foreach ($this->storesCollection as $storeModel) {
 			$storeModel->delete();
 		}
+
+		// Delete belonging address
+		$this->addressModel->delete();
+
+		// Delete belonging bankaccount
+		$this->bankaccountModel->delete();
 		
 		return parent::delete();
 	}
@@ -39,6 +54,16 @@ class ClientModel extends BaseModel {
 	public function addressModel()
 	{
 		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
+	}
+
+	/**
+	 * Returns the bankaccount
+	 * 
+	 * @return object
+	 */
+	public function bankaccountModel()
+	{
+		return $this->hasOne('App\\Models\\BankaccountModel');
 	}
 
 	/**

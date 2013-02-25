@@ -11,8 +11,10 @@ class BankaccountModel extends BaseModel
 
 	protected $table = 'bankaccount_models';
 
-	public function storeModel()
+	protected $hidden = array('client_model_id');
+
+	public function clientModel()
 	{
-		return $this->belongsTo('App\\Models\\StoreModel');
+		return $this->belongsTo('App\\Models\\ClientModel');
 	}
 }

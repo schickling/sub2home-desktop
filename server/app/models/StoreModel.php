@@ -94,10 +94,7 @@ class StoreModel extends BaseModel
 		// Delete belonging address
 		$this->addressModel->delete();
 
-		// Delete belonging bankaccount
-		$this->bankaccountModel->delete();
-
-		// Keep ordersCollection for turnover
+		// Keep ordersCollection for total system turnover
 		foreach ($this->ordersCollection as $orderModel) {
 			$orderModel->store_model_id = 0;
 			$orderModel->save();
@@ -144,16 +141,6 @@ class StoreModel extends BaseModel
 	public function addressModel()
 	{
 		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
-	}
-
-	/**
-	 * Returns the bankaccount of the store
-	 * 
-	 * @return object
-	 */
-	public function bankaccountModel()
-	{
-		return $this->hasOne('App\\Models\\BankaccountModel');
 	}
 
 	/**

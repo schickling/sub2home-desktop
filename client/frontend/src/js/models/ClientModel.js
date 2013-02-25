@@ -1,10 +1,11 @@
 // Filename: src/js/models/ClientModel.js
 define([
-	'underscore',
-	'backbone',
-	'models/AddressModel',
-	'collections/StoresCollection'
-	], function (_, Backbone, AddressModel, StoresCollection) {
+    'underscore',
+    'backbone',
+    'models/AddressModel',
+    'models/BankaccountModel',
+    'collections/StoresCollection'
+    ], function (_, Backbone, AddressModel, BankaccountModel, StoresCollection) {
 
 	var ClientModel = Backbone.Model.extend({
 
@@ -24,6 +25,10 @@ define([
 
 			if (response.hasOwnProperty('addressModel')) {
 				response.addressModel = new AddressModel(response.addressModel);
+			}
+
+			if (response.hasOwnProperty('bankaccountModel')) {
+				response.bankaccountModel = new BankaccountModel(response.bankaccountModel);
 			}
 
 			return response;

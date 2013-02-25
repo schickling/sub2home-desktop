@@ -57,6 +57,9 @@ Route::group(array('https'), function()
 	// addresses
 	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
 
+	// bankaccounts
+	Route::put('api/frontend/bankaccounts/{id}', 						'App\Controllers\Api\Frontend\BankaccountsController@update');
+
 	// clients
 	Route::get('api/frontend/clients',						 			'App\Controllers\Api\Frontend\ClientsController@show');
 

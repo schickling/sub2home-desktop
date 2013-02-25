@@ -11,7 +11,11 @@ class ClientsController extends ApiController
 		// authentication is implied by fetching client model id
 		$client_model_id = $this->getClientModelIdFromToken();
 
-		$clientModel = ClientModel::with(array('storesCollection', 'addressModel'))
+		$clientModel = ClientModel::with(array(
+										'storesCollection',
+										'addressModel',
+										'bankaccountModel'
+									))
 									->find($client_model_id);
 
 

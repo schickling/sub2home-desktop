@@ -24,8 +24,6 @@ define([
 
 			this._switchHeaderToClientView();
 
-			// TODO discuss if needed. needed imo!
-			// this._checkIfClientOwnsJustOneStore();
 			this._render();
 		},
 
@@ -38,20 +36,6 @@ define([
 			});
 
 			this.append();
-		},
-
-		_selectFirstStoreModel: function () {
-			var currentStoreModel = stateModel.get('storeModel');
-
-			if (!currentStoreModel) {
-				var storesCollection = this.model.get('storesCollection');
-
-				currentStoreModel = storesCollection.first();
-
-				// store models gets fetched on store alias change event
-				stateModel.set('storeAlias', currentStoreModel.get('alias'));
-			}
-
 		},
 
 		_switchHeaderToClientView: function() {
