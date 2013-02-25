@@ -42,13 +42,15 @@ define([
 							// lock on init
 							timelineItemModel.set('isLocked', true);
 
-							
+
 							var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
 							_.each(ingredientsCollection.models, function (ingredientModel) {
 
 								// update timeline items on ingredient select/unselect
-								ingredientModel.bind('change:isSelected', this._updateTimelineModel, this);
+								ingredientModel.bind('change:isSelected', function() {
+									this._updateTimelineModel(ingredientModel, timelineItemModel);
+								}, this);
 
 								// update timeline items initially for editing ordered items
 								this._updateTimelineModel(ingredientModel, timelineItemModel);
