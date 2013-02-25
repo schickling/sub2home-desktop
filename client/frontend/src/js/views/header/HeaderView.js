@@ -103,9 +103,7 @@ define([
 		_switchChildView: function () {
 			if (stateModel.get('isClientHeaderActive')) {
 				stateModel.set('isClientHeaderActive', false);
-				if (stateModel.currentRouteIsStoreRelated) {
-					router.navigate('store', true);
-				} else {
+				if (stateModel.currentRouteIsClientRelated()) {
 					router.navigate('/', true);
 				}
 			} else {
