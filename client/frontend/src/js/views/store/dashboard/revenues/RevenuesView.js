@@ -33,41 +33,63 @@ define([
 		},
 
 		_toggle: function () {
-			var $toggleRevenues = this.$('.toggleRevenues'),
+			var animationTime = 300,
+				$el = this.$el,
+				$toggleRevenues = this.$('.toggleRevenues'),
 				$revenues = this.$('.revenues'),
+				$content = $('.content'), // dirty
 				$iTurnover = $toggleRevenues.find('.iTurnover');
 
 			if ($toggleRevenues.hasClass('toggled')) { // hide
 
-				this.$el.animate({
-					height: 0
-				});
+				$toggleRevenues.removeClass('toggled');
 
 				$iTurnover.animate({
 					paddingLeft: 0
-				});
+				}, animationTime);
+
 
 				$revenues.animate({
 					opacity: 0
+				}, animationTime / 2, function () {
+
+					$el.animate({
+						height: 100
+					}, animationTime);
+
 				});
+
+
+				$content.animate({
+					top: 100
+				}, animationTime);
 
 			} else { // show
 
-				this.$el.animate({
+				$el.animate({
 					height: 400
+				}, animationTime, function () {
+
+					$revenues.animate({
+						opacity: 1
+					}, animationTime / 2);
+
 				});
+
 
 				$iTurnover.animate({
 					paddingLeft: 40
+				}, animationTime, function () {
+					$toggleRevenues.addClass('toggled');
 				});
 
-				$revenues.animate({
-					opacity: 1
-				});
+
+				$content.animate({
+					top: 400
+				}, animationTime);
 
 			}
 
-			$toggleRevenues.toggleClass('toggled');
 		}
 
 	});
