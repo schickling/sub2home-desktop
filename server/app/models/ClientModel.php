@@ -2,7 +2,7 @@
 
 class ClientModel extends BaseModel {
 
-	protected $hidden = array('password', 'created_at', 'updated_at');
+	protected $hidden = array('hashedPassword', 'created_at', 'updated_at');
 
 	protected $table = 'client_models';
 

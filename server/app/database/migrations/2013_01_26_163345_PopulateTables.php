@@ -120,7 +120,7 @@ class PopulateTables extends Migration {
 		// Clients
 		$u2 = new ClientModel(array(
 			'number' => 23,
-			'password' => Hash::make('hallo'),
+			'hashedPassword' => Hash::make('password'),
 			'email' => 'office@my-sub.de'
 			));
 		$u2->save();
@@ -128,7 +128,7 @@ class PopulateTables extends Migration {
 
 		$u3 = new ClientModel(array(
 			'number' => 25,
-			'password' => Hash::make('hallo'),
+			'hashedPassword' => Hash::make('password'),
 			'email' => 'test@web.de'
 			));
 		$u3->save();
@@ -136,7 +136,7 @@ class PopulateTables extends Migration {
 
 		$u4 = new ClientModel(array(
 			'number' => 215,
-			'password' => Hash::make('hallo'),
+			'hashedPassword' => Hash::make('password'),
 			'email' => 'test2@web.de'
 			));
 		$u4->save();
@@ -144,7 +144,7 @@ class PopulateTables extends Migration {
 
 		$u5 = new ClientModel(array(
 			'number' => 2115,
-			'password' => Hash::make('haallo'),
+			'hashedPassword' => Hash::make('password'),
 			'email' => 'tesdgst2@web.de'
 			));
 		$u5->save();
@@ -152,7 +152,7 @@ class PopulateTables extends Migration {
 
 		$u6 = new ClientModel(array(
 			'number' => 2215,
-			'password' => Hash::make('haaallo'),
+			'hashedPassword' => Hash::make('password'),
 			'email' => 'tesdsst2@web.de'
 			));
 		$u6->save();

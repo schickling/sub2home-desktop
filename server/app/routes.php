@@ -62,6 +62,7 @@ Route::group(array('https'), function()
 
 	// clients
 	Route::get('api/frontend/clients',						 			'App\Controllers\Api\Frontend\ClientsController@show');
+	Route::post('api/frontend/clients/changepassword',		 			'App\Controllers\Api\Frontend\ClientsController@changePassword');
 
 	// authentification
 	Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');

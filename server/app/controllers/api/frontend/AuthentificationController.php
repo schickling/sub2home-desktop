@@ -68,7 +68,7 @@ class AuthentificationController extends ApiController
 
 
         // check password
-        $passwordMatched = Hash::check($password, $clientModel->password);
+        $passwordMatched = Hash::check($password, $clientModel->hashedPassword);
 
         if (!$passwordMatched) {
             // cache failed attempt to prevent brute forcing
