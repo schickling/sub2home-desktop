@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/selection/SelectionView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'collections/TimelineItemsCollection',
-	'views/store/selection/timeline/TimelineView'
-	], function ($, _, Backbone, TimelineItemsCollection, TimelineView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'collections/TimelineItemsCollection',
+    'views/store/selection/timeline/TimelineView'
+    ], function ($, _, Backbone, TimelineItemsCollection, TimelineView) {
 
 	// little hack to get height of hidden dom element
 	$.fn.hiddenHeight = function () {
@@ -90,7 +90,7 @@ define([
 			}, this);
 		},
 
-		_reclaimTimelineItems: function() {
+		_reclaimTimelineItems: function () {
 			var orderedItemModel = this.model.get('orderedItemModel'),
 				timelineItemsCollectionOfOrderedItemModel = orderedItemModel.get('timelineItemsCollection');
 
@@ -181,6 +181,9 @@ define([
 
 				this.infoView.remove();
 				this.stageView.remove();
+
+				// decrease selection counter
+				indexOfSelectionView--;
 
 			}
 
