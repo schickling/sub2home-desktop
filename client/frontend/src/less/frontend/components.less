@@ -1795,6 +1795,7 @@ input[type="text"]#locationSelectionInput {
 
 
 .clientBasics {
+  overflow: hidden;
   .positioned;
   margin-top: 50px;
   padding-left: 222px;
@@ -1852,6 +1853,9 @@ input[type="text"]#locationSelectionInput {
       width: 42px;
       margin-top: 30px;
       display: none;
+      &.disabled {
+        .opacity(50);
+      }
     }
   }
 

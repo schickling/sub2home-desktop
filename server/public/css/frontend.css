@@ -4891,6 +4891,7 @@ input[type="text"]#locationSelectionInput {
   color: #d1ba82;
 }
 .clientBasics {
+  overflow: hidden;
   position: relative;
   margin-top: 50px;
   padding-left: 222px;
@@ -5055,6 +5056,10 @@ input[type="text"]#locationSelectionInput {
 .clientBasics .triggerEditPassword .submitNewPassword:active,
 .clientBasics .triggerEditPassword .submitNewPassword.active {
   background-color: #7fa42f \9;
+}
+.clientBasics .triggerEditPassword .submitNewPassword.disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 .clientBasics .editPassword {
   position: absolute;
