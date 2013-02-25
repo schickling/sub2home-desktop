@@ -735,14 +735,14 @@ input[type="text"], textarea {
 
 .note {
   ::-webkit-input-placeholder  { color: @onNoteColor50; }
-  input[type="text"], textarea {
+  input[type="text"], input[type="password"], textarea {
     &::-webkit-input-placeholder {color: @onNoteColor50 !important; padding-top: 1px !important; }
     &::-moz-placeholder {color: @onNoteColor50 !important; }
     &:-ms-input-placeholder { color: @onNoteColor50 !important; }
   }
   .well {
     ::-webkit-input-placeholder  { color: @onNoteColor70; padding-top: 6px !important;}
-    input[type="text"], textarea {
+    input[type="text"], input [type="password"], textarea {
       &::-webkit-input-placeholder {color: @onNoteColor70 !important; }
       &::-moz-placeholder {color: @onNoteColor70 !important; padding-bottom: 0px !important; }
       &:-ms-input-placeholder { color: @onNoteColor70 !important; }

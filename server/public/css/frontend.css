@@ -1685,15 +1685,18 @@ textarea:-ms-input-placeholder {
   color: rgba(209, 186, 130, 0.5);
 }
 .note input[type="text"]::-webkit-input-placeholder,
+.note input[type="password"]::-webkit-input-placeholder,
 .note textarea::-webkit-input-placeholder {
   color: rgba(209, 186, 130, 0.5) !important;
   padding-top: 1px !important;
 }
 .note input[type="text"]::-moz-placeholder,
+.note input[type="password"]::-moz-placeholder,
 .note textarea::-moz-placeholder {
   color: rgba(209, 186, 130, 0.5) !important;
 }
 .note input[type="text"]:-ms-input-placeholder,
+.note input[type="password"]:-ms-input-placeholder,
 .note textarea:-ms-input-placeholder {
   color: rgba(209, 186, 130, 0.5) !important;
 }
@@ -1702,15 +1705,18 @@ textarea:-ms-input-placeholder {
   padding-top: 6px !important;
 }
 .note .well input[type="text"]::-webkit-input-placeholder,
+.note .well input [type="password"]::-webkit-input-placeholder,
 .note .well textarea::-webkit-input-placeholder {
   color: rgba(209, 186, 130, 0.7) !important;
 }
 .note .well input[type="text"]::-moz-placeholder,
+.note .well input [type="password"]::-moz-placeholder,
 .note .well textarea::-moz-placeholder {
   color: rgba(209, 186, 130, 0.7) !important;
   padding-bottom: 0px !important;
 }
 .note .well input[type="text"]:-ms-input-placeholder,
+.note .well input [type="password"]:-ms-input-placeholder,
 .note .well textarea:-ms-input-placeholder {
   color: rgba(209, 186, 130, 0.7) !important;
 }
@@ -3979,22 +3985,6 @@ input[type="text"]#locationSelectionInput {
   height: 100%;
   z-index: 6;
 }
-/*
-
-// Store Pin
-// ----------
-
-.store-pin {
-  position: absolute;
-  display: none;
-  img {
-    position: relative;
-    left: 15px;
-    margin-bottom: 10px;
-  }
-}
-
-*/
 .smallNote {
   height: 63px;
   position: absolute;
@@ -4885,6 +4875,7 @@ input[type="text"]#locationSelectionInput {
   margin-top: 50px;
   padding-left: 222px;
   font-family: "VAGRounded LT Thin";
+  height: 180px;
 }
 .clientBasics:before {
   content: " ";
@@ -4904,7 +4895,7 @@ input[type="text"]#locationSelectionInput {
   font-size: 24px;
   margin-right: 15px;
 }
-.clientBasics .editPassword {
+.clientBasics .triggerEditPassword p {
   font-size: 24px;
   color: #d1ba82;
   text-decoration: underline;
@@ -4915,8 +4906,155 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.clientBasics .editPassword:hover {
+.clientBasics .triggerEditPassword p:hover {
   color: #a78a44;
+}
+.clientBasics .triggerEditPassword .submitNewPassword {
+  display: inline-block;
+  height: 38px;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  padding: 10px 14px;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 18px;
+  *line-height: 18px;
+  font-family: "VAGRounded LT Thin";
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #555555;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.15);
+  background-color: #f0f0f0;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f7f7f7), color-stop(50%, #f2f2f2), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(#f7f7f7, #f2f2f2 50%, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #f7f7f7, #f2f2f2 50%, #e6e6e6);
+  background-image: -o-linear-gradient(#f7f7f7, #f2f2f2 50%, #e6e6e6);
+  background-image: linear-gradient(#f7f7f7, #f2f2f2 50%, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff7f7f7', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  *background-color: #e6e6e6;
+  border: 1px solid #bbbbbb;
+  *border: 0;
+  border-bottom-color: #a2a2a2;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+  border-color: #c5c5c5;
+  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+  color: #4b6f01;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
+  background-color: #add654;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bfe56e), color-stop(50%, #b1da59), to(#9cc83e));
+  background-image: -webkit-linear-gradient(#bfe56e, #b1da59 50%, #9cc83e);
+  background-image: -moz-linear-gradient(top, #bfe56e, #b1da59 50%, #9cc83e);
+  background-image: -o-linear-gradient(#bfe56e, #b1da59 50%, #9cc83e);
+  background-image: linear-gradient(#bfe56e, #b1da59 50%, #9cc83e);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbfe56e', endColorstr='#ff9cc83e', GradientType=0);
+  border-color: #9cc83e #9cc83e #6f9029;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #9cc83e;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  height: 20px;
+  padding: 10px 24px;
+  margin-top: 30px;
+  display: none;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:hover,
+.clientBasics .triggerEditPassword .submitNewPassword:active,
+.clientBasics .triggerEditPassword .submitNewPassword.active,
+.clientBasics .triggerEditPassword .submitNewPassword.disabled,
+.clientBasics .triggerEditPassword .submitNewPassword[disabled] {
+  color: #555555;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:active,
+.clientBasics .triggerEditPassword .submitNewPassword.active {
+  background-color: #cccccc \9;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:first-child {
+  *margin-left: 0;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:hover {
+  color: #555555;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  /* Buttons in IE7 don't get borders, so darken on hover */
+
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.clientBasics .triggerEditPassword .submitNewPassword.active,
+.clientBasics .triggerEditPassword .submitNewPassword:active {
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.clientBasics .triggerEditPassword .submitNewPassword:hover,
+.clientBasics .triggerEditPassword .submitNewPassword:active,
+.clientBasics .triggerEditPassword .submitNewPassword.active,
+.clientBasics .triggerEditPassword .submitNewPassword.disabled,
+.clientBasics .triggerEditPassword .submitNewPassword[disabled] {
+  color: #4b6f01;
+  background-color: #9cc83e;
+  *background-color: #8eb834;
+}
+.clientBasics .triggerEditPassword .submitNewPassword:active,
+.clientBasics .triggerEditPassword .submitNewPassword.active {
+  background-color: #7fa42f \9;
+}
+.clientBasics .editPassword {
+  position: absolute;
+  top: -15px;
+  left: 222px;
+  display: none;
+}
+.clientBasics .editPassword input {
+  display: block;
+  width: 300px;
+  font-size: 24px;
+  height: 30px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  line-height: 1.2;
+  color: #57a827;
+}
+.clientBasics .editPassword input:last-child {
+  margin-top: 15px;
+}
+.clientBasics .editPassword .well {
+  margin-top: 5px;
+}
+.clientBasics .editPassword .well:first-child {
+  margin-top: 0;
+}
+.clientBasics .editPassword .well:first-child input {
+  color: #dc952b;
+  margin-top: 0;
 }
 .clientConfig {
   *zoom: 1;
@@ -4939,7 +5077,7 @@ input[type="text"]#locationSelectionInput {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 2%;
+  padding: 0 2%;
 }
 .clientAddress header,
 .clientBankData header {
@@ -6121,6 +6259,34 @@ div#payment .bankaccount {
 .subPreview {
   position: relative;
   height: 182px;
+}
+.bGreen {
+  position: relative;
+  font-family: "VAGRounded LT Thin";
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  top: -5px;
+  left: 0;
+  margin-left: 10px;
+}
+.bGreen small {
+  font-size: 10px;
+  display: block;
+  color: inherit;
+  letter-spacing: 1px;
+  position: relative;
+  top: -2px;
+}
+.bGreen.subSize {
+  padding-top: 6px;
+}
+.bGreen.cupSize {
+  padding-top: 10px;
+  letter-spacing: -1px;
 }
 .ingredientInfo {
   width: 560px;
@@ -7629,9 +7795,9 @@ aside.infoNavigation ul li.active {
   -moz-border-radius: 3px;
   border-radius: 3px;
   background: rgba(209, 186, 130, 0.3);
-  -webkit-box-shadow: inset 0 1px 1px 0 #d1ba82;
-  -moz-box-shadow: inset 0 1px 1px 0 #d1ba82;
-  box-shadow: inset 0 1px 1px 0 #d1ba82;
+  -webkit-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 /*
 @media (min-width: 1200px) {
