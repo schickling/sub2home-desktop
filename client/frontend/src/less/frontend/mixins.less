@@ -793,11 +793,17 @@
 }
 
 .inactive {
-  opacity: 0.7;
+  .opacity(70);
   .transition(opacity .1s linear);
   &:hover {
-    opacity: 1;
+    .opacity(100);
   }
+}
+
+
+.inactiveLink {
+  .opacity(50);
+  cursor: default !important;
 }
 
 // COLOR CLASSES
