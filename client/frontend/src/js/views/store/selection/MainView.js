@@ -159,8 +159,6 @@ define([
 			// initalize TimelineControllerView
 			this._initializeTimelineController();
 
-
-			this._listenForArticleSelection();
 		},
 
 		_renderCartTimelineItem: function () {
@@ -207,24 +205,6 @@ define([
 
 		_unsetOrderedItemModel: function () {
 			this.orderedItemModel = null;
-		},
-
-		_listenForArticleSelection: function () {
-			this.orderedItemModel.on('articleModelWasSelected', function () {
-				// render template
-				this.$el.html(MainTemplate);
-
-				// add cart timeline item
-				this._renderCartTimelineItem();
-
-				// render ordered articles
-				this._renderOrderedArticles();
-
-				// initalize TimelineControllerView
-				this._initializeTimelineController();
-
-
-			}, this);
 		}
 
 	});

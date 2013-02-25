@@ -90,6 +90,13 @@ define([
 			}, this);
 		},
 
+		_reclaimTimelineItems: function() {
+			var orderedItemModel = this.model.get('orderedItemModel'),
+				timelineItemsCollectionOfOrderedItemModel = orderedItemModel.get('timelineItemsCollection');
+
+			timelineItemsCollectionOfOrderedItemModel.remove(this.timelineItemsCollection.models);
+		},
+
 		_increaseSelectionCounter: function () {
 			if (this.active) {
 				indexOfSelectionView++;
@@ -129,7 +136,9 @@ define([
 
 		_renderStageView: function () {
 			var $stage = this.$('.stage'),
-				$slideContainer = $('<div class="slideContainer">').appendTo($stage);
+				$slideContainer = $('<div class="slideContainer">');
+
+			$slideContainer.appendTo($stage);
 
 			this.$slideContainer = $slideContainer;
 
@@ -176,6 +185,8 @@ define([
 			}
 
 			this.timelineView.remove();
+
+			this._reclaimTimelineItems();
 
 		}
 

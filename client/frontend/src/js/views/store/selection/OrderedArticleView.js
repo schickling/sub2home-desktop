@@ -28,6 +28,8 @@ define([
 			// remove view if model was destoryed
 			this.model.on('destroy', this._remove, this);
 
+			this.model.on('articleModelWasSelected', this._renderIngredientsSelectionAgain, this);
+
 		},
 
 		_render: function () {
@@ -61,6 +63,11 @@ define([
 					el: this.$el
 				});
 			}
+		},
+
+		_renderIngredientsSelectionAgain: function() {
+			this.ingredientsSelectionView.remove();
+			this._renderIngredientsSelection();
 		},
 
 		_remove: function () {
