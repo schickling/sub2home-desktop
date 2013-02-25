@@ -4880,6 +4880,229 @@ input[type="text"]#locationSelectionInput {
 #clientStores .clientStore:hover .storeOverview > div {
   color: #d1ba82;
 }
+.clientBasics {
+  position: relative;
+  margin-top: 50px;
+  padding-left: 222px;
+  font-family: "VAGRounded LT Thin";
+}
+.clientBasics:before {
+  content: " ";
+  background: url("../img/static/common/client_avtr.png") center no-repeat;
+  width: 124px;
+  height: 161px;
+  position: absolute;
+  left: 42px;
+  top: -5px;
+}
+.clientBasics .clientNr {
+  font-size: 40px;
+  color: #d1ba82;
+  margin-top: 30px;
+}
+.clientBasics .clientNr span {
+  font-size: 24px;
+  margin-right: 15px;
+}
+.clientBasics .editPassword {
+  font-size: 24px;
+  color: #d1ba82;
+  text-decoration: underline;
+  margin-top: 24px;
+  cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+.clientBasics .editPassword:hover {
+  color: #a78a44;
+}
+.clientConfig {
+  *zoom: 1;
+  margin-top: 50px;
+}
+.clientConfig:before,
+.clientConfig:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clientConfig:after {
+  clear: both;
+}
+.clientAddress,
+.clientBankData {
+  float: left;
+  position: relative;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2%;
+}
+.clientAddress header,
+.clientBankData header {
+  margin-bottom: 40px;
+}
+.clientAddress header h2,
+.clientBankData header h2 {
+  font-size: 40px;
+  color: #d1ba82;
+}
+.clientAddress > div {
+  position: relative;
+  height: 27px;
+  margin-top: 20px;
+}
+.clientAddress > div.clientName,
+.clientAddress > div.clientStreet {
+  *zoom: 1;
+}
+.clientAddress > div.clientName:before,
+.clientAddress > div.clientStreet:before,
+.clientAddress > div.clientName:after,
+.clientAddress > div.clientStreet:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clientAddress > div.clientName:after,
+.clientAddress > div.clientStreet:after {
+  clear: both;
+}
+.clientAddress > div.clientName > div,
+.clientAddress > div.clientStreet > div {
+  overflow: hidden;
+  position: relative;
+  width: 39%;
+  float: left;
+}
+.clientAddress > div.clientName > div input,
+.clientAddress > div.clientStreet > div input {
+  width: 100%;
+  height: 27px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clientAddress > div.clientName .clientFirstname input,
+.clientAddress > div.clientStreet .clientFirstname input {
+  padding-left: 69px;
+}
+.clientAddress > div.clientName .clientLastname,
+.clientAddress > div.clientStreet .clientLastname {
+  width: 58%;
+  float: right;
+}
+.clientAddress > div.clientName .clientLastname input,
+.clientAddress > div.clientStreet .clientLastname input {
+  padding-left: 75px;
+}
+.clientAddress > div.clientName .clientStreetBasic,
+.clientAddress > div.clientStreet .clientStreetBasic {
+  width: 69%;
+}
+.clientAddress > div.clientName .clientStreetBasic input,
+.clientAddress > div.clientStreet .clientStreetBasic input {
+  padding-left: 72px;
+}
+.clientAddress > div.clientName .clientStreetAdditional,
+.clientAddress > div.clientStreet .clientStreetAdditional {
+  width: 28%;
+  float: right;
+}
+.clientAddress > div.clientName .clientStreetAdditional input,
+.clientAddress > div.clientStreet .clientStreetAdditional input {
+  padding-left: 57px;
+}
+.clientAddress > div.clientPostalCity {
+  overflow: hidden;
+  position: relative;
+}
+.clientAddress > div.clientPostalCity .clientPostal {
+  width: 88px;
+}
+.clientAddress > div.clientPostalCity .clientPostal input {
+  padding-left: 38px;
+  width: 50px;
+}
+.clientAddress > div.clientPostalCity .clientCity {
+  position: absolute;
+  left: 88px;
+  margin-left: 3%;
+  right: 0;
+  top: 0;
+}
+.clientAddress > div.clientPostalCity .clientCity input {
+  height: 27px;
+  width: 100%;
+  padding-left: 51px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clientAddress > div.clientContact .clientPhone {
+  width: 210px;
+}
+.clientAddress > div.clientContact .clientPhone input {
+  padding-left: 38px;
+  width: 166px;
+}
+.clientAddress > div.clientContact .clientEmail {
+  position: absolute;
+  top: 0;
+  left: 210px;
+  margin-left: 3%;
+  right: 0;
+}
+.clientAddress > div.clientContact .clientEmail input {
+  padding-left: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 27px;
+}
+.clientBankData > div {
+  position: relative;
+  height: 27px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.clientBankData > div input {
+  width: 100%;
+}
+.clientBankData .bankaccountOwner input {
+  padding-left: 98px;
+}
+.clientBankData .bankaccountNr input {
+  padding-left: 41px;
+}
+.clientBankData .bankId {
+  position: relative;
+}
+.clientBankData .bankId .bankCodeNr {
+  width: 116px;
+}
+.clientBankData .bankId .bankCodeNr input {
+  padding-left: 41px;
+  width: 75px;
+}
+.clientBankData .bankId .bankName {
+  position: absolute;
+  left: 116px;
+  margin-left: 3%;
+  right: 0;
+  top: 0;
+}
+.clientBankData .bankId .bankName input {
+  padding-left: 48px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 27px;
+}
 .note.orders .toggleRevenues {
   margin: 30px;
   position: absolute;
@@ -5628,64 +5851,6 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   right: 20px;
   top: 28px;
-}
-.bankDetails {
-  position: absolute !important;
-  left: -10px;
-  right: -10px;
-  bottom: 0;
-  padding: 20px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  behavior: url(../css/border-radius.htc);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  z-index: 50;
-  display: none;
-  height: 350px;
-}
-.bankDetails .headingSeparator {
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-.bankDetails > div {
-  position: relative;
-  height: 27px;
-  margin-top: 20px;
-  overflow: hidden;
-}
-.bankDetails .bankaccountOwner input {
-  padding-left: 98px;
-}
-.bankDetails .bankaccountNr input {
-  padding-left: 41px;
-}
-.bankDetails .bankId > div {
-  position: absolute;
-}
-.bankDetails .bankId > div.bankCodeNr {
-  width: 132px;
-}
-.bankDetails .bankId > div.bankCodeNr input {
-  padding-left: 41px;
-}
-.bankDetails .bankId > div.bankName {
-  left: 152px;
-  right: 0;
-}
-.bankDetails .bankId > div.bankName input {
-  padding-left: 48px;
-}
-.bankDetails button {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-.bankaccount.btnSuccess {
-  width: 111px;
 }
 div#payment {
   position: absolute !important;
