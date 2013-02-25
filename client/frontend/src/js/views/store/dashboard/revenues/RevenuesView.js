@@ -40,7 +40,7 @@ define([
 			if ($toggleRevenues.hasClass('toggled')) { // hide
 
 				this.$el.animate({
-					top: 0
+					height: 0
 				});
 
 				$iTurnover.animate({
@@ -54,7 +54,7 @@ define([
 			} else { // show
 
 				this.$el.animate({
-					top: 400
+					height: 400
 				});
 
 				$iTurnover.animate({
