@@ -1609,6 +1609,17 @@ input[type="text"]#locationSelectionInput {
 
 .note.full.split {
   overflow: hidden !important;
+  .horizontalSeparator {
+    width: 1px;
+    height: 100%;
+    background: ;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    background: @onNoteColor;
+    border-right: 1px solid rgba(255,255,255,1);
+  }
 }
 
 
@@ -1716,16 +1727,6 @@ input[type="text"]#locationSelectionInput {
   bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
-    &:before {
-    content: " ";
-    width: 1px;
-    position: fixed;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    background: @onNoteColor;
-    border-right: 1px solid rgba(255,255,255,1);
-  }
 
   .clientStore {
     .positioned;

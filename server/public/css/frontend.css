@@ -4739,6 +4739,17 @@ input[type="text"]#locationSelectionInput {
 .note.full.split {
   overflow: hidden !important;
 }
+.note.full.split .horizontalSeparator {
+  width: 1px;
+  height: 100%;
+  background: ;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  background: #d1ba82;
+  border-right: 1px solid #ffffff;
+}
 #clientRevenues {
   width: 50%;
   -webkit-box-sizing: border-box;
@@ -4823,16 +4834,6 @@ input[type="text"]#locationSelectionInput {
   bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
-}
-#clientStores:before {
-  content: " ";
-  width: 1px;
-  position: fixed;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  background: #d1ba82;
-  border-right: 1px solid #ffffff;
 }
 #clientStores .clientStore {
   position: relative;
