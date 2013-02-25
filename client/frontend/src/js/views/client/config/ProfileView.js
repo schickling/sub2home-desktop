@@ -10,6 +10,11 @@ define([
 
 		template: _.template(ProfileTemplate),
 
+		events: {
+			'click .triggerEditPassword p': '_showPasswordFields',
+			'click .submitNewPassword': '_hidePasswordFields'
+		},
+
 		initialize: function () {
 			this._render();
 		},
@@ -22,6 +27,38 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+		},
+
+		_showPasswordFields: function () {
+			var $el = this.$el,
+				$editPassword = this.$('.editPassword'),
+				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
+				$submitNewPassword = this.$('.submitNewPassword');
+
+			$triggerEditPasswordButton.fadeOut();
+			$submitNewPassword.fadeIn();
+
+			$el.animate({
+				paddingLeft: 622
+			});
+
+			$editPassword.delay(100).fadeIn();
+		},
+
+		_hidePasswordFields: function () {
+			var $el = this.$el,
+				$editPassword = this.$('.editPassword'),
+				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
+				$submitNewPassword = this.$('.submitNewPassword');
+
+			$triggerEditPasswordButton.fadeIn();
+			$submitNewPassword.fadeOut();
+
+			$el.animate({
+				paddingLeft: 222
+			});
+
+			$editPassword.fadeOut();
 		}
 
 
