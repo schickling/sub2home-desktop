@@ -23,6 +23,7 @@ define([
 
 		initialize: function () {
 			this._render();
+			this._listenToClientRelatedRoutes();
 		},
 
 		_render: function () {
@@ -41,10 +42,38 @@ define([
 
 		},
 
+		_listenToClientRelatedRoutes: function() {
+			stateModel.on('change:currentRouteIsClientRelated', function() {
+				if (stateModel.get('currentRouteIsClientRelated')) {
+					this._hideStoreButtons();
+					this._showClientButtons();
+				} else {
+					this._hideClientButtons();
+					this._showStoreButtons();
+				}
+			});
+		},
+
+		_hideClientButtons: function() {
+
+		},
+
+		_hideStoreButtons: function() {
+
+		},
+
+		_showClientButtons: function() {
+
+		},
+
+		_showStoreButtons: function() {
+
+		},
+
 		_logout: function () {
 			var logoutSucceded = authentificationModel.logout();
 
-			if (logoutSucceded && stateModel.currentRouteIsClientRelated()) {
+			if (logoutSucceded && stateModel.get('currentRouteIsClientRelated')) {
 				router.navigate('/', true);
 			}
 		},
