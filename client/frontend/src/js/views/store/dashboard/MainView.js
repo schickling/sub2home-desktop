@@ -55,7 +55,7 @@ define([
 
 		_renderRevenues: function () {
 			new RevenuesView({
-				el: this.$('.revenues')
+				el: this.$('.note.orders')
 			});
 		}
 
