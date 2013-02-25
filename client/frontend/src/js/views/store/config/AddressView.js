@@ -10,19 +10,19 @@ define([
 	var AddressView = Backbone.View.extend({
 
 		events: {
-			'focusout input': 'update'
+			'focusout input': '_update'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var addressModel = this.model.get('addressModel');
 			this.$el.html(_.template(AddressTemplate, addressModel.toJSON()));
 		},
 
-		update: function (e) {
+		_update: function (e) {
 			var storeModel = this.model,
 				addressModel = this.model.get('addressModel'),
 				$input = $(e.target),
