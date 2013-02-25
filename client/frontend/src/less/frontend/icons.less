@@ -34,8 +34,8 @@
   font-family: "Homicons" !important;
   font-weight: normal !important;
   font-style: normal !important;
-  text-decoration: inherit !important;
-  font-size: 30px !important;
+  text-decoration: inherit;
+  font-size: 30px;
 }
 
 .note, .smallNote {
@@ -89,11 +89,21 @@
   content: "\e003";
 }
 
-
 .iBeverage:before {
   content: "\e004";
 }
 
+.iMuffin:before {
+  content: "\e005";
+}
+
+.iCookie:before {
+  content: "\e006";
+}
+
+.iChips:before {
+  content: "\e007";
+}
 
 
 // Ingredients ------------------------
@@ -367,6 +377,10 @@
 .iEye, .bEye {
   &:before { content: "\e07f"; }
   &.open:before { content: "\e080"; }
+}
+
+.iKey, .bKey {
+  &:before { content: "\e081"; }
 }
 
 

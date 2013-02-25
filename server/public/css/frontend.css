@@ -2150,8 +2150,8 @@ table [class*=span],
   font-family: "Homicons" !important;
   font-weight: normal !important;
   font-style: normal !important;
-  text-decoration: inherit !important;
-  font-size: 30px !important;
+  text-decoration: inherit;
+  font-size: 30px;
 }
 .note .icn,
 .smallNote .icn {
@@ -2202,6 +2202,15 @@ table [class*=span],
 }
 .iBeverage:before {
   content: "\e004";
+}
+.iMuffin:before {
+  content: "\e005";
+}
+.iCookie:before {
+  content: "\e006";
+}
+.iChips:before {
+  content: "\e007";
 }
 .iBread:before {
   content: "\e014";
@@ -2451,6 +2460,10 @@ table [class*=span],
 .iEye.open:before,
 .bEye.open:before {
   content: "\e080";
+}
+.iKey:before,
+.bKey:before {
+  content: "\e081";
 }
 .close {
   float: right;
@@ -4905,6 +4918,14 @@ input[type="text"]#locationSelectionInput {
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
+}
+.clientBasics .triggerEditPassword p .iKey {
+  text-decoration: none;
+  margin-right: 7px;
+  font-size: 20px;
+}
+.clientBasics .triggerEditPassword p .iKey:before {
+  top: -1px;
 }
 .clientBasics .triggerEditPassword p:hover {
   color: #a78a44;
