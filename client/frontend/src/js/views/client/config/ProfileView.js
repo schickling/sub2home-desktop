@@ -19,6 +19,7 @@ define([
 
 		initialize: function () {
 			this._render();
+			this._listenToNameChange();
 		},
 
 		_render: function () {
@@ -29,6 +30,12 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+		},
+
+		_listenToNameChange: function() {
+			var addressModel = this.model.get('addressModel');
+
+			addressModel.on('change:firstName change:lastName', this._render, this);
 		},
 
 		_showPasswordFields: function () {
