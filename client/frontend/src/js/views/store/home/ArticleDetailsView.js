@@ -14,7 +14,7 @@ define([
 
 		selectedItemModel: null,
 
-		animationTime: 150,
+		animationTime: 200,
 
 		hideTimer: 0,
 
@@ -68,6 +68,7 @@ define([
 
 
 			$footlong.fadeIn(this.animationTime);
+			$6inch.delay(this.animationTime / 2).fadeOut(this.animationTime / 2);
 
 			$uncheckFootlong.fadeIn(this.animationTime);
 
@@ -90,6 +91,7 @@ define([
 				$pricetag = this.$('.pricetag');
 
 			$footlong.fadeOut(this.animationTime);
+			$6inch.fadeIn(this.animationTime / 2);
 
 			$uncheckFootlong.fadeOut(this.animationTime);
 
@@ -107,9 +109,9 @@ define([
 			var self = this;
 
 			this.hideTimer = setTimeout(function () {
-				// self.$el.fadeOut(function () {
-				// 	self.remove();
-				// });
+				self.$el.fadeOut(function () {
+					self.remove();
+				});
 			}, 300);
 		},
 
