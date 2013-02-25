@@ -1,15 +1,15 @@
 // Filename: src/js/views/client/dashboard/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'models/stateModel',
-	'models/ClientModel',
-	'views/PageView',
-	'views/client/dashboard/StoresView',
-	'text!templates/client/dashboard/MainTemplate.html'
-	], function ($, _, Backbone, router, stateModel, ClientModel, PageView, StoresView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/stateModel',
+    'models/ClientModel',
+    'views/PageView',
+    'views/client/dashboard/StoresView',
+    'text!templates/client/dashboard/MainTemplate.html'
+    ], function ($, _, Backbone, router, stateModel, ClientModel, PageView, StoresView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -38,23 +38,23 @@ define([
 			this.append();
 		},
 
-		_switchHeaderToClientView: function() {
+		_switchHeaderToClientView: function () {
 			stateModel.set('isClientHeaderActive', true);
 		},
 
-		_checkIfClientOwnsJustOneStore: function () {
-			var storesCollection = this.model.get('storesCollection');
+		_selectFirstStoreModel: function () {
+			var currentStoreModel = stateModel.get('storeModel');
 
-			if (storesCollection.length === 1) {
-				var storeModel = storesCollection.first();
+			if (!currentStoreModel) {
+				var storesCollection = this.model.get('storesCollection');
 
-				router.navigate(storeModel.get('alias'), {
-					trigger: true,
-					replace: true
-				});
+				currentStoreModel = storesCollection.first();
+
+				// store models gets fetched on store alias change event
+				stateModel.set('storeAlias', currentStoreModel.get('alias'));
 			}
-		}
 
+		}
 
 	});
 
