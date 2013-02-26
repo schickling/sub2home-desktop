@@ -3829,8 +3829,19 @@ aside#header #headerContent #clientAreaNavigation {
   -moz-box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
   box-shadow: inset 1px 0 0 0 #d1ba82, inset -1px 0 0 0 #d1ba82;
   padding: 0;
+  *zoom: 1;
+}
+aside#header #headerContent #clientAreaNavigation:before,
+aside#header #headerContent #clientAreaNavigation:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+aside#header #headerContent #clientAreaNavigation:after {
+  clear: both;
 }
 aside#header #headerContent #clientAreaNavigation .iBtn {
+  float: left;
   display: none;
   margin: 24px 9px 0;
   height: 43px;

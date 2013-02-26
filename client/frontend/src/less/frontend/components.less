@@ -654,7 +654,9 @@ aside#header {
       border-left: 1px solid rgba(255,255,255,0.6);
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
       padding: 0;
+      .clearfix;
       .iBtn {
+        float: left;
         display: none;
         margin: 24px 9px 0;
         height: 43px;
@@ -726,18 +728,11 @@ aside#header {
         top: -4px;
       }
       .transition(top .1s ease-in-out);
-      // &.iSettings:hover {
-      //   top: 24px !important;
-      // }
-      // &.iUser:hover {
-      //   top: 5px !important;
-      // }
     }
   }
   &.isLoggedIn {
     #headerContent {
       left: 120px;
-
     }
   }
 }
