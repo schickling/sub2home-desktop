@@ -37,7 +37,7 @@ define([
 				timelineItemModel.set({
 					isLocked: true,
 					icon: menuComponentBlockModel.get('icon'),
-					image: menuComponentBlockModel.get('imageSmall'),
+					image: menuComponentBlockModel.get('smallImage'),
 					phrase: 'Waehle deinen Artikel'
 				});
 
