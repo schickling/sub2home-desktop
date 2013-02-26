@@ -48,8 +48,8 @@ class DeliveryAreasController extends ApiController
 		$rules = array(
 			'minimumDuration'	=> 'numeric|required|min:1',
 			'minimumValue'		=> 'numeric|required|min:0',
-			'postal'			=> 'numeric|required|between:10000,99999'
-			'description'		=> 'alpha_dash|required',
+			'postal'			=> 'numeric|required|between:10000,99999',
+			'description'		=> 'alpha_dash|required'
 			);
 
 		$validator = Validator::make(get_object_vars($input), $rules);

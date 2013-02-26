@@ -15,18 +15,26 @@ define([
 		template: _.template(CartTemplate),
 
 		events: {
-			'click': 'goToTray'
+			'click': '_goToTray'
 		},
 
 		initialize: function () {
 			this.model = cartModel;
 
-			this.render();
+			this._render();
 
-			this.model.on('change', this.render, this);
+			this._listenToNewDeliveryArea();
+
+			this.model.on('change', this._render, this);
 		},
 
-		render: function () {
+		_listenToNewDeliveryArea: function() {
+			var storeModel = stateModel.get('storeModel');
+
+			storeModel.on('change', this._render, this);
+		},
+
+		_render: function () {
 
 			var storeModel = stateModel.get('storeModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
@@ -42,7 +50,7 @@ define([
 			this.$el.toggleClass('filled', (amount > 0));
 		},
 
-		goToTray: function () {
+		_goToTray: function () {
 			if (this.model.getNumberOfOrderedItems() > 0) {
 				router.navigate('store/tablett', true);
 			} else {

@@ -1,18 +1,19 @@
 // Filename: src/js/views/store/config/AddressView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'models/stateModel',
-	'text!templates/store/home/DeliveryTemplate.html'
-	], function ($, _, Backbone, stateModel, DeliveryTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/stateModel',
+    'text!templates/store/home/DeliveryTemplate.html'
+    ], function ($, _, Backbone, stateModel, DeliveryTemplate) {
 
 	var AddressView = Backbone.View.extend({
 
 		template: _.template(DeliveryTemplate),
 
 		events: {
-			'click .bEdit': '_toggleSelectDeliveryArea'
+			'click #currentDeliveryArea': '_showAllDeliveryAreas',
+			'click #deliveryAreas span': '_selectDeliveryArea'
 		},
 
 		initialize: function () {
@@ -30,27 +31,92 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+
+			this._renderDeliveryAreas();
 		},
 
 		_renderDeliveryAreas: function () {
 			var storeModel = stateModel.get('storeModel'),
 				deliveryAreasCollection = storeModel.get('deliveryAreasCollection'),
-				$deliveryAreas = this.$('#deliveryAreas');
+				$deliveryAreas = this.$('#deliveryAreas'),
+				$deliveryArea;
 
 			_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
-				$deliveryAreas.append('<span>' + deliveryAreaModel.get('description') + '</span>');
+				$deliveryArea = $('<span>').text(deliveryAreaModel.get('description'));
+
+				if (deliveryAreaModel.get('isSelected')) {
+					$deliveryArea.addClass('selected');
+				}
+
+				$deliveryAreas.append($deliveryArea);
 			});
 		},
 
-		_toggleSelectDeliveryArea: function () {
+		_selectDeliveryArea: function (e) {
+			var storeModel = stateModel.get('storeModel'),
+				deliveryAreasCollection = storeModel.get('deliveryAreasCollection'),
+				currentDeliveryArea = storeModel.getSelectedDeliveryAreaModel(),
+				$currentDeliveryAreaInList = this.$('#deliveryAreas .selected'),
+				$currentDeliveryAreaInHeader = this.$('#currentDeliveryArea span'),
+				$currentDeliveryDurationInHeader = this.$('#minimumDuration'),
+				$newDeliveryArea = $(e.target),
+				newDeliveryArea = $newDeliveryArea.text();
 
-			var $deliveryAreas = this.$('#deliveryAreas');
+			if (newDeliveryArea !== currentDeliveryArea.get('description')) {
 
-			if ($deliveryAreas.html().trim()) {
-				$deliveryAreas.toggle();
-			} else {
-				this._renderDeliveryAreas();
+				// unmark old deliveryArea
+				currentDeliveryArea.set({
+					isSelected: false
+				}, {
+					silent: true
+				});
+
+				// mark new delivery area as selected
+				_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
+					if (deliveryAreaModel.get('description') === newDeliveryArea) {
+
+						deliveryAreaModel.set('isSelected', true);
+
+						// write back header
+						$currentDeliveryAreaInHeader.text(newDeliveryArea);
+						$currentDeliveryDurationInHeader.text(deliveryAreaModel.get('minimumDuration'));
+
+						return;
+					}
+				});
+
+				// toggle selected class
+				$currentDeliveryAreaInList.removeClass('selected');
+				$newDeliveryArea.addClass('selected');
+
 			}
+
+			// slide up
+			this._hideAllDeliveryAreas();
+		},
+
+		_showAllDeliveryAreas: function () {
+			var $deliveryAreas = this.$('#deliveryAreas'),
+				$el = this.$el;
+
+			$el.animate({
+				top: 35
+			}, function () {
+				$deliveryAreas.fadeIn();
+			});
+
+		},
+
+		_hideAllDeliveryAreas: function () {
+			var $deliveryAreas = this.$('#deliveryAreas'),
+				$el = this.$el;
+
+			$deliveryAreas.fadeOut(function () {
+				$el.animate({
+					top: 96
+				});
+			});
+
 		}
 
 	});
