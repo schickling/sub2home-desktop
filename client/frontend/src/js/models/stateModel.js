@@ -25,7 +25,6 @@ define([
 
 			// header state
 			isClientHeaderActive: false,
-			currentRouteIsClientRelated: false,
 
 			// route names
 			currentRoute: '',
@@ -71,8 +70,6 @@ define([
 				}, {
 					silent: true
 				});
-
-				this.set('currentRouteIsClientRelated', this._currentRouteIsClientRelated());
 			}, this);
 
 
@@ -201,7 +198,7 @@ define([
 			return this.get('storeModel') !== null;
 		},
 
-		_currentRouteIsClientRelated: function () {
+		currentRouteIsClientRelated: function () {
 			var currentRoute = this.get('currentRoute'),
 				clientRoutes = [
 					'client.dashboard',

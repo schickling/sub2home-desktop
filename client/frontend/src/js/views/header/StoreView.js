@@ -32,7 +32,7 @@ define([
 				renderedTemplate = this.template(json);
 
 
-			$el.fadeOut(150, function () {
+			$el.fadeOut(100, function () {
 				$el.html(renderedTemplate);
 				self.renderCart();
 				$el.fadeIn(150);

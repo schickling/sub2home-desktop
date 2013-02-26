@@ -53,7 +53,9 @@ define([
 				paddingLeft: 622
 			}, animationTime);
 
-			$editPassword.delay(100).fadeIn(animationTime - 100);
+			$editPassword.delay(100).fadeIn(animationTime - 100, function() {
+				$editPassword.find('input').first().focus();
+			});
 		},
 
 		_hidePasswordFields: function () {
