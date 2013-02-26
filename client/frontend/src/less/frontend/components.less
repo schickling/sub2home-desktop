@@ -1005,7 +1005,7 @@ input[type="text"]#locationSelectionInput {
 
 .storeDeliveryDetails {
   position: absolute;
-  bottom: 22px;
+  top: 96px;
   right: 20px;
   //margin: 100px 20px 0 0;
   font-family: @headingsFontFamily;
@@ -1022,19 +1022,40 @@ input[type="text"]#locationSelectionInput {
     height: 30px;
     &:before {
       .positioned;
-      top: 6px;
+      top: 2px;
     }
   }
 }
 
-// .store_controls {
-//   position: absolute;
-//   bottom: 10px;
-//   right: 20px;
-//   i {
-//     margin-left: 5px;
-//   }
-// }
+#currentDeliveryArea {
+
+  &.active {
+    color: @greenDark;
+  }
+
+}
+
+#deliveryAreas {
+  text-align: right;
+  margin-top: 30px;
+  padding: 0 5px 0 0;
+  cursor: pointer;
+  span {
+    &:before {
+      content: ", ";
+      color: @onNoteColor50;
+    }
+    &:first-child:before {
+      content: " ";
+    }
+    &:last-child:before {
+      content: " oder ";
+    }
+    &:hover {
+      color: @greenLighter;
+    }
+  }
+}
 
 // Category-Head
 // ----------------------
