@@ -4228,9 +4228,10 @@ input[type="text"]#locationSelectionInput {
 }
 #deliveryAreas {
   text-align: right;
-  margin-top: 30px;
+  margin-top: 38px;
   padding: 0 5px 0 0;
   cursor: pointer;
+  display: none;
 }
 #deliveryAreas span:before {
   content: ", ";
