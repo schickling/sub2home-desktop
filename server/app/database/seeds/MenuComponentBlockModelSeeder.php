@@ -34,8 +34,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iBeverage',
-				'smallImage'				=> '../../../img/static/menucomponentblocks/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/menucomponentblocks/largeimages/getraenk.png',
+				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
+				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
 				'placeholder'				=> 'pBeverage'
 				),
 
@@ -44,8 +44,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iSnacks',
-				'smallImage'				=> '../../../img/static/menucomponentblocks/smallimages/snacks.png',
-				'largeImage'				=> '../../../img/static/menucomponentblocks/largeimages/snacks.png',
+				'smallImage'				=> '../../../img/static/categories/smallimages/snacks.png',
+				'largeImage'				=> '../../../img/static/categories/largeimages/snacks.png',
 				'placeholder'				=> 'pSnacks'
 				),
 
@@ -57,8 +57,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',
-				'smallImage'				=> '../../../img/static/menucomponentblocks/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/menucomponentblocks/largeimages/getraenk.png',
+				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
+				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
 				'placeholder'				=> 'pBeverage'
 				),
 
@@ -67,8 +67,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',
-				'smallImage'				=> '../../../img/static/menucomponentblocks/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/menucomponentblocks/largeimages/getraenk.png',
+				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
+				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
 				'placeholder'				=> 'pBeverage'
 				),
 
@@ -77,8 +77,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',
-				'smallImage'				=> '../../../img/static/menucomponentblocks/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/menucomponentblocks/largeimages/getraenk.png',
+				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
+				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
 				'placeholder'				=> 'pBeverage'
 				)
 

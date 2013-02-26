@@ -3878,20 +3878,28 @@ aside#header #headerClientContent #clientAreaNavigation .iBtn:hover,
 aside#header #headerCustomerContent #clientAreaNavigation .iBtn:hover {
   color: #836c35;
 }
-aside#header #headerClientContent #clientAreaNavigation .bSettings,
-aside#header #headerCustomerContent #clientAreaNavigation .bSettings {
-  margin-left: 18px;
+aside#header #headerClientContent #clientAreaNavigation .iBtn.active,
+aside#header #headerCustomerContent #clientAreaNavigation .iBtn.active {
+  color: #5f4e26;
 }
-aside#header #headerClientContent #clientAreaNavigation .bTurnover,
-aside#header #headerCustomerContent #clientAreaNavigation .bTurnover {
-  margin-right: 18px;
+aside#header #headerClientContent #clientAreaNavigation .bStoreConfig,
+aside#header #headerCustomerContent #clientAreaNavigation .bStoreConfig {
+  margin-left: 19px;
 }
-aside#header #headerClientContent #clientAreaNavigation .bDashboard,
-aside#header #headerCustomerContent #clientAreaNavigation .bDashboard,
+aside#header #headerClientContent #clientAreaNavigation .bStoreDashboard,
+aside#header #headerCustomerContent #clientAreaNavigation .bStoreDashboard {
+  margin-right: 19px;
+}
+aside#header #headerClientContent #clientAreaNavigation .bClientConfig,
+aside#header #headerCustomerContent #clientAreaNavigation .bClientConfig {
+  margin: 24px 19px 0;
+}
+aside#header #headerClientContent #clientAreaNavigation .bClientDashboard,
+aside#header #headerCustomerContent #clientAreaNavigation .bClientDashboard,
 aside#header #headerClientContent #clientAreaNavigation .bSignout,
 aside#header #headerCustomerContent #clientAreaNavigation .bSignout {
   margin: 0;
-  padding: 24px 18px 0;
+  padding: 24px 19px 0;
   -webkit-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
   -moz-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
   box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
@@ -3900,8 +3908,8 @@ aside#header #headerCustomerContent #clientAreaNavigation .bSignout {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header #headerClientContent #clientAreaNavigation .bDashboard:hover,
-aside#header #headerCustomerContent #clientAreaNavigation .bDashboard:hover,
+aside#header #headerClientContent #clientAreaNavigation .bClientDashboard:hover,
+aside#header #headerCustomerContent #clientAreaNavigation .bClientDashboard:hover,
 aside#header #headerClientContent #clientAreaNavigation .bSignout:hover,
 aside#header #headerCustomerContent #clientAreaNavigation .bSignout:hover {
   background: rgba(184, 126, 0, 0.35);
