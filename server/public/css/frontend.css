@@ -4192,6 +4192,7 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   top: 96px;
   right: 20px;
+  text-align: right;
   font-family: "VAGRounded LT Thin";
   font-size: 33px;
   color: rgba(209, 186, 130, 0.5);
@@ -4212,8 +4213,18 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   top: 2px;
 }
-#currentDeliveryArea.active {
-  color: #13493b;
+#currentDeliveryArea {
+  cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+#currentDeliveryArea:hover {
+  color: #57a827;
+}
+#currentDeliveryArea:hover .bEdit {
+  color: #d1ba82;
 }
 #deliveryAreas {
   text-align: right;
@@ -4225,14 +4236,17 @@ input[type="text"]#locationSelectionInput {
   content: ", ";
   color: rgba(209, 186, 130, 0.5);
 }
-#deliveryAreas span:first-child:before {
-  content: " ";
-}
 #deliveryAreas span:last-child:before {
   content: " oder ";
 }
+#deliveryAreas span:first-child:before {
+  content: " ";
+}
 #deliveryAreas span:hover {
   color: #9cc83e;
+}
+#deliveryAreas span.selected {
+  color: #57a827;
 }
 .category header,
 .menuComponentOption header {

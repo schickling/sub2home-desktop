@@ -1007,7 +1007,7 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   top: 96px;
   right: 20px;
-  //margin: 100px 20px 0 0;
+  text-align: right;
   font-family: @headingsFontFamily;
   font-size: 33px;
   color: @onNoteColor50;
@@ -1028,9 +1028,13 @@ input[type="text"]#locationSelectionInput {
 }
 
 #currentDeliveryArea {
-
-  &.active {
-    color: @greenDark;
+  cursor: pointer;
+  .transition(color .1s linear);
+  &:hover{
+    color: @greenLight;
+    .bEdit {
+      color: @onNoteColor;
+    }
   }
 
 }
@@ -1041,18 +1045,25 @@ input[type="text"]#locationSelectionInput {
   padding: 0 5px 0 0;
   cursor: pointer;
   span {
+
     &:before {
       content: ", ";
       color: @onNoteColor50;
     }
-    &:first-child:before {
-      content: " ";
-    }
+
     &:last-child:before {
       content: " oder ";
     }
+
+    &:first-child:before {
+      content: " ";
+    }
+
     &:hover {
       color: @greenLighter;
+    }
+    &.selected {
+      color: @greenLight;
     }
   }
 }
