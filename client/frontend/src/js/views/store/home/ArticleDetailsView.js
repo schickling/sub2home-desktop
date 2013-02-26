@@ -31,13 +31,14 @@ define([
 		initialize: function () {
 			this.selectedItemModel = this.model;
 
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
 				footlongItemModel = attachedItemsCollection.first(),
 				json = {
+					imageClass: this._getImageClass(),
 					title: this.model.get('title'),
 					image: this.model.get('largeImage'),
 					footlongImage: footlongItemModel.get('largeImage'),
@@ -46,6 +47,13 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+		},
+
+		_getImageClass: function() {
+			var image = this.model.get('largeImage'),
+				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
+
+			return imageWithoutFileExtension.split('-').pop();
 		},
 
 		_goToSelection: function () {

@@ -1,10 +1,10 @@
 // Filename: src/js/views/store/tray/OrderedArticleMenuView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/store/tray/OrderedArticleMenuTemplate.html'
-	], function ($, _, Backbone, OrderedArticleMenuTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/store/tray/OrderedArticleMenuTemplate.html'
+    ], function ($, _, Backbone, OrderedArticleMenuTemplate) {
 
 	var OrderedArticleMenuView = Backbone.View.extend({
 
@@ -17,16 +17,33 @@ define([
 		className: 'menuItem',
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 
-			var articleModel = this.model,
-				description = articleModel.get('description');
+			var json = {
+					title: this.model.get('title'),
+					image: this.model.get('largeImage'),
+					imageClass: this._getImageClass(),
+					description: this._getDescription()
+				};
 
-			if (articleModel.hasIngredients()) {
-				var ingredientCategoriesCollection = articleModel.get('ingredientCategoriesCollection'),
+			this.$el.html(this.template(json));
+		},
+
+		_getImageClass: function() {
+			var image = this.model.get('largeImage'),
+				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
+
+			return imageWithoutFileExtension.split('-').pop();
+		},
+
+		_getDescription: function () {
+			var description = this.model.get('description');
+
+			if (this.model.hasIngredients()) {
+				var ingredientCategoriesCollection = this.model.get('ingredientCategoriesCollection'),
 					ingredientModels = ingredientCategoriesCollection.getAllSelectedIngredientModels();
 
 				for (var i = 0; i < ingredientModels.length; i++) {
@@ -45,13 +62,7 @@ define([
 				}
 			}
 
-			var json = {
-				title: articleModel.get('title'),
-				image: articleModel.get('largeImage'),
-				description: description
-			};
-
-			this.$el.html(this.template(json));
+			return description;
 		}
 
 	});
