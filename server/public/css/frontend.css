@@ -2325,7 +2325,9 @@ table [class*=span],
   content: "\e059";
 }
 .iSettings:before,
-.bSettings:before {
+.bSettings:before,
+.iStoreConfig:before,
+.bStoreConfig:before {
   content: "\e05a";
 }
 .iHeart:before,
@@ -2413,7 +2415,9 @@ table [class*=span],
   content: "\e06f";
 }
 .iTurnover:after,
-.bTurnover:after {
+.bTurnover:after,
+.iStoreDashboard:after,
+.bStoreDashboard:after {
   content: "\e070";
 }
 .iBolt:before,
@@ -2448,16 +2452,16 @@ table [class*=span],
 .bFood:before {
   content: "\e07b";
 }
-.iClientSettings:before,
-.bClientSettings:before {
+.iClientConfig:before,
+.bClientConfig:before {
   content: "\e07c";
 }
-.iAssortment:before,
-.bAssortment:before {
+.iStoreAssortment:before,
+.bStoreAssortment:before {
   content: "\e07d";
 }
-.iDashboard:before,
-.bDashboard:before {
+.iClientDashboard:before,
+.bClientDashboard:before {
   content: "\e07e";
 }
 .iEye:before,
@@ -5282,6 +5286,10 @@ input[type="text"]#locationSelectionInput {
 .note.orders {
   min-height: 100px;
   height: 100px;
+}
+.note.orders .container {
+  height: inherit;
+  overflow: hidden;
 }
 .note.orders .toggleRevenues {
   margin: 30px;
