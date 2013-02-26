@@ -51,6 +51,11 @@ define([
 					destination: 'store.home',
 					type: 'a.forward'
 				},
+				{
+					origin: 'home.home',
+					destination: 'client.dashboard',
+					type: 'e'
+				},
 					// from client.login
 				{
 					origin: 'client.login',

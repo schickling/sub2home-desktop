@@ -48,25 +48,15 @@ define([
 
 		_render: function () {
 
-			var $el = this.$el,
-				self = this,
-				animationTime = this.animationTime,
-				currentStoreModel = stateModel.get('storeModel'),
+			var currentStoreModel = stateModel.get('storeModel'),
 				json = {
 					storeTitle: currentStoreModel.get('title')
-				},
-				renderedHtml = this.template(json);
+				};
 
-			$el.fadeOut(animationTime - 50, function () {
+			this.$el.html(this.template(json));
 
-				$el.html(renderedHtml);
-
-				self._cacheDom();
-				self._selectViewFromCurrentRoute();
-
-				$el.fadeIn(animationTime);
-
-			});
+			this._cacheDom();
+			this._selectViewFromCurrentRoute();
 
 		},
 
@@ -172,6 +162,10 @@ define([
 
 		_navigateToClientConfig: function () {
 			router.navigate('einstellungen', true);
+		},
+
+		remove: function () {
+			stateModel.off('change:currentRoute', this._selectViewFromCurrentRoute, this);
 		}
 
 	});

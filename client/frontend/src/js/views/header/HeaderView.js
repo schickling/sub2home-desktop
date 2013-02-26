@@ -1,17 +1,17 @@
 // Filename: src/js/views/header/HeaderView.js
 define([
-	'jquery',
-	'jqueryEasing',
-	'underscore',
-	'backbone',
-	'router',
-	'models/authentificationModel',
-	'models/stateModel',
-	'views/header/StoreView',
-	'views/header/ClientView',
-	'text!templates/header/HeaderTemplate.html',
-	'text!templates/header/RoleSwitchTemplate.html'
-	], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
+    'jquery',
+    'jqueryEasing',
+    'underscore',
+    'backbone',
+    'router',
+    'models/authentificationModel',
+    'models/stateModel',
+    'views/header/StoreView',
+    'views/header/ClientView',
+    'text!templates/header/HeaderTemplate.html',
+    'text!templates/header/RoleSwitchTemplate.html'
+    ], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -19,23 +19,15 @@ define([
 
 		events: {
 			'click .logo': '_reset',
-			'click #roleSwitch': '_switchChildView'
+			'click #roleSwitch': '_switchContentView'
 		},
-
-		childView: null,
 
 		initialize: function () {
 			this._render();
 
-			stateModel.on('change:storeModel', this._renderStoreView, this);
+			this._listenToHeaderState();
 
-			stateModel.on('change:isClientHeaderActive', function () {
-				if (stateModel.get('isClientHeaderActive')) {
-					this._renderClientView();
-				} else {
-					this._renderStoreView();
-				}
-			}, this);
+			stateModel.on('change:storeModel', this._renderStoreView, this);
 
 			authentificationModel.on('change:isLoggedIn', this._render, this);
 
@@ -45,18 +37,37 @@ define([
 
 			this.$el.html(HeaderTemplate);
 
-			var isLoggedIn = authentificationModel.isLoggedIn();
+			var isLoggedIn = authentificationModel.isLoggedIn(),
+				isStoreSelected = stateModel.get('storeModel') !== null,
+				isClientHeaderActive = stateModel.get('isClientHeaderActive');
 
 			if (isLoggedIn) {
 				this._renderRoleSwitch();
+				this._renderClientView();
 			}
 
-			if (isLoggedIn && stateModel.get('isClientHeaderActive')) {
-				this._renderClientView();
-			} else if (stateModel.get('storeModel')) {
+			if (isStoreSelected) {
 				this._renderStoreView();
 			}
 
+			if (isLoggedIn && isClientHeaderActive) {
+				this._showClientView();
+				this.$('#headerCustomerContent').hide();
+			} else if (isStoreSelected) {
+				this._showStoreView();
+				this.$('#headerClientContent').hide();
+			}
+
+		},
+
+		_listenToHeaderState: function () {
+			stateModel.on('change:isClientHeaderActive', function () {
+				if (stateModel.get('isClientHeaderActive')) {
+					this._showClientView();
+				} else {
+					this._showStoreView();
+				}
+			}, this);
 		},
 
 		_renderRoleSwitch: function () {
@@ -66,29 +77,27 @@ define([
 		},
 
 		_renderStoreView: function () {
-			this.childView = new StoreView({
+			new StoreView({
 				model: stateModel.get('storeModel'),
-				el: this.$('#headerContent')
-			});
-
-			// role switch
-			var $handle = this.$('#roleSwitch div');
-
-			$handle.animate({
-				top: 2
-			}, 100, 'easeInExpo', function () {
-				$handle.removeClass('iSettings').addClass('iUser');
+				el: this.$('#headerCustomerContent')
 			});
 		},
 
 		_renderClientView: function () {
-			this.childView = new ClientView({
-				el: this.$('#headerContent')
+			new ClientView({
+				el: this.$('#headerClientContent')
 			});
+		},
+
+		_showClientView: function () {
+			var $handle = this.$('#roleSwitch div'),
+				$headerCustomerContent = this.$('#headerCustomerContent'),
+				$headerClientContent = this.$('#headerClientContent');
+
+			$headerCustomerContent.fadeOut(100);
+			$headerClientContent.fadeIn(150);
 
 			// role switch
-			var $handle = this.$('#roleSwitch div');
-
 			$handle.animate({
 				top: 27
 			}, 100, 'easeInExpo', function () {
@@ -96,11 +105,27 @@ define([
 			});
 		},
 
+		_showStoreView: function () {
+			var $handle = this.$('#roleSwitch div'),
+				$headerCustomerContent = this.$('#headerCustomerContent'),
+				$headerClientContent = this.$('#headerClientContent');
+
+			$headerClientContent.fadeOut(100);
+			$headerCustomerContent.fadeIn(150);
+
+			// role switch
+			$handle.animate({
+				top: 2
+			}, 100, 'easeInExpo', function () {
+				$handle.removeClass('iSettings').addClass('iUser');
+			});
+		},
+
 		_reset: function () {
 			window.localStorage.clear();
 		},
 
-		_switchChildView: function () {
+		_switchContentView: function () {
 			if (stateModel.get('isClientHeaderActive')) {
 				stateModel.set('isClientHeaderActive', false);
 				if (stateModel.currentRouteIsClientRelated()) {
@@ -108,6 +133,9 @@ define([
 				}
 			} else {
 				stateModel.set('isClientHeaderActive', true);
+				if (!stateModel.currentRouteIsClientRelated()) {
+					router.navigate('dashboard', true);
+				}
 			}
 		}
 
