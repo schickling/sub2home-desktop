@@ -126,15 +126,23 @@ define([
 		},
 
 		_switchContentView: function () {
-			if (stateModel.get('isClientHeaderActive')) {
+			if (stateModel.get('isClientHeaderActive')) { // switch to store header
 				stateModel.set('isClientHeaderActive', false);
 				if (stateModel.currentRouteIsClientRelated()) {
-					router.navigate('/', true);
+					if (stateModel.currentRouteIsStoreRelated()) {
+						router.navigate('store', true);
+					} else {
+						router.navigate('/', true);
+					}
 				}
 			} else {
-				stateModel.set('isClientHeaderActive', true);
+				stateModel.set('isClientHeaderActive', true); // switch to client header
 				if (!stateModel.currentRouteIsClientRelated()) {
-					router.navigate('dashboard', true);
+					if (stateModel.currentRouteIsStoreRelated()) {
+						router.navigate('store/dashboard', true);
+					} else {
+						router.navigate('dashboard', true);
+					}
 				}
 			}
 		}

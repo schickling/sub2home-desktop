@@ -101,9 +101,9 @@ define([
 
 			$el.animate({
 				top: 35
-			}, function () {
-				$deliveryAreas.fadeIn();
 			});
+
+			$deliveryAreas.delay(120).fadeIn(150);
 
 		},
 
@@ -111,11 +111,11 @@ define([
 			var $deliveryAreas = this.$('#deliveryAreas'),
 				$el = this.$el;
 
-			$deliveryAreas.fadeOut(function () {
-				$el.animate({
-					top: 96
-				});
-			});
+			$deliveryAreas.fadeOut(200);
+
+			$el.delay(120).animate({
+				top: 96
+			}, 200);
 
 		}
 

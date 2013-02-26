@@ -211,6 +211,13 @@ define([
 			return _.contains(clientRoutes, currentRoute);
 		},
 
+		currentRouteIsStoreRelated: function() {
+			var currentRoute = this.get('currentRoute'),
+				prefix = currentRoute.split('.')[0];
+
+			return prefix === 'store';
+		},
+
 		clientOwnsThisStore: function () {
 			var storeModel = this.get('storeModel');
 
