@@ -3981,8 +3981,16 @@ aside#header div#roleSwitch .handle {
 aside#header div#roleSwitch .handle:before {
   top: -4px;
 }
-aside#header.isLoggedIn #headerContent {
+aside#header.isLoggedIn #headerClientContent,
+aside#header.isLoggedIn #headerCustomerContent {
   left: 120px;
+}
+aside#header.isLoggedIn #headerClientContent .currentInfo,
+aside#header.isLoggedIn #headerCustomerContent .currentInfo {
+  border-left: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 #content {
   padding: 0;

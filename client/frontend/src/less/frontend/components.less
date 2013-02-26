@@ -730,8 +730,12 @@ aside#header {
     }
   }
   &.isLoggedIn {
-    #headerContent {
+    #headerClientContent, #headerCustomerContent {
       left: 120px;
+      .currentInfo {
+        border-left: none;
+        .box-shadow(none);
+      }
     }
   }
 }
