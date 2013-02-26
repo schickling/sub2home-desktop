@@ -86,14 +86,19 @@ define([
 			var orderModel = cartModel.get('orderModel'),
 				self = this;
 
+			if (!cartModel.isMinimumReached()) {
+				notificationcenter.error('store.tray.minimumNotReached', 'store.tray.minimumNotReached');
+				return;
+			}
+
 			orderModel.save({}, {
 				success: function () {
 					self._ringBell();
-					// orderModel.get('orderedItemsCollection').reset();
-					// router.navigate('store/danke', {
-					// 	trigger: true,
-					// 	replace: true
-					// });
+					orderModel.get('orderedItemsCollection').reset();
+					router.navigate('store/danke', {
+						trigger: true,
+						replace: true
+					});
 				},
 				error: function (error, b) {
 					notificationcenter.error(b, b);

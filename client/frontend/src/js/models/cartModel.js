@@ -16,11 +16,7 @@ define([
 			// id needed for singleton
 			id: 0,
 
-			orderModel: null,
-
-			// gets calculated from store model
-			// ... mirrored for convenience reasons
-			minimum: 0
+			orderModel: null
 
 		},
 
@@ -30,11 +26,13 @@ define([
 
 			// determine if on last reload store was changed
 			if (stateModel.hasChangedStore()) {
-				this._changeStore();
+				this._resetOrderModel();
 			}
 
 			// reset ordered items collection on store change
-			stateModel.on('change:storeModel', this._changeStore, this);
+			stateModel.on('change:storeModel', this._resetOrderModel, this);
+
+			this._listenToStoreInternalChanges();
 
 		},
 
@@ -97,6 +95,20 @@ define([
 			return response;
 		},
 
+		_resetOrderModel: function () {
+
+			// reset order model
+			var orderModel = new OrderModel(),
+				storeModel = stateModel.get('storeModel');
+
+			this.set('orderModel', orderModel);
+
+			this._listenToOrderModel();
+
+			this._adjustCustomerAddress();
+
+		},
+
 		_listenToOrderModel: function () {
 			var orderModel = this.get('orderModel');
 
@@ -106,29 +118,23 @@ define([
 			}, this);
 		},
 
-		_changeStore: function () {
+		_listenToStoreInternalChanges: function() {
+			var storeModel = stateModel.get('storeModel');
 
-			var orderModel = new OrderModel(),
-				storeModel = stateModel.get('storeModel');
+			storeModel.on('change', this._adjustCustomerAddress, this);
+		},
 
-			this.set('orderModel', orderModel);
-
-			this._listenToOrderModel();
-
-			// set minimum
-			this.set({
-				minimum: storeModel.getMinimumValue()
-			});
-
+		_adjustCustomerAddress: function() {
 			// copy postal and city to customer address
-			var addressModel = orderModel.get('addressModel'),
+			var storeModel = stateModel.get('storeModel'),
+				orderModel = this.get('orderModel'),
+				addressModel = orderModel.get('addressModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
 
 			addressModel.set({
 				postal: selectedDeliveryAreaModel.get('postal'),
 				city: selectedDeliveryAreaModel.get('description')
 			});
-
 		},
 
 
@@ -248,6 +254,13 @@ define([
 			spareMinutes = parseInt(spareMilliseconds / 60000, 10);
 
 			return spareMinutes;
+		},
+
+		isMinimumReached: function() {
+			var orderModel = this.get('orderModel'),
+				storeModel = stateModel.get('storeModel');
+
+			return orderModel.get('total') >= storeModel.getMinimumValue();
 		}
 
 

@@ -9,14 +9,16 @@ define([
 			'articles.edit.success.isActive': 'Arikel sichtbar',
 			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar',
 			'orders.testOrder.success': 'Testbestellung is raus',
-			'orders.testOrder.error': 'Testbestellung ging nicht'
+			'orders.testOrder.error': 'Testbestellung ging nicht',
+			'store.tray.minimumNotReached': 'Mindestbestellwert unso'
 		},
 
 		_descriptions: {
 			'articles.edit.success.isActive': 'Arikel sichtbar !!',
 			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar !!',
 			'orders.testOrder.success': 'Testbestellung is raus',
-			'orders.testOrder.error': 'Testbestellung ging nicht'
+			'orders.testOrder.error': 'Testbestellung ging nicht',
+			'store.tray.minimumNotReached': 'Mindestbestellwert unso'
 		},
 
 		getTitle: function (title) {

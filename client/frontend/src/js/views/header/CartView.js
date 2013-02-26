@@ -31,6 +31,8 @@ define([
 		_listenToNewDeliveryArea: function() {
 			var storeModel = stateModel.get('storeModel');
 
+			// listen to store model is enough since store models get changed
+			// if a new delivery area is selected
 			storeModel.on('change', this._render, this);
 		},
 
