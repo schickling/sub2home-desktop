@@ -27,6 +27,7 @@ define([
 		$buttonStoreAssortment: null,
 		$buttonStoreConfig: null,
 		$allButtons: null,
+		$currentIcon: null,
 		$title: null,
 
 		animationTime: 150,
@@ -62,6 +63,7 @@ define([
 			this.$buttonStoreAssortment = this.$('.bStoreAssortment');
 			this.$buttonStoreConfig = this.$('.bStoreConfig');
 			this.$allButtons = this.$('#clientAreaNavigation .iBtn').not(this.$buttonLogout);
+			this.$currentIcon = this.$('.currentIcon');
 			this.$title = this.$('.currentInfo span');
 		},
 
@@ -96,6 +98,8 @@ define([
 				$unneededButtons = this.$allButtons.not($neededButtons),
 				title = 'Dashboard';
 
+			this.$allButtons.removeClass('active');
+
 			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
@@ -106,6 +110,8 @@ define([
 			var $neededButtons = this.$buttonClientDashboard,
 				$unneededButtons = this.$allButtons.not($neededButtons),
 				title = 'Einstellungen';
+			
+			this.$allButtons.removeClass('active');
 
 			this.$title.text(title);
 
@@ -119,6 +125,9 @@ define([
 				storeModel = stateModel.get('storeModel'),
 				title = 'Dashboard: ' + storeModel.get('title');
 
+			this.$allButtons.removeClass('active');
+			this.$buttonStoreDashboard.addClass('active');
+
 			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
@@ -131,6 +140,9 @@ define([
 				storeModel = stateModel.get('storeModel'),
 				title = 'Sortiment: ' + storeModel.get('title');
 
+			this.$allButtons.removeClass('active');
+			this.$buttonStoreAssortment.addClass('active');
+
 			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
@@ -142,6 +154,9 @@ define([
 				$unneededButtons = this.$allButtons.not($neededButtons),
 				storeModel = stateModel.get('storeModel'),
 				title = 'Einstellungen: ' + storeModel.get('title');
+
+			this.$allButtons.removeClass('active');
+			this.$buttonStoreConfig.addClass('active');
 
 			this.$title.text(title);
 
