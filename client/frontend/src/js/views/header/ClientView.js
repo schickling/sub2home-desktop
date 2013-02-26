@@ -27,6 +27,7 @@ define([
 		$buttonStoreAssortment: null,
 		$buttonStoreConfig: null,
 		$allButtons: null,
+		$title: null,
 
 		animationTime: 150,
 
@@ -39,8 +40,6 @@ define([
 			'click .bClientDashboard': '_navigateToClientDashboard'
 		},
 
-		template: _.template(ClientTemplate),
-
 		initialize: function () {
 			this._render();
 			this._listenToCurrentRoute();
@@ -48,12 +47,7 @@ define([
 
 		_render: function () {
 
-			var currentStoreModel = stateModel.get('storeModel'),
-				json = {
-					storeTitle: currentStoreModel.get('title')
-				};
-
-			this.$el.html(this.template(json));
+			this.$el.html(ClientTemplate);
 
 			this._cacheDom();
 			this._selectViewFromCurrentRoute();
@@ -68,6 +62,7 @@ define([
 			this.$buttonStoreAssortment = this.$('.bStoreAssortment');
 			this.$buttonStoreConfig = this.$('.bStoreConfig');
 			this.$allButtons = this.$('#clientAreaNavigation .iBtn').not(this.$buttonLogout);
+			this.$title = this.$('.currentInfo span');
 		},
 
 		_listenToCurrentRoute: function () {
@@ -98,7 +93,10 @@ define([
 
 		_showClientDashboard: function () {
 			var $neededButtons = this.$buttonClientConfig,
-				$unneededButtons = this.$allButtons.not($neededButtons);
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				title = 'Dashboard';
+
+			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -106,7 +104,10 @@ define([
 
 		_showClientConfig: function () {
 			var $neededButtons = this.$buttonClientDashboard,
-				$unneededButtons = this.$allButtons.not($neededButtons);
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				title = 'Einstellungen';
+
+			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -114,7 +115,11 @@ define([
 
 		_showStoreDashboard: function () {
 			var $neededButtons = $.objectOfArray([this.$buttonClientDashboard, this.$buttonStoreConfig, this.$buttonStoreAssortment, this.$buttonStoreDashboard]),
-				$unneededButtons = this.$allButtons.not($neededButtons);
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				storeModel = stateModel.get('storeModel'),
+				title = 'Dashboard: ' + storeModel.get('title');
+
+			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -122,7 +127,11 @@ define([
 
 		_showStoreAssortment: function () {
 			var $neededButtons = $.objectOfArray([this.$buttonClientDashboard, this.$buttonStoreConfig, this.$buttonStoreAssortment, this.$buttonStoreDashboard]),
-				$unneededButtons = this.$allButtons.not($neededButtons);
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				storeModel = stateModel.get('storeModel'),
+				title = 'Sortiment: ' + storeModel.get('title');
+
+			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -130,7 +139,11 @@ define([
 
 		_showStoreConfig: function () {
 			var $neededButtons = $.objectOfArray([this.$buttonClientDashboard, this.$buttonStoreConfig, this.$buttonStoreAssortment, this.$buttonStoreDashboard]),
-				$unneededButtons = this.$allButtons.not($neededButtons);
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				storeModel = stateModel.get('storeModel'),
+				title = 'Einstellungen: ' + storeModel.get('title');
+
+			this.$title.text(title);
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
