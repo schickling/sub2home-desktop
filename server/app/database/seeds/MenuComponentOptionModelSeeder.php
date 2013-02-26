@@ -41,10 +41,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 1,
 				'category_model_id'				=> 5,
 				'title'							=> 'Getränk',
-				'icon'							=> 'iBeverage',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-				'placeholder'					=> 'pBeverage',
 				'article_model_ids'				=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
 				),
 
@@ -53,10 +49,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 2,
 				'category_model_id'				=> 4,
 				'title'							=> 'Cookie',
-				'icon'							=> 'iCookie',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-				'placeholder'					=> 'pCookie',
 				'article_model_ids'				=> array(46, 47, 48, 49)
 				),
 
@@ -65,10 +57,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 2,
 				'category_model_id'				=> 4,
 				'title'							=> 'Chips',
-				'icon'							=> 'iChips',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/chips.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/chips.png',
-				'placeholder'					=> 'pChips',
 				'article_model_ids'				=> array(4, 55, 56, 57, 58, 59, 60, 61)
 				),
 
@@ -82,10 +70,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 3,
 				'category_model_id'				=> 1,
 				'title'							=> 'Sub',
-				'icon'							=> 'iSub',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/sub.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/sub.png',
-				'placeholder'					=> 'pSub',
 				'article_model_ids'				=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 				),
 
@@ -94,10 +78,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 4,
 				'category_model_id'				=> 5,
 				'title'							=> 'Getränk',
-				'icon'							=> 'iBeverage',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/getraenk.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/getraenk.png',
-				'placeholder'					=> 'pBeverage',
 				'article_model_ids'				=> array(62, 63, 64, 65, 66, 67, 68, 69, 70)
 				),
 
@@ -106,10 +86,6 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 5,
 				'category_model_id'				=> 4,
 				'title'							=> 'Cookie',
-				'icon'							=> 'iCookie',
-				'smallImage'					=> 'img/static/menucomponentoptions/smallimages/cookie.png',
-				'largeImage'					=> 'img/static/menucomponentoptions/largeimages/cookie.png',
-				'placeholder'					=> 'pCookie',
 				'article_model_ids'				=> array(46, 47, 48, 49)
 				)
 

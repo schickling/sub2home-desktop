@@ -15,6 +15,10 @@ class MenuComponentBlockModelTable extends Migration {
 			$table->increments('id');
 			$table->integer('menu_bundle_model_id')->unsigned();
 			$table->integer('menu_upgrade_model_id')->unsigned();
+			$table->string('icon', 128)->default('');
+			$table->string('smallImage', 128)->default('');
+			$table->string('largeImage', 128)->default('');
+			$table->string('placeholder', 128)->default('');
 		});
 	}
 

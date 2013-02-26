@@ -15,7 +15,7 @@ define([
 		className: 'item',
 
 		events: {
-			'click .itemPreview, .pricetag, h3, .itemDescription': '_showDetails'
+			'click .itemPreview': '_showDetails'
 		},
 
 		initialize: function () {

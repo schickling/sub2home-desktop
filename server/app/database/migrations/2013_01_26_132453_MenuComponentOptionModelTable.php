@@ -16,10 +16,6 @@ class MenuComponentOptionModelTable extends Migration {
 			$table->integer('menu_component_block_model_id')->unsigned();
 			$table->integer('category_model_id')->unsigned();
 			$table->string('title', 128)->default('');
-			$table->string('icon', 128)->default('');
-			$table->string('smallImage', 128)->default('');
-			$table->string('largeImage', 128)->default('');
-			$table->string('placeholder', 128)->default('');
 		});
 	}
 

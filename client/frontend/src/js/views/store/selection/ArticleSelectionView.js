@@ -25,14 +25,22 @@ define([
 
 		prepare: function () {
 
-			var timelineItemModel = new TimelineItemModel({
-				phrase: 'Waehle deinen Artikel'
-			});
+			var timelineItemModel = new TimelineItemModel(),
+				menuComponentBlockModel = this.model.get('menuComponentBlockModel');
 
 
-			if (this.model.get('menuComponentBlockModel')) {
+			if (menuComponentBlockModel) {
 				this.active = true;
-				timelineItemModel.set('isLocked', true);
+
+				console.log(menuComponentBlockModel);
+
+				timelineItemModel.set({
+					isLocked: true,
+					icon: menuComponentBlockModel.get('icon'),
+					image: menuComponentBlockModel.get('imageSmall'),
+					phrase: 'Waehle deinen Artikel'
+				});
+
 				this._listenForArticleSelection();
 			} else {
 				// just symbolizes base article
