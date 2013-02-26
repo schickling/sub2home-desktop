@@ -3831,6 +3831,7 @@ aside#header #headerContent #clientAreaNavigation {
   padding: 0;
 }
 aside#header #headerContent #clientAreaNavigation .iBtn {
+  display: none;
   margin: 24px 9px 0;
   height: 43px;
   -webkit-transition: color 0.1s linear;
