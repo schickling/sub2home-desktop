@@ -12,7 +12,7 @@ define([
 		template: _.template(DeliveryTemplate),
 
 		events: {
-			'click #currentDeliveryArea': '_showAllDeliveryAreas',
+			'click #currentDeliveryArea.editable': '_showAllDeliveryAreas',
 			'click #deliveryAreas span': '_selectDeliveryArea'
 		},
 
@@ -32,7 +32,23 @@ define([
 
 			this.$el.html(this.template(json));
 
+			this._checkIfEditable();
+
 			this._renderDeliveryAreas();
+		},
+
+		_checkIfEditable: function () {
+			var storeModel = stateModel.get('storeModel'),
+				deliveryAreasCollection = storeModel.get('deliveryAreasCollection'),
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
+				numberOfDeliveryAreasWithSamePostal = deliveryAreasCollection.where({
+					postal: selectedDeliveryAreaModel.get('postal')
+				}).length;
+
+			if (numberOfDeliveryAreasWithSamePostal > 1) {
+				this.$('#currentDeliveryArea').addClass('editable');
+			}
+
 		},
 
 		_renderDeliveryAreas: function () {

@@ -1,10 +1,10 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'text!templates/store/config/DeliveryAreaTemplate.html'
-	], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'text!templates/store/config/DeliveryAreaTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
 		events: {
@@ -13,7 +13,7 @@ define([
 			'focusout .deliveryAreaPostal': '_updatePostal',
 			'focusout .deliveryAreaDescription': '_updateDescription',
 			'keypress input': '_blurOnEnter',
-			'click .buttonRemove': '_destroy'
+			'click .sBRemove': '_destroy'
 		},
 
 		initialize: function () {
@@ -31,10 +31,15 @@ define([
 
 		_destroy: function () {
 			var self = this;
-			this.$el.fadeOut(function () {
-				self.model.destroy();
-				self.remove();
+
+			this.model.destroy({
+				success: function () {
+					self.$el.fadeOut(function () {
+						self.remove();
+					});
+				}
 			});
+
 		},
 
 		_updateMinimumDuration: function () {

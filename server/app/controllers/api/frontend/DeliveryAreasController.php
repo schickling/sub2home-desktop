@@ -2,6 +2,7 @@
 
 use Input;
 use Request;
+use Validator;
 
 use App\Models\DeliveryAreaModel;
 
@@ -46,7 +47,7 @@ class DeliveryAreasController extends ApiController
 		// check input
 		$input = Input::json();
 		$rules = array(
-			'minimumDuration'	=> 'numeric|required|min:1',
+			'minimumDuration'	=> 'numeric|required|min:0',
 			'minimumValue'		=> 'numeric|required|min:0',
 			'postal'			=> 'numeric|required|between:10000,99999',
 			'description'		=> 'alpha_dash|required'
@@ -91,13 +92,15 @@ class DeliveryAreasController extends ApiController
 		$deliveryAreaModel = DeliveryAreaModel::find($id);
 
 		// verify owner
-		$this->checkBelongsToThisStore($deliveryTimeModel->storeModel->id);
+		$this->checkBelongsToThisStore($deliveryAreaModel->storeModel->id);
 
 		if ($this->hasErrorOccured()) {
 			return $this->respondWithError();
 		}
 
 		$deliveryAreaModel->delete();
+
+		return $this->respondWithStatus(204);
 	}	
 
 }

@@ -133,12 +133,12 @@ define([
 					{
 					origin: 'store.home',
 					destination: 'store.dashboard',
-					type: 'b.forward'
+					type: 'e'
 				},
 					{
 					origin: 'store.home',
 					destination: 'client.dashboard',
-					type: 'b.forward'
+					type: 'e'
 				},
 					// from store.selection
 				{

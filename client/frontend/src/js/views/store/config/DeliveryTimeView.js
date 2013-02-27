@@ -16,7 +16,7 @@ define([
 			'focusout .deliveryTimeStartMinutes': '_updateStartMinutes',
 			'focusout .deliveryTimeEndMinutes': '_updateEndMinutes',
 			'keypress input': '_blurOnEnter',
-			'click .buttonRemove': '_destroy'
+			'click .sBRemove': '_destroy'
 		},
 
 		initialize: function () {

@@ -16,8 +16,6 @@ define([
 			// id needed for singleton
 			id: 0,
 
-			postal: 0,
-
 			// store specific data
 			storeAlias: '',
 			storeModel: null,
