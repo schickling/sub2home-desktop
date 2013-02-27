@@ -1243,55 +1243,6 @@ input[type="text"]#locationSelectionInput {
       left: -27px;
       top: 72px;
     }
-
-    &.st:before {
-      content: "\e01e";
-    }
-
-    &.smt {
-      
-      top: 35px;
-
-      &:before {
-        content: "\e023";
-      }
-    }
-
-    &.sm {
-
-      top: 39px;
-
-      &:before {
-        content: "\e024";
-      }
-      span {
-        top: 52px;
-      }
-    }
-
-    &.sml {
-      
-      top: 39px;
-
-      &:before {
-        content: "\e029";
-      }
-      span {
-        top: 54px;
-      }
-    }
-  
-    &.sl {
-      top: 28px;
-      &:before {
-        content: "\e02a";
-      }
-      span {
-        top: 71px;
-      }
-    }
-
-
     span {
       font-family: @handFontFamily;
       color: @onNoteColor;
@@ -1383,6 +1334,76 @@ input[type="text"]#locationSelectionInput {
   }
 
 }
+
+// IMAGE-CLASSES
+// ------------------------
+
+
+.item {
+  &.st {
+    .footlongOption {
+      &:before {
+        content: "\e01e";
+      }
+    }
+  }
+
+  &.smt {
+    .footlongOption {
+      top: 35px;
+      &:before {
+        content: "\e023";
+      }
+    }
+  }
+
+  &.sm {
+    .footlongOption {
+      top: 39px;
+      &:before {
+        content: "\e024";
+      }
+      span {
+        top: 52px;
+      }
+    }
+  }
+
+  &.sml {
+    .footlongOption {
+      top: 39px;
+      &:before {
+        content: "\e029";
+      }
+      span {
+        top: 54px;
+      }
+    }
+  }
+  
+  &.sl {
+    .footlongOption {
+      top: 28px;
+      &:before {
+        content: "\e02a";
+      }
+      span {
+        top: 71px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .article {
   background: none;
