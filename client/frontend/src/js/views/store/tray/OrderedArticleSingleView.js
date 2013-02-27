@@ -49,7 +49,7 @@ define([
 			var json = {
 				title: articleModel.get('title'),
 				image: articleModel.get('largeImage'),
-				info: this.model.get('info'),
+				info: articleModel.get('info'),
 				total: this.model.get('total'),
 				amount: this.model.get('amount'),
 				description: description
