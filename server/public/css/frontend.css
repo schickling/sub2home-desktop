@@ -7220,24 +7220,32 @@ div#payment .bankaccount {
   left: 50%;
   margin-left: -132px;
 }
-.menuItem.sub .itemDescription {
+.menuItem.st .itemDescription,
+.menuItem.smt .itemDescription,
+.menuItem.sm .itemDescription,
+.menuItem.sml .itemDescription,
+.menuItem.sl .itemDescription {
   padding: 0 0 0 20px;
 }
-.menuItem.beverage {
+.menuItem.b {
   width: 180px;
 }
-.menuItem.beverage:before {
+.menuItem.b:before {
   left: -35px;
 }
-.menuItem.cookie {
+.menuItem.b img {
+  margin-left: -50px;
+}
+.menuItem.cdm {
   width: 200px;
 }
 .menuItem .itemDescription {
-  margin-top: 157px;
+  margin-top: 180px;
 }
 .menuItem .itemDescription h3 {
   text-align: center;
   line-height: 1.3;
+  margin: 0 0 10px;
 }
 .menuItem.descriptive .itemDescription h3 {
   text-align: left;

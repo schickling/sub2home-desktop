@@ -117,9 +117,9 @@ define([
 			var self = this;
 
 			this.hideTimer = setTimeout(function () {
-				// self.$el.fadeOut(function () {
-				// 	self.remove();
-				// });
+				self.$el.fadeOut(function () {
+					self.remove();
+				});
 			}, 300);
 		},
 
