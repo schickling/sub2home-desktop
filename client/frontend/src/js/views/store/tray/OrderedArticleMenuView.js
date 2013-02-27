@@ -25,11 +25,12 @@ define([
 			var json = {
 					title: this.model.get('title'),
 					image: this.model.get('largeImage'),
-					imageClass: this._getImageClass(),
 					description: this._getDescription()
 				};
 
 			this.$el.html(this.template(json));
+
+			this.$el.addClass(this._getImageClass());
 		},
 
 		_getImageClass: function() {

@@ -66,20 +66,20 @@ class PaypalService implements PaymentInterface
 	 */
 	public static function auth_header($store_model_id)
 	{
-		require_once(path('app') . 'libraries/paypal/oauth.php');
+		// require_once(path('app') . 'libraries/paypal/oauth.php');
 
-		$RequestArguments = '';
+		// $RequestArguments = '';
 
-		$signatureResult = GenSignature(PayPalAPIUserName, PayPalAPIPassword, $AccessToken, $TokenSecret, 'POST', $Endpoint, $RequestArguments);
+		// $signatureResult = GenSignature(PayPalAPIUserName, PayPalAPIPassword, $AccessToken, $TokenSecret, 'POST', $Endpoint, $RequestArguments);
 
-		// GenSignature($key, $secret, $token, $token_secret, $httpMethod, $endpoint, $params)
+		// // GenSignature($key, $secret, $token, $token_secret, $httpMethod, $endpoint, $params)
 
-		$timeStamp = $signatureResult['oauth_timestamp'];
-		$signature = $signatureResult['oauth_signature'];
+		// $timeStamp = $signatureResult['oauth_timestamp'];
+		// $signature = $signatureResult['oauth_signature'];
 
-		$PayPalAuthorizationHeader = "timestamp=$timeStamp,token=$AccessToken,signature=$signature";
+		// $PayPalAuthorizationHeader = "timestamp=$timeStamp,token=$AccessToken,signature=$signature";
 		
-		return $PayPalAuthorizationHeader;
+		// return $PayPalAuthorizationHeader;
 	}
 
 	/**

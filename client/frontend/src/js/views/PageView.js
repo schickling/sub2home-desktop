@@ -189,8 +189,8 @@ define([
 					type: 'b.forward'
 				},
 					{
-					origin: 'client.dashboard',
-					destination: 'store.assortment',
+					origin: 'store.assortment',
+					destination: 'store.home',
 					type: 'e'
 				},
 					// from store.config

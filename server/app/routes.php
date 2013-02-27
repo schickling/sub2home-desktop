@@ -84,6 +84,11 @@ Route::get('api/services/paypal/savetoken', array(
 	'https',
 	'uses'	=> 'App\Controllers\Api\Services\PaypalController@saveToken')
 );
+Route::get('api/services/paypal/confirmorder', array(
+	'as'	=> 'api/services/paypal/confirmorder',
+	'https',
+	'uses'	=> 'App\Controllers\Api\Services\PaypalController@confirmOrder')
+);
 
 
 
