@@ -1,22 +1,9 @@
-
-	<div class="optionalComponent phd pColdBev">
-		<img src="../../../<%= firstMenuComponentOptionImage %>" alt="">
-		<div class="componentInfo"><%= firstMenuComponentOptionTitle %></div>
+<div class="menuComponentBlocks"></div>
+<div class="baseComponent"><img src="../../../<%= baseArticleImage %>" alt=""></div>
+<div class="pricetag"><span><%= price %> €</span></div>
+<div class="menuUpgradeBasics">
+	<div class="smallNote">
+		<h3><%= title %></h3>
 	</div>
-	<div class="optionalComponent phd pCookie">
-		<img src="../../../<%= secondMenuComponentOptionImage %>" alt="">
-		<div class="componentInfo"><%= secondMenuComponentOptionTitle %><br/>nach Wahl</div>
-	</div>
-	<div class="baseComponent"><img src="../../../<%= currentArticleImage %>" alt=""></div>
-
-	<div class="pricetag"><span><%= price %> €</span></div>
-
-	<div class="menuUpgradeBasics">
-		<div class="smallNote">
-			<h3>
-				<!-- <i class="iBtn bCheck"></i> -->
-				<%= title %>
-			</h3>
-		</div>
-		<p class="itemDescription"><%= description %></p>
-	</div>
+	<p class="itemDescription"><%= description %></p>
+</div>

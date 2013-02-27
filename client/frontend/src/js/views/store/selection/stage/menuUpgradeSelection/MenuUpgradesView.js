@@ -25,25 +25,26 @@ define([
 			var articleModel = this.model.get('articleModel');
 			this.collection = articleModel.get('menuUpgradesCollection');
 
-			this.renderNoUpgradeView();
-			this.renderMenuUpgrades();
+			this._renderNoUpgradeView();
+			this._renderMenuUpgrades();
 
 		},
 
+		// needs to be overwritten because of no upgrade
 		adjustWidth: function () {
 			this.$el.width(window.innerWidth - 301);
 		},
 
-		renderMenuUpgrades: function () {
+		_renderMenuUpgrades: function () {
 			this.$menuUpgradesContainer = $('<div class="menuUpgradesContainer">');
 			this.$el.append(this.$menuUpgradesContainer);
 
 			_.each(this.collection.models, function (menuUpgradeModel) {
-				this.renderMenuUpgrade(menuUpgradeModel);
+				this._renderMenuUpgrade(menuUpgradeModel);
 			}, this);
 		},
 
-		renderMenuUpgrade: function (menuUpgradeModel) {
+		_renderMenuUpgrade: function (menuUpgradeModel) {
 			var menuUpgradeView = new MenuUpgradeView({
 				model: menuUpgradeModel,
 				orderedArticleModel: this.model
@@ -52,7 +53,7 @@ define([
 			this.$menuUpgradesContainer.append(menuUpgradeView.el);
 		},
 
-		renderNoUpgradeView: function () {
+		_renderNoUpgradeView: function () {
 
 			var noUpgradeView = new NoUpgradeView({
 				model: this.model

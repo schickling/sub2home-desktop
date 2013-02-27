@@ -1,12 +1,12 @@
 // Filename: src/js/views/store/selection/MenuUpgradeSelectionView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/selection/info/menuUpgradeSelection/InfoView',
-	'views/store/selection/SelectionView',
-	'views/store/selection/stage/menuUpgradeSelection/MenuUpgradesView'
-	], function ($, _, Backbone, InfoView, SelectionView, MenuUpgradesView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/selection/info/menuUpgradeSelection/InfoView',
+    'views/store/selection/SelectionView',
+    'views/store/selection/stage/menuUpgradeSelection/MenuUpgradesView'
+    ], function ($, _, Backbone, InfoView, SelectionView, MenuUpgradesView) {
 
 	var MenuUpgradeSelectionView = SelectionView.extend({
 
@@ -16,15 +16,11 @@ define([
 
 		prepare: function () {
 
-			if (this.model.isMenuUpgradeBase()) {
+			var articleModel = this.model.get('articleModel');
 
+			if (this.model.isMenuUpgradeBase() && articleModel.get('allowsMenuUpgrades') && articleModel.get('menuUpgradesCollection').length > 0) {
 
-				if (this.model.get('articleModel')) {
-
-					this.active = true;
-
-				}
-
+				this.active = true;
 
 				this.timelineItemsCollection.add({
 					phrase: 'Waehle ein Menu Upgrade',
@@ -34,26 +30,27 @@ define([
 				});
 
 
-				this.listenForSelection();
+				this._listenForSelection();
 
 			}
 
 		},
 
-		listenForSelection: function () {
+		_listenForSelection: function () {
 
-			var baseOrderedArticleModel = this.model;
+			var baseOrderedArticleModel = this.model,
+				orderedItemModel = this.model.get('orderedItemModel');
 
 			// listen for new menu upgrade selection
 			baseOrderedArticleModel.on('change:menuUpgradeModel', function () {
 				if (baseOrderedArticleModel.get('menuUpgradeModel')) {
-					this.selectMenuUpgrade(baseOrderedArticleModel.get('menuUpgradeModel'));
+					this._selectMenuUpgrade(baseOrderedArticleModel.get('menuUpgradeModel'));
 				}
 			}, this);
 
 		},
 
-		selectMenuUpgrade: function (menuUpgradeModel) {
+		_selectMenuUpgrade: function (menuUpgradeModel) {
 
 			var orderedArticlesCollection = this.model.collection,
 				orderedItemModel = this.model.get('orderedItemModel'),

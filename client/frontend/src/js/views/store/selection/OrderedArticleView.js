@@ -1,12 +1,12 @@
 // Filename: src/js/views/store/selection/OrderedArticleView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/selection/ArticleSelectionView',
-	'views/store/selection/IngredientsSelectionView',
-	'views/store/selection/MenuUpgradeSelectionView'
-	], function ($, _, Backbone, ArticleSelectionView, IngredientsSelectionView, MenuUpgradeSelectionView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/selection/ArticleSelectionView',
+    'views/store/selection/IngredientsSelectionView',
+    'views/store/selection/MenuUpgradeSelectionView'
+    ], function ($, _, Backbone, ArticleSelectionView, IngredientsSelectionView, MenuUpgradeSelectionView) {
 
 	var OrderedArticleView = Backbone.View.extend({
 
@@ -55,17 +55,13 @@ define([
 		},
 
 		_renderMenuUpgradeSelection: function () {
-			var articleModel = this.model.get('articleModel');
-
-			if (articleModel && articleModel.get('allowsMenuUpgrades') && articleModel.get('menuUpgradesCollection').length > 0) {
-				this.menuUpgradeSelectionView = new MenuUpgradeSelectionView({
-					model: this.model,
-					el: this.$el
-				});
-			}
+			this.menuUpgradeSelectionView = new MenuUpgradeSelectionView({
+				model: this.model,
+				el: this.$el
+			});
 		},
 
-		_renderIngredientsSelectionAgain: function() {
+		_renderIngredientsSelectionAgain: function () {
 			this.ingredientsSelectionView.remove();
 			this._renderIngredientsSelection();
 		},

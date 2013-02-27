@@ -93,11 +93,11 @@ define([
 		},
 
 		isMenuUpgradeBase: function () {
-			return (this.get('menuComponentBlockModel') === null);
+			return this.get('menuComponentBlockModel') === null && this.get('articleModel') !== null;
 		},
 
 		hasBeenUpgraded: function () {
-			return (this.get('menuUpgradeModel') !== null);
+			return this.get('menuUpgradeModel') !== null;
 		}
 
 	});

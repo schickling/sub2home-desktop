@@ -181,13 +181,12 @@ define([
 
 				this.infoView.remove();
 				this.stageView.remove();
+				this.timelineView.remove();
 
 				// decrease selection counter
 				indexOfSelectionView--;
 
 			}
-
-			this.timelineView.remove();
 
 			this._reclaimTimelineItems();
 

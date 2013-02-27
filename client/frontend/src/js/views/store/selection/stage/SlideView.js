@@ -13,7 +13,7 @@ define([
 
 			var self = this;
 
-			this.render();
+			this._renderSlideWrapper();
 
 			this.afterInitialize();
 
@@ -45,7 +45,7 @@ define([
 
 		afterInitialize: function () {},
 
-		render: function () {
+		_renderSlideWrapper: function () {
 
 			// wrap this.$el
 			var $el = $('<div>').addClass(this.className).appendTo(this.$el);

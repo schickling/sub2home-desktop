@@ -17,14 +17,14 @@ define([
 		className: 'noUpgrade',
 
 		events: {
-			'click': 'resetMenuUpgrade'
+			'click': '_resetMenuUpgrade'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var articleModel = this.model.get('articleModel'),
 				json = {
 					currentArticleImage: articleModel.get('largeImage'),
@@ -34,7 +34,7 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		resetMenuUpgrade: function () {
+		_resetMenuUpgrade: function () {
 			this.model.set('menuUpgradeModel', null);
 			this.model.get('orderedItemModel').reduceOrderedArticles();
 		}

@@ -393,7 +393,7 @@ define([
 				this._saveOrderedItemModel();
 
 			} else {
-				console.log(this.collection.toJSON());
+				console.log(this.model.toJSON());
 				_.each(lockedTimelineItems, function (timelineItemModel) {
 					notificationcenter.error('Noch nicht fertig!', timelineItemModel.get('phrase') + ' ist noch nicht ausgewaehlt.');
 					timelineItemModel.trigger('highlight');
