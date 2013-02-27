@@ -151,6 +151,11 @@ define([
 					destination: 'store.tray',
 					type: 'b.forward'
 				},
+					{
+					origin: 'store.selection',
+					destination: 'store.dashboard',
+					type: 'e'
+				},
 					// from store.dashboard
 				{
 					origin: 'store.dashboard',

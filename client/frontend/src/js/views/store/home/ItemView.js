@@ -32,6 +32,15 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+
+			this.$el.addClass(this._getImageClass());
+		},
+
+		_getImageClass: function() {
+			var image = this.model.get('largeImage'),
+				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
+
+			return imageWithoutFileExtension.split('-').pop() || '';
 		},
 
 		_showDetails: function () {
