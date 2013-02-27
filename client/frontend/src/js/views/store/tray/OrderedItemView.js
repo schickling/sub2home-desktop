@@ -1,12 +1,13 @@
 // Filename: src/js/views/store/tray/OrderedItemView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'views/store/tray/OrderedArticleSingleView',
-	'views/store/tray/OrderedMenuView'
-	], function ($, _, Backbone, router, OrderedArticleSingleView, OrderedMenuView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'notificationcenter',
+    'views/store/tray/OrderedArticleSingleView',
+    'views/store/tray/OrderedMenuView'
+    ], function ($, _, Backbone, router, notificationcenter, OrderedArticleSingleView, OrderedMenuView) {
 
 	var OrderedItemView = Backbone.View.extend({
 
@@ -41,6 +42,10 @@ define([
 
 		_destroy: function () {
 			var self = this;
+
+			if (this.model.collection.length === 1) {
+				notificationcenter.warning('store.tray.cartNowEmpty', 'store.tray.cartNowEmpty');
+			}
 
 			this.model.destroy();
 

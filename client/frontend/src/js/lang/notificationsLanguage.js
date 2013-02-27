@@ -10,7 +10,8 @@ define([
 			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar',
 			'orders.testOrder.success': 'Testbestellung is raus',
 			'orders.testOrder.error': 'Testbestellung ging nicht',
-			'store.tray.minimumNotReached': 'Mindestbestellwert unso'
+			'store.tray.minimumNotReached': 'Mindestbestellwert unso',
+			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :('
 		},
 
 		_descriptions: {
@@ -18,7 +19,8 @@ define([
 			'articles.edit.success.isNotActive': 'Arikel nicht sichtbar !!',
 			'orders.testOrder.success': 'Testbestellung is raus',
 			'orders.testOrder.error': 'Testbestellung ging nicht',
-			'store.tray.minimumNotReached': 'Mindestbestellwert unso'
+			'store.tray.minimumNotReached': 'Mindestbestellwert unso',
+			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :('
 		},
 
 		getTitle: function (title) {
