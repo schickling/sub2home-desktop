@@ -38,7 +38,6 @@ define([
 			var attachedItemsCollection = this.model.get('attachedItemsCollection'),
 				footlongItemModel = attachedItemsCollection.first(),
 				json = {
-					imageClass: this._getImageClass(),
 					title: this.model.get('title'),
 					image: this.model.get('largeImage'),
 					footlongImage: footlongItemModel.get('largeImage'),
@@ -47,6 +46,8 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+
+			this.$el.addClass(this._getImageClass());
 		},
 
 		_getImageClass: function() {

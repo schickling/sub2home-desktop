@@ -45,14 +45,14 @@ class PaypalService implements PaymentInterface
 	 * @param  string $verifier
 	 * @return array
 	 */
-	public static function getAccessToken($token, $verifier)
+	public static function getAccessTokenForStore($token, $verifier)
 	{
 		$params = sprintf('&token=%s&verifier=%s', $token, $verifier);
 		$response = static::callService('Permissions/GetAccessToken', $params);
 
 		$data = array(
 			'token' => $response->token,
-			'tokensecret' => $response->tokenSecret
+			'tokenSecret' => $response->tokenSecret
 			);
 
 		return $data;
@@ -64,7 +64,7 @@ class PaypalService implements PaymentInterface
 	 * @param  int $store_model_id
 	 * @return string
 	 */
-	public static function auth_header($store_model_id)
+	private static function getAuthHeaderForStore($store_model_id)
 	{
 		// require_once(path('app') . 'libraries/paypal/oauth.php');
 

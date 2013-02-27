@@ -101,7 +101,7 @@ define([
 
 			$el.animate({
 				top: 35
-			});
+			}, 200);
 
 			$deliveryAreas.delay(120).fadeIn(150);
 

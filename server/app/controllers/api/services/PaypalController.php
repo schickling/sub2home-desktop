@@ -45,9 +45,9 @@ class PaypalController extends BaseApiController
 		// write data to store model
 		$storeModel = StoreModel::find($store_model_id);
 
-		$data = PaypalService::getAccessToken($token, $verificationCode);
+		$data = PaypalService::getAccessTokenForStore($token, $verificationCode);
 		$storeModel->paypalToken = $data['token'];
-		$storeModel->paypalTokensecret = $data['tokensecret'];
+		$storeModel->paypalTokenSecret = $data['tokenSecret'];
 
 		// Enable payment method
 		$storeModel->allowsPaymentPaypal = true;
