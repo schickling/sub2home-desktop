@@ -129,7 +129,9 @@ define([
 			$.ajax({
 				url: url,
 				type: 'get',
-				success: function (paypalUrl) {
+				dataType: 'json',
+				success: function (response) {
+					var paypalUrl = response.url;
 					window.location = paypalUrl;
 				}
 			});

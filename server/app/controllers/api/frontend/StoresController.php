@@ -136,7 +136,11 @@ class StoresController extends ApiController
 			return $this->respondWithError();
 		}
 
-		return PaypalService::getRequestPermissionUrl($this->storeModel->id);
+		$json = json_encode(array(
+			'url' => PaypalService::getRequestPermissionUrl($this->storeModel->id)
+			));
+
+		return $json;
 	}
 
 
