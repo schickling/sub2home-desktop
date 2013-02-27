@@ -25,6 +25,7 @@ define([
 			var json = {
 					title: this.model.get('title'),
 					image: this.model.get('largeImage'),
+					info: this.model.get('info'),
 					description: this._getDescription()
 				};
 
