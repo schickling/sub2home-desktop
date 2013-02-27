@@ -21,6 +21,7 @@ class StoreModelTable extends Migration {
 			$table->decimal('latitude', 8, 6)->default(0);
 			$table->decimal('longitude', 8, 6)->default(0);
 			$table->decimal('totalTurnover', 12, 2)->default(0);
+			$table->decimal('commissionRate', 2, 2)->default(0);
 			$table->boolean('isActive')->default(false);
 			$table->boolean('isOpen')->default(false);
 			$table->text('description')->default('');

@@ -18,6 +18,7 @@ class OrderModelTable extends Migration {
 			$table->integer('store_model_id')->unsigned();
 			$table->decimal('credit', 7, 2)->default(0);
 			$table->decimal('total', 7, 2)->default(0);
+			$table->decimal('commissionRate', 2, 2)->default(0);
 			$table->text('comment')->default('');
 			$table->timestamp('due_at')->default(date("Y-m-d H:i:s"));
 			$table->timestamps();

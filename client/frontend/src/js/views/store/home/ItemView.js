@@ -27,7 +27,8 @@ define([
 				title: this.model.get('title'),
 				image: this.model.get('largeImage'),
 				description: this.model.get('description'),
-				price: this.model.get('price')
+				price: this.model.get('price'),
+				deposit: (this.model.get('deposit') || 0) * 100 // cent
 			};
 
 			this.$el.html(this.template(json));
