@@ -4222,6 +4222,7 @@ input[type="text"]#locationSelectionInput {
 }
 .storeDeliveryDetails .bEdit {
   position: relative;
+  display: none;
   top: -2px;
   padding-left: 5px;
   height: 30px;
@@ -4231,7 +4232,6 @@ input[type="text"]#locationSelectionInput {
   top: 2px;
 }
 #currentDeliveryArea {
-  cursor: pointer;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -4240,10 +4240,16 @@ input[type="text"]#locationSelectionInput {
 #currentDeliveryArea span {
   color: inherit;
 }
-#currentDeliveryArea:hover {
+#currentDeliveryArea.editable {
+  cursor: pointer;
+}
+#currentDeliveryArea.editable .bEdit {
+  display: inline-block;
+}
+#currentDeliveryArea.editable:hover {
   color: #57a827;
 }
-#currentDeliveryArea:hover .bEdit {
+#currentDeliveryArea.editable:hover .bEdit {
   color: #d1ba82;
 }
 #deliveryAreas {
@@ -4286,6 +4292,10 @@ input[type="text"]#locationSelectionInput {
   top: 23px;
   height: 1px;
   background: rgba(209, 186, 130, 0.5);
+}
+.menuComponentOption .pricetag.small {
+  top: 154px;
+  left: 140px;
 }
 .item,
 .article {

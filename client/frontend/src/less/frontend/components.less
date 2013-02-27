@@ -1035,8 +1035,10 @@ input[type="text"]#locationSelectionInput {
   span {
     color: @onNoteColor;
   }
+
   .bEdit {
     .positioned;
+    display: none;
     top: -2px;
     padding-left: 5px;
     height: 30px;
@@ -1045,19 +1047,29 @@ input[type="text"]#locationSelectionInput {
       top: 2px;
     }
   }
+
 }
 
+
+
+
 #currentDeliveryArea {
-  cursor: pointer;
+  
   .transition(color .1s linear);
-  span { color: inherit;}
-  &:hover{
-    color: @greenLight;
+  span { color: inherit; }
+  
+  &.editable {
+    cursor: pointer;
     .bEdit {
-      color: @onNoteColor;
+      display: inline-block;
+    }
+    &:hover{
+      color: @greenLight;
+      .bEdit {
+        color: @onNoteColor;
+      }
     }
   }
-
 }
 
 #deliveryAreas {
@@ -1102,21 +1114,6 @@ input[type="text"]#locationSelectionInput {
     margin: 10px @sidemargin 0;
     .positioned;
 
-    // .categoriesNavigation {
-    //   position: absolute;
-    //   text-align: center;
-    //   >div {
-    //     display: inline-block;
-    //     margin: 0 7px;
-    //     cursor: pointer;
-    //     color: @onNoteColor;
-    //     text-transform: uppercase;
-    //     font-size: 15px;
-    //     font-family: @headingsFontFamily;
-    //   }
-    // }
-
-    
     .separator {
       position: absolute;
       display: inline-block;
@@ -1129,7 +1126,12 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-
+.menuComponentOption {
+  .pricetag.small {
+    top: 154px;
+    left: 140px;
+  }
+}
 
 // ARTICLE PREVIEW
 // ---------------

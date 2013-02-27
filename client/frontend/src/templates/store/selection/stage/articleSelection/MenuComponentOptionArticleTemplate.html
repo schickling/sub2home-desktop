@@ -1,11 +1,6 @@
-<div class="itemOverlay">
-	<div class="itemOverlayBackground"></div>
-	<div class="itemBasics">
-		<img class="itemPreview" src="../../../<%= image %>" alt="" >
-		<h3><%= title %></h3>
-		<p class="itemDescription"><%= description %></p>
-		<% if (deposit > 0) { %>
-		<div class="pricetag"><span>+ <%= deposit.toFixed(2) %> € Pfand</span></div>
-		<% } %>
-	</div>
-</div>
+<img class="itemPreview" src="../../../<%= image %>" alt="" >
+<% if (deposit > 0) { %>
+<div class="pricetag small"><span>+ <%= deposit.toFixed(2) %>€</span></div>
+<% } %>
+<h3><%= title %></h3>
+<p class="itemDescription"><%= description %></p>
