@@ -1030,6 +1030,7 @@ input[type="text"]#locationSelectionInput {
 #currentDeliveryArea {
   cursor: pointer;
   .transition(color .1s linear);
+  span { color: inherit;}
   &:hover{
     color: @greenLight;
     .bEdit {
@@ -1209,7 +1210,7 @@ input[type="text"]#locationSelectionInput {
     top: 33px;
     width: 230px;
     height: 130px;
-    
+
     &:before {
       content:"\e01e";
       font-family: "Homicons";
@@ -1219,6 +1220,54 @@ input[type="text"]#locationSelectionInput {
       left: -27px;
       top: 72px;
     }
+
+    &.st:before {
+      content: "\e01e";
+    }
+
+    &.smt {
+      
+      top: 35px;
+
+      &:before {
+        content: "\e023";
+      }
+    }
+
+    &.sm {
+
+      top: 39px;
+
+      &:before {
+        content: "\e024";
+      }
+      span {
+        top: 52px;
+      }
+    }
+
+    &.sml {
+      
+      top: 39px;
+
+      &:before {
+        content: "\e029";
+      }
+      span {
+        top: 54px;
+      }
+    }
+  
+    &.sl {
+      top: 28px;
+      &:before {
+        content: "\e02a";
+      }
+      span {
+        top: 71px;
+      }
+    }
+
 
     span {
       font-family: @handFontFamily;

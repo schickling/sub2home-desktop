@@ -4220,6 +4220,9 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
+#currentDeliveryArea span {
+  color: inherit;
+}
 #currentDeliveryArea:hover {
   color: #57a827;
 }
@@ -4369,6 +4372,54 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   left: -27px;
   top: 72px;
+}
+.item .footlongOption.st:before,
+.article .footlongOption.st:before {
+  content: "\e01e";
+}
+.item .footlongOption.smt,
+.article .footlongOption.smt {
+  top: 35px;
+}
+.item .footlongOption.smt:before,
+.article .footlongOption.smt:before {
+  content: "\e023";
+}
+.item .footlongOption.sm,
+.article .footlongOption.sm {
+  top: 39px;
+}
+.item .footlongOption.sm:before,
+.article .footlongOption.sm:before {
+  content: "\e024";
+}
+.item .footlongOption.sm span,
+.article .footlongOption.sm span {
+  top: 52px;
+}
+.item .footlongOption.sml,
+.article .footlongOption.sml {
+  top: 39px;
+}
+.item .footlongOption.sml:before,
+.article .footlongOption.sml:before {
+  content: "\e029";
+}
+.item .footlongOption.sml span,
+.article .footlongOption.sml span {
+  top: 54px;
+}
+.item .footlongOption.sl,
+.article .footlongOption.sl {
+  top: 28px;
+}
+.item .footlongOption.sl:before,
+.article .footlongOption.sl:before {
+  content: "\e02a";
+}
+.item .footlongOption.sl span,
+.article .footlongOption.sl span {
+  top: 71px;
 }
 .item .footlongOption span,
 .article .footlongOption span {
