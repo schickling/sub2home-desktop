@@ -1998,6 +1998,7 @@ input[type="text"]#locationSelectionInput {
   }
   
   .triggerEditPassword {
+    .clearfix;
     p {
       font-size: 24px;
       color: @onNoteColor;
@@ -2020,16 +2021,36 @@ input[type="text"]#locationSelectionInput {
       }
     }
     .submitNewPassword {
+      float: left;
       .btn;
       .btnSuccess;
       height: 20px;
       padding: 10px 24px;
       width: 42px;
       margin-top: 30px;
+      display: inline-block;
       .opacity(50);
       display: none;
       &.valid {
         .opacity(100);
+      }
+    }
+    .cancelEditPassword {
+      float: left;
+      .btn;
+      .btnWarning;
+      height: 20px;
+      padding: 10px 13px;
+      display: inline-block;
+      margin: 30px 0 0 10px;
+      //display: none;
+      .iClose;
+      &:before {
+        font-family: "Homicons";
+        position: relative;
+        top: 2px;
+        color: darken(@orange, 20%);
+        text-shadow: 0 1px 0px rgba(255,255,255,0.5);
       }
     }
   }
@@ -4587,6 +4608,7 @@ div#payment {
     }
   }
   span {
+    .transition(color .1s linear);
     color: @grayOnDarkInactive;
     margin-left: 57px;
     cursor: pointer;
