@@ -20,8 +20,8 @@ class PaypalController extends BaseApiController
 		// validate input
 		$input = Input::all();
 		$rules = array(
-			'request_token'		=> 'alpha_num|required',
-			'verification_code'	=> 'alpha_num|required'
+			'request_token'		=> 'required',
+			'verification_code'	=> 'required'
 			);
 
 		$validator = Validator::make($input, $rules);
@@ -44,10 +44,11 @@ class PaypalController extends BaseApiController
 
 		// write data to store model
 		$storeModel = StoreModel::find($store_model_id);
+		
+		$authHeader = PaypalService::getAuthHeaderForStore($token, $verificationCode);
 
-		$data = PaypalService::getAccessTokenForStore($token, $verificationCode);
-		$storeModel->paypalToken = $data['token'];
-		$storeModel->paypalTokenSecret = $data['tokenSecret'];
+
+		$storeModel->paymentPaypalAuthHeader = $authHeader;
 
 		// Enable payment method
 		$storeModel->allowsPaymentPaypal = true;

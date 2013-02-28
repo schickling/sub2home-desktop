@@ -9,7 +9,7 @@ define([
 	], function (_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel, IngredientCategoriesCollection) {
 
 	var OrderedArticleModel = Backbone.Model.extend({
-		
+
 		defaults: {
 
 			// ordered item which this belongs to

@@ -1,12 +1,16 @@
 // Filename: src/js/views/store/home/ItemView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/home/ArticleDetailsView',
-	'views/store/home/MenuBundleDetailsView',
-	'text!templates/store/home/ItemTemplate.html'
-	], function ($, _, Backbone, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'models/cartModel',
+    'models/ArticleModel',
+    'models/OrderedItemModel',
+    'views/store/home/ArticleDetailsView',
+    'views/store/home/MenuBundleDetailsView',
+    'text!templates/store/home/ItemTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
 
 	var ItemView = Backbone.View.extend({
 
@@ -36,7 +40,7 @@ define([
 			this.$el.addClass(this._getImageClass());
 		},
 
-		_getImageClass: function() {
+		_getImageClass: function () {
 			var image = this.model.get('largeImage'),
 				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
 
@@ -47,9 +51,14 @@ define([
 			var detailsView;
 
 			if (this.model.has('allowsIngredients')) {
-				detailsView = new ArticleDetailsView({
-					model: this.model
-				});
+				if (this.model.get('allowsIngredients')) {
+					detailsView = new ArticleDetailsView({
+						model: this.model
+					});
+				} else {
+					this._putArticleInCart();
+					return;
+				}
 			} else {
 				detailsView = new MenuBundleDetailsView({
 					model: this.model
@@ -59,6 +68,26 @@ define([
 			this.$el.append(detailsView.el);
 
 			// check if item is too close to border
+		},
+
+		_putArticleInCart: function () {
+			var orderedItemModel = new OrderedItemModel(),
+				orderedArticlesCollection = orderedItemModel.get('orderedArticlesCollection'),
+				articleModel = new ArticleModel({
+					id: this.model.get('id')
+				});
+
+			articleModel.fetch({
+				async: false
+			});
+
+			orderedArticlesCollection.add({
+				articleModel: articleModel
+			});
+
+			cartModel.addOrderedItemModel(orderedItemModel);
+
+			notificationcenter.success('store.home.addedOrderedItemToCart', 'store.home.addedOrderedItemToCart');
 		}
 
 	});

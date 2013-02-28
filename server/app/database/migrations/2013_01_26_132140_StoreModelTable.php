@@ -31,8 +31,7 @@ class StoreModelTable extends Migration {
 			$table->boolean('allowsPaymentEc')->default(false);
 			$table->boolean('allowsPaymentPaypal')->default(false);
 			// Paypal identification
-			$table->string('paypalToken', 128)->nullable();
-			$table->string('paypalTokenSecret', 128)->nullable();
+			$table->string('paymentPaypalAuthHeader', 128)->nullable();
 		});
 	}
 

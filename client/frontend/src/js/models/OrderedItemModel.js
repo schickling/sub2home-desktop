@@ -130,7 +130,6 @@ define([
 		getMenuTitle: function () {
 			if (this.isMenuBundle()) {
 				var menuBundleModel = this.get('menuBundleModel');
-				console.log(menuBundleModel);
 				return menuBundleModel.get('title');
 			} else {
 				var firstOrderedArticleModel = this.get('orderedArticlesCollection').first(),
@@ -157,6 +156,8 @@ define([
 			orderedArticlesCollection.on('remove', function (orderedArticleModel) {
 				orderedArticleModel.off('priceChanged');
 			});
+
+			this.on('recalculate', this._calculateTotal, this);
 		},
 
 		_addOrderedArticleListener: function (orderedArticleModel) {

@@ -11,7 +11,8 @@ define([
 			'orders.testOrder.success': 'Testbestellung is raus',
 			'orders.testOrder.error': 'Testbestellung ging nicht',
 			'store.tray.minimumNotReached': 'Mindestbestellwert unso',
-			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :('
+			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :(',
+			'store.home.addedOrderedItemToCart': 'Artikel is drin. Danke'
 		},
 
 		_descriptions: {
@@ -20,7 +21,8 @@ define([
 			'orders.testOrder.success': 'Testbestellung is raus',
 			'orders.testOrder.error': 'Testbestellung ging nicht',
 			'store.tray.minimumNotReached': 'Mindestbestellwert unso',
-			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :('
+			'store.tray.cartNowEmpty': 'Jetzt isses so leer hier :(',
+			'store.home.addedOrderedItemToCart': 'Artikel is drin. Danke'
 		},
 
 		getTitle: function (title) {

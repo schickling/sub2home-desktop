@@ -157,6 +157,7 @@ define([
 		addOrderedItemModel: function (orderedItemModel) {
 			var orderedItemsCollection = this.getOrderedItemsCollection();
 
+			orderedItemModel.trigger('recalculate');
 			orderedItemsCollection.add(orderedItemModel);
 
 			orderedItemModel.set('isInCart', true);
