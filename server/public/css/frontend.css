@@ -229,7 +229,6 @@ aside#header {
   top: 0;
   right: 0;
   width: 50%;
-  min-width: 590px;
   z-index: 9999;
 }
 aside#header:before {
@@ -2113,10 +2112,9 @@ table [class*=span],
   width: 56px;
   *margin-right: .3em;
   line-height: 35px;
-  vertical-align: text-top;
+  vertical-align: middle;
   background: url('../img/static/common/store_icon.png') no-repeat;
   position: relative;
-  top: -15px;
   margin-right: 10px;
   background-size: 90%;
   background-position: center;
@@ -3373,6 +3371,7 @@ img.cookie {
 .flag {
   position: relative;
   display: inline-block;
+  margin: 3px;
 }
 .flagFront {
   position: relative;
@@ -3442,7 +3441,7 @@ img.cookie {
   left: -76px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-div.pricetag {
+.pricetag {
   position: relative;
   height: 33px;
   text-align: center;
@@ -3458,28 +3457,26 @@ div.pricetag {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-div.pricetag.small {
+.pricetag.small {
   font-size: 12px;
-  top: 109px;
-  left: 220px;
 }
-div.pricetag.small span {
+.pricetag.small span {
   top: -4px;
   left: -9px;
   display: inline-block;
   line-height: 13px;
 }
-div.pricetag.small:before,
-div.pricetag.small:after {
+.pricetag.small:before,
+.pricetag.small:after {
   font-size: 70px;
   left: 0;
 }
-div.pricetag span {
+.pricetag span {
   position: relative;
   z-index: 5;
 }
-div.pricetag:before,
-div.pricetag:after {
+.pricetag:before,
+.pricetag:after {
   content: "\e07a";
   font-family: "Homicons";
   color: #13493b;
@@ -3488,10 +3485,10 @@ div.pricetag:after {
   left: -19px;
   top: 12px;
 }
-div.pricetag:before {
+.pricetag:before {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
-div.pricetag:after {
+.pricetag:after {
   content: "\e079";
   color: #1e715c;
 }
@@ -3741,14 +3738,19 @@ aside#header #headerCustomerContent > div {
   padding: 0 15px;
   float: left;
 }
-aside#header #headerClientContent > div.currentInfo,
-aside#header #headerCustomerContent > div.currentInfo {
+aside#header #headerClientContent .currentInfo,
+aside#header #headerCustomerContent .currentInfo {
   height: 30px;
   margin: 8px 0 0 0;
-  padding-top: 18px;
+  padding-top: 3px;
 }
-aside#header #headerClientContent > div.back,
-aside#header #headerCustomerContent > div.back {
+aside#header #headerClientContent .currentInfo span,
+aside#header #headerCustomerContent .currentInfo span {
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+aside#header #headerCustomerContent .back {
   height: 48px;
   margin: 8px 0 0 0;
   float: right;
@@ -3761,8 +3763,7 @@ aside#header #headerCustomerContent > div.back {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header #headerClientContent > div.back:before,
-aside#header #headerCustomerContent > div.back:before {
+aside#header #headerCustomerContent .back:before {
   margin-top: 5px;
   content: "\e03e";
   font-family: "Homicons";
@@ -3773,12 +3774,12 @@ aside#header #headerCustomerContent > div.back:before {
   left: 0;
   line-height: 0.3;
 }
-aside#header #headerClientContent > div.back:hover,
-aside#header #headerCustomerContent > div.back:hover {
+aside#header #headerCustomerContent .back:hover {
   color: #836c35;
 }
-aside#header #headerClientContent > div.trayPreview,
-aside#header #headerCustomerContent > div.trayPreview {
+aside#header #headerCustomerContent .trayPreview {
+  padding-top: 19px;
+  height: 48px;
   cursor: pointer;
   float: right;
   background: rgba(184, 126, 0, 0.25);
@@ -3791,33 +3792,29 @@ aside#header #headerCustomerContent > div.trayPreview {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header #headerClientContent > div.trayPreview .iCart,
-aside#header #headerCustomerContent > div.trayPreview .iCart {
-  margin: 12px 10px 0 0;
+aside#header #headerCustomerContent .trayPreview .iCart {
+  margin: 0 10px 0 0;
   position: relative;
-  top: 7px;
+  vertical-align: middle;
 }
-aside#header #headerClientContent > div.trayPreview .iCart span,
-aside#header #headerCustomerContent > div.trayPreview .iCart span {
+aside#header #headerCustomerContent .trayPreview .iCart span {
   display: none;
   font-size: 10px;
   font-family: "VAGRounded LT Thin";
   color: #ffffff;
   font-style: normal;
   position: absolute;
-  left: 25px;
+  left: 24px;
   top: -5px;
   z-index: 2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-aside#header #headerClientContent > div.trayPreview .iCart:before,
-aside#header #headerCustomerContent > div.trayPreview .iCart:before {
+aside#header #headerCustomerContent .trayPreview .iCart:before {
   color: #a38743;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 #5f4e26;
   top: 0;
 }
-aside#header #headerClientContent > div.trayPreview.filled .iCart:after,
-aside#header #headerCustomerContent > div.trayPreview.filled .iCart:after {
+aside#header #headerCustomerContent .trayPreview.filled .iCart:after {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -3833,32 +3830,34 @@ aside#header #headerCustomerContent > div.trayPreview.filled .iCart:after {
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
 }
-aside#header #headerClientContent > div.trayPreview.filled .iCart span,
-aside#header #headerCustomerContent > div.trayPreview.filled .iCart span {
+aside#header #headerCustomerContent .trayPreview.filled .iCart span {
   display: block;
 }
-aside#header #headerClientContent > div.trayPreview.filled > span,
-aside#header #headerCustomerContent > div.trayPreview.filled > span {
+aside#header #headerCustomerContent .trayPreview.filled > span {
   color: #8e753a;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header #headerClientContent > div.trayPreview:hover,
-aside#header #headerCustomerContent > div.trayPreview:hover {
+aside#header #headerCustomerContent .trayPreview:hover {
   background: rgba(184, 126, 0, 0.35);
   color: #715d2e;
   -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
   box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a;
 }
-aside#header #headerClientContent > div.trayPreview:hover > span,
-aside#header #headerCustomerContent > div.trayPreview:hover > span {
+aside#header #headerCustomerContent .trayPreview:hover > span {
   color: #715d2e;
 }
-aside#header #headerClientContent #clientAreaNavigation,
-aside#header #headerCustomerContent #clientAreaNavigation {
+aside#header #headerCustomerContent .sumContainer {
+  display: inline-block;
+  vertical-align: middle;
+}
+aside#header #headerCustomerContent .sumContainer .minimum {
+  white-space: nowrap;
+}
+aside#header div#clientAreaNavigation {
   float: right;
   background: rgba(184, 126, 0, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.6);
@@ -3868,20 +3867,16 @@ aside#header #headerCustomerContent #clientAreaNavigation {
   padding: 0;
   *zoom: 1;
 }
-aside#header #headerClientContent #clientAreaNavigation:before,
-aside#header #headerCustomerContent #clientAreaNavigation:before,
-aside#header #headerClientContent #clientAreaNavigation:after,
-aside#header #headerCustomerContent #clientAreaNavigation:after {
+aside#header div#clientAreaNavigation:before,
+aside#header div#clientAreaNavigation:after {
   display: table;
   content: "";
   line-height: 0;
 }
-aside#header #headerClientContent #clientAreaNavigation:after,
-aside#header #headerCustomerContent #clientAreaNavigation:after {
+aside#header div#clientAreaNavigation:after {
   clear: both;
 }
-aside#header #headerClientContent #clientAreaNavigation .iBtn,
-aside#header #headerCustomerContent #clientAreaNavigation .iBtn {
+aside#header div#clientAreaNavigation .iBtn {
   float: left;
   display: none;
   margin: 24px 9px 0;
@@ -3891,30 +3886,23 @@ aside#header #headerCustomerContent #clientAreaNavigation .iBtn {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header #headerClientContent #clientAreaNavigation .iBtn:hover,
-aside#header #headerCustomerContent #clientAreaNavigation .iBtn:hover {
+aside#header div#clientAreaNavigation .iBtn:hover {
   color: #836c35;
 }
-aside#header #headerClientContent #clientAreaNavigation .iBtn.active,
-aside#header #headerCustomerContent #clientAreaNavigation .iBtn.active {
+aside#header div#clientAreaNavigation .iBtn.active {
   color: #5f4e26;
 }
-aside#header #headerClientContent #clientAreaNavigation .bStoreConfig,
-aside#header #headerCustomerContent #clientAreaNavigation .bStoreConfig {
+aside#header div#clientAreaNavigation .bStoreConfig {
   margin-left: 19px;
 }
-aside#header #headerClientContent #clientAreaNavigation .bStoreDashboard,
-aside#header #headerCustomerContent #clientAreaNavigation .bStoreDashboard {
+aside#header div#clientAreaNavigation .bStoreDashboard {
   margin-right: 19px;
 }
-aside#header #headerClientContent #clientAreaNavigation .bClientConfig,
-aside#header #headerCustomerContent #clientAreaNavigation .bClientConfig {
+aside#header div#clientAreaNavigation .bClientConfig {
   margin: 24px 19px 0;
 }
-aside#header #headerClientContent #clientAreaNavigation .bClientDashboard,
-aside#header #headerCustomerContent #clientAreaNavigation .bClientDashboard,
-aside#header #headerClientContent #clientAreaNavigation .bSignout,
-aside#header #headerCustomerContent #clientAreaNavigation .bSignout {
+aside#header div#clientAreaNavigation .bClientDashboard,
+aside#header div#clientAreaNavigation .bSignout {
   margin: 0;
   padding: 24px 19px 0;
   -webkit-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
@@ -3925,20 +3913,28 @@ aside#header #headerCustomerContent #clientAreaNavigation .bSignout {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header #headerClientContent #clientAreaNavigation .bClientDashboard:hover,
-aside#header #headerCustomerContent #clientAreaNavigation .bClientDashboard:hover,
-aside#header #headerClientContent #clientAreaNavigation .bSignout:hover,
-aside#header #headerCustomerContent #clientAreaNavigation .bSignout:hover {
+aside#header div#clientAreaNavigation .bClientDashboard:hover,
+aside#header div#clientAreaNavigation .bSignout:hover {
   background: rgba(184, 126, 0, 0.35);
   -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
   -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
   box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
 }
-aside#header #headerClientContent #clientAreaNavigation .bSignout,
-aside#header #headerCustomerContent #clientAreaNavigation .bSignout {
+aside#header div#clientAreaNavigation .bSignout {
   display: block;
 }
-aside#header div#roleSwitch {
+aside#header.isLoggedIn #headerClientContent,
+aside#header.isLoggedIn #headerCustomerContent {
+  left: 120px;
+}
+aside#header.isLoggedIn #headerClientContent .currentInfo,
+aside#header.isLoggedIn #headerCustomerContent .currentInfo {
+  border-left: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+div#roleSwitch {
   position: absolute;
   left: 100px;
   width: 21px;
@@ -3958,18 +3954,18 @@ aside#header div#roleSwitch {
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
   z-index: 50;
 }
-aside#header div#roleSwitch .icn {
+div#roleSwitch .icn {
   color: #a78a44;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   height: 15px;
   width: 15px;
   margin: 4px 0 0 3px;
 }
-aside#header div#roleSwitch .icn:before {
+div#roleSwitch .icn:before {
   font-size: 15px;
   top: -8px;
 }
-aside#header div#roleSwitch .handle {
+div#roleSwitch .handle {
   position: absolute;
   top: 27px;
   left: 2px;
@@ -4003,19 +3999,8 @@ aside#header div#roleSwitch .handle {
   -o-transition: top 0.1s ease-in-out;
   transition: top 0.1s ease-in-out;
 }
-aside#header div#roleSwitch .handle:before {
+div#roleSwitch .handle:before {
   top: -4px;
-}
-aside#header.isLoggedIn #headerClientContent,
-aside#header.isLoggedIn #headerCustomerContent {
-  left: 120px;
-}
-aside#header.isLoggedIn #headerClientContent .currentInfo,
-aside#header.isLoggedIn #headerCustomerContent .currentInfo {
-  border-left: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
 }
 #content {
   padding: 0;
@@ -4212,6 +4197,7 @@ input[type="text"]#locationSelectionInput {
   text-align: right;
   font-family: "VAGRounded LT Thin";
   font-size: 33px;
+  line-height: 1.2;
   color: rgba(209, 186, 130, 0.5);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -4289,13 +4275,17 @@ input[type="text"]#locationSelectionInput {
   display: inline-block;
   margin-left: 20px;
   width: 100%;
-  top: 23px;
+  top: 25px;
   height: 1px;
   background: rgba(209, 186, 130, 0.5);
 }
 .menuComponentOption .pricetag.small {
   top: 154px;
   left: 140px;
+}
+.items {
+  display: inline-block;
+  text-align: left;
 }
 .item,
 .article {
@@ -4307,6 +4297,7 @@ input[type="text"]#locationSelectionInput {
   vertical-align: top;
   overflow: visible;
   cursor: default;
+  text-align: center;
 }
 .item > h3,
 .article > h3 {
@@ -4566,6 +4557,27 @@ input[type="text"]#locationSelectionInput {
 }
 .item.sl .footlongOption span {
   top: 71px;
+}
+.item.w .pricetag {
+  left: 133px;
+}
+.item.s .pricetag {
+  left: 163px;
+}
+.item.cdm .pricetag {
+  left: 150px;
+}
+.item.c .pricetag {
+  top: 140px;
+  left: 140px;
+}
+.item.b .pricetag {
+  top: 140px;
+  left: 140px;
+}
+.item.b .pricetag.small {
+  top: 119px;
+  left: 167px;
 }
 .article {
   background: none;
@@ -6474,29 +6486,15 @@ div#payment .bankaccount {
   position: relative;
   font-family: "VAGRounded LT Thin";
   font-size: 14px;
-  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  color: #c3a55d;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  top: -5px;
+  top: 0px;
   left: 0;
-  margin-left: 10px;
-}
-.bGreen small {
-  font-size: 10px;
-  display: block;
-  color: inherit;
-  letter-spacing: 1px;
-  position: relative;
-  top: -2px;
-}
-.bGreen.subSize {
-  padding-top: 6px;
-}
-.bGreen.cupSize {
-  padding-top: 10px;
-  letter-spacing: -1px;
+  margin-left: 4px;
 }
 .ingredientInfo {
   width: 560px;
@@ -6852,23 +6850,23 @@ div#payment .bankaccount {
   color: #cecece;
   position: absolute;
 }
-.menuUpgrade .pColdBev {
+.menuUpgrade .pBeverage {
   top: 0;
   margin-left: -135px;
 }
-.menuUpgrade .pColdBev:before,
-.menuUpgrade .pColdBev:after {
+.menuUpgrade .pBeverage:before,
+.menuUpgrade .pBeverage:after {
   top: -7px;
   left: 75px;
 }
-.menuUpgrade .pColdBev img {
+.menuUpgrade .pBeverage img {
   width: 300px;
 }
-.menuUpgrade .pColdBev .componentInfo {
+.menuUpgrade .pBeverage .componentInfo {
   top: -20px;
   left: -10px;
 }
-.menuUpgrade .pColdBev .componentInfo:after {
+.menuUpgrade .pBeverage .componentInfo:after {
   left: 40px;
   top: 20px;
 }
@@ -7154,7 +7152,7 @@ div#payment .bankaccount {
 }
 .orderedArticle .controls {
   top: 50%;
-  margin-top: -11px;
+  margin-top: -5px;
 }
 .orderedMenu {
   position: relative;
@@ -7200,7 +7198,7 @@ div#payment .bankaccount {
   display: inline-block;
 }
 .orderedMenu .pricetag {
-  top: 4px;
+  top: -1px;
   right: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -7210,7 +7208,7 @@ div#payment .bankaccount {
 }
 .orderedMenu .controls {
   position: absolute;
-  top: 30px;
+  top: 16px;
   right: 15px;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -7281,6 +7279,13 @@ div#payment .bankaccount {
 }
 .menuItem:first-child:before {
   content: " ";
+}
+.menuItem.ft {
+  width: 459px;
+}
+.menuItem.ft img {
+  left: 0;
+  margin-left: 0;
 }
 #checkoutControls {
   padding: 50px 0;
@@ -8025,31 +8030,9 @@ aside.infoNavigation ul li.active {
   -moz-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-/*
-@media (min-width: 1200px) {
-
-  // Fixed grid
-  #grid > .core(@gridColumnWidth1200, @gridGutterWidth1200);
-
-  // Fluid grid
-  #grid > .fluid(@fluidGridColumnWidth1200, @fluidGridGutterWidth1200);
-
-  // Input grid
-  #grid > .input(@gridColumnWidth1200, @gridGutterWidth1200);
-
-  // Thumbnails
-  .thumbnails {
-    margin-left: -@gridGutterWidth1200;
-  }
-  .thumbnails > li {
-    margin-left: @gridGutterWidth1200;
-  }
-  .row-fluid .thumbnails {
-    margin-left: 0;
-  }
-
+aside#header {
+  min-width: 555px;
 }
-*/
 @media (max-width: 1324px) {
   .deliveryTimes {
     width: 348px !important;
@@ -8084,19 +8067,57 @@ aside.infoNavigation ul li.active {
     padding-left: 20px;
   }
 }
-@media (max-width: 1260px) {
-  .header {
-    width: 55% !important;
-  }
-  .articleInfo {
-    width: 45% !important;
+.items {
+  width: 100%;
+}
+@media (max-width: 1076px) {
+  .items {
+    width: 718px;
   }
 }
-@media (max-width: 1116px) {
-  .header {
-    width: 57% !important;
+@media (min-width: 1077px) and (max-width: 1435px) {
+  .items {
+    width: 1077px;
   }
-  .articleInfo {
-    width: 40% !important;
+}
+@media (max-width: 1304px) {
+  aside#header {
+    width: 55%;
+  }
+  .categoriesNavigation {
+    width: 45%;
+  }
+}
+@media (max-width: 1186px) {
+  aside#header span.sumContainer {
+    width: 86px;
+  }
+}
+@media (max-width: 1113px) {
+  aside#header {
+    width: 58%;
+  }
+  aside#header #headerCustomerContent > div {
+    padding: 0 7px;
+  }
+  aside#header i.imgIcn {
+    margin-right: 0;
+  }
+  aside#header div#clientAreaNavigation .iBtn {
+    margin: 24px 5px 0;
+  }
+  aside#header div#clientAreaNavigation .bStoreConfig {
+    margin-left: 12px;
+  }
+  aside#header div#clientAreaNavigation .bStoreDashboard {
+    margin-right: 12px;
+  }
+  aside#header div#clientAreaNavigation .bClientDashboard,
+  aside#header div#clientAreaNavigation .bSignout {
+    padding: 24px 12px 0;
+    margin: 0;
+  }
+  .categoriesNavigation {
+    width: 40%;
   }
 }

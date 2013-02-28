@@ -171,6 +171,7 @@ img.cookie    { margin: 0 -10px;}
 .flag {
   .positioned;
   display: inline-block;
+  margin: 3px;
 }
 
 .flagFront {
@@ -252,7 +253,7 @@ img.cookie    { margin: 0 -10px;}
 @pricetagShadow :       0 0 3px 0 rgba(0, 0, 0, 0.1);
 @pricetagSepColor :     rgba(255,255,255, 0.3);
 
-div.pricetag {
+.pricetag {
   .positioned;
   height: 33px;
   text-align: center;
@@ -268,8 +269,6 @@ div.pricetag {
 
   &.small {
     font-size: 12px;
-    top: 109px;
-    left: 220px;
     span {
       top: -4px;
       left: -9px;
@@ -537,220 +536,175 @@ aside#header {
       width: 100%;
       text-align: center;
     }
-
+  
     >div {
-
-
-
-      // COMMON STYLES
-
-
-
       border-left: 1px solid @onNoteColor;
       height: 67px;
       .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
       padding: 0 15px;
       float: left;
+    }
 
-
-      // LOGO SECTION
-
-      &.logo {
-        
-      }
-
-      // CURRENT INFO SECTION
-
-      &.currentInfo {
-        height: 30px;
-        margin: 8px 0 0 0;
-        padding-top: 18px;
-      }
-
-      // BACK SECTION
-
-      &.back {
-        height: 48px;
-        margin: 8px 0 0 0;
-        float: right;
-        line-height: 1;
-        .positioned;
-        cursor: pointer;
-        text-align: center;
-        .transition(color .1s linear);
-        &:before {
-          margin-top: 5px;
-          content: "\e03e";
-          font-family: "Homicons";
-          display: block;
-          font-size: 40px;
-          position: relative;
-          top: 2px;
-          left: 0;
-          line-height: 0.3;
-        }
-        &:hover {
-          color: darken(@onHeaderColor, 10%);
-        }
-      }
-
-      // TRAY PREVIEW SECTION
-
-      &.trayPreview {
-        cursor: pointer;
-        float: right;
-        background: @headerTrayBackground;
-        border-left: 1px solid rgba(255,255,255,0.6);
-        .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
-        .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
-        
-        .iCart {
-          margin: 12px 10px 0 0;
-          .positioned;
-          top: 7px;
-   
-          span {
-            display: none;
-            font-size: 10px;
-            font-family: @headingsFontFamily;
-            color: @white;
-            font-style: normal;
-            position: absolute;
-            left: 25px;
-            top: -5px;
-            z-index: 2;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-          }
-
-          &:before {
-            color: darken(@onHeaderColor, 1%);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
-            top: 0;
-          }  
-        }
-
-
-        &.filled {
-          .iCart {
-            &:after {
-              content: " ";
-              .border-radius(500px);
-              width: 15px;
-              height: 15px;
-              position: absolute;
-              left: 19px;
-              top: -4px;
-              background: @greenLight;
-              .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-            }
-            span {
-              display: block;
-            }
-          }
-
-          >span {
-          color: darken(@onHeaderColor, 7%);
-          .transition(color .1s linear);
-          }
-        }
-
-        &:hover {
-          background: @headerTrayHoverBackground;
-          color: darken(@onHeaderColor, 15%);
-          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
-
-          >span {
-            color: darken(@onHeaderColor, 15%);
-          }
-        }
+    .currentInfo {
+      height: 30px;
+      margin: 8px 0 0 0;
+      padding-top: 3px;
+      //width: 170px;
+      span {
+        width: 100px;
+        display: inline-block;
+        vertical-align: middle;
       }
     }
 
-    // CLIENT SECTION
+  }
 
-    #clientAreaNavigation {
+  #headerCustomerContent {
+
+    .back {
+      height: 48px;
+      margin: 8px 0 0 0;
+      float: right;
+      line-height: 1;
+      .positioned;
+      cursor: pointer;
+      text-align: center;
+      .transition(color .1s linear);
+      &:before {
+        margin-top: 5px;
+        content: "\e03e";
+        font-family: "Homicons";
+        display: block;
+        font-size: 40px;
+        position: relative;
+        top: 2px;
+        left: 0;
+        line-height: 0.3;
+      }
+      &:hover {
+        color: darken(@onHeaderColor, 10%);
+      }
+    }
+
+    // TRAY PREVIEW SECTION
+
+    .trayPreview {
+      padding-top: 19px;
+      height: 48px;
+      cursor: pointer;
       float: right;
       background: @headerTrayBackground;
       border-left: 1px solid rgba(255,255,255,0.6);
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
-      padding: 0;
-      .clearfix;
-      .iBtn {
-        float: left;
-        display: none;
-        margin: 24px 9px 0;
-        height: 43px;
-        .transition(color .1s linear);
-        &:hover {
-          color: darken(@onHeaderColor, 10%);
-        }
-        &.active {
-          color: darken(@onHeaderColor, 20%);
-        }
-      }
-      .bStoreConfig { margin-left: 19px;}
-      .bStoreDashboard { margin-right: 19px;}
-      .bClientConfig { margin: 24px 19px 0;}
-      .bClientDashboard, .bSignout {
-        margin: 0;
-        padding: 24px 19px 0;
-        .box-shadow(-1px 0 0 0 darken(@headerTrayBackground,10%), inset 1px 0 0 0 rgba(255,255,255,0.4));
-        .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
-        &:hover {
-          background: @headerTrayHoverBackground;
-          .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%), -1px 0 0 0 rgba(255,255,255,0.4));
-        }
-      }
-      .bSignout { display: block; }
-    }
-  }
-
-  div#roleSwitch {
-    position: absolute;
-    left: 100px;
-    width: 21px;
-    height: 46px;
-    padding: 2px;
-    margin: 9px 0 0 0;
-    border: none;
-    font-size: 10px;
-    cursor: pointer;
-    background: @onNoteColor;
-    .border-radius(3px);
-    .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
-    z-index: 50;
-    .icn {
-      color: @onHeaderColor;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
-      height: 15px;
-      width: 15px;
-      margin: 4px 0 0 3px;
-      &:before {
-        font-size: 15px;
-        top: -8px;
-      }
-    }
-    .handle {
-      position: absolute;
-      top:27px;
-      left: 2px;
-      padding: 0;
-      margin: 0;
-      .border-box;
-      width: 21px;
-      height: 21px;
-      .border-radius(3px);
-      border: none;
-      #gradient > .vertical(#f4d68d,#e6ba4e);
-      .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
-      color: #ae7f0f;
-      text-align: center;
+      .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
       
-      &:before{
-        top: -4px;
+      .iCart {
+        margin: 0 10px 0 0;
+        .positioned;
+        vertical-align: middle;
+        //top: 7px;
+ 
+        span {
+          display: none;
+          font-size: 10px;
+          font-family: @headingsFontFamily;
+          color: @white;
+          font-style: normal;
+          position: absolute;
+          left: 24px;
+          top: -5px;
+          z-index: 2;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        }
+
+        &:before {
+          color: darken(@onHeaderColor, 1%);
+          text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
+          top: 0;
+        }  
       }
-      .transition(top .1s ease-in-out);
+
+
+      &.filled {
+        .iCart {
+          &:after {
+            content: " ";
+            .border-radius(500px);
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            left: 19px;
+            top: -4px;
+            background: @greenLight;
+            .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
+          }
+          span {
+            display: block;
+          }
+        }
+
+        >span {
+        color: darken(@onHeaderColor, 7%);
+        .transition(color .1s linear);
+        }
+      }
+
+      &:hover {
+        background: @headerTrayHoverBackground;
+        color: darken(@onHeaderColor, 15%);
+        .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
+
+        >span {
+          color: darken(@onHeaderColor, 15%);
+        }
+      }
     }
+
+    .sumContainer {
+      display: inline-block;
+      vertical-align: middle;
+      .minimum {
+        white-space: nowrap;
+      }
+    }
+  
+  }
+    // CLIENT SECTION
+
+  div#clientAreaNavigation {
+    float: right;
+    background: @headerTrayBackground;
+    border-left: 1px solid rgba(255,255,255,0.6);
+    .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
+    padding: 0;
+    .clearfix;
+    .iBtn {
+      float: left;
+      display: none;
+      margin: 24px 9px 0;
+      height: 43px;
+      .transition(color .1s linear);
+      &:hover {
+        color: darken(@onHeaderColor, 10%);
+      }
+      &.active {
+        color: darken(@onHeaderColor, 20%);
+      }
+    }
+    .bStoreConfig { margin-left: 19px;}
+    .bStoreDashboard { margin-right: 19px;}
+    .bClientConfig { margin: 24px 19px 0;}
+    .bClientDashboard, .bSignout {
+      margin: 0;
+      padding: 24px 19px 0;
+      .box-shadow(-1px 0 0 0 darken(@headerTrayBackground,10%), inset 1px 0 0 0 rgba(255,255,255,0.4));
+      .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
+      &:hover {
+        background: @headerTrayHoverBackground;
+        .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%), -1px 0 0 0 rgba(255,255,255,0.4));
+      }
+    }
+    .bSignout { display: block; }
   }
   &.isLoggedIn {
     #headerClientContent, #headerCustomerContent {
@@ -762,6 +716,55 @@ aside#header {
     }
   }
 }
+
+div#roleSwitch {
+  position: absolute;
+  left: 100px;
+  width: 21px;
+  height: 46px;
+  padding: 2px;
+  margin: 9px 0 0 0;
+  border: none;
+  font-size: 10px;
+  cursor: pointer;
+  background: @onNoteColor;
+  .border-radius(3px);
+  .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
+  z-index: 50;
+  .icn {
+    color: @onHeaderColor;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    height: 15px;
+    width: 15px;
+    margin: 4px 0 0 3px;
+    &:before {
+      font-size: 15px;
+      top: -8px;
+    }
+  }
+  .handle {
+    position: absolute;
+    top:27px;
+    left: 2px;
+    padding: 0;
+    margin: 0;
+    .border-box;
+    width: 21px;
+    height: 21px;
+    .border-radius(3px);
+    border: none;
+    #gradient > .vertical(#f4d68d,#e6ba4e);
+    .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
+    color: #ae7f0f;
+    text-align: center;
+    
+    &:before{
+      top: -4px;
+    }
+    .transition(top .1s ease-in-out);
+  }
+}
+
 
 
 
@@ -1030,6 +1033,7 @@ input[type="text"]#locationSelectionInput {
   text-align: right;
   font-family: @headingsFontFamily;
   font-size: 33px;
+  line-height: 1.2;
   color: @onNoteColor50;
   .backface-visibility(hidden);
   span {
@@ -1119,7 +1123,7 @@ input[type="text"]#locationSelectionInput {
       display: inline-block;
       margin-left: 20px;
       width: 100%;
-      top: 23px;
+      top: 25px;
       height: 1px;
       background: @onNoteColor50;
     }
@@ -1139,8 +1143,8 @@ input[type="text"]#locationSelectionInput {
 @itemWidth:   265px;
 
 .items {
-//  display: inline-block;
-//  text-align: left;
+  display: inline-block;
+  text-align: left;
 //  width: auto;
 }
 
@@ -1153,6 +1157,7 @@ input[type="text"]#locationSelectionInput {
   vertical-align: top;
   overflow: visible;
   cursor: default;
+  text-align: center;
 
   >h3 {
     width: @itemWidth;
@@ -1389,6 +1394,45 @@ input[type="text"]#locationSelectionInput {
       }
       span {
         top: 71px;
+      }
+    }
+  }
+
+// OTHER-THAN-SUB
+  
+  &.w {
+    .pricetag {
+      left: 133px;
+    }
+  }
+
+  &.s {
+    .pricetag {
+      left: 163px;
+    }
+  }
+
+
+  &.cdm {
+    .pricetag {
+      left: 150px;
+    }
+  }
+
+  &.c {
+    .pricetag {
+      top: 140px;
+      left: 140px;
+    }
+  }
+
+  &.b {
+    .pricetag {
+      top: 140px;
+      left: 140px;
+      &.small {
+        top: 119px;
+        left: 167px;
       }
     }
   }
@@ -3244,27 +3288,27 @@ div#payment {
   .positioned;
   font-family: @headingsFontFamily;
   font-size: 14px;
-  color: @white;
+  .engraved-text;
   text-align: center;
   .border-box;
-  top: -5px;
+  top: 0px;
   left: 0;
-  margin-left: 10px;
-  small {
-    font-size: 10px;
-    display: block;
-    color: inherit;
-    letter-spacing: 1px;
-    .positioned;
-    top: -2px;
-  }
-  &.subSize {
-    padding-top: 6px;
-  }
-  &.cupSize {
-    padding-top: 10px;
-    letter-spacing: -1px;
-  }
+  margin-left: 4px;
+  // small {
+  //   font-size: 10px;
+  //   display: block;
+  //   color: inherit;
+  //   letter-spacing: 1px;
+  //   .positioned;
+  //   top: -2px;
+  // }
+  // &.subSize {
+  //   padding-top: 6px;
+  // }
+  // &.cupSize {
+  //   padding-top: 10px;
+  //   letter-spacing: -1px;
+  // }
 }
 
 .ingredientInfo {
@@ -3627,7 +3671,7 @@ div#payment {
 
     // COMPONENT-ALIAS-STYLES
 
-  .pColdBev {
+  .pBeverage {
     top: 0;
     margin-left: -135px;
     &:before, &:after {
@@ -3987,7 +4031,7 @@ div#payment {
 
   .controls {
     top: 50%;
-    margin-top: -11px;
+    margin-top: -5px;
   }
 
   // &:hover {
@@ -4038,7 +4082,7 @@ div#payment {
     }  
   }
   .pricetag {
-    top: 4px;
+    top: -1px;
     right: 0;
     .rotate(0deg);
     //.transition(right .2s ease-in-out);
@@ -4046,7 +4090,7 @@ div#payment {
   .controls {
     //display: none;
     position: absolute;
-    top: 30px;
+    top: 16px;
     right: 15px;
     //.transition(opacity .1s .1s linear);
     .backface-visibility(hidden);
@@ -4136,6 +4180,13 @@ div#payment {
     }
   }
 
+  &.ft {
+    width: 459px;
+    img {
+      left: 0;
+      margin-left: 0;
+    }
+  }
 }
 
 

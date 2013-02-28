@@ -1,32 +1,12 @@
-//
-// Responsive: Large desktop and up
-// --------------------------------------------------
+// Min-Widths  -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
 
-/*
-@media (min-width: 1200px) {
-
-  // Fixed grid
-  #grid > .core(@gridColumnWidth1200, @gridGutterWidth1200);
-
-  // Fluid grid
-  #grid > .fluid(@fluidGridColumnWidth1200, @fluidGridGutterWidth1200);
-
-  // Input grid
-  #grid > .input(@gridColumnWidth1200, @gridGutterWidth1200);
-
-  // Thumbnails
-  .thumbnails {
-    margin-left: -@gridGutterWidth1200;
-  }
-  .thumbnails > li {
-    margin-left: @gridGutterWidth1200;
-  }
-  .row-fluid .thumbnails {
-    margin-left: 0;
-  }
-
+aside#header {
+  min-width: 555px;
 }
-*/
+
+
 
 @media (max-width: 1324px) {
 
@@ -71,22 +51,103 @@
   }
 }
 
-@media (max-width: 1260px) {
-  .header {
-    width: 55% !important;
-  }
-  .articleInfo {
-    width: 45% !important;
-  }
-} 
+// @media (max-width: 1260px) {
+//   .header {
+//     width: 55% !important;
+//   }
+//   .articleInfo {
+//     width: 45% !important;
+//   }
+// } 
 
-@media (max-width: 1116px) {
-  .header {
-    width: 57% !important;
-  }
+// @media (max-width: 1116px) {
+//   .header {
+//     width: 57% !important;
+//   }
   
-  .articleInfo {
-    width: 40% !important;
-  }
-} 
+//   .articleInfo {
+//     width: 40% !important;
+//   }
+// } 
 
+
+
+// store.home  -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+
+// Items
+// -----
+
+.items {width: 100%;}
+
+@media (max-width: 1076px) {
+
+  .items {
+    width: 718px;
+  }
+
+}
+
+@media (min-width: 1077px) and (max-width: 1435px) {
+
+  .items {
+    width: 1077px;
+  }
+
+}
+
+// Header
+// ------
+
+@media (max-width: 1304px) {
+
+  aside#header {
+    width: 55%;
+  }
+
+  .categoriesNavigation {
+    width: 45%;
+  }
+
+}
+
+
+@media (max-width: 1186px) {
+
+  aside#header {
+
+    span.sumContainer {
+      width: 86px;
+    }
+  }
+
+
+}
+
+@media (max-width: 1113px) {
+
+  aside#header {
+    width: 58%;
+    #headerCustomerContent {
+      >div {
+        padding: 0 7px;
+      }
+    }
+    i.imgIcn {
+      margin-right: 0;
+    }
+
+    div#clientAreaNavigation {
+      .iBtn { margin: 24px 5px 0;}
+      .bStoreConfig { margin-left: 12px;}
+      .bStoreDashboard { margin-right: 12px;}
+      .bClientDashboard, .bSignout { padding: 24px 12px 0; margin: 0;}
+    }
+  }
+
+  .categoriesNavigation {
+    width: 40%;
+  }
+}
