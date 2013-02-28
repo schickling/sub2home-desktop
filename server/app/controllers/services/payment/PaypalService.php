@@ -33,7 +33,7 @@ class PaypalService implements PaymentInterface
 	{
 		
 		$url = static::getPermissionsApiUrl() . 'RequestPermissions';
-		$callbackUrl = URL::route('api/services/paypal/savetoken');
+		$callbackUrl = URL::secure('api/services/paypal/savetoken');
 		$params = array(
 			'requestEnvelope_errorLanguage' => 'en_US',
 			'scope'							=> 'EXPRESS_CHECKOUT',
@@ -74,10 +74,39 @@ class PaypalService implements PaymentInterface
 
 	public static function getCheckoutUrl($orderModel)
 	{
+		$storeModel = $orderModel->storeModel;
+		$addressModel = $orderModel->addressModel;
+
+		$returnUrl = URL::secure('api/services/paypal/confirmorder');
+		$cancelUrl = URL::secure($storeModel->alias . '/einstellungen');
+		$notifyUrl = URL::secure('api/services/paypal/notify');
 		$params = array(
-			'METHOD'				=> 'SetExpressCheckout',
-			'PAYMENTREQUEST_0_AMT'	=> '100'
+			'METHOD'							=> 'SetExpressCheckout',
+			'PAYMENTREQUEST_0_AMT'				=> '100',
+			'RETURNURL'							=> $returnUrl,
+			'CANCELURL'							=> $cancelUrl,
+			'LOCALECODE'						=> 'DE',
+			'ADDROVERRIDE'						=> '1',
+			'ALLOWNOTE'							=> '0',
+			'REQBILLINGADDRESS'					=> '1',
+			'LOGOIMG'							=> 'https://www.paypal.com/de_DE/DE/i/logo/logo_150x65.gif',
+			'CARTBORDERCOLOR'					=> '#FFFFFF',
+			'BRANDNAME'							=> 'Subway ' . $storeModel->title,
+			'CUSTOMERSERVICENUMBER'				=> '03297328',
+			// address
+			'PAYMENTREQUEST_0_SHIPTONAME'		=> $addressModel->firstName . ' ' . $addressModel->lastName,
+			'PAYMENTREQUEST_0_SHIPTOSTREET'		=> $addressModel->street,
+			'PAYMENTREQUEST_0_SHIPTOSTREET2'	=> $addressModel->streetAdditional,
+			'PAYMENTREQUEST_0_SHIPTOCITY'		=> $addressModel->city,
+			'PAYMENTREQUEST_0_SHIPTOCOUNTRY'	=> 'DE',
+			'PAYMENTREQUEST_0_SHIPTOZIP'		=> $addressModel->postal,
+			'PAYMENTREQUEST_0_SHIPTOPHONENUM'	=> $addressModel->phone,
+			'PAYMENTREQUEST_0_NOTIFYURL'		=> $notifyUrl
 			);
+
+		$cartParams = static::buildCartParameters($orderModel);
+		$params = array_merge($params, $cartParams);
+
 		$authHeader = $orderModel->storeModel->paymentPaypalAuthHeader;
 
 		$response = static::callApiWithAuthHeader($params, $authHeader);
@@ -94,7 +123,7 @@ class PaypalService implements PaymentInterface
 			'X-PAYPAL-SECURITY-USERID: ' . Config::get('payment.paypal.apiUsername'),
 			'X-PAYPAL-SECURITY-PASSWORD: ' . Config::get('payment.paypal.apiPassword'),
 			'X-PAYPAL-SECURITY-SIGNATURE: '. Config::get('payment.paypal.apiSignature'),
-			'X-PAYPAL-REQUEST-DATA-FORMAT:	NV',
+			'X-PAYPAL-REQUEST-DATA-FORMAT: NV',
 			'X-PAYPAL-RESPONSE-DATA-FORMAT:	NV'
 			);
 
@@ -140,9 +169,6 @@ class PaypalService implements PaymentInterface
 
 		// encode parameters
 		$parameterString = http_build_query($params);
-
-
-		$parameterString = '&USER=klu-super_api1.web.de&PWD=WVH8TZ2F6K2625RN&SIGNATURE=ANXWFbRtRTdXYa6uZjBGgAt40W5OAb0ZvG8vv514Mx2cGRxGf.Oh3l3y&VERSION=96.0&METHOD=SetExpressCheckout&RETURNURL=http://shopsandbox.de/api/ec/?call=GetExpressCheckoutDetails&CANCELURL=http://shopsandbox.de/api/ec/&HDRIMG=https://www.paypal.com/de_DE/DE/i/logo/logo_150x65.gif&LOGOIMG=https://www.paypal.com/de_DE/DE/i/logo/logo_150x65.gif&BRANDNAME=PayPal Test Site&CUSTOMERSERVICENUMBER=0123456789&PAYMENTREQUEST_0_AMT=100.00&paymentrequest_0_currencycode=EUR&PAYMENTREQUEST_0_ITEMAMT=70.00&PAYMENTREQUEST_0_SHIPPINGAMT=15.00&PAYMENTREQUEST_0_HANDLINGAMT=10.00&PAYMENTREQUEST_0_TAXAMT=5.00&PAYMENTREQUEST_0_DESC=Description&paymentrequest_0_paymentaction=Sale&L_PAYMENTREQUEST_0_NAME0=Test article&L_PAYMENTREQUEST_0_DESC0=Description&L_PAYMENTREQUEST_0_AMT0=70.00&L_PAYMENTREQUEST_0_NUMBER0=123456&L_PAYMENTREQUEST_0_QTY0=1&L_PAYMENTREQUEST_0_TAXAMT0=5.00';
 
 		
 		$ch = curl_init();
@@ -197,6 +223,31 @@ class PaypalService implements PaymentInterface
 		} else {
 			return static::$liveFrontendUrl;
 		}
+	}
+
+	private static function buildCartParameters($orderModel)
+	{
+
+		$cartParams = array(
+			'PAYMENTREQUEST_0_AMT'				=> $orderModel->total,
+			'PAYMENTREQUEST_0_ITEMAMT'			=> $orderModel->total,
+			'PAYMENTREQUEST_0_PAYMENTACTION'	=> 'Sale',
+			'PAYMENTREQUEST_0_INVNUM'			=> $orderModel->id,
+			'PAYMENTREQUEST_0_CURRENCYCODE'		=> 'EUR'
+			);
+
+		$index = 0;
+
+		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {
+			$cartParams['L_PAYMENTREQUEST_0_NAME' . $index] = 'Test Artikel';
+			$cartParams['L_PAYMENTREQUEST_0_DESC' . $index] = 'Beschreibung';
+			$cartParams['L_PAYMENTREQUEST_0_AMT' . $index] = $orderedItemModel->total / $orderedItemModel->amount;
+			$cartParams['L_PAYMENTREQUEST_0_QTY' . $index] = $orderedItemModel->amount;
+
+			$index++;
+		}
+
+		return $cartParams;
 	}
 
 }

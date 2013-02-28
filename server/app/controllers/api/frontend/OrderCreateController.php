@@ -6,7 +6,6 @@ use DateTime;
 use App\Controllers\Services\Payment\PaypalService;
 
 use App\Models\OrderModel;
-use App\Models\AddressModel;
 use App\Models\IngredientModel;
 use App\Models\OrderedArticleModel;
 use App\Models\OrderedItemModel;
@@ -59,8 +58,7 @@ class OrderCreateController extends ApiController
 
 
 		// save address
-		$addressModel = $this->createAddressModel($input->addressModel);
-		$orderModel->addressModel()->save($addressModel);
+		$orderModel->addressModel()->create($this->prepareAddress($input->addressModel));
 
 		// save ordered items since they are not yet in the database
 		$this->saveTempRelations($orderModel);
@@ -116,6 +114,7 @@ class OrderCreateController extends ApiController
 
 		foreach ($orderedItems as $orderedItem) {
 			$orderedItemModel = new OrderedItemModel();
+			$orderedItemModel->amount = $orderedItem->amount;
 
 			// check if is menu bundle
 			if ($orderedItem->menuBundleModel) {
@@ -168,20 +167,20 @@ class OrderCreateController extends ApiController
 	}
 
 
-	private function createAddressModel($address)
+	private function prepareAddress($addressInput)
 	{
-		$addressModel = new AddressModel();
+		$address = array(
+			'firstName'			=> $addressInput->firstName,
+			'lastName'			=> $addressInput->lastName,
+			'street'			=> $addressInput->street,
+			'streetAdditional'	=> $addressInput->streetAdditional,
+			'postal'			=> $addressInput->postal,
+			'city'				=> $addressInput->city,
+			'email'				=> $addressInput->email,
+			'phone'				=> $addressInput->phone,
+			);
 
-		$addressModel->firstName = $address->firstName;
-		$addressModel->lastName = $address->lastName;
-		$addressModel->street = $address->street;
-		$addressModel->streetAdditional = $address->streetAdditional;
-		$addressModel->postal = $address->postal;
-		$addressModel->city = $address->city;
-		$addressModel->email = $address->email;
-		$addressModel->phone = $address->phone;
-
-		return $addressModel;
+		return $address;
 	}
 
 

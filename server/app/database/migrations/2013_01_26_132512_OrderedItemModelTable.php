@@ -16,6 +16,7 @@ class OrderedItemModelTable extends Migration {
 			$table->integer('order_model_id')->unsigned();
 			$table->integer('menu_bundle_model_id')->unsigned();
 			$table->integer('menu_upgrade_model_id')->unsigned();
+			$table->integer('amount')->unsigned()->default(1);
 			$table->decimal('total', 7, 2)->default(0);
 		});
 	}
