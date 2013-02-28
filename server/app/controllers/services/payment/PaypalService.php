@@ -11,9 +11,11 @@ use Exception;
 class PaypalService implements PaymentInterface
 {
 
-	private static $productionApiUrl = 'https://svcs.paypal.com/';
-	private static $sandboxApiUrl = 'https://svcs.sandbox.paypal.com/';
-	private static $productionFrontendUrl = 'https://www.paypal.com/cgi-bin/webscr?';
+	private static $livePermissionsApiUrl = 'https://svcs.paypal.com/Permissions/';
+	private static $sandboxPermissionsApiUrl = 'https://svcs.sandbox.paypal.com/Permissions/';
+	private static $liveApiUrl = 'https://api-3t.paypal.com/nvp';
+	private static $sandboxApiUrl = 'https://api-3t.sandbox.paypal.com/nvp';
+	private static $liveFrontendUrl = 'https://www.paypal.com/cgi-bin/webscr?';
 	private static $sandboxFrontendUrl = 'https://www.sandbox.paypal.com/cgi-bin/webscr?';
 
 
@@ -30,19 +32,21 @@ class PaypalService implements PaymentInterface
 	public static function getRequestPermissionUrl($store_model_id)
 	{
 		
+		$url = static::getPermissionsApiUrl() . 'RequestPermissions';
 		$callbackUrl = URL::route('api/services/paypal/savetoken');
-		$params = sprintf('&callback=%s?call=GetAccessToken&requestEnvelope_errorLanguage=en_US&scope(0)=EXPRESS_CHECKOUT', $callbackUrl);
+		$params = array(
+			'requestEnvelope_errorLanguage' => 'en_US',
+			'scope'							=> 'EXPRESS_CHECKOUT',
+			'callback'						=> $callbackUrl
+			);
 
-		$response = static::callApiWithoutAuthHeader('Permissions/RequestPermissions', $params);
+		$response = static::callApiWithoutAuthHeader($params, $url);
+		$token = $response['token'];
 
 		// Cache token with store id
-		Cache::put($response->token, $store_model_id, 50);
+		Cache::put($token, $store_model_id, 50);
 
-		// Prepare URL
-		$tokenUrl = static::getFrontendUrl() . 'cmd=_grant-permission&request_token=' . $response->token;
-
-		return $tokenUrl;
-
+		return static::getFrontendUrl() . 'cmd=_grant-permission&request_token=' . $token;
 	}
 
 	/**
@@ -52,63 +56,100 @@ class PaypalService implements PaymentInterface
 	 * @param  string $verifier
 	 * @return string
 	 */
-	public static function getAuthHeaderForStore($token, $verifier)
+	public static function createAuthHeaderForStore($token, $verifier)
 	{
-		$params = sprintf('&token=%s&verifier=%s', $token, $verifier);
-		$response = static::callApiWithoutAuthHeader('Permissions/GetAccessToken', $params);
+		$url = static::getPermissionsApiUrl() . 'GetAccessToken';
+		$params = array(
+			'token'		=> $token,
+			'verifier'	=> $verifier
+			);
+		$response = static::callApiWithoutAuthHeader($params, $url);
 
-		return PaypalOAuth::getAuthHeaderString($response->token, $response->tokenSecret);
+		$token = $response['token'];
+		$tokenSecret = $response['tokenSecret'];
+
+		return PaypalOAuth::getAuthHeaderString($token, $tokenSecret);
+	}
+
+
+	public static function getCheckoutUrl($orderModel)
+	{
+		$params = array(
+			'METHOD'				=> 'SetExpressCheckout',
+			'PAYMENTREQUEST_0_AMT'	=> '100'
+			);
+		$authHeader = $orderModel->storeModel->paymentPaypalAuthHeader;
+
+		$response = static::callApiWithAuthHeader($params, $authHeader);
+		$token = $response['TOKEN'];
+
+		return static::getFrontendUrl() . 'cmd=_express-checkout&token=' . $token;
 	}
 
 
 	
-	private static function callApiWithoutAuthHeader($apiMethod, $params)
+	private static function callApiWithoutAuthHeader($params, $url)
 	{
 		$header = array(
 			'X-PAYPAL-SECURITY-USERID: ' . Config::get('payment.paypal.apiUsername'),
 			'X-PAYPAL-SECURITY-PASSWORD: ' . Config::get('payment.paypal.apiPassword'),
-			'X-PAYPAL-SECURITY-SIGNATURE: '. Config::get('payment.paypal.apiSignature')
+			'X-PAYPAL-SECURITY-SIGNATURE: '. Config::get('payment.paypal.apiSignature'),
+			'X-PAYPAL-REQUEST-DATA-FORMAT:	NV',
+			'X-PAYPAL-RESPONSE-DATA-FORMAT:	NV'
 			);
 
-		return static::callApi($apiMethod, $params, $header);
+		return static::callApi($params, $header, $url);
 	}
 
 
-	private static function callApiWithAuthHeader($apiMethod, $params, $authHeader)
+	private static function callApiWithAuthHeader($params, $authHeader)
 	{
 		$header = array(
 			'X-PAYPAL-AUTHORIZATION: ' . $authHeader
 			);
+		$url = static::getApiUrl();
 
-		return static::callApi($apiMethod, $params, $header);
+		return static::callApi($params, $header, $url);
 	}
 
 	/**
 	 * Makes a POST request to the paypal api and returns the result
 	 * 
-	 * @param  string $apiMethod    name of the api section
-	 * @param  string $params		all post parameters
-	 * @param  string $header		get parameters
+	 * @param  array  $params		all post parameters
+	 * @param  array  $header		get parameters
+	 * @param  string $url			url
 	 * @return object         		response object
 	 */
-	private static function callApi($apiMethod, $params, $header)
+	private static function callApi($params, $header, $url)
 	{
-		$url = static::getApiUrl() . $apiMethod;
 
 		// add header fields
 		$standardHeader = array(
-			'X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T',
-			'X-PAYPAL-REQUEST-DATA-FORMAT:	NV',
-			'X-PAYPAL-RESPONSE-DATA-FORMAT:	JSON'
+			'X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T'
 			);
 
 		$header = array_merge($header, $standardHeader);
+
+
+		// add parameters
+		$standardParams = array(
+			'VERSION' => '96.0'
+			);
+
+		$params = array_merge($params, $standardParams);
+
+		// encode parameters
+		$parameterString = http_build_query($params);
+
+
+		$parameterString = '&USER=klu-super_api1.web.de&PWD=WVH8TZ2F6K2625RN&SIGNATURE=ANXWFbRtRTdXYa6uZjBGgAt40W5OAb0ZvG8vv514Mx2cGRxGf.Oh3l3y&VERSION=96.0&METHOD=SetExpressCheckout&RETURNURL=http://shopsandbox.de/api/ec/?call=GetExpressCheckoutDetails&CANCELURL=http://shopsandbox.de/api/ec/&HDRIMG=https://www.paypal.com/de_DE/DE/i/logo/logo_150x65.gif&LOGOIMG=https://www.paypal.com/de_DE/DE/i/logo/logo_150x65.gif&BRANDNAME=PayPal Test Site&CUSTOMERSERVICENUMBER=0123456789&PAYMENTREQUEST_0_AMT=100.00&paymentrequest_0_currencycode=EUR&PAYMENTREQUEST_0_ITEMAMT=70.00&PAYMENTREQUEST_0_SHIPPINGAMT=15.00&PAYMENTREQUEST_0_HANDLINGAMT=10.00&PAYMENTREQUEST_0_TAXAMT=5.00&PAYMENTREQUEST_0_DESC=Description&paymentrequest_0_paymentaction=Sale&L_PAYMENTREQUEST_0_NAME0=Test article&L_PAYMENTREQUEST_0_DESC0=Description&L_PAYMENTREQUEST_0_AMT0=70.00&L_PAYMENTREQUEST_0_NUMBER0=123456&L_PAYMENTREQUEST_0_QTY0=1&L_PAYMENTREQUEST_0_TAXAMT0=5.00';
+
 		
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $parameterString);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 15);
@@ -116,16 +157,17 @@ class PaypalService implements PaymentInterface
 		curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_USERAGENT, 'cURL/PHP');
 
-		$json = curl_exec($ch);
+		$response = curl_exec($ch);
 		curl_close($ch);
 
-		$response = json_decode($json);
+		// decode name value pairs into array
+		parse_str($response, $decodedResponse);
 
-		if (isset($response->error)) {
-			throw new Exception("Paypal request failed");
+		if (isset($decodedResponse['ACK']) && $decodedResponse['ACK'] == 'Failure') {
+			throw new Exception(sprintf('%s: %s', $decodedResponse['L_SHORTMESSAGE0'], $decodedResponse['L_LONGMESSAGE0']));
 		}
 
-		return $response;
+		return $decodedResponse;
 	}
 
 
@@ -135,7 +177,16 @@ class PaypalService implements PaymentInterface
 		if (Config::get('payment.paypal.sandbox')) {
 			return static::$sandboxApiUrl;
 		} else {
-			return static::$productionApiUrl;
+			return static::$liveApiUrl;
+		}
+	}
+
+	private static function getPermissionsApiUrl()
+	{
+		if (Config::get('payment.paypal.sandbox')) {
+			return static::$sandboxPermissionsApiUrl;
+		} else {
+			return static::$livePermissionsApiUrl;
 		}
 	}
 
@@ -144,7 +195,7 @@ class PaypalService implements PaymentInterface
 		if (Config::get('payment.paypal.sandbox')) {
 			return static::$sandboxFrontendUrl;
 		} else {
-			return static::$productionFrontendUrl;
+			return static::$liveFrontendUrl;
 		}
 	}
 

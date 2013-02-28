@@ -3,6 +3,7 @@
 use Input;
 use Illuminate\Database\Eloquent\Collection;
 use DateTime;
+use App\Controllers\Services\Payment\PaypalService;
 
 use App\Models\OrderModel;
 use App\Models\AddressModel;
@@ -65,7 +66,12 @@ class OrderCreateController extends ApiController
 		$this->saveTempRelations($orderModel);
 
 
-		$orderModel->confirm();
+		// TODO
+		if ($orderModel->paymentMethod == 'paypal') {
+			return $this->respondWithStatus(303, PaypalService::getCheckoutUrl($orderModel));
+		} else {
+			$orderModel->confirm();			
+		}
 
 	}
 

@@ -44,8 +44,8 @@ class PaypalController extends BaseApiController
 
 		// write data to store model
 		$storeModel = StoreModel::find($store_model_id);
-		
-		$authHeader = PaypalService::getAuthHeaderForStore($token, $verificationCode);
+
+		$authHeader = PaypalService::createAuthHeaderForStore($token, $verificationCode);
 
 
 		$storeModel->paymentPaypalAuthHeader = $authHeader;
