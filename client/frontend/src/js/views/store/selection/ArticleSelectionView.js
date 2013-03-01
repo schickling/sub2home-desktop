@@ -1,13 +1,13 @@
 // Filename: src/js/views/store/selection/ArticleSelectionView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'models/TimelineItemModel',
-	'views/store/selection/info/articleSelection/InfoView',
-	'views/store/selection/SelectionView',
-	'views/store/selection/stage/articleSelection/MenuComponentOptionsView'
-	], function ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/TimelineItemModel',
+    'views/store/selection/info/articleSelection/InfoView',
+    'views/store/selection/SelectionView',
+    'views/store/selection/stage/articleSelection/MenuComponentOptionsView'
+    ], function ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) {
 
 	var ArticleSelectionView = SelectionView.extend({
 
@@ -32,8 +32,6 @@ define([
 			if (menuComponentBlockModel) {
 				this.active = true;
 
-				console.log(menuComponentBlockModel);
-
 				timelineItemModel.set({
 					isLocked: true,
 					icon: menuComponentBlockModel.get('icon'),
@@ -42,9 +40,17 @@ define([
 				});
 
 				this._listenForArticleSelection();
+
 			} else {
+
+				var articleModel = this.model.get('articleModel');
+
 				// just symbolizes base article
-				timelineItemModel.set('isDisabled', true);
+				timelineItemModel.set({
+					isDisabled: true,
+					wasVisited: true,
+					image: '../../../' + articleModel.get('smallImage')
+				});
 			}
 
 
