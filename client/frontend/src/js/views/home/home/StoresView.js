@@ -30,16 +30,16 @@ define([
 
 		initialize: function () {
 
-			this.cacheDom();
+			this._cacheDom();
 
-			this.loadStores();
-			this.loadMap();
+			this._loadStores();
+			this._loadMap();
 
-			this.checkLocation();
+			this._checkLocation();
 
 		},
 
-		cacheDom: function () {
+		_cacheDom: function () {
 			//  search input
 			this.$search = this.$('#locationSelectionInput');
 
@@ -48,12 +48,12 @@ define([
 			this.$map = this.$('#map');
 		},
 
-		loadStores: function () {
+		_loadStores: function () {
 			this.collection = new StoresCollection();
 			this.collectionDeffered = this.collection.fetch();
 		},
 
-		loadMap: function () {
+		_loadMap: function () {
 
 			var mapOptions = {
 				center: new gmaps.LatLng(52.52, 13.4),
@@ -83,7 +83,7 @@ define([
 
 		},
 
-		checkLocation: function () {
+		_checkLocation: function () {
 			if (navigator.geolocation) {
 				var self = this;
 
@@ -115,7 +115,7 @@ define([
 								// write postal back to search field
 								self.$search.val(postal);
 
-								self.lookUpStoresForPostal(postal, false);
+								self._lookUpStoresForPostal(postal, false);
 
 							} else {
 								notificationcenter.warning('Neeeeeeeeein!', 'Standort konnte nicht ermittelt werden');
@@ -128,7 +128,7 @@ define([
 			}
 		},
 
-		lookUpStoresForPostal: function (postal) {
+		_lookUpStoresForPostal: function (postal) {
 
 			// set postal
 			this.postal = parseInt(postal, 10);
@@ -138,29 +138,29 @@ define([
 
 			if (numberOfStores > 0) {
 
-				this.cleanPreviousResults();
+				this._cleanPreviousResults();
 
 				if (numberOfStores > 1) {
-					this.selectStoreNotification();
+					this._selectStoreNotification();
 				}
 
 				// render stores
-				this.renderStores(storesInRange);
+				this._renderStores(storesInRange);
 
 				// render delivery areas
-				var matchingDeliveryAreas = this.getMatchingDeliveryAreas(storesInRange);
+				var matchingDeliveryAreas = this._getMatchingDeliveryAreas(storesInRange);
 				if (matchingDeliveryAreas.length > 1) {
-					this.renderDeliveryAreas(matchingDeliveryAreas);
+					this._renderDeliveryAreas(matchingDeliveryAreas);
 				} else {
 					this.storeViews[0].markAvailable();
 				}
 
 			} else {
-				this.noStoresFound();
+				this._noStoresFound();
 			}
 		},
 
-		cleanPreviousResults: function () {
+		_cleanPreviousResults: function () {
 			// delete old delivery areas
 			this.$deliveryAreaSelection.html('');
 
@@ -171,7 +171,7 @@ define([
 			this.storeViews = [];
 		},
 
-		renderDeliveryAreas: function (deliveryAreas) {
+		_renderDeliveryAreas: function (deliveryAreas) {
 			var self = this,
 				renderedDescriptions = [];
 
@@ -210,7 +210,7 @@ define([
 
 		},
 
-		renderStores: function (stores) {
+		_renderStores: function (stores) {
 
 			var latLngBounds = new gmaps.LatLngBounds();
 
@@ -220,17 +220,17 @@ define([
 				this.storeViews.push(storeView);
 			}, this);
 
-			this.centerMapToBounds(latLngBounds);
+			this._centerMapToBounds(latLngBounds);
 
 		},
 
-		noStoresFound: function () {
+		_noStoresFound: function () {
 			notificationcenter.warning('Kein Store gefunden', 'Schade sowas gibts nicht in ' + this.postal);
 
-			this.centerMapToNotFoundPostal();
+			this._centerMapToNotFoundPostal();
 		},
 
-		selectStoreNotification: function () {
+		_selectStoreNotification: function () {
 
 			notificationcenter.info('Entscheide dich', 'Entscheide dich fuer einen tollen Store');
 
@@ -250,18 +250,21 @@ define([
 			stateModel.set('storeModel', storeModel);
 
 			router.navigate(storeModel.get('alias'), true);
+
+			// destory all notifications
+			notificationcenter.clean();
 		},
 
 		/*
 		 * Helper functions
 		 */
 
-		centerMapToBounds: function (latlngbounds) {
+		_centerMapToBounds: function (latlngbounds) {
 			this.map.setCenter(latlngbounds.getCenter());
 			this.map.fitBounds(latlngbounds);
 		},
 
-		centerMapToNotFoundPostal: function () {
+		_centerMapToNotFoundPostal: function () {
 			var self = this;
 
 
@@ -275,7 +278,7 @@ define([
 			});
 		},
 
-		getMatchingDeliveryAreas: function (stores) {
+		_getMatchingDeliveryAreas: function (stores) {
 			var matchingDeliveryAreas = [];
 
 			_.each(stores, function (storeModel) {

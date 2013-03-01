@@ -6,7 +6,7 @@
 	<div class="articleBasics">
 		<h3 class="articleTitle">
 			<%= title %>
-			<span class="sBdg bGreen subSize">30<small>cm</small></span>
+			<% if (info) { %><span class="sBdg bGreen subSize"><%= info %></span><% } %>
 		</h3>
 		<p class="articleDescription"><%= description %></p>
 	</div>

@@ -44,6 +44,9 @@ class OrderCreateController extends ApiController
 			return $this->respondWithStatus(400);
 		}
 
+		// set current commision rate
+		$orderModel->commissionRate = $this->storeModel->commissionRate;
+
 		// save other order data
 		$orderModel->paymentMethod = $input->paymentMethod;
 		$orderModel->isDelivered = false;

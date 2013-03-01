@@ -58,4 +58,14 @@ class PaypalController extends BaseApiController
 		return Redirect::to($storeModel->alias . '/einstellungen');
 	}
 
+	public function confirmOrder()
+	{
+		
+	}
+
+	public function notify()
+	{
+		
+	}
+
 }

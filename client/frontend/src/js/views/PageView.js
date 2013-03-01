@@ -284,9 +284,6 @@ define([
 					break;
 				}
 			}
-
-			// destory all notifications
-			notificationcenter.clean();
 		},
 
 		_transitionAFoward: function () {

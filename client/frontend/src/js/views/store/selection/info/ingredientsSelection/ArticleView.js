@@ -19,6 +19,7 @@ define([
 				price: this.model.get('price'),
 				image: this.model.get('largeImage'),
 				title: this.model.get('title'),
+				info: this.model.get('info'),
 				description: this.model.get('description')
 			};
 
