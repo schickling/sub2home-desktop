@@ -364,7 +364,7 @@ img.cookie    { margin: 0 -10px;}
     }
 
     &:first-child {
-      .timeline_item:before {
+      .timelineItem:before {
         content: " ";
       }
     } 
@@ -3276,10 +3276,10 @@ div#payment {
     .positioned;
     text-align: left;
     width: 265px;
-    height: 157px;
+    height: 160px;
     img {
-      height: inherit;
-      width: inherit;
+      height: 160px;
+      width: auto;
     }
     .pricetag {
       right: 15px;
@@ -3913,6 +3913,13 @@ div#payment {
     .iMenuUpgrade {
       top: 1px;
       left: 0;
+    }
+
+    .iCart {
+      &.clickable {
+        color: @greenLighter;
+        text-shadow: 0 1px 0 @white, 0 -1px 0 darken(@greenLighter, 15%);
+      }
     }
   }
 
