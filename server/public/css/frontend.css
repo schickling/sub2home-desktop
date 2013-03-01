@@ -6655,7 +6655,7 @@ div#payment .bankaccount {
   margin-left: 4px;
 }
 .ingredientInfo {
-  width: 50%;
+  width: 52%;
   *zoom: 1;
   position: relative;
 }
@@ -6679,7 +6679,7 @@ div#payment .bankaccount {
   position: relative;
   min-height: 19px;
   vertical-align: top;
-  padding: 13px 10px 7px 70px;
+  padding: 9px 10px 7px 70px;
   display: block;
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
 }
@@ -7638,11 +7638,13 @@ div#payment .bankaccount {
   position: relative;
   text-align: right;
   margin: 50px 8% 100px;
-  padding-right: 185px;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
   color: rgba(197, 168, 98, 0.5);
   line-height: 1.5;
+}
+#checkoutBasicControls .checkoutReadyControls {
+  padding-right: 185px;
 }
 #checkoutBasicControls span {
   -webkit-transition: color 0.1s linear;
@@ -8205,11 +8207,12 @@ aside#header {
   aside#header {
     width: 55%;
   }
-  .categoriesNavigation {
-    width: 45%;
-  }
 }
 @media (max-width: 1186px) {
+  aside#header #headerCustomerContent .trayPreview {
+    height: 51px;
+    padding-top: 16px;
+  }
   aside#header span.sumContainer {
     width: 86px;
   }
@@ -8238,17 +8241,22 @@ aside#header {
     padding: 24px 12px 0;
     margin: 0;
   }
+}
+@media (max-width: 1113px) {
   .categoriesNavigation {
     width: 40%;
+    padding-left: 15px;
+  }
+}
+@media (max-width: 1304px) {
+  .categoriesNavigation {
+    width: 45%;
   }
 }
 @media (max-width: 1425px) {
   .articleInfo .articleBasics {
     padding: 40px 0 0 0;
     width: 250px;
-  }
-  .ingredientInfo {
-    width: 52%;
   }
 }
 @media (max-width: 1304px) {
