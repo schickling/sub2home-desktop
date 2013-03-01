@@ -57,12 +57,12 @@ define([
 						height: 100
 					}, animationTime);
 
+
+					$content.animate({
+						top: 100
+					}, animationTime);
+
 				});
-
-
-				$content.animate({
-					top: 100
-				}, animationTime);
 
 			} else { // show
 

@@ -199,11 +199,6 @@ define([
 					type: 'e'
 				},
 					// from store.config
-				{
-					origin: 'store.config',
-					destination: 'store.home',
-					type: 'b.backward'
-				},
 					{
 					origin: 'store.config',
 					destination: 'client.dashboard',
@@ -239,6 +234,11 @@ define([
 					origin: 'store.tray',
 					destination: 'store.checkout',
 					type: 'b.backward'
+				},
+					{
+					origin: 'store.tray',
+					destination: 'store.dashboard',
+					type: 'e'
 				},
 					// from store.checkout
 				{

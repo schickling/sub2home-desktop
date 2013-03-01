@@ -11,8 +11,8 @@ define([
 		template: _.template(OrderedArticleSingleTemplate),
 
 		events: {
-			'mouseenter': 'showControls',
-			'mouseleave': 'hideControls'
+			'mouseenter': '_showControls',
+			'mouseleave': '_hideControls'
 		},
 
 		initialize: function () {
@@ -58,7 +58,7 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		showControls: function () {
+		_showControls: function () {
 			var $pricetag = this.$('.pricetag'),
 				$controls = this.$('.controls');
 
@@ -69,7 +69,7 @@ define([
 			$controls.delay(100).stop().fadeIn(100);
 		},
 
-		hideControls: function () {
+		_hideControls: function () {
 			var $pricetag = this.$('.pricetag'),
 				$controls = this.$('.controls');
 

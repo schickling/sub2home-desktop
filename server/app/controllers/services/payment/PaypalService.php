@@ -174,7 +174,7 @@ class PaypalService implements PaymentInterface
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $parameterString);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -185,6 +185,8 @@ class PaypalService implements PaymentInterface
 
 		$response = curl_exec($ch);
 		curl_close($ch);
+
+		var_dump($response);
 
 		// decode name value pairs into array
 		parse_str($response, $decodedResponse);

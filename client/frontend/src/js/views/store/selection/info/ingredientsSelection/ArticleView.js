@@ -1,4 +1,4 @@
-// Filename: src/js/views/store/selection/ArticleView.js
+// Filename: src/js/views/store/selection/info/ingredientsSelection/ArticleView.js
 define([
 	'jquery',
 	'underscore',
@@ -11,10 +11,10 @@ define([
 		template: _.template(ArticleTemplate),
 
 		initialize: function() {
-			this.render();
+			this._render();
 		},
 
-		render: function() {
+		_render: function() {
 			var json = {
 				price: this.model.get('price'),
 				image: this.model.get('largeImage'),
@@ -23,6 +23,15 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+
+			this.$el.addClass(this._getImageClass());
+		},
+
+		_getImageClass: function () {
+			var image = this.model.get('largeImage'),
+				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
+
+			return imageWithoutFileExtension.split('-').pop() || '';
 		}
 
 	});
