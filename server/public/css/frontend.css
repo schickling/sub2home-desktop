@@ -6594,6 +6594,7 @@ div#payment .bankaccount {
   display: inline-block;
 }
 .articleInfo .articlePreview {
+  display: inline-block;
   position: relative;
   text-align: left;
   width: 265px;
@@ -6607,18 +6608,25 @@ div#payment .bankaccount {
   right: 15px;
   top: 105px;
 }
+.articleInfo .articleBasics {
+  display: inline-block;
+  width: 300px;
+  vertical-align: top;
+  padding-top: 40px;
+}
 .articleInfo .articleTitle {
-  padding-left: 35px;
+  padding-left: 15px;
   position: relative;
   text-align: left;
 }
 .articleInfo .articleDescription {
-  padding-left: 35px;
+  padding-left: 15px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   position: relative;
   text-align: left;
   top: -2px;
   font-size: 15px;
+  margin: 0;
 }
 .articleInfo.ft .articlePreview {
   width: 450px;
@@ -8175,19 +8183,6 @@ aside.infoNavigation ul li.active {
 aside#header {
   min-width: 555px;
 }
-@media (max-width: 1324px) {
-  .deliveryTimes {
-    width: 348px !important;
-  }
-  .deliveryAreas {
-    right: 378px !important;
-  }
-}
-@media (min-width: 1324px) {
-  .deliveryTimes {
-    width: 700px !important;
-  }
-}
 .items {
   width: 100%;
 }
@@ -8245,5 +8240,53 @@ aside#header {
   }
   .categoriesNavigation {
     width: 40%;
+  }
+}
+@media (max-width: 1425px) {
+  .articleInfo .articleBasics {
+    padding: 40px 0 0 0;
+    width: 250px;
+  }
+  .ingredientInfo {
+    width: 52%;
+  }
+}
+@media (max-width: 1304px) {
+  .note.selection .info > div.articleInfo {
+    margin: 10px 30px 15px;
+    width: 35%;
+  }
+  .note.selection .info > div.articleInfo .articleBasics {
+    padding: 0 0 0 10px;
+    width: 250px;
+  }
+  .ingredientInfo {
+    width: 58%;
+  }
+}
+@media (max-width: 1113px) {
+  .note.selection .info > div.articleInfo {
+    margin: 10px 30px 15px;
+    width: 30%;
+  }
+  .note.selection .info > div.articleInfo .articleBasics {
+    padding: 0 0 0 10px;
+    width: 250px;
+  }
+  .ingredientInfo {
+    width: 62%;
+  }
+}
+@media (max-width: 1324px) {
+  .deliveryTimes {
+    width: 348px !important;
+  }
+  .deliveryAreas {
+    right: 378px !important;
+  }
+}
+@media (min-width: 1324px) {
+  .deliveryTimes {
+    width: 700px !important;
   }
 }

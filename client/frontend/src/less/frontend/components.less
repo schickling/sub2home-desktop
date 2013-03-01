@@ -3263,7 +3263,7 @@ div#payment {
 // ------------------------------------------------  ORDERING  -------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
-@articleInfoPaddingLeft:  35px;
+@articleInfoPaddingLeft:  15px;
 
 
 .orderingOverview {
@@ -3284,6 +3284,7 @@ div#payment {
   }
 
   .articlePreview {
+    display: inline-block;
     .positioned;
     text-align: left;
     width: 265px;
@@ -3298,11 +3299,17 @@ div#payment {
     }
   }
 
+  .articleBasics {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    padding-top: 40px;
+  }
+
   .articleTitle {
     padding-left: @articleInfoPaddingLeft;
     .positioned;
     text-align: left;
-    //margin: 0;
 
   }
   .articleDescription {
@@ -3312,6 +3319,7 @@ div#payment {
     text-align: left;
     top: -2px;
     font-size: 15px;
+    margin: 0;
   }
 
   &.ft {

@@ -1,5 +1,9 @@
+
+
+
+
+
 // Min-Widths  -------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
 aside#header {
@@ -7,69 +11,13 @@ aside#header {
 }
 
 
-
-@media (max-width: 1324px) {
-
-  .deliveryTimes {
-    width: 348px !important;
-
-  }
-  .deliveryAreas {
-    right: 378px !important;
-  }
-
-}
-
-@media (min-width: 1324px) {
-
-  .deliveryTimes {
-    width: 700px !important;
-  }
-
-}
+// -------------------------------------------------------------------------------------------------------------------
 
 
-// @media (min-width: 1261px) {
-//   .note.selection .container .info .articleInfo {
-//     margin: 60px 30px 30px;
-//     width: 45%;
-//     .wrapper {
-//       width: 100%;
-//       >div {
-//         display: inline-block;
-//         &.articleBasics {
-//           width: 250px;
-//           margin-top: 60px;
-//           vertical-align: top;
-//           h3, p {
-//             padding-left: 20px;
-//           }
-//         }
-//       }
-//     }
-    
-//   }
-// }
-
-// @media (max-width: 1260px) {
-//   .header {
-//     width: 55% !important;
-//   }
-//   .articleInfo {
-//     width: 45% !important;
-//   }
-// } 
-
-// @media (max-width: 1116px) {
-//   .header {
-//     width: 57% !important;
-//   }
-  
-//   .articleInfo {
-//     width: 40% !important;
-//   }
-// } 
-
+// Important Header Breaking-Points:
+//
+// 1304px
+// 1113px
 
 
 // store.home  -------------------------------------------------------------------------------------------------------
@@ -101,12 +49,11 @@ aside#header {
 }
 
 
+
+
+
 // Header
 // ------
-
-
-
-
 
 @media (max-width: 1304px) {
 
@@ -158,3 +105,96 @@ aside#header {
     width: 40%;
   }
 }
+
+
+
+// store.selection  --------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+// Note
+
+@media (max-width: 1425px) {
+
+  .articleInfo .articleBasics {
+    padding: 40px 0 0 0;
+    width: 250px;
+  }
+  
+  .ingredientInfo {
+    width: 52%;
+  }
+
+
+}
+
+@media (max-width: 1304px) {
+  .note.selection .info >div.articleInfo {
+    margin: 10px 30px 15px;
+    width: 35%;
+    .articleBasics {
+      padding: 0 0 0 10px;
+      width: 250px;
+    }
+  }
+
+  .ingredientInfo {
+    width: 58%;
+  }
+}
+
+@media (max-width: 1113px) {
+  .note.selection .info >div.articleInfo {
+    margin: 10px 30px 15px;
+    width: 30%;
+    .articleBasics {
+      padding: 0 0 0 10px;
+      width: 250px;
+    }
+  }
+
+  .ingredientInfo {
+    width: 62%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// store.config  -----------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+
+@media (max-width: 1324px) {
+
+  .deliveryTimes {
+    width: 348px !important;
+
+  }
+  .deliveryAreas {
+    right: 378px !important;
+  }
+
+}
+
+@media (min-width: 1324px) {
+
+  .deliveryTimes {
+    width: 700px !important;
+  }
+
+}
+
