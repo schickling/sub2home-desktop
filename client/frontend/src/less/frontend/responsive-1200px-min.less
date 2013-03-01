@@ -126,11 +126,18 @@ aside#header {
 
 @media (max-width: 1425px) {
 
-  .articleInfo .articleBasics {
-    padding: 40px 0 0 0;
-    width: 250px;
+  .note.selection .info >div.articleInfo {
+    .articleBasics {
+      padding: 40px 0 0 0;
+      width: 250px;
+    }
+    &.ft {
+      .articleBasics {
+        width: 430px;
+        padding: 0 0 0 10px
+      }
+    }
   }
-  
 
 
 }
@@ -142,6 +149,20 @@ aside#header {
     .articleBasics {
       padding: 0 0 0 10px;
       width: 250px;
+    }
+    &.ft {
+
+      .wrapper { width: 100%; }
+      .articlePreview {
+        width: 100%;
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      .articleBasics {
+        width: 100%;
+      }
     }
   }
 
@@ -158,12 +179,20 @@ aside#header {
       padding: 0 0 0 10px;
       width: 250px;
     }
+    // &.ft {
+    //   .articleBasics {
+    //     width: 430px;
+    //   }
+    // }
   }
 
   .ingredientInfo {
     width: 62%;
   }
 }
+
+
+
 
 // store.tray  -------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------

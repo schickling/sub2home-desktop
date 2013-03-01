@@ -3560,7 +3560,7 @@ img.cookie {
 .categoriesNavigation .stageTimeline .itemTimeline .icn {
   margin-left: -2px;
   width: 70px;
-  height: 41px;
+  height: 43px;
   text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
   color: #c3a55d;
   color: inherit;
@@ -6598,7 +6598,6 @@ div#payment .bankaccount {
   position: relative;
   text-align: left;
   width: 265px;
-  height: 160px;
 }
 .articleInfo .articlePreview img {
   height: 160px;
@@ -6606,7 +6605,7 @@ div#payment .bankaccount {
 }
 .articleInfo .articlePreview .pricetag {
   right: 15px;
-  top: 105px;
+  bottom: 0;
 }
 .articleInfo .articleBasics {
   display: inline-block;
@@ -6633,7 +6632,7 @@ div#payment .bankaccount {
 }
 .articleInfo.ft div.articleBasics {
   width: 430px;
-  padding-left: 20px;
+  padding: 0 0 0 10px;
 }
 .subPreview {
   position: relative;
@@ -7186,6 +7185,18 @@ div#payment .bankaccount {
 }
 .itemsTimeline:first-child .itemTimeline:before {
   content: " ";
+}
+.stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
+  width: auto;
+  cursor: default;
+}
+.stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
+  top: 15px;
+  position: absolute;
+  height: 43px;
+  width: auto;
+  left: auto;
+  right: 0;
 }
 .stageTimeline .itemTimeline.visited .icn {
   visibility: hidden;
@@ -8254,9 +8265,13 @@ aside#header {
   }
 }
 @media (max-width: 1425px) {
-  .articleInfo .articleBasics {
+  .note.selection .info > div.articleInfo .articleBasics {
     padding: 40px 0 0 0;
     width: 250px;
+  }
+  .note.selection .info > div.articleInfo.ft .articleBasics {
+    width: 430px;
+    padding: 0 0 0 10px;
   }
 }
 @media (max-width: 1304px) {
@@ -8267,6 +8282,19 @@ aside#header {
   .note.selection .info > div.articleInfo .articleBasics {
     padding: 0 0 0 10px;
     width: 250px;
+  }
+  .note.selection .info > div.articleInfo.ft .wrapper {
+    width: 100%;
+  }
+  .note.selection .info > div.articleInfo.ft .articlePreview {
+    width: 100%;
+  }
+  .note.selection .info > div.articleInfo.ft .articlePreview img {
+    height: auto;
+    width: 100%;
+  }
+  .note.selection .info > div.articleInfo.ft .articleBasics {
+    width: 100%;
   }
   .ingredientInfo {
     width: 58%;
