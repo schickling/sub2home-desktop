@@ -1,13 +1,13 @@
 // Filename: src/js/views/store/selection/TimelineControllerView.js
 define([
-	'jquery',
-	'jqueryEventSpecialDestroyed',
-	'underscore',
-	'backbone',
-	'router',
-	'notificationcenter',
-	'models/cartModel'
-	], function ($, jqueryEventSpecialDestroyed, _, Backbone, router, notificationcenter, cartModel) {
+    'jquery',
+    'jqueryEventSpecialDestroyed',
+    'underscore',
+    'backbone',
+    'router',
+    'notificationcenter',
+    'models/cartModel'
+    ], function ($, jqueryEventSpecialDestroyed, _, Backbone, router, notificationcenter, cartModel) {
 
 	var TimelineControllerView = Backbone.View.extend({
 
@@ -193,43 +193,39 @@ define([
 
 		_adjustButtons: function () {
 
-			if (this._hasNoUpgradeView() && this._noUpgradeViewIsActive()) {
+			var animationTime = this.animationTime / 2,
+				noUpgradeViewIsActive = this._noUpgradeViewIsActive(),
+				$buttonNext = this.$buttonNext,
+				$buttonPrev = this.$buttonPrev,
+				$buttonCart = this.$buttonCart;
 
-				// next/cart button
-				if (this._checkForward()) {
-					this.$buttonNext.fadeIn();
-					this.$buttonCart.fadeOut();
+			// hide all buttons 
+			$buttonNext.stop(true).fadeOut(animationTime, function () {
+				if (noUpgradeViewIsActive) {
+					$buttonNext.css({
+						right: 321
+					});
 				} else {
-					this.$buttonNext.fadeOut();
-					this.$buttonCart.fadeOut();
+					$buttonNext.css({
+						right: 20
+					});
 				}
+			});
+			$buttonPrev.stop(true).fadeOut(animationTime);
+			$buttonCart.stop(true).fadeOut(animationTime);
 
-				// prev button
-				if (this._checkBackward()) {
-					this.$buttonPrev.fadeIn();
-				} else {
-					this.$buttonPrev.fadeOut();
-				}
-
-			} else {
-
-				// next/cart button
-				if (this._checkForward()) {
-					this.$buttonNext.fadeIn();
-					this.$buttonCart.fadeOut();
-				} else {
-					this.$buttonNext.fadeOut();
-					this.$buttonCart.fadeIn();
-				}
-
-				// prev button
-				if (this._checkBackward()) {
-					this.$buttonPrev.fadeIn();
-				} else {
-					this.$buttonPrev.fadeOut();
-				}
-
+			// next/cart button
+			if (this._checkForward()) {
+				$buttonNext.delay(animationTime).fadeIn(animationTime);
+			} else if (!this._noUpgradeViewIsActive()) {
+				$buttonCart.delay(animationTime).fadeIn(animationTime);
 			}
+
+			// prev button
+			if (this._checkBackward()) {
+				$buttonPrev.delay(animationTime).fadeIn(animationTime);
+			}
+
 		},
 
 		_evalKeyboardInput: function (e) {
@@ -469,7 +465,7 @@ define([
 		},
 
 		_noUpgradeViewIsActive: function () {
-			return this.currentTimelineItemModel.get('menuUpgradeSelection');
+			return this._hasNoUpgradeView() && this.currentTimelineItemModel.get('menuUpgradeSelection');
 		}
 
 	});

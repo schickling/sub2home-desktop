@@ -110,7 +110,7 @@ define([
 			var $neededButtons = this.$buttonClientDashboard,
 				$unneededButtons = this.$allButtons.not($neededButtons),
 				title = 'Einstellungen';
-			
+
 			this.$allButtons.removeClass('active');
 
 			this.$title.text(title);
