@@ -3272,6 +3272,17 @@ div#payment {
 
 .articleInfo {
 
+  margin: 30px 0;
+  .pull-left;
+  .positioned;
+  width: 40%;
+  text-align: center;
+
+  .wrapper {
+    display: inline-block;
+    //width: 300px;
+  }
+
   .articlePreview {
     .positioned;
     text-align: left;
@@ -3291,7 +3302,8 @@ div#payment {
     padding-left: @articleInfoPaddingLeft;
     .positioned;
     text-align: left;
-    margin: 0;
+    //margin: 0;
+
   }
   .articleDescription {
     padding-left: @articleInfoPaddingLeft;
@@ -3299,6 +3311,17 @@ div#payment {
     position: relative;
     text-align: left;
     top: -2px;
+    font-size: 15px;
+  }
+
+  &.ft {
+    .articlePreview {
+      width: 450px;
+    }
+    div.articleBasics {
+      width: 430px;
+      padding-left: 20px;
+    }
   }
 }
 
@@ -3310,7 +3333,8 @@ div#payment {
 .bGreen {
   .positioned;
   font-family: @headingsFontFamily;
-  font-size: 14px;
+  font-size: 18px;
+  margin-top: 9px;
   .engraved-text;
   text-align: center;
   .border-box;
@@ -3335,14 +3359,15 @@ div#payment {
 }
 
 .ingredientInfo {
-  width: 560px;
+  width: 50%;
   .clearfix;
+  .positioned;
 
   .ingredientCategories {
     float: left;
-    width: 200px;
+    width: 45%;
     &:last-child {
-      margin-left: 40px;
+      margin-left: 30px;
     }
   }
   .ingredientCategory {
@@ -3363,7 +3388,7 @@ div#payment {
     .ingredient {
       display: inline-block;
       font-family: @handFontFamily;
-      font-size: 16px;
+      font-size: 15px;
 
       &:after {
         content: ",";
@@ -3402,22 +3427,6 @@ div#payment {
         }
       }
 
-    }
-  }
-}
-
-.ingredientInfo {
-  .positioned;
-  .clearfix;
-//  padding: 0 10px 30px 10px;
-//  border-bottom: 1px solid rgba(0,0,0,0.12);
-  .column {
-  //  display: inline-block;
-    //width: 68%;
-    float: left;
-    &:first-child {
-    //  width: 35%;
-      margin: 0 20px 0 0;
     }
   }
 }
@@ -3503,6 +3512,7 @@ div#payment {
   .clearfix;
   float: left;
   overflow: auto;
+  overflow-x: hidden;
   //width: 100%;
   //display: inline-block;
   text-align: left;
@@ -4038,7 +4048,8 @@ div#payment {
     display: block;
     float: left;
     height: 160px;
-    width: 257px;
+    width: auto;
+    cursor: pointer;
   }
 
   .itemDescription {
@@ -4063,16 +4074,6 @@ div#payment {
     top: 50%;
     margin-top: -5px;
   }
-
-  // &:hover {
-  //   .pricetag {
-  //     right: 110px;
-  //   }
-  //   .controls {
-  //     visibility: visible;
-  //     .opacity(100);
-  //   }
-  // }
 }
 
 

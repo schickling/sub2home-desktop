@@ -401,18 +401,7 @@ aside#header .iInfo {
 }
 .note.selection .container .info > div.ingredientInfo {
   margin: 90px 0 20px;
-  float: left;
-}
-.articleInfo {
-  margin: 30px 0;
-  float: left;
-  position: relative;
-  width: 50%;
-  text-align: center;
-}
-.articleInfo .wrapper {
-  display: inline-block;
-  width: 300px;
+  float: right;
 }
 .content {
   padding: 0;
@@ -6594,6 +6583,16 @@ div#payment .bankaccount {
 .orderingOverview:after {
   clear: both;
 }
+.articleInfo {
+  margin: 30px 0;
+  float: left;
+  position: relative;
+  width: 40%;
+  text-align: center;
+}
+.articleInfo .wrapper {
+  display: inline-block;
+}
 .articleInfo .articlePreview {
   position: relative;
   text-align: left;
@@ -6612,7 +6611,6 @@ div#payment .bankaccount {
   padding-left: 35px;
   position: relative;
   text-align: left;
-  margin: 0;
 }
 .articleInfo .articleDescription {
   padding-left: 35px;
@@ -6620,6 +6618,14 @@ div#payment .bankaccount {
   position: relative;
   text-align: left;
   top: -2px;
+  font-size: 15px;
+}
+.articleInfo.ft .articlePreview {
+  width: 450px;
+}
+.articleInfo.ft div.articleBasics {
+  width: 430px;
+  padding-left: 20px;
 }
 .subPreview {
   position: relative;
@@ -6628,7 +6634,8 @@ div#payment .bankaccount {
 .bGreen {
   position: relative;
   font-family: "VAGRounded LT Thin";
-  font-size: 14px;
+  font-size: 18px;
+  margin-top: 9px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   color: #c3a55d;
   text-align: center;
@@ -6640,8 +6647,9 @@ div#payment .bankaccount {
   margin-left: 4px;
 }
 .ingredientInfo {
-  width: 560px;
+  width: 50%;
   *zoom: 1;
+  position: relative;
 }
 .ingredientInfo:before,
 .ingredientInfo:after {
@@ -6654,10 +6662,10 @@ div#payment .bankaccount {
 }
 .ingredientInfo .ingredientCategories {
   float: left;
-  width: 200px;
+  width: 45%;
 }
 .ingredientInfo .ingredientCategories:last-child {
-  margin-left: 40px;
+  margin-left: 30px;
 }
 .ingredientInfo .ingredientCategory {
   position: relative;
@@ -6674,7 +6682,7 @@ div#payment .bankaccount {
 .ingredientInfo .ingredientCategory .ingredient {
   display: inline-block;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
 }
 .ingredientInfo .ingredientCategory .ingredient:after {
   content: ",";
@@ -6705,25 +6713,6 @@ div#payment .bankaccount {
 }
 .ingredientInfo .ingredientCategory .ingredient span:hover:before {
   text-decoration: none;
-}
-.ingredientInfo {
-  position: relative;
-  *zoom: 1;
-}
-.ingredientInfo:before,
-.ingredientInfo:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.ingredientInfo:after {
-  clear: both;
-}
-.ingredientInfo .column {
-  float: left;
-}
-.ingredientInfo .column:first-child {
-  margin: 0 20px 0 0;
 }
 .orderingCategory {
   position: relative;
@@ -6799,6 +6788,7 @@ div#payment .bankaccount {
   *zoom: 1;
   float: left;
   overflow: auto;
+  overflow-x: hidden;
   text-align: left;
   outline: 0px;
   outline-offset: 0px;
@@ -7274,7 +7264,8 @@ div#payment .bankaccount {
   display: block;
   float: left;
   height: 160px;
-  width: 257px;
+  width: auto;
+  cursor: pointer;
 }
 .orderedArticle .itemDescription {
   float: left;
@@ -8195,27 +8186,6 @@ aside#header {
 @media (min-width: 1324px) {
   .deliveryTimes {
     width: 700px !important;
-  }
-}
-@media (min-width: 1261px) {
-  .note.selection .container .info .articleInfo {
-    margin: 60px 30px 30px;
-    width: 45%;
-  }
-  .note.selection .container .info .articleInfo .wrapper {
-    width: 100%;
-  }
-  .note.selection .container .info .articleInfo .wrapper > div {
-    display: inline-block;
-  }
-  .note.selection .container .info .articleInfo .wrapper > div.articleBasics {
-    width: 250px;
-    margin-top: 60px;
-    vertical-align: top;
-  }
-  .note.selection .container .info .articleInfo .wrapper > div.articleBasics h3,
-  .note.selection .container .info .articleInfo .wrapper > div.articleBasics p {
-    padding-left: 20px;
   }
 }
 .items {
