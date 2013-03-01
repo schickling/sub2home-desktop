@@ -4231,7 +4231,7 @@ input[type="text"]#locationSelectionInput {
 }
 #deliveryAreas {
   text-align: right;
-  margin-top: 38px;
+  margin-top: 22px;
   padding: 0 5px 0 0;
   cursor: pointer;
   display: none;
@@ -7273,7 +7273,7 @@ div#payment .bankaccount {
 }
 .orderedArticle .itemDescription p {
   text-align: left;
-  width: 300px;
+  width: 400px;
 }
 .orderedArticle .pricetag {
   top: 50%;
@@ -8191,14 +8191,19 @@ aside#header {
 .items {
   width: 100%;
 }
+@media (min-width: 1451px) {
+  .items {
+    width: 1451px;
+  }
+}
+@media (min-width: 1077px) and (max-width: 1450px) {
+  .items {
+    width: 1077px;
+  }
+}
 @media (max-width: 1076px) {
   .items {
     width: 718px;
-  }
-}
-@media (min-width: 1077px) and (max-width: 1435px) {
-  .items {
-    width: 1077px;
   }
 }
 @media (max-width: 1304px) {
