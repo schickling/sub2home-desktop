@@ -1,22 +1,24 @@
 // Filename: src/js/views/store/selection/info/ingredientsSelection/ArticleView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/store/selection/info/ingredientsSelection/ArticleTemplate.html'
-	], function($, _, Backbone, ArticleTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/store/selection/info/ingredientsSelection/ArticleTemplate.html'
+    ], function ($, _, Backbone, ArticleTemplate) {
 
 	var ArticleView = Backbone.View.extend({
 
 		template: _.template(ArticleTemplate),
 
-		initialize: function() {
+		initialize: function () {
 			this._render();
+
+			this._listenForPriceChange();
 		},
 
-		_render: function() {
+		_render: function () {
 			var json = {
-				price: this.model.get('price'),
+				total: this.model.get('total'),
 				image: this.model.get('largeImage'),
 				title: this.model.get('title'),
 				info: this.model.get('info'),
@@ -33,6 +35,10 @@ define([
 				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
 
 			return imageWithoutFileExtension.split('-').pop() || '';
+		},
+
+		_listenForPriceChange: function () {
+			this.model.on('change:total', this._render, this);
 		}
 
 	});
