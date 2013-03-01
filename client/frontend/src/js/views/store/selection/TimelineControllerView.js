@@ -36,6 +36,7 @@ define([
 		$timelineOverlay: null,
 		$timelineOverlayWrapper: null,
 		$timelineStage: null,
+		$timelineCart: null,
 		$noUpgrade: null,
 
 		events: {
@@ -103,6 +104,7 @@ define([
 			this.$timelineOverlay = this.$('.overlayTimeline');
 			this.$timelineOverlayWrapper = this.$timelineOverlay.find('.overlayFrameWrapperTimeline');
 			this.$timelineStage = this.$('.stageTimeline');
+			this.$timelineCart = this.$timelineStage.find('.iCart');
 		},
 
 		_initializeCurrentTimelineItem: function () {
@@ -187,6 +189,9 @@ define([
 					// _navigate
 					this._navigate();
 				}
+
+				this.$timelineCart.toggleClass('clickable', this._isReadyForCart());
+
 			}, this);
 
 		},
@@ -466,6 +471,13 @@ define([
 
 		_noUpgradeViewIsActive: function () {
 			return this._hasNoUpgradeView() && this.currentTimelineItemModel.get('menuUpgradeSelection');
+		},
+
+		_isReadyForCart: function () {
+			return this.collection.filter(function (timelineItemModel) {
+				return timelineItemModel.get('isLocked') || !timelineItemModel.get('wasVisited') && !timelineItemModel.get('isDisabled');
+			}).length === 0;
+
 		}
 
 	});
