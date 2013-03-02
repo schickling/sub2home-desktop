@@ -4214,8 +4214,22 @@ input[type="text"]#locationSelectionInput {
   display: block;
 }
 .categoriesNavigation .categoriesNavigationContainer .phrase {
-  margin-top: 25px;
-  display: none;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  display: inline-block;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  left: 0;
+  bottom: -20px;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+.categoriesNavigation .itemTimeline:hover .phrase {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 .storeDeliveryDetails {
   position: absolute;
@@ -7223,11 +7237,11 @@ div#payment .bankaccount {
 .itemsTimeline:first-child .itemTimeline:before {
   content: " ";
 }
-.stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
+.note.timeline .stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
   width: auto;
   cursor: default;
 }
-.stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
+.note.timeline .stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
   top: 15px;
   position: absolute;
   height: 43px;
@@ -7303,8 +7317,8 @@ div#payment .bankaccount {
   left: -38px;
   top: 50%;
   margin-top: -13px;
-  height: 27px;
-  width: 27px;
+  height: 26px;
+  width: 38px;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
@@ -7317,7 +7331,8 @@ div#payment .bankaccount {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
   font-size: 30px;
   font-family: "VAGRounded LT Thin";
-  padding: 11px 0 0 11px;
+  padding: 12px 0 0;
+  text-align: center;
   cursor: default;
 }
 .amountOrderedItem:before,
@@ -7384,7 +7399,7 @@ div#payment .bankaccount {
 .orderedArticle .pricetag {
   top: 50%;
   right: 15px;
-  margin-top: -21px;
+  margin-top: -20px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
