@@ -6847,27 +6847,19 @@ div#payment .bankaccount {
   clear: both;
 }
 .slideContainer {
-  *zoom: 1;
   float: left;
   overflow: auto;
   overflow-x: hidden;
-  padding-right: 30px;
+  white-space: nowrap;
   text-align: left;
   outline: 0px;
   outline-offset: 0px;
 }
-.slideContainer:before,
-.slideContainer:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.slideContainer:after {
-  clear: both;
-}
 .slide {
-  float: left;
   text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  white-space: normal;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

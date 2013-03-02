@@ -3573,15 +3573,16 @@ div#payment {
 }
 
 .slideContainer {
-  .clearfix;
+  //.clearfix;
   float: left;
   overflow: auto;
   overflow-x: hidden;
+  white-space: nowrap;
   // &::-webkit-scrollbar  {
   //   position: absolute;
   //   display: none;
   // }
-  padding-right: 30px;
+  //padding-right: 30px;
   //width: 100%;
   //display: inline-block;
   text-align: left;
@@ -3594,11 +3595,13 @@ div#payment {
 
 .slide {
   //overflow: auto;
-  float: left;
+  //float: left;
   text-align: center;
   padding: 0 50px;
   //height: inherit;
-  //display: inline-block;
+  vertical-align: top;
+  display: inline-block;
+  white-space: normal;
   &:last-child {
     .positioned;
   }
