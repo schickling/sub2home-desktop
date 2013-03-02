@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/tray/OrderedMenuView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/tray/OrderedArticleMenuView',
-	'text!templates/store/tray/OrderedMenuTemplate.html'
-	], function ($, _, Backbone, OrderedArticleMenuView, OrderedMenuTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/tray/OrderedArticleMenuView',
+    'text!templates/store/tray/OrderedMenuTemplate.html'
+    ], function ($, _, Backbone, OrderedArticleMenuView, OrderedMenuTemplate) {
 
 	var OrderedMenuView = Backbone.View.extend({
 
@@ -15,16 +15,22 @@ define([
 
 		template: _.template(OrderedMenuTemplate),
 
+		// dom
+		$pricetag: null,
+		$controls: null,
+		$titleContainer: null,
+
 		events: {
 			'mouseenter': '_showControls',
 			'mouseleave': '_hideControls'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
+			this._cacheDom();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.addClass('orderedMenu');
 
 			var json = {
@@ -34,19 +40,18 @@ define([
 
 			this.$el.html(this.template(json));
 
-			this.renderArticles();
+			this._renderArticles();
 		},
 
-		renderArticles: function () {
+		_renderArticles: function () {
 			var orderedArticlesCollection = this.model.get('orderedArticlesCollection');
 
 			_.each(orderedArticlesCollection.models, function (orderedArticleModel) {
-				this.renderArticle(orderedArticleModel.get('articleModel'));
+				this._renderArticle(orderedArticleModel.get('articleModel'));
 			}, this);
 		},
 
-		renderArticle: function (articleModel) {
-			console.log(articleModel);
+		_renderArticle: function (articleModel) {
 			var orderedArticleMenuView = new OrderedArticleMenuView({
 				model: articleModel
 			});
@@ -54,26 +59,34 @@ define([
 			this.$('.menuItems').append(orderedArticleMenuView.el);
 		},
 
-		_showControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
+		_cacheDom: function () {
+			this.$pricetag = this.$('.pricetag');
+			this.$titleContainer = this.$('.titleContainer');
+			this.$controls = this.$('.controls');
+		},
 
-			$pricetag.stop().animate({
+		_showControls: function () {
+			this.$pricetag.stop().animate({
 				right: 110
 			}, 200);
 
-			$controls.delay(100).stop().fadeIn(100);
+			this.$titleContainer.stop().animate({
+				marginRight: 210
+			}, 200);
+
+			this.$controls.delay(100).stop().fadeIn(100);
 		},
 
 		_hideControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
-
-			$pricetag.stop().animate({
+			this.$pricetag.stop().animate({
 				right: 15
 			}, 200);
 
-			$controls.stop().fadeOut(100);
+			this.$titleContainer.stop().animate({
+				marginRight: 115
+			}, 200);
+
+			this.$controls.stop().fadeOut(100);
 		}
 
 	});

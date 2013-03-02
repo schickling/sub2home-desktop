@@ -15,8 +15,13 @@ define([
 			'mouseleave': '_hideControls'
 		},
 
+		// dom
+		$pricetag: null,
+		$controls: null,
+
 		initialize: function () {
 			this._render();
+			this._cacheDom();
 		},
 
 		_render: function () {
@@ -37,26 +42,25 @@ define([
 			this.$el.addClass('orderedArticle');
 		},
 
-		_showControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
+		_cacheDom: function () {
+			this.$pricetag = this.$('.pricetag');
+			this.$controls = this.$('.controls');
+		},
 
-			$pricetag.stop().animate({
+		_showControls: function () {
+			this.$pricetag.stop().animate({
 				right: 110
 			}, 200);
 
-			$controls.delay(100).stop().fadeIn(100);
+			this.$controls.delay(100).stop().fadeIn(100);
 		},
 
 		_hideControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
-
-			$pricetag.stop().animate({
+			this.$pricetag.stop().animate({
 				right: 15
 			}, 200);
 
-			$controls.stop().fadeOut(100);
+			this.$controls.stop().fadeOut(100);
 		},
 
 		_getDescription: function () {
