@@ -71,7 +71,8 @@ define([
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
 					paymentMethod: paymentMethod,
-					comment: cartModel.getComment()
+					comment: cartModel.getComment(),
+					minimumDuration: cartModel.getMinimumDuration()
 				};
 
 			this.$el.html(this.template(json));

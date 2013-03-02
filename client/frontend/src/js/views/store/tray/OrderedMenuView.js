@@ -15,6 +15,11 @@ define([
 
 		template: _.template(OrderedMenuTemplate),
 
+		events: {
+			'mouseenter': '_showControls',
+			'mouseleave': '_hideControls'
+		},
+
 		initialize: function () {
 			this.render();
 		},
@@ -47,6 +52,28 @@ define([
 			});
 
 			this.$('.menuItems').append(orderedArticleMenuView.el);
+		},
+
+		_showControls: function () {
+			var $pricetag = this.$('.pricetag'),
+				$controls = this.$('.controls');
+
+			$pricetag.stop().animate({
+				right: 110
+			}, 200);
+
+			$controls.delay(100).stop().fadeIn(100);
+		},
+
+		_hideControls: function () {
+			var $pricetag = this.$('.pricetag'),
+				$controls = this.$('.controls');
+
+			$pricetag.stop().animate({
+				right: 15
+			}, 200);
+
+			$controls.stop().fadeOut(100);
 		}
 
 	});

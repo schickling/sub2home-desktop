@@ -248,13 +248,18 @@ define([
 			var now = new Date(),
 				orderModel = this.get('orderModel'),
 				dueDate = orderModel.get('dueDate'),
-				storeModel = stateModel.get('storeModel'),
-				minimumDuration = storeModel.getMinimumDuration(),
+				minimumDuration = this.getMinimumDuration(),
 				// one minute tolerance
 				spareMilliseconds = dueDate.getTime() - now.getTime() - minimumDuration * 59000;
-			spareMinutes = parseInt(spareMilliseconds / 60000, 10);
 
-			return spareMinutes;
+
+			return parseInt(spareMilliseconds / 60000, 10);
+		},
+
+		getMinimumDuration: function() {
+			var storeModel = stateModel.get('storeModel');
+
+			return storeModel.getMinimumDuration();
 		},
 
 		isMinimumReached: function() {
