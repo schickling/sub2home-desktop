@@ -71,6 +71,7 @@ class BaseApiController extends Controller
 
         if (!$this->hasToken()) {
             $this->reportError(401);
+            return;
         }
 
         $token = Request::header('Token');
@@ -78,6 +79,7 @@ class BaseApiController extends Controller
 
         if (!$client_model_id) {
             $this->reportError(401);
+            return;
         }
 
         return $client_model_id;

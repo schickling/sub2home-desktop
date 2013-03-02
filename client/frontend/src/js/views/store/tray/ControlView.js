@@ -15,7 +15,7 @@ define([
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click .iCart': '_checkout',
+			'click .iCart, .orderNow': '_checkout',
 			'focusout textarea': '_saveComment',
 			'click .hours .iArrowUp.active': '_addHour',
 			'click .hours .iArrowDown.active': '_substractHour',

@@ -40,11 +40,19 @@ class ApiController extends BaseApiController
 			$this->loadStoreModel();
 		}
 
+		if ($this->hasErrorOccured()) {
+			return;
+		}
+
 		// get client id from store model
 		$idFromStore = $this->storeModel->clientModel->id;
 
 		// get client id from token
 		$idFromToken = $this->getClientModelIdFromToken();
+
+		if ($this->hasErrorOccured()) {
+			return;
+		}
 
 		return $idFromStore == $idFromToken;
 	}
