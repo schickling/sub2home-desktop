@@ -90,6 +90,8 @@ define([
 				case 'store.config':
 					this._showStoreConfig();
 					break;
+				default:
+					this._showStoreGlobal();
 			}
 		},
 
@@ -157,6 +159,20 @@ define([
 
 			this.$allButtons.removeClass('active');
 			this.$buttonStoreConfig.addClass('active');
+
+			this.$title.text(title);
+
+			$unneededButtons.fadeOut(this.animationTime);
+			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
+		},
+
+		_showStoreGlobal: function () {
+			var $neededButtons = $.objectOfArray([this.$buttonClientDashboard, this.$buttonStoreConfig, this.$buttonStoreAssortment, this.$buttonStoreDashboard]),
+				$unneededButtons = this.$allButtons.not($neededButtons),
+				storeModel = stateModel.get('storeModel'),
+				title = storeModel.get('title');
+
+			this.$allButtons.removeClass('active');
 
 			this.$title.text(title);
 

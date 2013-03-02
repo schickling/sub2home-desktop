@@ -23,13 +23,15 @@ define([
 			'click .minutes .iArrowDown.active': '_substractMinute'
 		},
 
+		intervalTimer: null,
+
 		initialize: function () {
 			this._render();
 			this._listenForDataChanges();
 
 			// keep due date in time
 			var self = this;
-			setInterval(function () {
+			this.intervalTimer = setInterval(function () {
 				var spareMinutes = cartModel.getSpareMinutes();
 
 				if (spareMinutes === 0) {
@@ -37,6 +39,8 @@ define([
 				}
 
 			}, 60000);
+
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -79,7 +83,7 @@ define([
 		},
 
 		_listenForDataChanges: function () {
-			cartModel.on('change', this._render, this);
+			this.listenTo(cartModel, 'change', this._render);
 		},
 
 		_checkout: function () {
@@ -146,8 +150,14 @@ define([
 			} else {
 				notificationcenter.error('damn', 'yo');
 			}
-		}
+		},
 
+		_listenForDestory: function() {
+			this.once('destroy', function() {
+				clearInterval(this.intervalTimer);
+				this.stopListening();
+			}, this);
+		}
 
 	});
 

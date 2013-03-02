@@ -1,13 +1,13 @@
 // Filename: src/js/modules/router.js
 define([
-	'require',
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'models/stateModel',
-	'models/authentificationModel'
-	], function (require, $, _, Backbone, notificationcenter, stateModel, authentificationModel) {
+    'require',
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'models/stateModel',
+    'models/authentificationModel'
+    ], function (require, $, _, Backbone, notificationcenter, stateModel, authentificationModel) {
 
 	var Router = Backbone.Router.extend({
 
@@ -295,6 +295,11 @@ define([
 			require([pathToMainView], function (MainView) {
 
 				params = params || {};
+
+				// destory old page view to unbind listeners
+				if (self._pageView) {
+					self._pageView.trigger('destroy');
+				}
 
 				self._pageView = new MainView(params);
 

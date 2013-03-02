@@ -1,24 +1,27 @@
 // Filename: src/js/views/store/tray/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'models/cartModel',
-	'views/PageView',
-	'views/store/tray/ControlView',
-	'views/store/tray/CheckoutSettingsView',
-	'views/store/tray/OrderedItemsView',
-	'text!templates/store/tray/MainTemplate.html'
-	], function ($, _, Backbone, router, cartModel, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/cartModel',
+    'views/PageView',
+    'views/store/tray/ControlView',
+    'views/store/tray/CheckoutSettingsView',
+    'views/store/tray/OrderedItemsView',
+    'text!templates/store/tray/MainTemplate.html'
+    ], function ($, _, Backbone, router, cartModel, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		events: {
-			'click .settings': 'showCheckoutSettings',
+			'click .settings': '_showCheckoutSettings',
 			// custom dom event because address needs to be checked first
-			'hide .checkoutSettings': 'hideCheckoutSettings'
+			'hide .checkoutSettings': '_hideCheckoutSettings'
 		},
+
+		// referenced sub views
+		controlView: null,
 
 		initialize: function () {
 			// check if cart is not empty
@@ -30,13 +33,15 @@ define([
 				return;
 			}
 
-			this.render();
+			this._render();
+
+			this._listenForDestory();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(MainTemplate);
 
-			new ControlView({
+			this.controlView = new ControlView({
 				el: this.$('#checkoutControls')
 			});
 
@@ -52,7 +57,7 @@ define([
 
 		},
 
-		showCheckoutSettings: function () {
+		_showCheckoutSettings: function () {
 			var $tray = this.$('.note.tray');
 
 			$tray.animate({
@@ -62,12 +67,18 @@ define([
 
 		},
 
-		hideCheckoutSettings: function () {
+		_hideCheckoutSettings: function () {
 			var $tray = this.$('.note.tray');
 
 			$tray.animate({
 				top: -535
 			});
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.controlView.trigger('destroy');
+			}, this);
 		}
 
 
