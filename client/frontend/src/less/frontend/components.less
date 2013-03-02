@@ -4538,6 +4538,7 @@ div#payment {
 
   span {
     .transition(color .1s linear);
+    white-space: pre-wrap;
     cursor: pointer;
     &:hover {
       color: @onDarkNoteColor;
@@ -4557,7 +4558,7 @@ div#payment {
 
     &.paymentMethod, &.deliveryAddress {
       border-bottom: 2px solid @onDarkNoteColor50;
-      white-space: nowrap;
+      //white-space: nowrap;
       padding-right: 0;
       .positioned;
 
@@ -4566,7 +4567,8 @@ div#payment {
         display: block;
         right: 10px;
         color: @onDarkNoteColor;
-        top: 2px;
+        top: auto;
+        bottom: 4px;
         .opacity(0);
         .transition(opacity .1s linear);
         z-index: 10;

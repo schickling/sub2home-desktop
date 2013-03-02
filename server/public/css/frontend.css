@@ -7785,6 +7785,7 @@ div#payment .bankaccount {
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
+  white-space: pre-wrap;
   cursor: pointer;
 }
 #checkoutBasicControls span:hover {
@@ -7804,7 +7805,6 @@ div#payment .bankaccount {
 #checkoutBasicControls span.paymentMethod,
 #checkoutBasicControls span.deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
-  white-space: nowrap;
   padding-right: 0;
   position: relative;
   -webkit-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
@@ -7818,7 +7818,8 @@ div#payment .bankaccount {
   display: block;
   right: 10px;
   color: #c5a862;
-  top: 2px;
+  top: auto;
+  bottom: 4px;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transition: opacity 0.1s linear;
