@@ -1,18 +1,22 @@
 // Filename: src/js/models/StoreModel.js
 define([
-	'underscore',
-	'backbone',
-	'models/AddressModel',
-	'collections/DeliveryAreasCollection',
-	'collections/DeliveryTimesCollection'
-	], function (_, Backbone, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection) {
+    'underscore',
+    'backbone',
+    'models/AddressModel',
+    'collections/DeliveryAreasCollection',
+    'collections/DeliveryTimesCollection'
+    ], function (_, Backbone, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection) {
 
 	var StoreModel = Backbone.Model.extend({
 
 		defaults: {
 			title: '',
-
 			alias: '',
+
+			// payment methods
+			allowsPaymentCash: false,
+			allowsPaymentEc: false,
+			allowsPaymentPaypal: false,
 
 			orderEmail: '',
 

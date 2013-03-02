@@ -1,11 +1,12 @@
 // Filename: src/js/views/store/tray/CheckoutSettingsView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'models/cartModel',
-	'text!templates/store/tray/CheckoutSettingsTemplate.html'
-	], function ($, _, Backbone, cartModel, CheckoutSettingsTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/stateModel',
+    'models/cartModel',
+    'text!templates/store/tray/CheckoutSettingsTemplate.html'
+    ], function ($, _, Backbone, stateModel, cartModel, CheckoutSettingsTemplate) {
 
 	var CheckoutSettingsView = Backbone.View.extend({
 
@@ -26,6 +27,7 @@ define([
 		render: function () {
 
 			var addressModel = cartModel.getCustomerAddressModel(),
+				storeModel = stateModel.get('storeModel'),
 				json = {
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
@@ -35,8 +37,13 @@ define([
 					phone: addressModel.get('phone'),
 					email: addressModel.get('email'),
 					postal: addressModel.get('postal'),
-					paymentMethod: cartModel.getPaymentMethod()
+					selectedPaymentMethod: cartModel.getPaymentMethod(),
+					allowsPaymentCash: storeModel.get('allowsPaymentCash'),
+					allowsPaymentEc: storeModel.get('allowsPaymentEc'),
+					allowsPaymentPaypal: storeModel.get('allowsPaymentPaypal')
 				};
+
+			console.log(json);
 
 			this.$el.html(this.template(json));
 		},

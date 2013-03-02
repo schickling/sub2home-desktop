@@ -27,7 +27,7 @@ class StoreModelTable extends Migration {
 			$table->text('description')->default('');
 			$table->timestamps();
 			// payment methods
-			$table->boolean('allowsPaymentCash')->default(false);
+			$table->boolean('allowsPaymentCash')->default(true);
 			$table->boolean('allowsPaymentEc')->default(false);
 			$table->boolean('allowsPaymentPaypal')->default(false);
 			// Paypal identification

@@ -51,11 +51,6 @@ define([
 					destination: 'store.home',
 					type: 'a.forward'
 				},
-				{
-					origin: 'home.home',
-					destination: 'client.dashboard',
-					type: 'e'
-				},
 					// from client.login
 				{
 					origin: 'client.login',
@@ -83,26 +78,11 @@ define([
 					destination: 'store.dashboard',
 					type: 'b.backward'
 				},
-					{
-					origin: 'client.dashboard',
-					destination: 'home.home',
-					type: 'e'
-				},
-					{
-					origin: 'client.dashboard',
-					destination: 'store.home',
-					type: 'e'
-				},
 					// from client.config
 				{
 					origin: 'client.config',
 					destination: 'client.dashboard',
 					type: 'c.forward'
-				},
-					{
-					origin: 'client.config',
-					destination: 'home.home',
-					type: 'e'
 				},
 					// from store.home
 				{
@@ -130,16 +110,6 @@ define([
 					destination: 'store.assortment',
 					type: 'b.forward'
 				},
-					{
-					origin: 'store.home',
-					destination: 'store.dashboard',
-					type: 'e'
-				},
-					{
-					origin: 'store.home',
-					destination: 'client.dashboard',
-					type: 'e'
-				},
 					// from store.selection
 				{
 					origin: 'store.selection',
@@ -150,11 +120,6 @@ define([
 					origin: 'store.selection',
 					destination: 'store.tray',
 					type: 'b.forward'
-				},
-					{
-					origin: 'store.selection',
-					destination: 'store.dashboard',
-					type: 'e'
 				},
 					// from store.dashboard
 				{
@@ -172,11 +137,6 @@ define([
 					destination: 'client.dashboard',
 					type: 'b.forward'
 				},
-					{
-					origin: 'store.dashboard',
-					destination: 'store.home',
-					type: 'e'
-				},
 					// from store.assortment
 				{
 					origin: 'store.assortment',
@@ -192,11 +152,6 @@ define([
 					origin: 'store.assortment',
 					destination: 'client.dashboard',
 					type: 'b.forward'
-				},
-					{
-					origin: 'store.assortment',
-					destination: 'store.home',
-					type: 'e'
 				},
 					// from store.config
 					{
@@ -214,11 +169,6 @@ define([
 					destination: 'store.dashboard',
 					type: 'b.backward'
 				},
-					{
-					origin: 'store.config',
-					destination: 'store.home',
-					type: 'e'
-				},
 					// from store.tray
 				{
 					origin: 'store.tray',
@@ -234,11 +184,6 @@ define([
 					origin: 'store.tray',
 					destination: 'store.checkout',
 					type: 'b.backward'
-				},
-					{
-					origin: 'store.tray',
-					destination: 'store.dashboard',
-					type: 'e'
 				},
 					// from store.checkout
 				{
@@ -279,9 +224,8 @@ define([
 				case 'd.backward':
 					this._transitionDBackward();
 					break;
-				case 'e':
+				default:
 					this._transitionE();
-					break;
 				}
 			}
 		},

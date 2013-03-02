@@ -1,10 +1,10 @@
 // Filename: src/js/views/store/tray/OrderedArticleSingleView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/store/tray/OrderedArticleSingleTemplate.html'
-	], function ($, _, Backbone, OrderedArticleSingleTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/store/tray/OrderedArticleSingleTemplate.html'
+    ], function ($, _, Backbone, OrderedArticleSingleTemplate) {
 
 	var OrderedArticleSingleView = Backbone.View.extend({
 
@@ -16,12 +16,50 @@ define([
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
-			this.$el.addClass('orderedArticle');
+		_render: function () {
 
+			var orderedArticleModel = this.model.get('orderedArticlesCollection').first(),
+				articleModel = orderedArticleModel.get('articleModel'),
+				json = {
+					title: articleModel.get('title'),
+					image: articleModel.get('largeImage'),
+					info: articleModel.get('info'),
+					total: this.model.get('total'),
+					amount: this.model.get('amount'),
+					description: this._getDescription()
+				};
+
+			this.$el.html(this.template(json));
+
+			this.$el.addClass('orderedArticle');
+		},
+
+		_showControls: function () {
+			var $pricetag = this.$('.pricetag'),
+				$controls = this.$('.controls');
+
+			$pricetag.stop().animate({
+				right: 110
+			}, 200);
+
+			$controls.delay(100).stop().fadeIn(100);
+		},
+
+		_hideControls: function () {
+			var $pricetag = this.$('.pricetag'),
+				$controls = this.$('.controls');
+
+			$pricetag.stop().animate({
+				right: 15
+			}, 200);
+
+			$controls.stop().fadeOut(100);
+		},
+
+		_getDescription: function () {
 			var orderedArticleModel = this.model.get('orderedArticlesCollection').first(),
 				articleModel = orderedArticleModel.get('articleModel'),
 				description = articleModel.get('description');
@@ -46,38 +84,7 @@ define([
 				}
 			}
 
-			var json = {
-				title: articleModel.get('title'),
-				image: articleModel.get('largeImage'),
-				info: articleModel.get('info'),
-				total: this.model.get('total'),
-				amount: this.model.get('amount'),
-				description: description
-			};
-
-			this.$el.html(this.template(json));
-		},
-
-		_showControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
-
-			$pricetag.stop().animate({
-				right: 110
-			}, 200);
-
-			$controls.delay(100).stop().fadeIn(100);
-		},
-
-		_hideControls: function () {
-			var $pricetag = this.$('.pricetag'),
-				$controls = this.$('.controls');
-
-			$pricetag.stop().animate({
-				right: 15
-			}, 200);
-
-			$controls.stop().fadeOut(100);
+			return description;
 		}
 
 	});
