@@ -1,33 +1,35 @@
 <div id="checkoutAdditionalOptions">
-	<div class="deliveryTimeClock">
+	<div class="deliveryTimeDisplay">
+		<p>Wir sind frühestens in 20min bei dir, du kannst die Uhrzeit aber auch gerne korrigieren</p>
+		<div class="deliveryTimeClock">
+			<span class="hours">
+				<i class="iBtn iArrowUp active"></i>
+				<span class="topTile">
+					<span><%= dueHours %></span>
+				</span>
+				<span class="bottomTile">
+					<span><%= dueHours %></span>
+				</span>
+				<i class="iBtn iArrowDown <% if (!hoursAreMinimum) { %>active <% } %>"></i>
+			</span>
 
-		<span class="hours">
-			<i class="iBtn iArrowUp active"></i>
-			<span class="topTile">
-				<span><%= dueHours %></span>
+			<span class="clockSeparator"></span>
+			<span class="minutes">
+				<i class="iBtn iArrowUp active"></i>
+				<span class="topTile">
+					<span><%= dueMinutes %></span>
+				</span>
+				<span class="bottomTile">
+					<span><%= dueMinutes %></span>
+				</span>
+				<i class="iBtn iArrowDown <% if (!minutesAreMinimum) { %>active <% } %>"></i>
 			</span>
-			<span class="bottomTile">
-				<span><%= dueHours %></span>
-			</span>
-			<i class="iBtn iArrowDown <% if (!hoursAreMinimum) { %>active <% } %>"></i>
-		</span>
-
-		<span class="clockSeparator"></span>
-		<span class="minutes">
-			<i class="iBtn iArrowUp active"></i>
-			<span class="topTile">
-				<span><%= dueMinutes %></span>
-			</span>
-			<span class="bottomTile">
-				<span><%= dueMinutes %></span>
-			</span>
-			<i class="iBtn iArrowDown <% if (!minutesAreMinimum) { %>active <% } %>"></i>
-		</span>
+		</div>
 	</div>
 	<div class="deliveryAdditionalNote">
 		<div></div>
 		<div></div>
-		<!-- <div></div> -->
+		<div></div>
 		<textarea name="" id="" cols="60" placeholder="Was ich noch loswerden wollte..." rows="4"><%= comment %></textarea>
 	</div>
 </div>

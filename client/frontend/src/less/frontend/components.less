@@ -3577,6 +3577,11 @@ div#payment {
   float: left;
   overflow: auto;
   overflow-x: hidden;
+  // &::-webkit-scrollbar  {
+  //   position: absolute;
+  //   display: none;
+  // }
+  padding-right: 30px;
   //width: 100%;
   //display: inline-block;
   text-align: left;
@@ -4351,73 +4356,88 @@ div#payment {
 
     >div {
     display: inline-block;
-    &.deliveryTimeClock {
-      margin: 35px 0;
-      .hours, .minutes {
-        .positioned;
-        padding: 4px;
-        background: @onNoteColor;
-        width: 120px;
-        height: 120px;
-        display: inline-block;
-        .border-radius(3px);
-        .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
-      }
+    &.deliveryTimeDisplay {
+      .positioned;
 
-      .topTile, .bottomTile {
-        .positioned;
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        .border-box;
-        width: 120px;
-        height: 59px;
-        .border-radius(3px);
-        border: none;
-        #gradient > .vertical(#f4d68d,#e6ba4e);
-        .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
-        font-size: 100px;
+      >p {
         font-family: @headingsFontFamily;
-        color: #37270a;
+        font-size: 18px;
+        .dark-engraved-text;
         text-align: center;
-        line-height: 0.47;
-        overflow: hidden;
-        cursor: pointer;
-        span {
-          display: inline-block;
-          .positioned;
-          top: 31px;
-        }
+        width: 285px;
+        margin-top: 10px;
+        line-height: 1;
       }
 
-      .bottomTile {
-        margin-top: 1px;
-        span {
-          top: -30px;
-        }
-      }
-
-      .clockSeparator {
+      .deliveryTimeClock {
         .positioned;
-        width: 11px;
-        height: 42px;
-        display: inline-block;
-        vertical-align: top;
-        text-align: left;
-        margin: 45px 5px 0;
-        &:before, &:after {
-          content: " ";
-          position: absolute;
-          width: 11px;
-          height: 11px;
-          .img-circle;
+        margin: 60px 0;
+        .hours, .minutes {
+          .positioned;
+          padding: 4px;
           background: @onNoteColor;
-          .box-shadow(0 1px 0 0 rgba(255,255,255,0.4), inset 0 1px 2px 0 #a1874d);
+          width: 120px;
+          height: 120px;
+          display: inline-block;
+          .border-radius(3px);
+          .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
         }
-        &:after {
-          top: 30px;
+
+        .topTile, .bottomTile {
+          .positioned;
+          display: inline-block;
+          padding: 0;
+          margin: 0;
+          .border-box;
+          width: 120px;
+          height: 59px;
+          .border-radius(3px);
+          border: none;
+          #gradient > .vertical(#f4d68d,#e6ba4e);
+          .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
+          font-size: 100px;
+          font-family: @headingsFontFamily;
+          color: #37270a;
+          text-align: center;
+          line-height: 0.47;
+          overflow: hidden;
+          cursor: pointer;
+          span {
+            display: inline-block;
+            .positioned;
+            top: 31px;
+          }
         }
-      }      
+
+        .bottomTile {
+          margin-top: 1px;
+          span {
+            top: -30px;
+          }
+        }
+
+        .clockSeparator {
+          .positioned;
+          width: 11px;
+          height: 42px;
+          display: inline-block;
+          vertical-align: top;
+          text-align: left;
+          margin: 45px 5px 0;
+          &:before, &:after {
+            content: " ";
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            .img-circle;
+            background: @onNoteColor;
+            .box-shadow(0 1px 0 0 rgba(255,255,255,0.4), inset 0 1px 2px 0 #a1874d);
+          }
+          &:after {
+            top: 30px;
+          }
+        }      
+      }
     }
 
     &.deliveryAdditionalNote {
@@ -4466,7 +4486,7 @@ div#payment {
   }
 
   >div {
-    &.deliveryTimeClock {
+    &.deliveryTimeDisplay .deliveryTimeClock {
       .hours, .minutes {
         .iBtn {
           position: absolute;
