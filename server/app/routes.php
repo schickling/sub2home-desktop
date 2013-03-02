@@ -49,6 +49,9 @@ Route::group(array('https'), function()
 	Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
 	Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
 
+	// monthly reports
+	Route::get('api/frontend/stores/{alias}/monthlyreports', 					'App\Controllers\Api\Frontend\MonthlyReportsController@index');
+
 	// orders
 	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
 	Route::get('api/frontend/stores/{alias}/orders/{id}', 				'App\Controllers\Api\Frontend\OrderShowController@show');

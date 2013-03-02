@@ -163,6 +163,16 @@ class StoreModel extends BaseModel
 	}
 
 	/**
+	 * Returns the monthly reports of a store
+	 * 
+	 * @return object
+	 */
+	public function monthlyReportsCollection()
+	{
+		return $this->hasMany('App\\Models\\MonthlyReportModel');
+	}
+
+	/**
 	 * Returns the ordersCollection
 	 * 
 	 * @return object
