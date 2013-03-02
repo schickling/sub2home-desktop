@@ -2296,6 +2296,12 @@ table [class*=span],
 .bArrowDown:before {
   content: "\e041";
 }
+.iNoticeArrowDown:before {
+  content: "\e042";
+}
+.iNoticeArrowUp:before {
+  content: "\e043";
+}
 .iCircle:before {
   content: "\e053";
 }
@@ -3356,6 +3362,36 @@ img.cookie {
 }
 .tooltip.success {
   color: #57a827;
+}
+.notice {
+  font-family: "Handlee", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #cecece;
+  text-align: center;
+  position: absolute;
+  line-height: 1;
+}
+.notice.above:before,
+.notice.below:before {
+  content: "\e042";
+  font-family: "Homicons";
+  font-size: 70px;
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  margin-left: -25px;
+}
+.notice.below:before {
+  content: "\e043";
+  top: -65px;
+  left: 50%;
+}
+.note .notice {
+  color: #d1ba82;
+}
+#login .notice {
+  right: 30px;
+  top: -90px;
 }
 .flag {
   position: relative;
@@ -4866,8 +4902,9 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   width: 100%;
   top: 50%;
-  margin-top: -35px;
-  text-align: center;
+  left: 50%;
+  width: 904px;
+  margin: -35px 0 0 -452px;
 }
 #login input {
   display: inline-block;
