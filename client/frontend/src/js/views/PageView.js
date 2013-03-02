@@ -224,9 +224,9 @@ define([
 				case 'd.backward':
 					this._transitionDBackward();
 					break;
-				default:
-					this._transitionE();
 				}
+			} else {
+				this._transitionE();
 			}
 		},
 
