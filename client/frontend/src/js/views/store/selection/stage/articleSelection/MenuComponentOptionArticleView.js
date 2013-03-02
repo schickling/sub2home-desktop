@@ -32,7 +32,7 @@ define([
 			var json = {
 				title: this.model.get('title'),
 				image: this.model.get('largeImage'),
-				deposit: this.model.get('deposit'),
+				deposit: this.model.get('deposit') * 100, // cent
 				description: this.model.get('description')
 			};
 
