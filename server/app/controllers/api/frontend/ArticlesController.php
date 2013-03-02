@@ -38,7 +38,7 @@ class ArticlesController extends ApiController
 			))->find($articleModelId);
 
 
-		if ($articleModel == null) {
+		if ($articleModel == null || !$articleModel->isActive($this->storeModel->id)) {
 			return $this->respondWithStatus(404);
 		}
 

@@ -115,7 +115,7 @@ define([
 								// write postal back to search field
 								self.$search.val(postal);
 
-								self._lookUpStoresForPostal(postal, false);
+								self.lookUpStoresForPostal(postal, false);
 
 							} else {
 								notificationcenter.warning('Neeeeeeeeein!', 'Standort konnte nicht ermittelt werden');
@@ -128,7 +128,7 @@ define([
 			}
 		},
 
-		_lookUpStoresForPostal: function (postal) {
+		lookUpStoresForPostal: function (postal) {
 
 			// set postal
 			this.postal = parseInt(postal, 10);
