@@ -50,6 +50,7 @@ define([
 
 		// dom
 		$slideContainer: null,
+		$stageOverlay: null,
 
 		// backbone class gets set in child classes
 		stageViewClass: null,
@@ -64,6 +65,8 @@ define([
 
 			// prepare data
 			this.prepare();
+
+			this._cacheDom();
 
 			this._render();
 
@@ -101,6 +104,10 @@ define([
 			if (this.active) {
 				indexOfSelectionView++;
 			}
+		},
+
+		_cacheDom: function() {
+			this.$stageOverlay = this.$('.content .overlay');
 		},
 
 		_render: function () {
@@ -161,13 +168,18 @@ define([
 		_compensateSize: function () {
 			var mainHeight = this.$el.height(),
 				timelineHeight = 90,
-				infoHeight = this.infoView.$el.hiddenHeight();
+				infoHeight = this.infoView.$el.hiddenHeight(),
+				slideContainerHeight = mainHeight - infoHeight - timelineHeight;
 
 			this.$slideContainer.css({
 				marginTop: infoHeight,
 
 				// add 50 because of timeline bottom height
-				height: mainHeight - infoHeight - timelineHeight
+				height: slideContainerHeight
+			});
+
+			this.$stageOverlay.css({
+				top: infoHeight + slideContainerHeight / 2
 			});
 
 			// realign slides
