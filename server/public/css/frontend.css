@@ -3661,6 +3661,10 @@ img.cookie {
   white-space: nowrap;
   margin: 0;
 }
+.timeline .overlayFrameTimeline .overlayFrameWrapperTimeline img,
+.categoriesNavigation .overlayFrameTimeline .overlayFrameWrapperTimeline img {
+  left: -2px;
+}
 .timeline .overlayFrameTimeline .itemsTimeline,
 .categoriesNavigation .overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
@@ -7429,7 +7433,7 @@ div#payment .bankaccount {
 }
 .orderedMenu header .titleContainer {
   overflow: hidden;
-  margin: 0 103px 0 0;
+  margin: 0 115px 0 0;
   height: 60px;
   position: relative;
   -webkit-backface-visibility: hidden;
@@ -7455,7 +7459,7 @@ div#payment .bankaccount {
 }
 .orderedMenu .pricetag {
   top: -1px;
-  right: 0;
+  right: 15px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);

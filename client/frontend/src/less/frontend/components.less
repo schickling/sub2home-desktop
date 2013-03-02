@@ -400,7 +400,6 @@ img.cookie    { margin: 0 -10px;}
       img {
         position: absolute;
         top: 0;
-      
         left: 0px;
         width: 70px;
         height: auto;
@@ -501,6 +500,9 @@ img.cookie    { margin: 0 -10px;}
       top: 1px;
       white-space: nowrap;
       margin: 0;
+      img {
+        left: -2px;
+      }
     }
 
     .itemsTimeline {
@@ -3578,27 +3580,14 @@ div#payment {
   overflow: auto;
   overflow-x: hidden;
   white-space: nowrap;
-  // &::-webkit-scrollbar  {
-  //   position: absolute;
-  //   display: none;
-  // }
-  //padding-right: 30px;
-  //width: 100%;
-  //display: inline-block;
   text-align: left;
   outline: 0px;
   outline-offset: 0px;
-  //padding-right: 25px;
-  //margin-right: -25px;
-  //white-space: nowrap;
 }
 
 .slide {
-  //overflow: auto;
-  //float: left;
   text-align: center;
   padding: 0 50px;
-  //height: inherit;
   vertical-align: top;
   display: inline-block;
   white-space: normal;
@@ -3607,7 +3596,6 @@ div#payment {
   }
   
   padding: 0;
-  //white-space: normal;
   .border-box;
   padding: 0 50px;
   overflow-y: hidden;
@@ -4219,7 +4207,7 @@ div#payment {
     .positioned;
     .titleContainer {
       overflow: hidden;
-      margin: 0 103px 0 0;
+      margin: 0 115px 0 0;
       height: 60px;
       .positioned;
       .backface-visibility(hidden);
@@ -4245,7 +4233,7 @@ div#payment {
   }
   .pricetag {
     top: -1px;
-    right: 0;
+    right: 15px;
     .rotate(0deg);
   }
   .controls {
