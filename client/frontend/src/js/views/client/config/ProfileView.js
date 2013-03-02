@@ -14,6 +14,7 @@ define([
 		events: {
 			'click .triggerEditPassword p': '_showPasswordFields',
 			'click .submitNewPassword': '_saveNewPassword',
+			'click .cancelEditPassword': '_hidePasswordFields',
 			'keyup .editPassword input': '_updateSubmitButton'
 		},
 
@@ -43,11 +44,14 @@ define([
 				$el = this.$el,
 				$editPassword = this.$('.editPassword'),
 				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
+				$cancelEditPassword = this.$('.cancelEditPassword'),
 				$submitNewPassword = this.$('.submitNewPassword');
 
 			$triggerEditPasswordButton.fadeOut(animationTime / 2, function () {
 				$submitNewPassword.fadeIn(animationTime / 2);
 			});
+
+			$cancelEditPassword.delay(animationTime / 2).fadeIn(animationTime / 2);
 
 			$el.animate({
 				paddingLeft: 622
@@ -63,11 +67,14 @@ define([
 				$el = this.$el,
 				$editPassword = this.$('.editPassword'),
 				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
+				$cancelEditPassword = this.$('.cancelEditPassword'),
 				$submitNewPassword = this.$('.submitNewPassword');
 
 			$submitNewPassword.fadeOut(animationTime / 2, function () {
 				$triggerEditPasswordButton.fadeIn(animationTime / 2);
 			});
+
+			$cancelEditPassword.fadeOut(animationTime / 2);
 
 			$el.animate({
 				paddingLeft: 222
