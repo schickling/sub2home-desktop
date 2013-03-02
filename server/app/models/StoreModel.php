@@ -1,5 +1,7 @@
 <?php namespace App\Models;
- 
+
+use DateTime;
+
 class StoreModel extends BaseModel
 {
 	protected $hidden = array(
@@ -163,13 +165,13 @@ class StoreModel extends BaseModel
 	}
 
 	/**
-	 * Returns the monthly reports of a store
+	 * Returns the invoices of a store
 	 * 
 	 * @return object
 	 */
-	public function monthlyReportsCollection()
+	public function invoicesCollection()
 	{
-		return $this->hasMany('App\\Models\\MonthlyReportModel');
+		return $this->hasMany('App\\Models\\InvoiceModel');
 	}
 
 	/**
@@ -217,55 +219,6 @@ class StoreModel extends BaseModel
 		return false;
 	}
 
-	public function getMonthlyTurnoverAttribute()
-	{
-		$totalTurnover = $this->totalTurnover;
-
-		// TODO
-		if (is_object($this->created_at)) {
-			$diff = abs($this->created_at->getTimestamp() - time());
-		} else {
-			$diff = abs(strtotime($this->created_at) - time());
-		}
-		$years = floor($diff / (365*60*60*24));
-		$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-
-		if ($months > 0) {
-			$monthyTurnover = $totalTurnover / $months;
-		} else {
-			$monthyTurnover = $totalTurnover;
-		}
-
-		return $monthyTurnover;
-	}
-
-	public function getNumberOfTotalOrdersAttribute()
-	{
-		return $this->ordersCollection()->count();
-	}
-
-	public function getNumberOfMonthlyOrdersAttribute()
-	{
-		$numberOfTotalOrders = $this->numberOfTotalOrders;
-
-		// TODO
-		if (is_object($this->created_at)) {
-			$diff = abs($this->created_at->getTimestamp() - time());
-		} else {
-			$diff = abs(strtotime($this->created_at) - time());
-		}
-		$years = floor($diff / (365*60*60*24));
-		$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-
-		if ($months > 0) {
-			$numberOfMonthlyOrders = $numberOfTotalOrders / $months;
-		} else {
-			$numberOfMonthlyOrders = $numberOfTotalOrders;
-		}
-
-		return $numberOfMonthlyOrders;
-	}
-
 	/**
 	 * Sets the title and the alias
 	 * 
@@ -279,6 +232,23 @@ class StoreModel extends BaseModel
 		$alias = strtolower(trim($alias, '-'));
 		$alias = preg_replace("/[\/_|+ -]+/", '-', $alias);
 		$this->attributes['alias'] = $alias;
+	}
+
+	public function checkInvoices()
+	{
+		$invoicesCollection = $this->invoicesCollection;
+
+		// count months since store was created
+		$now = new DateTime();
+		$dateStoreWasCreated = new DateTime($this->created_at);
+		$interval = $now->diff($dateStoreWasCreated);
+		$numberOfMonths = $interval->m + 1; // current month counts also
+
+		// check if enough invoices are created and create missing invoices
+		if ($invoicesCollection->count() < $numberOfMonths) {
+			// TODO
+		}
+
 	}
 
 }

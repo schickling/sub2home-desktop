@@ -1,11 +1,11 @@
 <?php namespace App\Models;
 
 
-class MonthlyReportModel extends BaseModel
+class InvoiceModel extends BaseModel
 {
 	public $timestamps = false;
 
-	protected $table = 'monthly_report_models';
+	protected $table = 'invoice_models';
 
 	protected $hidden = array('store_model_id');
 
@@ -13,4 +13,5 @@ class MonthlyReportModel extends BaseModel
 	{
 		return $this->belongsTo('App\\Models\\StoreModel');
 	}
+
 }
