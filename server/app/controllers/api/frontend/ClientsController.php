@@ -17,6 +17,7 @@ class ClientsController extends ApiController
 
 		$clientModel = ClientModel::with(array(
 										'storesCollection',
+										'storesCollection.invoicesCollection',
 										'addressModel',
 										'bankaccountModel'
 									))
@@ -25,6 +26,10 @@ class ClientsController extends ApiController
 
 		if ($clientModel == null) {
 			return $this->respondWithStatus(401);
+		}
+
+		foreach ($clientModel->storesCollection as $storeModel) {
+			$storeModel->numberOfUndoneOrders = $storeModel->ordersCollection()->where('isDelivered', false)->count();
 		}
 
 		

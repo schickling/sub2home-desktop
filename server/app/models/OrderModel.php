@@ -10,7 +10,7 @@ use Queue;
 class OrderModel extends BaseModel
 {
 
-	protected $hidden = array('store_model_id', 'updated_at');
+	protected $hidden = array('store_model_id', 'updated_at', 'commissionRate');
 
 	protected $table = 'order_models';
 
@@ -70,8 +70,9 @@ class OrderModel extends BaseModel
 	{
 		$jobData = array('order_model_id' => $this->id);
 
-		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrder', $jobData);
-		Queue::push('App\\Controllers\\Jobs\\Mail\\CustomerOrderConfirmMail', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrderJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\CustomerOrderConfirmMailJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\StoreOrderNotificationMailJob', $jobData);
 
 	}
 }

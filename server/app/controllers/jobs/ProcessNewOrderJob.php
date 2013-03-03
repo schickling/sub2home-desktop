@@ -3,7 +3,7 @@
 use App\Models\OrderModel;
 use Exception;
 
-class ProcessNewOrder implements JobInterface {
+class ProcessNewOrderJob implements JobInterface {
 
 	private $orderModel;
 

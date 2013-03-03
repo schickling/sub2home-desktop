@@ -13,6 +13,7 @@ class StoreModel extends BaseModel
 		'isActive',
 		'orderEmail',
 		'client_model_id',
+		'commissionRate',
 		'id'
 		);
 
@@ -109,6 +110,11 @@ class StoreModel extends BaseModel
 		// Delete belonging delivery areas
 		foreach ($this->deliveryAreasCollection as $deliveryAreaModel) {
 			$deliveryAreaModel->delete();
+		}
+
+		// Delete belonging invoices
+		foreach ($this->invoicesCollection as $invoiceModel) {
+			$invoiceModel->delete();
 		}
 		
 		return parent::delete();
@@ -243,8 +249,7 @@ class StoreModel extends BaseModel
 		$currentTotalNumberOfMonths = $this->getTotalNumberOfMonths($now);
 		$dateTimeStoreWasCreated = new DateTime($this->created_at);
 		$creationTotalNumberOfMonths = $this->getTotalNumberOfMonths($dateTimeStoreWasCreated);
-		// current month counts also
-		$numberOfInvoices = $currentTotalNumberOfMonths - $creationTotalNumberOfMonths + 1;
+		$numberOfInvoices = $currentTotalNumberOfMonths - $creationTotalNumberOfMonths + 1; // current month counts also
 
 		// check if enough invoices are created and create missing invoices
 		if ($invoicesCollection->count() < $creationTotalNumberOfMonths) {
@@ -274,12 +279,9 @@ class StoreModel extends BaseModel
 					$invoiceModel->month = $invoiceDateTime;
 					$invoiceModel->store_model_id = $this->id;
 					$invoiceModel->save();
-
-					$invoiceModel->generateDocument();
 				}
 
 			}
-
 
 		}
 

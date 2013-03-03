@@ -1,5 +1,8 @@
 <?php
 
+use App\Commands\Invoices\SendInvoicesForLastMonthCommand;
+use App\Commands\Invoices\GenerateMissingDocumentsCommand;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Artisan Commands
@@ -11,3 +14,5 @@
 |
 */
 
+Artisan::add(new SendInvoicesForLastMonthCommand);
+Artisan::add(new GenerateMissingDocumentsCommand);

@@ -8,8 +8,9 @@ define([
     'models/ClientModel',
     'views/PageView',
     'views/client/dashboard/StoresView',
+    'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/MainTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, ClientModel, PageView, StoresView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, ClientModel, PageView, StoresView, RevenuesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -32,6 +33,11 @@ define([
 
 			new StoresView({
 				el: this.$('#clientStores'),
+				collection: this.model.get('storesCollection')
+			});
+
+			new RevenuesView({
+				el: this.$('#clientRevenues'),
 				collection: this.model.get('storesCollection')
 			});
 

@@ -79,7 +79,7 @@ define([
 
 		_hideControls: function () {
 			this.$pricetag.stop().animate({
-				right: 15
+				right: 0
 			}, 200);
 
 			this.$titleContainer.stop().animate({

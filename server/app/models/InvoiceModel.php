@@ -12,6 +12,20 @@ class InvoiceModel extends BaseModel
 
 	protected $hidden = array('store_model_id');
 
+
+	/**
+	 * Hook delete
+	 * 
+	 * @return int
+	 */
+	public function delete()
+	{
+		$document = base_path() . '/public/files/invoices/' . $this->documentName;
+		File::delete($document);
+		
+		return parent::delete();
+	}
+
 	public function storeModel()
 	{
 		return $this->belongsTo('App\\Models\\StoreModel');
@@ -19,7 +33,11 @@ class InvoiceModel extends BaseModel
 
 	public function generateDocument()
 	{
-		$this->deleteOldDocument();
+		// prevent overwriting an existing document
+		$this->checkIfLocked();
+
+		// recalculate
+		$this->recalculate();
 
 		$data = array();
 		$viewName = 'documents.invoice';
@@ -33,14 +51,29 @@ class InvoiceModel extends BaseModel
 		$this->save();
 	}
 
-	private function deleteOldDocument()
+	public function setTotalAttribute($total)
 	{
-		if ($this->documentName) {
-			
-			File::delete($this->documentName);
+		$this->checkIfLocked();
+		$this->attributes['total'] = $total;
+	}
 
-			$this->documentName = '';
-			$this->save();
+	public function setNumberOfOrdersAttribute($numberOfOrders)
+	{
+		$this->checkIfLocked();
+		$this->attributes['numberOfOrders'] = $numberOfOrders;
+	}
+
+	private function recalculate()
+	{
+		$storeModel = $this->storeModel;
+
+		// TODO
+	}
+
+	private function checkIfLocked()
+	{
+		if (!empty($this->documentName)) {
+			throw new Exception('Invoice is already locked');
 		}
 	}
 
