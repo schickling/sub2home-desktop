@@ -1,11 +1,11 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'models/DeliveryTimeModel',
-	'collections/DeliveryTimesCollection',
-	'views/store/config/DeliveryTimeView'
-	], function($, _, Backbone, DeliveryTimeModel, DeliveryTimesCollection, DeliveryTimeView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/DeliveryTimeModel',
+    'collections/DeliveryTimesCollection',
+    'views/store/config/DeliveryTimeView'
+    ], function ($, _, Backbone, DeliveryTimeModel, DeliveryTimesCollection, DeliveryTimeView) {
 
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
@@ -24,7 +24,8 @@ define([
 
 		_renderDeliveryTime: function (deliveryTimeModel) {
 			var deliveryTimeView = new DeliveryTimeView({
-				model: deliveryTimeModel
+				model: deliveryTimeModel,
+				parentView: this
 			});
 
 			var $matchingBusinessDay = this.$('.businessDay[data-day="' + deliveryTimeModel.get('dayOfWeek') + '"]'),
@@ -42,13 +43,13 @@ define([
 			});
 
 			deliveryTimeModel.save({}, {
-				success: function() {
+				success: function () {
 					self._renderDeliveryTime(deliveryTimeModel);
 					self.collection.add(deliveryTimeModel);
 				}
 			});
 		}
-		
+
 	});
 
 	return DeliveryTimesView;

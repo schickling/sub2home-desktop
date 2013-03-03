@@ -7,6 +7,7 @@ define([
     ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
+
 		events: {
 			'focusout .deliveryAreaMinimumDuration': '_updateMinimumDuration',
 			'focusout .deliveryAreaMinimumValue': '_updateMinimumValue',
@@ -16,13 +17,19 @@ define([
 			'click .sBRemove': '_destroy'
 		},
 
+		parentView: null,
+
 		initialize: function () {
+			this.parentView = this.options.parentView;
+
 			this._render();
 
-			this.model.on('invalid', function (model, error) {
+			this.listenTo(this.model, 'invalid', function (model, error) {
 				this._render();
 				notificationcenter.error(error, error);
-			}, this);
+			});
+
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -95,6 +102,12 @@ define([
 
 			var $input = $(e.target);
 			$input.blur();
+		},
+
+		_listenForDestory: function () {
+			this.parentView.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 	});

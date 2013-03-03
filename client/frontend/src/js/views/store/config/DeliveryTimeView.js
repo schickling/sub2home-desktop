@@ -1,12 +1,14 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'text!templates/store/config/DeliveryTimeTemplate.html'
-	], function ($, _, Backbone, notificationcenter, DeliveryTimeTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'text!templates/store/config/DeliveryTimeTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, DeliveryTimeTemplate) {
 
 	var DeliveryTimeView = Backbone.View.extend({
+
+		parentView: null,
 
 		className: 'deliveryTime',
 
@@ -20,12 +22,16 @@ define([
 		},
 
 		initialize: function () {
+			this.parentView = this.options.parentView;
+
 			this._render();
 
-			this.model.on('invalid', function (model, error) {
+			this.listenTo(this.model, 'invalid', function (model, error) {
 				this._render();
 				notificationcenter.error(error, error);
-			}, this);
+			});
+
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -57,6 +63,8 @@ define([
 					validate: true
 				});
 				this.model.save();
+			} else {
+				this._render();
 			}
 
 		},
@@ -72,6 +80,8 @@ define([
 					validate: true
 				});
 				this.model.save();
+			} else {
+				this._render();
 			}
 		},
 
@@ -106,6 +116,12 @@ define([
 
 			var $input = $(e.target);
 			$input.blur();
+		},
+
+		_listenForDestory: function () {
+			this.parentView.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 	});

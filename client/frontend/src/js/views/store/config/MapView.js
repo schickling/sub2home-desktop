@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/config/MapView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'gmaps',
-	'views/assets/mapStyles'
-	], function ($, _, Backbone, gmaps, mapStyles) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'gmaps',
+    'views/assets/mapStyles'
+    ], function ($, _, Backbone, gmaps, mapStyles) {
 
 	var MapView = Backbone.View.extend({
 
@@ -14,10 +14,10 @@ define([
 		marker: null,
 
 		initialize: function () {
-			this.loadMap();
+			this._loadMap();
 		},
 
-		loadMap: function () {
+		_loadMap: function () {
 
 			var mapOptions = {
 				center: new gmaps.LatLng(this.model.get('latitude'), this.model.get('longitude')),
@@ -41,13 +41,14 @@ define([
 			var self = this;
 			gmaps.event.addListenerOnce(map, 'idle', function () {
 				gmaps.event.trigger(map, 'resize');
-				self.addMarker();
-				self.listenForCoordinateChanges();
+				self._addMarker();
+				self._listenForCoordinateChanges();
+				self._listenForDestory();
 			});
 
 		},
 
-		addMarker: function () {
+		_addMarker: function () {
 			var icon = new gmaps.MarkerImage('../../img/static/common/pin.png', // url
 			null, // size
 			null, // origin
@@ -64,11 +65,17 @@ define([
 			marker.setMap(this.map);
 		},
 
-		listenForCoordinateChanges: function () {
-			this.model.on('change', function () {
+		_listenForCoordinateChanges: function () {
+			this.listenTo(this.model, 'change', function () {
 				var newCenter = new gmaps.LatLng(this.model.get('latitude'), this.model.get('longitude'));
 				this.marker.setPosition(newCenter);
 				this.map.setCenter(newCenter);
+			});
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.stopListening();
 			}, this);
 		}
 

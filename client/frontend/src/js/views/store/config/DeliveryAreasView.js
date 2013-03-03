@@ -26,7 +26,8 @@ define([
 
 		_renderDeliveryArea: function (item) {
 			var deliveryAreaView = new DeliveryAreaView({
-				model: item
+				model: item,
+				parentView: this
 			});
 
 			this.$('.unfolded').append(deliveryAreaView.el);

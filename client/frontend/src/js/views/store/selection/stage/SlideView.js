@@ -36,7 +36,7 @@ define([
 			} else {
 				// enable scrolling
 				$slideContainer.css({
-					overflow: 'auto'
+					overflowY: 'auto'
 				});
 			}
 

@@ -15,6 +15,11 @@ define([
 
 	var MainView = PageView.extend({
 
+		// referenced sub views
+		mapView: null,
+		deliveryAreasView: null,
+		deliveryTimesView: null,
+
 		initialize: function () {
 			// to be absolutly consistent reload the store model from server
 			this.model = stateModel.get('storeModel');
@@ -25,6 +30,7 @@ define([
 			// check if client is allowed to view this page
 			if (stateModel.clientOwnsThisStore()) {
 				this._render();
+				this._listenForDestory();
 			} else {
 				router.navigate('login', {
 					trigger: true,
@@ -36,7 +42,7 @@ define([
 		_render: function () {
 			this.$el.html(MainTemplate);
 
-			new MapView({
+			this.mapView = new MapView({
 				el: this.$('#storeMap'),
 				model: this.model
 			});
@@ -46,17 +52,25 @@ define([
 				model: this.model
 			});
 
-			new DeliveryAreasView({
+			this.deliveryAreasView = new DeliveryAreasView({
 				el: this.$('.deliveryAreas'),
 				collection: this.model.get('deliveryAreasCollection')
 			});
 
-			new DeliveryTimesView({
+			this.deliveryTimesView = new DeliveryTimesView({
 				el: this.$('.deliveryTimes'),
 				collection: this.model.get('deliveryTimesCollection')
 			});
 
 			this.append();
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.mapView.trigger('destroy');
+				this.deliveryAreasView.trigger('destroy');
+				this.deliveryTimesView.trigger('destroy');
+			}, this);
 		}
 
 	});
