@@ -25,7 +25,10 @@ define([
 
 			addressModel: null,
 
-			number: 0
+			number: 0,
+
+			// needed in client.dashboard
+			numberOfUndoneOrders: 0
 		},
 
 		idAttribute: 'alias',

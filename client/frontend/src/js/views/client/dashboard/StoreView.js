@@ -23,7 +23,8 @@ define([
 
 		_render: function () {
 			var json = {
-				title: this.model.get('title')
+				title: this.model.get('title'),
+				numberOfUndoneOrders: this.model.get('numberOfUndoneOrders')
 			};
 
 			this.$el.html(this.template(json));
