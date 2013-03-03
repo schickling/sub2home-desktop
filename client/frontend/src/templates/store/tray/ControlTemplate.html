@@ -38,12 +38,13 @@
 	
 	<% if (isReady) { %>
 	<div class="checkoutReadyControls">
-	<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €</span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
-	und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
+		<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €<i class="notice rightHandAbove">Gute Gäste geben Trinkgeld.</i></span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
+		und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
 	</div>
 	<div class="icn iCart"></div>
+
 	<% } else { %>
-	Nur noch deine <span class="deliveryAddress settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span class="price"><%= total.toFixed(2) %> €</span>
+	Nur noch deine <span class="deliveryAddress settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span class="price"><%= total.toFixed(2) %> €<i class="notice leftHandBelow">Gute Gäste geben Trinkgeld.</i></span>
 	<% } %>
 
 </div>

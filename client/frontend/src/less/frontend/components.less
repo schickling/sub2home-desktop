@@ -169,6 +169,7 @@ img.cookie    { margin: 0 -10px;}
 // -----------------------
 
 .notice {
+  font-style: normal;
   font-family: @handFontFamily;
   font-size: 20px;
   color: @grayLight;
@@ -176,25 +177,91 @@ img.cookie    { margin: 0 -10px;}
   position: absolute;
   line-height: 1;
 
-  &.above, &.below {
+  &.aboveLeft, &.aboveRight, &.belowLeft, &.belowRight, &.rightHandAbove, &.rightHandBelow, &.leftHandAbove, &.leftHandBelow {
     &:before {
-      content: "\e042";
+      content: " ";
       font-family: "Homicons";
       font-size: 70px;
       position: absolute;
-      bottom: -65px;
-      left: 50%;
-      margin-left: -25px;
     }
   }
-  &.below {
+
+  // Above
+
+  &.aboveLeft {
     &:before {
       content: "\e043";
-      top: -65px;
       left: 50%;
+      margin-left: -25px;
+      bottom: -65px;
+    }
+  }
+
+  &.aboveRight {
+    &:before {
+      content: "\e042";
+      right: 50%;
+      margin-right: -25px;
+      bottom: -65px;
+    }
+  }
+
+  // Below
+
+  &.belowLeft {
+    &:before {
+      left: 50%;
+      margin-left: -25px;
+      top: -65px;
+    }
+  }
+
+  &.belowRight {
+    &:before {
+      right: 50%;
+      margin-right: -25px;
+      top: -65px;
+    }
+  }
+
+  // Right-hand
+
+  &.rightHandAbove {
+    &:before {
+      content: "\e049";
+      top: -7px;
+      left: -65px;
+    }
+  }
+
+  &.rightHandBelow {
+    &:before {
+      content: "\e048";
+      bottom: -7px;
+      left: -65px;
+    }
+  }
+
+  // Left-hand  
+
+  &.leftHandAbove {
+    &:before {
+      content: "\e047";
+      top: -7px;
+      right: -65px;
+    }
+  }
+
+  &.leftHandBelow {
+    &:before {
+      content: "\e046";
+      bottom: -7px;
+      right: -65px;
     }
   }
 }
+
+
 
 
 .note .notice {
@@ -202,9 +269,28 @@ img.cookie    { margin: 0 -10px;}
 }
 
 
+
+
+// Login Notice
+
 #login .notice {
   right: 30px;
   top: -90px;
+}
+
+// Checkout Credit Notice
+
+#checkoutBasicControls .notice {
+  color: @onDarkNoteColor70;
+  white-space: nowrap;
+  &.rightHandAbove {
+    right: -283px;
+    top: -43px;
+  }
+  &.leftHandBelow {
+    right: 67px;
+    top: 74px;
+  }
 }
 
 
@@ -3518,15 +3604,13 @@ div#payment {
 
 
 .overlay {
-
+  position: absolute;
   .iBtn {
     display: none;
     position: absolute;
     
     height: 76px;
     width: 37px;
-
-    top: 50%;
     margin: -38px 0 0 0;
 
     color: rgba(0,0,0,0.08);
@@ -3577,8 +3661,7 @@ div#payment {
 .slideContainer {
   //.clearfix;
   float: left;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   white-space: nowrap;
   text-align: left;
   outline: 0px;
@@ -3611,7 +3694,7 @@ div#payment {
     display: inline-block;
     &.ingredient {
       padding: 0;
-      height: 235px;
+      height: 205px;
       margin: 10px 25px;
       img {
         margin-top: 25px;
@@ -4233,7 +4316,7 @@ div#payment {
   }
   .pricetag {
     top: -1px;
-    right: 15px;
+    right: 0;
     .rotate(0deg);
   }
   .controls {
@@ -4524,13 +4607,14 @@ div#payment {
   line-height: 1.5;
 
   .checkoutReadyControls {
-    padding-right: 185px;
+    padding: 25px 185px 0 0;
   }
 
   span {
     .transition(color .1s linear);
     white-space: pre-wrap;
     cursor: pointer;
+    .positioned;
     &:hover {
       color: @onDarkNoteColor;
     }
@@ -4583,7 +4667,7 @@ div#payment {
   .iCart {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 25px;
     width: 130px;
     height: 123px;
     cursor: pointer;
@@ -4733,7 +4817,7 @@ div#payment {
   color: @grayOnDark;
   .transition(color .1s linear);
   &:hover {
-    color: @grayLightOnDark;
+    //color: @grayLightOnDark;
     span {
       color: @grayOnDark;
       &:hover {

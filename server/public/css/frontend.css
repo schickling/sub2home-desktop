@@ -2300,11 +2300,29 @@ table [class*=span],
 .bArrowDown:before {
   content: "\e041";
 }
-.iNoticeArrowDown:before {
+.iNoticeArrowDl:before {
   content: "\e042";
 }
-.iNoticeArrowUp:before {
+.iNoticeArrowDt:before {
   content: "\e043";
+}
+.iNoticeArrowUl:before {
+  content: "\e044";
+}
+.iNoticeArrowUr:before {
+  content: "\e045";
+}
+.iNoticeArrowRt:before {
+  content: "\e046";
+}
+.iNoticeArrowRb:before {
+  content: "\e047";
+}
+.iNoticeArrowLt:before {
+  content: "\e048";
+}
+.iNoticeArrowLb:before {
+  content: "\e049";
 }
 .iCircle:before {
   content: "\e053";
@@ -3368,6 +3386,7 @@ img.cookie {
   color: #57a827;
 }
 .notice {
+  font-style: normal;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #cecece;
@@ -3375,20 +3394,60 @@ img.cookie {
   position: absolute;
   line-height: 1;
 }
-.notice.above:before,
-.notice.below:before {
-  content: "\e042";
+.notice.aboveLeft:before,
+.notice.aboveRight:before,
+.notice.belowLeft:before,
+.notice.belowRight:before,
+.notice.rightHandAbove:before,
+.notice.rightHandBelow:before,
+.notice.leftHandAbove:before,
+.notice.leftHandBelow:before {
+  content: " ";
   font-family: "Homicons";
   font-size: 70px;
   position: absolute;
-  bottom: -65px;
+}
+.notice.aboveLeft:before {
+  content: "\e043";
   left: 50%;
   margin-left: -25px;
+  bottom: -65px;
 }
-.notice.below:before {
-  content: "\e043";
-  top: -65px;
+.notice.aboveRight:before {
+  content: "\e042";
+  right: 50%;
+  margin-right: -25px;
+  bottom: -65px;
+}
+.notice.belowLeft:before {
   left: 50%;
+  margin-left: -25px;
+  top: -65px;
+}
+.notice.belowRight:before {
+  right: 50%;
+  margin-right: -25px;
+  top: -65px;
+}
+.notice.rightHandAbove:before {
+  content: "\e049";
+  top: -7px;
+  left: -65px;
+}
+.notice.rightHandBelow:before {
+  content: "\e048";
+  bottom: -7px;
+  left: -65px;
+}
+.notice.leftHandAbove:before {
+  content: "\e047";
+  top: -7px;
+  right: -65px;
+}
+.notice.leftHandBelow:before {
+  content: "\e046";
+  bottom: -7px;
+  right: -65px;
 }
 .note .notice {
   color: #d1ba82;
@@ -3396,6 +3455,18 @@ img.cookie {
 #login .notice {
   right: 30px;
   top: -90px;
+}
+#checkoutBasicControls .notice {
+  color: rgba(197, 168, 98, 0.7);
+  white-space: nowrap;
+}
+#checkoutBasicControls .notice.rightHandAbove {
+  right: -283px;
+  top: -43px;
+}
+#checkoutBasicControls .notice.leftHandBelow {
+  right: 67px;
+  top: 74px;
 }
 .flag {
   position: relative;
@@ -6796,12 +6867,14 @@ div#payment .bankaccount {
   margin-top: 30px;
   font-family: "VAGRounded LT Thin";
 }
+.overlay {
+  position: absolute;
+}
 .overlay .iBtn {
   display: none;
   position: absolute;
   height: 76px;
   width: 37px;
-  top: 50%;
   margin: -38px 0 0 0;
   color: rgba(0, 0, 0, 0.08);
   -webkit-transition: color 0.1s linear;
@@ -6852,8 +6925,7 @@ div#payment .bankaccount {
 }
 .slideContainer {
   float: left;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   white-space: nowrap;
   text-align: left;
   outline: 0px;
@@ -6887,7 +6959,7 @@ div#payment .bankaccount {
 }
 .slide .item.ingredient {
   padding: 0;
-  height: 235px;
+  height: 205px;
   margin: 10px 25px;
 }
 .slide .item.ingredient img {
@@ -7459,7 +7531,7 @@ div#payment .bankaccount {
 }
 .orderedMenu .pricetag {
   top: -1px;
-  right: 15px;
+  right: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -7774,7 +7846,7 @@ div#payment .bankaccount {
   line-height: 1.5;
 }
 #checkoutBasicControls .checkoutReadyControls {
-  padding-right: 185px;
+  padding: 25px 185px 0 0;
 }
 #checkoutBasicControls span {
   -webkit-transition: color 0.1s linear;
@@ -7783,6 +7855,7 @@ div#payment .bankaccount {
   transition: color 0.1s linear;
   white-space: pre-wrap;
   cursor: pointer;
+  position: relative;
 }
 #checkoutBasicControls span:hover {
   color: #c5a862;
@@ -7841,7 +7914,7 @@ div#payment .bankaccount {
 #checkoutBasicControls .iCart {
   position: absolute;
   right: 10px;
-  top: 0;
+  top: 25px;
   width: 130px;
   height: 123px;
   cursor: pointer;
@@ -7976,32 +8049,29 @@ div#payment .bankaccount {
   line-height: 1.4;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.25);
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.paymentSettings:hover {
-  color: rgba(255, 255, 255, 0.35);
-}
 .paymentSettings:hover span {
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.25);
 }
 .paymentSettings:hover span:hover {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
 }
 .paymentSettings span {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.1);
   margin-left: 57px;
   cursor: pointer;
 }
 .paymentSettings span.selected {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
 }
 .note.checkout {
   position: absolute;
