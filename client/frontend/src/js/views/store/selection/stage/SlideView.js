@@ -25,12 +25,18 @@ define([
 
 		_alignView: function () {
 			// center vertical
-			var wrappedHeight = this.$el.parent().height(),
+			var $slideContainer = this.$el.parent(),
+				wrappedHeight = $slideContainer.height(),
 				totalHeight = this.$el[0].scrollHeight;
 
 			if (totalHeight < wrappedHeight) {
 				this.$el.css({
 					paddingTop: (wrappedHeight - totalHeight) / 2
+				});
+			} else {
+				// enable scrolling
+				$slideContainer.css({
+					overflow: 'auto'
 				});
 			}
 
