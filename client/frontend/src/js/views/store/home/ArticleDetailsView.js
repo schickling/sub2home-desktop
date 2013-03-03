@@ -110,10 +110,10 @@ define([
 			var self = this;
 
 			this.hideTimer = setTimeout(function () {
-				self.$el.fadeOut(function () {
+				self.$el.fadeOut(150, function () {
 					self.remove();
 				});
-			}, 300);
+			}, 200);
 		},
 
 		_stopHiding: function () {
