@@ -19,6 +19,7 @@ define([
 		mapView: null,
 		deliveryAreasView: null,
 		deliveryTimesView: null,
+		storeInfoView: null,
 
 		initialize: function () {
 			// to be absolutly consistent reload the store model from server
@@ -47,7 +48,7 @@ define([
 				model: this.model
 			});
 
-			new StoreInfoView({
+			this.storeInfoView = new StoreInfoView({
 				el: this.$('.storeInfo'),
 				model: this.model
 			});
@@ -70,6 +71,7 @@ define([
 				this.mapView.trigger('destroy');
 				this.deliveryAreasView.trigger('destroy');
 				this.deliveryTimesView.trigger('destroy');
+				this.storeInfoView.trigger('destroy');
 			}, this);
 		}
 

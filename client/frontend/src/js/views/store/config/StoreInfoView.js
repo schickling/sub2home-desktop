@@ -23,6 +23,8 @@ define([
 
 		initialize: function () {
 			this._render();
+			this._listenToPaymentMethods();
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -41,6 +43,12 @@ define([
 			new AddressView({
 				el: this.$('.storeAddress'),
 				model: this.model
+			});
+		},
+
+		_listenToPaymentMethods: function() {
+			this.listenTo(this.model, 'invalid', function (model, error) {
+				notificationcenter.error(error, error);
 			});
 		},
 
@@ -100,11 +108,13 @@ define([
 				$wrapper = $button.parent(),
 				method = $button.attr('data-method'),
 				attribute = 'allowsPayment' + method,
-				value = !this.model.get(attribute);
+				value = !this.model.get(attribute),
+				changedAttributes = {};
 
-			this.model.set(attribute, value);
+			changedAttributes[attribute] = value;
 
-			this.model.save({}, {
+			this.model.save(changedAttributes, {
+				validate: true,
 				success: function () {
 					notificationcenter.success('Bezahlmoeglichkeiten', 'Adresse erfolgreich gespeichert');
 					$wrapper.toggleClass('disabled');
@@ -149,6 +159,12 @@ define([
 					notificationcenter.error('Fehler :(', 'Info nicht erfolgreich gespeichert');
 				}
 			});
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 	});

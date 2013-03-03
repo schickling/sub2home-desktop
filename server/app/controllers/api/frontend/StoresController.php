@@ -82,8 +82,8 @@ class StoresController extends ApiController
 
 		$storeModel = $this->storeModel;
 
+		// check input
 		$input = Input::json();
-
 		$rules = array(
 			'orderEmail'			=> 'email|required',
 			'isOpen'				=> 'boolean|required',
@@ -98,6 +98,11 @@ class StoresController extends ApiController
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
+		}
+
+		// check if at least one payment method is selected
+		if (!$input->allowsPaymentCash && !$input->allowsPaymentEc && !$input->allowsPaymentPaypal) {
+			return $this->respondWithStatus(400);
 		}
 
 

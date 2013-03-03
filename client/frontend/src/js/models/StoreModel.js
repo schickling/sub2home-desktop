@@ -85,6 +85,19 @@ define([
 			return response;
 		},
 
+		validate: function (attributes) {
+
+			var startMinutes = attributes.startMinutes;
+
+			console.log(attributes);
+
+			if (!attributes.allowsPaymentPaypal && !attributes.allowsPaymentEc && !attributes.allowsPaymentCash) {
+				return 'at least one payment method has to be selected';
+			}
+
+		},
+
+
 		isDelivering: function () {
 			var isDelivering = false;
 
