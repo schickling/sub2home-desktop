@@ -1,10 +1,10 @@
 // Filename: src/js/views/store/assortment/articles/ControlView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/store/assortment/articles/ControlTemplate.html'
-	], function ($, _, Backbone, ControlTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/store/assortment/articles/ControlTemplate.html'
+    ], function ($, _, Backbone, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
@@ -14,12 +14,26 @@ define([
 			'click .hideAll': '_hideAllArticles'
 		},
 
+		numberOfCurrentRequests: 0,
+		numberOfArticles: 0,
+
 		initialize: function () {
 			this._render();
+			this._countArticles();
 		},
 
 		_render: function () {
 			this.$el.html(ControlTemplate);
+		},
+
+		_countArticles: function () {
+			var numberOfArticles = 0;
+
+			_.each(this.collection.models, function (categoryModel) {
+				numberOfArticles += categoryModel.get('articlesCollection').length;
+			});
+
+			this.numberOfArticles = numberOfArticles;
 		},
 
 		_resetAllPrices: function () {
@@ -74,11 +88,24 @@ define([
 		},
 
 		_updateArticleModel: function (articleModel, changedAttributes) {
+
+			var self = this;
+
+			this.numberOfCurrentRequests++;
+
 			articleModel.save(changedAttributes, {
 				success: function () {
+					self.numberOfCurrentRequests--;
+					self._updateLoadBar();
+
 					articleModel.trigger('renderAgain');
 				}
 			});
+		},
+
+		_updateLoadBar: function () {
+			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles;
+			console.log(progress);
 		}
 
 	});
