@@ -240,15 +240,54 @@ class StoreModel extends BaseModel
 
 		// count months since store was created
 		$now = new DateTime();
-		$dateStoreWasCreated = new DateTime($this->created_at);
-		$interval = $now->diff($dateStoreWasCreated);
-		$numberOfMonths = $interval->m + 1; // current month counts also
+		$currentTotalNumberOfMonths = $this->getTotalNumberOfMonths($now);
+		$dateTimeStoreWasCreated = new DateTime($this->created_at);
+		$creationTotalNumberOfMonths = $this->getTotalNumberOfMonths($dateTimeStoreWasCreated);
+		// current month counts also
+		$numberOfInvoices = $currentTotalNumberOfMonths - $creationTotalNumberOfMonths + 1;
 
 		// check if enough invoices are created and create missing invoices
-		if ($invoicesCollection->count() < $numberOfMonths) {
-			// TODO
+		if ($invoicesCollection->count() < $creationTotalNumberOfMonths) {
+
+			// count months up until now is reached
+			for ($tempTotalNumberOfMonths = $creationTotalNumberOfMonths; $tempTotalNumberOfMonths <= $currentTotalNumberOfMonths; $tempTotalNumberOfMonths++) { 
+				
+				$invoiceForMonthFound = false;
+
+				// look up all invoices
+				foreach ($invoicesCollection as $invoiceModel) {
+					$invoiceDateTime = new DateTime($invoiceModel->month);
+					$invoiceTotalNumberOfMonths = $this->getTotalNumberOfMonths($invoiceDateTime);
+
+					if ($invoiceTotalNumberOfMonths == $tempTotalNumberOfMonths) {
+						$invoiceForMonthFound = true;
+						break;
+					}
+				}
+
+				// create new invoice if none was found
+				if (!$invoiceForMonthFound) {
+					$invoiceDateTime = new DateTime();
+					$invoiceDateTime->setDate((int) ($tempTotalNumberOfMonths / 12), $tempTotalNumberOfMonths % 12, 1);
+
+					$invoiceModel = new InvoiceModel();
+					$invoiceModel->month = $invoiceDateTime;
+					$invoiceModel->store_model_id = $this->id;
+					$invoiceModel->save();
+
+					$invoiceModel->generateDocument();
+				}
+
+			}
+
+
 		}
 
+	}
+
+	private function getTotalNumberOfMonths($dateTime)
+	{
+		return (int) $dateTime->format('n') + (int) $dateTime->format('Y') * 12;
 	}
 
 }

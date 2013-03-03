@@ -16,7 +16,7 @@ class InvoicesController extends ApiController
 
 
 		$this->storeModel->checkInvoices();
-		$invoicesCollection = $this->storeModel->invoicesCollection;
+		$invoicesCollection = $this->storeModel->invoicesCollection()->get();
 
 		
 		return $invoicesCollection->toJson(JSON_NUMERIC_CHECK);
