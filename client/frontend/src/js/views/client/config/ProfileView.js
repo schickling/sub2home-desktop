@@ -21,6 +21,7 @@ define([
 		initialize: function () {
 			this._render();
 			this._listenToNameChange();
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -36,7 +37,7 @@ define([
 		_listenToNameChange: function() {
 			var addressModel = this.model.get('addressModel');
 
-			addressModel.on('change:firstName change:lastName', this._render, this);
+			this.listenTo(addressModel, 'change:firstName change:lastName', this._render);
 		},
 
 		_showPasswordFields: function () {
@@ -132,6 +133,12 @@ define([
 			}
 
 			return true;
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 
