@@ -3741,6 +3741,7 @@ img.cookie {
   white-space: nowrap;
 }
 #loader {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
