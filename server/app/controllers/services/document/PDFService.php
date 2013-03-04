@@ -22,6 +22,14 @@ class PDFService
 		// add a page
 		$pdf->AddPage();
 
+		// remove default header/footer
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+
+		$pdf->SetMargins(0, 0, 0);
+
+		$pdf->SetAutoPageBreak(true, 0);
+
 		// output the HTML content
 		$html = View::make($viewName, $data);
 		$pdf->writeHTML($html);
