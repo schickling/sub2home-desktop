@@ -28,7 +28,7 @@ class GenerateMissingDocumentsCommand extends Command {
 		$currentTotalNumberOfMonths = $this->getTotalNumberOfMonths($now);
 
 		foreach ($invoicesCollection as $invoiceModel) {
-			$invoiceDateTime = new DateTime($invoiceModel->month);
+			$invoiceDateTime = new DateTime($invoiceModel->timeSpan);
 			$invoiceTotalNumberOfMonths = $this->getTotalNumberOfMonths($invoiceDateTime);
 
 

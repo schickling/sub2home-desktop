@@ -33,7 +33,7 @@ class SendInvoicesForLastMonthCommand extends Command {
 			$invoicesCollection = $storeModel->invoicesCollection()->orderBy('id', 'desc')->get();
 
 			foreach ($invoicesCollection as $invoiceModel) {
-				$invoiceDateTime = new DateTime($invoiceModel->month);
+				$invoiceDateTime = new DateTime($invoiceModel->timeSpan);
 				$invoiceMonth = $invoiceDateTime->format('n');
 
 				if ($invoiceMonth == $lastMonth) {

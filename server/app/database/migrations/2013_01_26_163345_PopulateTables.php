@@ -161,6 +161,7 @@ class PopulateTables extends Migration {
 		// store_models
 		$s1 = new StoreModel(array(
 			'title' => 'Memmingen',
+			'commissionRate' => 0.05,
 			'number' => 41786,
 			'isActive' => true,
 			'isOpen' => true,
@@ -169,8 +170,14 @@ class PopulateTables extends Migration {
 			));
 		$s1->save();
 
+		// back to the future
+		$past = new DateTime('Wed, 28 Dec 2011 13:04:30 GMT');
+		$s1->created_at = $past;
+		$s1->save();
+
 		$s2 = new StoreModel(array(
 			'title' => 'Ulm 2',
+			'commissionRate' => 0.05,
 			'number' => 23345,
 			'isActive' => true,
 			'client_model_id' => $u3->id,
@@ -180,6 +187,7 @@ class PopulateTables extends Migration {
 
 		$s3 = new StoreModel(array(
 			'title' => 'Berlin 1',
+			'commissionRate' => 0.05,
 			'number' => 22345,
 			'isActive' => true,
 			'isOpen' => true,
@@ -190,6 +198,7 @@ class PopulateTables extends Migration {
 
 		$s4 = new StoreModel(array(
 			'title' => 'Berlin 2',
+			'commissionRate' => 0.05,
 			'number' => 22355,
 			'isActive' => true,
 			'client_model_id' => $u3->id,
@@ -199,6 +208,7 @@ class PopulateTables extends Migration {
 
 		$s5 = new StoreModel(array(
 			'title' => 'Karlsruhe',
+			'commissionRate' => 0.05,
 			'number' => 21355,
 			'isActive' => true,
 			'isOpen' => true,
@@ -209,6 +219,7 @@ class PopulateTables extends Migration {
 
 		$s6 = new StoreModel(array(
 			'title' => 'Karlsruhe 2',
+			'commissionRate' => 0.05,
 			'number' => 25355,
 			'isActive' => true,
 			'isOpen' => true,
@@ -219,6 +230,7 @@ class PopulateTables extends Migration {
 
 		$s7 = new StoreModel(array(
 			'title' => 'Karlsruhe 3',
+			'commissionRate' => 0.05,
 			'number' => 25345,
 			'isActive' => true,
 			'isOpen' => true,

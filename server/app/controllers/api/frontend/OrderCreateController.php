@@ -6,6 +6,7 @@ use DateTime;
 use App\Controllers\Services\Payment\PaypalService;
 
 use App\Models\OrderModel;
+use App\Models\TestOrderModel;
 use App\Models\IngredientModel;
 use App\Models\OrderedArticleModel;
 use App\Models\OrderedItemModel;
@@ -86,21 +87,9 @@ class OrderCreateController extends ApiController
 			return $this->respondWithError();
 		}
 
-		
-		$testOrderModel = new OrderModel();
-		$testOrderModel->store_model_id = $this->storeModel->id;
+		TestOrderModel::generateTestOrderForStore($this->storeModel->id, true);
 
-		$compensationOrderModel = new OrderModel();
-		$compensationOrderModel->store_model_id = $this->storeModel->id;
-		$compensationOrderModel->total = - $testOrderModel->total;
-
-
-		$testOrderModel->save();
-		$testOrderModel->confirm();
-
-		$compensationOrderModel->save();
-		$compensationOrderModel->confirm();
-
+		return $this->respondWithStatus(200);
 	}
 
 

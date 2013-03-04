@@ -61,6 +61,11 @@ class OrderModel extends BaseModel
 		$this->total = $total;
 	}
 
+	public function check()
+	{
+		return true;
+	}
+
 	/**
 	 * Confirms the order
 	 * 
@@ -75,4 +80,5 @@ class OrderModel extends BaseModel
 		Queue::push('App\\Controllers\\Jobs\\Mail\\StoreOrderNotificationMailJob', $jobData);
 
 	}
+
 }

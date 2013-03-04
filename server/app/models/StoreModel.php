@@ -249,10 +249,10 @@ class StoreModel extends BaseModel
 		$currentTotalNumberOfMonths = $this->getTotalNumberOfMonths($now);
 		$dateTimeStoreWasCreated = new DateTime($this->created_at);
 		$creationTotalNumberOfMonths = $this->getTotalNumberOfMonths($dateTimeStoreWasCreated);
-		$numberOfInvoices = $currentTotalNumberOfMonths - $creationTotalNumberOfMonths + 1; // current month counts also
+		$expectedNumberOfInvoices = $currentTotalNumberOfMonths - $creationTotalNumberOfMonths + 1; // current month counts also
 
 		// check if enough invoices are created and create missing invoices
-		if ($invoicesCollection->count() < $creationTotalNumberOfMonths) {
+		if ($invoicesCollection->count() < $expectedNumberOfInvoices) {
 
 			// count months up until now is reached
 			for ($tempTotalNumberOfMonths = $creationTotalNumberOfMonths; $tempTotalNumberOfMonths <= $currentTotalNumberOfMonths; $tempTotalNumberOfMonths++) { 
@@ -261,7 +261,7 @@ class StoreModel extends BaseModel
 
 				// look up all invoices
 				foreach ($invoicesCollection as $invoiceModel) {
-					$invoiceDateTime = new DateTime($invoiceModel->month);
+					$invoiceDateTime = new DateTime($invoiceModel->timeSpan);
 					$invoiceTotalNumberOfMonths = $this->getTotalNumberOfMonths($invoiceDateTime);
 
 					if ($invoiceTotalNumberOfMonths == $tempTotalNumberOfMonths) {
@@ -273,7 +273,7 @@ class StoreModel extends BaseModel
 				// create new invoice if none was found
 				if (!$invoiceForMonthFound) {
 					$invoiceModel = new InvoiceModel();
-					$invoiceModel->month = $this->makeDateTimeFromTotalNumberOfMonths($tempTotalNumberOfMonths);
+					$invoiceModel->timeSpan = $this->makeDateTimeFromTotalNumberOfMonths($tempTotalNumberOfMonths);
 					$invoiceModel->store_model_id = $this->id;
 					$invoiceModel->save();
 				}
@@ -292,11 +292,12 @@ class StoreModel extends BaseModel
 	private function makeDateTimeFromTotalNumberOfMonths($totalNumberOfMonths)
 	{
 		$day = 1;
-		$month = $tempTotalNumberOfMonths % 12;
-		$year = (int) ($tempTotalNumberOfMonths / 12);
+		$month = $totalNumberOfMonths % 12;
+		$year = (int) ($totalNumberOfMonths / 12);
 
 		if ($month == 0) {
 			$month = 12;
+			$year--;
 		}
 
 		$dateTime = new DateTime();

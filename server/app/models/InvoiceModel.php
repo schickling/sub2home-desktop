@@ -2,6 +2,7 @@
 
 use App\Controllers\Services\Document\PDFService;
 use File;
+use DB;
 
 
 class InvoiceModel extends BaseModel
@@ -36,10 +37,11 @@ class InvoiceModel extends BaseModel
 		// prevent overwriting an existing document
 		$this->checkIfLocked();
 
-		// calculate amounts
-		$this->calculate();
+		// calculate data
+		$data = $this->calculateData();
 
-		$data = array();
+		// TODO complete data
+
 		$viewName = 'documents.invoice';
 
 		$documentName = md5(uniqid($this->id, true)) . '.pdf';
@@ -57,25 +59,7 @@ class InvoiceModel extends BaseModel
 		$this->attributes['total'] = $total;
 	}
 
-	public function setNumberOfOrdersAttribute($numberOfOrders)
-	{
-		$this->checkIfLocked();
-		$this->attributes['numberOfOrders'] = $numberOfOrders;
-	}
-
-	public function setNetAmountAttribute($netAmount)
-	{
-		$this->checkIfLocked();
-		$this->attributes['netAmount'] = $netAmount;
-	}
-
-	public function setGrossAmountAttribute($grossAmount)
-	{
-		$this->checkIfLocked();
-		$this->attributes['grossAmount'] = $grossAmount;
-	}
-
-	private function calculate()
+	private function calculateData()
 	{
 		$total = 0;
 		$netAmount = 0;
@@ -86,7 +70,7 @@ class InvoiceModel extends BaseModel
 		foreach ($ordersCollection as $orderModel) {
 			$orderTotal = $orderModel->total;
 			$orderGrossAmount = $orderTotal * $orderModel->commissionRate;
-			$orderNetAmount = $orderGrossAmount * 0.81; // 0.81 = 1 - 0.19
+			$orderNetAmount = $orderGrossAmount / 1.19;
 
 			$total += $orderTotal;
 			$grossAmount += $orderGrossAmount;
@@ -94,13 +78,15 @@ class InvoiceModel extends BaseModel
 		}
 
 
-		if ($this->total != $total || $this->numberOfOrders != $numberOfOrders || $netAmount != $grossAmount * 0.81) {
+		if ($this->total != $total || $netAmount != $grossAmount / 1.19) {
 			throw new Exception('Invoice is calculation doesn\'t match');
 		}
 
-		$this->netAmount = $netAmount;
-		$this->grossAmount = $grossAmount;
-		$this->save();
+		return array(
+			'grossAmount'		=> $grossAmount,
+			'netAmount'			=> $netAmount,
+			'numberOfOrders'	=> $numberOfOrders
+			);
 	}
 
 	private function checkIfLocked()
@@ -116,9 +102,10 @@ class InvoiceModel extends BaseModel
 		$lastMonth = date('n', strtotime('-1 month'));
 		$yearOfLastMonth = date('Y', strtotime('-1 month'));
 
-		return $storeModel->ordersCollection()->where(DB::raw('YEAR(month)', '=', $yearOfLastMonth))
-										->where(DB::raw('MONTH(month)', '=', $lastMonth))
-										->get();
+		return $storeModel->ordersCollection()
+								->whereRaw('YEAR(created_at) = ' . $yearOfLastMonth)
+								->whereRaw('MONTH(created_at) = ' . $lastMonth)
+								->get();
 	}
 
 }

@@ -2,6 +2,8 @@
 
 use App\Commands\Invoices\SendInvoicesForLastMonthCommand;
 use App\Commands\Invoices\GenerateMissingDocumentsCommand;
+use App\Commands\Test\TestOrdersCommand;
+use App\Commands\Test\TestActivateCommand;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,5 @@ use App\Commands\Invoices\GenerateMissingDocumentsCommand;
 
 Artisan::add(new SendInvoicesForLastMonthCommand);
 Artisan::add(new GenerateMissingDocumentsCommand);
+Artisan::add(new TestOrdersCommand);
+Artisan::add(new TestActivateCommand);
