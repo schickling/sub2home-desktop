@@ -272,11 +272,8 @@ class StoreModel extends BaseModel
 
 				// create new invoice if none was found
 				if (!$invoiceForMonthFound) {
-					$invoiceDateTime = new DateTime();
-					$invoiceDateTime->setDate((int) ($tempTotalNumberOfMonths / 12), $tempTotalNumberOfMonths % 12, 1);
-
 					$invoiceModel = new InvoiceModel();
-					$invoiceModel->month = $invoiceDateTime;
+					$invoiceModel->month = $this->makeDateTimeFromTotalNumberOfMonths($tempTotalNumberOfMonths);
 					$invoiceModel->store_model_id = $this->id;
 					$invoiceModel->save();
 				}
@@ -290,6 +287,22 @@ class StoreModel extends BaseModel
 	private function getTotalNumberOfMonths($dateTime)
 	{
 		return (int) $dateTime->format('n') + (int) $dateTime->format('Y') * 12;
+	}
+
+	private function makeDateTimeFromTotalNumberOfMonths($totalNumberOfMonths)
+	{
+		$day = 1;
+		$month = $tempTotalNumberOfMonths % 12;
+		$year = (int) ($tempTotalNumberOfMonths / 12);
+
+		if ($month == 0) {
+			$month = 12;
+		}
+
+		$dateTime = new DateTime();
+		$dateTime->setDate($year, $month, $day);
+
+		return $dateTime;
 	}
 
 }

@@ -16,6 +16,8 @@ class InvoiceModelTable extends Migration {
 			$table->integer('store_model_id')->unsigned();
 			$table->integer('numberOfOrders')->default(0);
 			$table->decimal('total', 7, 2)->default(0);
+			$table->decimal('netAmount', 7, 2)->default(0);
+			$table->decimal('grossAmount', 7, 2)->default(0);
 			$table->string('documentName', 128)->default('');
 			$table->timestamp('month');
 		});

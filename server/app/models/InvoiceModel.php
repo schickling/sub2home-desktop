@@ -36,8 +36,8 @@ class InvoiceModel extends BaseModel
 		// prevent overwriting an existing document
 		$this->checkIfLocked();
 
-		// recalculate
-		$this->recalculate();
+		// calculate amounts
+		$this->calculate();
 
 		$data = array();
 		$viewName = 'documents.invoice';
@@ -63,11 +63,44 @@ class InvoiceModel extends BaseModel
 		$this->attributes['numberOfOrders'] = $numberOfOrders;
 	}
 
-	private function recalculate()
+	public function setNetAmountAttribute($netAmount)
 	{
-		$storeModel = $this->storeModel;
+		$this->checkIfLocked();
+		$this->attributes['netAmount'] = $netAmount;
+	}
 
-		// TODO
+	public function setGrossAmountAttribute($grossAmount)
+	{
+		$this->checkIfLocked();
+		$this->attributes['grossAmount'] = $grossAmount;
+	}
+
+	private function calculate()
+	{
+		$total = 0;
+		$netAmount = 0;
+		$grossAmount = 0;
+		$ordersCollection = $this->getBelongingOrdersCollection();
+		$numberOfOrders = $ordersCollection->count();
+
+		foreach ($ordersCollection as $orderModel) {
+			$orderTotal = $orderModel->total;
+			$orderGrossAmount = $orderTotal * $orderModel->commissionRate;
+			$orderNetAmount = $orderGrossAmount * 0.81; // 0.81 = 1 - 0.19
+
+			$total += $orderTotal;
+			$grossAmount += $orderGrossAmount;
+			$netAmount += $orderNetAmount;
+		}
+
+
+		if ($this->total != $total || $this->numberOfOrders != $numberOfOrders || $netAmount != $grossAmount * 0.81) {
+			throw new Exception('Invoice is calculation doesn\'t match');
+		}
+
+		$this->netAmount = $netAmount;
+		$this->grossAmount = $grossAmount;
+		$this->save();
 	}
 
 	private function checkIfLocked()
@@ -75,6 +108,17 @@ class InvoiceModel extends BaseModel
 		if (!empty($this->documentName)) {
 			throw new Exception('Invoice is already locked');
 		}
+	}
+
+	private function getBelongingOrdersCollection()
+	{
+		$storeModel = $this->storeModel;
+		$lastMonth = date('n', strtotime('-1 month'));
+		$yearOfLastMonth = date('Y', strtotime('-1 month'));
+
+		return $storeModel->ordersCollection()->where(DB::raw('YEAR(month)', '=', $yearOfLastMonth))
+										->where(DB::raw('MONTH(month)', '=', $lastMonth))
+										->get();
 	}
 
 }

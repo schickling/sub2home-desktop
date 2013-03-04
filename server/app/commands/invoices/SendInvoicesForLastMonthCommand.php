@@ -26,7 +26,7 @@ class SendInvoicesForLastMonthCommand extends Command {
 
 
 		$storesCollection = StoreModel::where('isActive', true)->get();
-		$lastMonth = (date('n') - 1) % 12;
+		$lastMonth = date('n', strtotime('-1 month'));
 		$numberOfSendedInvoices = 0;
 
 		foreach ($storesCollection as $storeModel) {
