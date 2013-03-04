@@ -27,7 +27,6 @@ class PDFService
 		$pdf->setPrintFooter(false);
 
 		$pdf->SetMargins(0, 0, 0);
-
 		$pdf->SetAutoPageBreak(true, 0);
 
 		// output the HTML content
