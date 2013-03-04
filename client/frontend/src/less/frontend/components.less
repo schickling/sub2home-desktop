@@ -284,7 +284,7 @@ img.cookie    { margin: 0 -10px;}
   color: @onDarkNoteColor70;
   white-space: nowrap;
   &.rightHandAbove {
-    right: -283px;
+    right: -278px;
     top: -43px;
   }
   &.leftHandBelow {
@@ -615,12 +615,12 @@ img.cookie    { margin: 0 -10px;}
     margin: 25px 0 0 -100px;
     width: 200px;
     height: 30px;
-    background: @grayLighter;
+    background: rgba(0,0,0,0.1);
     .border-radius(2px);
     #loadbar {
       .border-radius(2px);
       background: @greenLighter;
-      width: 20%;
+      //width: 20%;
       height: 30px;
     }
   }
@@ -2759,10 +2759,11 @@ input[type="text"]#locationSelectionInput {
           &.orderValue {
             margin: 0 20px;
             width: 85px;
-            &:after {
-              content: "€";
-              color: inherit;
-            }
+            text-align: right;
+            // &:after {
+            //   content: "€";
+            //   color: inherit;
+            // }
           }
           &.orderPaymentMethod {
             &:before {
@@ -2851,12 +2852,16 @@ input[type="text"]#locationSelectionInput {
           
 
           img {
-            width: 70px;
+            height:43px;
             vertical-align: top;
+            display: inline-block;
+            &.beverage {
+              margin: 0 0px 0 -4px;
+            }
           }
           h3 {
-            padding: 3px 0 0 5px;
-            margin: 0 0 0 0;
+            padding: 0;
+            margin: 9px 0 0 5px;
             display: inline-block;
           }
           .articleIngredients {
@@ -3511,7 +3516,7 @@ div#payment {
   height: 182px;
 }
 
-.bGreen {
+.sizeTag {
   .positioned;
   font-family: @headingsFontFamily;
   font-size: 18px;
@@ -3522,21 +3527,6 @@ div#payment {
   top: 0px;
   left: 0;
   margin-left: 4px;
-  // small {
-  //   font-size: 10px;
-  //   display: block;
-  //   color: inherit;
-  //   letter-spacing: 1px;
-  //   .positioned;
-  //   top: -2px;
-  // }
-  // &.subSize {
-  //   padding-top: 6px;
-  // }
-  // &.cupSize {
-  //   padding-top: 10px;
-  //   letter-spacing: -1px;
-  // }
 }
 
 .ingredientInfo {
@@ -4711,6 +4701,17 @@ div#payment {
       color: @greenLighter;
     }
   } 
+  .iCredit {
+    font-size: 40px;
+    margin: 0 0 0 5px;
+    .positioned;
+    top: 4px;
+    padding: 0;
+    width: 40px;
+    height: 50px;
+    z-index: 50;
+    display: inline-block;
+  }
 }
 
 
