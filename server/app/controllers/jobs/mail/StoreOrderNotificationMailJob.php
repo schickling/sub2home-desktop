@@ -1,22 +1,20 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
-use App\Controllers\Jobs\JobInterface;
+use App\Controllers\Jobs\BaseJob;
 
 use App\Models\OrderModel;
 use Exception;
 
-class StoreOrderNotificationMailJob implements JobInterface {
+class StoreOrderNotificationMailJob extends BaseJob {
 
-	public function fire($job, $data)
+	protected function run()
 	{
-		$order_model_id = $data['order_model_id'];
+		$order_model_id = $this->data['order_model_id'];
 		$orderModel = OrderModel::find($order_model_id);
 
 		if ($orderModel == null) {
 			throw new Exception('Invalid order to process');
 		}
-
-		$job->delete();
 	}
 
 

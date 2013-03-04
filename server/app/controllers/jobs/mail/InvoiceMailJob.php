@@ -1,22 +1,21 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
-use App\Controllers\Jobs\JobInterface;
+use App\Controllers\Jobs\BaseJob;
 
 use App\Models\InvoiceModel;
 use Exception;
 
-class InvoiceMailJob implements JobInterface {
+class InvoiceMailJob extends BaseJob {
 
-	public function fire($job, $data)
+	protected function run()
 	{
-		$invoice_model_id = $data['invoice_model_id'];
+		$invoice_model_id = $this->data['invoice_model_id'];
 		$invoiceModel = InvoiceModel::find($invoice_model_id);
 
 		if ($invoiceModel == null) {
 			throw new Exception('Invalid invoice to process');
 		}
 
-		$job->delete();
 	}
 
 

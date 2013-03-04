@@ -2,7 +2,6 @@
 
 use App\Controllers\Services\Document\PDFService;
 use File;
-use DB;
 use Exception;
 
 class InvoiceModel extends BaseModel
@@ -78,8 +77,14 @@ class InvoiceModel extends BaseModel
 		}
 
 
-		if ($this->total != $total || $netAmount != $grossAmount / 1.19) {
-			throw new Exception('Invoice is calculation doesn\'t match');
+		if (abs($this->total - $total) > 0.00001) {
+			$message = sprintf('Invoice calculation: totals doesn\'t match (%f, %f)', $this->total, $total);
+			throw new Exception($message);
+		}
+
+		if (abs($netAmount - $grossAmount / 1.19) > 0.00001) {
+			$message = sprintf('Invoice calculation: net amounts doesn\'t match (%f, %f)', $netAmount, $grossAmount / 1.19);
+			throw new Exception($message);
 		}
 
 		return array(
@@ -99,8 +104,8 @@ class InvoiceModel extends BaseModel
 	private function getBelongingOrdersCollection()
 	{
 		$storeModel = $this->storeModel;
-		$lastMonth = date('n', strtotime('-1 month'));
-		$yearOfLastMonth = date('Y', strtotime('-1 month'));
+		$lastMonth = date('n', strtotime($this->timeSpan));
+		$yearOfLastMonth = date('Y', strtotime($this->timeSpan));
 
 		return $storeModel->ordersCollection()
 								->whereRaw('YEAR(created_at) = ' . $yearOfLastMonth)

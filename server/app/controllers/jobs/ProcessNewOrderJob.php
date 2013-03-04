@@ -1,17 +1,16 @@
 <?php namespace App\Controllers\Jobs;
 
 use Exception;
-use DB;
 
 use App\Models\OrderModel;
 
-class ProcessNewOrderJob implements JobInterface {
+class ProcessNewOrderJob extends BaseJob {
 
 	private $orderModel;
 
-	public function fire($job, $data)
+	protected function run()
 	{
-		$order_model_id = $data['order_model_id'];
+		$order_model_id = $this->data['order_model_id'];
 		$this->orderModel = OrderModel::find($order_model_id);
 
 		if ($this->orderModel == null) {
@@ -22,7 +21,6 @@ class ProcessNewOrderJob implements JobInterface {
 		$this->updateTotalTurnoverOfStore();
 		$this->updateInvoiceOfMatchingMonth();
 
-		$job->delete();
 	}
 
 	private function updateHowOftenAnItemWasBuyed()
