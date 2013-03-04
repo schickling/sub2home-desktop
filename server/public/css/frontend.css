@@ -2491,6 +2491,10 @@ table [class*=span],
 .bKey:before {
   content: "\e081";
 }
+.iCredit:before,
+.bCredit:before {
+  content: "\e082";
+}
 .close {
   float: right;
   font-size: 20px;
@@ -3461,7 +3465,7 @@ img.cookie {
   white-space: nowrap;
 }
 #checkoutBasicControls .notice.rightHandAbove {
-  right: -283px;
+  right: -278px;
   top: -43px;
 }
 #checkoutBasicControls .notice.leftHandBelow {
@@ -3757,7 +3761,7 @@ img.cookie {
   margin: 25px 0 0 -100px;
   width: 200px;
   height: 30px;
-  background: #e4e4e4;
+  background: rgba(0, 0, 0, 0.1);
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -3769,7 +3773,6 @@ img.cookie {
   -moz-border-radius: 2px;
   border-radius: 2px;
   background: #9cc83e;
-  width: 20%;
   height: 30px;
 }
 aside#header {
@@ -6047,10 +6050,7 @@ input[type="text"]#locationSelectionInput {
 .content.orders .orderListing .order .orderHeader > div.orderValue {
   margin: 0 20px;
   width: 85px;
-}
-.content.orders .orderListing .order .orderHeader > div.orderValue:after {
-  content: "€";
-  color: inherit;
+  text-align: right;
 }
 .content.orders .orderListing .order .orderHeader > div.orderPaymentMethod:before {
   color: inherit;
@@ -6144,12 +6144,16 @@ input[type="text"]#locationSelectionInput {
   padding-bottom: 0;
 }
 .content.orders .orderListing .order .orderContent .articleItem img {
-  width: 70px;
+  height: 43px;
   vertical-align: top;
+  display: inline-block;
+}
+.content.orders .orderListing .order .orderContent .articleItem img.beverage {
+  margin: 0 0px 0 -4px;
 }
 .content.orders .orderListing .order .orderContent .articleItem h3 {
-  padding: 3px 0 0 5px;
-  margin: 0 0 0 0;
+  padding: 0;
+  margin: 9px 0 0 5px;
   display: inline-block;
 }
 .content.orders .orderListing .order .orderContent .articleItem .articleIngredients {
@@ -6800,7 +6804,7 @@ div#payment .bankaccount {
   position: relative;
   height: 182px;
 }
-.bGreen {
+.sizeTag {
   position: relative;
   font-family: "VAGRounded LT Thin";
   font-size: 18px;
@@ -7961,6 +7965,17 @@ div#payment .bankaccount {
 #checkoutBasicControls .iCart:hover {
   color: #9cc83e;
 }
+#checkoutBasicControls .iCredit {
+  font-size: 40px;
+  margin: 0 0 0 5px;
+  position: relative;
+  top: 4px;
+  padding: 0;
+  width: 40px;
+  height: 50px;
+  z-index: 50;
+  display: inline-block;
+}
 .checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;
 }
@@ -8414,6 +8429,11 @@ aside.infoNavigation ul li.active {
   -webkit-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
   -moz-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+html,
+body,
+.main {
+  min-width: 960px;
 }
 aside#header {
   min-width: 555px;
