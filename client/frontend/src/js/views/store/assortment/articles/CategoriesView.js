@@ -34,8 +34,6 @@ define([
 			_.each(this.collection.models, function (categoryModel) {
 				this._renderCategory(categoryModel);
 			}, this);
-
-			this._renderControl();
 		},
 
 		_renderCategory: function (categoryModel) {

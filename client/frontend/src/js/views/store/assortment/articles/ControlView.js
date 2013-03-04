@@ -17,9 +17,13 @@ define([
 		numberOfCurrentRequests: 0,
 		numberOfArticles: 0,
 
+		$loader: null,
+		$loadbar: null,
+
 		initialize: function () {
 			this._render();
 			this._countArticles();
+			this._cacheDom();
 		},
 
 		_render: function () {
@@ -34,6 +38,11 @@ define([
 			});
 
 			this.numberOfArticles = numberOfArticles;
+		},
+
+		_cacheDom: function () {
+			this.$loader = this.$('#loader');
+			this.$loadbar = this.$loader.find('#loadbar');
 		},
 
 		_resetAllPrices: function () {
@@ -51,6 +60,9 @@ define([
 
 				}, this);
 			}, this);
+
+			this._updateLoadBar();
+
 		},
 
 		_showAllArticles: function () {
@@ -68,6 +80,9 @@ define([
 
 				}, this);
 			}, this);
+
+			this._updateLoadBar();
+
 		},
 
 		_hideAllArticles: function () {
@@ -85,6 +100,9 @@ define([
 
 				}, this);
 			}, this);
+
+			this._updateLoadBar();
+
 		},
 
 		_updateArticleModel: function (articleModel, changedAttributes) {
@@ -104,8 +122,16 @@ define([
 		},
 
 		_updateLoadBar: function () {
-			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles;
-			console.log(progress);
+			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles,
+				relativeWidth = progress * 100 + '%';
+
+			if (progress < 1) {
+				this.$loader.fadeIn();
+			} else {
+				this.$loader.fadeOut();
+			}
+
+			this.$loadbar.width(relativeWidth);
 		}
 
 	});
