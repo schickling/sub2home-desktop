@@ -3,7 +3,7 @@
 use App\Controllers\Services\Document\PDFService;
 use File;
 use DB;
-
+use Exception;
 
 class InvoiceModel extends BaseModel
 {
