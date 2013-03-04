@@ -597,6 +597,34 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
+// Loader
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.9);
+  z-index: 900;
+  #loadbarBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 25px 0 0 -100px;
+    width: 200px;
+    height: 30px;
+    background: @grayLighter;
+    .border-radius(2px);
+    #loadbar {
+      .border-radius(2px);
+      background: @greenLighter;
+      width: 20%;
+      height: 30px;
+    }
+  }
+}
+
 
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------

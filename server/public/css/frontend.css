@@ -3740,6 +3740,37 @@ img.cookie {
 .categoriesNavigation .overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
 }
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 900;
+}
+#loader #loadbarBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 25px 0 0 -100px;
+  width: 200px;
+  height: 30px;
+  background: #e4e4e4;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#loader #loadbarBackground #loadbar {
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background: #9cc83e;
+  width: 20%;
+  height: 30px;
+}
 aside#header {
   *zoom: 1;
   -webkit-backface-visibility: hidden;
