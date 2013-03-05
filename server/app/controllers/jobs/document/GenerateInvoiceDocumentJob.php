@@ -126,7 +126,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		$this->invoiceData['infoStoreNumber'] = $storeModel->number;
 		$this->invoiceData['infoClientNumber'] = $clientModel->number;
 		$this->invoiceData['infoTimeSpan'] = $invoiceTimeSpanDateTime->format('M Y');
-		$this->invoiceData['infoInvoiceDate'] = $invoiceUpdatedAtDateTime->format('d.m.Y');
+		$this->invoiceData['infoInvoiceDate'] = $invoiceUpdatedAtDateTime->format('d.m.y');
 		$this->invoiceData['infoInvoiceNumber'] = $this->invoiceModel->number;
 	}
 

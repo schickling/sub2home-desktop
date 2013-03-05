@@ -126,7 +126,7 @@ class PopulateTables extends Migration {
 
 		// Clients
 		$u2 = new ClientModel(array(
-			'number' => 23,
+			'number' => 2123,
 			'hashedPassword' => Hash::make('password'),
 			'email' => 'office@my-sub.de'
 			));
@@ -135,7 +135,7 @@ class PopulateTables extends Migration {
 		$u2->bankaccountModel->fill($ba1)->save();
 
 		$u3 = new ClientModel(array(
-			'number' => 25,
+			'number' => 2125,
 			'hashedPassword' => Hash::make('password'),
 			'email' => 'test@web.de'
 			));
@@ -144,7 +144,7 @@ class PopulateTables extends Migration {
 		$u3->bankaccountModel->fill($ba1)->save();
 
 		$u4 = new ClientModel(array(
-			'number' => 215,
+			'number' => 2195,
 			'hashedPassword' => Hash::make('password'),
 			'email' => 'test2@web.de'
 			));
