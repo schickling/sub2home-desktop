@@ -123,7 +123,7 @@
 
     <tr>
       <td colspan="2" style="height: 21mm;"></td>
-      <td style="height: 21mm;">Logo</td>
+      <td style="height: 21mm;"></td>
     </tr>
 
   <!-- Address & sub2home-Info Row -->
@@ -210,7 +210,7 @@
     <tr>
       <td class="margin"></td>
       <td style="width: 65mm">
-        <img src="http://sub2home.dev/img/static/common/invoice.png" style="width:779px; height:208px" alt="">
+        
       </td>
       
       <!-- Store Info -->
