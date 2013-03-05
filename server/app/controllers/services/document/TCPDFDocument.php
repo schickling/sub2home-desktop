@@ -65,6 +65,7 @@ class TCPDFDocument
 			foreach ($this->data['svg'] as $svg) {
 				$this->document->ImageSVG($svg['file'], $svg['x'], $svg['y']);
 			}
+			unset($this->data['svg']);
 		}
 	}
 

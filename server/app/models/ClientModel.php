@@ -10,8 +10,7 @@ class ClientModel extends BaseModel {
 	{
 		// initialize mandatory relationships
 
-		// TODO
-		// $this->addressModel()->create(array());
+		$this->addressModel()->create(array());
 		$this->bankaccountModel()->create(array());
 	}
 

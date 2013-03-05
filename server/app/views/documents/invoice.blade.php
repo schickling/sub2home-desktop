@@ -192,9 +192,9 @@
     <tr>
       <td style="width: 26mm"></td>
       <td class="addressField">
-        <b>Hans Bohnof</b><br>
-        Saalitzer Allee 35<br>
-        923483 Baldorf
+        <b>{{$addressFirstName}} {{$addressLastName}}</b><br>
+        {{$addressStreet}}<br>
+        {{$addressPostal}} {{$addressCity}}
       </td>
     </tr>
   </tbody>
@@ -217,7 +217,7 @@
       
       <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
           <tr>
-            <td colspan="6" style="text-align: right">Store Memmingen (3495)</td>
+            <td colspan="6" style="text-align: right">Store {{$infoStoreTitle}} ({{$infoStoreNumber}})</td>
           </tr>
           <tr>
             <td style="height: 2mm" colspan="6"></td>
@@ -225,18 +225,18 @@
           <tr>
             <td class="siTag1">ZEITRAUM</td>
             <td class="siSeparator"></td>
-            <td style="width: 18mm">Mai 2013</td>
+            <td style="width: 18mm">{{$infoTimeSpan}}</td>
             <td class="siTag2">RG-NR</td>
             <td class="siSeparator"></td>
-            <td style="width: 16mm">13039</td>
+            <td style="width: 16mm">{{$infoInvoiceNumber}}</td>
           </tr>
           <tr>
             <td class="siTag1">DATUM</td>
             <td class="siSeparator"></td>
-            <td style="width: 18mm">09.04.13</td>
+            <td style="width: 18mm">{{$infoInvoiceDate}}</td>
             <td class="siTag2">KD-NR</td>
             <td class="siSeparator"></td>
-            <td style="width: 16mm">23092</td>
+            <td style="width: 16mm">{{$infoClientNumber}}</td>
           </tr>
         </tbody></table></td>
       <td style="width: 22mm; background-color: #fefefe"></td>
@@ -259,7 +259,7 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Lieferungen</td>
-          <td class="nmbrsCol2"><b>4544,00€</b></td>
+          <td class="nmbrsCol2"><b>{{$total}}€</b></td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
@@ -273,13 +273,13 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Netto</td>
-          <td class="nmbrsCol2">654,34€</td>
+          <td class="nmbrsCol2">{{$netAmount}}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">MwSt (19%)</td>
-          <td class="nmbrsCol2">94,34€</td>
+          <td class="nmbrsCol2">{{$tax}}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
@@ -291,7 +291,7 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Brutto</td>
-          <td class="nmbrsCol2"><b>725,34€</b></td>
+          <td class="nmbrsCol2"><b>{{$grossAmount}}€</b></td>
           <td class="nmbrsMargin"></td>
         </tr>
       </tbody></table></td>
@@ -307,7 +307,7 @@
     </tr>
     <tr>
       <td style="width: 25mm"></td>
-      <td class="fazit">Der Rechnungsbetrag in Höhe von 1023,94€ wird in den nächsten Tagen von ihrem Konto (Nr. 23890345, BLZ 34930494, Landesbank Bayern) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
+      <td class="fazit">Der Rechnungsbetrag in Höhe von {{$grossAmount}}€ wird in den nächsten Tagen von ihrem Konto (Nr. {{$bankaccountAccountNumber}}, BLZ {{$bankaccountBankCodeNumber}}, {{$bankaccountBankName}}) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
       <td style="width: 25mm"></td>
     </tr>
   </tbody>

@@ -117,6 +117,13 @@ class PopulateTables extends Migration {
 			'email' => 'offi23ce@my-sub.de'
 			);
 
+		$ba1 = array(
+			'name' => 'Max Mustermann',
+			'bankName' => 'Volksbank',
+			'bankCodeNumber' => 34645645,
+			'accountNumber' => 123456789
+			);
+
 		// Clients
 		$u2 = new ClientModel(array(
 			'number' => 23,
@@ -124,7 +131,8 @@ class PopulateTables extends Migration {
 			'email' => 'office@my-sub.de'
 			));
 		$u2->save();
-		$u2->addressModel()->create($ad1);
+		$u2->addressModel->fill($ad1)->save();
+		$u2->bankaccountModel->fill($ba1)->save();
 
 		$u3 = new ClientModel(array(
 			'number' => 25,
@@ -132,7 +140,8 @@ class PopulateTables extends Migration {
 			'email' => 'test@web.de'
 			));
 		$u3->save();
-		$u3->addressModel()->create($ad2);
+		$u3->addressModel->fill($ad2)->save();
+		$u3->bankaccountModel->fill($ba1)->save();
 
 		$u4 = new ClientModel(array(
 			'number' => 215,
@@ -140,7 +149,8 @@ class PopulateTables extends Migration {
 			'email' => 'test2@web.de'
 			));
 		$u4->save();
-		$u4->addressModel()->create($ad7);
+		$u4->addressModel->fill($ad7)->save();
+		$u4->bankaccountModel->fill($ba1)->save();
 
 		$u5 = new ClientModel(array(
 			'number' => 2115,
@@ -148,7 +158,8 @@ class PopulateTables extends Migration {
 			'email' => 'tesdgst2@web.de'
 			));
 		$u5->save();
-		$u5->addressModel()->create($ad8);
+		$u5->addressModel->fill($ad8)->save();
+		$u5->bankaccountModel->fill($ba1)->save();
 
 		$u6 = new ClientModel(array(
 			'number' => 2215,
@@ -156,7 +167,8 @@ class PopulateTables extends Migration {
 			'email' => 'tesdsst2@web.de'
 			));
 		$u6->save();
-		$u6->addressModel()->create($ad9);
+		$u6->addressModel->fill($ad9)->save();
+		$u6->bankaccountModel->fill($ba1)->save();
 
 		// store_models
 		$s1 = new StoreModel(array(
@@ -171,7 +183,7 @@ class PopulateTables extends Migration {
 		$s1->save();
 
 		// back to the future
-		$past = new DateTime('Wed, 28 Dec 2012 13:04:30 GMT');
+		$past = new DateTime('Wed, 1 Jan 2013 00:00:00 GMT');
 		$s1->created_at = $past;
 		$s1->save();
 
