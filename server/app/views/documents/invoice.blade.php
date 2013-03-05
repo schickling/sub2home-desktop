@@ -70,7 +70,7 @@
     font-size: 6pt;
     line-height: 2.3;
     font-weight: normal;
-    width: 60mm;
+    width: 55mm;
     text-align: right;
   }
 
@@ -122,8 +122,8 @@
   <!-- Logo Row -->
 
     <tr>
-      <td colspan="2" style="height: 21mm;"></td>
-      <td style="height: 21mm;"></td>
+      <td colspan="2" style="height: 31mm;"></td>
+      <td style="height: 31mm;"></td>
     </tr>
 
   <!-- Address & sub2home-Info Row -->
@@ -291,7 +291,7 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Brutto</td>
-          <td class="nmbrsCol2"><b>{{$grossAmount}}€</b></td>
+          <td class="nmbrsCol2" style="font-weight: bold" cellpadding="3">{{$grossAmount}}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
       </tbody></table></td>
