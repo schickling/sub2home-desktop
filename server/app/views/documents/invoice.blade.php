@@ -1,112 +1,320 @@
 <style>
-    h1 {
-        color: navy;
-        font-family: times;
-        font-size: 24pt;
-        text-decoration: underline;
-    }
-    p.first {
-        color: #003300;
-        font-family: helvetica;
-        font-size: 12pt;
-    }
-    p.first span {
-        color: #006600;
-        font-style: italic;
-    }
-    p#second {
-        color: rgb(00,63,127);
-        font-family: times;
-        font-size: 12pt;
-        text-align: justify;
-    }
-    p#second > span {
-        background-color: #FFFFAA;
-    }
-    table.first {
-        color: #003300;
-        font-family: helvetica;
-        font-size: 8pt;
-        border-left: 3px solid red;
-        border-right: 3px solid #FF00FF;
-        border-top: 3px solid green;
-        border-bottom: 3px solid blue;
-        background-color: #ccffcc;
-    }
-    td {
-        border: 2px solid blue;
-        background-color: #ffffee;
-    }
-    td.second {
-        border: 2px dashed green;
-    }
-    div.test {
-        color: #CC0000;
-        background-color: #FFFF66;
-        font-family: helvetica;
-        font-size: 10pt;
-        border-style: solid solid solid solid;
-        border-width: 2px 2px 2px 2px;
-        border-color: green #FF00FF blue red;
-        text-align: center;
-    }
+
+  h1 {
+    color: #000;
+    font-family: "VAGRounded LT Thin";
+    font-size: 45pt;
+  }
+
+  .addressField {
+    width: 84mm;
+  }
+
+  .margin {
+    width: 20mm;
+  }
+
+  .sub2homeInfo {
+    width: 105mm;
+    height: 43mm;
+    border-style: solid none solid solid;
+    border-width: 1px 0px 1px 1px;
+    border-color: #b0b0b0 #fff #b0b0b0 #b0b0b0;
+    text-align: center;
+    background-color: #f8f8f8;
+    font-size: 9pt;
+  }
+
+  .s2hCol1 {
+    width: 12mm;
+    font-size: 6pt;
+    text-align: right;
+    line-height: 2.2;
+  }
+
+  .s2hCol2 {
+    width: 34mm;
+    text-align: left;
+  }
+
+  .s2hCol3 {
+    width: 9mm;
+    font-size: 6pt;
+    text-align: right;
+    line-height: 2.2;
+  }
+
+  .s2hSeparator {
+    width: 2mm;
+  }
+
+  .s2hCol4 {
+    width: 46mm;
+    text-align: left;
+  }
+
+
+
+  .storeInfo {
+    text-align: left;
+    width: 103mm;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+
+  .siSeparator {
+    width: 3mm;
+  }
+
+  .siTag1 {
+    font-size: 6pt;
+    line-height: 2.3;
+    font-weight: normal;
+    width: 60mm;
+    text-align: right;
+  }
+
+  .siTag2 {
+    font-size: 6pt;
+    line-height: 2.3;
+    font-weight: normal;
+    width: 8mm;
+    text-align: right;
+  }
+
+
+
+.numbersText {
+  width: 65mm;
+  font-size: 12pt;
+  line-height: 1.3;
+}
+
+.nmbrs {
+  text-align: left;
+  width: 105px;
+}
+
+.nmbrsMargin {
+  width: 3mm;
+}
+
+.nmbrsCol1 {
+  width: 45mm;
+}
+
+.nmbrsCol2 {
+  width: 33mm;
+  text-align: right;
+}
+
+.fazit {
+  font-size: 12pt;
+  width: 160mm;
+}
+
 </style>
+<div><table cellpadding="0" cellspacing="0">
 
-<h1 class="title">Example of <i style="color:#990000">XHTML + CSS</i></h1>
+<!-- Pagehead -->
 
-<p class="first">Example of paragraph with class selector. <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed imperdiet lectus. Phasellus quis velit velit, non condimentum quam. Sed neque urna, ultrices ac volutpat vel, laoreet vitae augue. Sed vel velit erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget velit nulla, eu sagittis elit. Nunc ac arcu est, in lobortis tellus. Praesent condimentum rhoncus sodales. In hac habitasse platea dictumst. Proin porta eros pharetra enim tincidunt dignissim nec vel dolor. Cras sapien elit, ornare ac dignissim eu, ultricies ac eros. Maecenas augue magna, ultrices a congue in, mollis eu nulla. Nunc venenatis massa at est eleifend faucibus. Vivamus sed risus lectus, nec interdum nunc.</span></p>
+  <tbody>
+  <!-- Logo Row -->
 
-<p id="second">Example of paragraph with ID selector. <span>Fusce et felis vitae diam lobortis sollicitudin. Aenean tincidunt accumsan nisi, id vehicula quam laoreet elementum. Phasellus egestas interdum erat, et viverra ipsum ultricies ac. Praesent sagittis augue at augue volutpat eleifend. Cras nec orci neque. Mauris bibendum posuere blandit. Donec feugiat mollis dui sit amet pellentesque. Sed a enim justo. Donec tincidunt, nisl eget elementum aliquam, odio ipsum ultrices quam, eu porttitor ligula urna at lorem. Donec varius, eros et convallis laoreet, ligula tellus consequat felis, ut ornare metus tellus sodales velit. Duis sed diam ante. Ut rutrum malesuada massa, vitae consectetur ipsum rhoncus sed. Suspendisse potenti. Pellentesque a congue massa.</span></p>
+    <tr>
+      <td colspan="2" style="height: 21mm;"></td>
+      <td style="height: 21mm;">Logo</td>
+    </tr>
 
-<div class="test">example of DIV with border and fill.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed imperdiet lectus.</div>
+  <!-- Address & sub2home-Info Row -->
+    <tr>
+      <td style="width: 26mm; height: 11mm"></td>
+      <td style="width: 84mm; height: 11mm"></td>
 
-<br />
+      <!-- sub2home-Info Table -->
 
-<table class="first" cellpadding="4" cellspacing="6">
- <tr>
-  <td width="30" align="center"><b>No.</b></td>
-  <td width="140" align="center" bgcolor="#FFFF00"><b>XXXX</b></td>
-  <td width="140" align="center"><b>XXXX</b></td>
-  <td width="80" align="center"> <b>XXXX</b></td>
-  <td width="80" align="center"><b>XXXX</b></td>
-  <td width="45" align="center"><b>XXXX</b></td>
- </tr>
- <tr>
-  <td width="30" align="center">1.</td>
-  <td width="140" rowspan="6" class="second">XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-  <td width="140">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td width="80">XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
- <tr>
-  <td width="30" align="center" rowspan="3">2.</td>
-  <td width="140" rowspan="3">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
- <tr>
-  <td width="80">XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
- <tr>
-  <td width="80" rowspan="2" >XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
- <tr>
-  <td width="30" align="center">3.</td>
-  <td width="140">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
- <tr bgcolor="#FFFF80">
-  <td width="30" align="center">4.</td>
-  <td width="140" bgcolor="#00CC00" color="#FFFF00">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td width="80">XXXX<br />XXXX</td>
-  <td align="center" width="45">XXXX<br />XXXX</td>
- </tr>
+      <td rowspan="2"><table class="sub2homeInfo"><tbody>
+        <tr>
+          <td colspan="6" style="height: 7mm"></td>
+        </tr>
+        <tr>
+          <td class="s2hCol1" rowspan="2"></td>
+            <td class="s2hSeparator" rowspan="2"></td>
+          <td class="s2hCol2" valign="middle" rowspan="2" style="font-weight: bold;">sub2home UG</td>
+          <td class="s2hCol3" valign="bottom">ADD</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol4">Maximilianstraße 7</td>
+        </tr>
+        <tr>
+            
+          
+          <td class="s2hCol3"></td>
+          <td class="s2hSeparator"></td>
+          <td class="s2hCol4" style="height: 6mm">87700 Memmingen</td>
+        </tr>
+        <tr>
+          <td class="s2hCol1">TEL</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol2">083 318 338 433</td>
+          <td class="s2hCol3">KTO</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol4">100 10 12 606</td>
+        </tr>
+        <tr>
+          <td class="s2hCol1">FAX</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol2" style="height: 6mm">083 318 338 434</td>
+          <td class="s2hCol3">BLZ</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol4">540 349 00</td>
+        </tr>
+        <tr>
+          <td class="s2hCol1">MAIL</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol2">office@sub2home.de</td>
+          <td class="s2hCol3">BANK</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol4">Sparkasse MM</td>
+        </tr>
+        <tr>
+          <td class="s2hCol1"><br/>WEB</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol2">www.sub2home.de</td>
+          <td class="s2hCol3"><br/>UST-ID</td>
+            <td class="s2hSeparator"></td>
+          <td class="s2hCol4">DE 814 879 148</td>
+        </tr> 
+        <tr>
+          <td colspan="6" style="height: 7mm"></td>
+        </tr>     
+    </tbody></table></td>
+    </tr>
+    <tr>
+      <td style="width: 26mm"></td>
+      <td class="addressField">
+        <b>Hans Bohnof</b><br>
+        Saalitzer Allee 35<br>
+        923483 Baldorf
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+<!-- Title & Store-Info -->
+  
+<table>
+  <tbody>
+    <tr>
+      <td colspan="4" style="height: 17mm"></td>
+    </tr>
+    <tr>
+      <td class="margin"></td>
+      <td style="width: 65mm">
+        <img src="http://sub2home.dev/img/static/common/invoice.png" style="width:779px; height:208px" alt="">
+      </td>
+      
+      <!-- Store Info -->
+      
+      <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
+          <tr>
+            <td class="siTag1">Store</td>
+            <td class="siSeparator"></td>
+            <td colspan="4">Memmingen (3495)</td>
+          </tr>
+          <tr>
+            <td style="height: 2mm" colspan="6"></td>
+          </tr>
+          <tr>
+            <td class="siTag1">ZEITRAUM</td>
+            <td class="siSeparator"></td>
+            <td style="width: 18mm">Mai 2013</td>
+            <td class="siTag2">RG-NR</td>
+            <td class="siSeparator"></td>
+            <td style="width: 16mm">13039</td>
+          </tr>
+          <tr>
+            <td class="siTag1">DATUM</td>
+            <td class="siSeparator"></td>
+            <td style="width: 18mm">09.04.13</td>
+            <td class="siTag2">KD-NR</td>
+            <td class="siSeparator"></td>
+            <td style="width: 16mm">23092</td>
+          </tr>
+        </tbody></table></td>
+      <td style="width: 22mm; background-color: #fefefe"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Numbers -->
+
+<table>
+  <tbody>
+    <tr>
+      <td style="height: 19mm" colspan="5"></td>
+    </tr>
+    <tr>
+      <td style="width: 25mm"></td>
+      <td class="numbersText">Wir vermittelten  Ihnen auf unserer Bestellplattform folgende Lieferungen im oben aufgeführten Zeitraum und stellen Ihnen diese hiermit in Rechnung.</td>
+      <td style="width: 16mm"></td>
+      <td><table class="nmbrs"><tbody>
+        <tr>
+          <td class="nmbrsMargin"></td>
+          <td class="nmbrsCol1">Summe Lieferungen</td>
+          <td class="nmbrsCol2"><b>4544,00€</b></td>
+          <td class="nmbrsMargin"></td>
+        </tr>
+        <tr>
+          <td class="nmbrsMargin" rowspan="2"></td>
+          <td class="nmbrsCol1" style="font-size: 7pt; line-height:3.9" rowspan="2">Daraus ergibt sich folgende Provision:</td>
+          <td colspan="2" style="border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #fff #fff #ccc #fff;"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td class="nmbrsMargin"></td>
+          <td class="nmbrsCol1">Summe Netto</td>
+          <td class="nmbrsCol2">654,34€</td>
+          <td class="nmbrsMargin"></td>
+        </tr>
+        <tr>
+          <td class="nmbrsMargin"></td>
+          <td class="nmbrsCol1">MwSt (19%)</td>
+          <td class="nmbrsCol2">94,34€</td>
+          <td class="nmbrsMargin"></td>
+        </tr>
+        <tr>
+          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #fff #fff #ccc #fff; height: 3mm"></td>
+        </tr>
+        <tr>
+          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; height: 2mm"></td>
+        </tr>
+        <tr>
+          <td class="nmbrsMargin"></td>
+          <td class="nmbrsCol1">Summe Brutto</td>
+          <td class="nmbrsCol2"><b>725,34€</b></td>
+          <td class="nmbrsMargin"></td>
+        </tr>
+      </tbody></table></td>
+      <td class="margin"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td colspan="3" style="height: 16mm"></td>
+    </tr>
+    <tr>
+      <td style="width: 25mm"></td>
+      <td class="fazit">Der Rechnungsbetrag in Höhe von 1023,94€ wird in den nächsten Tagen von ihrem Konto (Nr. 23890345, BLZ 34930494, Landesbank Bayern) abgebucht.</td>
+      <td style="width: 25mm"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+
