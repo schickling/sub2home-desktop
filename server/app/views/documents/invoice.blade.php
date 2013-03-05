@@ -1,5 +1,4 @@
 <style>
-
   h1 {
     color: #000;
     font-family: "VAGRounded LT Thin";
@@ -8,6 +7,7 @@
 
   .addressField {
     width: 84mm;
+    line-height: 1.5;
   }
 
   .margin {
@@ -217,9 +217,7 @@
       
       <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
           <tr>
-            <td class="siTag1">Store</td>
-            <td class="siSeparator"></td>
-            <td colspan="4">Memmingen (3495)</td>
+            <td colspan="6" style="text-align: right">Store Memmingen (3495)</td>
           </tr>
           <tr>
             <td style="height: 2mm" colspan="6"></td>
@@ -255,7 +253,7 @@
     </tr>
     <tr>
       <td style="width: 25mm"></td>
-      <td class="numbersText">Wir vermittelten  Ihnen auf unserer Bestellplattform folgende Lieferungen im oben aufgeführten Zeitraum und stellen Ihnen diese hiermit in Rechnung.</td>
+      <td class="numbersText">Wir vermittelten  Ihnen auf<br/>unserer Bestellplattform folgende<br/>Lieferungen im oben aufgeführten<br/>Zeitraum und stellen Ihnen diese<br/>hiermit in Rechnung.</td>
       <td style="width: 16mm"></td>
       <td><table class="nmbrs"><tbody>
         <tr>
@@ -309,7 +307,7 @@
     </tr>
     <tr>
       <td style="width: 25mm"></td>
-      <td class="fazit">Der Rechnungsbetrag in Höhe von 1023,94€ wird in den nächsten Tagen von ihrem Konto (Nr. 23890345, BLZ 34930494, Landesbank Bayern) abgebucht.</td>
+      <td class="fazit">Der Rechnungsbetrag in Höhe von 1023,94€ wird in den nächsten Tagen von ihrem Konto (Nr. 23890345, BLZ 34930494, Landesbank Bayern) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
       <td style="width: 25mm"></td>
     </tr>
   </tbody>
