@@ -1,6 +1,6 @@
 {
 	"require": {
-		"laravel/framework": "4.0.*",
+		"laravel/framework": "dev-master",
 		"tcpdf/tcpdf": "dev-master"
 	},
 	"autoload": {
@@ -12,5 +12,8 @@
 			"app/tests"
 		]
 	},
+	"config": {
+		"process-timeout": 600
+		},
 	"minimum-stability": "dev"
 }
