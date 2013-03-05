@@ -39,7 +39,7 @@ class GenerateMissingDocumentsCommand extends Command {
 		}
 
 
-		$this->line($numberOfGeneratedFiles . ' invoice documents were generated.');
+		$this->line($numberOfGeneratedFiles . ' invoice documents will be generated.');
 	}
 
 	private function checkAllStores()

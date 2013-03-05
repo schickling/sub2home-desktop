@@ -61,9 +61,13 @@ class OrderModel extends BaseModel
 		$this->total = $total;
 	}
 
-	public function check()
+	public function verify()
 	{
-		return true;
+		// TODO return bool
+		$this->verifyMinimumValue();
+		$this->verifyDeliveryArea();
+		$this->verifyOrderedArticles();
+		$this->verifyDueDate();
 	}
 
 	/**
@@ -79,6 +83,26 @@ class OrderModel extends BaseModel
 		Queue::push('App\\Controllers\\Jobs\\Mail\\CustomerOrderConfirmMailJob', $jobData);
 		Queue::push('App\\Controllers\\Jobs\\Mail\\StoreOrderNotificationMailJob', $jobData);
 
+	}
+
+	private function verifyMinimumValue()
+	{
+		
+	}
+
+	private function verifyDeliveryArea()
+	{
+		
+	}
+
+	private function verifyOrderedArticles()
+	{
+		
+	}
+
+	private function verifyDueDate()
+	{
+		
 	}
 
 }

@@ -41,7 +41,6 @@ class InvoiceModel extends BaseModel
 		// prevent overwriting an existing document
 		$this->checkIfLocked();
 
-
 		$jobData = array('invoice_model_id' => $this->id);
 		Queue::push('App\\Controllers\\Jobs\\Document\\GenerateInvoiceDocumentJob', $jobData);
 		
