@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use DateTime;
+use Str;
 
 class StoreModel extends BaseModel
 {
@@ -232,12 +233,7 @@ class StoreModel extends BaseModel
 	 */
 	public function setTitleAttribute($title) {
 		$this->attributes['title'] = $title;
-
-		// Parse and set alias
-		$alias = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $title);
-		$alias = strtolower(trim($alias, '-'));
-		$alias = preg_replace("/[\/_|+ -]+/", '-', $alias);
-		$this->attributes['alias'] = $alias;
+		$this->attributes['alias'] = Str::slug($title);
 	}
 
 	public function checkInvoices()
