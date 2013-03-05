@@ -3,17 +3,20 @@
 		"laravel/framework": "dev-master",
 		"tcpdf/tcpdf": "dev-master"
 	},
+	"require-dev": {
+		"phpunit/phpunit": "dev-master"
+	},
 	"autoload": {
 		"classmap": [
-			"app/commands",
-			"app/controllers",
-			"app/models",
-			"app/database",
-			"app/tests"
-		]
+            "app/commands",
+            "app/controllers",
+            "app/models",
+            "app/database",
+            "app/tests"
+        ]
 	},
 	"config": {
 		"process-timeout": 600
-		},
+	},
 	"minimum-stability": "dev"
 }
