@@ -171,7 +171,7 @@ class PopulateTables extends Migration {
 		$s1->save();
 
 		// back to the future
-		$past = new DateTime('Wed, 28 Dec 2011 13:04:30 GMT');
+		$past = new DateTime('Wed, 28 Dec 2012 13:04:30 GMT');
 		$s1->created_at = $past;
 		$s1->save();
 

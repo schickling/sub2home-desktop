@@ -38,8 +38,27 @@ class InvoiceModel extends BaseModel
 
 		// calculate data
 		$data = $this->calculateData();
-
+		
 		// TODO complete data
+
+
+		// add svg images
+		$imageFolder = base_path() . '/app/views/img/';
+		$svgTitle = $imageFolder . 'invoiceTitle.svg';
+		$svgLogo = $imageFolder . 'subwayLogo.svg';
+		$data['svg'] = array(
+			array(
+				'x'		=> 19,
+				'y'		=> 97,
+				'file'	=> $svgTitle
+				),
+			array(
+				'x'		=> 169,
+				'y'		=> 12,
+				'file'	=> $svgLogo
+				)
+			);
+
 
 		$viewName = 'documents.invoice';
 
