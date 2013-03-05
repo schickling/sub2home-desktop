@@ -32,7 +32,7 @@ class AddressesController extends ApiController
 			'email'				=> 'email|required'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -50,14 +50,14 @@ class AddressesController extends ApiController
 		}
 
 		// update
-		$addressModel->firstName = $input->firstName;
-		$addressModel->lastName = $input->lastName;
-		$addressModel->street = $input->street;
-		$addressModel->streetAdditional = $input->streetAdditional;
-		$addressModel->postal = $input->postal;
-		$addressModel->city = $input->city;
-		$addressModel->phone = $input->phone;
-		$addressModel->email = $input->email;
+		$addressModel->firstName = $input['firstName'];
+		$addressModel->lastName = $input['lastName'];
+		$addressModel->street = $input['street'];
+		$addressModel->streetAdditional = $input['streetAdditional'];
+		$addressModel->postal = $input['postal'];
+		$addressModel->city = $input['city'];
+		$addressModel->phone = $input['phone'];
+		$addressModel->email = $input['email'];
 
 		$addressModel->save();
 

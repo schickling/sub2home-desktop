@@ -5,6 +5,7 @@ use Eloquent;
 class BaseModel extends Eloquent
 {
 
+	public static $snakeAttributes = false;
 
 	/**
 	 * Unset an attribute on the model.

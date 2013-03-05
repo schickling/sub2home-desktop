@@ -53,7 +53,7 @@ class DeliveryAreasController extends ApiController
 			'description'		=> 'alpha_dash|required'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -71,10 +71,10 @@ class DeliveryAreasController extends ApiController
 		}
 
 		// update
-		$deliveryAreaModel->minimumDuration = $input->minimumDuration;
-		$deliveryAreaModel->minimumValue = $input->minimumValue;
-		$deliveryAreaModel->postal = $input->postal;
-		$deliveryAreaModel->description = $input->description;
+		$deliveryAreaModel->minimumDuration = $input['minimumDuration'];
+		$deliveryAreaModel->minimumValue = $input['minimumValue'];
+		$deliveryAreaModel->postal = $input['postal'];
+		$deliveryAreaModel->description = $input['description'];
 
 		$deliveryAreaModel->save();
 	}

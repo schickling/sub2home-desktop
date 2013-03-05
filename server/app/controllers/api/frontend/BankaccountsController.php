@@ -22,7 +22,7 @@ class BankaccountsController extends ApiController
 			'accountNumber'		=> 'numeric|required|min:0'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -38,10 +38,10 @@ class BankaccountsController extends ApiController
 		}
 
 		// update
-		$bankaccountModel->name = $input->name;
-		$bankaccountModel->bankName = $input->bankName;
-		$bankaccountModel->bankCodeNumber = $input->bankCodeNumber;
-		$bankaccountModel->accountNumber = $input->accountNumber;
+		$bankaccountModel->name = $input['name'];
+		$bankaccountModel->bankName = $input['bankName'];
+		$bankaccountModel->bankCodeNumber = $input['bankCodeNumber'];
+		$bankaccountModel->accountNumber = $input['accountNumber'];
 
 		$bankaccountModel->save();
 

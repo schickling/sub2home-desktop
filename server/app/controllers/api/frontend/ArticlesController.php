@@ -73,7 +73,7 @@ class ArticlesController extends ApiController
 			'isActive'			=> 'boolean|required'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -85,8 +85,8 @@ class ArticlesController extends ApiController
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
 		// update
-		$customArticleModel->isActive = $input->isActive;
-		$customArticleModel->price = $input->customPrice;
+		$customArticleModel->isActive = $input['isActive'];
+		$customArticleModel->price = $input['customPrice'];
 
 		$customArticleModel->save();
 

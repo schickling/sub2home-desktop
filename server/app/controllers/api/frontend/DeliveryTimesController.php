@@ -24,7 +24,7 @@ class DeliveryTimesController extends ApiController
 			'dayOfWeek'	=> 'numeric|required|between:0,6'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -35,7 +35,7 @@ class DeliveryTimesController extends ApiController
 			'store_model_id' => $this->storeModel->id,
 			'startMinutes' => 0,
 			'endMinutes' => 60,
-			'dayOfWeek' => $input->dayOfWeek
+			'dayOfWeek' => $input['dayOfWeek']
 			));
 
 		// save
@@ -60,13 +60,13 @@ class DeliveryTimesController extends ApiController
 			'endMinutes'	=> 'numeric|required|between:0,1439'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
 		}
 
-		if ($input->startMinutes >= $input->endMinutes) {
+		if ($input['startMinutes'] >= $input['endMinutes']) {
 			return $this->respondWithStatus(400, 'endMinutes must be bigger then startMinutes');
 		}
 
@@ -82,8 +82,8 @@ class DeliveryTimesController extends ApiController
 		}
 
 		// update item
-		$deliveryTimeModel->startMinutes = $input->startMinutes;
-		$deliveryTimeModel->endMinutes = $input->endMinutes;
+		$deliveryTimeModel->startMinutes = $input['startMinutes'];
+		$deliveryTimeModel->endMinutes = $input['endMinutes'];
 
 		$deliveryTimeModel->save();
 	}

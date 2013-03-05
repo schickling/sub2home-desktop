@@ -12,7 +12,7 @@ class Backend_Stores_Controller extends Backend_Controller {
 		
 		$input = Input::json();
 
-		$input_array = get_object_vars($input);
+		$input_array = $input;
 
 		// Validate
 		$rules = array(

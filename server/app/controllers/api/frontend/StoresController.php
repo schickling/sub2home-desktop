@@ -94,36 +94,36 @@ class StoresController extends ApiController
 			'longitude'				=> 'numeric|required'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
 		}
 
 		// check if at least one payment method is selected
-		if (!$input->allowsPaymentCash && !$input->allowsPaymentEc && !$input->allowsPaymentPaypal) {
+		if (!$input['allowsPaymentCash'] && !$input['allowsPaymentEc'] && !$input['allowsPaymentPaypal']) {
 			return $this->respondWithStatus(400);
 		}
 
 
-		$storeModel->description = $input->description;
-		$storeModel->orderEmail = $input->orderEmail;
-		$storeModel->isOpen = (bool) $input->isOpen;
-		$storeModel->allowsPaymentCash = (bool) $input->allowsPaymentCash;
-		$storeModel->allowsPaymentEc = (bool) $input->allowsPaymentEc;
-		$storeModel->latitude = $input->latitude;
-		$storeModel->longitude = $input->longitude;
+		$storeModel->description = $input['description'];
+		$storeModel->orderEmail = $input['orderEmail'];
+		$storeModel->isOpen = (bool) $input['isOpen'];
+		$storeModel->allowsPaymentCash = (bool) $input['allowsPaymentCash'];
+		$storeModel->allowsPaymentEc = (bool) $input['allowsPaymentEc'];
+		$storeModel->latitude = $input['latitude'];
+		$storeModel->longitude = $input['longitude'];
 
 
 		// Paypal hook
 		
-		if ($input->allowsPaymentPaypal && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
+		if ($input['allowsPaymentPaypal'] && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
 
 			return $this->respondWithStatus(400);
 
 		// already authorized
 		} else {
-			$storeModel->allowsPaymentPaypal = (bool) $input->allowsPaymentPaypal;
+			$storeModel->allowsPaymentPaypal = (bool) $input['allowsPaymentPaypal'];
 		}
 
 		$storeModel->save();

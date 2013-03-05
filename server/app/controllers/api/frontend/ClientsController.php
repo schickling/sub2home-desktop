@@ -57,7 +57,7 @@ class ClientsController extends ApiController
 			'newPassword'		=> 'alpha_dash|required|min:8'
 			);
 
-		$validator = Validator::make(get_object_vars($input), $rules);
+		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
 			return $this->respondWithStatus(400, $validator->messages());
@@ -65,17 +65,17 @@ class ClientsController extends ApiController
 
 
 		// compare current password
-		if (!Hash::check($input->currentPassword, $clientModel->hashedPassword)) {
+		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {
 			return $this->respondWithStatus(400, 'Invalid current password');
 		}
 
 		// check if password has changed
-		if ($input->currentPassword == $input->newPassword) {
+		if ($input['currentPassword'] == $input['newPassword']) {
 			return $this->respondWithStatus(400, 'New password is still the same');
 		}
 
 		// save new password
-		$clientModel->hashedPassword = Hash::make($input->newPassword);
+		$clientModel->hashedPassword = Hash::make($input['newPassword']);
 		$clientModel->save();
 
 

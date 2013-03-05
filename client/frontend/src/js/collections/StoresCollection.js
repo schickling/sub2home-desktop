@@ -17,6 +17,10 @@ define([
 				var isInRange = false,
 					deliveryAreasCollection = storeModel.get('deliveryAreasCollection');
 
+				if (!deliveryAreasCollection) {
+					return false;
+				}
+
 				_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
 					if (deliveryAreaModel.get('postal') === postal) {
 						isInRange = true;
