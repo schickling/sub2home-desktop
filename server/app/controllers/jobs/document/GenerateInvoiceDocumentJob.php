@@ -14,6 +14,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	private $invoiceModel;
 
 	private $invoiceData = array();
+	private $attachmentData = array();
 
 
 	protected function run()
@@ -26,14 +27,19 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		}
 		
 
+		$this->generateInvoiceDocument();
+		$this->generateAttachmentDocument();
+		
 
+	}
 
-		$this->addAmountsToData();
-		$this->addSVGToData();
-		$this->addBankaccountToData();
-		$this->addAddressToData();
-		$this->addInfoToData();
-
+	private function generateInvoiceDocument()
+	{
+		$this->addAmountsToInvoiceData();
+		$this->addSVGToInvoiceData();
+		$this->addBankaccountToInvoiceData();
+		$this->addAddressToInvoiceData();
+		$this->addInfoToInvoiceData();
 
 
 		$documentName = md5(uniqid($this->invoiceModel->id, true)) . '.pdf';
@@ -41,11 +47,20 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 
 		PDFService::generateDocument($this->invoiceData, 'documents.invoice', $fileDestination);
 
-		$this->saveDocumentName($documentName);
-
+		$this->saveInvoiceDocumentName($documentName);
 	}
 
-	private function addAmountsToData()
+	private function generateAttachmentDocument()
+	{
+		$documentName = md5(uniqid($this->invoiceModel->id, true)) . '.pdf';
+		$fileDestination = base_path() . '/public/files/invoices/' . $documentName;
+
+		PDFService::generateDocument($this->attachmentData, 'documents.invoiceAttachment', $fileDestination);
+
+		$this->saveAttachmentDocumentName($documentName);
+	}
+
+	private function addAmountsToInvoiceData()
 	{
 		$total = 0;
 		$netAmount = 0;
@@ -83,7 +98,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	}
 
 
-	private function addSVGToData()
+	private function addSVGToInvoiceData()
 	{
 		// add svg images
 		$imageFolder = base_path() . '/app/views/img/';
@@ -103,7 +118,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 			);
 	}
 
-	private function addBankaccountToData($value='')
+	private function addBankaccountToInvoiceData($value='')
 	{
 		$storeModel = $this->invoiceModel->storeModel;
 		$clientModel = $storeModel->clientModel;
@@ -115,7 +130,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 
 	}
 
-	private function addInfoToData()
+	private function addInfoToInvoiceData()
 	{
 		$storeModel = $this->invoiceModel->storeModel;
 		$clientModel = $storeModel->clientModel;
@@ -130,7 +145,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		$this->invoiceData['infoInvoiceNumber'] = $this->invoiceModel->number;
 	}
 
-	private function addAddressToData()
+	private function addAddressToInvoiceData()
 	{
 		$storeModel = $this->invoiceModel->storeModel;
 		$clientModel = $storeModel->clientModel;
@@ -143,9 +158,15 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		$this->invoiceData['addressCity'] = $addressModel->city;
 	}
 
-	private function saveDocumentName($documentName)
+	private function saveInvoiceDocumentName($documentName)
 	{
-		$this->invoiceModel->documentName = $documentName;
+		$this->invoiceModel->invoiceDocumentName = $documentName;
+		$this->invoiceModel->save();
+	}
+
+	private function saveAttachmentDocumentName($documentName)
+	{
+		$this->invoiceModel->attachmentDocumentName = $documentName;
 		$this->invoiceModel->save();
 	}
 

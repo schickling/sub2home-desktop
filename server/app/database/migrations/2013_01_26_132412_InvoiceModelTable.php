@@ -16,7 +16,8 @@ class InvoiceModelTable extends Migration {
 			$table->integer('store_model_id')->unsigned();
 			$table->integer('number')->unsigned();
 			$table->decimal('total', 7, 2)->default(0);
-			$table->string('documentName', 128)->default('');
+			$table->string('invoiceDocumentName', 128)->default('');
+			$table->string('attachmentDocumentName', 128)->default('');
 			$table->timestamp('timeSpan');
 			$table->timestamps();
 		});

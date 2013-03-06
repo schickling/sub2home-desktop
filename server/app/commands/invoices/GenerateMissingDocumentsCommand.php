@@ -21,7 +21,7 @@ class GenerateMissingDocumentsCommand extends Command {
 
 
 		// generate for all documentless invoices documents which are at least one month old
-		$invoicesCollection = InvoiceModel::where('documentName', '')->get();
+		$invoicesCollection = InvoiceModel::where('invoiceDocumentName', '')->get();
 		$numberOfGeneratedFiles = 0;
 
 		$now = new DateTime();

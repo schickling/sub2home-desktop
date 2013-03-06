@@ -19,7 +19,7 @@ class InvoiceModel extends BaseModel
 	 */
 	public function delete()
 	{
-		$document = base_path() . '/public/files/invoices/' . $this->documentName;
+		$document = base_path() . '/public/files/invoices/' . $this->invoiceDocumentName;
 		File::delete($document);
 		
 		return parent::delete();
@@ -54,7 +54,7 @@ class InvoiceModel extends BaseModel
 
 	private function checkIfLocked()
 	{
-		if (!empty($this->documentName)) {
+		if (!empty($this->invoiceDocumentName)) {
 			throw new Exception('Invoice is already locked');
 		}
 	}
