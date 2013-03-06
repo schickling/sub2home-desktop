@@ -16,6 +16,7 @@ class OrderModelTable extends Migration {
 			$table->enum('paymentMethod', array('cash', 'ec', 'paypal'))->default('cash');
 			$table->boolean('isDelivered')->default(false);
 			$table->integer('store_model_id')->unsigned();
+			$table->integer('invoice_model_id')->unsigned();
 			$table->decimal('credit', 7, 2)->default(0);
 			$table->decimal('total', 7, 2)->default(0);
 			$table->decimal('commissionRate', 2, 2)->default(0);

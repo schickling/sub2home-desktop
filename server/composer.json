@@ -13,6 +13,9 @@
             "app/models",
             "app/database",
             "app/tests"
+        ],
+        "files": [
+        	"app/helpers.php"
         ]
 	},
 	"config": {

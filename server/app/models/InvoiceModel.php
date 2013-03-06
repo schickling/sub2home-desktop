@@ -36,6 +36,11 @@ class InvoiceModel extends BaseModel
 		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
+	public function ordersCollection()
+	{
+		return $this->hasMany('App\\Models\\OrderModel');
+	}
+
 	public function generateDocument()
 	{
 		// prevent overwriting an existing document
@@ -57,18 +62,6 @@ class InvoiceModel extends BaseModel
 		if (!empty($this->invoiceDocumentName)) {
 			throw new Exception('Invoice is already locked');
 		}
-	}
-
-	public function getBelongingOrdersCollectionAttribute()
-	{
-		$storeModel = $this->storeModel;
-		$lastMonth = date('n', strtotime($this->timeSpan));
-		$yearOfLastMonth = date('Y', strtotime($this->timeSpan));
-
-		return $storeModel->ordersCollection()
-								->whereRaw('YEAR(created_at) = ' . $yearOfLastMonth)
-								->whereRaw('MONTH(created_at) = ' . $lastMonth)
-								->get();
 	}
 
 }

@@ -65,7 +65,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		$total = 0;
 		$netAmount = 0;
 		$grossAmount = 0;
-		$ordersCollection = $this->invoiceModel->belongingOrdersCollection;
+		$ordersCollection = $this->invoiceModel->ordersCollection;
 		$numberOfOrders = $ordersCollection->count();
 
 		foreach ($ordersCollection as $orderModel) {
@@ -134,7 +134,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	{
 		$storeModel = $this->invoiceModel->storeModel;
 		$clientModel = $storeModel->clientModel;
-		$invoiceTimeSpanDateTime = new DateTime($this->invoiceModel->timeSpan);
+		$invoiceTimeSpanDateTime = makeDateTimeFromTotalNumberOfMonths($this->invoiceModel->timeSpan);
 		$invoiceUpdatedAtDateTime = new DateTime($this->invoiceModel->updated_at);
 
 		$this->invoiceData['infoStoreTitle'] = $storeModel->title;

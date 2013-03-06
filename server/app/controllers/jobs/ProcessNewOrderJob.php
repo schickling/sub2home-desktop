@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Jobs;
 
 use Exception;
+use DateTime;
 
 use App\Models\OrderModel;
 
@@ -62,18 +63,20 @@ class ProcessNewOrderJob extends BaseJob {
 		$storeModel = $orderModel->storeModel;
 		$storeModel->checkInvoices();
 
-		$createdTime = strtotime($orderModel->created_at);
-		$monthOfOrder = date('n', $createdTime);
-		$yearOfOrder = date('Y', $createdTime);
+		$createdDateTime = new DateTime($orderModel->created_at);
+		$totalNumberOfMonthsSinceOrderCreation = getTotalNumberOfMonthsFromDateTime($createdDateTime);
 
 		$invoiceModel = $storeModel->invoicesCollection()
-										->whereRaw('YEAR(timeSpan) = ' . $yearOfOrder)
-										->whereRaw('MONTH(timeSpan) = ' . $monthOfOrder)
+										->where('timeSpan', $totalNumberOfMonthsSinceOrderCreation)
 										->first();
 
 		if ($invoiceModel == null) {
 			throw new Exception('No invoice found for current order');
 		}
+
+		// TODO check attach
+		$orderModel->invoice_model_id = $invoiceModel->id;
+		$orderModel->save();
 
 		$invoiceModel->total += $orderModel->total;
 		$invoiceModel->save();

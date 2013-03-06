@@ -15,24 +15,23 @@ class GenerateMissingDocumentsCommand extends Command {
 	protected $description = 'Generate missing invoice documents';
 
 
+	/**
+	 * generate for all documentless invoices documents which are at least one month old
+	 * 
+	 * @return void
+	 */
 	public function fire()
 	{
 		$this->checkAllStores();
 
-
-		// generate for all documentless invoices documents which are at least one month old
 		$invoicesCollection = InvoiceModel::where('invoiceDocumentName', '')->get();
 		$numberOfGeneratedFiles = 0;
 
 		$now = new DateTime();
-		$currentTotalNumberOfMonths = $this->getTotalNumberOfMonths($now);
+		$currentTotalNumberOfMonths = getTotalNumberOfMonthsFromDateTime($now);
 
 		foreach ($invoicesCollection as $invoiceModel) {
-			$invoiceDateTime = new DateTime($invoiceModel->timeSpan);
-			$invoiceTotalNumberOfMonths = $this->getTotalNumberOfMonths($invoiceDateTime);
-
-
-			if ($invoiceTotalNumberOfMonths < $currentTotalNumberOfMonths) {
+			if ($invoiceModel->timeSpan < $currentTotalNumberOfMonths) {
 				$invoiceModel->generateDocument();
 				$numberOfGeneratedFiles++;
 			}
@@ -49,11 +48,6 @@ class GenerateMissingDocumentsCommand extends Command {
 		foreach ($storeCollection as $storeModel) {
 			$storeModel->checkInvoices();
 		}
-	}
-
-	private function getTotalNumberOfMonths($dateTime)
-	{
-		return (int) $dateTime->format('n') + (int) $dateTime->format('Y') * 12;
 	}
 
 

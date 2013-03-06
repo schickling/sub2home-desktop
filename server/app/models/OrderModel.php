@@ -40,6 +40,16 @@ class OrderModel extends BaseModel
 	}
 
 	/**
+	 * Returns the invoice the order will belong to
+	 * 
+	 * @return object
+	 */
+	public function invoiceModel()
+	{
+		return $this->belongsTo('App\\Models\\InvoiceModel');
+	}
+
+	/**
 	 * Returns the address of the customer
 	 * 
 	 * @return object
