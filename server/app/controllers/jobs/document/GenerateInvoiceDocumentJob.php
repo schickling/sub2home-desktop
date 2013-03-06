@@ -111,7 +111,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 				'file'	=> $svgTitle
 				),
 			array(
-				'x'		=> 169,
+				'x'		=> 167,
 				'y'		=> 12,
 				'file'	=> $svgLogo
 				)

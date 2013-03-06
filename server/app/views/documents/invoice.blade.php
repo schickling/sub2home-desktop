@@ -1,19 +1,11 @@
 <style>
-  h1 {
-    color: #000;
-    font-family: "VAGRounded LT Thin";
-    font-size: 45pt;
-  }
-
   .addressField {
     width: 84mm;
     line-height: 1.5;
   }
-
   .margin {
     width: 20mm;
   }
-
   .sub2homeInfo {
     width: 105mm;
     height: 43mm;
@@ -24,48 +16,38 @@
     background-color: #f8f8f8;
     font-size: 9pt;
   }
-
   .s2hCol1 {
     width: 12mm;
     font-size: 6pt;
     text-align: right;
     line-height: 2.2;
   }
-
   .s2hCol2 {
     width: 34mm;
     text-align: left;
   }
-
   .s2hCol3 {
     width: 9mm;
     font-size: 6pt;
     text-align: right;
     line-height: 2.2;
   }
-
   .s2hSeparator {
     width: 2mm;
   }
-
   .s2hCol4 {
     width: 46mm;
     text-align: left;
   }
-
-
-
   .storeInfo {
     text-align: left;
     width: 103mm;
     font-size: 10pt;
     font-weight: bold;
   }
-
   .siSeparator {
     width: 3mm;
   }
-
   .siTag1 {
     font-size: 6pt;
     line-height: 2.3;
@@ -73,7 +55,6 @@
     width: 55mm;
     text-align: right;
   }
-
   .siTag2 {
     font-size: 6pt;
     line-height: 2.3;
@@ -81,38 +62,29 @@
     width: 8mm;
     text-align: right;
   }
-
-
-
 .numbersText {
   width: 65mm;
   font-size: 12pt;
   line-height: 1.3;
 }
-
 .nmbrs {
   text-align: left;
   width: 105px;
 }
-
 .nmbrsMargin {
   width: 3mm;
 }
-
 .nmbrsCol1 {
   width: 45mm;
 }
-
 .nmbrsCol2 {
   width: 33mm;
   text-align: right;
 }
-
 .fazit {
   font-size: 12pt;
   width: 160mm;
 }
-
 </style>
 <div><table cellpadding="0" cellspacing="0">
 
@@ -209,37 +181,35 @@
     </tr>
     <tr>
       <td class="margin"></td>
-      <td style="width: 65mm">
-        
-      </td>
+      <td style="width: 65mm"></td>
       
       <!-- Store Info -->
       
       <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
-          <tr>
-            <td colspan="6" style="text-align: right">Store {{$infoStoreTitle}} ({{$infoStoreNumber}})</td>
-          </tr>
-          <tr>
-            <td style="height: 2mm" colspan="6"></td>
-          </tr>
-          <tr>
-            <td class="siTag1">ZEITRAUM</td>
-            <td class="siSeparator"></td>
-            <td style="width: 18mm">{{$infoTimeSpan}}</td>
-            <td class="siTag2">RG-NR</td>
-            <td class="siSeparator"></td>
-            <td style="width: 16mm">{{$infoInvoiceNumber}}</td>
-          </tr>
-          <tr>
-            <td class="siTag1">DATUM</td>
-            <td class="siSeparator"></td>
-            <td style="width: 18mm">{{$infoInvoiceDate}}</td>
-            <td class="siTag2">KD-NR</td>
-            <td class="siSeparator"></td>
-            <td style="width: 16mm">{{$infoClientNumber}}</td>
-          </tr>
-        </tbody></table></td>
-      <td style="width: 22mm; background-color: #fefefe"></td>
+        <tr>
+          <td colspan="6" style="text-align: right">Store {{$infoStoreTitle}} ({{$infoStoreNumber}})</td>
+        </tr>
+        <tr>
+          <td style="height: 2mm" colspan="6"></td>
+        </tr>
+        <tr>
+          <td class="siTag1">ZEITRAUM</td>
+          <td class="siSeparator"></td>
+          <td style="width: 18mm">{{$infoTimeSpan}}</td>
+          <td class="siTag2">RG-NR</td>
+          <td class="siSeparator"></td>
+          <td style="width: 16mm">{{$infoInvoiceNumber}}</td>
+        </tr>
+        <tr>
+          <td class="siTag1">DATUM</td>
+          <td class="siSeparator"></td>
+          <td style="width: 18mm">{{$infoInvoiceDate}}</td>
+          <td class="siTag2">KD-NR</td>
+          <td class="siSeparator"></td>
+          <td style="width: 16mm">{{$infoClientNumber}}</td>
+        </tr>
+      </tbody></table></td>
+      <td style="width: 22mm;"></td>
     </tr>
   </tbody>
 </table>
@@ -265,7 +235,7 @@
         <tr>
           <td class="nmbrsMargin" rowspan="2"></td>
           <td class="nmbrsCol1" style="font-size: 7pt; line-height:3.9" rowspan="2">Daraus ergibt sich folgende Provision:</td>
-          <td colspan="2" style="border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #fff #fff #ccc #fff;"></td>
+          <td colspan="2" style="border-bottom: 1px solid #ccc"></td>
         </tr>
         <tr>
           <td colspan="2"></td>
@@ -283,7 +253,7 @@
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
-          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #fff #fff #ccc #fff; height: 3mm"></td>
+          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; border-bottom: 1px solid #ccc; height: 3mm"></td>
         </tr>
         <tr>
           <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; height: 2mm"></td>
