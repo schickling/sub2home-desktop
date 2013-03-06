@@ -42,8 +42,8 @@ class TCPDFDocument
 		$this->document->setPrintHeader(false);
 		$this->document->setPrintFooter(false);
 
-		$this->document->SetMargins(0, 0, 0);
-		$this->document->SetAutoPageBreak(true, 0);
+		$this->document->SetMargins(20, 20, 20);
+		$this->document->SetAutoPageBreak(true, 20);
 
 	}
 
