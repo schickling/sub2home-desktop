@@ -37,6 +37,9 @@ class TCPDFDocument
 
 	public function prepare()
 	{
+		// needed since large files would timeout otherwise
+		ini_set('max_execution_time', 300); // 300 seconds (5 minutes)
+		ini_set('memory_limit', '1024M');
 
 		// remove default header/footer
 		$this->document->setPrintHeader(false);

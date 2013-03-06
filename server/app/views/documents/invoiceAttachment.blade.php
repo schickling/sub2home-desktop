@@ -90,36 +90,23 @@
 		<th class="separator2"></th>
 		<th class="paymentMethod"></th>
 	</tr>	
+	@foreach ($orders as $order)
 	<tr>
 		<td class="lineSeparator" colspan="11"></td>
 	</tr>
 	<tr>
 		<td class="leftPadding"></td>
-		<td class="date">00.00.00</td>
-		<td class="time">00:00</td>
-		<td class="orderNr">13010001</td>
+		<td class="date">{{ $order['date'] }}</td>
+		<td class="time">{{ $order['time'] }}</td>
+		<td class="orderNr">{{ $order['number'] }}</td>
 		<td class="separator1"></td>
-		<td class="orderer">Herbert Wohlauf</td>
-		<td class="provision">5%</td>
+		<td class="orderer">{{ $order['name'] }}</td>
+		<td class="provision">{{ $order['commissionRate'] }}%</td>
 		<td class="separator2"></td>
-		<td class="value">34,34€</td>
+		<td class="value">{{ $order['total'] }}€</td>
 		<td class="separator2"></td>
 		<td class="paymentMethod"></td>
-	</tr>	
-	<tr>
-		<td class="lineSeparator" colspan="11"></td>
 	</tr>
-	<tr>
-		<td class="leftPadding"></td>
-		<td class="date">00.00.00</td>
-		<td class="time">00:00</td>
-		<td class="orderNr">13010002</td>
-		<td class="separator1"></td>
-		<td class="orderer">Herbert Wohlauf</td>
-		<td class="provision">5%</td>
-		<td class="separator2"></td>
-		<td class="value">34,34€</td>
-		<td class="separator2"></td>
-		<td class="paymentMethod"></td>
-	</tr>	
+	@endforeach
+	
 </tbody></table></div>

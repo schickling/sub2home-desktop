@@ -7,7 +7,7 @@ use DateTime;
 
 use App\Models\InvoiceModel;
 
-
+use Log;
 
 class GenerateInvoiceDocumentJob extends BaseJob {
 
@@ -52,6 +52,10 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 
 	private function generateAttachmentDocument()
 	{
+		$this->addOrdersToAttachmentData();
+		$this->addSVGToAttachmentData();
+
+
 		$documentName = md5(uniqid($this->invoiceModel->id, true)) . '.pdf';
 		$fileDestination = base_path() . '/public/files/invoices/' . $documentName;
 
@@ -92,7 +96,6 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 
 		$this->invoiceData['grossAmount'] = number_format($grossAmount, 2, ',', '.');
 		$this->invoiceData['netAmount'] = number_format($netAmount, 2, ',', '.');
-		// $this->invoiceData['numberOfOrders'] = $numberOfOrders;
 		$this->invoiceData['total'] = number_format($total, 2, ',', '.');
 		$this->invoiceData['tax'] = number_format($grossAmount - $netAmount, 2, ',', '.');
 	}
@@ -156,6 +159,42 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		$this->invoiceData['addressStreet'] = $addressModel->street;
 		$this->invoiceData['addressPostal'] = $addressModel->postal;
 		$this->invoiceData['addressCity'] = $addressModel->city;
+	}
+
+	private function addOrdersToAttachmentData()
+	{
+		$ordersCollection = $this->invoiceModel->ordersCollection()->get();
+		$ordersForData = array();
+
+		foreach ($ordersCollection as $orderModel) {
+			$orderModelDateTime = new DateTime($orderModel->created_at);
+			$addressModel = $orderModel->addressModel;
+			$ordersForData[] = array(
+					'date'				=> $orderModelDateTime->format('d.m.y'),
+					'time'				=> $orderModelDateTime->format('H:m'),
+					'number'			=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT),
+					'name'				=> $addressModel->firstName . ' ' . $addressModel->lastName,
+					'commissionRate'	=> $orderModel->commissionRate * 100,
+					'total'				=> $orderModel->total
+				);
+		}
+
+		$this->attachmentData['orders'] = $ordersForData;
+	}
+
+
+	private function addSVGToAttachmentData()
+	{
+		// add svg images
+		$imageFolder = base_path() . '/app/views/img/';
+		$svgOrders = $imageFolder . 'orders.svg';
+		$this->attachmentData['svg'] = array(
+			array(
+				'x'		=> 20,
+				'y'		=> 20,
+				'file'	=> $svgOrders
+				)
+			);
 	}
 
 	private function saveInvoiceDocumentName($documentName)

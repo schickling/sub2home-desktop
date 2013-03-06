@@ -162,9 +162,9 @@
     <tr>
       <td style="width: 6mm"></td>
       <td class="addressField">
-        <b>{{$addressFirstName}} {{$addressLastName}}</b><br>
-        {{$addressStreet}}<br>
-        {{$addressPostal}} {{$addressCity}}
+        <b>{{ $addressFirstName }} {{ $addressLastName }}</b><br>
+        {{ $addressStreet }}<br>
+        {{ $addressPostal }} {{ $addressCity }}
       </td>
     </tr>
   </tbody>
@@ -184,7 +184,7 @@
       
       <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
         <tr>
-          <td colspan="6" style="text-align: right">Store {{$infoStoreTitle}} ({{$infoStoreNumber}})</td>
+          <td colspan="6" style="text-align: right">Store {{ $infoStoreTitle }} ({{ $infoStoreNumber }})</td>
         </tr>
         <tr>
           <td style="height: 2mm" colspan="6"></td>
@@ -192,18 +192,18 @@
         <tr>
           <td class="siTag1">ZEITRAUM</td>
           <td class="siSeparator"></td>
-          <td style="width: 18mm">{{$infoTimeSpan}}</td>
+          <td style="width: 18mm">{{ $infoTimeSpan }}</td>
           <td class="siTag2">RG-NR</td>
           <td class="siSeparator"></td>
-          <td style="width: 16mm">{{$infoInvoiceNumber}}</td>
+          <td style="width: 16mm">{{ $infoInvoiceNumber }}</td>
         </tr>
         <tr>
           <td class="siTag1">DATUM</td>
           <td class="siSeparator"></td>
-          <td style="width: 18mm">{{$infoInvoiceDate}}</td>
+          <td style="width: 18mm">{{ $infoInvoiceDate }}</td>
           <td class="siTag2">KD-NR</td>
           <td class="siSeparator"></td>
-          <td style="width: 16mm">{{$infoClientNumber}}</td>
+          <td style="width: 16mm">{{ $infoClientNumber }}</td>
         </tr>
       </tbody></table></td>
       <td style="width: 22mm;"></td>
@@ -226,7 +226,7 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Lieferungen</td>
-          <td class="nmbrsCol2"><b>{{$total}}€</b></td>
+          <td class="nmbrsCol2"><b>{{ $total }}€</b></td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
@@ -240,13 +240,13 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Netto</td>
-          <td class="nmbrsCol2">{{$netAmount}}€</td>
+          <td class="nmbrsCol2">{{ $netAmount }}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">MwSt (19%)</td>
-          <td class="nmbrsCol2">{{$tax}}€</td>
+          <td class="nmbrsCol2">{{ $tax }}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
         <tr>
@@ -258,7 +258,7 @@
         <tr>
           <td class="nmbrsMargin"></td>
           <td class="nmbrsCol1">Summe Brutto</td>
-          <td class="nmbrsCol2" style="font-weight: bold" cellpadding="3">{{$grossAmount}}€</td>
+          <td class="nmbrsCol2" style="font-weight: bold" cellpadding="3">{{ $grossAmount }}€</td>
           <td class="nmbrsMargin"></td>
         </tr>
       </tbody></table></td>
@@ -273,7 +273,7 @@
     </tr>
     <tr>
       <td style="width: 5mm"></td>
-      <td class="fazit">Der Rechnungsbetrag in Höhe von {{$grossAmount}}€ wird in den nächsten Tagen von ihrem Konto (Nr. {{$bankaccountAccountNumber}}, BLZ {{$bankaccountBankCodeNumber}}, {{$bankaccountBankName}}) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
+      <td class="fazit">Der Rechnungsbetrag in Höhe von {{ $grossAmount }}€ wird in den nächsten Tagen von ihrem Konto (Nr. {{ $bankaccountAccountNumber }}, BLZ {{ $bankaccountBankCodeNumber }}, {{ $bankaccountBankName }}) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
       <td style="width: 5mm"></td>
     </tr>
   </tbody>
