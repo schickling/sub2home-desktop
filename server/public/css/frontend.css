@@ -2219,6 +2219,9 @@ table [class*=span],
 .iVegetables:before {
   content: "\e016";
 }
+.iExtras:before {
+  content: "\e019";
+}
 .iSauce:before {
   content: "\e017";
 }
@@ -7330,6 +7333,7 @@ div#payment .bankaccount {
 .itemsTimeline .itemTimeline .iCheese,
 .itemsTimeline .itemTimeline .iVegetables,
 .itemsTimeline .itemTimeline .iSauce,
+.itemsTimeline .itemTimeline .iExtras,
 .itemsTimeline .itemTimeline .iMenuUpgrade {
   position: relative;
   top: 7px;
