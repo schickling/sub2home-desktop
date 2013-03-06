@@ -78,6 +78,9 @@
 
 <div><table><tbody>
 	<tr>
+		<td colspan="11" style="height: 31mm"></td>
+	</tr>
+	<tr>
 		<th class="leftPadding"></th>
 		<th class="date">DATUM</th>
 		<th class="time"></th>

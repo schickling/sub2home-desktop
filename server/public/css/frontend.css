@@ -2267,10 +2267,10 @@ table [class*=span],
 .pSalad:after {
   content: "\e024";
 }
-.pColdBev:before {
+.pBeverage:before {
   content: "\e02e";
 }
-.pColdBev:after {
+.pBeverage:after {
   content: "\e02f";
 }
 .pWarmBev:before {
