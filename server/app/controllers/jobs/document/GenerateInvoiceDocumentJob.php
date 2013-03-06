@@ -54,6 +54,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	{
 		$this->addOrdersToAttachmentData();
 		$this->addSVGToAttachmentData();
+		$this->addFontToAttachmentData();
 
 
 		$documentName = md5(uniqid($this->invoiceModel->id, true)) . '.pdf';
@@ -104,7 +105,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	private function addSVGToInvoiceData()
 	{
 		// add svg images
-		$imageFolder = base_path() . '/app/views/img/';
+		$imageFolder = base_path() . '/app/views/assets/img/';
 		$svgTitle = $imageFolder . 'invoiceTitle.svg';
 		$svgLogo = $imageFolder . 'subwayLogo.svg';
 		$this->invoiceData['svg'] = array(
@@ -186,7 +187,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	private function addSVGToAttachmentData()
 	{
 		// add svg images
-		$imageFolder = base_path() . '/app/views/img/';
+		$imageFolder = base_path() . '/app/views/assets/img/';
 		$svgOrders = $imageFolder . 'orders.svg';
 		$this->attachmentData['svg'] = array(
 			array(
@@ -194,6 +195,14 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 				'y'		=> 20,
 				'file'	=> $svgOrders
 				)
+			);
+	}
+
+
+	private function addFontToAttachmentData()
+	{
+		$this->attachmentData['font'] = array(
+			'/app/views/assets/font/pdf-homicons.ttf'
 			);
 	}
 

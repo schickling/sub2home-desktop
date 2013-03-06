@@ -48,6 +48,8 @@ class TCPDFDocument
 		$this->document->SetMargins(20, 20, 20);
 		$this->document->SetAutoPageBreak(true, 20);
 
+		$this->loadFonts();
+
 	}
 
 	public function render()
@@ -70,6 +72,23 @@ class TCPDFDocument
 			}
 			unset($this->data['svg']);
 		}
+	}
+
+	private function loadFonts()
+	{
+		if (array_key_exists('font', $this->data)) {
+			foreach ($this->data['font'] as $font) {
+
+				// convert TTF font to TCPDF format and store it on the fonts folder
+				$fontname = $pdf->addTTFfont($font, 'TrueTypeUnicode', '', 96);
+
+				// use the font
+				$pdf->SetFont($fontname, '', 14, '', false);
+
+			}
+			unset($this->data['font']);
+		}
+		
 	}
 
 	private function renderContent()
