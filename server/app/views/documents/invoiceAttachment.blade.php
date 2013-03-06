@@ -78,60 +78,48 @@
 
 <div><table><tbody>
 	<tr>
-		<td class="vMargin" colspan="3"></td>
+		<th class="leftPadding"></th>
+		<th class="date">DATUM</th>
+		<th class="time"></th>
+		<th class="orderNr">BEST-NR</th>
+		<th class="separator1"></th>
+		<th class="orderer">NAME</th>
+		<th class="provision">PROV.</th>
+		<th class="separator2"></th>
+		<th class="value">BETRAG</th>
+		<th class="separator2"></th>
+		<th class="paymentMethod"></th>
+	</tr>	
+	<tr>
+		<td class="lineSeparator" colspan="11"></td>
 	</tr>
 	<tr>
-		<td class="margin"></td>
-		<td><table><tbody>
-			<tr>
-				<th class="leftPadding"></th>
-				<th class="date">DATUM</th>
-				<th class="time"></th>
-				<th class="orderNr">BEST-NR</th>
-				<th class="separator1"></th>
-				<th class="orderer">NAME</th>
-				<th class="provision">PROV.</th>
-				<th class="separator2"></th>
-				<th class="value">BETRAG</th>
-				<th class="separator2"></th>
-				<th class="paymentMethod"></th>
-			</tr>	
-			<tr>
-				<td class="lineSeparator" colspan="11"></td>
-			</tr>
-			<tr>
-				<td class="leftPadding"></td>
-				<td class="date">00.00.00</td>
-				<td class="time">00:00</td>
-				<td class="orderNr">13010001</td>
-				<td class="separator1"></td>
-				<td class="orderer">Herbert Wohlauf</td>
-				<td class="provision">5%</td>
-				<td class="separator2"></td>
-				<td class="value">34,34€</td>
-				<td class="separator2"></td>
-				<td class="paymentMethod"></td>
-			</tr>	
-			<tr>
-				<td class="lineSeparator" colspan="11"></td>
-			</tr>
-			<tr>
-				<td class="leftPadding"></td>
-				<td class="date">00.00.00</td>
-				<td class="time">00:00</td>
-				<td class="orderNr">13010002</td>
-				<td class="separator1"></td>
-				<td class="orderer">Herbert Wohlauf</td>
-				<td class="provision">5%</td>
-				<td class="separator2"></td>
-				<td class="value">34,34€</td>
-				<td class="separator2"></td>
-				<td class="paymentMethod"></td>
-			</tr>	
-		</tbody></table></td>
-		<td class="margin"></td>
+		<td class="leftPadding"></td>
+		<td class="date">00.00.00</td>
+		<td class="time">00:00</td>
+		<td class="orderNr">13010001</td>
+		<td class="separator1"></td>
+		<td class="orderer">Herbert Wohlauf</td>
+		<td class="provision">5%</td>
+		<td class="separator2"></td>
+		<td class="value">34,34€</td>
+		<td class="separator2"></td>
+		<td class="paymentMethod"></td>
+	</tr>	
+	<tr>
+		<td class="lineSeparator" colspan="11"></td>
 	</tr>
 	<tr>
-		<td class="vMargin" colspan="3"></td>
-	</tr>
+		<td class="leftPadding"></td>
+		<td class="date">00.00.00</td>
+		<td class="time">00:00</td>
+		<td class="orderNr">13010002</td>
+		<td class="separator1"></td>
+		<td class="orderer">Herbert Wohlauf</td>
+		<td class="provision">5%</td>
+		<td class="separator2"></td>
+		<td class="value">34,34€</td>
+		<td class="separator2"></td>
+		<td class="paymentMethod"></td>
+	</tr>	
 </tbody></table></div>

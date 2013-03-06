@@ -94,13 +94,11 @@
   <!-- Logo Row -->
 
     <tr>
-      <td colspan="2" style="height: 31mm;"></td>
-      <td style="height: 31mm;"></td>
+      <td colspan="2" style="height: 11mm;"></td>
     </tr>
 
   <!-- Address & sub2home-Info Row -->
     <tr>
-      <td style="width: 26mm; height: 11mm"></td>
       <td style="width: 84mm; height: 11mm"></td>
 
       <!-- sub2home-Info Table -->
@@ -162,7 +160,7 @@
     </tbody></table></td>
     </tr>
     <tr>
-      <td style="width: 26mm"></td>
+      <td style="width: 6mm"></td>
       <td class="addressField">
         <b>{{$addressFirstName}} {{$addressLastName}}</b><br>
         {{$addressStreet}}<br>
@@ -180,7 +178,6 @@
       <td colspan="4" style="height: 17mm"></td>
     </tr>
     <tr>
-      <td class="margin"></td>
       <td style="width: 65mm"></td>
       
       <!-- Store Info -->
@@ -222,7 +219,7 @@
       <td style="height: 19mm" colspan="5"></td>
     </tr>
     <tr>
-      <td style="width: 25mm"></td>
+      <td style="width: 5mm"></td>
       <td class="numbersText">Wir vermittelten  Ihnen auf<br/>unserer Bestellplattform folgende<br/>Lieferungen im oben aufgeführten<br/>Zeitraum und stellen Ihnen diese<br/>hiermit in Rechnung.</td>
       <td style="width: 16mm"></td>
       <td><table class="nmbrs"><tbody>
@@ -265,7 +262,6 @@
           <td class="nmbrsMargin"></td>
         </tr>
       </tbody></table></td>
-      <td class="margin"></td>
     </tr>
   </tbody>
 </table>
@@ -276,9 +272,9 @@
       <td colspan="3" style="height: 16mm"></td>
     </tr>
     <tr>
-      <td style="width: 25mm"></td>
+      <td style="width: 5mm"></td>
       <td class="fazit">Der Rechnungsbetrag in Höhe von {{$grossAmount}}€ wird in den nächsten Tagen von ihrem Konto (Nr. {{$bankaccountAccountNumber}}, BLZ {{$bankaccountBankCodeNumber}}, {{$bankaccountBankName}}) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
-      <td style="width: 25mm"></td>
+      <td style="width: 5mm"></td>
     </tr>
   </tbody>
 </table>
