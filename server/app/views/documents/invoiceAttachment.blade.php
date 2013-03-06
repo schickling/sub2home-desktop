@@ -63,8 +63,8 @@
 	}
 
 	.paymentMethod {
+		font-family: "icomoon";
 		width: 5mm;
-		background-image: url('paypal.jpg');
 	}
 
 	.lineSeparator {
@@ -91,7 +91,7 @@
 		<th class="separator2"></th>
 		<th class="value">BETRAG</th>
 		<th class="separator2"></th>
-		<th class="paymentMethod"></th>
+		<th class="paymentMethod">&#xe002;</th>
 	</tr>	
 	@foreach ($orders as $order)
 	<tr>
@@ -108,7 +108,7 @@
 		<td class="separator2"></td>
 		<td class="value">{{ $order['total'] }}€</td>
 		<td class="separator2"></td>
-		<td class="paymentMethod"></td>
+		<td class="paymentMethod" style="font-family: icomoon;">&#xe002;</td>
 	</tr>
 	@endforeach
 	
