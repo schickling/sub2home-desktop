@@ -2,6 +2,7 @@
 
 use Queue;
 use Exception;
+use Request;
 
 /**
  * Order class
@@ -14,6 +15,14 @@ class OrderModel extends BaseModel
 	protected $hidden = array('store_model_id', 'updated_at', 'commissionRate');
 
 	protected $table = 'order_models';
+
+	protected function beforeFirstSave()
+	{
+		// TODO check
+		$requestIp = Request::getClientIp();
+		$ip = (is_null($requestIp)) ? '127.0.0.1' : $requestIp;
+		$this->ip = $ip;
+	}
 
 	public function delete()
 	{
@@ -60,6 +69,11 @@ class OrderModel extends BaseModel
 		return $this->morphOne('App\\Models\\AddressModel', 'ownerModel');
 	}
 
+	public function setTotalAttribute()
+	{
+		throw new Exception('Total has to be calculated');
+	}
+
 	public function calculateTotal()
 	{
 		$total = 0;
@@ -69,7 +83,7 @@ class OrderModel extends BaseModel
 			$total += $orderedItemModel->total;
 		}
 
-		$this->total = $total;
+		$this->attributes['total'] = $total;
 	}
 
 	/**
@@ -81,6 +95,7 @@ class OrderModel extends BaseModel
 	{
 		$isValid = true;
 
+		$isValid = $isValid && $this->verifyStore();
 		$isValid = $isValid && $this->verifyMinimumValue();
 		$isValid = $isValid && $this->verifyMenus();
 		$isValid = $isValid && $this->verifyOrderedArticles();
@@ -106,6 +121,12 @@ class OrderModel extends BaseModel
 		Queue::push('App\\Controllers\\Jobs\\Mail\\SendCustomerOrderConfirmMailJob', $jobData);
 		Queue::push('App\\Controllers\\Jobs\\Mail\\SendStoreOrderNotificationMailJob', $jobData);
 
+	}
+
+	private function verifyStore()
+	{
+		$storeModel = $this->storeModel;
+		return $storeModel->isActive && $storeModel->isOpen;
 	}
 
 	private function verifyMinimumValue()
@@ -135,7 +156,17 @@ class OrderModel extends BaseModel
 
 	private function verifyMenus()
 	{
-		
+		$store_model_id = $this->storeModel->id;
+
+		foreach ($this->orderedItemsCollection as $orderedItemModel) {
+			$menuModel = $orderedItemModel->menuModel;
+
+			var_dump($menuModel);
+			// if ($menuModel && !$menuModel->isActive($store_model_id)) {
+			// 	return false;
+			// }
+		}
+
 		return true;
 	}
 

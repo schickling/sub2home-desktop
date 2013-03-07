@@ -24,7 +24,6 @@ class TestOrderModel extends OrderModel
 			throw new Exception('Store didn\'t exist when this order was generated');
 		}
 
-
 		// create test order
 		$orderModel = new OrderModel();
 		$orderModel->store_model_id = $store_model_id;
