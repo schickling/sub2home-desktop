@@ -1,11 +1,13 @@
 // Filename: src/js/views/client/dashboard/RevenuessView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/client/dashboard/RevenuesView',
+    'jquery',
+    'underscore',
+    'backbone',
+    'lib/moment',
+    'models/InvoiceModel',
+    'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/RevenuesTemplate.html'
-	], function ($, _, Backbone, RevenuesView, RevenuesTemplate) {
+    ], function ($, _, Backbone, momentLib, InvoiceModel, RevenuesView, RevenuesTemplate) {
 
 	var RevenuessView = Backbone.View.extend({
 
@@ -16,8 +18,14 @@ define([
 		},
 
 		_render: function () {
-			var json = {
+			var currentMoment = moment();
 
+			var json = {
+				totalOfCurrentYear: this._getTotalOfCurrentYear(),
+				totalOfCurrentMonth: this._getTotalOfCurrentMonth(),
+				currentMonth: currentMoment.format('MMMM'),
+				currentYear: currentMoment.format('YYYY'),
+				currentYearShort: currentMoment.format('YY')
 			};
 
 			this.$el.html(this.template(json));
@@ -26,7 +34,37 @@ define([
 		},
 
 		_renderRevenues: function () {
-			
+			_.each(this.collection.models, function (storeModel) {
+
+			}, this);
+		},
+
+		_renderRevenue: function (invoiceModel) {
+
+		},
+
+		_getTotalOfCurrentYear: function () {
+			var totalOfCurrentYear = 0,
+				invoicesCollection;
+
+			_.each(this.collection.models, function (storeModel) {
+				invoicesCollection = storeModel.get('invoicesCollection');
+				totalOfCurrentYear += invoicesCollection.getTotalOfCurrentYear();
+			});
+
+			return totalOfCurrentYear;
+		},
+
+		_getTotalOfCurrentMonth: function () {
+			var totalOfCurrentMonth = 0,
+				invoicesCollection;
+
+			_.each(this.collection.models, function (storeModel) {
+				invoicesCollection = storeModel.get('invoicesCollection');
+				totalOfCurrentMonth += invoicesCollection.getTotalOfCurrentMonth();
+			});
+
+			return totalOfCurrentMonth;
 		}
 
 

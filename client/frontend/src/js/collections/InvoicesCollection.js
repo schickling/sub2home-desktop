@@ -9,14 +9,21 @@ define([
 
 		model: InvoiceModel,
 
-		getTotal: function() {
-			var total = 0;
+		getTotalOfCurrentYear: function() {
+			var total = 0,
+				currentYear = new Date().getFullYear();
 
 			_.each(this.models, function(invoiceModel) {
-				total += invoiceModel.get('total');
+				if (invoiceModel.getTimeSpanYear() === currentYear) {
+					total += invoiceModel.get('total');
+				}
 			});
 
 			return total;
+		},
+
+		getTotalOfCurrentMonth: function() {
+			return this.last().get('total');
 		}
 
 	});

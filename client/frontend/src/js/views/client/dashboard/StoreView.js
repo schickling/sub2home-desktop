@@ -24,7 +24,6 @@ define([
 
 		_render: function () {
 			var invoicesCollection = this.model.get('invoicesCollection'),
-				currentInvoiceModel = invoicesCollection.last(),
 				currentMoment = moment();
 
 			// currentMoment.lang('de');
@@ -33,7 +32,7 @@ define([
 				title: this.model.get('title'),
 				month: currentMoment.format('MMMM'),
 				year: currentMoment.format('YYYY'),
-				total: currentInvoiceModel.get('total'),
+				total: invoicesCollection.getTotalOfCurrentMonth(),
 				numberOfUndoneOrders: this.model.get('numberOfUndoneOrders')
 			};
 
