@@ -8,7 +8,7 @@ use App\Models\StoreModel;
 
 
 
-class SendInvoicesForLastMonthCommand extends Command {
+class SendInvoiceMailsForLastMonthCommand extends Command {
 
 
 	protected $name = 'invoices:send';
@@ -44,13 +44,13 @@ class SendInvoicesForLastMonthCommand extends Command {
 		}
 
 
-		$this->line($numberOfSendedInvoices . ' invoices were sent.');
+		$this->line($numberOfSendedInvoices . ' invoice mails will be sent.');
 	}
 
 	private function sendInvoiceToOwner($invoiceModel)
 	{
 		$jobData = array('invoice_model_id' => $invoiceModel->id);
 		
-		Queue::push('App\\Controllers\\Jobs\\Mail\\InvoiceMailJob', $jobData);	
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendInvoiceMailJob', $jobData);	
 	}
 }

@@ -5,7 +5,7 @@ use App\Controllers\Jobs\BaseJob;
 use App\Models\OrderModel;
 use Exception;
 
-class StoreOrderNotificationMailJob extends BaseJob {
+class SendCustomerOrderConfirmMailJob extends BaseJob {
 
 	protected function run()
 	{
@@ -15,6 +15,7 @@ class StoreOrderNotificationMailJob extends BaseJob {
 		if ($orderModel == null) {
 			throw new Exception('Invalid order to process');
 		}
+		
 	}
 
 

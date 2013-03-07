@@ -22,4 +22,17 @@ class DeliveryAreaModel extends BaseModel
 	{
 		return $this->belongsTo('App\\Models\\StoreModel');
 	}
+
+	public function matchesCompoundCity($compoundCity)
+	{
+		
+
+		$text = 'ignore everything except this (text)';
+preg_match('#\((.*?)\)#', $text, $match);
+print $match[1];
+		
+		return true;
+	}
+
+
 }

@@ -17,6 +17,8 @@ use App\Models\OrderedItemModel;
 class OrderCreateController extends ApiController
 {
 
+	private $orderModel;
+
 
 	public function create()
 	{
@@ -30,13 +32,15 @@ class OrderCreateController extends ApiController
 		$input = Input::json();
 		$orderModel = new OrderModel();
 
+		$this->orderModel = $orderModel;
 
-		// parse ordered items
+
+		// parse ordered items and create temporary relations
 		$orderedItemsCollection = $this->createOrderedItemsCollection($input->orderedItemsCollection);
 		$orderModel->setRelation('orderedItemsCollection', $orderedItemsCollection);
 
 
-		// recalculate and compare totals (relation to store needed)
+		// recalculate and compare totals (relation to store needed for custom prices)
 		$orderModel->store_model_id = $this->storeModel->id;
 		$orderModel->calculateTotal();
 
@@ -48,7 +52,7 @@ class OrderCreateController extends ApiController
 		// set current commision rate
 		$orderModel->commissionRate = $this->storeModel->commissionRate;
 
-		// save other order data
+		// set other order data
 		$orderModel->paymentMethod = $input->paymentMethod;
 		$orderModel->isDelivered = false;
 		$orderModel->credit = $input->credit;
@@ -56,6 +60,12 @@ class OrderCreateController extends ApiController
 
 		$orderModel->due_at = new DateTime();
 		$orderModel->due_at->setTimestamp($input->due_at / 1000);
+
+
+		if ($orderModel->isValid()) {
+			return $this->respondWithStatus(400);
+		}
+
 
 		// save order
 		$orderModel->save();
@@ -176,10 +186,10 @@ class OrderCreateController extends ApiController
 	}
 
 
-	private function saveTempRelations($orderModel)
+	private function saveTempRelations()
 	{
-		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {
-			$orderModel->orderedItemsCollection()->save($orderedItemModel);
+		foreach ($this->orderModel->orderedItemsCollection as $orderedItemModel) {
+			$this->orderModel->orderedItemsCollection()->save($orderedItemModel);
 
 			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
 				$orderedItemModel->orderedArticlesCollection()->save($orderedArticleModel);

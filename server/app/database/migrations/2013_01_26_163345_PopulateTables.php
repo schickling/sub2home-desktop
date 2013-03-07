@@ -255,28 +255,32 @@ class PopulateTables extends Migration {
 		$da1 = new DeliveryAreaModel(array(
 			'store_model_id' => $s5->id,
 			'postal' => 76185,
-			'description' => 'Liefergebiet 1'
+			'city' => 'Liefergebiet 1',
+			'district' => 'Stadtteil'
 			));
 		$da1->save();
 
 		$da2 = new DeliveryAreaModel(array(
 			'store_model_id' => $s5->id,
 			'postal' => 76185,
-			'description' => 'Liefergebiet 2'
+			'city' => 'Liefergebiet 2',
+			'district' => 'Stadtteil'
 			));
 		$da2->save();
 
 		$da3 = new DeliveryAreaModel(array(
 			'store_model_id' => $s7->id,
 			'postal' => 76185,
-			'description' => 'Liefergebiet 2'
+			'city' => 'Liefergebiet 2',
+			'district' => 'Stadtteil'
 			));
 		$da3->save();
 
 		$da4 = new DeliveryAreaModel(array(
 			'store_model_id' => $s6->id,
 			'postal' => 76185,
-			'description' => 'Liefergebiet 2'
+			'city' => 'Liefergebiet 2',
+			'district' => 'Stadtteil'
 			));
 		$da4->save();
 

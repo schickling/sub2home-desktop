@@ -33,7 +33,8 @@ define([
 
 			// for assortment
 			isActive: false,
-			customPrice: 0
+			customPrice: 0,
+			buyed: 0
 		},
 
 		initialize: function () {

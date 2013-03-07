@@ -25,7 +25,7 @@ define([
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
 
 			var json = {
-				area: selectedDeliveryAreaModel.get('description'),
+				area: selectedDeliveryAreaModel.get('district'),
 				postal: selectedDeliveryAreaModel.get('postal'),
 				minimumDuration: selectedDeliveryAreaModel.get('minimumDuration')
 			};
@@ -58,7 +58,7 @@ define([
 				$deliveryArea;
 
 			_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
-				$deliveryArea = $('<span>').text(deliveryAreaModel.get('description'));
+				$deliveryArea = $('<span>').text(deliveryAreaModel.get('district'));
 
 				if (deliveryAreaModel.get('isSelected')) {
 					$deliveryArea.addClass('selected');
@@ -78,7 +78,7 @@ define([
 				$newDeliveryArea = $(e.target),
 				newDeliveryArea = $newDeliveryArea.text();
 
-			if (newDeliveryArea !== currentDeliveryArea.get('description')) {
+			if (newDeliveryArea !== currentDeliveryArea.get('district')) {
 
 				// unmark old deliveryArea
 				currentDeliveryArea.set({
@@ -89,7 +89,7 @@ define([
 
 				// mark new delivery area as selected
 				_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
-					if (deliveryAreaModel.get('description') === newDeliveryArea) {
+					if (deliveryAreaModel.get('district') === newDeliveryArea) {
 
 						deliveryAreaModel.set('isSelected', true);
 

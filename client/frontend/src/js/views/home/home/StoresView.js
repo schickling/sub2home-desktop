@@ -152,6 +152,7 @@ define([
 				if (matchingDeliveryAreas.length > 1) {
 					this._renderDeliveryAreas(matchingDeliveryAreas);
 				} else {
+					matchingDeliveryAreas[0].set('isSelected', true);
 					this.storeViews[0].markAvailable();
 				}
 
@@ -173,16 +174,16 @@ define([
 
 		_renderDeliveryAreas: function (deliveryAreas) {
 			var self = this,
-				renderedDescriptions = [];
+				renderedDistricts = [];
 
 			// render new areas
 			_.each(deliveryAreas, function (deliveryAreaModel) {
-				var description = deliveryAreaModel.get('description');
+				var district = deliveryAreaModel.get('district');
 
-				if (!_.contains(renderedDescriptions, description)) {
-					renderedDescriptions.push(description);
+				if (!_.contains(renderedDistricts, district)) {
+					renderedDistricts.push(district);
 
-					var $deliveryArea = $('<span>').text(description);
+					var $deliveryArea = $('<span>').text(district);
 
 					// append to list
 					self.$deliveryAreaSelection.append($deliveryArea);
@@ -195,7 +196,7 @@ define([
 
 						// mark delivery areas
 						_.each(deliveryAreas, function (deliveryAreaModelToMark) {
-							deliveryAreaModelToMark.set('isSelected', deliveryAreaModelToMark.get('description') === description);
+							deliveryAreaModelToMark.set('isSelected', deliveryAreaModelToMark.get('district') === district);
 						});
 
 						// update storeviews

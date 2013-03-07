@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Queue;
+use Exception;
 
 /**
  * Order class
@@ -71,13 +72,20 @@ class OrderModel extends BaseModel
 		$this->total = $total;
 	}
 
-	public function verify()
+	/**
+	 * Validates the order. Order and relations usually arent't saved yet but needed
+	 * 
+	 * @return boolean
+	 */
+	public function isValid()
 	{
-		// TODO return bool
-		$this->verifyMinimumValue();
-		$this->verifyDeliveryArea();
-		$this->verifyOrderedArticles();
-		$this->verifyDueDate();
+		$isValid = true;
+
+		$isValid = $isValid && $this->verifyMinimumValue();
+		$isValid = $isValid && $this->verifyOrderedArticles();
+		$isValid = $isValid && $this->verifyDueDate();
+
+		return $isValid;
 	}
 
 	/**
@@ -87,32 +95,53 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
+		if (!$this->isValid()) {
+			throw new Exception('No valid order');
+		}
+
 		$jobData = array('order_model_id' => $this->id);
 
 		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrderJob', $jobData);
-		Queue::push('App\\Controllers\\Jobs\\Mail\\CustomerOrderConfirmMailJob', $jobData);
-		Queue::push('App\\Controllers\\Jobs\\Mail\\StoreOrderNotificationMailJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendCustomerOrderConfirmMailJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendStoreOrderNotificationMailJob', $jobData);
 
 	}
 
 	private function verifyMinimumValue()
 	{
-		
-	}
+		$addressModel = $this->addressModel;
+		$postal = $addressModel->postal;
+		$compoundCity = $addressModel->city;
 
-	private function verifyDeliveryArea()
-	{
-		
+		$storeModel = $this->storeModel;
+		$deliveryAreasCollectionWithSamePostal = $storeModel->deliveryAreasCollection()->where('postal', $postal)->get();
+		$matchingDeliveryAreaModel = null;
+
+		foreach ($deliveryAreasCollectionWithSamePostal as $deliveryAreaModel) {
+			if ($deliveryAreaModel->matchesCompoundCity($compoundCity)) {
+				$matchingDeliveryAreaModel = $deliveryAreaModel;
+				break;
+			}
+		}
+
+		if ($matchingDeliveryAreaModel == null) {
+			// delivery area doesn't exist
+			return false;
+		}
+
+		return $this->total >= $matchingDeliveryAreaModel->minimumValue;
 	}
 
 	private function verifyOrderedArticles()
 	{
 		
+		return true;
 	}
 
 	private function verifyDueDate()
 	{
 		
+		return true;
 	}
 
 }

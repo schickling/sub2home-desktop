@@ -9,7 +9,8 @@ define([
 		defaults: {
 			minimumValue: 0,
 			minimumDuration: 0,
-			description: '',
+			district: '',
+			city: '',
 			postal: 0,
 
 			isSelected: false

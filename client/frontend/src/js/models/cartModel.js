@@ -1,11 +1,11 @@
 // Filename: src/js/models/cartModel.js
 define([
-	'underscore',
-	'backbone',
-	'backboneLocalStorage',
-	'models/stateModel',
-	'models/OrderModel'
-	], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
+    'underscore',
+    'backbone',
+    'backboneLocalStorage',
+    'models/stateModel',
+    'models/OrderModel'
+    ], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
 
 	var CartModel = Backbone.Model.extend({
 
@@ -29,10 +29,13 @@ define([
 				this._resetOrderModel();
 			}
 
-			// reset ordered items collection on store change
-			stateModel.on('change:storeModel', this._resetOrderModel, this);
+			stateModel.on('change:storeModel', function () {
+				// reset ordered items collection on store change
+				this._resetOrderModel();
+				this._listenToDeliveryAreaSelection();
+			}, this);
 
-			this._listenToStoreInternalChanges();
+			this._listenToDeliveryAreaSelection();
 
 		},
 
@@ -118,22 +121,30 @@ define([
 			}, this);
 		},
 
-		_listenToStoreInternalChanges: function() {
+		_listenToDeliveryAreaSelection: function () {
 			var storeModel = stateModel.get('storeModel');
 
-			storeModel.on('change', this._adjustCustomerAddress, this);
+			if (storeModel) {
+				storeModel.on('change', this._adjustCustomerAddress, this);
+			}
 		},
 
-		_adjustCustomerAddress: function() {
+		_adjustCustomerAddress: function () {
 			// copy postal and city to customer address
 			var storeModel = stateModel.get('storeModel'),
 				orderModel = this.get('orderModel'),
 				addressModel = orderModel.get('addressModel'),
-				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
+				city = selectedDeliveryAreaModel.get('city'),
+				district = selectedDeliveryAreaModel.get('district');
+
+			if (district) {
+				city = city + ' (' + district + ')';
+			}
 
 			addressModel.set({
 				postal: selectedDeliveryAreaModel.get('postal'),
-				city: selectedDeliveryAreaModel.get('description')
+				city: city
 			});
 		},
 
@@ -256,13 +267,13 @@ define([
 			return parseInt(spareMilliseconds / 60000, 10);
 		},
 
-		getMinimumDuration: function() {
+		getMinimumDuration: function () {
 			var storeModel = stateModel.get('storeModel');
 
 			return storeModel.getMinimumDuration();
 		},
 
-		isMinimumReached: function() {
+		isMinimumReached: function () {
 			var orderModel = this.get('orderModel'),
 				storeModel = stateModel.get('storeModel');
 

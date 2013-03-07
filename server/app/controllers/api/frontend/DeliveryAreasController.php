@@ -20,12 +20,14 @@ class DeliveryAreasController extends ApiController
 		}
 
 		// create new deliveryAreaModel
+		$addressModelOfStore = $this->storeModel->addressModel;
 		$deliveryAreaModel = new DeliveryAreaModel(array(
 			'store_model_id' => $this->storeModel->id,
 			'minimumValue' => 0.00,
 			'minimumDuration' => 0,
-			'description' => '',
-			'postal' => $this->storeModel->addressModel->postal
+			'city' => $addressModelOfStore->city,
+			'district' => '',
+			'postal' => $addressModelOfStore->postal
 			));
 
 		// save
@@ -50,7 +52,8 @@ class DeliveryAreasController extends ApiController
 			'minimumDuration'	=> 'numeric|required|min:0',
 			'minimumValue'		=> 'numeric|required|min:0',
 			'postal'			=> 'numeric|required|between:10000,99999',
-			'description'		=> 'alpha_dash|required'
+			'city'				=> 'alpha_dash|required',
+			'district'			=> 'alpha_dash'
 			);
 
 		$validator = Validator::make($input, $rules);
@@ -74,7 +77,8 @@ class DeliveryAreasController extends ApiController
 		$deliveryAreaModel->minimumDuration = $input['minimumDuration'];
 		$deliveryAreaModel->minimumValue = $input['minimumValue'];
 		$deliveryAreaModel->postal = $input['postal'];
-		$deliveryAreaModel->description = $input['description'];
+		$deliveryAreaModel->city = $input['city'];
+		$deliveryAreaModel->district = $input['district'];
 
 		$deliveryAreaModel->save();
 	}

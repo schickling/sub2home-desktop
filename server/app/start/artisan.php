@@ -1,6 +1,6 @@
 <?php
 
-use App\Commands\Invoices\SendInvoicesForLastMonthCommand;
+use App\Commands\Invoices\SendInvoiceMailsForLastMonthCommand;
 use App\Commands\Invoices\GenerateMissingDocumentsCommand;
 use App\Commands\Test\TestOrdersCommand;
 use App\Commands\Test\TestActivateCommand;
@@ -16,7 +16,7 @@ use App\Commands\Test\TestActivateCommand;
 |
 */
 
-Artisan::add(new SendInvoicesForLastMonthCommand);
+Artisan::add(new SendInvoiceMailsForLastMonthCommand);
 Artisan::add(new GenerateMissingDocumentsCommand);
 Artisan::add(new TestOrdersCommand);
 Artisan::add(new TestActivateCommand);

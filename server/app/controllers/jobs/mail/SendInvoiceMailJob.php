@@ -5,7 +5,7 @@ use App\Controllers\Jobs\BaseJob;
 use App\Models\InvoiceModel;
 use Exception;
 
-class InvoiceMailJob extends BaseJob {
+class SendInvoiceMailJob extends BaseJob {
 
 	protected function run()
 	{

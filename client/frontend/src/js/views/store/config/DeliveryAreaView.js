@@ -12,7 +12,8 @@ define([
 			'focusout .deliveryAreaMinimumDuration': '_updateMinimumDuration',
 			'focusout .deliveryAreaMinimumValue': '_updateMinimumValue',
 			'focusout .deliveryAreaPostal': '_updatePostal',
-			'focusout .deliveryAreaDescription': '_updateDescription',
+			'focusout .deliveryAreaCity': '_updateCity',
+			'focusout .deliveryAreaDistrict': '_updateDistrict',
 			'keypress input': '_blurOnEnter',
 			'click .sBRemove': '_destroy'
 		},
@@ -85,12 +86,24 @@ define([
 			this.model.save();
 		},
 
-		_updateDescription: function () {
-			var $input = this.$('.deliveryAreaDescription'),
-				description = $input.val();
+		_updateCity: function () {
+			var $input = this.$('.deliveryAreaCity'),
+				city = $input.val();
 
 			this.model.set({
-				description: description
+				city: city
+			}, {
+				validate: true
+			});
+			this.model.save();
+		},
+
+		_updateDistrict: function () {
+			var $input = this.$('.deliveryAreaDistrict'),
+				district = $input.val();
+
+			this.model.set({
+				district: district
 			}, {
 				validate: true
 			});

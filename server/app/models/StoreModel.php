@@ -66,7 +66,7 @@ class StoreModel extends BaseModel
 			'postal' => $this->clientModel->addressModel->postal,
 			'minimumValue' => 5.00,
 			'minimumDuration' => 20,
-			'description' => $this->addressModel->city
+			'city' => $this->addressModel->city
 			));
 		$deliveryAreaModel->save();
 		
