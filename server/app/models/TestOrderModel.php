@@ -78,7 +78,7 @@ class TestOrderModel extends OrderModel
 		}
 
 		$validPostal = $deliveryArea->postal;
-		$validCity = $deliveryArea->description;
+		$validCity = $deliveryArea->city;
 
 		return array(
 			'firstName'			=> 'Max',
@@ -97,6 +97,7 @@ class TestOrderModel extends OrderModel
 		// TODO rewrite with collection helpers
 		$orderedItemModel = new OrderedItemModel();
 		$orderedItemModel->order_model_id = $orderModel->id;
+		$orderedItemModel->amount = 3;
 		$orderedItemModel->save();
 
 		$storeModel = $orderModel->storeModel;
@@ -113,7 +114,7 @@ class TestOrderModel extends OrderModel
 		$orderedArticleModel->ordered_item_model_id = $orderedItemModel->id;
 		$orderedArticleModel->save();
 
-		$orderedItemModel->total = $firstArticleModel->deposit + $firstActiveCustomArticle->price;
+		$orderedItemModel->calculateTotal();
 		$orderedItemModel->save();
 
 	}

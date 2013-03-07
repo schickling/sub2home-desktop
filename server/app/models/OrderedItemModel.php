@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Exception;
+
 /**
  * Ordered Menu class
  *
@@ -79,8 +81,14 @@ class OrderedItemModel extends BaseModel
 		}
 	}
 
-	public function calculateTotal($store_model_id)
+	public function setTotalAttribute()
 	{
+		throw new Exception('Total has to be calculated');
+	}
+
+	public function calculateTotal()
+	{
+		$store_model_id = $this->orderModel->storeModel->id;
 		$orderedArticlesCollection = $this->orderedArticlesCollection;
 		$total = (float) $this->baseArticleModel->returnCustomPrice($store_model_id);
 
@@ -97,7 +105,7 @@ class OrderedItemModel extends BaseModel
 			}
 		}
 
-		$this->total = $total;
+		$this->attributes['total'] = $total * $this->amount;
 	}
 
 }

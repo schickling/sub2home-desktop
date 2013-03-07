@@ -25,13 +25,21 @@ class DeliveryAreaModel extends BaseModel
 
 	public function matchesCompoundCity($compoundCity)
 	{
-		
 
 		$text = 'ignore everything except this (text)';
-preg_match('#\((.*?)\)#', $text, $match);
-print $match[1];
-		
-		return true;
+		$city = $compoundCity;
+		$district = '';
+
+		// extract district and city
+		preg_match('#\((.*?)\)#', $compoundCity, $splittedCity);
+		if (count($splittedCity) == 2) {
+			$district = $splittedCity[1];
+
+			$lengthOfDistrict = strlen($district) + 3; // 3 extra for space and brackets
+			$city = substr($compoundCity, 0, -($lengthOfDistrict));
+		}
+
+		return $city == $this->city && $district == $this->district;
 	}
 
 

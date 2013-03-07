@@ -82,6 +82,7 @@ class OrderModel extends BaseModel
 		$isValid = true;
 
 		$isValid = $isValid && $this->verifyMinimumValue();
+		$isValid = $isValid && $this->verifyMenus();
 		$isValid = $isValid && $this->verifyOrderedArticles();
 		$isValid = $isValid && $this->verifyDueDate();
 
@@ -132,9 +133,34 @@ class OrderModel extends BaseModel
 		return $this->total >= $matchingDeliveryAreaModel->minimumValue;
 	}
 
-	private function verifyOrderedArticles()
+	private function verifyMenus()
 	{
 		
+		return true;
+	}
+
+	private function verifyOrderedArticles()
+	{
+		$store_model_id = $this->storeModel->id;
+
+		foreach ($this->orderedItemsCollection as $orderedItemModel) {
+			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
+				
+				// check if article is active in current store
+				$articleModel = $orderedArticleModel->articleModel;
+				if (!$articleModel->isActive($store_model_id)) {
+					return false;
+				}
+
+				// check if article has ingredients even if none allowed
+				$ingredientsCollection = $orderedArticleModel->ingredientsCollection;
+				if (!$articleModel->allowsIngredients && $ingredientsCollection->count() > 0) {
+					return false;
+				}
+
+			}
+		}
+
 		return true;
 	}
 
