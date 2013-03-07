@@ -1,11 +1,12 @@
 // Filename: src/js/views/client/dashboard/StoresView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'text!templates/client/dashboard/StoreTemplate.html'
-	], function ($, _, Backbone, router, StoreTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'lib/moment',
+    'router',
+    'text!templates/client/dashboard/StoreTemplate.html'
+    ], function ($, _, Backbone, momentLib, router, StoreTemplate) {
 
 	var StoresView = Backbone.View.extend({
 
@@ -22,8 +23,17 @@ define([
 		},
 
 		_render: function () {
+			var invoicesCollection = this.model.get('invoicesCollection'),
+				currentInvoiceModel = invoicesCollection.last(),
+				currentMoment = moment();
+
+			// currentMoment.lang('de');
+
 			var json = {
 				title: this.model.get('title'),
+				month: currentMoment.format('MMMM'),
+				year: currentMoment.format('YYYY'),
+				total: currentInvoiceModel.get('total'),
 				numberOfUndoneOrders: this.model.get('numberOfUndoneOrders')
 			};
 

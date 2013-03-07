@@ -20,6 +20,8 @@ define([
 				async: false
 			});
 
+			console.log(this.model);
+
 			// select store model if not already selected
 			this._selectFirstStoreModel();
 

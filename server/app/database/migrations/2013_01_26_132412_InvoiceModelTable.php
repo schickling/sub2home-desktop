@@ -14,7 +14,7 @@ class InvoiceModelTable extends Migration {
 		Schema::create('invoice_models', function($table) {
 			$table->increments('id');
 			$table->integer('store_model_id')->unsigned();
-			$table->integer('number')->unsigned()->default();
+			$table->integer('number')->unsigned()->default(0);
 			$table->integer('timeSpan'); // total number of months
 			$table->decimal('total', 7, 2)->default(0);
 			$table->string('invoiceDocumentName', 128)->default('');

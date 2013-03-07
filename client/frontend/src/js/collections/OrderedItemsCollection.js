@@ -1,11 +1,9 @@
 // Filename: src/js/collections/OrderedItemsCollection.js
 define([
-	'require',
 	'underscore',
 	'backbone',
-	'backboneLocalStorage',
 	'models/OrderedItemModel'
-	], function (require, _, Backbone, backboneLocalStorage, OrderedItemModel) {
+	], function (_, Backbone, OrderedItemModel) {
 
 
 	var OrderedItemsCollection = Backbone.Collection.extend({

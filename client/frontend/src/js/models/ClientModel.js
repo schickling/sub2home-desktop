@@ -20,7 +20,9 @@ define([
 		parse: function (response) {
 
 			if (response.hasOwnProperty('storesCollection')) {
-				response.storesCollection = new StoresCollection(response.storesCollection);
+				response.storesCollection = new StoresCollection(response.storesCollection, {
+					parse: true
+				});
 			}
 
 			if (response.hasOwnProperty('addressModel')) {

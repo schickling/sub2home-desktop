@@ -1,10 +1,9 @@
 // Filename: src/js/collections/StoresCollection.js
 define([
-	'jquery',
 	'underscore',
 	'backbone',
 	'models/StoreModel'
-	], function ($, _, Backbone, StoreModel) {
+	], function (_, Backbone, StoreModel) {
 
 	var StoresCollection = Backbone.Collection.extend({
 

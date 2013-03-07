@@ -4,8 +4,9 @@ define([
     'backbone',
     'models/AddressModel',
     'collections/DeliveryAreasCollection',
-    'collections/DeliveryTimesCollection'
-    ], function (_, Backbone, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection) {
+    'collections/DeliveryTimesCollection',
+    'collections/InvoicesCollection'
+    ], function (_, Backbone, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) {
 
 	var StoreModel = Backbone.Model.extend({
 
@@ -67,6 +68,10 @@ define([
 				attributes.deliveryTimesCollection = attributes.deliveryTimesCollection.toJSON();
 			}
 
+			if (attributes.hasOwnProperty('invoicesCollection') && attributes.invoicesCollection) {
+				attributes.invoicesCollection = attributes.invoicesCollection.toJSON();
+			}
+
 			return attributes;
 
 		},
@@ -83,6 +88,10 @@ define([
 
 			if (response.hasOwnProperty('deliveryTimesCollection')) {
 				response.deliveryTimesCollection = new DeliveryTimesCollection(response.deliveryTimesCollection);
+			}
+
+			if (response.hasOwnProperty('invoicesCollection') && response.invoicesCollection) {
+				response.invoicesCollection = new InvoicesCollection(response.invoicesCollection);
 			}
 
 			return response;

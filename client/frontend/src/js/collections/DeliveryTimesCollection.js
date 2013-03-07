@@ -1,15 +1,14 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'global',
-	'models/DeliveryTimeModel'
-	], function ($, _, Backbone, global, DeliveryTimeModel) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/DeliveryTimeModel'
+    ], function ($, _, Backbone, DeliveryTimeModel) {
 
 	var DeliveryTimesCollection = Backbone.Collection.extend({
 
 		model: DeliveryTimeModel
-		
+
 	});
 
 	return DeliveryTimesCollection;

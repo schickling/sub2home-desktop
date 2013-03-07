@@ -2,9 +2,8 @@
 define([
 	'underscore',
 	'backbone',
-	'global',
 	'models/ArticleModel'
-	], function (_, Backbone, global, ArticleModel) {
+	], function (_, Backbone, ArticleModel) {
 
 	var ArticlesCollection = Backbone.Collection.extend({
 

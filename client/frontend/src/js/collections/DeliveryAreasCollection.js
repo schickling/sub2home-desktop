@@ -1,14 +1,13 @@
 define([
-	'underscore',
-	'backbone',
-	'global',
-	'models/DeliveryAreaModel'
-	], function (_, Backbone, global, DeliveryAreaModel) {
+    'underscore',
+    'backbone',
+    'models/DeliveryAreaModel'
+    ], function (_, Backbone, DeliveryAreaModel) {
 
 	var DeliveryAreasCollection = Backbone.Collection.extend({
 
 		model: DeliveryAreaModel
-		
+
 	});
 
 	return DeliveryAreasCollection;
