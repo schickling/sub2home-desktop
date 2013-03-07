@@ -14,6 +14,17 @@ class OrderedItemModel extends BaseModel
 
 	protected $table = 'ordered_item_models';
 
+	public function __construct(array $attributes = array())
+	{
+		parent::__construct();
+
+
+		// TODO: remove
+		// set up relations
+		$this->setRelation('menuBundleModel', null);
+		$this->setRelation('menuUpgradeModel', null);
+	}
+
 	public function delete()
 	{
 		throw new Exception("Can not delete an ordered item");
@@ -71,11 +82,10 @@ class OrderedItemModel extends BaseModel
 	 */
 	public function getMenuModelAttribute()
 	{
-		// TODO: rewrite
-		if ($this->menuUpgradeModel()->get() != null) {
-			return $this->menuUpgradeModel()->get();
-		} elseif ($this->menuBundleModel()->get() != null) {
-			return $this->menuBundleModel()->get();
+		if ($this->menuUpgradeModel != null) {
+			return $this->menuUpgradeModel;
+		} elseif ($this->menuBundleModel != null) {
+			return $this->menuBundleModel;
 		} else {
 			return null;
 		}

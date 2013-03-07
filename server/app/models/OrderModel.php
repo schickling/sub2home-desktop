@@ -161,10 +161,9 @@ class OrderModel extends BaseModel
 		foreach ($this->orderedItemsCollection as $orderedItemModel) {
 			$menuModel = $orderedItemModel->menuModel;
 
-			var_dump($menuModel);
-			// if ($menuModel && !$menuModel->isActive($store_model_id)) {
-			// 	return false;
-			// }
+			if ($menuModel && !$menuModel->isActive($store_model_id)) {
+				return false;
+			}
 		}
 
 		return true;
@@ -197,8 +196,7 @@ class OrderModel extends BaseModel
 
 	private function verifyDueDate()
 	{
-		
-		return true;
+		return $this->due_at >= $this->created_at;
 	}
 
 }

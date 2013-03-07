@@ -16,6 +16,8 @@ class InvoicesController extends ApiController
 
 
 		$this->storeModel->checkInvoices();
+
+		// get() because collection got refreshed perhaps
 		$invoicesCollection = $this->storeModel->invoicesCollection()->get();
 
 		

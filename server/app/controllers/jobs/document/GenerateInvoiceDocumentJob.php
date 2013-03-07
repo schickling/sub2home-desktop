@@ -164,6 +164,8 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 
 	private function addOrdersToAttachmentData()
 	{
+		// get() because collection got refreshed perhaps
+		// TODO: really needed?
 		$ordersCollection = $this->invoiceModel->ordersCollection()->get();
 		$ordersForData = array();
 
