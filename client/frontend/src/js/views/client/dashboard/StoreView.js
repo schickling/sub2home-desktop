@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'lib/moment',
+    'momentJs',
     'router',
     'text!templates/client/dashboard/StoreTemplate.html'
     ], function ($, _, Backbone, momentLib, router, StoreTemplate) {

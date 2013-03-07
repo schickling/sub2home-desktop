@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'lib/moment',
+    'momentJs',
     'models/InvoiceModel',
     'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/RevenuesTemplate.html'

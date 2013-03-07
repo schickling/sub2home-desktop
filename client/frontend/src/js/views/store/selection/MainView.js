@@ -1,22 +1,21 @@
 // Filename: src/js/views/store/selection/MainView.js
 define([
-	'jquery',
-	'jqueryEventSpecialDestroyed',
-	'underscore',
-	'backbone',
-	'models/cartModel',
-	'models/ArticleModel',
-	'models/MenuBundleModel',
-	'models/OrderedItemModel',
-	'models/OrderedArticleModel',
-	'collections/OrderedArticlesCollection',
-	'collections/TimelineItemsCollection',
-	'views/PageView',
-	'views/store/selection/TimelineControllerView',
-	'views/store/selection/OrderedArticlesView',
-	'views/store/selection/timeline/TimelineView',
-	'text!templates/store/selection/MainTemplate.html'
-	], function ($, jqueryEventSpecialDestroyed, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/cartModel',
+    'models/ArticleModel',
+    'models/MenuBundleModel',
+    'models/OrderedItemModel',
+    'models/OrderedArticleModel',
+    'collections/OrderedArticlesCollection',
+    'collections/TimelineItemsCollection',
+    'views/PageView',
+    'views/store/selection/TimelineControllerView',
+    'views/store/selection/OrderedArticlesView',
+    'views/store/selection/timeline/TimelineView',
+    'text!templates/store/selection/MainTemplate.html'
+    ], function ($, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -40,11 +39,6 @@ define([
 				this._loadOrderedItemFromLocalStorage();
 			}
 
-			// destory whole view if element gets destroyed
-			var self = this;
-			this.$el.on('destroyed', function () {
-				self._unsetOrderedItemModel();
-			});
 
 		},
 
@@ -207,8 +201,8 @@ define([
 			this.orderedItemModel = null;
 		},
 
-		_unlockTimelineItemsOnEdit: function() {
-			
+		_unlockTimelineItemsOnEdit: function () {
+
 		}
 
 	});

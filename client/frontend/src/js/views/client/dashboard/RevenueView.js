@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'lib/moment',
+    'momentJs',
     'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/RevenuesTemplate.html'
     ], function ($, _, Backbone, momentLib, RevenuesView, RevenuesTemplate) {

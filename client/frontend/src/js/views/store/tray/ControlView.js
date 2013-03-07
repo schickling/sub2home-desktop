@@ -4,7 +4,7 @@ define([
 	'underscore',
 	'backbone',
 	'router',
-	'lib/moment',
+	'momentJs',
 	'notificationcenter',
 	'models/cartModel',
 	'text!templates/store/tray/ControlTemplate.html'

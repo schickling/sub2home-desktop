@@ -1,0 +1,16 @@
+{
+  "name": "sub2home",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs": null,
+    "requirejs-text": null,
+    "requirejs-plugins": null,
+    "jquery": null,
+    "jquery-easing": null,
+    "jquery-browser-selector": null,
+    "moment": null,
+    "underscore": null,
+    "backbone": null,
+    "backbone.localStorage": null
+  }
+}

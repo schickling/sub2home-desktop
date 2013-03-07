@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'lib/moment',
+	'momentJs',
 	'views/store/dashboard/details/OrderDetailsView',
 	'text!templates/store/dashboard/OrderTemplate.html'
 	], function ($, _, Backbone, momentLib, OrderDetailsView, OrderTemplate) {

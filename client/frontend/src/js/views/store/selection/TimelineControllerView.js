@@ -1,13 +1,12 @@
 // Filename: src/js/views/store/selection/TimelineControllerView.js
 define([
     'jquery',
-    'jqueryEventSpecialDestroyed',
     'underscore',
     'backbone',
     'router',
     'notificationcenter',
     'models/cartModel'
-    ], function ($, jqueryEventSpecialDestroyed, _, Backbone, router, notificationcenter, cartModel) {
+    ], function ($, _, Backbone, router, notificationcenter, cartModel) {
 
 	var TimelineControllerView = Backbone.View.extend({
 
@@ -78,11 +77,6 @@ define([
 			// initialize listeners
 			this._initializeListeners();
 
-
-			// cleanup if view gets destroyed
-			this.$el.on('destroyed', function () {
-				self._cleanUp();
-			});
 
 		},
 
