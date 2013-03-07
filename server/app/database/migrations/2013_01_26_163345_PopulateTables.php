@@ -126,7 +126,7 @@ class PopulateTables extends Migration {
 
 		// Clients
 		$u2 = new ClientModel(array(
-			'number' => 2123,
+			'number' => 1234,
 			'hashedPassword' => Hash::make('password'),
 			'email' => 'office@my-sub.de'
 			));

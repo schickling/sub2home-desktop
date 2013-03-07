@@ -817,7 +817,7 @@ class OAuthUtil {
 		if (is_array($input)) {
 			// written array mapping because of namespacing
 			return array_map(function($value) {
-				return static::urlencode_rfc3986($value);
+				return OAuthUtil::urlencode_rfc3986($value);
 			}, $input);
 		} else if (is_scalar($input)) {
 			$tmp1=str_replace('%7E', '~', rawurlencode($input));

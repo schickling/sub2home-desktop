@@ -3,6 +3,8 @@
 use TCPDF;
 use View;
 
+use Log;
+
 /**
  * Wrapper around the TCPDF class
  */
@@ -48,7 +50,6 @@ class TCPDFDocument
 		$this->document->SetMargins(20, 20, 20);
 		$this->document->SetAutoPageBreak(true, 20);
 
-		$this->loadFonts();
 
 	}
 
@@ -56,6 +57,8 @@ class TCPDFDocument
 	{
 		// add a page
 		$this->document->AddPage();
+
+		$this->loadFonts();
 
 		$this->renderSVG();
 		$this->renderContent();
@@ -77,13 +80,13 @@ class TCPDFDocument
 	private function loadFonts()
 	{
 		if (array_key_exists('font', $this->data)) {
-			foreach ($this->data['font'] as $font) {
+			foreach ($this->data['font'] as $fontFile) {
 
 				// convert TTF font to TCPDF format and store it on the fonts folder
-				$fontname = $pdf->addTTFfont($font, 'TrueTypeUnicode', '', 96);
+				$fontname = $this->document->addTTFfont($fontFile);
 
 				// use the font
-				$pdf->SetFont($fontname, '', 14, '', false);
+				$this->document->SetFont($fontname);
 
 			}
 			unset($this->data['font']);

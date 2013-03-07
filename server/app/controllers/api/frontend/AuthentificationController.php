@@ -30,14 +30,14 @@ class AuthentificationController extends ApiController
             );
 
         $rules = array(
-            'number'	=> 'numeric|between:1,999|required',
+            'number'	=> 'numeric|between:1000,9999|required',
             'password'	=> 'min:1|required'
             );
 
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            return $this->respondWithStatus(401, $validator->messages());
+            return $this->respondWithStatus(401);
         }
 
 

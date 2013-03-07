@@ -27,7 +27,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		}
 		
 
-		$this->generateInvoiceDocument();
+		// $this->generateInvoiceDocument();
 		$this->generateAttachmentDocument();
 		
 
@@ -202,7 +202,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 	private function addFontToAttachmentData()
 	{
 		$this->attachmentData['font'] = array(
-			'/app/views/assets/font/pdf-homicons.ttf'
+			base_path() . '/app/views/assets/font/icomoon.ttf'
 			);
 	}
 
