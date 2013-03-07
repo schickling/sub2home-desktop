@@ -108,7 +108,7 @@
 		<td class="separator2"></td>
 		<td class="value">{{ $order['total'] }}€</td>
 		<td class="separator2"></td>
-		<td class="paymentMethod" style="font-family: icomoon;">&#xe002;</td>
+		<td class="paymentMethod" style="font-family: icomoon;">y</td>
 	</tr>
 	@endforeach
 	

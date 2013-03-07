@@ -2785,7 +2785,7 @@ input[type="text"]#locationSelectionInput {
         padding: 0 0 10px;
         .border-box;
         .positioned;
-        display: none;
+        //display: none;
         .orderArticles {
           width: 70%;
           .border-box;
@@ -3624,6 +3624,7 @@ div#payment {
 
 .overlay {
   position: absolute;
+  width: 100%;
   .iBtn {
     display: none;
     position: absolute;
@@ -3806,7 +3807,7 @@ div#payment {
 
 .menuUpgrade {
   width: 310px;
-  margin: 40px;
+  margin: 60px 40px;
   
   .positioned;
   display: inline-block;
@@ -3821,7 +3822,7 @@ div#payment {
       width: 200px;
     }
   }
-  .phd {
+  .menuComponentBlock {
     position: absolute;
     left: 50%;
     .backface-visibility(hidden);
@@ -3835,6 +3836,7 @@ div#payment {
       .opacity(0);
       max-width: 300px;
       .transition(opacity .1s linear);
+      .positioned;
     }
 
     // COMPONENT-INFO
@@ -3851,9 +3853,7 @@ div#payment {
       &:before {
         content: "+ ";
       }
-
       &:after {
-        content: "\e040";
         font-family: "Homicons";
         position: absolute;
         font-size: 50px;
@@ -3864,30 +3864,37 @@ div#payment {
   }  
 
 
-    // COMPONENT-ALIAS-STYLES
+  // Component-Block-Placeholder
+  // ---------------------------
+
+
+  // Getränk
 
   .pBeverage {
-    top: 0;
-    margin-left: -135px;
+    top: -12px;
+    margin-left: -65px;
     &:before, &:after {
       top: -7px;
-      left: 75px;
+      left: -35px;
     }
 
     img {
-      width: 300px;
+      width: 100px;
+
     }
     .componentInfo {
       top: -20px;
-      left: -10px;
+      left: -75px;
+      .iNoticeArrowDr;
       &:after {
-        left: 40px;
+        left: 50px;
         top: 20px;
       }
     }
   }
 
-    // --------------------------
+  // Cookie
+
 
   .pCookie {
 
@@ -3905,19 +3912,47 @@ div#payment {
       top: -85px;
       left: 70px;
       white-space: nowrap;
+      .iNoticeArrowDl;
       &:after {
         left: 40px;
         top: 50px;
-        -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-
       }
     }
   }
+
+
+  // Snacks
+
+
+  .pSnacks {
+
+    top: -20px;
+    margin-left: -40px;
+    
+    &:before, &:after {
+      font-size: 270px;
+      top: -15px;
+      left: -25px;
+    }
+    img {
+      width: 219px;
+      z-index: 1;
+    }
+
+    .componentInfo {
+      top: -25px;
+      left: 70px;
+      white-space: nowrap;
+      .iNoticeArrowDl;
+      &:after {
+        left: 97px;
+        top: 20px;
+      }
+    }
+  }
+  
+  
+
 
     // --------------------------
 
@@ -3926,6 +3961,7 @@ div#payment {
     top: 140px;
     .opacity(0);
     .transition(opacity .1s linear);
+    z-index: 5;
   }
 
 
@@ -3967,7 +4003,7 @@ div#payment {
 // HOVER STATE
 
   &:hover {
-    .phd {
+    .menuComponentBlock {
       
       &:before, &:after {
         .opacity(0);
@@ -3990,7 +4026,8 @@ div#payment {
 
   &.selected {
 
-    .phd {
+    .menuComponentBlock {
+
       &:before, &:after {
         .opacity(0);
       }

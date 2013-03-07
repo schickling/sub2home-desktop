@@ -12,7 +12,7 @@
 }
 
 /* global styles */
-.icn, .iBtn, .phd {
+.icn, .iBtn, .menuComponentBlock {
   display: inline-block;
   width: auto;
   height: auto;
@@ -30,7 +30,7 @@
 }
 
 
-.icn, .iBtn, .phd {
+.icn, .iBtn, .menuComponentBlock {
   font-family: "Homicons" !important;
   font-weight: normal !important;
   font-style: normal !important;
@@ -45,7 +45,7 @@
 }
 
 .note, .smallNote {
-  .iBtn, .phd {
+  .iBtn, .menuComponentBlock {
     color: @onNoteColor50;
     .transition(color .05s linear);
     &:hover, &:active {
@@ -60,7 +60,7 @@
   cursor: pointer;
 }
 
-.phd {
+.menuComponentBlock {
   &:before, &:after {
     font-size: 300px;
     color: @white;
@@ -164,8 +164,10 @@
   &:after { content: "\e028"; }
 }
 
-
-// Donuts, Eis, Chips ...
+.pSnacks {
+  &:before { content: "\e032"; }
+  &:after { content: "\e033"; }
+}
 
 .pSalad {
   &:before { content: "\e023"; }
@@ -217,35 +219,35 @@
 // Notice Arrows
 
 .iNoticeArrowDl {
-  &:before { content: "\e042"; }
+  &:after { content: "\e042"; }
 }
 
-.iNoticeArrowDt {
-  &:before { content: "\e043"; }
+.iNoticeArrowDr {
+  &:after { content: "\e043"; }
 }
 
 .iNoticeArrowUl {
-  &:before { content: "\e044"; }
+  &:after { content: "\e044"; }
 }
 
 .iNoticeArrowUr {
-  &:before { content: "\e045"; }
+  &:after { content: "\e045"; }
 }
 
 .iNoticeArrowRt {
-  &:before { content: "\e046"; }
+  &:after { content: "\e046"; }
 }
 
 .iNoticeArrowRb {
-  &:before { content: "\e047"; }
+  &:after { content: "\e047"; }
 }
 
 .iNoticeArrowLt {
-  &:before { content: "\e048"; }
+  &:after { content: "\e048"; }
 }
 
 .iNoticeArrowLb {
-  &:before { content: "\e049"; }
+  &:after { content: "\e049"; }
 }
 
 
