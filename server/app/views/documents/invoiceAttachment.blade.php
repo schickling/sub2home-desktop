@@ -3,12 +3,14 @@
 	th {
 		font-size: 6pt;
 		line-height: 2.2;
+		font-family: helvetica;
 	}
 
 	td {
 		font-size: 10pt;
 		height: 6mm;
 		line-height: 1.6;
+		font-family: helvetica;
 	}
 	
 	.vMargin {
@@ -56,15 +58,18 @@
 
 	.value {
 		width: 13mm;
+		text-align: right;
 	}
 
 	.separator2 {
-		width: 3mm;
+		width: 2mm;
 	}
 
 	.paymentMethod {
-		font-family: "icomoon";
 		width: 5mm;
+		font-family: "Hemmet Personal Use Only";
+		font-size: 30pt;
+		line-height: 0.4;
 	}
 
 	.lineSeparator {
@@ -91,7 +96,7 @@
 		<th class="separator2"></th>
 		<th class="value">BETRAG</th>
 		<th class="separator2"></th>
-		<th class="paymentMethod">&#xe002;</th>
+		<th class="paymentMethod"></th>
 	</tr>	
 	@foreach ($orders as $order)
 	<tr>
@@ -108,7 +113,7 @@
 		<td class="separator2"></td>
 		<td class="value">{{ $order['total'] }}€</td>
 		<td class="separator2"></td>
-		<td class="paymentMethod" style="font-family: icomoon;">y</td>
+		<td class="paymentMethod">q</td>
 	</tr>
 	@endforeach
 	
