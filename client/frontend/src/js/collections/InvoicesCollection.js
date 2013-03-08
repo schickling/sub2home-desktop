@@ -36,6 +36,27 @@ define([
 			} else {
 				return false;
 			}
+		},
+
+		getSplittedCollectionsByYears: function () {
+			var collections = {},
+			yearCollection,
+			year;
+
+			_.each(this.models, function (invoiceModel) {
+
+				year = invoiceModel.getTimeSpanYear();
+				yearCollection = collections[year];
+
+				if (yearCollection) {
+					yearCollection.add(invoiceModel);
+				} else {
+					collections[year] = new InvoicesCollection(invoiceModel);
+				}
+
+			});
+
+			return collections;
 		}
 
 	});
