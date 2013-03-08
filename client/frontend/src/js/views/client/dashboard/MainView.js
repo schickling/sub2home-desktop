@@ -4,13 +4,19 @@ define([
     'underscore',
     'backbone',
     'router',
+    'moment',
     'models/stateModel',
     'models/ClientModel',
     'views/PageView',
     'views/client/dashboard/StoresView',
     'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/MainTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, ClientModel, PageView, StoresView, RevenuesView, MainTemplate) {
+    ], function ($, _, Backbone, router, moment, stateModel, ClientModel, PageView, StoresView, RevenuesView, MainTemplate) {
+
+	// set global moment language
+	moment.lang('de', {
+		months: "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_")
+	});
 
 	var MainView = PageView.extend({
 

@@ -3,10 +3,10 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'momentJs',
+	'moment',
 	'views/store/dashboard/details/OrderDetailsView',
 	'text!templates/store/dashboard/OrderTemplate.html'
-	], function ($, _, Backbone, momentLib, OrderDetailsView, OrderTemplate) {
+	], function ($, _, Backbone, moment, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({
 

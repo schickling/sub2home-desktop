@@ -4,11 +4,11 @@ define([
 	'underscore',
 	'backbone',
 	'router',
-	'momentJs',
+	'moment',
 	'notificationcenter',
 	'models/cartModel',
 	'text!templates/store/tray/ControlTemplate.html'
-	], function ($, _, Backbone, router, momentLib, notificationcenter, cartModel, ControlTemplate) {
+	], function ($, _, Backbone, router, moment, notificationcenter, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 

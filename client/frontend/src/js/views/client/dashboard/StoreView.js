@@ -3,10 +3,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'momentJs',
+    'moment',
     'router',
     'text!templates/client/dashboard/StoreTemplate.html'
-    ], function ($, _, Backbone, momentLib, router, StoreTemplate) {
+    ], function ($, _, Backbone, moment, router, StoreTemplate) {
 
 	var StoresView = Backbone.View.extend({
 
@@ -25,8 +25,6 @@ define([
 		_render: function () {
 			var invoicesCollection = this.model.get('invoicesCollection'),
 				currentMoment = moment();
-
-			// currentMoment.lang('de');
 
 			var json = {
 				title: this.model.get('title'),

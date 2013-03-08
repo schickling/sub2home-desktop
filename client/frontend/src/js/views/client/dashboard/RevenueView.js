@@ -3,10 +3,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'momentJs',
+    'moment',
     'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/RevenuesTemplate.html'
-    ], function ($, _, Backbone, momentLib, RevenuesView, RevenuesTemplate) {
+    ], function ($, _, Backbone, moment, RevenuesView, RevenuesTemplate) {
 
 	var RevenuessView = Backbone.View.extend({
 

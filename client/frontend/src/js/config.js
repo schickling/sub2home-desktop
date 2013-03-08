@@ -10,7 +10,7 @@ require.config({
 		underscore: 'vendor/underscore/underscore',
 		backbone: 'vendor/backbone/backbone',
 		backboneLocalStorage: 'vendor/backbone.localStorage/backbone.localStorage',
-		momentJs: 'vendor/moment/moment',
+		moment: 'vendor/moment/moment',
 		// templates
 		templates: '../templates',
 		// module alias
@@ -31,6 +31,7 @@ require.config({
 		underscore: {
 			exports: '_'
 		}
+
 	}
 
 });
