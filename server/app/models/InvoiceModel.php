@@ -3,6 +3,7 @@
 use File;
 use Exception;
 use Queue;
+use DateTime;
 
 class InvoiceModel extends BaseModel
 {
@@ -51,6 +52,16 @@ class InvoiceModel extends BaseModel
 		
 	}
 
+	public function setTimeSpanAttribute($timeSpan)
+	{
+		$currentTotalNumberOfMonths = getTotalNumberOfMonthsFromDateTime(new DateTime());
+		if ($timeSpan > $currentTotalNumberOfMonths) {
+			throw new Exception('Invoice can\'t be in the future');
+		}
+
+		$this->attributes['timeSpan'] = $timeSpan;
+	}
+
 	public function setTotalAttribute($total)
 	{
 		$this->checkIfLocked();
@@ -59,7 +70,7 @@ class InvoiceModel extends BaseModel
 
 	private function checkIfLocked()
 	{
-		if (!empty($this->invoiceDocumentName)) {
+		if (!empty($this->invoiceDocumentName) || !empty($this->attachmentDocumentName)) {
 			throw new Exception('Invoice is already locked');
 		}
 	}
