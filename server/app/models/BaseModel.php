@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Eloquent;
+use DateTime;
 
 class BaseModel extends Eloquent
 {
@@ -44,6 +45,17 @@ class BaseModel extends Eloquent
 	protected function beforeFirstSave() {}
 
 	protected function afterFirstSave() {}
+
+	public function getDateTimeFor($attribute)
+	{
+		$time = $this->{$attribute};
+
+		if ($time instanceof DateTime) {
+			return $time;
+		} else {
+			return new DateTime($time);
+		}
+	}
 
 
 }

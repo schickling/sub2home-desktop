@@ -18,7 +18,7 @@ class TestOrderModel extends OrderModel
 			throw new Exception('No store model found');
 		}
 
-		$storeModelCreatedAtDateTime = new DateTime($storeModel->created_at);
+		$storeModelCreatedAtDateTime = $storeModel->getDateTimeFor('created_at');
 
 		if ($createdAtDateTime < $storeModelCreatedAtDateTime) {
 			throw new Exception('Store didn\'t exist when this order was generated');

@@ -69,6 +69,9 @@ class StoreModel extends BaseModel
 			'city' => $this->addressModel->city
 			));
 		$deliveryAreaModel->save();
+
+		// initalize invoices
+		$this->checkInvoices();
 		
 	}
 
@@ -244,7 +247,7 @@ class StoreModel extends BaseModel
 		// count months since store was created
 		$now = new DateTime();
 		$currentTotalNumberOfMonths = getTotalNumberOfMonthsFromDateTime($now);
-		$dateTimeStoreWasCreated = new DateTime($this->created_at);
+		$dateTimeStoreWasCreated = $this->getDateTimeFor('created_at');
 		$totalNumberOfMonthsSinceStoreCreation = getTotalNumberOfMonthsFromDateTime($dateTimeStoreWasCreated);
 		$expectedNumberOfInvoices = $currentTotalNumberOfMonths - $totalNumberOfMonthsSinceStoreCreation + 1; // current month counts also
 

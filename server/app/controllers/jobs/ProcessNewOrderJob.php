@@ -63,7 +63,7 @@ class ProcessNewOrderJob extends BaseJob {
 		$storeModel = $orderModel->storeModel;
 		$storeModel->checkInvoices();
 
-		$createdDateTime = new DateTime($orderModel->created_at);
+		$createdDateTime = $orderModel->getDateTimeFor('created_at');
 		$totalNumberOfMonthsSinceOrderCreation = getTotalNumberOfMonthsFromDateTime($createdDateTime);
 
 		$invoiceModel = $storeModel->invoicesCollection()

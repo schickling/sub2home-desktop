@@ -52,11 +52,11 @@ define([
 		toggleDetailsView: function () {
 			var $orderContent = this.$('.orderContent');
 
-			if ($orderContent.html().trim()) {
-				$orderContent.toggle();
-			} else {
+			if (!$orderContent.html().trim()) {
 				this.renderDetailsView();
 			}
+
+			$orderContent.toggle();
 		},
 
 		renderDetailsView: function () {

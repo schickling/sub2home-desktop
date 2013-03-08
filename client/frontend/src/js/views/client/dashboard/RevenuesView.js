@@ -20,6 +20,7 @@ define([
 		},
 
 		_render: function () {
+
 			var currentMoment = moment();
 
 			var json = {
@@ -35,6 +36,7 @@ define([
 			this._cacheDom();
 
 			this._renderRevenues();
+
 		},
 
 		_cacheDom: function () {
