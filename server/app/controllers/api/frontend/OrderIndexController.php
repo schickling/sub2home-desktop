@@ -22,7 +22,7 @@ class OrderIndexController extends ApiController
 		
 		$ordersCollection = $this->storeModel->ordersCollection()
 												->with('addressModel')
-												->orderBy('id', 'desc')
+												->orderBy('created_at', 'desc')
 												->skip($offset)
 												->take($pageSize)
 												->get();

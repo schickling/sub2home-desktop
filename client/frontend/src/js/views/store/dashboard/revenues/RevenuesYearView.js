@@ -24,7 +24,10 @@ define([
 				invoiceYear = this.collection.first().getTimeSpanYear();
 
 			if (invoiceYear < currentYear) {
-				var json = {};
+				var json = {
+					total: parseInt(this.collection.getTotal(), 10),
+					year: invoiceYear
+				};
 
 				this.$el.html(this.template(json));
 			}

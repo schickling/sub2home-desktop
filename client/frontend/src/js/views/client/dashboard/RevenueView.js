@@ -18,7 +18,7 @@ define([
 		},
 
 		_render: function () {
-			var invoiceMoment = moment([this.model.getTimeSpanYear(), this.model.getTimeSpanMonth()]);
+			var invoiceMoment = moment([this.model.getTimeSpanYear(), this.model.getTimeSpanMonth() - 1]); // - 1 because moment counts month from 0
 
 			var json = {
 				total: parseInt(this.model.get('total'), 10),

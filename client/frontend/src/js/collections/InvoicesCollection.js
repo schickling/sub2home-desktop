@@ -9,6 +9,16 @@ define([
 
 		model: InvoiceModel,
 
+		getTotal: function () {
+			var total = 0;
+
+			_.each(this.models, function (invoiceModel) {
+				total += invoiceModel.get('total');
+			});
+
+			return total;
+		},
+
 		getTotalOfCurrentYear: function () {
 			var total = 0,
 				currentYear = new Date().getFullYear();
