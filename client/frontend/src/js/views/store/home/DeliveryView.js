@@ -22,7 +22,7 @@ define([
 
 		_render: function () {
 			var storeModel = stateModel.get('storeModel'),
-				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel()
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
 				area = selectedDeliveryAreaModel.get('district');
 
 			if (!area) {
