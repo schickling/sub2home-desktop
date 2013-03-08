@@ -3655,12 +3655,15 @@ div#payment {
     }
 
     &.bCart {
-      color: rgba(0,0,0,0.08);
+      color: @greenLighter20;
       right: 100px;
       right: 20px;
       width: 80px;
       &:before {
         left: -15px;
+      }
+      &:hover {
+        color: @greenLighter;
       }
     }
   }
@@ -4685,6 +4688,7 @@ div#payment {
     }
     &.price {
       cursor: default;
+      white-space: normal;
     }
 
     &.paymentMethod, &.deliveryAddress {
