@@ -27,7 +27,7 @@ class GenerateInvoiceDocumentJob extends BaseJob {
 		}
 		
 
-		// $this->generateInvoiceDocument();
+		$this->generateInvoiceDocument();
 		$this->generateAttachmentDocument();
 		
 

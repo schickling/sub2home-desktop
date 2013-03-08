@@ -15,7 +15,8 @@ define([
 
 	// set global moment language
 	moment.lang('de', {
-		months: "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_")
+		months: "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_"),
+		monthsShort: "Jan_Febr_Mrz_Apr_Mai_Jun_Jul_Aug_Sept_Okt_Nov_Dez".split("_")
 	});
 
 	var MainView = PageView.extend({
@@ -25,8 +26,6 @@ define([
 			this.model.fetch({
 				async: false
 			});
-
-			console.log(this.model);
 
 			// select store model if not already selected
 			this._selectFirstStoreModel();
