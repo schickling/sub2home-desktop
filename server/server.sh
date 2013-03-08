@@ -25,6 +25,6 @@ composer dump-autoload --optimize
 
 # start queue
 beanstalkd &
-php artisan queue:listen &
+php artisan queue:listen --timeout 300 & #job times out after 5 minutes
 
 echo "Server running..."

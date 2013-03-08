@@ -1,14 +1,14 @@
 // Filename: src/js/views/store/tray/ControlView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'moment',
-	'notificationcenter',
-	'models/cartModel',
-	'text!templates/store/tray/ControlTemplate.html'
-	], function ($, _, Backbone, router, moment, notificationcenter, cartModel, ControlTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'moment',
+    'notificationcenter',
+    'models/cartModel',
+    'text!templates/store/tray/ControlTemplate.html'
+    ], function ($, _, Backbone, router, moment, notificationcenter, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
@@ -48,15 +48,15 @@ define([
 			var paymentMethod = '';
 
 			switch (cartModel.getPaymentMethod()) {
-			case 'cash':
-				paymentMethod = 'in Bar';
-				break;
-			case 'ec':
-				paymentMethod = 'mit EC Karte';
-				break;
-			case 'paypal':
-				paymentMethod = 'via Paypal';
-				break;
+				case 'cash':
+					paymentMethod = 'in Bar';
+					break;
+				case 'ec':
+					paymentMethod = 'mit EC Karte';
+					break;
+				case 'paypal':
+					paymentMethod = 'via Paypal';
+					break;
 			}
 
 			var addressModel = cartModel.getCustomerAddressModel(),
@@ -99,11 +99,11 @@ define([
 			orderModel.save({}, {
 				success: function () {
 					self._ringBell();
-					// orderModel.get('orderedItemsCollection').reset();
-					// router.navigate('store/danke', {
-					// 	trigger: true,
-					// 	replace: true
-					// });
+					orderModel.get('orderedItemsCollection').reset();
+					router.navigate('store/danke', {
+						trigger: true,
+						replace: true
+					});
 				},
 				error: function (error, b) {
 					notificationcenter.error(b, b);
@@ -152,8 +152,8 @@ define([
 			}
 		},
 
-		_listenForDestory: function() {
-			this.once('destroy', function() {
+		_listenForDestory: function () {
+			this.once('destroy', function () {
 				clearInterval(this.intervalTimer);
 				this.stopListening();
 			}, this);

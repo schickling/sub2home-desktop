@@ -1,136 +1,109 @@
 module.exports = function (grunt) {
 
+	var globalModulDependencies = [
+        'text', // vendor
+        'async',
+        'jquery',
+        'jqueryEasing',
+        'moment',
+        'underscore',
+        'backbone',
+        'backboneLocalStorage',
+        'router', // modules
+        'global',
+        'notificationcenter',
+        'models/authentificationModel', // models
+        'models/stateModel',
+        'views/PageView' // views
+    ];
+
 	// backbone modules
 	var modules = [{
 		name: 'main',
-		include: [
-			'text',
-			'backboneLocalStorage',
-			'views/PageView',
-			'router',
-			'notificationcenter',
-			'models/stateModel'
-			]
+		include: globalModulDependencies
 	}, {
 		name: 'views/header/HeaderView',
-		exclude: [
-			'jquery',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter'
-			]
+		exclude: globalModulDependencies
 	}, {
-		name: 'views/home/MainView',
-		exclude: [
-			'jquery',
-			'jqueryEasing',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter',
-			'views/PageView'
-			]
+		name: 'views/home/home/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/client/login/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/client/dashboard/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/client/config/MainView',
+		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/home/MainView',
-		exclude: [
-			'jquery',
-			'jqueryEasing',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter',
-			'views/PageView'
-			]
+		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/config/MainView',
-		exclude: [
-			'jquery',
-			'jqueryEasing',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter',
-			'views/PageView'
-			]
+		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/selection/MainView',
-		exclude: [
-			'jquery',
-			'jqueryEasing',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter',
-			'views/PageView'
-			]
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/store/checkout/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/store/assortment/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/store/dashboard/MainView',
+		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/tray/MainView',
-		exclude: [
-			'jquery',
-			'jqueryEasing',
-			'underscore',
-			'backbone',
-			'backboneLocalStorage',
-			'text',
-			'models/stateModel',
-			'notificationcenter',
-			'views/PageView'
-			]
+		exclude: globalModulDependencies
 	}];
 
 	// config
 	grunt.initConfig({
 
-		lint: {
+		pkg: grunt.file.readJSON('package.json'),
+
+		jshint: {
 			all: [
-				'grunt.js',
-				'../src/js/app.js',
-				'../src/js/models/stateModel.js',
-				'../src/js/router.js',
-				'../src/js/notificationcenter.js',
-				'../src/js/main.js',
-				'../src/js/config.js',
-				'../src/js/views/**/*.js',
-				'../src/js/models/**/*.js',
-				'../src/js/collections/**/*.js',
-				'test/spec/**/*.js'
-				]
+                'Gruntfile.js',
+                '../src/js/main.js',
+                '../src/js/config.js',
+                '../src/js/modules/*.js',
+                '../src/js/models/*.js',
+                '../src/js/collections/*.js',
+                '../src/js/views/**/*.js',
+                'test/spec/**/*.js'
+                ]
 		},
 
 		// kick off jasmine, showing results at the cli
-		// jasmine: {
-		// 	all: ['../test/runner.html']
-		// },
+		jasmine: {
+			all: ['../test/runner.html']
+		},
 
 		requirejs: {
 			development: {
-				optimize: 'none',
-				baseUrl: '../src/js',
-				dir: '../../../server/public/js',
-				mainConfigFile: '../src/js/config.js',
-				removeCombined: true,
-				preserveLicenseComments: false,
-				modules: modules
+				options: {
+					optimize: 'none',
+					baseUrl: '../src/js',
+					dir: '../../../server/public/js',
+					mainConfigFile: '../src/js/config.js',
+					removeCombined: true,
+					preserveLicenseComments: false,
+					modules: modules
+				}
 			},
 			production: {
-				optimize: 'uglify',
-				baseUrl: '../src/js',
-				dir: '../../../server/public/js',
-				mainConfigFile: '../src/js/config.js',
-				removeCombined: true,
-				preserveLicenseComments: false,
-				modules: modules
+				options: {
+					optimize: 'uglify',
+					baseUrl: '../src/js',
+					dir: '../../../server/public/js',
+					mainConfigFile: '../src/js/config.js',
+					removeCombined: true,
+					preserveLicenseComments: false,
+					modules: modules
+				}
 			}
 		},
 
@@ -178,14 +151,15 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-requirejs');
 	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// register tasks
-	grunt.registerTask('default', 'test');
-	grunt.registerTask('reset', 'exec:resetServer');
-	grunt.registerTask('clean', 'exec:cleanServer');
-	grunt.registerTask('dev', 'reset exec:linkSrcJS exec:linkSrcTemplates');
-	grunt.registerTask('test', 'lint jasmine');
-	grunt.registerTask('build-dev', 'reset test requirejs:development less:development clean');
-	grunt.registerTask('build-prod', 'reset test requirejs:production less:production clean');
+	grunt.registerTask('default', ['test']);
+	grunt.registerTask('reset', ['exec:resetServer']);
+	grunt.registerTask('clean', ['exec:cleanServer']);
+	grunt.registerTask('dev', ['reset', 'exec:linkSrcJS', 'exec:linkSrcTemplates']);
+	grunt.registerTask('test', ['jshint']);
+	grunt.registerTask('build:dev', ['reset', 'test', 'requirejs:development', 'less:development', 'clean']);
+	grunt.registerTask('build:prod', ['reset', 'test', 'requirejs:production', 'less:production', 'clean']);
 
 };

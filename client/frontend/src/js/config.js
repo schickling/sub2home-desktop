@@ -15,10 +15,8 @@ require.config({
 		templates: '../templates',
 		// module alias
 		notificationcenter: 'modules/notificationcenter',
-		authentification: 'modules/authentification',
 		gmaps: 'modules/gmaps',
 		router: 'modules/router',
-		server: 'modules/server',
 		global: 'modules/global'
 	},
 

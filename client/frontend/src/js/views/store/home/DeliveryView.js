@@ -22,10 +22,15 @@ define([
 
 		_render: function () {
 			var storeModel = stateModel.get('storeModel'),
-				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel()
+				area = selectedDeliveryAreaModel.get('district');
+
+			if (!area) {
+				area = selectedDeliveryAreaModel.get('city');
+			}
 
 			var json = {
-				area: selectedDeliveryAreaModel.get('district'),
+				area: area,
 				postal: selectedDeliveryAreaModel.get('postal'),
 				minimumDuration: selectedDeliveryAreaModel.get('minimumDuration')
 			};
