@@ -5,9 +5,10 @@ define([
     'underscore',
     'backbone',
     'notificationcenter',
+    'analytics',
     'models/stateModel',
     'models/authentificationModel'
-    ], function (require, $, _, Backbone, notificationcenter, stateModel, authentificationModel) {
+    ], function (require, $, _, Backbone, notificationcenter, analytics, stateModel, authentificationModel) {
 
 	var Router = Backbone.Router.extend({
 
@@ -49,7 +50,6 @@ define([
 				new HeaderView();
 			});
 
-
 			// start notificationcenter
 			notificationcenter.init();
 
@@ -72,6 +72,8 @@ define([
 			}
 
 			Backbone.history.navigate(fragment, options);
+
+			analytics.trackPageview(fragment);
 
 			return this;
 		},
