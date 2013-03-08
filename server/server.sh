@@ -2,6 +2,10 @@
 
 cd `dirname $0`
 
+# check dependencies
+command -v composer >/dev/null 2>&1 || { echo >&2 "Error: composer is not installed."; exit 1; }
+command -v beanstalkd >/dev/null 2>&1 || { echo >&2 "Error: beanstalkd is not installed."; exit 1; }
+
 
 # kill old processes
 if ps aux | grep "beanstalkd" > /dev/null

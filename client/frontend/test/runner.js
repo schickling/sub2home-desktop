@@ -6,7 +6,7 @@ require(['../src/js/config'], function () {
 
 		baseUrl: '../src/js',
 
-		paths: {
+		paths: { // relative to baseUrl
 			spec: '../../test/spec',
 			sinon: '../../test/lib/sinon/sinon'
 		},
@@ -18,11 +18,11 @@ require(['../src/js/config'], function () {
 		}
 
 	}, [
-		'spec/modules/RouterSpec',
-		'spec/modules/NotificationcenterSpec'
+		// 'spec/modules/RouterSpec',
+		// 'spec/modules/NotificationcenterSpec'
 		], function () {
-		jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-		jasmine.getEnv().execute();
+		// jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+		// jasmine.getEnv().execute();
 	});
 
 });

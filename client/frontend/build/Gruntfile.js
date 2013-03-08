@@ -109,9 +109,9 @@ module.exports = function (grunt) {
 		},
 
 		// kick off jasmine, showing results at the cli
-		jasmine: {
-			all: ['../test/runner.html']
-		},
+		// jasmine: {
+		// 	all: ['../test/runner.html']
+		// },
 
 		requirejs: {
 			development: {
@@ -174,7 +174,7 @@ module.exports = function (grunt) {
 	});
 
 	// load tasks
-	grunt.loadNpmTasks('grunt-jasmine-task');
+	// grunt.loadNpmTasks('grunt-jasmine-task');
 	grunt.loadNpmTasks('grunt-requirejs');
 	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-contrib-less');

@@ -11,6 +11,8 @@
     "moment": null,
     "underscore": null,
     "backbone": null,
-    "backbone.localStorage": null
+    "backbone.localStorage": null,
+    "jasmine": null,
+    "sinon": null
   }
 }
