@@ -1,21 +1,43 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
 use App\Controllers\Jobs\BaseJob;
+use Exception;
+use Mail;
 
 use App\Models\InvoiceModel;
-use Exception;
 
 class SendInvoiceMailJob extends BaseJob {
+
+	private $invoiceModel;
 
 	protected function run()
 	{
 		$invoice_model_id = $this->data['invoice_model_id'];
-		$invoiceModel = InvoiceModel::find($invoice_model_id);
+		$this->invoiceModel = InvoiceModel::find($invoice_model_id);
 
-		if ($invoiceModel == null) {
+		if ($this->invoiceModel == null) {
 			throw new Exception('Invalid invoice to process');
 		}
 
+		$this->sendMail();
+
+	}
+
+	private function sendMail()
+	{
+		$storeModel = $this->invoiceModel->storeModel;
+		$addressModel = $storeModel->addressModel;
+		$emailAddress = $addressModel->email;
+		$name = $addressModel->title;
+
+		$data = array();
+
+		Mail::send('emails.client.invoice', $data, function($mail) use ($emailAddress, $name)
+		{
+			$mail->from('rechnungen@sub2home.de', 'sub2home');
+			$mail->to($emailAddress, $name);
+			$mail->subject('Rechnung');
+		});
 	}
 
 

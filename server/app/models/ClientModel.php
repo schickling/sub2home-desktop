@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Queue;
+
 class ClientModel extends BaseModel {
 
 	protected $hidden = array('hashedPassword', 'created_at', 'updated_at');
@@ -9,9 +11,12 @@ class ClientModel extends BaseModel {
 	public function afterFirstSave()
 	{
 		// initialize mandatory relationships
-
 		$this->addressModel()->create(array());
 		$this->bankaccountModel()->create(array());
+
+		// send client data
+		$jobData = array('client_model_id' => $this->id);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendClientCreatedMailJob', $jobData);
 	}
 
 	/**
@@ -63,61 +68,6 @@ class ClientModel extends BaseModel {
 	public function bankaccountModel()
 	{
 		return $this->hasOne('App\\Models\\BankaccountModel');
-	}
-
-	/**
-	 * Returns the email address
-	 * 
-	 * @return string
-	 */
-	public function getEmailAttribute()
-	{
-		return $this->addressModel->email;
-	}
-
-	public function getTotalTurnoverAttribute()
-	{
-		$turnover = 0;
-
-		foreach ($this->storesCollection as $storeModel) {
-			$turnover += $storeModel->totalTurnover;
-		}
-		
-		return $turnover;
-
-	}
-
-	public function getMonthlyTurnoverAttribute()
-	{
-		$turnover = 0;
-
-		foreach ($this->storesCollection as $storeModel) {
-			$turnover += $storeModel->monthlyTurnover;
-		}
-		
-		return $turnover;
-	}
-
-	public function getTotalOrdersAttribute()
-	{
-		$orders = 0;
-
-		foreach ($this->storesCollection as $storeModel) {
-			$orders += $storeModel->totalOrders;
-		}
-
-		return $orders;
-	}
-
-	public function getMonthlyOrdersAttribute()
-	{
-		$orders = 0;
-
-		foreach ($this->storesCollection as $storeModel) {
-			$orders += $storeModel->monthlyOrders;
-		}
-
-		return $orders;
 	}
 
 
