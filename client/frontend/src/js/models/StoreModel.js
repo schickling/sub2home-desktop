@@ -23,7 +23,7 @@ define([
 
 			deliveryAreasCollection: null,
 			deliveryTimesCollection: null,
-
+			invoicesCollection: null,
 			addressModel: null,
 
 			number: 0,

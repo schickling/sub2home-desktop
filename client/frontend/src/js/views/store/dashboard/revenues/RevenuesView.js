@@ -1,35 +1,61 @@
-// Filename: src/js/views/store/dashboard/RevenuesView.js
+// Filename: src/js/views/store/dashboard/revenues/RevenuesView.js
 define([
     'jquery',
     'lib/jquery/jquery.overscroll',
     'underscore',
     'backbone',
-    'text!templates/store/dashboard/RevenuesTemplate.html'
-    ], function ($, overscrollLib, _, Backbone, RevenuesTemplate) {
+    'views/store/dashboard/revenues/RevenuesYearView'
+    ], function ($, overscrollLib, _, Backbone, RevenuesYearView) {
 
 	var RevenuesView = Backbone.View.extend({
 
-		template: _.template(RevenuesTemplate),
+		wasRendered: false,
+
+		$turnoverContainer: null,
 
 		events: {
 			'click .toggleRevenues': '_toggle'
 		},
 
 		initialize: function () {
-			this._render();
+			this._cacheDom();
+		},
+
+		_render: function() {
+			this._renderRevenuesYears();
 
 			// initialize overscroll
-			this.$('.turnoverContainer').overscroll({
+			this.$turnoverContainer.overscroll({
 				showThumbs: false,
 				direction: 'horizontal',
 				wheelDirection: 'horizontal'
 			});
 		},
 
-		_render: function () {
-			var $revenues = this.$('.revenues');
+		_cacheDom: function () {
+			this.$turnoverContainer = this.$('.turnoverContainer');
+		},
 
-			$revenues.html(this.template());
+		_renderRevenuesYears: function () {
+			var yearsCollection = this.collection.getSplittedCollectionsByYears();
+
+			// this syntax needed since yearsCollection is an object not an array
+			for (var year in yearsCollection) {
+				this._renderRevenuesYear(yearsCollection[year]);
+			}
+
+			this.wasRendered = true;
+		},
+
+		_renderRevenuesYear: function (invoicesCollection) {
+			var revenuesYearView = new RevenuesYearView({
+				collection: invoicesCollection
+			});
+
+			console.log(invoicesCollection);
+
+			// prepend because of inverted order
+			this.$turnoverContainer.prepend(revenuesYearView.el);
 		},
 
 		_toggle: function () {
@@ -39,6 +65,11 @@ define([
 				$revenues = this.$('.revenues'),
 				$content = $('.content'), // dirty
 				$iTurnover = $toggleRevenues.find('.iTurnover');
+
+			// lazy render
+			if (!this.wasRendered) {
+				this._render();
+			}
 
 			if ($toggleRevenues.hasClass('toggled')) { // hide
 

@@ -58,6 +58,7 @@ class StoresController extends ApiController
 				'isActive',
 				'client_model_id'
 				)));
+			$storeModel->invoicesCollection = $storeModel->invoicesCollection;
 
 		}
 
