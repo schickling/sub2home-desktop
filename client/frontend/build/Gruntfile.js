@@ -11,6 +11,7 @@ module.exports = function (grunt) {
         'backboneLocalStorage',
         'router', // modules
         'global',
+        'tooltipRepository',
         'notificationRepository',
         'notificationcenter',
         'models/authentificationModel', // models

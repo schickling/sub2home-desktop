@@ -15,6 +15,7 @@ require.config({
 		templates: '../templates',
 		// module alias
 		notificationRepository: 'modules/notificationRepository',
+		tooltipRepository: 'modules/tooltipRepository',
 		notificationcenter: 'modules/notificationcenter',
 		analytics: 'modules/analytics',
 		gmaps: 'modules/gmaps',

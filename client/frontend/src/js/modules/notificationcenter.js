@@ -1,9 +1,11 @@
 // Filename: src/js/modules/notificationcenter.js
 define([
-	'notificationRepository',
-	'models/NotificationModel',
-	'views/notifications/NotificationcenterView'
-	], function (notificationRepository, NotificationModel, NotificationcenterView) {
+    'notificationRepository',
+    'tooltipRepository',
+    'models/NotificationModel',
+    'models/TooltipModel',
+    'views/notifications/NotificationcenterView'
+    ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationcenterView) {
 
 	var Notificationcenter = {
 
@@ -20,6 +22,14 @@ define([
 			var notificationModel = notificationRepository.getNotificationModel(alias, data);
 
 			this.view.renderNotification(notificationModel);
+
+		},
+
+		tooltip: function (alias, top, left) {
+
+			var tooltipModel = tooltipRepository.getTooltipModel(alias);
+
+			this.view.renderTooltip(tooltipModel, top, left);
 
 		},
 

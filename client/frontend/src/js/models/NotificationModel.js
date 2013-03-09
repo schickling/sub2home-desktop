@@ -1,9 +1,8 @@
 // Filename: src/js/models/NotificationModel.js
 define([
 	'underscore',
-	'backbone',
-	'collections/ItemsCollection'
-	], function (_, Backbone, ItemsCollection) {
+	'backbone'
+	], function (_, Backbone) {
 
 	var NotificationModel = Backbone.Model.extend({
 

@@ -1,4 +1,4 @@
-// Filename: src/js/lang/notificationsLanguage.js
+// Filename: src/js/modules/notificationRepository.js
 define([
     'underscore',
     'models/NotificationModel'

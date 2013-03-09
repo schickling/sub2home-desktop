@@ -4,15 +4,17 @@ define([
     'underscore',
     'backbone',
     'moment',
+    'notificationcenter',
     'text!templates/store/dashboard/revenues/RevenueTemplate.html'
-    ], function ($, _, Backbone, moment, RevenueTemplate) {
+    ], function ($, _, Backbone, moment, notificationcenter, RevenueTemplate) {
 
 	var RevenueView = Backbone.View.extend({
 
 		template: _.template(RevenueTemplate),
 
 		events: {
-			'click i': '_download'
+			'click i': '_download',
+			'mouseenter': '_tooltip'
 		},
 
 		className: 'turnover',
@@ -62,6 +64,10 @@ define([
 
 			return http.status != 404;
 
+		},
+
+		_tooltip: function() {
+			notificationcenter.tooltip('jo', 10, 10);
 		}
 
 	});
