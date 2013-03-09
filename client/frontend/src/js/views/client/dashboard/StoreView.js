@@ -1,4 +1,4 @@
-// Filename: src/js/views/client/dashboard/StoresView.js
+// Filename: src/js/views/client/dashboard/StoreView.js
 define([
     'jquery',
     'underscore',
@@ -8,7 +8,7 @@ define([
     'text!templates/client/dashboard/StoreTemplate.html'
     ], function ($, _, Backbone, moment, router, StoreTemplate) {
 
-	var StoresView = Backbone.View.extend({
+	var StoreView = Backbone.View.extend({
 
 		template: _.template(StoreTemplate),
 
@@ -30,7 +30,7 @@ define([
 				title: this.model.get('title'),
 				month: currentMoment.format('MMMM'),
 				year: currentMoment.format('YYYY'),
-				total: invoicesCollection.getTotalOfCurrentMonth(),
+				total: parseInt(invoicesCollection.getTotalOfCurrentMonth(), 10),
 				numberOfUndoneOrders: this.model.get('numberOfUndoneOrders')
 			};
 
@@ -44,6 +44,6 @@ define([
 
 	});
 
-	return StoresView;
+	return StoreView;
 
 });
