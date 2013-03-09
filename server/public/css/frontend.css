@@ -6355,18 +6355,10 @@ input[type="text"]#locationSelectionInput {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.folded h2 {
+header h2 {
   color: #d1ba82;
   margin-bottom: 20px;
   font-size: 40px;
-}
-.headingSeparator {
-  position: absolute;
-  top: 24px;
-  left: 146px;
-  right: 0;
-  height: 1px;
-  background: #d1ba82;
 }
 .storeBasics {
   padding: 20px 10px 20px;
@@ -6610,6 +6602,7 @@ div#payment > div .icn {
   color: #4b6f01;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
   margin-left: 5px;
+  top: 1px;
 }
 div#payment > div .icn:before {
   font-size: 16px;
@@ -6708,7 +6701,7 @@ div#payment .bankaccount {
   font-family: "VAGRounded LT Thin";
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
-  padding: 0 0 40px 0;
+  padding: 0 0 70px 0;
 }
 .storeConfig > div.deliveryAreas .unfolded div {
   padding: 12px 10px 8px;
@@ -6728,6 +6721,9 @@ div#payment .bankaccount {
 .storeConfig > div.deliveryAreas .unfolded div .sBRemove {
   top: -3px;
 }
+.storeConfig > div.deliveryAreas .sBAdd {
+  bottom: 30px;
+}
 .storeConfig > div.deliveryAreas span {
   color: #555555;
   margin: 0 12px 0 -20px;
@@ -6745,7 +6741,7 @@ div#payment .bankaccount {
 .storeConfig > div.deliveryTimes .unfolded > div.businessDay {
   min-height: 80px;
   width: 328px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(209, 186, 130, 0.5);
   display: inline-block;
   margin-left: 20px;
   overflow: hidden;

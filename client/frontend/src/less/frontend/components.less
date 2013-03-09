@@ -3027,36 +3027,11 @@ input[type="text"]#locationSelectionInput {
 // Foldable Subheadlines
 // ---------------------
 
-.folded h2 {
-        color: @onNoteColor;
-        margin-bottom: 20px;
-        font-size: 40px;
-      //  .transition(color .2s linear);
-      }
-
-      .headingSeparator {
-        position: absolute;
-        top: 24px;
-        left: 146px;
-        right: 0;
-        height: 1px;
-        background: @onNoteColor;
-
-      //  .transition(background .2s linear);
-      }
-
-      // .folded {
-      //   cursor: pointer;
-      //   &:hover {
-      //     .headingSeparator {
-      //       background: @greenDark;
-      //     }
-      //     h3 {
-      //       color: @greenDark;
-      //     }
-      //   }
-      // }
-
+header h2 {
+  color: @onNoteColor;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
 
 // Basic Store Settings (Map/Contacts)
 // -----------------------------------
@@ -3279,6 +3254,7 @@ div#payment {
       color: @btnSuccessColor;
       text-shadow: @btnMoreTextShadow;
       margin-left: 5px;
+      top: 1px;
       &:before {
         font-size: 16px;
         position: relative;
@@ -3351,14 +3327,10 @@ div#payment {
       min-width: 506px;
       margin: 0 0 0 0;
       text-align: left;
-
-      
-
-
       font-family: @headingsFontFamily;
       font-size: 16px;
       color: rgba(0,0,0,0.5);
-      padding: 0 0 40px 0;
+      padding: 0 0 70px 0;
 
       .unfolded div {
         padding: 12px 10px 8px;
@@ -3372,6 +3344,10 @@ div#payment {
         .sBRemove {
           top: -3px;
         }
+      }
+
+      .sBAdd {
+        bottom: 30px;
       }
 
       span {
@@ -3398,7 +3374,7 @@ div#payment {
       .unfolded >div.businessDay {
         min-height: 80px;
         width: 328px;
-        border-bottom: 1px solid rgba(0,0,0,0.12);
+        border-bottom: 1px solid @onNoteColor50;
         display: inline-block;
         margin-left: 20px;
         overflow: hidden;
