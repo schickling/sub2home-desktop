@@ -5853,6 +5853,7 @@ input[type="text"]#locationSelectionInput {
   display: inline-block;
   padding: 90px 0 0 0;
   position: relative;
+  margin-left: 30px;
 }
 .note.orders .revenues .turnoverYear:before {
   content: " ";
