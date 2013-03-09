@@ -1,17 +1,21 @@
 // Filename: src/js/views/store/dashboard/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'models/stateModel',
-	'views/PageView',
-	'views/store/dashboard/OrdersView',
-	'views/store/dashboard/revenues/RevenuesView',
-	'text!templates/store/dashboard/MainTemplate.html'
-	], function ($, _, Backbone, router, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/stateModel',
+    'views/PageView',
+    'views/store/dashboard/OrdersView',
+    'views/store/dashboard/revenues/RevenuesView',
+    'text!templates/store/dashboard/MainTemplate.html'
+    ], function ($, _, Backbone, router, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) {
 
 	var MainView = PageView.extend({
+
+		subViews: {
+			ordersView: null
+		},
 
 		initialize: function () {
 
@@ -48,14 +52,14 @@ define([
 		},
 
 		_renderOrders: function () {
-			new OrdersView({
+			this.subViews.ordersView = new OrdersView({
 				el: this.$('.content')
 			});
 		},
 
 		_renderRevenues: function () {
 			new RevenuesView({
-				el: this.$('.note.orders'),
+				el: this.$el,
 				collection: this.model.get('invoicesCollection')
 			});
 		}

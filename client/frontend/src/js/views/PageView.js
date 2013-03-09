@@ -15,9 +15,14 @@ define([
 
 		className: 'main',
 
+		// current page title
 		pageTitle: '',
 
-		animationTime: 600,
+		// animation time for page switching
+		_animationTime: 600,
+
+		// referenced sub views
+		subViews: {},
 
 		append: function () {
 
@@ -244,7 +249,7 @@ define([
 			// load new note
 			$currentNote.delay(300).animate({
 				height: 150
-			}, this.animationTime, function () {
+			}, this._animationTime, function () {
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
 				// toggle classes
@@ -261,7 +266,7 @@ define([
 			// slide old content down
 			$currentContent.delay(300).animate({
 				top: '100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$currentContent.remove();
 
 				// reassign $el for events
@@ -285,7 +290,7 @@ define([
 			// load new note
 			$currentNote.animate({
 				height: '35%'
-			}, this.animationTime, function () {
+			}, this._animationTime, function () {
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
 				// toggle classes
@@ -299,7 +304,7 @@ define([
 				top: '100%'
 			}).appendTo($current).animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$currentContent.remove();
 
 				// reassign $el for events
@@ -317,13 +322,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bFwd');
 			});
 
 			$current.stop().animate({
 				top: '100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 		},
@@ -336,13 +341,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bBwd');
 			});
 
 			$current.stop().animate({
 				top: '-100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 
@@ -356,13 +361,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bFwd');
 			});
 
 			$current.stop().animate({
 				top: '100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 		},
@@ -375,13 +380,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bBwd');
 			});
 
 			$current.stop().animate({
 				top: '-100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 
@@ -395,13 +400,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bFwd');
 			});
 
 			$current.stop().animate({
 				top: '100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 		},
@@ -414,13 +419,13 @@ define([
 
 			$new.animate({
 				top: 0
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$new.removeClass('bBwd');
 			});
 
 			$current.stop().animate({
 				top: '-100%'
-			}, this.animationTime, 'easeInOutQuad', function () {
+			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
 
@@ -438,10 +443,21 @@ define([
 
 			$new.animate({
 				opacity: 1
-			}, this.animationTime, function () {
+			}, this._animationTime, function () {
 				$current.remove();
 			});
 
+		},
+
+		destroy: function() {
+			this.destroyAllSubViews();
+		},
+
+		destroyAllSubViews: function() {
+			// this syntax needed since this.subViews is an object not an array
+			for (var key in this.subViews) {
+				this.subViews[key].trigger('destroy');
+			}
 		}
 
 	});

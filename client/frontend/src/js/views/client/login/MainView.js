@@ -17,13 +17,13 @@ define([
 		$submit: null,
 
 		events: {
-			'keyup #login input': 'evalKeyboard',
-			'click #loginSubmit': 'login'
+			'keyup #login input': '_evalKeyboard',
+			'click #loginSubmit': '_login'
 		},
 
 		initialize: function () {
 
-			this.render();
+			this._render();
 
 			// cache dom
 			this.$number = this.$('#loginCustomerNumber');
@@ -31,13 +31,13 @@ define([
 			this.$submit = this.$('#loginSubmit');
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(MainTemplate);
 
 			this.append();
 		},
 
-		login: function () {
+		_login: function () {
 			var number = this.$number.val(),
 				password = this.$password.val(),
 				loginSucceded;
@@ -53,7 +53,7 @@ define([
 
 		},
 
-		evalKeyboard: function (e) {
+		_evalKeyboard: function (e) {
 
 			// listen for enter
 			if (e.keyCode === 13) {

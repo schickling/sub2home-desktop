@@ -12,6 +12,7 @@ define([
 		wasRendered: false,
 
 		$turnoverContainer: null,
+		$orderControls: null,
 
 		events: {
 			'click .toggleRevenues': '_toggle'
@@ -21,7 +22,7 @@ define([
 			this._cacheDom();
 		},
 
-		_render: function() {
+		_render: function () {
 			this._renderRevenuesYears();
 
 			// initialize overscroll
@@ -34,6 +35,7 @@ define([
 
 		_cacheDom: function () {
 			this.$turnoverContainer = this.$('.turnoverContainer');
+			this.$orderControls = this.$('.orderControls');
 		},
 
 		_renderRevenuesYears: function () {
@@ -64,6 +66,7 @@ define([
 				$toggleRevenues = this.$('.toggleRevenues'),
 				$revenues = this.$('.revenues'),
 				$content = $('.content'), // dirty
+				$orderControls = this.$orderControls,
 				$iTurnover = $toggleRevenues.find('.iTurnover');
 
 			// lazy render
@@ -80,18 +83,22 @@ define([
 				}, animationTime);
 
 
+
 				$revenues.animate({
 					opacity: 0
 				}, animationTime / 2, function () {
 
 					$el.animate({
-						height: 100
+						height: 150
 					}, animationTime);
 
 
 					$content.animate({
-						top: 100
+						top: 150
 					}, animationTime);
+
+					$orderControls.fadeIn(animationTime);
+
 
 				});
 
@@ -106,6 +113,8 @@ define([
 					}, animationTime / 2);
 
 				});
+
+				$orderControls.fadeOut(animationTime);
 
 
 				$iTurnover.animate({

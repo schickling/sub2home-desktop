@@ -300,7 +300,7 @@ define([
 
 				// destory old page view to unbind listeners
 				if (self._pageView) {
-					self._pageView.trigger('destroy');
+					self._pageView.destroy();
 				}
 
 				self._pageView = new MainView(params);

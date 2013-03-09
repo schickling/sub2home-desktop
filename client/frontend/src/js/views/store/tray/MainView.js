@@ -21,7 +21,9 @@ define([
 		},
 
 		// referenced sub views
-		controlView: null,
+		subViews: {
+			controlView: null
+		},
 
 		initialize: function () {
 			// check if cart is not empty
@@ -34,14 +36,12 @@ define([
 			}
 
 			this._render();
-
-			this._listenForDestory();
 		},
 
 		_render: function () {
 			this.$el.html(MainTemplate);
 
-			this.controlView = new ControlView({
+			this.subViews.controlView = new ControlView({
 				el: this.$('#checkoutControls')
 			});
 
@@ -73,12 +73,6 @@ define([
 			$tray.animate({
 				top: -535
 			});
-		},
-
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.controlView.trigger('destroy');
-			}, this);
 		}
 
 

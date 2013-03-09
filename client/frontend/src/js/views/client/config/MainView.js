@@ -14,7 +14,9 @@ define([
 	var MainView = PageView.extend({
 
 		// referenced sub views
-		profileView: null,
+		subViews: {
+			profileView: null
+		},
 
 		initialize: function () {
 			this.model = new ClientModel();
@@ -23,7 +25,6 @@ define([
 			});
 
 			this._render();
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -37,7 +38,7 @@ define([
 		},
 
 		_renderProfile: function () {
-			this.profileView = new ProfileView({
+			this.subViews.profileView = new ProfileView({
 				el: this.$('.clientBasics'),
 				model: this.model
 			});
@@ -55,12 +56,6 @@ define([
 				el: this.$('.clientBankData'),
 				model: this.model.get('bankaccountModel')
 			});
-		},
-
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.profileView.trigger('destroy');
-			}, this);
 		}
 
 

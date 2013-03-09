@@ -1,15 +1,14 @@
 // Filename: src/js/views/store/home/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'views/PageView',
-	'views/store/home/DeliveryView',
-	'views/store/home/CategoriesView',
-	'views/store/home/CategoriesNavigationView',
-	'text!templates/store/home/MainTemplate.html'
-	], function ($, _, Backbone, router, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/PageView',
+    'views/store/home/DeliveryView',
+    'views/store/home/CategoriesView',
+    'views/store/home/CategoriesNavigationView',
+    'text!templates/store/home/MainTemplate.html'
+    ], function ($, _, Backbone, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 
 	$.fn.lazyload = function () {
@@ -55,24 +54,28 @@ define([
 
 		pageTitle: 'Subway Memmingen',
 
-		events: {
-			'click .vecbuttonEdit': 'config'
-		},
-
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(MainTemplate);
 
+			this._renderDeliveryView();
+			this._renderCategories();
+		},
+
+		_renderDeliveryView: function () {
+			new DeliveryView({
+				el: this.$('.storeDeliveryDetails')
+			});
+		},
+
+		_renderCategories: function () {
 			var self = this,
 				$content = this.$('.content'),
 				$categories = $content.find('.categories');
 
-			new DeliveryView({
-				el: this.$('.storeDeliveryDetails')
-			});
 
 			var categoriesView = new CategoriesView({
 				el: $categories
@@ -90,10 +93,6 @@ define([
 				// activate image lazy loading
 				$content.lazyload();
 			});
-		},
-
-		config: function () {
-			router.navigate('store/einstellungen', true);
 		}
 
 	});
