@@ -627,6 +627,28 @@ img.cookie    { margin: 0 -10px;}
 }
 
 
+.loadMore {
+  width: 200px;
+  margin: 20px auto 0;
+  height: 20px;
+  #gradient > .vertical(@grayVeryLightest,@grayLightest);
+  .border-radius(2px);
+  border: 1px solid @grayLighter;
+  font-family: @headingsFontFamily;
+  color: darken(@grayLight, 10%);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+  font-size: 24px;
+  padding: 15px 15px 10px;
+  cursor: pointer;
+  .transition(background .1s linear);
+  &:hover {
+    #gradient > .vertical(darken(@grayVeryLightest, 1%),darken(@grayLightest, 1%));
+  }
+  &:active {
+    #gradient > .vertical(darken(@grayLightest, 1%),darken(@grayVeryLightest, 1%));
+  }
+}
+
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
@@ -2995,7 +3017,6 @@ input[type="text"]#locationSelectionInput {
         .opacity(100);
       }
     }
-
   }
 }
 
