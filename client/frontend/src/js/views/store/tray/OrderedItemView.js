@@ -15,10 +15,16 @@ define([
 
 		events: {
 			'click .deleteItem': '_destroy',
-			'click .itemPreview': '_edit'
+			'click .itemPreview': '_edit',
+			'click .addItem': '_increaseAmount',
+			'click .amountOrderedItem': '_decreaseAmount'
 		},
 
 		initialize: function () {
+			this._render();
+		},
+
+		_render: function () {
 			if (this.model.isMenu()) {
 				this._renderOrderedMenu();
 			} else {
@@ -60,6 +66,16 @@ define([
 
 		_edit: function () {
 			router.navigate('store/theke/aendern/' + this.model.get('id'), true);
+		},
+
+		_increaseAmount: function () {
+			this.model.set('amount', this.model.get('amount') + 1);
+			this._render();
+		},
+
+		_decreaseAmount: function () {
+			this.model.set('amount', this.model.get('amount') - 1);
+			this._render();
 		}
 
 	});
