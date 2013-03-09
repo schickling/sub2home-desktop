@@ -284,13 +284,14 @@ img.cookie    { margin: 0 -10px;}
   color: @onDarkNoteColor70;
   white-space: nowrap;
   &.rightHandAbove {
-    right: -278px;
+    margin-left: 63px;
+    left: 50%;
     top: -43px;
   }
-  &.leftHandBelow {
-    right: 67px;
-    top: 74px;
-  }
+  // &.leftHandBelow {
+  //   right: 67px;
+  //   top: 74px;
+  // }
 }
 
 
@@ -4723,19 +4724,20 @@ div#payment {
         width: 40px;
         height: 30px;
         .positioned;
+        display: none;
         &:before {
           position: absolute;
           top: 8px;
         }
       }
       .bRemove {
-        margin: 0 -20px 0 15px;
+        margin: 0 -20px 0 0;
         &:before {
-          left: 3px;
+          left: 0;
         }
       }
       .bAdd {
-        margin: 0 10px 0 -20px;
+        margin: 0 0 0 -20px;
         &:before {
           right: 0;
         }
@@ -4793,16 +4795,25 @@ div#payment {
       color: @greenLighter;
     }
   } 
+  
+  .credit {
+    .positioned;
+    display: inline-block;
+    margin: 0 0 0 5px;
+    width: 45px;
+    height: 44px;
+    text-align: center;
+  }
+
   .iCredit {
     font-size: 40px;
-    margin: 0 0 0 5px;
-    .positioned;
     top: 4px;
+    .positioned;
+
     padding: 0;
     width: 40px;
     height: 50px;
     z-index: 50;
-    display: inline-block;
     color: @onDarkNoteColor50;
     &:hover, &.changeCredit {
       color: @onDarkNoteColor;
