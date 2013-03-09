@@ -1780,6 +1780,15 @@ textarea:-ms-input-placeholder {
 #locationSelectionInput:-ms-input-placeholder {
   padding-top: 30px !important;
 }
+.deliveryAdditionalNote textarea::-webkit-input-placeholder {
+  color: rgba(197, 168, 98, 0.5) !important;
+}
+.deliveryAdditionalNote textarea::-moz-placeholder {
+  color: rgba(197, 168, 98, 0.5) !important;
+}
+.deliveryAdditionalNote textarea:-ms-input-placeholder {
+  color: rgba(197, 168, 98, 0.5) !important;
+}
 .searchbar input::-webkit-input-placeholder {
   color: rgba(197, 168, 98, 0.7);
   position: relative;
@@ -2531,7 +2540,7 @@ table [class*=span],
 }
 .iCredit:before,
 .bCredit:before {
-  content: "\e082";
+  content: "\e083";
 }
 .iRefresh:before,
 .bRefresh:before {
@@ -6893,7 +6902,7 @@ div#payment .bankaccount {
 }
 .articleInfo .articlePreview .pricetag {
   right: 15px;
-  bottom: 0;
+  bottom: 10px;
 }
 .articleInfo .articleBasics {
   display: inline-block;
@@ -8062,6 +8071,31 @@ div#payment .bankaccount {
   cursor: default;
   white-space: normal;
 }
+#checkoutBasicControls span.price .bRemove,
+#checkoutBasicControls span.price .bAdd {
+  font-size: 16px;
+  z-index: 51;
+  width: 40px;
+  height: 30px;
+  position: relative;
+}
+#checkoutBasicControls span.price .bRemove:before,
+#checkoutBasicControls span.price .bAdd:before {
+  position: absolute;
+  top: 8px;
+}
+#checkoutBasicControls span.price .bRemove {
+  margin: 0 -20px 0 15px;
+}
+#checkoutBasicControls span.price .bRemove:before {
+  left: 3px;
+}
+#checkoutBasicControls span.price .bAdd {
+  margin: 0 10px 0 -20px;
+}
+#checkoutBasicControls span.price .bAdd:before {
+  right: 0;
+}
 #checkoutBasicControls span.paymentMethod,
 #checkoutBasicControls span.deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
@@ -8130,6 +8164,11 @@ div#payment .bankaccount {
   height: 50px;
   z-index: 50;
   display: inline-block;
+  color: rgba(197, 168, 98, 0.5);
+}
+#checkoutBasicControls .iCredit:hover,
+#checkoutBasicControls .iCredit.changeCredit {
+  color: #c5a862;
 }
 .checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;

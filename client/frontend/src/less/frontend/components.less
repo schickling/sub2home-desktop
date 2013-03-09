@@ -3500,7 +3500,7 @@ div#payment {
     }
     .pricetag {
       right: 15px;
-      bottom: 0;
+      bottom: 10px;
     }
   }
 
@@ -4716,6 +4716,30 @@ div#payment {
     &.price {
       cursor: default;
       white-space: normal;
+
+      .bRemove, .bAdd {
+        font-size: 16px;
+        z-index: 51;
+        width: 40px;
+        height: 30px;
+        .positioned;
+        &:before {
+          position: absolute;
+          top: 8px;
+        }
+      }
+      .bRemove {
+        margin: 0 -20px 0 15px;
+        &:before {
+          left: 3px;
+        }
+      }
+      .bAdd {
+        margin: 0 10px 0 -20px;
+        &:before {
+          right: 0;
+        }
+      }
     }
 
     &.paymentMethod, &.deliveryAddress {
@@ -4779,6 +4803,10 @@ div#payment {
     height: 50px;
     z-index: 50;
     display: inline-block;
+    color: @onDarkNoteColor50;
+    &:hover, &.changeCredit {
+      color: @onDarkNoteColor;
+    }
   }
 }
 
