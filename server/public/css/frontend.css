@@ -4418,6 +4418,9 @@ input[type="text"]#locationSelectionInput {
 .categoriesNavigation .categoriesNavigationContainer .overlayTimeline {
   display: block;
 }
+.categoriesNavigation .categoriesNavigationContainer .overlayTimeline .overlayFrameTimeline .overlayFrameWrapperTimeline img {
+  left: 0;
+}
 .categoriesNavigation .categoriesNavigationContainer .phrase {
   position: absolute;
   width: 100%;
@@ -8730,15 +8733,15 @@ aside#header {
     margin: 0;
   }
 }
+@media (max-width: 1304px) {
+  .categoriesNavigation {
+    width: 45%;
+  }
+}
 @media (max-width: 1113px) {
   .categoriesNavigation {
     width: 40%;
     padding-left: 15px;
-  }
-}
-@media (max-width: 1304px) {
-  .categoriesNavigation {
-    width: 45%;
   }
 }
 @media (max-width: 1425px) {
