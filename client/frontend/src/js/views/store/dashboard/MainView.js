@@ -13,10 +13,6 @@ define([
 
 	var MainView = PageView.extend({
 
-		subViews: {
-			ordersView: null
-		},
-
 		initialize: function () {
 
 			// to be absolutly consistent reload the store model from server
@@ -52,14 +48,14 @@ define([
 		},
 
 		_renderOrders: function () {
-			this.subViews.ordersView = new OrdersView({
-				el: this.$('.content')
+			new OrdersView({
+				el: this.$el
 			});
 		},
 
 		_renderRevenues: function () {
 			new RevenuesView({
-				el: this.$el,
+				el: this.$('.note.orders'),
 				collection: this.model.get('invoicesCollection')
 			});
 		}
