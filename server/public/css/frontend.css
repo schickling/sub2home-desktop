@@ -5846,7 +5846,6 @@ input[type="text"]#locationSelectionInput {
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
-  cursor: move;
   height: 270px;
 }
 .note.orders .revenues .turnoverYear {
@@ -6685,20 +6684,6 @@ div#payment .bankaccount {
   color: #555555;
   margin: 0 12px 0 -20px;
 }
-.storeConfig > div.deliveryAreas input.deliveryAreaPostal {
-  width: 50px;
-}
-.storeConfig > div.deliveryAreas input.deliveryAreaMinimumDuration {
-  width: 20px;
-  text-align: right;
-}
-.storeConfig > div.deliveryAreas input.deliveryAreaMinimumValue {
-  width: 45px;
-  text-align: right;
-}
-.storeConfig > div.deliveryAreas input.deliveryAreaDescription {
-  width: 150px;
-}
 .storeConfig > div.deliveryTimes {
   width: 700px;
   float: right;
@@ -6755,6 +6740,21 @@ div#payment .bankaccount {
 }
 .storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime .sBRemove {
   top: -6px;
+}
+.deliveryAreaPostal {
+  width: 50px;
+}
+.deliveryAreaMinimumDuration {
+  width: 20px;
+  text-align: right;
+}
+.deliveryAreaMinimumValue {
+  width: 45px;
+  text-align: right;
+}
+.deliveryAreaCity,
+.deliveryAreaDistrict {
+  width: 20%;
 }
 .orderingOverview {
   *zoom: 1;
@@ -8619,16 +8619,39 @@ aside#header {
     width: 62%;
   }
 }
-@media (max-width: 1324px) {
+@media (max-width: 1404px) {
   .deliveryTimes {
     width: 348px !important;
   }
   .deliveryAreas {
     right: 378px !important;
   }
+  .deliveryAreaCity,
+  .deliveryAreaDistrict {
+    width: 30%;
+  }
 }
-@media (min-width: 1324px) {
-  .deliveryTimes {
-    width: 700px !important;
+@media (max-width: 1336px) {
+  .deliveryAreaCity,
+  .deliveryAreaDistrict {
+    width: 25%;
+  }
+}
+@media (max-width: 1156px) {
+  .deliveryAreaCity,
+  .deliveryAreaDistrict {
+    width: 20%;
+  }
+}
+@media (max-width: 1036px) {
+  .deliveryAreaCity,
+  .deliveryAreaDistrict {
+    width: 15%;
+  }
+}
+@media (min-width: 1405px) and (max-width: 1422px) {
+  .deliveryAreaCity,
+  .deliveryAreaDistrict {
+    width: 18%;
   }
 }

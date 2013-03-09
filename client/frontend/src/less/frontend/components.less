@@ -2535,7 +2535,7 @@ input[type="text"]#locationSelectionInput {
       white-space: nowrap;
       overflow-x: scroll;
       overflow-y: hidden;
-      cursor: move;
+      
       height: 270px;
     }  
 
@@ -3357,23 +3357,6 @@ div#payment {
         color: @grayDark;
         margin: 0 12px 0 -20px;
       }
-
-      input {
-        &.deliveryAreaPostal {
-          width: 50px;
-        }
-        &.deliveryAreaMinimumDuration {
-          width: 20px;
-          text-align: right;
-        }
-        &.deliveryAreaMinimumValue {
-          width: 45px;
-          text-align: right;
-        }
-        &.deliveryAreaDescription {
-          width: 150px;
-        }
-      }
     }
 
     &.deliveryTimes {
@@ -3440,6 +3423,23 @@ div#payment {
       }
     }
   }
+}
+
+// Responsive Inputs
+
+.deliveryAreaPostal {
+  width: 50px;
+}
+.deliveryAreaMinimumDuration {
+  width: 20px;
+  text-align: right;
+}
+.deliveryAreaMinimumValue {
+  width: 45px;
+  text-align: right;
+}
+.deliveryAreaCity, &.deliveryAreaDistrict {
+  width: 20%;
 }
 
 // ------------------------------------------------  ORDERING  -------------------------------------------------------
