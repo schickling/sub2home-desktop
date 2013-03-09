@@ -11,6 +11,12 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.html [L]
+
+    # download pdf files, don't open them
+    <FilesMatch "\.(?i:pdf)$">
+      ForceType application/octet-stream
+      Header set Content-Disposition attachment
+    </FilesMatch>
 </IfModule>
 
 # TODO 
