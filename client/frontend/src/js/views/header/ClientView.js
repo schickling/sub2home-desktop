@@ -91,7 +91,9 @@ define([
 					this._showStoreConfig();
 					break;
 				default:
-					this._showStoreGlobal();
+					if (stateModel.doesStoreExist()) {
+						this._showStoreGlobal();
+					}
 			}
 		},
 

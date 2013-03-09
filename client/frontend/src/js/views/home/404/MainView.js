@@ -1,13 +1,18 @@
 // Filename: src/js/views/home/404/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/PageView',
-	'text!templates/home/404/MainTemplate.html'
-	], function ($, _, Backbone, PageView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'views/PageView',
+    'text!templates/home/404/MainTemplate.html'
+    ], function ($, _, Backbone, router, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
+
+		events: {
+			'click .bigBack': '_back'
+		},
 
 		initialize: function () {
 			this._render();
@@ -17,6 +22,10 @@ define([
 
 		_render: function () {
 			this.$el.html(MainTemplate);
+		},
+
+		_back: function () {
+			router.navigate('/', true);
 		}
 
 	});

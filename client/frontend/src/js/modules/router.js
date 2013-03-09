@@ -147,12 +147,12 @@ define([
 
 		_showStoreHome: function (alias) {
 
-			if (this._isValidStoreModel()) {
+			stateModel.set({
+				currentRoute: 'store.home',
+				storeAlias: alias
+			});
 
-				stateModel.set({
-					currentRoute: 'store.home',
-					storeAlias: alias
-				});
+			if (this._isValidStoreModel()) {
 
 				this._loadMainView('views/store/home/MainView');
 

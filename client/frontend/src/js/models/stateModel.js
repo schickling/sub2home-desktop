@@ -1,11 +1,11 @@
 // Filename: src/js/models/stateModel.js
 define([
-	'underscore',
-	'backbone',
-	'backboneLocalStorage',
-	'models/StoreModel',
-	'global'
-	], function (_, Backbone, backboneLocalStorage, StoreModel, global) {
+    'underscore',
+    'backbone',
+    'backboneLocalStorage',
+    'models/StoreModel',
+    'global'
+    ], function (_, Backbone, backboneLocalStorage, StoreModel, global) {
 
 	var StateModel = Backbone.Model.extend({
 
@@ -142,20 +142,13 @@ define([
 				// needed because other views depend on store models
 				async: false,
 				error: function () {
-
 					errorOccured = true;
-
-					Backbone.history.navigate('404', {
-						trigger: true,
-						replace: true
-					});
 				}
 			});
 
 			// check if store was avaiable
 			if (errorOccured) {
 
-				console.log('damniit');
 				this.set('storeModel', null);
 
 			} else {
@@ -199,17 +192,17 @@ define([
 		currentRouteIsClientRelated: function () {
 			var currentRoute = this.get('currentRoute'),
 				clientRoutes = [
-					'client.dashboard',
-					'client.config',
-					'store.config',
-					'store.dashboard',
-					'store.assortment'
-					];
+                    'client.dashboard',
+                    'client.config',
+                    'store.config',
+                    'store.dashboard',
+                    'store.assortment'
+                    ];
 
 			return _.contains(clientRoutes, currentRoute);
 		},
 
-		currentRouteIsStoreRelated: function() {
+		currentRouteIsStoreRelated: function () {
 			var currentRoute = this.get('currentRoute'),
 				prefix = currentRoute.split('.')[0];
 
