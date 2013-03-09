@@ -3414,11 +3414,6 @@ img.cookie {
   text-transform: uppercase;
   z-index: 5001;
 }
-.tooltip.locationSelectionTooltip {
-  bottom: -28px;
-  left: 50%;
-  margin-left: -21px;
-}
 .tooltip.error {
   color: #9d261d;
 }
