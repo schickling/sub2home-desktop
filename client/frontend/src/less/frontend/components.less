@@ -2490,40 +2490,56 @@ input[type="text"]#locationSelectionInput {
     .iTurnover {
       height: 37px;
       padding-left: 0px;
-
+      color: @onNoteColor70;
+      .transition(color .1s linear);
       &:after {
         font-size: 50px;
         .positioned;
       }
     }
-
-    &.toggled {
-      .iTurnover {
-        &:before {
-          content: "\e05f";
-          position: absolute;
-          top: 5px;
-          left: 0;
-          margin-right: 5px;
-          color: @onNoteColor50;
-          line-height: 1;
-          vertical-align: top;
-          display: inline-block;
-          .transition(color .1s linear);
-        }
-        &:hover:before {
-          color: @red;
-        }
-      }
-    }
+    
     h3 {
-      color: @onNoteColor;
+      color: inherit;
       margin: 0 0 0 5px;
       display: inline-block;
       .positioned;
       top: 6px;
       vertical-align: top;
     }
+    
+    .transition(color .1s linear);
+    &:hover {
+      color: @onNoteColor;
+      .iTurnover {
+        color: @onNoteColor;
+      }
+    }
+
+    &.toggled {
+
+      .iTurnover {
+        color: @onNoteColor;
+        &:before {
+          content: "\e05f";
+          position: absolute;
+          top: 5px;
+          left: 0;
+          margin-right: 5px;
+          line-height: 1;
+          vertical-align: top;
+          display: inline-block;
+          color: @onNoteColor50;
+          .transition(color .1s linear);
+        }
+        &:hover:before {
+          color: @red;
+        }
+      }
+      h3 {
+        color: @onNoteColor;
+      }
+    }
+    
   }
 
   .revenues {
@@ -2687,7 +2703,7 @@ input[type="text"]#locationSelectionInput {
     position: absolute;
     height: 30px;
     text-align: left;
-    padding: 5px 5px 5px 37px;
+    padding: 5px 5px 5px 40px;
     left: 0;
     right: 70px;
     .border-radius(3px);
@@ -2706,7 +2722,9 @@ input[type="text"]#locationSelectionInput {
       border: none;
       color: @greenLight;
       font-size: 24px;
-      height: 24px;
+      height: 32px;
+      width: 100%;
+      .border-box;
     }
   }
   .bRefresh {

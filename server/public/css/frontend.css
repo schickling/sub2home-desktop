@@ -444,7 +444,7 @@ aside#header .iInfo {
   overflow-x: hidden;
 }
 .content.orders {
-  top: 100px;
+  top: 150px;
   bottom: 0;
 }
 .content.home {
@@ -5863,14 +5863,40 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   color: rgba(209, 186, 130, 0.5);
   cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
 .note.orders .toggleRevenues .iTurnover {
   height: 37px;
   padding-left: 0px;
+  color: rgba(209, 186, 130, 0.7);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
 .note.orders .toggleRevenues .iTurnover:after {
   font-size: 50px;
   position: relative;
+}
+.note.orders .toggleRevenues h3 {
+  color: inherit;
+  margin: 0 0 0 5px;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  vertical-align: top;
+}
+.note.orders .toggleRevenues:hover {
+  color: #d1ba82;
+}
+.note.orders .toggleRevenues:hover .iTurnover {
+  color: #d1ba82;
+}
+.note.orders .toggleRevenues.toggled .iTurnover {
+  color: #d1ba82;
 }
 .note.orders .toggleRevenues.toggled .iTurnover:before {
   content: "\e05f";
@@ -5878,10 +5904,10 @@ input[type="text"]#locationSelectionInput {
   top: 5px;
   left: 0;
   margin-right: 5px;
-  color: rgba(209, 186, 130, 0.5);
   line-height: 1;
   vertical-align: top;
   display: inline-block;
+  color: rgba(209, 186, 130, 0.5);
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -5890,13 +5916,8 @@ input[type="text"]#locationSelectionInput {
 .note.orders .toggleRevenues.toggled .iTurnover:hover:before {
   color: #9d261d;
 }
-.note.orders .toggleRevenues h3 {
+.note.orders .toggleRevenues.toggled h3 {
   color: #d1ba82;
-  margin: 0 0 0 5px;
-  display: inline-block;
-  position: relative;
-  top: 6px;
-  vertical-align: top;
 }
 .note.orders .revenues {
   position: relative;
@@ -6045,7 +6066,7 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   height: 30px;
   text-align: left;
-  padding: 5px 5px 5px 37px;
+  padding: 5px 5px 5px 40px;
   left: 0;
   right: 70px;
   behavior: url(../css/border-radius.htc);
@@ -6070,7 +6091,11 @@ input[type="text"]#locationSelectionInput {
   border: none;
   color: #57a827;
   font-size: 24px;
-  height: 24px;
+  height: 32px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .orderControls .bRefresh {
   margin: 11px 10px 0 0;
