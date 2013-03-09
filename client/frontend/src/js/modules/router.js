@@ -283,10 +283,10 @@ define([
 		_showPageNotFound: function () {
 
 			stateModel.set({
-				currentRoute: 'error.404'
+				currentRoute: 'home.404'
 			});
 
-			this._loadMainView('views/error/404/MainView');
+			this._loadMainView('views/home/404/MainView');
 
 		},
 

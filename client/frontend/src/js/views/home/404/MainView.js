@@ -1,10 +1,10 @@
-// Filename: src/js/views/error/404/MainView.js
+// Filename: src/js/views/home/404/MainView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
 	'views/PageView',
-	'text!templates/error/404/MainTemplate.html'
+	'text!templates/home/404/MainTemplate.html'
 	], function ($, _, Backbone, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({

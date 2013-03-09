@@ -30,6 +30,12 @@ module.exports = function (grunt) {
 		name: 'views/home/home/MainView',
 		exclude: globalModulDependencies
 	}, {
+		name: 'views/home/info/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/home/404/MainView',
+		exclude: globalModulDependencies
+	}, {
 		name: 'views/client/login/MainView',
 		exclude: globalModulDependencies
 	}, {
@@ -40,6 +46,9 @@ module.exports = function (grunt) {
 		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/home/MainView',
+		exclude: globalModulDependencies
+	}, {
+		name: 'views/store/info/MainView',
 		exclude: globalModulDependencies
 	}, {
 		name: 'views/store/config/MainView',
