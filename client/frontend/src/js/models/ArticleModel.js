@@ -1,12 +1,12 @@
 // Filename: src/js/models/ArticleModel.js
 define([
-	'underscore',
-	'backbone',
-	'collections/MenuUpgradesCollection',
-	'collections/IngredientCategoriesCollection',
-	'notificationcenter',
-	'global'
-	], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter, global) {
+    'underscore',
+    'backbone',
+    'collections/MenuUpgradesCollection',
+    'collections/IngredientCategoriesCollection',
+    'notificationcenter',
+    'global'
+    ], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter, global) {
 
 	var ArticleModel = Backbone.Model.extend({
 
@@ -52,7 +52,9 @@ define([
 
 			// throw errors
 			this.on('invalid', function (model, error) {
-				notificationcenter.error('Preisberechnung', error);
+				notificationcenter.notify('Preisberechnung', {
+					error: error
+				});
 			});
 
 		},
@@ -93,7 +95,7 @@ define([
 
 				return response;
 			}
-			
+
 		},
 
 		validate: function (attributes) {

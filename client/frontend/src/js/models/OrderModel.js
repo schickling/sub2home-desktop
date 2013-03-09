@@ -1,13 +1,13 @@
 //Filename: src/js/models/OrderModel.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'global',
-	'notificationcenter',
-	'models/AddressModel',
-	'collections/OrderedItemsCollection'
-	], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'global',
+    'notificationcenter',
+    'models/AddressModel',
+    'collections/OrderedItemsCollection'
+    ], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -49,7 +49,9 @@ define([
 			this._initializeRelations();
 
 			this.on('invalid', function (model, error) {
-				notificationcenter.error(error, error);
+				notificationcenter.notify('', {
+					error: error
+				});
 			});
 		},
 
@@ -64,7 +66,7 @@ define([
 			var orderedItemsCollection = this.get('orderedItemsCollection');
 
 			orderedItemsCollection.on('add remove reset change', function () {
-				
+
 				// trigger change manually since it won't be triggered if price hasn't changed
 				this.set({
 					total: orderedItemsCollection.getTotal()

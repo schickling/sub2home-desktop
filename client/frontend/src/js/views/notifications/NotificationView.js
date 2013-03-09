@@ -34,7 +34,7 @@ define([
 
 		_render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
-			this.$el.addClass(this.model.get('type'));
+			this.$el.addClass(this.model.get('className'));
 			this.$el.css({
 				zIndex: this.zIndex
 			});

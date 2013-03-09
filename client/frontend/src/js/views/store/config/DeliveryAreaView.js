@@ -27,7 +27,9 @@ define([
 
 			this.listenTo(this.model, 'invalid', function (model, error) {
 				this._render();
-				notificationcenter.error(error, error);
+				notificationcenter.notify('', {
+					error: error
+				});
 			});
 
 			this._listenForDestory();

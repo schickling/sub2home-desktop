@@ -8,10 +8,10 @@ define([
 	var NotificationModel = Backbone.Model.extend({
 
 		defaults: {
-			type: '',
-			title: '',
-			description: '',
-			duration: 0
+			className: 'info',
+			title: 'Notificationtitle',
+			description: 'Notificationdescription',
+			duration: 5000
 		}
 
 	});

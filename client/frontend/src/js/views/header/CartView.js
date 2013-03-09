@@ -56,7 +56,7 @@ define([
 			if (this.model.getNumberOfOrderedItems() > 0) {
 				router.navigate('store/tablett', true);
 			} else {
-				notificationcenter.warning('noch nix drin!', 'kauf mal was');
+				notificationcenter.notify('noch nix drin!');
 			}
 		}
 

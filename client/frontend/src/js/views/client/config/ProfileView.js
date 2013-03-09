@@ -104,12 +104,12 @@ define([
 						self._hidePasswordFields();
 					},
 					error: function () {
-						notificationcenter.error('server damn', 'damn');
+						notificationcenter.notify('server damn');
 					}
 				});
 
 			} else {
-				notificationcenter.error('damn', 'damn');
+				notificationcenter.notify('damn');
 			}
 		},
 

@@ -46,9 +46,11 @@ define([
 			});
 		},
 
-		_listenToPaymentMethods: function() {
+		_listenToPaymentMethods: function () {
 			this.listenTo(this.model, 'invalid', function (model, error) {
-				notificationcenter.error(error, error);
+				notificationcenter.notify('damn', {
+					error: error
+				});
 			});
 		},
 
@@ -73,10 +75,10 @@ define([
 				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
 				type: 'post',
 				success: function () {
-					notificationcenter.success('orders.testOrder.success', 'orders.testOrder.success');
+					notificationcenter.notify('orders.testOrder.success');
 				},
-				error: function() {
-					notificationcenter.error('orders.testOrder.error', 'orders.testOrder.error');
+				error: function () {
+					notificationcenter.notify('orders.testOrder.error');
 				}
 			});
 		},
@@ -89,14 +91,14 @@ define([
 			this.model.save({}, {
 				success: function () {
 					if (isOpen) {
-						notificationcenter.success('Store geoeffnet', 'Info erfolgreich gespeichert');
+						notificationcenter.notify('Store geoeffnet');
 					} else {
-						notificationcenter.success('Store geschlossen', 'Info erfolgreich gespeichert');
+						notificationcenter.notify('Store geschlossen');
 					}
 					$button.toggleClass('open');
 				},
 				error: function () {
-					notificationcenter.error('Fehler :(', 'Info nicht erfolgreich gespeichert');
+					notificationcenter.notify('Fehler :(');
 				}
 			});
 		},
@@ -116,12 +118,12 @@ define([
 			this.model.save(changedAttributes, {
 				validate: true,
 				success: function () {
-					notificationcenter.success('Bezahlmoeglichkeiten', 'Adresse erfolgreich gespeichert');
+					notificationcenter.notify('Bezahlmoeglichkeiten');
 					$wrapper.toggleClass('disabled');
 				},
 				error: function () {
 					if (attribute === 'allowsPaymentPaypal') {
-						notificationcenter.error('Paypalfehler', 'Adresse nicht erfolgreich gespeichert');
+						notificationcenter.notify('Paypalfehler');
 						self.updatePaypal();
 					}
 				}
@@ -134,7 +136,7 @@ define([
 
 			$button.prepend('Seite wird geladen...');
 
-			notificationcenter.info('Paypal wird geladen', 'Adresse nicht erfolgreich gespeichert');
+			notificationcenter.notify('Paypal wird geladen');
 
 			$.ajax({
 				url: url,
@@ -152,11 +154,11 @@ define([
 			var self = this;
 			this.model.save({}, {
 				success: function () {
-					notificationcenter.success('Info gespeichert', 'Info erfolgreich gespeichert');
+					notificationcenter.notify('Info gespeichert');
 					console.log(self.model);
 				},
 				error: function () {
-					notificationcenter.error('Fehler :(', 'Info nicht erfolgreich gespeichert');
+					notificationcenter.notify('Fehler :(');
 				}
 			});
 		},

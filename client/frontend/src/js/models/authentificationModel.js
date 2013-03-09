@@ -105,9 +105,9 @@ define([
 					var statusCode = jqXHR.status;
 
 					if (statusCode === 429) {
-						notificationcenter.error('Zu viele fehlerhafte Versuche', 'Warte verdammt!');
+						notificationcenter.notify('Zu viele fehlerhafte Versuche');
 					} else {
-						notificationcenter.error('Daten falsch', 'Damn it');
+						notificationcenter.notify('Daten falsch');
 					}
 
 				}

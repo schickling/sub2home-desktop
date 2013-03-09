@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/assortment/ArticleView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'text!templates/store/assortment/articles/ArticleTemplate.html'
-	], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'text!templates/store/assortment/articles/ArticleTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
 
 	var ArticleView = Backbone.View.extend({
 
@@ -54,13 +54,15 @@ define([
 					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
-						notificationcenter.success('articles.edit.success.isActive', 'articles.edit.success.isActive');
+						notificationcenter.notify('articles.edit.success.isActive');
 					} else {
-						notificationcenter.success('articles.edit.success.isNotActive', 'articles.edit.success.isNotActive');
+						notificationcenter.notify('articles.edit.success.isNotActive');
 					}
 				},
 				error: function (model, error) {
-					notificationcenter.error(error, error);
+					notificationcenter.notify('', {
+						error: error
+					});
 				}
 			});
 		},
@@ -71,13 +73,13 @@ define([
 
 			this.model.set('customPrice', customPrice);
 			this.model.save({}, {
-				success: function() {
-					notificationcenter.success('Preis geaendert', '');
+				success: function () {
+					notificationcenter.notify('Preis geaendert');
 				}
 			});
 		},
 
-		_resetCustomPrice: function() {
+		_resetCustomPrice: function () {
 			var $input = this.$('.pricetag input');
 
 			$input.val(this.model.get('price'));

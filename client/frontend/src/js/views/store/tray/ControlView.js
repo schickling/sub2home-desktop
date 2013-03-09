@@ -92,7 +92,7 @@ define([
 				self = this;
 
 			if (!cartModel.isMinimumReached()) {
-				notificationcenter.error('store.tray.minimumNotReached', 'store.tray.minimumNotReached');
+				notificationcenter.notify('store.tray.minimumNotReached');
 				return;
 			}
 
@@ -106,7 +106,7 @@ define([
 					});
 				},
 				error: function (error, b) {
-					notificationcenter.error(b, b);
+					notificationcenter.notify(b, b);
 					console.log(b);
 				}
 			});
@@ -148,7 +148,7 @@ define([
 			if (spareMinutes + minutes >= 0) {
 				cartModel.setDueDate(newDueDate);
 			} else {
-				notificationcenter.error('damn', 'yo');
+				notificationcenter.notify('damn');
 			}
 		},
 
