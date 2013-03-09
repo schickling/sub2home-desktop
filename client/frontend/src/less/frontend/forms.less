@@ -771,9 +771,9 @@ input[type="text"], textarea {
 
 
 .bigInput {
-  &::-webkit-input-placeholder { position: relative; top: 4px !important; }
-  &::-moz-placeholder {color: @onNoteColor50 !important; }
-  &:-ms-input-placeholder { color: @onNoteColor50 !important; }
+  &::-webkit-input-placeholder { color: @onNoteColor50; position: relative; top: 4px !important; }
+  &::-moz-placeholder {color: @onNoteColor50; position: relative; top: 4px !important; }
+  &:-ms-input-placeholder { color: @onNoteColor50; position: relative; top: 4px !important; }
 }
 
 #locationSelectionInput {
@@ -784,6 +784,11 @@ input[type="text"], textarea {
 
 }
 
+.searchbar input {
+  &::-webkit-input-placeholder { color: @onDarkNoteColor70; position: relative; top: 3px !important; }
+  &::-moz-placeholder {color: @onDarkNoteColor70; position: relative; top: 3px !important; }
+  &:-ms-input-placeholder { color: @onDarkNoteColor70; position: relative; top: 3px !important;  }
+}
 
 // Input Error Sign
 // -------------------

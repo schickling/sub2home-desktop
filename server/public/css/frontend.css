@@ -1757,14 +1757,19 @@ textarea:-ms-input-placeholder {
   padding-top: 25px;
 }
 .bigInput::-webkit-input-placeholder {
+  color: rgba(209, 186, 130, 0.5);
   position: relative;
   top: 4px !important;
 }
 .bigInput::-moz-placeholder {
-  color: rgba(209, 186, 130, 0.5) !important;
+  color: rgba(209, 186, 130, 0.5);
+  position: relative;
+  top: 4px !important;
 }
 .bigInput:-ms-input-placeholder {
-  color: rgba(209, 186, 130, 0.5) !important;
+  color: rgba(209, 186, 130, 0.5);
+  position: relative;
+  top: 4px !important;
 }
 #locationSelectionInput::-webkit-input-placeholder {
   padding-top: 30px !important;
@@ -1774,6 +1779,21 @@ textarea:-ms-input-placeholder {
 }
 #locationSelectionInput:-ms-input-placeholder {
   padding-top: 30px !important;
+}
+.searchbar input::-webkit-input-placeholder {
+  color: rgba(197, 168, 98, 0.7);
+  position: relative;
+  top: 3px !important;
+}
+.searchbar input::-moz-placeholder {
+  color: rgba(197, 168, 98, 0.7);
+  position: relative;
+  top: 3px !important;
+}
+.searchbar input:-ms-input-placeholder {
+  color: rgba(197, 168, 98, 0.7);
+  position: relative;
+  top: 3px !important;
 }
 .inputError {
   position: absolute;
@@ -2512,6 +2532,10 @@ table [class*=span],
 .iCredit:before,
 .bCredit:before {
   content: "\e082";
+}
+.iRefresh:before,
+.bRefresh:before {
+  content: "\e084";
 }
 .close {
   float: right;
@@ -5826,8 +5850,8 @@ input[type="text"]#locationSelectionInput {
   height: 27px;
 }
 .note.orders {
-  min-height: 100px;
-  height: 100px;
+  min-height: 150px;
+  height: 150px;
 }
 .note.orders .container {
   height: inherit;
@@ -6009,6 +6033,46 @@ input[type="text"]#locationSelectionInput {
 }
 .note.orders .revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
   display: none;
+}
+.orderControls {
+  position: relative;
+  text-align: right;
+  height: 40px;
+  margin: 92px 30px 0;
+}
+.orderControls .searchbar {
+  position: absolute;
+  height: 30px;
+  text-align: left;
+  padding: 5px 5px 5px 37px;
+  left: 0;
+  right: 70px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: rgba(209, 186, 130, 0.3);
+  -webkit-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.orderControls .searchbar:before {
+  content: "\e065";
+  font-family: "Homicons";
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  font-size: 24px;
+  color: #d1ba82;
+}
+.orderControls .searchbar input {
+  border: none;
+  color: #57a827;
+  font-size: 24px;
+  height: 24px;
+}
+.orderControls .bRefresh {
+  margin: 11px 10px 0 0;
 }
 .content.orders {
   padding: 30px 5%;
