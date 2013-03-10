@@ -15,22 +15,6 @@ define([
 
 		currentTooltipView: null,
 
-		initialize: function () {
-			this._listenToMouseWheel();
-		},
-
-		_listenToMouseWheel: function () {
-
-			var self = this;
-
-			$(document).on('mousewheel', function () {
-				if (self.currentTooltipView) {
-					self.currentTooltipView.hide();
-				}
-			});
-
-		},
-
 		renderNotification: function (notificationModel) {
 			var notificationView = new NotificationView({
 				model: notificationModel,
@@ -43,11 +27,13 @@ define([
 			notificationView.slideIn();
 		},
 
+		destroyAllNotificationViews: function () {
+			this.$('.notification').trigger('close');
+		},
+
 		renderTooltip: function (tooltipModel, top, left) {
 			// hide old tooltip
-			if (this.currentTooltipView) {
-				this.currentTooltipView.hide();
-			}
+			this.hideTooltip();
 
 			var tooltipView = new TooltipView({
 				model: tooltipModel,
@@ -63,8 +49,10 @@ define([
 			this.currentTooltipView = tooltipView;
 		},
 
-		destroyAllNotificationViews: function () {
-			this.$('.notification').trigger('close');
+		hideTooltip: function () {
+			if (this.currentTooltipView) {
+				this.currentTooltipView.hide();
+			}
 		}
 
 	});

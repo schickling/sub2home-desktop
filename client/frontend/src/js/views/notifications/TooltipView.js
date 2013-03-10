@@ -10,10 +10,6 @@ define([
 
 		className: 'tooltip',
 
-		events: {
-			'mouseleave': 'hide'
-		},
-
 		template: _.template(TooltipTemplate),
 
 		top: 0,

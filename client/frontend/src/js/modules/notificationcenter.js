@@ -33,6 +33,10 @@ define([
 
 		},
 
+		hideTooltip: function () {
+			this.view.hideTooltip();
+		},
+
 		clean: function () {
 			this.view.destroyAllNotificationViews();
 		}

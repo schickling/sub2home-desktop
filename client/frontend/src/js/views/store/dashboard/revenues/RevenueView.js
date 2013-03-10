@@ -14,7 +14,8 @@ define([
 
 		events: {
 			'click i': '_download',
-			'mouseenter i': '_tooltip'
+			'mouseenter i': '_showTooltip',
+			'mouseleave i': '_hideTooltip'
 		},
 
 		className: 'turnover',
@@ -88,12 +89,21 @@ define([
 
 		},
 
-		_tooltip: function () {
+		_showTooltip: function () {
 
 			if (this.isValidMonth) {
 
 				var offset = this.$download.offset();
 				notificationcenter.tooltip('store.dashboard.invoice.download', offset.top + 24, offset.left + 14);
+
+			}
+		},
+
+		_hideTooltip: function () {
+
+			if (this.isValidMonth) {
+
+				notificationcenter.hideTooltip();
 
 			}
 		}

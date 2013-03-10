@@ -17,7 +17,7 @@ class AuthentificationController extends ApiController
     private $toleranceOfFailedAttempts = 5;
 
     // periode how long a token is valid
-    private $periodOfValidity = 3 * 60 * 24; // 3 days
+    private $periodOfValidity = 4320; // 3 days
 
     /**
      * Logs in a user and stores the generated token in the cache
