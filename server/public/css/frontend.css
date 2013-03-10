@@ -3824,6 +3824,7 @@ img.cookie {
   width: 200px;
   margin: 20px auto 0;
   height: 20px;
+  display: none;
   background-color: #f9f9f9;
   background-image: -moz-linear-gradient(top, #fdfdfd, #f4f4f4);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#f4f4f4));
