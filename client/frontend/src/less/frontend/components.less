@@ -173,7 +173,7 @@ img.cookie    { margin: 0 -10px;}
   color: @grayLight;
   text-align: center;
   position: absolute;
-  line-height: 1.2;
+  line-height: 1.3;
 
   &.aboveLeft, &.aboveRight, &.belowLeft, &.belowRight, &.rightHandAbove, &.rightHandBelow, &.leftHandAbove, &.leftHandBelow {
     &:before {
@@ -2110,9 +2110,6 @@ input[type="text"]#locationSelectionInput {
     .positioned;
     cursor: pointer;
     padding: 45px;
-    // &:first-child {
-    //   margin-top: 50px;
-    // }
     
     &:after {
       content: " ";
@@ -3077,6 +3074,34 @@ input[type="text"]#locationSelectionInput {
         .opacity(100);
       }
     }
+  }
+}
+
+#noOrders {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -95px 0 0 -318px;
+  line-height: 1.3;
+  font-size: 40px;
+  color: @grayLight;
+  font-family: @headingsFontFamily;
+  text-align: center;
+  .bMail {
+    font-size: 70px;
+    .transition(color .1s linear);
+    height: 75px;
+    .positioned;
+    top: 15px;
+    margin: 0 0 0 30px;
+    &:hover {
+      color: @greenLighter;
+    }
+  }
+  .notice {
+    top: 110px;
+    right: 130px;
+    width: 490px;
   }
 }
 
