@@ -94,7 +94,7 @@ define([
 			if (this.isValidMonth) {
 
 				var offset = this.$download.offset();
-				notificationcenter.tooltip('store.dashboard.invoice.download', offset.top + 24, offset.left + 14);
+				notificationcenter.tooltip('views.store.dashboard.invoice.download', offset.top + 24, offset.left + 14);
 
 			}
 		},
