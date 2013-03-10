@@ -52,7 +52,7 @@ define([
 
 			// throw errors
 			this.on('invalid', function (model, error) {
-				notificationcenter.notify('Preisberechnung', {
+				notificationcenter.notify('models.articleModel.invalid', {
 					error: error
 				});
 			});

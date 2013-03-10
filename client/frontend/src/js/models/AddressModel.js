@@ -21,7 +21,7 @@ define([
 		initialize: function () {
 			// throw errors
 			this.on('invalid', function (model, error) {
-				notificationcenter.notify('Addressdaten fehlerhaft', {
+				notificationcenter.notify('models.addressModel.invalid', {
 					error: error
 				});
 			});

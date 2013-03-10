@@ -91,7 +91,7 @@ define([
 				$.when(this.mapDeffered, this.collectionDeffered).done(function () {
 					navigator.geolocation.getCurrentPosition(function (position) {
 
-						notificationcenter.notify('Standort wird ermittelt');
+						notificationcenter.notify('views.home.home.lookupLocation');
 
 						var latlng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -118,11 +118,11 @@ define([
 								self.lookUpStoresForPostal(postal, false);
 
 							} else {
-								notificationcenter.notify('Neeeeeeeeein!');
+								notificationcenter.notify('views.home.home.lookupFailed');
 							}
 						});
 					}, function () {
-						notificationcenter.notify('Neeeeeeeeein!');
+						notificationcenter.notify('views.home.home.lookupNotWorking');
 					});
 				}); // end deffered
 			}
@@ -226,7 +226,7 @@ define([
 		},
 
 		_noStoresFound: function () {
-			notificationcenter.notify('Kein Store gefunden', {
+			notificationcenter.notify('views.home.home.noStoresFound', {
 				postal: this.postal
 			});
 
@@ -235,7 +235,7 @@ define([
 
 		_selectStoreNotification: function () {
 
-			notificationcenter.notify('Entscheide dich');
+			notificationcenter.notify('views.home.home.selectStore');
 
 		},
 

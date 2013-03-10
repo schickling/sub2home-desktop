@@ -17,7 +17,7 @@ define([
 		initialize: function () {
 			// throw errors
 			this.on('invalid', function (model, error) {
-				notificationcenter.notify('Kontodaten fehlerhaft', {
+				notificationcenter.notify('models.bankaccountModel.invalid', {
 					error: error
 				});
 			});

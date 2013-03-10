@@ -56,7 +56,7 @@ define([
 			if (this.model.getNumberOfOrderedItems() > 0) {
 				router.navigate('store/tablett', true);
 			} else {
-				notificationcenter.notify('noch nix drin!');
+				notificationcenter.notify('views.header.cart.empty');
 			}
 		}
 

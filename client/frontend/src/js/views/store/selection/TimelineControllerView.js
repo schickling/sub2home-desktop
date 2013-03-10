@@ -390,7 +390,7 @@ define([
 			} else {
 				console.log(this.model.toJSON());
 				_.each(lockedTimelineItems, function (timelineItemModel) {
-					notificationcenter.notify('Noch nicht fertig!', {
+					notificationcenter.notify('views.store.selection.notReady', {
 						phrase: timelineItemModel.get('phrase')
 					});
 					timelineItemModel.trigger('highlight');

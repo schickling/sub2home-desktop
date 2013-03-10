@@ -1,8 +1,9 @@
 define([
-	'underscore',
-	'backbone',
-	'global'
-	], function (_, Backbone, global) {
+    'underscore',
+    'backbone',
+    'global',
+    'notificationcenter'
+    ], function (_, Backbone, global, notificationcenter) {
 
 	var DeliveryAreaModel = Backbone.Model.extend({
 
@@ -14,6 +15,17 @@ define([
 			postal: 0,
 
 			isSelected: false
+		},
+
+		initialize: function () {
+
+			// throw errors
+			this.on('invalid', function (model, error) {
+				notificationcenter.notify('models.deliveryAreaModel.invalid', {
+					error: error
+				});
+			});
+
 		},
 
 		urlRoot: function () {

@@ -35,10 +35,10 @@ define([
 
 				this.model.save({}, {
 					success: function () {
-						notificationcenter.notify('Bankdaten gespeichert');
+						notificationcenter.notify('views.client.config.bankaccount.success');
 					},
 					error: function () {
-						notificationcenter.notify('Fehler :(');
+						notificationcenter.notify('views.client.config.bankaccount.error');
 					}
 				});
 			}

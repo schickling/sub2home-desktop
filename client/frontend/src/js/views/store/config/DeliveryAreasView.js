@@ -45,7 +45,7 @@ define([
 					self.collection.add(deliveryAreaModel);
 				},
 				error: function () {
-					notificationcenter.notify('damn it');
+					notificationcenter.notify('views.store.config.deliveryArea.add.error');
 				}
 			});
 		}

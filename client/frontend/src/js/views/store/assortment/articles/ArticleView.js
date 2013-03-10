@@ -54,15 +54,13 @@ define([
 					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
-						notificationcenter.notify('articles.edit.success.isActive');
+						notificationcenter.notify('views.store.assortment.articles.success.isActive');
 					} else {
-						notificationcenter.notify('articles.edit.success.isNotActive');
+						notificationcenter.notify('views.store.assortment.articles.success.isNotActive');
 					}
 				},
-				error: function (model, error) {
-					notificationcenter.notify('', {
-						error: error
-					});
+				error: function () {
+					notificationcenter.notify('views.store.assortment.articles.error');
 				}
 			});
 		},
@@ -75,6 +73,9 @@ define([
 			this.model.save({}, {
 				success: function () {
 					notificationcenter.notify('Preis geaendert');
+				},
+				error: function () {
+					notificationcenter.notify('views.store.assortment.articles.error');
 				}
 			});
 		},

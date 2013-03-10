@@ -37,14 +37,14 @@ define([
 
 				addressModel.save({}, {
 					success: function () {
-						notificationcenter.notify('Adresse gespeichert');
+						notificationcenter.notify('views.store.config.address.success');
 						// reload store if address got changed
 						if (shouldReloadStoreModel) {
 							storeModel.fetch();
 						}
 					},
 					error: function () {
-						notificationcenter.notify('Fehler :(');
+						notificationcenter.notify('views.store.config.address.error');
 					}
 				});
 			}

@@ -50,7 +50,7 @@ define([
 			var self = this;
 
 			if (this.model.collection.length === 1) {
-				notificationcenter.notify('store.tray.cartNowEmpty');
+				notificationcenter.notify('views.store.tray.cartNowEmpty');
 				router.navigate('store', {
 					trigger: true,
 					replace: true

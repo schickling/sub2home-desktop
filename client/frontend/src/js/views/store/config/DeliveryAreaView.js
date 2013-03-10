@@ -2,9 +2,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
     'text!templates/store/config/DeliveryAreaTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
+    ], function ($, _, Backbone, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
 
@@ -25,11 +24,8 @@ define([
 
 			this._render();
 
-			this.listenTo(this.model, 'invalid', function (model, error) {
+			this.listenTo(this.model, 'invalid', function () {
 				this._render();
-				notificationcenter.notify('', {
-					error: error
-				});
 			});
 
 			this._listenForDestory();

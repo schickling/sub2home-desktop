@@ -87,7 +87,7 @@ define([
 
 			cartModel.addOrderedItemModel(orderedItemModel);
 
-			notificationcenter.notify('store.home.addedOrderedItemToCart');
+			notificationcenter.notify('views.store.home.addedOrderedItemToCart');
 		}
 
 	});

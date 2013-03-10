@@ -46,13 +46,13 @@ define([
 	StoreView.prototype.selectStore = function () {
 		switch (this.state) {
 		case 'initialized':
-			notificationcenter.notify('Liefergebiet auswaehlen');
+			notificationcenter.notify('views.home.home.selectDeliveryArea');
 			break;
 		case 'available':
 			this.parentView.selectStore(this.model);
 			break;
 		case 'unavailable':
-			notificationcenter.notify('Nicht in Reichweite');
+			notificationcenter.notify('views.home.home.storeNotInRange');
 		}
 	};
 

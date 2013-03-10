@@ -23,8 +23,6 @@ define([
 
 		initialize: function () {
 			this._render();
-			this._listenToPaymentMethods();
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -43,14 +41,6 @@ define([
 			new AddressView({
 				el: this.$('.storeAddress'),
 				model: this.model
-			});
-		},
-
-		_listenToPaymentMethods: function () {
-			this.listenTo(this.model, 'invalid', function (model, error) {
-				notificationcenter.notify('damn', {
-					error: error
-				});
 			});
 		},
 
@@ -75,10 +65,10 @@ define([
 				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
 				type: 'post',
 				success: function () {
-					notificationcenter.notify('orders.testOrder.success');
+					notificationcenter.notify('views.store.config.testOrder.success');
 				},
 				error: function () {
-					notificationcenter.notify('orders.testOrder.error');
+					notificationcenter.notify('views.store.config.testOrder.error');
 				}
 			});
 		},
@@ -91,14 +81,14 @@ define([
 			this.model.save({}, {
 				success: function () {
 					if (isOpen) {
-						notificationcenter.notify('Store geoeffnet');
+						notificationcenter.notify('views.store.config.isOpen');
 					} else {
-						notificationcenter.notify('Store geschlossen');
+						notificationcenter.notify('views.store.config.isClosed');
 					}
 					$button.toggleClass('open');
 				},
 				error: function () {
-					notificationcenter.notify('Fehler :(');
+					notificationcenter.notify('views.store.config.isOpenError');
 				}
 			});
 		},
@@ -118,13 +108,15 @@ define([
 			this.model.save(changedAttributes, {
 				validate: true,
 				success: function () {
-					notificationcenter.notify('Bezahlmoeglichkeiten');
+					notificationcenter.notify('views.store.config.paymentMethods.success');
 					$wrapper.toggleClass('disabled');
 				},
 				error: function () {
 					if (attribute === 'allowsPaymentPaypal') {
-						notificationcenter.notify('Paypalfehler');
+						notificationcenter.notify('views.store.config.paymentMethods.error.paypal');
 						self.updatePaypal();
+					} else {
+						notificationcenter.notify('views.store.config.paymentMethods.error');
 					}
 				}
 			});
@@ -136,7 +128,7 @@ define([
 
 			$button.prepend('Seite wird geladen...');
 
-			notificationcenter.notify('Paypal wird geladen');
+			notificationcenter.notify('views.store.config.paymentMethods.loadPaypal');
 
 			$.ajax({
 				url: url,
@@ -154,19 +146,12 @@ define([
 			var self = this;
 			this.model.save({}, {
 				success: function () {
-					notificationcenter.notify('Info gespeichert');
-					console.log(self.model);
+					notificationcenter.notify('views.store.config.info.success');
 				},
 				error: function () {
-					notificationcenter.notify('Fehler :(');
+					notificationcenter.notify('views.store.config.info.error');
 				}
 			});
-		},
-
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
 		}
 
 	});

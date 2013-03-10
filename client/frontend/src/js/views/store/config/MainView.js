@@ -19,8 +19,7 @@ define([
 		subViews: {
 			mapView: null,
 			deliveryAreasView: null,
-			deliveryTimesView: null,
-			storeInfoView: null
+			deliveryTimesView: null
 		},
 
 		initialize: function () {
@@ -49,7 +48,7 @@ define([
 				model: this.model
 			});
 
-			this.subViews.storeInfoView = new StoreInfoView({
+			new StoreInfoView({
 				el: this.$('.storeInfo'),
 				model: this.model
 			});

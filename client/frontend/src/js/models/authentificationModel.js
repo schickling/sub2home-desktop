@@ -105,9 +105,9 @@ define([
 					var statusCode = jqXHR.status;
 
 					if (statusCode === 429) {
-						notificationcenter.notify('Zu viele fehlerhafte Versuche');
+						notificationcenter.notify('models.authentificationModel.tooManyErrors');
 					} else {
-						notificationcenter.notify('Daten falsch');
+						notificationcenter.notify('models.authentificationModel.dataWrong');
 					}
 
 				}

@@ -26,11 +26,8 @@ define([
 
 			this._render();
 
-			this.listenTo(this.model, 'invalid', function (model, error) {
+			this.listenTo(this.model, 'invalid', function () {
 				this._render();
-				notificationcenter.notify('', {
-					error: error
-				});
 			});
 
 			this._listenForDestory();
@@ -91,7 +88,7 @@ define([
 			if (time.match(/^((([01]?[0-9]|2[0-3]):[0-5][0-9])|24:00)$/)) {
 				return true;
 			} else {
-				notificationcenter.notify('Bitte Uhrzeit im Format hh:mm eingeben.');
+				notificationcenter.notify('views.store.config.deliveryTime.wrongTimeFormat');
 				return false;
 			}
 		},

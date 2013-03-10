@@ -104,12 +104,12 @@ define([
 						self._hidePasswordFields();
 					},
 					error: function () {
-						notificationcenter.notify('server damn');
+						notificationcenter.notify('views.client.config.changePassword.oldPasswordWrong');
 					}
 				});
 
 			} else {
-				notificationcenter.notify('damn');
+				notificationcenter.notify('views.client.config.changePassword.invalidInput');
 			}
 		},
 

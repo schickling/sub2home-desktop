@@ -47,6 +47,13 @@ define([
 				this._listenForDeliveryTimesCollectionChanges();
 			}, this);
 
+			// throw errors
+			this.on('invalid', function (model, error) {
+				notificationcenter.notify('models.storeModel.invalid', {
+					error: error
+				});
+			});
+
 			this._listenForDeliveryAreasCollectionChanges();
 			this._listenForDeliveryTimesCollectionChanges();
 
@@ -100,8 +107,6 @@ define([
 		validate: function (attributes) {
 
 			var startMinutes = attributes.startMinutes;
-
-			console.log(attributes);
 
 			if (!attributes.allowsPaymentPaypal && !attributes.allowsPaymentEc && !attributes.allowsPaymentCash) {
 				return 'at least one payment method has to be selected';

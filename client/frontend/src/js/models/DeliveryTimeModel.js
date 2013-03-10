@@ -1,8 +1,9 @@
 define([
-	'underscore',
-	'backbone',
-	'global'
-	], function (_, Backbone, global) {
+    'underscore',
+    'backbone',
+    'global',
+    'notificationcenter'
+    ], function (_, Backbone, global, notificationcenter) {
 
 	var DeliveryTimeModel = Backbone.Model.extend({
 
@@ -10,6 +11,17 @@ define([
 			dayOfWeek: 0,
 			startMinutes: 0,
 			endMinutes: 60
+		},
+
+		initialize: function () {
+
+			// throw errors
+			this.on('invalid', function (model, error) {
+				notificationcenter.notify('models.deliveryTimeModel.invalid', {
+					error: error
+				});
+			});
+
 		},
 
 		urlRoot: function () {
@@ -33,28 +45,28 @@ define([
 
 			var startMinutes = attributes.startMinutes;
 
-			if (typeof(startMinutes) !== 'number' || startMinutes !== parseInt(startMinutes, 10)) {
+			if (typeof (startMinutes) !== 'number' || startMinutes !== parseInt(startMinutes, 10)) {
 				return "startMinutes has to be numeric";
 			}
 
 			if (startMinutes < 0) {
-				return  "startMinutes can't be negative";
+				return "startMinutes can't be negative";
 			}
 
 
 			var endMinutes = attributes.endMinutes;
 
-			if (typeof(endMinutes) !== 'number' || endMinutes !== parseInt(endMinutes, 10)) {
+			if (typeof (endMinutes) !== 'number' || endMinutes !== parseInt(endMinutes, 10)) {
 				return "endMinutes has to be numeric";
 			}
 
 			if (endMinutes < 0) {
-				return  "endMinutes can't be negative";
+				return "endMinutes can't be negative";
 			}
 
 
 			if (endMinutes <= startMinutes) {
-				return  "endMinutes must be less then startMinutes";
+				return "endMinutes must be less then startMinutes";
 			}
 
 		}

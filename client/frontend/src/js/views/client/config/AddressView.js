@@ -35,10 +35,10 @@ define([
 
 				this.model.save({}, {
 					success: function () {
-						notificationcenter.notify('Adresse gespeichert');
+						notificationcenter.notify('views.client.config.address.success');
 					},
 					error: function () {
-						notificationcenter.notify('Fehler :(');
+						notificationcenter.notify('views.client.config.address.error');
 					}
 				});
 			}

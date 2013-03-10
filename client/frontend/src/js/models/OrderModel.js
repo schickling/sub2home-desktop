@@ -49,7 +49,7 @@ define([
 			this._initializeRelations();
 
 			this.on('invalid', function (model, error) {
-				notificationcenter.notify('', {
+				notificationcenter.notify('models.orderModel.invalid', {
 					error: error
 				});
 			});

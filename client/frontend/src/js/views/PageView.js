@@ -221,16 +221,16 @@ define([
 			var $new = this.$el,
 				$current = $('.main');
 
-			$new.addClass('bFwd').appendTo($('body'));
+			$new.addClass('cFwd').appendTo($('body'));
 
 			$new.animate({
-				top: 0
+				left: 0
 			}, this._animationTime, 'easeInOutQuad', function () {
-				$new.removeClass('bFwd');
+				$new.removeClass('cFwd');
 			});
 
 			$current.stop().animate({
-				top: '100%'
+				left: '-100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
@@ -246,16 +246,16 @@ define([
 			var $new = this.$el,
 				$current = $('.main');
 
-			$new.addClass('bBwd').appendTo($('body'));
+			$new.addClass('cBwd').appendTo($('body'));
 
 			$new.animate({
-				top: 0
+				left: 0
 			}, this._animationTime, 'easeInOutQuad', function () {
-				$new.removeClass('bBwd');
+				$new.removeClass('cBwd');
 			});
 
 			$current.stop().animate({
-				top: '-100%'
+				left: '100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
 			});
