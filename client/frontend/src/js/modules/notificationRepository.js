@@ -15,17 +15,17 @@ define([
 			'articles.edit.success.isActive': {
 				title: 'Arikel sichtbar',
 				description: 'Arikel sichtbar',
-				className: 'error'
+				className: 'success'
 			},
 			'articles.edit.success.isNotActive': {
 				title: 'Arikel nicht sichtbar',
 				description: 'Arikel nicht sichtbar',
-				className: 'error'
+				className: 'success'
 			},
 			'orders.testOrder.success': {
 				title: 'Testbestellung is raus',
 				description: 'Testbestellung is raus',
-				className: 'error'
+				className: 'success'
 			},
 			'orders.testOrder.error': {
 				title: 'orders.testOrder.error',
@@ -40,12 +40,12 @@ define([
 			'store.tray.cartNowEmpty': {
 				title: 'Jetzt isses so leer hier :(',
 				description: 'Jetzt isses so leer hier :(',
-				className: 'error'
+				className: 'info'
 			},
 			'store.home.addedOrderedItemToCart': {
 				title: 'Artikel is drin. Danke',
 				description: 'Artikel is drin. Danke',
-				className: 'error'
+				className: 'success'
 			}
 		},
 

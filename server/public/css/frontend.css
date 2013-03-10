@@ -3357,6 +3357,7 @@ img.cookie {
 }
 .notification.info header {
   color: #13493b;
+  color: #957b3d;
 }
 .notification.info header h4:before {
   content: "\e072";
@@ -3368,38 +3369,22 @@ img.cookie {
   content: "\e067";
 }
 .tooltip {
-  display: none;
-  padding: 30px;
   position: fixed;
-  margin: -19px 0 0 -53px;
-  color: #a78a44;
-}
-.tooltip.error {
-  color: #9d261d;
-}
-.tooltip.warning {
-  color: #dc952b;
-}
-.tooltip.info {
-  color: #13493b;
-}
-.tooltip.success {
-  color: #57a827;
-}
-.tooltipOuter {
-  position: relative;
+  color: #957b3d;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #c0a053;
   color: inherit;
+  display: none;
+  margin: 11px 0 0 -23px;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
-.tooltipOuter:before,
-.tooltipOuter:after {
+.tooltip:before,
+.tooltip:after {
   content: "▲";
   position: absolute;
   color: rgba(0, 0, 0, 0);
@@ -3409,12 +3394,12 @@ img.cookie {
   z-index: 5000;
   font-size: 15px;
 }
-.tooltipOuter:after {
+.tooltip:after {
   color: #f2e1a6;
   text-shadow: none;
   z-index: 5001;
 }
-.tooltipOuter .tooltipInner {
+.tooltip .tooltipInner {
   position: relative;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
@@ -3436,10 +3421,21 @@ img.cookie {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   padding: 8px 12px 7px;
   font-family: "VAGRounded LT Thin";
-  letter-spacing: 1px;
-  font-size: 15px;
-  text-transform: uppercase;
+  font-size: 16px;
+  text-transform: none;
   z-index: 5001;
+}
+.tooltip.error {
+  color: #9d261d;
+}
+.tooltip.warning {
+  color: #dc952b;
+}
+.tooltip.info {
+  color: #957b3d;
+}
+.tooltip.success {
+  color: #57a827;
 }
 .notice {
   font-style: normal;
@@ -8641,8 +8637,8 @@ aside.infoNavigation ul li.active {
   visibility: hidden;
 }
 .opaque {
-  opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 .affix {
   position: fixed;

@@ -96,6 +96,7 @@ img.cookie    { margin: 0 -10px;}
   &.info {
     header {
       color: @greenDark;
+      color: darken(@onHeaderColor, 5%);
       h4:before { content: "\e072"; }
     }
   }
@@ -114,23 +115,15 @@ img.cookie    { margin: 0 -10px;}
 
 @tooltipArrowWidth:   10px;
 
-.tooltip {
-  display: none;
-  padding: 30px;
-  position: fixed;
-  margin: -19px 0 0 -53px;
-  color: @onHeaderColor;
-  &.error { color: @red; }
-  &.warning { color: @orange; }
-  &.info { color: @greenDark; }
-  &.success { color: @greenLight; }
-}
 
-.tooltipOuter {
-  .positioned;
+.tooltip {
+  position: fixed;
+  color: darken(@onHeaderColor, 5%);
   .border-radius(3px);
   border: 1px solid #c0a053;
   color: inherit;
+  display: none;
+  margin: 11px 0 0 -23px;
   .box-shadow(0 1px 6px rgba(0,0,0,0.25));
   &:before, &:after {
     content: "▲";
@@ -142,11 +135,12 @@ img.cookie    { margin: 0 -10px;}
     z-index: 5000;
     font-size: 15px;
   }
+
   &:after {
     color: #f2e1a6;
     text-shadow: none;
     z-index: 5001;
-    }
+  }
 
   .tooltipInner {
     position: relative;
@@ -156,20 +150,16 @@ img.cookie    { margin: 0 -10px;}
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     padding: 8px 12px 7px;
     font-family: @headingsFontFamily;
-    letter-spacing: 1px;
-    font-size: 15px;
-    text-transform: uppercase;
+    //letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: none;
     z-index: 5001; 
-    
   }
 
-  // &.locationSelectionTooltip {
-  //   bottom: -28px;
-  //   left: 50%;
-  //   margin-left: -21px;
-  // }
-  
-  
+  &.error { color: @red; }
+  &.warning { color: @orange; }
+  &.info { color: darken(@onHeaderColor, 5%); }
+  &.success { color: @greenLight; }
 
 }
 
