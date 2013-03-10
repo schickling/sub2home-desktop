@@ -21,7 +21,7 @@ class OrderIndexController extends ApiController
 		$pageSize = 50;
 		$offset = $page * $pageSize;
 
-		if (empty($search)) {
+		if ($search == '') {
 
 			$ordersCollection = $this->storeModel->ordersCollection()
 													->with('addressModel')

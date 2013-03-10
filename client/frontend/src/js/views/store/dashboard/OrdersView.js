@@ -104,7 +104,7 @@ define([
 						self._stopRotateRefresh();
 						self._renderOrders();
 
-						if (receivedOrders.length === 0) {
+						if (receivedOrders.length === 0 || self.search) {
 							self._hideLoadMore();
 						} else {
 							self._showLoadMore();
