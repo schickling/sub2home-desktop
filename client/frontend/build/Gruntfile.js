@@ -1,74 +1,23 @@
 module.exports = function (grunt) {
 
-	var globalModulDependencies = [
-        'text', // vendor
-        'async',
-        'jquery',
-        'jqueryEasing',
-        'moment',
-        'underscore',
-        'backbone',
-        'backboneLocalStorage',
-        'router', // modules
-        'global',
-        'tooltipRepository',
-        'notificationRepository',
-        'notificationcenter',
-        'models/authentificationModel', // models
-        'models/stateModel',
-        'views/PageView' // views
+	var include = [
+		'main',
+        'views/header/HeaderView',
+        'views/home/home/MainView',
+        'views/home/info/MainView',
+        'views/home/404/MainView',
+        'views/client/login/MainView',
+        'views/client/dashboard/MainView',
+        'views/client/config/MainView',
+        'views/store/home/MainView',
+        'views/store/info/MainView',
+        'views/store/selection/MainView',
+        'views/store/tray/MainView',
+        'views/store/checkout/MainView',
+        'views/store/dashboard/MainView',
+        'views/store/assortment/MainView',
+        'views/store/config/MainView'
     ];
-
-	// backbone modules
-	var modules = [{
-		name: 'main',
-		include: globalModulDependencies
-	}, {
-		name: 'views/header/HeaderView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/home/home/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/home/info/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/home/404/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/client/login/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/client/dashboard/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/client/config/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/home/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/info/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/config/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/selection/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/checkout/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/assortment/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/dashboard/MainView',
-		exclude: globalModulDependencies
-	}, {
-		name: 'views/store/tray/MainView',
-		exclude: globalModulDependencies
-	}];
 
 	// config
 	grunt.initConfig({
@@ -98,22 +47,20 @@ module.exports = function (grunt) {
 				options: {
 					optimize: 'none',
 					baseUrl: '../src/js',
-					dir: '../../../server/public/js',
 					mainConfigFile: '../src/js/config.js',
-					removeCombined: true,
 					preserveLicenseComments: false,
-					modules: modules
+					include: include,
+					out: '../../../server/public/js/main.js'
 				}
 			},
 			production: {
 				options: {
 					optimize: 'uglify',
 					baseUrl: '../src/js',
-					dir: '../../../server/public/js',
 					mainConfigFile: '../src/js/config.js',
-					removeCombined: true,
 					preserveLicenseComments: false,
-					modules: modules
+					include: include,
+					out: '../../../server/public/js/main.js'
 				}
 			}
 		},
@@ -128,16 +75,18 @@ module.exports = function (grunt) {
 			resetServer: {
 				command: 'rm -Rf $(pwd)/../../../server/public/templates $(pwd)/../../../server/public/js'
 			},
-			cleanServer: {
-				command: 'rm -Rf $(pwd)/../../../server/public/js/templates'
+			createRequireJsDir: {
+				command: 'mkdir -p $(pwd)/../../../server/public/js/vendor/requirejs'
+			},
+			copyRequireJs: {
+				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/../../../server/public/js/vendor/requirejs/'
 			}
 		},
 
 		less: {
 			development: {
 				files: {
-					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less',
-					'../../../server/public/css/backend.css': '../src/less/backend/backend.less'
+					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			},
 			production: {
@@ -145,14 +94,9 @@ module.exports = function (grunt) {
 					yuicompress: true
 				},
 				files: {
-					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less',
-					'../../../server/public/css/backend.css': '../src/less/backend/backend.less'
+					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			}
-		},
-
-		clean: {
-			folder: '../../../server/public/templates'
 		}
 
 	});
@@ -167,10 +111,10 @@ module.exports = function (grunt) {
 	// register tasks
 	grunt.registerTask('default', ['test']);
 	grunt.registerTask('reset', ['exec:resetServer']);
-	grunt.registerTask('clean', ['exec:cleanServer']);
+	grunt.registerTask('prepareRequireJs', ['exec:createRequireJsDir', 'exec:copyRequireJs']);
 	grunt.registerTask('dev', ['reset', 'exec:linkSrcJS', 'exec:linkSrcTemplates']);
 	grunt.registerTask('test', ['jshint']);
-	grunt.registerTask('build:dev', ['reset', 'test', 'requirejs:development', 'less:development', 'clean']);
-	grunt.registerTask('build:prod', ['reset', 'test', 'requirejs:production', 'less:production', 'clean']);
+	grunt.registerTask('build:dev', ['reset', 'test', 'requirejs:development', 'less:development', 'prepareRequireJs']);
+	grunt.registerTask('build:prod', ['reset', 'test', 'requirejs:production', 'less:production', 'prepareRequireJs']);
 
 };
