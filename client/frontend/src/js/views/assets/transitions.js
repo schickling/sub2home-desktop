@@ -22,12 +22,12 @@ define([
                     {
 		origin: 'client.dashboard',
 		destination: 'store.config',
-		type: 'b.forward'
+		type: 'b.backward'
 	},
                     {
 		origin: 'client.dashboard',
 		destination: 'store.dashboard',
-		type: 'b.forward'
+		type: 'b.backward'
 	}, // from client.config
 	{
 		origin: 'client.config',
@@ -102,7 +102,7 @@ define([
 	{
 		origin: 'store.config',
 		destination: 'client.dashboard',
-		type: 'c.backward'
+		type: 'b.forward'
 	},
                     {
 		origin: 'store.config',
