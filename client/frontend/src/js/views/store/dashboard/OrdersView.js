@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'collections/OrdersCollection',
-    'views/store/dashboard/OrderView'
-    ], function ($, _, Backbone, OrdersCollection, OrderView) {
+    'views/store/dashboard/OrderView',
+    'text!templates/store/dashboard/NoOrdersTemplate.html'
+    ], function ($, _, Backbone, OrdersCollection, OrderView, NoOrdersTemplate) {
 
 	$.fn.extend({
 		rotate: function (deg) {
@@ -28,6 +29,7 @@ define([
 		$search: null,
 		$refresh: null,
 		$loadMore: null,
+		$noOrders: null,
 
 		// pagination counter
 		page: 0,
@@ -64,6 +66,7 @@ define([
 			this.$search = this.$('#search');
 			this.$refresh = this.$('#refresh');
 			this.$loadMore = this.$('#loadMore');
+			this.$noOrders = this.$('#noOrders');
 		},
 
 		_listenToCollection: function () {
@@ -90,17 +93,24 @@ define([
 					}),
 
 					success: function (collection, receivedOrders) {
-						self._render();
 						self.isReady = true;
 						self._stopRotateRefresh();
+						self._renderOrders();
 
 						if (receivedOrders.length === 0) {
 							self._hideLoadMore();
+						} else {
+							self._showLoadMore();
+						}
+
+						if (collection.length === 0) {
+							self._renderNoOrders();
 						}
 					},
 
 					error: function () {
 						self._stopRotateRefresh();
+						self._renderNoOrders();
 					}
 
 				});
@@ -109,7 +119,7 @@ define([
 
 		},
 
-		_render: function () {
+		_renderOrders: function () {
 			_.each(this.collection.models, function (orderModel) {
 				this._renderOrder(orderModel);
 			}, this);
@@ -126,6 +136,10 @@ define([
 				this.$olderOrders.append(orderView.el);
 			}
 
+		},
+
+		_renderNoOrders: function () {
+			this.$noOrders.html(NoOrdersTemplate);
 		},
 
 		_delayedSearch: function () {
@@ -188,10 +202,10 @@ define([
 
 		_resetView: function () {
 			this.page = 0;
-			this._showLoadMore();
 			this.$olderOrders.removeClass('opaque');
 			this.$ordersToday.empty();
 			this.$olderOrders.empty();
+			this.$noOrders.empty();
 		},
 
 		_hideLoadMore: function () {
