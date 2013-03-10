@@ -168,7 +168,7 @@ define([
 				self = this;
 
 			this.rotateInterval = setInterval(function () {
-				self.rotationDeg = (self.rotationDeg + 15) % 360;
+				self.rotationDeg = (self.rotationDeg + 15) % 180;
 				$refresh.rotate(self.rotationDeg);
 			}, 20);
 		},

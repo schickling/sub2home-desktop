@@ -19,7 +19,10 @@ define([
 
 		className: 'turnover',
 
+		isValidMonth: false,
+
 		initialize: function () {
+			this._validateMonth();
 			this._render();
 		},
 
@@ -36,22 +39,34 @@ define([
 			this.$el.html(this.template(json));
 		},
 
+		_validateMonth: function () {
+			var now = new Date(),
+				currentTotalNumberOfMonths = now.getFullYear() * 12 + now.getMonth() + 1;
+
+			this.isValidMonth = (this.model.get('timeSpan') !== currentTotalNumberOfMonths);
+		},
+
 		_download: function () {
-			var path = '/files/invoices/',
-				self = this,
-				invoiceFile = path + this.model.get('invoiceDocumentName'),
-				attachmentFile = path + this.model.get('attachmentDocumentName');
 
-			if (this._fileExists(invoiceFile)) {
-				window.location.href = invoiceFile;
-			}
+			if (this.isValidMonth) {
 
-			// wait until first file downloaded
-			setTimeout(function () {
-				if (self._fileExists(attachmentFile)) {
-					window.location.href = attachmentFile;
+				var path = '/files/invoices/',
+					self = this,
+					invoiceFile = path + this.model.get('invoiceDocumentName'),
+					attachmentFile = path + this.model.get('attachmentDocumentName');
+
+				if (this._fileExists(invoiceFile)) {
+					window.location.href = invoiceFile;
 				}
-			}, 2000);
+
+				// wait until first file downloaded
+				setTimeout(function () {
+					if (self._fileExists(attachmentFile)) {
+						window.location.href = attachmentFile;
+					}
+				}, 2000);
+
+			}
 
 		},
 
@@ -66,8 +81,14 @@ define([
 
 		},
 
-		_tooltip: function() {
-			notificationcenter.tooltip('jo', 10, 10);
+		_tooltip: function () {
+
+			if (this.isValidMonth) {
+
+				var offset = this.$el.offset();
+				notificationcenter.tooltip('jo', offset.top + 125, offset.left + 110);
+
+			}
 		}
 
 	});

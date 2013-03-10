@@ -1,23 +1,25 @@
 // Filename: src/js/views/notifications/TooltipView
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/notifications/TooltipTemplate.html'
-	], function ($, _, Backbone, TooltipTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/notifications/TooltipTemplate.html'
+    ], function ($, _, Backbone, TooltipTemplate) {
 
 	var TooltipView = Backbone.View.extend({
 
 		className: 'tooltip',
 
 		events: {
-			'mouseleave': '_hide'
+			'mouseleave': 'hide'
 		},
 
 		template: _.template(TooltipTemplate),
 
 		top: 0,
 		left: 0,
+
+		animationTime: 100,
 
 		initialize: function () {
 			this.top = this.options.top;
@@ -41,12 +43,16 @@ define([
 			});
 		},
 
-		_hide: function() {
-			this.$el.fadeOut();
+		hide: function () {
+			var $el = this.$el;
+
+			$el.fadeOut(this.animationTime, function () {
+				$el.remove();
+			});
 		},
 
 		show: function () {
-			this.$el.fadeIn();
+			this.$el.fadeIn(this.animationTime);
 		}
 
 	});

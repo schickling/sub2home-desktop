@@ -9,6 +9,10 @@ define([
 
 		model: InvoiceModel,
 
+		comparator: function (invoiceModel) {
+			return invoiceModel.get('timeSpan');
+		},
+
 		getTotal: function () {
 			var total = 0;
 

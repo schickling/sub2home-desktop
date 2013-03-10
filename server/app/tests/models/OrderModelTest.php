@@ -5,7 +5,7 @@ use App\Tests\TestCase;
 
 class OrderModelTest extends TestCase {
 
-	public function testIndex()
+	public function testYolo()
 	{
 		
 	}
