@@ -7623,7 +7623,9 @@ div#payment .bankaccount {
   position: absolute;
   left: -38px;
   top: 50%;
-  margin-top: -13px;
+  margin-top: -49px;
+}
+.amountOrderedItem .amount {
   height: 26px;
   width: 38px;
   behavior: url(../css/border-radius.htc);
@@ -7642,17 +7644,11 @@ div#payment .bankaccount {
   text-align: center;
   cursor: default;
 }
-.amountOrderedItem:before,
-.amountOrderedItem:after {
-  content: "\e040";
-  font-family: "Homicons";
-  font-size: 16px;
-  color: #d1ba82;
-  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
-  position: absolute;
-  top: -21px;
-  left: 11px;
+.amountOrderedItem .decreaseAmount,
+.amountOrderedItem .increaseAmount {
   cursor: pointer;
+  text-align: center;
+  height: 30px;
   opacity: 0.5;
   filter: alpha(opacity=50);
   -webkit-transition: opacity 0.1s linear;
@@ -7660,15 +7656,24 @@ div#payment .bankaccount {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.amountOrderedItem:after {
-  content: "\e041";
-  top: auto;
-  bottom: -23px;
+.amountOrderedItem .decreaseAmount:before,
+.amountOrderedItem .increaseAmount:before {
+  content: "\e040";
+  font-family: "Homicons";
+  font-size: 16px;
+  color: #d1ba82;
+  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #886f32;
+  position: relative;
+  top: 9px;
 }
-.amountOrderedItem:hover:before,
-.amountOrderedItem:hover:after {
+.amountOrderedItem .decreaseAmount:hover,
+.amountOrderedItem .increaseAmount:hover {
   opacity: 1;
   filter: alpha(opacity=100);
+}
+.amountOrderedItem .decreaseAmount:before {
+  content: "\e041";
+  top: 5px;
 }
 .orderedArticle {
   position: relative;

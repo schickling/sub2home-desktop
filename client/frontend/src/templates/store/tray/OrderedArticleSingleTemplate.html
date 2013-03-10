@@ -8,4 +8,8 @@
 	<i class="iBtn bAdd addItem"></i>
 	<i class="iBtn bTrash deleteItem"></i>
 </div>
-<% if (amount > 1) { %><div class="amountOrderedItem"><%= amount %></div><% } %>
+<% if (amount > 1) { %><div class="amountOrderedItem">
+<div class="increaseAmount"></div>
+<div class="amount"><%= amount %></div>
+<div class="decreaseAmount"></div>
+</div><% } %>
