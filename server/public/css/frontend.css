@@ -3369,7 +3369,8 @@ img.cookie {
 }
 .tooltip {
   display: none;
-  position: absolute;
+  position: fixed;
+  margin: 11px 0 0 -23px;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -6101,7 +6102,7 @@ input[type="text"]#locationSelectionInput {
   box-sizing: border-box;
 }
 .orderControls .bRefresh {
-  margin: 11px 10px 0 0;
+  margin: 7px 10px 0 0;
   height: 27px;
 }
 .orderControls .bRefresh:before {
