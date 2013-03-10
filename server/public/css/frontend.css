@@ -266,19 +266,25 @@ aside#header .iInfo {
 .main {
   height: 100%;
   position: fixed;
-  left: 0;
-  right: 0;
+  width: 100%;
   z-index: 1;
   overflow: hidden;
 }
 .main.current {
   top: 0;
+  left: 0;
 }
 .main.bFwd {
   top: -100%;
 }
 .main.bBwd {
   top: 100%;
+}
+.main.cFwd {
+  left: 100%;
+}
+.main.cBwd {
+  left: -100%;
 }
 .note {
   position: absolute;
@@ -6119,6 +6125,7 @@ input[type="text"]#locationSelectionInput {
   padding: 30px 5%;
 }
 .content.orders .orderListing {
+  display: none;
   cursor: default;
 }
 .content.orders .orderListing .order {

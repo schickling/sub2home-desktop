@@ -91,19 +91,32 @@ aside#header {
 .main {
   height: 100%;
   position: fixed;
-  left: 0;
-  right: 0;
+  width: 100%;
   z-index: 1;
   overflow: hidden;
   &.current {
-      top: 0; 
+    top: 0; 
+    left: 0;
   }
+
+  // Transition-type B
+
   &.bFwd {
     top: -100%;
   }
   &.bBwd {
     top: 100%;
-  } 
+  }
+
+  // Transition-type C
+
+  &.cFwd {
+    left: 100%;
+  }
+  &.cBwd {
+    left: -100%;
+  }
+
 }
 
 
