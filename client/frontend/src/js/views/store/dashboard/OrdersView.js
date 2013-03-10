@@ -38,12 +38,14 @@ define([
 		search: '',
 
 		rotateInterval: null,
+		rotationDeg: 0,
 
 		searchTimeout: null,
 
 		isReady: true,
 
-		rotationDeg: 0,
+		// needed to indicate when to load noOrders view
+		hasOrders: false,
 
 		events: {
 			'keyup #search': '_delayedSearch',
@@ -103,8 +105,11 @@ define([
 							self._showLoadMore();
 						}
 
-						if (collection.length === 0) {
-							self._renderNoOrders();
+						if (collection.length === 0 && !self.hasOrders) {
+							self._showNoOrders();
+						} else {
+							self.hasOrders = true;
+							self._showOrders();
 						}
 					},
 
@@ -117,6 +122,24 @@ define([
 
 			}
 
+		},
+
+		_showOrders: function () {
+			this.$ordersToday.show();
+			this.$olderOrders.show();
+			this.$noOrders.hide();
+		},
+
+		_showNoOrders: function () {
+			this.$ordersToday.hide();
+			this.$olderOrders.hide();
+
+			// lazy load noOrders
+			if (this.$noOrders.is(':empty')) {
+				this._renderNoOrders();
+			}
+
+			this.$noOrders.show();
 		},
 
 		_renderOrders: function () {
@@ -205,7 +228,6 @@ define([
 			this.$olderOrders.removeClass('opaque');
 			this.$ordersToday.empty();
 			this.$olderOrders.empty();
-			this.$noOrders.empty();
 		},
 
 		_hideLoadMore: function () {

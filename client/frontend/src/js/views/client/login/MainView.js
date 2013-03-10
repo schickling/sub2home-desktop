@@ -1,14 +1,14 @@
 // Filename: src/js/views/client/login/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'models/authentificationModel',
-	'models/stateModel',
-	'views/PageView',
-	'text!templates/client/login/MainTemplate.html'
-	], function ($, _, Backbone, router, authentificationModel, stateModel, PageView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/authentificationModel',
+    'models/stateModel',
+    'views/PageView',
+    'text!templates/client/login/MainTemplate.html'
+    ], function ($, _, Backbone, router, authentificationModel, stateModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -25,7 +25,13 @@ define([
 
 			this._render();
 
-			// cache dom
+			this._cacheDom();
+
+			this.$number.focus();
+
+		},
+
+		_cacheDom: function () {
 			this.$number = this.$('#loginCustomerNumber');
 			this.$password = this.$('#loginPassword');
 			this.$submit = this.$('#loginSubmit');
@@ -60,8 +66,11 @@ define([
 				this._login();
 			}
 
+			var number = this.$number.val(),
+				password = this.$password.val();
+
 			// highlight submit button
-			if (this.$number.val() && this.$password.val()) {
+			if (number && password && password.length >= 8) {
 				this.$submit.stop().animate({
 					opacity: 1
 				});
