@@ -1,27 +1,30 @@
 // Filename: src/js/views/home/home/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/PageView',
-	'views/home/home/StoresView',
-	'text!templates/home/home/MainTemplate.html'
-	], function ($, _, Backbone, PageView, StoresView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'views/PageView',
+    'views/home/home/StoresView',
+    'text!templates/home/home/MainTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, PageView, StoresView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		pageTitle: 'Startseite',
 
 		events: {
-			'keyup #locationSelectionInput': 'checkInputKeyUp',
-			'keydown #locationSelectionInput': 'checkInputKeyDown'
+			'keyup #locationSelectionInput': '_checkInputKeyUp',
+			'keydown #locationSelectionInput': '_checkInputKeyDown'
 		},
+
+		$input: null,
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 
 			this.$el.html(MainTemplate);
 
@@ -32,11 +35,17 @@ define([
 
 			this.append();
 
+			this._cacheDom();
+
 			// focus text input
-			// this.$('#locationSelectionInput').focus();
+			this.$input.focus();
 		},
 
-		checkInputKeyUp: function (e) {
+		_cacheDom: function () {
+			this.$input = this.$('#locationSelectionInput');
+		},
+
+		_checkInputKeyUp: function (e) {
 			var input = $(e.target).val(),
 				postal = parseInt(input, 10);
 
@@ -45,37 +54,27 @@ define([
 			}
 		},
 
-		checkInputKeyDown: function (e) {
-			var input = $(e.target).val();
+		_checkInputKeyDown: function (e) {
+			var val = this.$input.val(),
+				offset, tooltipTop, tooltipLeft;
 
 			if (e.keyCode < 48 || e.keyCode > 57) { // Ensure that it is a number
 				if (e.keyCode == 46 || e.keyCode == 8 || e.keyCode == 13 || // Allow backspace, delete and enter
 				e.keyCode > 95 && e.keyCode < 106 || // allow numblock
 				e.keyCode > 36 && e.keyCode < 41) { // allow arrow keys
-					this.hideTooltip('locationSelectionTooltip');
+					notificationcenter.hideTooltip();
 				} else {
-					this.showTooltip('Bitte nur Zahlen eingeben.', 'locationSelectionTooltip');
+					offset = this.$input.offset();
+					tooltipTop = offset.top + 72;
+					tooltipLeft = window.innerWidth * 0.5 + val.length * 32; // offset for each letter
+					notificationcenter.tooltip('views.home.home.input', tooltipTop, tooltipLeft);
 					return false;
 				}
-			} else if (input.length > 4) {
+			} else if (val.length > 4) {
 				return false;
 			} else {
-				this.hideTooltip('locationSelectionTooltip');
+				notificationcenter.hideTooltip();
 			}
-		},
-
-		showTooltip: function (msg, className) {
-			var $tooltip = $('.' + className);
-
-			$tooltip.find('.tooltipInner').text(msg);
-
-			$tooltip.fadeIn(100);
-		},
-
-		hideTooltip: function (className) {
-			var $tooltip = $('.' + className);
-
-			$tooltip.fadeOut(100);
 		}
 
 	});
