@@ -3369,20 +3369,37 @@ img.cookie {
 }
 .tooltip {
   display: none;
+  padding: 30px;
   position: fixed;
-  margin: 11px 0 0 -23px;
+  margin: -19px 0 0 -53px;
+  color: #a78a44;
+}
+.tooltip.error {
+  color: #9d261d;
+}
+.tooltip.warning {
+  color: #dc952b;
+}
+.tooltip.info {
+  color: #13493b;
+}
+.tooltip.success {
+  color: #57a827;
+}
+.tooltipOuter {
+  position: relative;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #c0a053;
-  color: #a78a44;
+  color: inherit;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
-.tooltip:before,
-.tooltip:after {
+.tooltipOuter:before,
+.tooltipOuter:after {
   content: "▲";
   position: absolute;
   color: rgba(0, 0, 0, 0);
@@ -3392,12 +3409,12 @@ img.cookie {
   z-index: 5000;
   font-size: 15px;
 }
-.tooltip:after {
+.tooltipOuter:after {
   color: #f2e1a6;
   text-shadow: none;
   z-index: 5001;
 }
-.tooltip .tooltipInner {
+.tooltipOuter .tooltipInner {
   position: relative;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
@@ -3423,18 +3440,6 @@ img.cookie {
   font-size: 15px;
   text-transform: uppercase;
   z-index: 5001;
-}
-.tooltip.error {
-  color: #9d261d;
-}
-.tooltip.warning {
-  color: #dc952b;
-}
-.tooltip.info {
-  color: #13493b;
-}
-.tooltip.success {
-  color: #57a827;
 }
 .notice {
   font-style: normal;
@@ -8629,6 +8634,10 @@ aside.infoNavigation ul li.active {
 }
 .invisible {
   visibility: hidden;
+}
+.opaque {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 .affix {
   position: fixed;

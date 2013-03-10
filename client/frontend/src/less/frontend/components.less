@@ -116,11 +116,21 @@ img.cookie    { margin: 0 -10px;}
 
 .tooltip {
   display: none;
+  padding: 30px;
   position: fixed;
-  margin: 11px 0 0 -23px;
+  margin: -19px 0 0 -53px;
+  color: @onHeaderColor;
+  &.error { color: @red; }
+  &.warning { color: @orange; }
+  &.info { color: @greenDark; }
+  &.success { color: @greenLight; }
+}
+
+.tooltipOuter {
+  .positioned;
   .border-radius(3px);
   border: 1px solid #c0a053;
-  color: @onHeaderColor;
+  color: inherit;
   .box-shadow(0 1px 6px rgba(0,0,0,0.25));
   &:before, &:after {
     content: "▲";
@@ -135,7 +145,7 @@ img.cookie    { margin: 0 -10px;}
   &:after {
     color: #f2e1a6;
     text-shadow: none;
-    z-index: 5001
+    z-index: 5001;
     }
 
   .tooltipInner {
@@ -159,10 +169,7 @@ img.cookie    { margin: 0 -10px;}
   //   margin-left: -21px;
   // }
   
-  &.error { color: @red; }
-  &.warning { color: @orange; }
-  &.info { color: @greenDark; }
-  &.success { color: @greenLight; }
+  
 
 }
 
