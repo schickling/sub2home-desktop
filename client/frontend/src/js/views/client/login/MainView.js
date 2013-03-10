@@ -70,7 +70,7 @@ define([
 				password = this.$password.val();
 
 			// highlight submit button
-			if (number && password && password.length >= 8) {
+			if (number && number.length === 4 && password && password.length >= 8) {
 				this.$submit.stop().animate({
 					opacity: 1
 				});

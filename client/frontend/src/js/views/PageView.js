@@ -1,12 +1,13 @@
 define([
-	'jquery',
-	'jqueryEasing',
-	'underscore',
-	'backbone',
-	'router',
-	'notificationcenter',
-	'models/stateModel'
-	], function ($, jqueryEasing, _, Backbone, router, notificationcenter, stateModel) {
+    'jquery',
+    'jqueryEasing',
+    'underscore',
+    'backbone',
+    'router',
+    'notificationcenter',
+    'models/stateModel',
+    'views/assets/transitions'
+    ], function ($, jqueryEasing, _, Backbone, router, notificationcenter, stateModel, transitions) {
 
 	// "static" variable needed here
 	var pageWasInitialized = false;
@@ -38,7 +39,7 @@ define([
 
 		},
 
-		pageNotFound: function() {
+		pageNotFound: function () {
 			router.navigate('404', {
 				trigger: true,
 				replace: true
@@ -48,155 +49,7 @@ define([
 		_transition: function () {
 
 			var prevRoute = stateModel.get('prevRoute'),
-				currentRoute = stateModel.get('currentRoute'),
-				transitions = [
-					// from home
-				{
-					origin: 'home.home',
-					destination: 'store.home',
-					type: 'a.forward'
-				},
-					// from client.login
-				{
-					origin: 'client.login',
-					destination: 'client.dashboard',
-					type: 'b.forward'
-				},
-					// from client.dashboard
-				{
-					origin: 'client.dashboard',
-					destination: 'store.home',
-					type: 'b.backward'
-				},
-					{
-					origin: 'client.dashboard',
-					destination: 'client.config',
-					type: 'c.backward'
-				},
-					{
-					origin: 'client.dashboard',
-					destination: 'store.config',
-					type: 'c.backward'
-				},
-					{
-					origin: 'client.dashboard',
-					destination: 'store.dashboard',
-					type: 'b.backward'
-				},
-					// from client.config
-				{
-					origin: 'client.config',
-					destination: 'client.dashboard',
-					type: 'c.forward'
-				},
-					// from store.home
-				{
-					origin: 'store.home',
-					destination: 'home.home',
-					type: 'a.backward'
-				},
-					{
-					origin: 'store.home',
-					destination: 'store.selection',
-					type: 'b.forward'
-				},
-					{
-					origin: 'store.home',
-					destination: 'store.tray',
-					type: 'b.forward'
-				},
-					{
-					origin: 'store.home',
-					destination: 'store.config',
-					type: 'b.forward'
-				},
-					{
-					origin: 'store.home',
-					destination: 'store.assortment',
-					type: 'b.forward'
-				},
-					// from store.selection
-				{
-					origin: 'store.selection',
-					destination: 'store.home',
-					type: 'b.backward'
-				},
-					{
-					origin: 'store.selection',
-					destination: 'store.tray',
-					type: 'b.forward'
-				},
-					// from store.dashboard
-				{
-					origin: 'store.dashboard',
-					destination: 'store.config',
-					type: 'b.forward'
-				},
-					{
-					origin: 'store.dashboard',
-					destination: 'store.assortment',
-					type: 'd.forward'
-				},
-					{
-					origin: 'store.dashboard',
-					destination: 'client.dashboard',
-					type: 'b.forward'
-				},
-					// from store.assortment
-				{
-					origin: 'store.assortment',
-					destination: 'store.config',
-					type: 'b.forward'
-				},
-					{
-					origin: 'store.assortment',
-					destination: 'store.dashboard',
-					type: 'd.backward'
-				},
-					{
-					origin: 'store.assortment',
-					destination: 'client.dashboard',
-					type: 'b.forward'
-				},
-					// from store.config
-					{
-					origin: 'store.config',
-					destination: 'client.dashboard',
-					type: 'c.backward'
-				},
-					{
-					origin: 'store.config',
-					destination: 'store.assortment',
-					type: 'b.backward'
-				},
-					{
-					origin: 'store.config',
-					destination: 'store.dashboard',
-					type: 'b.backward'
-				},
-					// from store.tray
-				{
-					origin: 'store.tray',
-					destination: 'store.home',
-					type: 'b.backward'
-				},
-					{
-					origin: 'store.tray',
-					destination: 'store.selection',
-					type: 'b.backward'
-				},
-					{
-					origin: 'store.tray',
-					destination: 'store.checkout',
-					type: 'b.backward'
-				},
-					// from store.checkout
-				{
-					origin: 'store.checkout',
-					destination: 'store.home',
-					type: 'b.forward'
-				}
-				];
+				currentRoute = stateModel.get('currentRoute');
 
 			var currentTransition = _.find(transitions, function (transition) {
 				return (transition.origin === prevRoute && transition.destination === currentRoute);
@@ -205,33 +58,27 @@ define([
 			if (currentTransition) {
 				switch (currentTransition.type) {
 
-				case 'a.forward':
-					this._transitionAFoward();
-					break;
-				case 'a.backward':
-					this._transitionABackward();
-					break;
-				case 'b.forward':
-					this._transitionBFoward();
-					break;
-				case 'b.backward':
-					this._transitionBBackward();
-					break;
-				case 'c.forward':
-					this._transitionCFoward();
-					break;
-				case 'c.backward':
-					this._transitionCBackward();
-					break;
-				case 'd.forward':
-					this._transitionDFoward();
-					break;
-				case 'd.backward':
-					this._transitionDBackward();
-					break;
+					case 'a.forward':
+						this._transitionAFoward();
+						break;
+					case 'a.backward':
+						this._transitionABackward();
+						break;
+					case 'b.forward':
+						this._transitionBFoward();
+						break;
+					case 'b.backward':
+						this._transitionBBackward();
+						break;
+					case 'c.forward':
+						this._transitionCFoward();
+						break;
+					case 'c.backward':
+						this._transitionCBackward();
+						break;
 				}
 			} else {
-				this._transitionE();
+				this._transitionDefault();
 			}
 		},
 
@@ -314,6 +161,11 @@ define([
 
 		},
 
+		/**
+		 * Pages slides down
+		 *
+		 * @return void
+		 */
 		_transitionBFoward: function () {
 			var $new = this.$el,
 				$current = $('.main');
@@ -333,6 +185,12 @@ define([
 			});
 		},
 
+
+		/**
+		 * Pages slides up
+		 *
+		 * @return void
+		 */
 		_transitionBBackward: function () {
 			var $new = this.$el,
 				$current = $('.main');
@@ -353,6 +211,12 @@ define([
 
 		},
 
+
+		/**
+		 * Pages slides left
+		 *
+		 * @return void
+		 */
 		_transitionCFoward: function () {
 			var $new = this.$el,
 				$current = $('.main');
@@ -372,6 +236,12 @@ define([
 			});
 		},
 
+
+		/**
+		 * Pages slides right
+		 *
+		 * @return void
+		 */
 		_transitionCBackward: function () {
 			var $new = this.$el,
 				$current = $('.main');
@@ -392,46 +262,7 @@ define([
 
 		},
 
-		_transitionDFoward: function () {
-			var $new = this.$el,
-				$current = $('.main');
-
-			$new.addClass('bFwd').appendTo($('body'));
-
-			$new.animate({
-				top: 0
-			}, this._animationTime, 'easeInOutQuad', function () {
-				$new.removeClass('bFwd');
-			});
-
-			$current.stop().animate({
-				top: '100%'
-			}, this._animationTime, 'easeInOutQuad', function () {
-				$current.remove();
-			});
-		},
-
-		_transitionDBackward: function () {
-			var $new = this.$el,
-				$current = $('.main');
-
-			$new.addClass('bBwd').appendTo($('body'));
-
-			$new.animate({
-				top: 0
-			}, this._animationTime, 'easeInOutQuad', function () {
-				$new.removeClass('bBwd');
-			});
-
-			$current.stop().animate({
-				top: '-100%'
-			}, this._animationTime, 'easeInOutQuad', function () {
-				$current.remove();
-			});
-
-		},
-
-		_transitionE: function () {
+		_transitionDefault: function () {
 
 			var $new = this.$el,
 				$current = $('.main');
@@ -449,11 +280,11 @@ define([
 
 		},
 
-		destroy: function() {
+		destroy: function () {
 			this.destroyAllSubViews();
 		},
 
-		destroyAllSubViews: function() {
+		destroyAllSubViews: function () {
 			// this syntax needed since this.subViews is an object not an array
 			for (var key in this.subViews) {
 				this.subViews[key].trigger('destroy');
