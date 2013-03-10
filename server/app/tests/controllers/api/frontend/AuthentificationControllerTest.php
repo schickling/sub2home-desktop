@@ -51,7 +51,7 @@ class AuthentificationControllerTest extends TestCase {
 		$this->assertEquals(401, $response->getStatusCode());
 	}
 
-	public function testLoginShouldBlockAfterThreeRequestsWithWrongPassword()
+	public function testLoginShouldBlockAfterFiveRequestsWithWrongPassword()
 	{
 		$loginFormData = array(
 			'number' => 1,
@@ -71,6 +71,14 @@ class AuthentificationControllerTest extends TestCase {
 		$this->assertEquals(401, $response->getStatusCode());
 
 		// fourth try
+		$response = $this->call('POST', $this->getLoginUrl(), $loginFormData);
+		$this->assertEquals(401, $response->getStatusCode());
+
+		// fifth try
+		$response = $this->call('POST', $this->getLoginUrl(), $loginFormData);
+		$this->assertEquals(401, $response->getStatusCode());
+
+		// sixth try
 		$response = $this->call('POST', $this->getLoginUrl(), $loginFormData);
 		$this->assertEquals(429, $response->getStatusCode());
 	}

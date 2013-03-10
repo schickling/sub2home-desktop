@@ -13,6 +13,12 @@ use App\Models\ClientModel;
 class AuthentificationController extends ApiController
 {
 
+    // number of how many failed attempts are allowed
+    private $toleranceOfFailedAttempts = 5;
+
+    // periode how long a token is valid
+    private $periodOfValidity = 3 * 60 * 24; // 3 days
+
     /**
      * Logs in a user and stores the generated token in the cache
      * 
@@ -47,7 +53,7 @@ class AuthentificationController extends ApiController
         $cacheKey = 'attempt_' . $number . '_from_' . $ip;
         $numberOfFailedAttempts = Cache::get($cacheKey, 0);
 
-        if ($numberOfFailedAttempts > 2) {
+        if ($numberOfFailedAttempts > $this->toleranceOfFailedAttempts) {
 
             $numberOfFailedAttempts++;
             $exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
@@ -84,7 +90,7 @@ class AuthentificationController extends ApiController
         $token = md5(uniqid($clientModel->id, true)); // token is unique
 
         // use token as key and client model id as value
-        Cache::put($token, $clientModel->id, 3 * 24 * 60); // 3 days
+        Cache::put($token, $clientModel->id, $this->periodOfValidity);
 
 
         $responseArray = array('token' => $token);
