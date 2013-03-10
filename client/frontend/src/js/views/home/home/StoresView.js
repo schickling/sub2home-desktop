@@ -1,16 +1,16 @@
 // Filename: src/js/views/home/home/StoresView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'notificationcenter',
-	'gmaps', // returns window.google.maps namespace
-	'models/stateModel',
-	'views/assets/mapStyles',
-	'views/home/home/StoreView',
-	'collections/StoresCollection'
-	], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'notificationcenter',
+    'gmaps', // returns window.google.maps namespace
+    'models/stateModel',
+    'views/assets/mapStyles',
+    'views/home/home/StoreView',
+    'collections/StoresCollection'
+    ], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
 
 	var StoresView = Backbone.View.extend({
 
@@ -136,9 +136,9 @@ define([
 			var storesInRange = this.collection.filterByDeliveryPostal(this.postal),
 				numberOfStores = storesInRange.length;
 
-			if (numberOfStores > 0) {
+			this._cleanPreviousResults();
 
-				this._cleanPreviousResults();
+			if (numberOfStores > 0) {
 
 				if (numberOfStores > 1) {
 					this._selectStoreNotification();
@@ -162,8 +162,15 @@ define([
 		},
 
 		_cleanPreviousResults: function () {
-			// delete old delivery areas
-			this.$deliveryAreaSelection.html('');
+
+			var $deliveryAreaSelection = this.$deliveryAreaSelection;
+
+			$deliveryAreaSelection.fadeOut(150, function () {
+
+				// delete old delivery areas
+				$deliveryAreaSelection.html('');
+
+			});
 
 			// destroy old store views
 			_.each(this.storeViews, function (storeView) {
@@ -174,11 +181,12 @@ define([
 
 		_renderDeliveryAreas: function (deliveryAreas) {
 			var self = this,
+				district,
 				renderedDistricts = [];
 
 			// render new areas
 			_.each(deliveryAreas, function (deliveryAreaModel) {
-				var district = deliveryAreaModel.get('district');
+				district = deliveryAreaModel.get('district') || deliveryAreaModel.get('city');
 
 				if (!_.contains(renderedDistricts, district)) {
 					renderedDistricts.push(district);
@@ -205,6 +213,8 @@ define([
 						});
 
 					});
+
+					self.$deliveryAreaSelection.fadeIn(150);
 
 				}
 			});
