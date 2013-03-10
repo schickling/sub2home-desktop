@@ -39,6 +39,10 @@ define([
 
 		searchTimeout: null,
 
+		isReady: true,
+
+		rotationDeg: 0,
+
 		events: {
 			'keyup #search': '_delayedSearch',
 			'click #refresh': '_refresh',
@@ -70,31 +74,38 @@ define([
 
 			var self = this;
 
-			this._startRotateRefresh();
+			if (this.isReady) {
 
-			this.collection.fetch({
+				this.isReady = false;
 
-				parse: true,
+				this._startRotateRefresh();
 
-				data: $.param({
-					search: this.search,
-					page: this.page
-				}),
+				this.collection.fetch({
 
-				success: function (collection, receivedOrders) {
-					self._render();
-					self._stopRotateRefresh();
+					parse: true,
 
-					if (receivedOrders.length === 0) {
-						self._hideLoadMore();
+					data: $.param({
+						search: this.search,
+						page: this.page
+					}),
+
+					success: function (collection, receivedOrders) {
+						self._render();
+						self.isReady = true;
+						self._stopRotateRefresh();
+
+						if (receivedOrders.length === 0) {
+							self._hideLoadMore();
+						}
+					},
+
+					error: function () {
+						self._stopRotateRefresh();
 					}
-				},
 
-				error: function() {
-					self._stopRotateRefresh();
-				}
+				});
 
-			});
+			}
 
 		},
 
@@ -130,6 +141,11 @@ define([
 			this.search = this.$search.val();
 
 			this._resetView();
+
+			if (this.search) {
+				this.$olderOrders.addClass('opaque');
+			}
+
 			this._hideLoadMore();
 			this._fetchCollection();
 		},
@@ -149,22 +165,31 @@ define([
 		_startRotateRefresh: function () {
 
 			var $refresh = this.$refresh,
-				deg = 0;
+				self = this;
 
 			this.rotateInterval = setInterval(function () {
-				deg = (deg + 15) % 360;
-				$refresh.rotate(deg);
+				self.rotationDeg = (self.rotationDeg + 15) % 360;
+				$refresh.rotate(self.rotationDeg);
 			}, 20);
 		},
 
 		_stopRotateRefresh: function () {
-			clearInterval(this.rotateInterval);
-			this.$refresh.rotate(0);
+
+			var self = this;
+
+			// wait until rotation complete
+			var checkInterval = setInterval(function () {
+				if (self.rotationDeg === 0) {
+					clearInterval(self.rotateInterval);
+					clearInterval(checkInterval);
+				}
+			}, 10);
 		},
 
 		_resetView: function () {
 			this.page = 0;
 			this._showLoadMore();
+			this.$olderOrders.removeClass('opaque');
 			this.$ordersToday.empty();
 			this.$olderOrders.empty();
 		},

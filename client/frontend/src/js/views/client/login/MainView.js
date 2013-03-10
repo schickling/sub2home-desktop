@@ -57,7 +57,7 @@ define([
 
 			// listen for enter
 			if (e.keyCode === 13) {
-				this.login();
+				this._login();
 			}
 
 			// highlight submit button
