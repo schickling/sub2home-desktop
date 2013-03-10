@@ -16,7 +16,19 @@ define([
 		currentTooltipView: null,
 
 		initialize: function () {
-			
+			this._listenToMouseWheel();
+		},
+
+		_listenToMouseWheel: function () {
+
+			var self = this;
+
+			$(document).on('mousewheel', function () {
+				if (self.currentTooltipView) {
+					self.currentTooltipView.hide();
+				}
+			});
+
 		},
 
 		renderNotification: function (notificationModel) {

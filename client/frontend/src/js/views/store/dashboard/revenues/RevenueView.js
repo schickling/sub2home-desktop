@@ -14,16 +14,19 @@ define([
 
 		events: {
 			'click i': '_download',
-			'mouseenter': '_tooltip'
+			'mouseenter i': '_tooltip'
 		},
 
 		className: 'turnover',
 
 		isValidMonth: false,
 
+		$download: null,
+
 		initialize: function () {
 			this._validateMonth();
 			this._render();
+			this._cacheDom();
 		},
 
 		_render: function () {
@@ -37,6 +40,10 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+		},
+
+		_cacheDom: function() {
+			this.$download = this.$('i');
 		},
 
 		_validateMonth: function () {
@@ -85,8 +92,8 @@ define([
 
 			if (this.isValidMonth) {
 
-				var offset = this.$el.offset();
-				notificationcenter.tooltip('jo', offset.top + 125, offset.left + 110);
+				var offset = this.$download.offset();
+				notificationcenter.tooltip('store.dashboard.invoice.download', offset.top + 24, offset.left + 14);
 
 			}
 		}

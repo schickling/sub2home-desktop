@@ -10,6 +10,10 @@ define([
 			'default': {
 				text: 'Standard',
 				className: 'info'
+			},
+			'store.dashboard.invoice.download': {
+				text: 'Rechnung herunterladen',
+				className: 'info'
 			}
 		},
 
