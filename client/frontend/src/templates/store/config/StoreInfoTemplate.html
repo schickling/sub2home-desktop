@@ -7,31 +7,7 @@
 		<input id="storeOrderingContactInput" placeholder="z.B. bestellungen@subtohome.de" value="<%= orderEmail %>">
 		<i class="iBtn bMail"></i>
 	</div>
-	<!-- <div class="bankDetails darkback">
-		<div class="bankaccountOwner">
-			<label for="bankaccountOwnerInput">Kontoinhaber</label>
-			<input id="bankaccountOwnerInput" value="">
-		</div>
-		<div class="bankaccountNr">
-			<label for="bankaccountNrInput">Kto</label>
-			<input id="bankaccountNrInput" placeholder="Kontonummer" value="">
-		</div>
-		<div class="bankId">
-			<div class="bankCodeNr">
-				<label for="bankCodeNrInput">BLZ</label>
-				<input id="bankCodeNrInput" value="">
-			</div>
-			<div class="bankName">
-				<label for="bankNameInput">Bank</label>
-				<input id="bankNameInput" placeholder="Bankname" value="">
-			</div>
-		</div>
-		<button class="btn bankaccount btnSuccess">Fertig</button>
-	</div> -->
-
 	<div id="payment" class="bankOptions">
-		<!-- <button class="btn btnDark bankaccount">Bankdaten</button> -->
-
 		<div class="<% if (!allowsPaymentEc) { %>disabled<% } %>">
 			<button data-method="Ec" id="checkEC" class="toggle btn btnSuccess">EC <i class="icn"></i></button>
 		</div>
@@ -45,3 +21,4 @@
 			<button data-method="Paypal" id="checkPaypal" class="toggle btn btnSuccess">Paypal <i class="icn"></i></button>
 		</div>
 	</div>
+</div>

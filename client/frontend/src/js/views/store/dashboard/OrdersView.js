@@ -3,10 +3,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'global',
+    'notificationcenter',
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
     'text!templates/store/dashboard/NoOrdersTemplate.html'
-    ], function ($, _, Backbone, OrdersCollection, OrderView, NoOrdersTemplate) {
+    ], function ($, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
 
 	$.fn.extend({
 		rotate: function (deg) {
@@ -24,6 +26,7 @@ define([
 
 	var OrdersView = Backbone.View.extend({
 
+		$orderListing: null,
 		$ordersToday: null,
 		$olderOrders: null,
 		$search: null,
@@ -50,7 +53,8 @@ define([
 		events: {
 			'keyup #search': '_delayedSearch',
 			'click #refresh': '_refresh',
-			'click #loadMore': '_loadMore'
+			'click #loadMore': '_loadMore',
+			'click #testOrder': '_sendTestOrder'
 		},
 
 		initialize: function () {
@@ -63,6 +67,7 @@ define([
 		},
 
 		_cacheDom: function () {
+			this.$orderListing = this.$('.orderListing');
 			this.$ordersToday = this.$('.ordersToday');
 			this.$olderOrders = this.$('.olderOrders');
 			this.$search = this.$('#search');
@@ -125,14 +130,12 @@ define([
 		},
 
 		_showOrders: function () {
-			this.$ordersToday.show();
-			this.$olderOrders.show();
+			this.$orderListing.show();
 			this.$noOrders.hide();
 		},
 
 		_showNoOrders: function () {
-			this.$ordersToday.hide();
-			this.$olderOrders.hide();
+			this.$orderListing.hide();
 
 			// lazy load noOrders
 			if (this.$noOrders.is(':empty')) {
@@ -241,6 +244,22 @@ define([
 		_clearSearch: function () {
 			this.$search.val('');
 			this.search = '';
+		},
+
+		_sendTestOrder: function () {
+			var self = this;
+
+			$.ajax({
+				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
+				type: 'post',
+				success: function () {
+					notificationcenter.notify('views.store.dashboard.testOrder.success');
+					self._fetchCollection();
+				},
+				error: function () {
+					notificationcenter.notify('views.store.dashboard.testOrder.error');
+				}
+			});
 		}
 
 	});

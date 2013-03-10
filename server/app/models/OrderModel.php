@@ -74,6 +74,13 @@ class OrderModel extends BaseModel
 		throw new Exception('Total has to be calculated');
 	}
 
+	public function setBalance($total)
+	{
+		if ($this->isBalance) {
+			$this->attributes['total'] = $total;
+		}
+	}
+
 	public function calculateTotal()
 	{
 		$total = 0;
@@ -93,6 +100,10 @@ class OrderModel extends BaseModel
 	 */
 	public function isValid()
 	{
+		if ($this->isBalance) {
+			return true;
+		}
+
 		$isValid = true;
 
 		$isValid = $isValid && $this->verifyStore();

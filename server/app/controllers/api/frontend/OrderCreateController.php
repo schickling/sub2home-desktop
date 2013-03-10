@@ -99,7 +99,7 @@ class OrderCreateController extends ApiController
 
 		TestOrderModel::generateTestOrderForStore($this->storeModel->id, true);
 
-		return $this->respondWithStatus(200);
+		return $this->respondWithStatus(204);
 	}
 
 
