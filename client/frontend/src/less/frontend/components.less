@@ -173,7 +173,7 @@ img.cookie    { margin: 0 -10px;}
   color: @grayLight;
   text-align: center;
   position: absolute;
-  line-height: 1;
+  line-height: 1.2;
 
   &.aboveLeft, &.aboveRight, &.belowLeft, &.belowRight, &.rightHandAbove, &.rightHandBelow, &.leftHandAbove, &.leftHandBelow {
     &:before {
@@ -2099,11 +2099,20 @@ input[type="text"]#locationSelectionInput {
   bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 80px;
+
+  .notice {
+    right: 230px;
+    top: 20px;
+  }
 
   .clientStore {
     .positioned;
     cursor: pointer;
     padding: 45px;
+    // &:first-child {
+    //   margin-top: 50px;
+    // }
     
     &:after {
       content: " ";
