@@ -8266,6 +8266,9 @@ div#payment .bankaccount {
 #checkoutBasicControls .credit.hasCredit .iCredit {
   color: #c5a862;
 }
+#checkoutBasicControls .credit.hasCredit .notice {
+  display: none;
+}
 .checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;
 }

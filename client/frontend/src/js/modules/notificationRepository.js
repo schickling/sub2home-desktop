@@ -199,8 +199,14 @@ define([
 
 			'views.store.assortment.articles.error': {
 				title: 'Artikel unverändert',
-				description: 'Die Änderung konnte nicht ausgeführt werden. Kontaktieren Sie bitte unseren Support.',
+				description: 'Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
+			},
+
+			'views.store.assortment.articles.oneActiveArticleNeeded': {
+				title: 'Mindestens 1 Artikel',
+				description: 'Ihr Store muss mindestens einen Artikel anbieten.',
+				className: 'warning'
 			},
 
 
@@ -208,93 +214,93 @@ define([
 	// store.config
 
 			'views.store.config.address.success': {
-				title: 'Einen Moment bitte',
-				description: 'Dein Standort wird gerade ermittelt.',
-				className: 'info'
+				title: 'Adresse aktualisiert',
+				description: 'Ihre Adressdaten wurden erfolgreich geändert',
+				className: 'success'
 			},
 
 			'views.store.config.address.error': {
-				title: 'Hoppla, das ging schief',
-				description: 'Wir konnten deinen Standort leider nicht ermitteln. Du kannst trotzdem einfach deine Postleitzahl eingeben.',
-				className: 'warning'
+				title: 'Adresse nicht aktualisiert',
+				description: 'Ihre Adressdaten konnten nicht geändert werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
 			},
 
 			'views.store.config.deliveryArea.add.error': {
-				title: 'Kein Store in der Nähe',
-				description: 'In deiner Nähe gibt es leider keinen Subway-Store, der über sub2home liefert.',
+				title: 'Hinzufügen fehlgeschlagen',
+				description: 'Es konnte kein neues Liefergebiet hinzugefügt werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			},
 
 			'views.store.config.deliveryTime.wrongTimeFormat': {
-				title: 'Du hast die Wahl',
-				description: 'In deiner Nähe befinden sich merhere Subway-Stores, such dir einfach einen aus.',
-				className: 'info'
-			},
-
-			'views.store.config.testOrder.success': {
-				title: 'Noch etwas genauer',
-				description: 'Um dir den richtigen Service bieten zu können, müssen wir noch etwas genauer wissen, wo du dich befindest. Das wars dann aber, versprochen.',
-				className: 'info'
-			},
-
-			'views.store.config.testOrder.error': {
-				title: 'Sorry, zu weit weg',
-				description: 'Du befindest dich außerhalb der Reichweite dieses Stores. Entscheide dich doch einfach für einen in deiner Nähe.',
+				title: 'Falsches Zeitformat',
+				description: 'Vielleicht ein Tippfehler ? Sie müssen eine gültige Uhrzeit angeben.',
 				className: 'warning'
 			},
 
+			'views.store.config.testOrder.success': {
+				title: 'Testbestellung wurde gesendet',
+				description: 'Soeben wurde eine Testbestellung an die angegebene Email-Adresse versandt. Sie finden Sie außerdem in der Store-Übersicht.',
+				className: 'success'
+			},
+
+			'views.store.config.testOrder.error': {
+				title: 'Testbestellung wurde nicht gesendet',
+				description: 'Es konnte keine Testbestellung versendet werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			},
+
 			'views.store.config.isOpen': {
-				title: 'Einen Moment bitte',
-				description: 'Dein Standort wird gerade ermittelt.',
-				className: 'info'
+				title: 'Store ist geöffnet',
+				description: 'Ab sofort ist dieser Store geöffnet und für alle sub2home-Kunden sichtbar.',
+				className: 'success'
 			},
 
 			'views.store.config.isClosed': {
-				title: 'Hoppla, das ging schief',
-				description: 'Wir konnten deinen Standort leider nicht ermitteln. Du kannst trotzdem einfach deine Postleitzahl eingeben.',
+				title: 'Store ist geschlossen',
+				description: 'Ab sofort ist dieser Store geschlossen und für keinen sub2home-Kunden zugänglich. Durch erneuten Klick auf den Button öffnen Sie ihn wieder.',
 				className: 'warning'
 			},
 
 			'views.store.config.isOpenError': {
-				title: 'Kein Store in der Nähe',
-				description: 'In deiner Nähe gibt es leider keinen Subway-Store, der über sub2home liefert.',
+				title: 'Store-Öffnung fehlgeschlagen',
+				description: 'Der Store konnte nicht geöffnet werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			},
 
 			'views.store.config.paymentMethods.success': {
-				title: 'Du hast die Wahl',
-				description: 'In deiner Nähe befinden sich merhere Subway-Stores, such dir einfach einen aus.',
-				className: 'info'
+				title: 'Zahlungsm. aktualisiert',
+				description: 'Die Zahlungsmethoden für diesen Store wurden erfolgreich geändert.',
+				className: 'success'
 			},
 
 			'views.store.config.paymentMethods.error.paypal': {
-				title: 'Noch etwas genauer',
-				description: 'Um dir den richtigen Service bieten zu können, müssen wir noch etwas genauer wissen, wo du dich befindest. Das wars dann aber, versprochen.',
-				className: 'info'
+				title: 'Paypal-Fehler',
+				description: 'PayPal konnte nicht aktiviert werden. Wenden Sie sich bitte an unseren Support',
+				className: 'error'
 			},
 
 			'views.store.config.paymentMethods.error': {
-				title: 'Sorry, zu weit weg',
-				description: 'Du befindest dich außerhalb der Reichweite dieses Stores. Entscheide dich doch einfach für einen in deiner Nähe.',
-				className: 'warning'
+				title: 'Änderung fehlgeschlagen',
+				description: 'Die Zahlungsmethode konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
 			},
 
 			'views.store.config.paymentMethods.loadPaypal': {
-				title: 'Du hast die Wahl',
-				description: 'In deiner Nähe befinden sich merhere Subway-Stores, such dir einfach einen aus.',
+				title: 'Einen Moment bitte.',
+				description: 'Sie werden nun zu PayPal weitergeleitet.',
 				className: 'info'
 			},
 
 			'views.store.config.info.success': {
-				title: 'Noch etwas genauer',
-				description: 'Um dir den richtigen Service bieten zu können, müssen wir noch etwas genauer wissen, wo du dich befindest. Das wars dann aber, versprochen.',
-				className: 'info'
+				title: 'Bestell-Email aktualisiert',
+				description: 'Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert.',
+				className: 'success'
 			},
 
 			'views.store.config.info.error': {
-				title: 'Sorry, zu weit weg',
-				description: 'Du befindest dich außerhalb der Reichweite dieses Stores. Entscheide dich doch einfach für einen in deiner Nähe.',
-				className: 'warning'
+				title: 'Änderung fehlgeschlagen',
+				description: 'Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
 			},
 
 		},
@@ -314,7 +320,6 @@ define([
 	return NotificationRepository;
 
 });
-
 
 
 // views.store.home.addedOrderedItemToCart
