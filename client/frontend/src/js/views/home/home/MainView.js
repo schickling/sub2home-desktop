@@ -75,6 +75,10 @@ define([
 			} else {
 				notificationcenter.hideTooltip();
 			}
+		},
+
+		destroy: function() {
+			notificationcenter.destroyAllNotifications();
 		}
 
 	});

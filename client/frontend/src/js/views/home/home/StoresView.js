@@ -87,11 +87,11 @@ define([
 			if (navigator.geolocation) {
 				var self = this;
 
+				notificationcenter.notify('views.home.home.lookupLocation');
+
 				// wait for collection fetched and maps loaded
 				$.when(this.mapDeffered, this.collectionDeffered).done(function () {
 					navigator.geolocation.getCurrentPosition(function (position) {
-
-						notificationcenter.notify('views.home.home.lookupLocation');
 
 						var latlng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -122,7 +122,7 @@ define([
 							}
 						});
 					}, function () {
-						notificationcenter.notify('views.home.home.lookupNotWorking');
+						notificationcenter.notify('views.home.home.lookupFailed');
 					});
 				}); // end deffered
 			}
@@ -163,14 +163,8 @@ define([
 
 		_cleanPreviousResults: function () {
 
-			var $deliveryAreaSelection = this.$deliveryAreaSelection;
-
-			$deliveryAreaSelection.fadeOut(150, function () {
-
-				// delete old delivery areas
-				$deliveryAreaSelection.html('');
-
-			});
+			// delete old delivery areas
+			this.$deliveryAreaSelection.hide().html('');
 
 			// destroy old store views
 			_.each(this.storeViews, function (storeView) {
@@ -264,8 +258,6 @@ define([
 
 			router.navigate(storeModel.get('alias'), true);
 
-			// destory all notifications
-			notificationcenter.clean();
 		},
 
 		/*
