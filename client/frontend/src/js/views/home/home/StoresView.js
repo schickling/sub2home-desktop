@@ -175,7 +175,7 @@ define([
 
 		_renderDeliveryAreas: function (deliveryAreas) {
 			var self = this,
-				district,
+				district, districtToMark,
 				renderedDistricts = [];
 
 			// render new areas
@@ -198,7 +198,8 @@ define([
 
 						// mark delivery areas
 						_.each(deliveryAreas, function (deliveryAreaModelToMark) {
-							deliveryAreaModelToMark.set('isSelected', deliveryAreaModelToMark.get('district') === district);
+							districtToMark = deliveryAreaModelToMark.get('district') || deliveryAreaModelToMark.get('city');
+							deliveryAreaModelToMark.set('isSelected', districtToMark === district);
 						});
 
 						// update storeviews
