@@ -42,7 +42,8 @@ define([
 		},
 
 		_toggleIsActive: function () {
-			var $eye = this.$('.bEye'),
+			var articleModel = this.model,
+				$eye = this.$('.bEye'),
 				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
@@ -52,8 +53,8 @@ define([
 			}
 
 
-			this.model.set('isActive', isActive);
-			this.model.save({}, {
+			articleModel.set('isActive', isActive);
+			articleModel.save({}, {
 				success: function () {
 					$eye.toggleClass('open', isActive);
 					$el.toggleClass('inactive', !isActive);
@@ -66,6 +67,7 @@ define([
 				},
 				error: function () {
 					notificationcenter.notify('views.store.assortment.articles.error');
+					articleModel.set('isActive', !isActive);
 				}
 			});
 		},

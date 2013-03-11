@@ -89,6 +89,11 @@ class ArticlesController extends ApiController
 		$articleModel = ArticleModel::find($id);
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
+		// check if is last active article
+		if (!$input['isActive'] && $this->isLastActiveArticle()) {
+			return $this->respondWithStatus(400);
+		}
+
 		// update
 		$customArticleModel->isActive = $input['isActive'];
 		$customArticleModel->price = $input['customPrice'];
@@ -140,6 +145,13 @@ class ArticlesController extends ApiController
 		}
 
 		unset($articleModel->ingredientsCollection);
+	}
+
+	private function isLastActiveArticle()
+	{
+		$numberOfActiveCustomArticles = $this->storeModel->customArticlesCollection()->where('isActive', true)->count();
+
+		return $numberOfActiveCustomArticles < 2;
 	}
 
 }
