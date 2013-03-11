@@ -107,8 +107,17 @@ class ArticlesController extends ApiController
 
 	private function prepareMenuUpgradesCollection($articleModel)
 	{
-		foreach ($articleModel->menuUpgradesCollection as $menuUpgradeModel) {
-			$menuUpgradeModel->price = $menuUpgradeModel->returnCustomPrice($this->storeModel->id);
+		$store_model_id = $this->storeModel->id;
+
+		foreach ($articleModel->menuUpgradesCollection as $key => $menuUpgradeModel) {
+			$customMenuModel = $menuUpgradeModel->returnCustomModel($store_model_id);
+
+			if ($customMenuModel->isActive) {
+				$menuUpgradeModel->price = $customMenuModel->price;				
+			} else {
+				$articleModel->menuUpgradesCollection->offsetUnset($key);
+			}
+
 		}
 
 		if ($articleModel->menuUpgradesCollection->isEmpty()) {
