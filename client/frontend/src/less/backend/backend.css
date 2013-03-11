@@ -1941,7 +1941,7 @@ table .span24 {
   cursor: pointer;
   background-position: -150px -71px;
 }
-.iconActive.isActive {
+.iconActive.active {
   background-position: 0px -71px;
 }
 .iconActive .iconOpen {
@@ -1953,7 +1953,7 @@ table .span24 {
   cursor: pointer;
   background-position: -106px -81px;
 }
-.iconActive .iconOpen.isOopen {
+.iconActive .iconOpen.open {
   background-position: -63px -81px;
 }
 .iconClear {
@@ -5209,30 +5209,6 @@ article.clientListing section .client.inactive:hover .iconEditYellowSmall {
   background: #f4f4f4;
   padding: 20px 30px 20px 20px;
 }
-.editClient label {
-  position: absolute;
-  color: #c7c7c7;
-  top: 9px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
-.editClient label.labelEditClientFirstname {
-  left: 120px;
-}
-.editClient label.labelEditClientLastname {
-  left: 350px;
-}
-.editClient .column label {
-  left: 10px;
-}
-.editClient .column label.secondRow {
-  top: 48px;
-}
-.editClient > div {
-  padding: 0 0 0 10px;
-  position: relative;
-  width: 100%;
-}
 .editClient > div.editBasicData {
   padding-bottom: 10px;
   border-bottom: 1px solid #cecece;
@@ -5348,7 +5324,7 @@ article.clientListing section .client.inactive:hover .iconEditYellowSmall {
   display: none;
   position: absolute;
 }
-.unfoldedClient .store > div.iconActive.isActive .iconOpen {
+.unfoldedClient .store > div.iconActive.active .iconOpen {
   display: block;
 }
 .unfoldedClient .store > div.storeInfo {
