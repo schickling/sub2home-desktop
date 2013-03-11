@@ -149,14 +149,12 @@ define([
 			}, this);
 
 			// also listen to new items if they get active
-			this.collection.on('add', function (timelineItemModel) {
+			this.listenTo(this.collection, 'add', function (timelineItemModel) {
 				this._listenToTimelineItem(timelineItemModel);
-			}, this);
+			});
 
 			// adjust buttons on collection change
-			this.collection.on('add remove', function () {
-				this._adjustButtons();
-			}, this);
+			this.listenTo(this.collection, 'add remove', this._adjustButtons);
 
 
 			// adjust stage offset on resize
@@ -170,7 +168,7 @@ define([
 		// listen if timeline item gets isSelected and thus active
 		_listenToTimelineItem: function (timelineItemModel) {
 
-			timelineItemModel.on('change', function () {
+			this.listenTo(timelineItemModel, 'change', function () {
 				if (timelineItemModel.hasChanged('isActive') && timelineItemModel.get('isActive')) {
 
 					// deactivate prev timeline item
@@ -186,7 +184,7 @@ define([
 
 				this.$timelineCart.toggleClass('clickable', this._isReadyForCart());
 
-			}, this);
+			});
 
 		},
 
@@ -311,7 +309,6 @@ define([
 				} else {
 					// check if still visible
 					if (this.$noUpgrade.css('right') !== '-301px') {
-						console.log('needed');
 						this.$noUpgrade.stop().animate({
 							right: -301
 						});
@@ -350,8 +347,6 @@ define([
 					animationTime = this.animationTime,
 					$container = this.$infoContainer;
 
-				console.log(currentSelectionIndex);
-
 				// slide up
 				$container.stop().animate({
 					marginTop: -($container.height()) + 35
@@ -388,7 +383,6 @@ define([
 				this._saveOrderedItemModel();
 
 			} else {
-				console.log(this.model.toJSON());
 				_.each(lockedTimelineItems, function (timelineItemModel) {
 					notificationcenter.notify('views.store.selection.notReady', {
 						phrase: timelineItemModel.get('phrase')
@@ -417,6 +411,7 @@ define([
 		_listenForDestory: function () {
 			this.once('destroy', function () {
 				$(document).off('keyup');
+				this.stopListening();
 			}, this);
 		},
 

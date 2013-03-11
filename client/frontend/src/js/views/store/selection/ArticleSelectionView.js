@@ -26,14 +26,16 @@ define([
 		prepare: function () {
 
 			var timelineItemModel = new TimelineItemModel(),
-				menuComponentBlockModel = this.model.get('menuComponentBlockModel');
+				menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
+				articleModel = this.model.get('articleModel');
+
 
 
 			if (menuComponentBlockModel) {
 				this.active = true;
 
 				timelineItemModel.set({
-					isLocked: true,
+					isLocked: articleModel === null,
 					icon: menuComponentBlockModel.get('icon'),
 					image: menuComponentBlockModel.get('smallImage'),
 					phrase: 'Waehle deinen Artikel'
@@ -43,7 +45,6 @@ define([
 
 			} else {
 
-				var articleModel = this.model.get('articleModel');
 
 				// just symbolizes base article
 				timelineItemModel.set({

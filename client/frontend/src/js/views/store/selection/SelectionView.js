@@ -207,6 +207,8 @@ define([
 
 			this._reclaimTimelineItems();
 
+			this.stopListening();
+
 		},
 
 		_listenForDestory: function () {

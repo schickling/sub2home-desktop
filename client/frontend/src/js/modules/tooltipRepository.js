@@ -15,12 +15,12 @@ define([
 			'views.home.home.input': {
 				text: 'Hier funktionieren nur Zahlen',
 				className: 'warning'
-			}
+			},
 
 			'store.dashboard.invoice.download': {
 				text: 'Rechnung herunterladen',
 				className: 'info'
-			},
+			}
 		},
 
 		getTooltipModel: function (alias, data) {

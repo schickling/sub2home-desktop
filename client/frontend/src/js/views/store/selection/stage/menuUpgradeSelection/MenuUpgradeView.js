@@ -37,11 +37,21 @@ define([
 
 			this.$el.html(this.template(json));
 
+			this._checkSelected();
+
 			this._cacheDom();
 			this._renderMenuComponentBlocks();
 		},
 
-		_cacheDom: function() {
+		_checkSelected: function () {
+			var menuUpgradeModel = this.orderedArticleModel.get('menuUpgradeModel');
+
+			if (menuUpgradeModel && menuUpgradeModel.get('id') === this.model.get('id')) {
+				this.$el.addClass('selected');
+			}
+		},
+
+		_cacheDom: function () {
 			this.$menuComponentBlocks = this.$('.menuComponentBlocks');
 		},
 

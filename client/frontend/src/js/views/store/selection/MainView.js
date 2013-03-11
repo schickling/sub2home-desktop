@@ -203,9 +203,10 @@ define([
 			}, 300);
 		},
 
-		_unsetOrderedItemModel: function () {
-			this.orderedItemModel = null;
+		_unlockTimelineItemsOnEdit: function () {
+
 		}
+
 
 	});
 

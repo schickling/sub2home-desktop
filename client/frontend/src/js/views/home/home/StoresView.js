@@ -259,6 +259,9 @@ define([
 
 			router.navigate(storeModel.get('alias'), true);
 
+			// remove remaining tooltip
+			notificationcenter.hideTooltip();
+
 		},
 
 		/*
