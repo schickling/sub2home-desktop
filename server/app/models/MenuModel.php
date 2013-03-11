@@ -47,23 +47,16 @@ abstract class MenuModel extends ItemModel
 		// lazy initialize
 		if ($customMenuModel == null) {
 
-			// check if menu is a bundle or an upgrade
-			if ($this instanceof MenuBundleModel) {
-				$menuModelType = 'menu_bundle_model_id';
-			} else {
-				$menuModelType = 'menu_upgrade_model_id';
-			}
-
 			$customMenuModel = new CustomMenuModel(array(
 									'store_model_id' => $store_model_id,
-									$menuModelType => $this->id,
 									'price' => $this->price
 									));
-			$customMenuModel->save();
+			$this->customMenusCollection()->save($customMenuModel);
 		}
 
 		return $customMenuModel;
 	}
+
 
 	/**
 	 * Returns the custom menus
@@ -72,7 +65,7 @@ abstract class MenuModel extends ItemModel
 	 */
 	public function customMenusCollection()
 	{
-		return $this->hasMany('App\\Models\\CustomMenuModel');
+		return $this->morphMany('App\\Models\\CustomMenuModel', 'menuModel');
 	}
 
 }

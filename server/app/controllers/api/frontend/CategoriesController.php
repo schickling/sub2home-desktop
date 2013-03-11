@@ -83,8 +83,9 @@ class CategoriesController extends ApiController
 		foreach ($categoriesCollection as $categoryModel) {
 
 			$articlesCollection = new Collection();
-			$sortedArticlesCollection = $categoryModel->articlesCollection()->orderBy('order')
-																			->get();
+			$sortedArticlesCollection = $categoryModel->articlesCollection()
+														->orderBy('order')
+														->get();
 
 			// get correct prices
 			foreach ($sortedArticlesCollection as $articleModel) {
