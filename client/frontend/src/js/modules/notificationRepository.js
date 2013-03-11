@@ -302,7 +302,70 @@ define([
 				description: 'Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			},
+	
 
+
+	// store.home
+
+			'views.store.home.addedOrderedItemToCart': {
+				title: 'Ist auf dem Tablett',
+				description: 'Du hast gerade einen Artikel auf dein Tablett gelegt. Natürlich nur bildlich.',
+				className: 'sucess'
+			},	
+
+
+
+	// store.selection
+
+			'views.store.selection.notReady': {
+				title: 'Da fehlt noch was',
+				description: 'Ein Schritt fehlt noch, um dein Sub aufs Tablett zu legen. Geh einfach nochmal zurück.',
+				className: 'warning'
+			},
+
+
+
+	// store.selection
+
+			'views.store.tray.minimumNotReached': {
+				title: 'Mindestbestellwert',
+				description: 'Du hast leider den Mindestbestellwert noch nicht erreicht. Frag deinen Magen, auf der Store-Seite werdet ihr euch einig.',
+				className: 'warning'
+			},
+
+			'views.store.tray.orderFailed': {
+				title: 'Da ist was schiefgelaufen',
+				description: 'Es tut uns leid, wir konnten deine Bestellung nicht abschicken. Dir bleibt aber immer noch die Möglichkeit, anzurufen. Ohne Schnickschnack, von Mensch zu Mensch. 094 580 34 95',
+				className: 'error'
+			},
+
+			'views.store.tray.invalidDueTime': {
+				title: 'Das ist zu früh',
+				description: 'Wir sind schnell, aber nicht Iron Man. Bitte gedulde dich.',
+				className: 'warning'
+			},
+
+			'views.store.tray.cartNowEmpty': {
+				title: 'Dein Tablett ist leer',
+				description: 'Du hast keinen Artikel mehr auf dem Tablett. Einfach Artikel wählen, um das wieder zu ändern.',
+				className: 'info'
+			},
+
+
+
+	// store.dashboard
+
+			'views.store.dashboard.testOrder.success': {
+				title: 'Testbestellung wurde gesendet',
+				description: 'Soeben wurde eine Testbestellung an die angegebene Email-Adresse versandt. Sie finden Sie außerdem in der Store-Übersicht.',
+				className: 'success'
+			},
+
+			'views.store.dashboard.testOrder.error': {
+				title: 'Testbestellung wurde nicht gesendet',
+				description: 'Es konnte keine Testbestellung versendet werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			}
 		},
 
 		getNotificationModel: function (alias, data) {
@@ -320,13 +383,3 @@ define([
 	return NotificationRepository;
 
 });
-
-
-// views.store.home.addedOrderedItemToCart
-// views.store.selection.notReady
-// views.store.tray.minimumNotReached
-// views.store.tray.orderFailed
-// views.store.tray.invalidDueTime
-// views.store.tray.cartNowEmpty
-// views.store.dashboard.testOrder.success
-// views.store.dashboard.testOrder.error
