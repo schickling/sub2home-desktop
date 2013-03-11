@@ -99,11 +99,11 @@ define([
 			orderModel.save({}, {
 				success: function () {
 					self._ringBell();
-					orderModel.get('orderedItemsCollection').reset();
-					router.navigate('store/danke', {
-						trigger: true,
-						replace: true
-					});
+					// orderModel.get('orderedItemsCollection').reset();
+					// router.navigate('store/danke', {
+					// 	trigger: true,
+					// 	replace: true
+					// });
 				},
 				error: function () {
 					notificationcenter.notify('views.store.tray.orderFailed');

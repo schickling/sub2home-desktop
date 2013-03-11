@@ -6,6 +6,7 @@ use DateTime;
 use App\Controllers\Services\Payment\PaypalService;
 
 use App\Models\OrderModel;
+use App\Models\AddressModel;
 use App\Models\TestOrderModel;
 use App\Models\IngredientModel;
 use App\Models\OrderedArticleModel;
@@ -31,12 +32,14 @@ class OrderCreateController extends ApiController
 		
 		$input = Input::json();
 		$orderModel = new OrderModel();
-
 		$this->orderModel = $orderModel;
+
+		// set store model id (needed for tmp relations)
+		$orderModel->store_model_id = $this->storeModel->id;
 
 
 		// parse ordered items and create temporary relations
-		$orderedItemsCollection = $this->createOrderedItemsCollection($input->orderedItemsCollection);
+		$orderedItemsCollection = $this->createOrderedItemsCollection($input['orderedItemsCollection']);
 		$orderModel->setRelation('orderedItemsCollection', $orderedItemsCollection);
 
 
@@ -44,7 +47,7 @@ class OrderCreateController extends ApiController
 		$orderModel->store_model_id = $this->storeModel->id;
 		$orderModel->calculateTotal();
 
-		if ($orderModel->total != $input->total) {
+		if ($orderModel->total != $input['total']) {
 			var_dump($orderModel->total);
 			return $this->respondWithStatus(400);
 		}
@@ -53,16 +56,19 @@ class OrderCreateController extends ApiController
 		$orderModel->commissionRate = $this->storeModel->commissionRate;
 
 		// set other order data
-		$orderModel->paymentMethod = $input->paymentMethod;
+		$orderModel->paymentMethod = $input['paymentMethod'];
 		$orderModel->isDelivered = false;
-		$orderModel->credit = $input->credit;
-		$orderModel->comment = $input->comment;
+		$orderModel->credit = $input['credit'];
+		$orderModel->comment = $input['comment'];
 
 		$orderModel->due_at = new DateTime();
-		$orderModel->due_at->setTimestamp($input->due_at / 1000);
+		$orderModel->due_at->setTimestamp($input['due_at'] / 1000);
+
+		// create tmp address model
+		$this->createTempAddressModel($input['addressModel']);
 
 
-		if ($orderModel->isValid()) {
+		if (!$orderModel->isValid()) {
 			return $this->respondWithStatus(400);
 		}
 
@@ -70,9 +76,6 @@ class OrderCreateController extends ApiController
 		// save order
 		$orderModel->save();
 
-
-		// save address
-		$orderModel->addressModel()->create($this->prepareAddress($input->addressModel));
 
 		// save ordered items since they are not yet in the database
 		$this->saveTempRelations($orderModel);
@@ -84,6 +87,8 @@ class OrderCreateController extends ApiController
 		} else {
 			$orderModel->confirm();			
 		}
+
+		return $this->respondWithStatus(204);
 
 	}
 
@@ -106,31 +111,35 @@ class OrderCreateController extends ApiController
 	/**
 	 * Creates the ordered items collection without saving it to the database
 	 * 
-	 * @param  array	$orderedItems
+	 * @param  array	$orderedItemsInput
 	 * @return object
 	 */
-	private function createOrderedItemsCollection($orderedItems)
+	private function createOrderedItemsCollection($orderedItemsInput)
 	{
 		// TODO
 		$orderedItemsCollection = new Collection();
 
-		foreach ($orderedItems as $orderedItem) {
+		foreach ($orderedItemsInput as $orderedItemInput) {
 			$orderedItemModel = new OrderedItemModel();
-			$orderedItemModel->amount = $orderedItem->amount;
+			$orderedItemModel->amount = $orderedItemInput['amount'];
+
+			// set link to order model
+			$orderedItemModel->setRelation('orderModel', $this->orderModel);
+
 
 			// check if is menu bundle
-			if ($orderedItem->menuBundleModel) {
+			if ($orderedItemInput['menuBundleModel']) {
 				$orderedItemModel->menu_bundle_model_id = $orderedItemModel->menuBundleModel->id;
 			}
 
 			// add ordered articles
-			foreach ($orderedItem->orderedArticlesCollection as $index => $orderedArticle) {
+			foreach ($orderedItemInput['orderedArticlesCollection'] as $index => $orderedArticleInput) {
 				// check first ordered article for menu upgrade
-				if ($index == 0 && $orderedArticle->menuUpgradeModel) {
-					$orderedItemModel->menu_upgrade_model_id = $orderedArticle->menuUpgradeModel->id;
+				if ($index == 0 && $orderedArticleInput['menuUpgradeModel']) {
+					$orderedItemModel->menu_upgrade_model_id = $orderedArticleInput['menuUpgradeModel']['id'];
 				}
 
-				$orderedArticleModel = $this->createOrderedArticleModel($orderedArticle);
+				$orderedArticleModel = $this->createOrderedArticleModel($orderedArticleInput);
 				$orderedItemModel->orderedArticlesCollection->add($orderedArticleModel);
 			}
 
@@ -141,22 +150,22 @@ class OrderCreateController extends ApiController
 	}
 
 
-	private function createOrderedArticleModel($orderedArticle)
+	private function createOrderedArticleModel($orderedArticleInput)
 	{
 		$orderedArticleModel = new OrderedArticleModel();
 
-		$orderedArticleModel->article_model_id = $orderedArticle->articleModel->id;
+		$orderedArticleModel->article_model_id = $orderedArticleInput['articleModel']['id'];
 
 		$articleModel = $orderedArticleModel->articleModel;
-			$ingredientCategoriesCollection = $orderedArticle->articleModel->ingredientCategoriesCollection;
+			$ingredientCategoriesCollectionInput = $orderedArticleInput['articleModel']['ingredientCategoriesCollection'];
 
-		if ($articleModel->allowsIngredients && $ingredientCategoriesCollection) {
+		if ($articleModel->allowsIngredients && $ingredientCategoriesCollectionInput) {
 
 			// pick out selected ingredients and add to ingredients collection
-			foreach ($ingredientCategoriesCollection as $ingredientCategory) {
-				foreach ($ingredientCategory->ingredientsCollection as $ingredient) {
-					if ($ingredient->isSelected) {
-						$ingredientModel = IngredientModel::find($ingredient->id);
+			foreach ($ingredientCategoriesCollectionInput as $ingredientCategoryInput) {
+				foreach ($ingredientCategoryInput['ingredientsCollection'] as $ingredientInput) {
+					if ($ingredientInput['isSelected']) {
+						$ingredientModel = IngredientModel::find($ingredientInput['id']);
 						$orderedArticleModel->ingredientsCollection->add($ingredientModel);
 					}
 				}
@@ -169,20 +178,20 @@ class OrderCreateController extends ApiController
 	}
 
 
-	private function prepareAddress($addressInput)
+	private function createTempAddressModel($addressInput)
 	{
-		$address = array(
-			'firstName'			=> $addressInput->firstName,
-			'lastName'			=> $addressInput->lastName,
-			'street'			=> $addressInput->street,
-			'streetAdditional'	=> $addressInput->streetAdditional,
-			'postal'			=> $addressInput->postal,
-			'city'				=> $addressInput->city,
-			'email'				=> $addressInput->email,
-			'phone'				=> $addressInput->phone,
-			);
+		$addressModel = new AddressModel(array(
+			'firstName'			=> $addressInput['firstName'],
+			'lastName'			=> $addressInput['lastName'],
+			'street'			=> $addressInput['street'],
+			'streetAdditional'	=> $addressInput['streetAdditional'],
+			'postal'			=> $addressInput['postal'],
+			'city'				=> $addressInput['city'],
+			'email'				=> $addressInput['email'],
+			'phone'				=> $addressInput['phone'],
+			));
 
-		return $address;
+		$this->orderModel->setRelation('addressModel', $addressModel);
 	}
 
 
@@ -199,6 +208,8 @@ class OrderCreateController extends ApiController
 				}
 			}
 		}
+
+		$this->orderModel->addressModel->save();
 	}
 
 

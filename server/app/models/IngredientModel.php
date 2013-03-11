@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Exception;
+
 /**
  * IngredientModel class
  *
@@ -74,19 +76,7 @@ class IngredientModel extends BaseModel
 	{
 		return $this->hasMany('App\\Models\\CustomIngredientModel');
 	}
-
-	/**
-	 * Returns whether the article and the custom article is published
-	 *
-	 * @return void
-	 */
-	private function check()
-	{
-		if (!$this->isPublished) {
-			throw new Exception("Item not published");
-		}
-	}
-
+	
 	/**
 	 * Returns the custom ingredient respecting a specific store
 	 * 
@@ -118,8 +108,6 @@ class IngredientModel extends BaseModel
 	 */
 	public function returnCustomPrice($store_model_id)
 	{
-		$this->check();
-
 		return $this->returnCustomModel($store_model_id)->price;
 	}
 

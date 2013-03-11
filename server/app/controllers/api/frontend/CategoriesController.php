@@ -1,10 +1,10 @@
 <?php namespace App\Controllers\Api\Frontend;
 
 use Illuminate\Database\Eloquent\Collection;
-
 use Input;
 
 use App\Models\CategoryModel;
+use App\Models\ArticleModel;
 
 
 class CategoriesController extends ApiController

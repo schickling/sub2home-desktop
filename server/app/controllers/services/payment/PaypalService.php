@@ -170,6 +170,8 @@ class PaypalService implements PaymentInterface
 		// encode parameters
 		$parameterString = http_build_query($params);
 
+		var_dump($header);
+
 		
 		$ch = curl_init();
 

@@ -1,11 +1,11 @@
 // Filename: src/js/models/OrderedItemModel.js
 define([
-	'underscore',
-	'backbone',
-	'models/MenuBundleModel',
-	'collections/TimelineItemsCollection',
-	'collections/OrderedArticlesCollection'
-	], function (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) {
+    'underscore',
+    'backbone',
+    'models/MenuBundleModel',
+    'collections/TimelineItemsCollection',
+    'collections/OrderedArticlesCollection'
+    ], function (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) {
 
 	var OrderedItemModel = Backbone.Model.extend({
 
@@ -140,6 +140,8 @@ define([
 
 		_initializeListeners: function () {
 
+			this._listenToAmount();
+
 			// bind all ordered articles wheather their price has changed
 			var orderedArticlesCollection = this.get('orderedArticlesCollection');
 
@@ -160,10 +162,12 @@ define([
 			this.on('recalculate', this._calculateTotal, this);
 		},
 
+		_listenToAmount: function () {
+			this.on('change:amount', this._calculateTotal, this);
+		},
+
 		_addOrderedArticleListener: function (orderedArticleModel) {
-			orderedArticleModel.on('priceChanged', function () {
-				this._calculateTotal();
-			}, this);
+			orderedArticleModel.on('priceChanged', this._calculateTotal, this);
 		},
 
 		_calculateTotal: function () {

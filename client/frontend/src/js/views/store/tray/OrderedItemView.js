@@ -17,7 +17,8 @@ define([
 			'click .deleteItem': '_destroy',
 			'click .itemPreview': '_edit',
 			'click .addItem': '_increaseAmount',
-			'click .amountOrderedItem': '_decreaseAmount'
+			'click .increaseAmount': '_increaseAmount',
+			'click .decreaseAmount': '_decreaseAmount'
 		},
 
 		initialize: function () {

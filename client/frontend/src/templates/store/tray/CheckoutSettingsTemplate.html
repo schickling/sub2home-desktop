@@ -50,5 +50,5 @@
 	<button id="save" class="btn btnSuccess">Fertig</button>
 </div>
 <div class="paymentSettings">
-	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" class="bar <% if (selectedPaymentMethod === 'cash') { %>selected<% } %>">Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" class="ecCard <% if (selectedPaymentMethod === 'ec') { %>selected<% } %>">mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" class="paypal <% if (selectedPaymentMethod === 'paypal') { %>selected<% } %>">via PayPal</span>><% } %>
+	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" class="bar <% if (selectedPaymentMethod === 'cash') { %>selected<% } %>">Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" class="ecCard <% if (selectedPaymentMethod === 'ec') { %>selected<% } %>">mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" class="paypal <% if (selectedPaymentMethod === 'paypal') { %>selected<% } %>">via PayPal</span><% } %>
 </div>

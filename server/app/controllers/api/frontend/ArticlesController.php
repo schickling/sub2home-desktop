@@ -42,14 +42,19 @@ class ArticlesController extends ApiController
 			return $this->respondWithStatus(404);
 		}
 
+		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
+
 		// get article price
-		$articleModel->price = $articleModel->returnCustomPrice($this->storeModel->id);
+		$articleModel->price = $customArticleModel->price;
 
 		// get menu upgrades price
 		$this->prepareMenuUpgradesCollection($articleModel);
 
+		// load custom ingredients
+		$customArticleModel->loadCustomIngredientPrices();
+
 		// wrap ingredients in their ingredient categories
-		$this->prepareIngredientCategoriesCollection($articleModel);
+		$this->wrapIngredientsInCategories($articleModel);
 		
 
 		return $articleModel->toJson(JSON_NUMERIC_CHECK);
@@ -106,7 +111,7 @@ class ArticlesController extends ApiController
 		}
 	}
 
-	private function prepareIngredientCategoriesCollection($articleModel)
+	private function wrapIngredientsInCategories($articleModel)
 	{
 		$ingredientsCollectionOfArticle = $articleModel->ingredientsCollection;
 
