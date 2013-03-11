@@ -7,10 +7,11 @@ define([
 	var NotificationRepository = {
 
 		_items: {
-			'meinTest': {
-				title: 'Arikel sichtbar',
-				description: 'Arikel sichtbar',
-				className: 'success'
+
+			'default': {
+				title: 'Hey',
+				description: 'Das ist wohl eine nutzlose Notiz. Sie hat nämlich überhaupt keinen Zweck.',
+				className: 'info'
 			},
 
 
