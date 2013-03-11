@@ -3878,7 +3878,7 @@ div#payment {
     overflow: hidden;
     height: inherit;
     .menuUpgradesContainer {
-      height: inherit;
+    //  height: inherit;
       overflow: auto;
     }
   }
@@ -4504,7 +4504,7 @@ div#payment {
   }
 
   &.b {
-    width: 180px;
+    width: 130px;
     &:before {
       left: -35px;
     }
@@ -4891,6 +4891,14 @@ div#payment {
       }
       .notice {
         display: none;
+      }
+    }
+    &.hasNoCredit {
+      .bRemove, .bAdd {
+        display: none;
+      }
+      .iCredit {
+        color: @onDarkNoteColor50;
       }
     }
   }

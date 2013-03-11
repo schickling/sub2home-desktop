@@ -7284,7 +7284,6 @@ div#payment .bankaccount {
   height: inherit;
 }
 .slide.menuUpgrades .menuUpgradesContainer {
-  height: inherit;
   overflow: auto;
 }
 .slide.menuComponentOptions {
@@ -7853,7 +7852,7 @@ div#payment .bankaccount {
   padding: 0 0 0 20px;
 }
 .menuItem.b {
-  width: 180px;
+  width: 130px;
 }
 .menuItem.b:before {
   left: -35px;
@@ -8268,6 +8267,13 @@ div#payment .bankaccount {
 }
 #checkoutBasicControls .credit.hasCredit .notice {
   display: none;
+}
+#checkoutBasicControls .credit.hasNoCredit .bRemove,
+#checkoutBasicControls .credit.hasNoCredit .bAdd {
+  display: none;
+}
+#checkoutBasicControls .credit.hasNoCredit .iCredit {
+  color: rgba(197, 168, 98, 0.5);
 }
 .checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;
