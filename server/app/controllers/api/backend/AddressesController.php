@@ -7,7 +7,7 @@ use App\Models\AddressModel;
 /**
 * 
 */
-class AddresssController extends ApiController
+class AddressesController extends ApiController
 {
 
 	public function update($id)
