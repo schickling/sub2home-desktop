@@ -1,50 +1,10 @@
-<div id="checkoutAdditionalOptions">
-	<div class="deliveryTimeDisplay">
-		<p>Wir sind frühestens in <%= minimumDuration %> Minuten bei dir, du kannst die Uhrzeit aber auch gerne korrigieren</p>
-		<div class="deliveryTimeClock">
-			<span class="hours">
-				<i class="iBtn iArrowUp active"></i>
-				<span class="topTile">
-					<span><%= dueHours %></span>
-				</span>
-				<span class="bottomTile">
-					<span><%= dueHours %></span>
-				</span>
-				<i class="iBtn iArrowDown <% if (!hoursAreMinimum) { %>active <% } %>"></i>
-			</span>
-
-			<span class="clockSeparator"></span>
-			<span class="minutes">
-				<i class="iBtn iArrowUp active"></i>
-				<span class="topTile">
-					<span><%= dueMinutes %></span>
-				</span>
-				<span class="bottomTile">
-					<span><%= dueMinutes %></span>
-				</span>
-				<i class="iBtn iArrowDown <% if (!minutesAreMinimum) { %>active <% } %>"></i>
-			</span>
-		</div>
-	</div>
-	<div class="deliveryAdditionalNote">
-		<div></div>
-		<div></div>
-		<div></div>
-		<textarea name="" id="" cols="60" placeholder="Was ich noch loswerden wollte..." rows="4"><%= comment %></textarea>
-	</div>
+<% if (isReady) { %>
+<div class="checkoutReadyControls">
+	<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €<span class="credit"><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Gute Gäste geben Trinkgeld.</i></span></span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
+	und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
 </div>
+<div class="icn iCart"></div>
 
-<div id="checkoutBasicControls">
-	
-	<% if (isReady) { %>
-	<div class="checkoutReadyControls">
-		<span class="orderNow">Bestellen</span> für <span class="price"><%= total.toFixed(2) %> €<span class="credit"><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Gute Gäste geben Trinkgeld.</i></span></span>, bezahlen <span class="paymentMethod settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
-		und liefern <span class="deliveryAddress settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span>
-	</div>
-	<div class="icn iCart"></div>
-
-	<% } else { %>
-	Nur noch deine <span class="deliveryAddress settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span class="price"><%= total.toFixed(2) %> €
-	<% } %>
-
-</div>
+<% } else { %>
+Nur noch deine <span class="deliveryAddress settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span class="price"><%= total.toFixed(2) %> €
+<% } %>

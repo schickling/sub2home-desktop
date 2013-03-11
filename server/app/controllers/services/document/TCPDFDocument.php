@@ -43,6 +43,8 @@ class TCPDFDocument
 		ini_set('max_execution_time', 300); // 300 seconds (5 minutes)
 		ini_set('memory_limit', '1024M');
 
+		$this->setDocumentInformation();
+
 		// remove default header/footer
 		$this->document->setPrintHeader(false);
 		$this->document->setPrintFooter(false);
@@ -65,6 +67,16 @@ class TCPDFDocument
 
 		// reset pointer to the last page
 		$this->document->lastPage();
+	}
+
+	private function setDocumentInformation()
+	{
+		// set document information
+		$this->document->SetCreator('sub2home');
+		$this->document->SetAuthor('sub2home');
+		// $this->document->SetTitle('TCPDF Example 006');
+		// $this->document->SetSubject('TCPDF Tutorial');
+		// $this->document->SetKeywords('TCPDF, PDF, example, test, guide');
 	}
 
 	private function renderSVG()

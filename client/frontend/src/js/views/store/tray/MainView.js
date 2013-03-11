@@ -6,11 +6,13 @@ define([
     'router',
     'models/cartModel',
     'views/PageView',
+    'views/store/tray/DeliveryTimeView',
+    'views/store/tray/CommentView',
     'views/store/tray/ControlView',
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -22,7 +24,8 @@ define([
 
 		// referenced sub views
 		subViews: {
-			controlView: null
+			controlView: null,
+			deliveryTimeView: null
 		},
 
 		initialize: function () {
@@ -42,7 +45,15 @@ define([
 			this.$el.html(MainTemplate);
 
 			this.subViews.controlView = new ControlView({
-				el: this.$('#checkoutControls')
+				el: this.$('#checkoutBasicControls')
+			});
+
+			this.subViews.deliveryTimeView = new DeliveryTimeView({
+				el: this.$('.deliveryTimeDisplay')
+			});
+
+			new CommentView({
+				el: this.$('.deliveryAdditionalNote')
 			});
 
 			new CheckoutSettingsView({

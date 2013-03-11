@@ -151,6 +151,36 @@ define([
 			if (comment.length > 1000 || comment.split(/\n|\f/).length > 6) {
 				return 'Kommentar ist zu lang';
 			}
+
+			if (attributes.total < 0 || attributes.credit < 0) {
+				return 'Kein erlaubter Wert';
+			}
+		},
+
+		increaseCredit: function () {
+			var credit = this.get('credit'),
+				total = this.get('total'),
+				totalWithCredit = total + credit,
+				isRound = (totalWithCredit % 0.5) === 0;
+
+			console.log(isRound);
+
+			if (isRound) {
+				credit += 0.50;
+			} else {
+				credit = Math.ceil(total) - total;
+			}
+
+			this.set({
+				credit: credit
+			}, {
+				validate: true
+			});
+
+		},
+
+		decreaseCredit: function () {
+
 		}
 
 	});

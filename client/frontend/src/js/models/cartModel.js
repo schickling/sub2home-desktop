@@ -197,6 +197,12 @@ define([
 			return orderModel.get('total');
 		},
 
+		getCredit: function () {
+			var orderModel = this.get('orderModel');
+
+			return orderModel.get('credit');
+		},
+
 		getNumberOfOrderedItems: function () {
 			var orderModel = this.get('orderModel');
 

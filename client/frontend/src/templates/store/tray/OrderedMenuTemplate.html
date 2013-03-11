@@ -15,3 +15,8 @@
 	</div>
 </header>
 <div class="menuItems"></div>
+<% if (amount > 1) { %><div class="amountOrderedItem">
+<div class="increaseAmount"></div>
+<div class="amount"><%= amount %></div>
+<div class="decreaseAmount"></div>
+</div><% } %>

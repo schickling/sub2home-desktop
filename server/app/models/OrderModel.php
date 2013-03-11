@@ -108,6 +108,7 @@ class OrderModel extends BaseModel
 
 		$isValid = $isValid && $this->verifyStore();
 		$isValid = $isValid && $this->verifyMinimumValue();
+		$isValid = $isValid && $this->verifyCredit();
 		$isValid = $isValid && $this->verifyMenus();
 		$isValid = $isValid && $this->verifyOrderedArticles();
 		$isValid = $isValid && $this->verifyDueDate();
@@ -163,6 +164,11 @@ class OrderModel extends BaseModel
 		}
 
 		return $this->total >= $matchingDeliveryAreaModel->minimumValue;
+	}
+
+	private function verifyCredit()
+	{
+		return $this->credit >= 0;
 	}
 
 	private function verifyMenus()

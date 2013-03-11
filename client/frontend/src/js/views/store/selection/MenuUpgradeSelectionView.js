@@ -18,19 +18,26 @@ define([
 
 			var articleModel = this.model.get('articleModel');
 
-			if (this.model.isMenuUpgradeBase() && articleModel.get('allowsMenuUpgrades') && articleModel.get('menuUpgradesCollection').length > 0) {
 
-				this.active = true;
+			if (this.model.isMenuUpgradeBase() && articleModel.get('allowsMenuUpgrades')) {
 
-				this.timelineItemsCollection.add({
-					phrase: 'Waehle ein Menu Upgrade',
-					menuUpgradeSelection: true,
-					icon: 'iMenuUpgrade',
-					image: '../../../img/static/common/menu_upgrade.png'
-				});
+				var menuUpgradesCollection = articleModel.get('menuUpgradesCollection');
+
+				if (menuUpgradesCollection && menuUpgradesCollection.length > 0) {
+
+					this.active = true;
+
+					this.timelineItemsCollection.add({
+						phrase: 'Waehle ein Menu Upgrade',
+						menuUpgradeSelection: true,
+						icon: 'iMenuUpgrade',
+						image: '../../../img/static/common/menu_upgrade.png'
+					});
 
 
-				this._listenForSelection();
+					this._listenForSelection();
+
+				}
 
 			}
 

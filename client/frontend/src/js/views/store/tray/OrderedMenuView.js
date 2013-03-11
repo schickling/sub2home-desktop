@@ -35,7 +35,8 @@ define([
 
 			var json = {
 				title: this.model.getMenuTitle(),
-				total: this.model.get('total')
+				total: this.model.get('total'),
+				amount: this.model.get('amount')
 			};
 
 			this.$el.html(this.template(json));
