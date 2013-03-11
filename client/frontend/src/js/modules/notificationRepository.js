@@ -239,13 +239,13 @@ define([
 			},
 
 			'views.store.config.testOrder.success': {
-				title: 'Testbestellung wurde gesendet',
+				title: 'Testbestellung gesendet',
 				description: 'Soeben wurde eine Testbestellung an die angegebene Email-Adresse versandt. Sie finden Sie außerdem in der Store-Übersicht.',
 				className: 'success'
 			},
 
 			'views.store.config.testOrder.error': {
-				title: 'Testbestellung wurde nicht gesendet',
+				title: 'Testbestellung nicht gesendet',
 				description: 'Es konnte keine Testbestellung versendet werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			},
@@ -357,13 +357,13 @@ define([
 	// store.dashboard
 
 			'views.store.dashboard.testOrder.success': {
-				title: 'Testbestellung wurde gesendet',
-				description: 'Soeben wurde eine Testbestellung an die angegebene Email-Adresse versandt. Sie finden Sie außerdem in der Store-Übersicht.',
+				title: 'Testbestellung gesendet',
+				description: 'Soeben wurde eine Testbestellung an die hinterlegte Email-Adresse versandt.',
 				className: 'success'
 			},
 
 			'views.store.dashboard.testOrder.error': {
-				title: 'Testbestellung wurde nicht gesendet',
+				title: 'Testbestellung nicht gesendet',
 				description: 'Es konnte keine Testbestellung versendet werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			}

@@ -1417,7 +1417,7 @@ table .span24 {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/static/be_icons.png");
+  background-image: url("../img/be_icons.png");
   background-position: 12px 12px;
   background-repeat: no-repeat;
 }
@@ -1427,22 +1427,22 @@ table .span24 {
   *margin-left: 0;
 }
 .iconPayment {
-  background-image: url("../img/static/payment_icons.png");
+  background-image: url("../img/payment_icons.png");
   width: 37px;
   height: 24px;
   position: relative;
   top: -5px;
 }
 .iconWhite {
-  background-image: url("../img/static/glyphicons-halflings-white.png");
+  background-image: url("../img/glyphicons-halflings-white.png");
 }
 .iconBs {
-  background-image: url("../img/static/glyphicons-halflings.png");
+  background-image: url("../img/glyphicons-halflings.png");
   width: 14px;
   height: 14px;
 }
 .iconCategoryOption {
-  background-image: url("../img/static/category_options.png");
+  background-image: url("../img/category_options.png");
   height: 25px;
   position: relative;
   top: 2px;
@@ -4462,7 +4462,7 @@ article.articleListing .article:first-child {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/static/be_icons.png");
+  background-image: url("../img/be_icons.png");
   background-position: 12px 12px;
   background-repeat: no-repeat;
   background-position: -312px 0;
@@ -5534,7 +5534,7 @@ article.orderListing section .order .foldedOrder div.orderSum {
   margin: 0 10px 0 20px;
 }
 article.orderListing section .order .foldedOrder div.order_Delivered {
-  background-image: url("../img/static/be_icons.png");
+  background-image: url("../img/be_icons.png");
   background-repeat: no-repeat;
   background-position: -15px -58px;
   width: 12px;
