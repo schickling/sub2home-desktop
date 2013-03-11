@@ -432,3 +432,51 @@
 }
 
 
+
+
+// ----------------------------------------------------  Complex Icons -------------------------------------------------------
+
+
+.iBtn {
+  &.enclosed {
+    width: 17px;
+    margin: 0 4px;
+    height: 17px;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+    font-size: 10px;
+    text-align: center;
+    .img-circle;
+    &:before {
+      top: 0;
+    }
+
+    &.bAdd {
+      border: 1px solid darken(#57a827, 15%);
+      #gradient > .vertical(#57a827,#458a1c);
+      color: #2c630a;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 -1px 0 darken(#2c630a, 15%);
+    }
+
+    &.bRemove {
+      border: 1px solid darken(#b96a01, 5%);
+      #gradient > .vertical(#f8a900,#b96a01);
+      color: #7c4800;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 -1px 0 darken(#7c4800, 15%);
+    }
+  }
+}
+
+.storeOpen {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 61px;
+  height: 61px;
+  background: url('../img/static/common/icons.png') no-repeat;
+  background-position: 0 0;
+  &.isOpen {
+    background-position: -61px 0;
+  }
+}
+
+

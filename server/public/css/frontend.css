@@ -2552,6 +2552,61 @@ table [class*=span],
 .bRefresh:before {
   content: "\e084";
 }
+.iBtn.enclosed {
+  width: 17px;
+  margin: 0 4px;
+  height: 17px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  font-size: 10px;
+  text-align: center;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+}
+.iBtn.enclosed:before {
+  top: 0;
+}
+.iBtn.enclosed.bAdd {
+  border: 1px solid #376a19;
+  background-color: #509c23;
+  background-image: -moz-linear-gradient(top, #57a827, #458a1c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#57a827), to(#458a1c));
+  background-image: -webkit-linear-gradient(top, #57a827, #458a1c);
+  background-image: -o-linear-gradient(top, #57a827, #458a1c);
+  background-image: linear-gradient(to bottom, #57a827, #458a1c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff57a827', endColorstr='#ff458a1c', GradientType=0);
+  color: #2c630a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 -1px 0 #0d1e03;
+}
+.iBtn.enclosed.bRemove {
+  border: 1px solid #a05b01;
+  background-color: #df9000;
+  background-image: -moz-linear-gradient(top, #f8a900, #b96a01);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8a900), to(#b96a01));
+  background-image: -webkit-linear-gradient(top, #f8a900, #b96a01);
+  background-image: -o-linear-gradient(top, #f8a900, #b96a01);
+  background-image: linear-gradient(to bottom, #f8a900, #b96a01);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8a900', endColorstr='#ffb96a01', GradientType=0);
+  color: #7c4800;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 -1px 0 #301c00;
+}
+.storeOpen {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 61px;
+  height: 61px;
+  background: url('../img/static/common/icons.png') no-repeat;
+  background-position: 0 0;
+}
+.storeOpen.isOpen {
+  background-position: -61px 0;
+}
 .close {
   float: right;
   font-size: 20px;
@@ -6825,9 +6880,9 @@ div#payment .bankaccount {
   top: -1px;
   margin: 0 3px;
 }
-.storeConfig .sBAdd {
+.storeConfig .bAdd {
   position: absolute;
-  margin: 0 0 0 9px;
+  margin: 0 0 0 14px;
   bottom: 0;
   display: block;
 }
@@ -6861,10 +6916,10 @@ div#payment .bankaccount {
 .storeConfig > div.deliveryAreas .unfolded div:nth-child(odd) {
   background: rgba(209, 186, 130, 0.3);
 }
-.storeConfig > div.deliveryAreas .unfolded div .sBRemove {
+.storeConfig > div.deliveryAreas .unfolded div .bRemove {
   top: -3px;
 }
-.storeConfig > div.deliveryAreas .sBAdd {
+.storeConfig > div.deliveryAreas .bAdd {
   bottom: 30px;
 }
 .storeConfig > div.deliveryAreas span {
@@ -6914,7 +6969,7 @@ div#payment .bankaccount {
   padding: 3px 5px 0 20px;
   min-height: 20px;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .openingHours .sBAdd {
+.storeConfig > div.deliveryTimes .unfolded > div.businessDay .openingHours .bAdd {
   right: 6px;
   bottom: 6px;
 }
@@ -6925,7 +6980,7 @@ div#payment .bankaccount {
   width: 45px;
   text-align: right;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime .sBRemove {
+.storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime .bRemove {
   top: -6px;
 }
 .deliveryAreaPostal {
@@ -8126,7 +8181,8 @@ div#payment .bankaccount {
 #checkoutBasicControls .checkoutReadyControls {
   padding: 25px 185px 0 0;
 }
-#checkoutBasicControls span {
+#checkoutBasicControls > span,
+#checkoutBasicControls .checkoutReadyControls > span {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -8135,49 +8191,30 @@ div#payment .bankaccount {
   cursor: pointer;
   position: relative;
 }
-#checkoutBasicControls span:hover {
+#checkoutBasicControls > span:hover,
+#checkoutBasicControls .checkoutReadyControls > span:hover {
   color: #c5a862;
 }
-#checkoutBasicControls span.price {
+#checkoutBasicControls > span.price,
+#checkoutBasicControls .checkoutReadyControls > span.price {
   color: #c5a862;
 }
-#checkoutBasicControls span.setDeliveryAddress,
-#checkoutBasicControls span.orderNow {
+#checkoutBasicControls > span.setDeliveryAddress,
+#checkoutBasicControls .checkoutReadyControls > span.setDeliveryAddress,
+#checkoutBasicControls > span.orderNow,
+#checkoutBasicControls .checkoutReadyControls > span.orderNow {
   color: #c5a862;
   border-bottom: 2px solid #c5a862;
 }
-#checkoutBasicControls span.price {
+#checkoutBasicControls > span.price,
+#checkoutBasicControls .checkoutReadyControls > span.price {
   cursor: default;
   white-space: normal;
 }
-#checkoutBasicControls span.price .bRemove,
-#checkoutBasicControls span.price .bAdd {
-  font-size: 16px;
-  z-index: 51;
-  width: 40px;
-  height: 30px;
-  position: relative;
-  display: none;
-}
-#checkoutBasicControls span.price .bRemove:before,
-#checkoutBasicControls span.price .bAdd:before {
-  position: absolute;
-  top: 8px;
-}
-#checkoutBasicControls span.price .bRemove {
-  margin: 0 -20px 0 0;
-}
-#checkoutBasicControls span.price .bRemove:before {
-  left: 0;
-}
-#checkoutBasicControls span.price .bAdd {
-  margin: 0 0 0 -20px;
-}
-#checkoutBasicControls span.price .bAdd:before {
-  right: 0;
-}
-#checkoutBasicControls span.paymentMethod,
-#checkoutBasicControls span.deliveryAddress {
+#checkoutBasicControls > span.paymentMethod,
+#checkoutBasicControls .checkoutReadyControls > span.paymentMethod,
+#checkoutBasicControls > span.deliveryAddress,
+#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
   padding-right: 0;
   position: relative;
@@ -8186,8 +8223,10 @@ div#payment .bankaccount {
   -o-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
   transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
 }
-#checkoutBasicControls span.paymentMethod .iEdit,
-#checkoutBasicControls span.deliveryAddress .iEdit {
+#checkoutBasicControls > span.paymentMethod .iEdit,
+#checkoutBasicControls .checkoutReadyControls > span.paymentMethod .iEdit,
+#checkoutBasicControls > span.deliveryAddress .iEdit,
+#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress .iEdit {
   position: absolute;
   display: block;
   right: 10px;
@@ -8202,17 +8241,23 @@ div#payment .bankaccount {
   transition: opacity 0.1s linear;
   z-index: 10;
 }
-#checkoutBasicControls span.paymentMethod .iEdit:before,
-#checkoutBasicControls span.deliveryAddress .iEdit:before {
+#checkoutBasicControls > span.paymentMethod .iEdit:before,
+#checkoutBasicControls .checkoutReadyControls > span.paymentMethod .iEdit:before,
+#checkoutBasicControls > span.deliveryAddress .iEdit:before,
+#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress .iEdit:before {
   top: 1px;
 }
-#checkoutBasicControls span.paymentMethod:hover,
-#checkoutBasicControls span.deliveryAddress:hover {
+#checkoutBasicControls > span.paymentMethod:hover,
+#checkoutBasicControls .checkoutReadyControls > span.paymentMethod:hover,
+#checkoutBasicControls > span.deliveryAddress:hover,
+#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress:hover {
   border-bottom-color: #c5a862;
   padding-right: 50px;
 }
-#checkoutBasicControls span.paymentMethod:hover .iEdit,
-#checkoutBasicControls span.deliveryAddress:hover .iEdit {
+#checkoutBasicControls > span.paymentMethod:hover .iEdit,
+#checkoutBasicControls .checkoutReadyControls > span.paymentMethod:hover .iEdit,
+#checkoutBasicControls > span.deliveryAddress:hover .iEdit,
+#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress:hover .iEdit {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -8243,6 +8288,10 @@ div#payment .bankaccount {
   height: 50px;
   z-index: 50;
   color: rgba(197, 168, 98, 0.5);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
 #checkoutBasicControls .iCredit:hover {
   color: #c5a862;
@@ -8254,6 +8303,32 @@ div#payment .bankaccount {
   width: 45px;
   height: 44px;
   text-align: center;
+}
+#checkoutBasicControls .credit .bRemove,
+#checkoutBasicControls .credit .bAdd {
+  font-size: 16px;
+  z-index: 51;
+  width: 40px;
+  height: 30px;
+  position: relative;
+  display: none;
+}
+#checkoutBasicControls .credit .bRemove:before,
+#checkoutBasicControls .credit .bAdd:before {
+  position: absolute;
+  top: 8px;
+}
+#checkoutBasicControls .credit .bRemove {
+  margin: 0 -20px 0 0;
+}
+#checkoutBasicControls .credit .bRemove:before {
+  left: 0;
+}
+#checkoutBasicControls .credit .bAdd {
+  margin: 0 0 0 -20px;
+}
+#checkoutBasicControls .credit .bAdd:before {
+  right: 0;
 }
 #checkoutBasicControls .credit.hasCredit {
   width: 100px;
@@ -8274,6 +8349,15 @@ div#payment .bankaccount {
 }
 #checkoutBasicControls .credit.hasNoCredit .iCredit {
   color: rgba(197, 168, 98, 0.5);
+}
+#checkoutBasicControls .credit.hasNoCredit .iCredit:hover {
+  color: #c5a862;
+}
+.acceptAGB {
+  font-size: 20px;
+}
+.acceptAGB span {
+  text-decoration: underline;
 }
 .checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;

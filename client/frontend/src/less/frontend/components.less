@@ -3397,13 +3397,11 @@ div#payment {
     margin: 0 3px;
   }
 
-  .sBAdd {
+  .bAdd {
     position: absolute;
-    margin: 0 0 0 9px;
+    margin: 0 0 0 14px;
     bottom: 0;
     display: block;
-
-
   }
 
   >div {
@@ -3430,12 +3428,12 @@ div#payment {
         &:nth-child(odd) {
           background: @onNoteColor30;
         }
-        .sBRemove {
+        .bRemove {
           top: -3px;
         }
       }
 
-      .sBAdd {
+      .bAdd {
         bottom: 30px;
       }
 
@@ -3455,10 +3453,6 @@ div#payment {
       h2 {
         margin-left: 20px;
       }
-
-      // .headingSeparator {
-      //   left: 150px;
-      // }
 
       .unfolded >div.businessDay {
         min-height: 80px;
@@ -3490,7 +3484,7 @@ div#payment {
           float: right;
           padding: 3px 5px 0 20px;
           min-height: 20px;
-          .sBAdd {
+          .bAdd {
             right: 6px;
             bottom: 6px;
           }
@@ -3502,7 +3496,7 @@ div#payment {
             width: 45px;
             text-align: right;
           }
-          .sBRemove {
+          .bRemove {
             top: -6px;
           }
         }
@@ -4761,7 +4755,7 @@ div#payment {
     padding: 25px 185px 0 0;
   }
 
-  span {
+  >span, .checkoutReadyControls >span {
     .transition(color .1s linear);
     white-space: pre-wrap;
     cursor: pointer;
@@ -4781,31 +4775,6 @@ div#payment {
     &.price {
       cursor: default;
       white-space: normal;
-
-      .bRemove, .bAdd {
-        font-size: 16px;
-        z-index: 51;
-        width: 40px;
-        height: 30px;
-        .positioned;
-        display: none;
-        &:before {
-          position: absolute;
-          top: 8px;
-        }
-      }
-      .bRemove {
-        margin: 0 -20px 0 0;
-        &:before {
-          left: 0;
-        }
-      }
-      .bAdd {
-        margin: 0 0 0 -20px;
-        &:before {
-          right: 0;
-        }
-      }
     }
 
     &.paymentMethod, &.deliveryAddress {
@@ -4869,6 +4838,7 @@ div#payment {
     height: 50px;
     z-index: 50;
     color: @onDarkNoteColor50;
+    .transition(color .1s linear);
     &:hover {
       color: @onDarkNoteColor;
     }
@@ -4881,6 +4851,33 @@ div#payment {
     width: 45px;
     height: 44px;
     text-align: center;
+
+    .bRemove, .bAdd {
+      font-size: 16px;
+      z-index: 51;
+      width: 40px;
+      height: 30px;
+      .positioned;
+      display: none;
+      &:before {
+        position: absolute;
+        top: 8px;
+      }
+    }
+    .bRemove {
+      margin: 0 -20px 0 0;
+      &:before {
+        left: 0;
+      }
+    }
+    .bAdd {
+      margin: 0 0 0 -20px;
+      &:before {
+        right: 0;
+      }
+    }
+
+
     &.hasCredit {
       width: 100px;
       .bRemove, .bAdd {
@@ -4899,11 +4896,20 @@ div#payment {
       }
       .iCredit {
         color: @onDarkNoteColor50;
+        &:hover {
+          color: @onDarkNoteColor;
+        }
       }
     }
   }
+}
 
-
+.acceptAGB {
+  font-size: 20px;
+  span {
+    text-decoration: underline;
+    // .transition(color .1s linear);
+  }
 }
 
 
