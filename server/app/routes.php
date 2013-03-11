@@ -97,8 +97,11 @@ Route::group(array('https'), function()
 |--------------------------------------------------------------------------
 */
 
+// clients
 Route::get('api/backend/clients', 									'App\Controllers\Api\Backend\ClientsController@index');
 
+// addresses
+Route::put('api/backend/addresses/{id}', 							'App\Controllers\Api\Backend\AddressesController@update');
 
 // stores
 Route::post('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@create');

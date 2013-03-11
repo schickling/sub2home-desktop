@@ -26,4 +26,24 @@ class ClientsController extends ApiController
 		return $clientsCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
+	public function update()
+	{
+		// $input = Input::json();
+
+		// $storeModel = StoreModel::find($id);
+
+		// if ($storeModel == null) {
+		// 	$this->error(404);
+		// }
+
+		// $storeModel->isActive = $input['isActive'];
+		// $storeModel->isOpen = $input['isOpen'];
+		// $storeModel->number = $input['number'];
+		// $storeModel->title = $input['title'];
+
+		// $storeModel->save();
+
+		// return $storeModel;
+	}
+
 }

@@ -15,7 +15,7 @@ define([
 			'focusout #storeDescriptionInput': '_updateDescription',
 			'focusout #storeOrderingContactInput': '_updateOrderEmail',
 			'click .bMail': '_sendTestOrder',
-			'click .sBOpen': '_toggleOpen',
+			'click .storeOpen': '_toggleOpen',
 			// payment methods
 			'click #payment button.toggle': '_togglePaymentMethod',
 			'click #paypalSettings': '_updatePaypal'
@@ -74,7 +74,7 @@ define([
 		},
 
 		_toggleOpen: function () {
-			var $button = this.$('.sBOpen'),
+			var $button = this.$('.storeOpen'),
 				isOpen = !this.model.get('isOpen');
 
 			this.model.set('isOpen', isOpen);
@@ -85,7 +85,7 @@ define([
 					} else {
 						notificationcenter.notify('views.store.config.isClosed');
 					}
-					$button.toggleClass('open');
+					$button.toggleClass('isOpen');
 				},
 				error: function () {
 					notificationcenter.notify('views.store.config.isOpenError');

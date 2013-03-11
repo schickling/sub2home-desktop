@@ -37,10 +37,10 @@ class StoresController extends ApiController
 			$this->error(404);
 		}
 
-		$storeModel->isActive = $input->isActive;
-		$storeModel->isOpen = $input->isOpen;
-		$storeModel->number = $input->number;
-		$storeModel->title = $input->title;
+		$storeModel->isActive = $input['isActive'];
+		$storeModel->isOpen = $input['isOpen'];
+		$storeModel->number = $input['number'];
+		$storeModel->title = $input['title'];
 
 		$storeModel->save();
 

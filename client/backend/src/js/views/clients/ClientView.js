@@ -1,12 +1,13 @@
 // Filename: js/views/clients/ClientView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/clients/ClientEditView',
-	'views/clients/StoresView',
-	'text!templates/clients/ClientTemplate.html'
-	], function ($, _, Backbone, ClientEditView, StoresView, ClientTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'moment',
+    'views/clients/ClientEditView',
+    'views/clients/StoresView',
+    'text!templates/clients/ClientTemplate.html'
+    ], function ($, _, Backbone, moment, ClientEditView, StoresView, ClientTemplate) {
 
 	var ClientView = Backbone.View.extend({
 
@@ -15,23 +16,24 @@ define([
 		template: _.template(ClientTemplate),
 
 		events: {
-			'click .foldedClient': 'toggleStoresView',
-			'click .editClient': 'toggleEditView',
-			'click .iconAddSmall': 'addStore'
+			'click .foldedClient': '_toggleStoresView',
+			'click .iconEditYellowSmall': '_toggleEditView',
+			'click .iconAddSmall': '_addStore'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 
-			this.model.on('change', this.render, this);
+			this.model.on('change', this._render, this);
 		},
 
-		render: function () {
+		_render: function () {
 			var addressModel = this.model.get('addressModel'),
+				createdMoment = moment(this.model.get('created_at')),
 				json = {
 					name: addressModel.get('firstName') + ' ' + addressModel.get('lastName'),
-					number: this.leadingZeros(this.model.get('number')),
-					created_at: this.model.get('created_at'),
+					number: this.model.get('number'),
+					createdAt: createdMoment.format('DD.MM.YYYY'),
 					monthlyTurnover: 0,
 					totalTurnover: 0,
 					monthlyOrders: 0,
@@ -39,22 +41,20 @@ define([
 				};
 
 			this.$el.html(this.template(json));
-
-			return this;
 		},
 
-		toggleStoresView: function () {
+		_toggleStoresView: function () {
 			if (this.model.get('storesCollection').length) {
 				if (this.$('.unfoldedClient').is(':visible')) {
-					this.hideStoresView();
+					this._hideStoresView();
 				} else {
-					this.showStoresView();
+					this._showStoresView();
 				}
 			}
 		},
 
-		showStoresView: function () {
-			this.hideEditView();
+		_showStoresView: function () {
+			this._hideEditView();
 
 			var $foldedClient = this.$('.foldedClient'),
 				$unfoldedClient = this.$('.unfoldedClient'),
@@ -70,20 +70,20 @@ define([
 			this.$el.removeClass('inactive');
 
 			if (!this.storesView) {
-				this.renderStoresView();
+				this._renderStoresView();
 			}
 
 			$unfoldedClient.fadeIn();
 		},
 
-		renderStoresView: function () {
+		_renderStoresView: function () {
 			this.storesView = new StoresView({
 				collection: this.model.get('storesCollection'),
 				el: this.$('.unfoldedClient')
 			});
 		},
 
-		hideStoresView: function () {
+		_hideStoresView: function () {
 			var $foldedClient = this.$('.foldedClient'),
 				$unfoldedClient = this.$('.unfoldedClient'),
 				$clientSiblings = $foldedClient.closest('.client').siblings();
@@ -93,18 +93,18 @@ define([
 			$unfoldedClient.fadeOut();
 		},
 
-		toggleEditView: function () {
+		_toggleEditView: function () {
 			if (this.$('.editClient').is(':visible')) {
-				this.hideEditView();
+				this._hideEditView();
 			} else {
-				this.showEditView();
+				this._showEditView();
 			}
 
 			return false;
 		},
 
-		showEditView: function () {
-			this.hideStoresView();
+		_showEditView: function () {
+			this._hideStoresView();
 
 			var $foldedClient = this.$('.foldedClient'),
 				$editClient = this.$('.editClient'),
@@ -121,13 +121,13 @@ define([
 
 			// lazy initalize client edit view
 			if (!$editClient.html().trim()) {
-				this.renderEditView();
+				this._renderEditView();
 			}
 
 			$editClient.fadeIn();
 		},
 
-		hideEditView: function () {
+		_hideEditView: function () {
 			var $foldedClient = this.$('.foldedClient'),
 				$editClient = this.$('.editClient'),
 				$clientSiblings = $foldedClient.closest('.client').siblings();
@@ -137,14 +137,14 @@ define([
 			$editClient.fadeOut();
 		},
 
-		renderEditView: function () {
+		_renderEditView: function () {
 			var clientEditView = new ClientEditView({
 				model: this.model,
 				el: this.$('.editClient')
 			});
 		},
 
-		addStore: function () {
+		_addStore: function () {
 			var str, number;
 
 			do {
@@ -162,9 +162,9 @@ define([
 
 			store.save({}, {
 				success: function () {
-					self.showStoresView();
+					self._showStoresView();
 					self.storesView.collection.add(store);
-					self.storesView.renderStore(store);
+					self.storesView._renderStore(store);
 				},
 
 				error: function (model, error) {
@@ -173,15 +173,6 @@ define([
 			});
 
 			return false;
-		},
-
-		leadingZeros: function (number) {
-			var str = '' + number,
-				length = 4;
-			while (str.length < length) {
-				str = '0' + str;
-			}
-			return str;
 		}
 
 	});

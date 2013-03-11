@@ -1,25 +1,26 @@
 //Filename: views/clients/ClientEditView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/clients/ClientEditTemplate.html'
-	], function ($, _, Backbone, ClientEditTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/clients/ClientEditTemplate.html'
+    ], function ($, _, Backbone, ClientEditTemplate) {
 
 	var ClientEditView = Backbone.View.extend({
 
 		template: _.template(ClientEditTemplate),
 
 		events: {
-			// 'click .confirmClient': 'updateClient',
-			'click .deleteClient': 'deleteClient'
+			'click .confirmClient': '_updateClient',
+			'click .deleteClient': '_deleteClient',
+			'focusout input.editClientAddress': '_saveAddress'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var clientModel = this.model,
 				addressModel = clientModel.get('addressModel');
 
@@ -38,19 +39,35 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		deleteClient: function () {
-			var check = confirm("Kunden wirklich löschen?");
+		_deleteClient: function () {
+			var check = confirm("Kunden wirklich löschen?"),
+				self = this;
+
 			if (check) {
-				var self = this;
-				this.$el.fadeOut(function () {
-					self.hideEdit();
-					self.model.destroy();
-					self.remove();
+				this.model.destroy({
+					success: function () {
+						self.$el.fadeOut(function () {
+							self.hideEdit();
+							self.remove();
+						});
+					}
 				});
+
 			}
 		},
 
-		updateClient: function () {
+		_saveAddress: function(e) {
+			var $input = $(e.target),
+				val = $input.val(),
+				attribute = $input.attr('field'),
+				addressModel = this.model.get('addressModel');
+
+			addressModel.set(attribute, val);
+			addressModel.save();
+
+		},
+
+		_updateClient: function () {
 			var $editClient = this.$('.editClient'),
 				$address = $editClient.find('.editClient_address'),
 				password = $editClient.find('.editClient_password').val(),

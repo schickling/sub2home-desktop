@@ -1,10 +1,11 @@
 // Filename: js/views/clients/StoreView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/clients/StoreTemplate.html'
-	], function ($, _, Backbone, StoreTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'moment',
+    'text!templates/clients/StoreTemplate.html'
+    ], function ($, _, Backbone, moment, StoreTemplate) {
 
 	var StoreView = Backbone.View.extend({
 
@@ -32,6 +33,7 @@ define([
 		render: function () {
 
 			var storeModel = this.model,
+				createdMoment = moment(this.model.get('created_at')),
 				addressModel = storeModel.get('addressModel');
 
 			var json = {
@@ -39,7 +41,7 @@ define([
 				isOpen: storeModel.get('isOpen'),
 				number: storeModel.get('number'),
 				title: storeModel.get('title'),
-				created_at: storeModel.get('created_at'),
+				createdAt: createdMoment.format('DD.MM.YYYY'),
 				monthlyTurnover: storeModel.get('monthlyTurnover'),
 				totalTurnover: storeModel.get('totalTurnover'),
 				monthlyOrders: storeModel.get('monthlyOrders'),

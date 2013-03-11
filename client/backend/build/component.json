@@ -1,0 +1,12 @@
+{
+  "name": "sub2home backend",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs": null,
+    "requirejs-text": null,
+    "jquery": null,
+    "moment": null,
+    "underscore": null,
+    "backbone": null,
+  }
+}
