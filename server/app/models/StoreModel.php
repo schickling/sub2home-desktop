@@ -72,6 +72,12 @@ class StoreModel extends BaseModel
 
 		// initalize invoices
 		$this->checkInvoices();
+
+		// make at least one article active
+		$firstArticleModel = ArticleModel::where('isPublished', true)->first();
+		$customArticleModel = $firstArticleModel->returnCustomModel($this->id);
+		$customArticleModel->isActive = true;
+		$customArticleModel->save();
 		
 	}
 

@@ -14,7 +14,6 @@ class ClientModelTable extends Migration {
 		Schema::create('client_models', function($table) {
 			$table->increments('id');
 			$table->string('hashedPassword', 255);
-			$table->string('email')->unique();
 			$table->integer('number')->unique();
 			$table->timestamps();
 		});

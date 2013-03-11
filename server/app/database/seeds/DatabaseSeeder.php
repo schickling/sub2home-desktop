@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('MenuUpgradeModelSeeder');
 		$this->call('MenuComponentBlockModelSeeder');
 		$this->call('MenuComponentOptionModelSeeder');
+		$this->call('ClientModelSeeder');
 	}
 
 }
