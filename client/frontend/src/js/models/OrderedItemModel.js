@@ -217,6 +217,19 @@ define([
 
 			// console.log(total);
 			this.set('total', total * this.get('amount'));
+		},
+
+		isEditable: function() {
+
+			if (this.isMenu()) {
+				return true;
+			}
+
+			var orderedArticleModel = this.get('orderedArticlesCollection').first(),
+				articleModel = orderedArticleModel.get('articleModel');
+
+			return articleModel.get('allowsIngredients');
+
 		}
 
 	});

@@ -66,7 +66,9 @@ define([
 		},
 
 		_edit: function () {
-			router.navigate('store/theke/aendern/' + this.model.get('id'), true);
+			if (this.model.isEditable()) {
+				router.navigate('store/theke/aendern/' + this.model.get('id'), true);
+			}
 		},
 
 		_increaseAmount: function () {
