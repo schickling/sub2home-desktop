@@ -3309,8 +3309,7 @@ img.cookie {
   color: inherit;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  text-transform: uppercase;
-  margin: 0 30px 0 30px;
+  margin: -2px 30px 0 30px;
   line-height: 1.1;
 }
 .notification header h4:before {
@@ -3478,11 +3477,13 @@ img.cookie {
   bottom: -65px;
 }
 .notice.belowLeft:before {
+  content: "\e045";
   left: 50%;
   margin-left: -25px;
   top: -65px;
 }
 .notice.belowRight:before {
+  content: "\e044";
   right: 50%;
   margin-right: -25px;
   top: -65px;
@@ -8234,14 +8235,6 @@ div#payment .bankaccount {
 #checkoutBasicControls .iCart:hover {
   color: #9cc83e;
 }
-#checkoutBasicControls .credit {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 0 5px;
-  width: 45px;
-  height: 44px;
-  text-align: center;
-}
 #checkoutBasicControls .iCredit {
   font-size: 40px;
   top: 4px;
@@ -8252,8 +8245,25 @@ div#payment .bankaccount {
   z-index: 50;
   color: rgba(197, 168, 98, 0.5);
 }
-#checkoutBasicControls .iCredit:hover,
-#checkoutBasicControls .iCredit.changeCredit {
+#checkoutBasicControls .iCredit:hover {
+  color: #c5a862;
+}
+#checkoutBasicControls .credit {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 5px;
+  width: 45px;
+  height: 44px;
+  text-align: center;
+}
+#checkoutBasicControls .credit.hasCredit {
+  width: 100px;
+}
+#checkoutBasicControls .credit.hasCredit .bRemove,
+#checkoutBasicControls .credit.hasCredit .bAdd {
+  display: inline-block;
+}
+#checkoutBasicControls .credit.hasCredit .iCredit {
   color: #c5a862;
 }
 .checkoutSettings {

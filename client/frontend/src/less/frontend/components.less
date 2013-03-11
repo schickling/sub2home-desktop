@@ -37,10 +37,10 @@ img.cookie    { margin: 0 -10px;}
       color: inherit;
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
       font-size: 20px;
-      text-transform: uppercase;
-      margin: 0 30px 0 30px;
+      //text-transform: uppercase;
+      margin: -2px 30px 0 30px;
       line-height: 1.1;
-
+      
       //.positioned;
 
       &:before {
@@ -208,6 +208,7 @@ img.cookie    { margin: 0 -10px;}
 
   &.belowLeft {
     &:before {
+      content: "\e045";
       left: 50%;
       margin-left: -25px;
       top: -65px;
@@ -216,6 +217,7 @@ img.cookie    { margin: 0 -10px;}
 
   &.belowRight {
     &:before {
+      content: "\e044";
       right: 50%;
       margin-right: -25px;
       top: -65px;
@@ -2171,6 +2173,7 @@ input[type="text"]#locationSelectionInput {
 
 // ----------------------------------------------  CLIENT CONFIG  ----------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
+
 
 
 .clientBasics {
@@ -4857,6 +4860,20 @@ div#payment {
     }
   } 
   
+  .iCredit {
+    font-size: 40px;
+    top: 4px;
+    .positioned;
+    padding: 0;
+    width: 40px;
+    height: 50px;
+    z-index: 50;
+    color: @onDarkNoteColor50;
+    &:hover {
+      color: @onDarkNoteColor;
+    }
+  }
+
   .credit {
     .positioned;
     display: inline-block;
@@ -4864,22 +4881,18 @@ div#payment {
     width: 45px;
     height: 44px;
     text-align: center;
-  }
-
-  .iCredit {
-    font-size: 40px;
-    top: 4px;
-    .positioned;
-
-    padding: 0;
-    width: 40px;
-    height: 50px;
-    z-index: 50;
-    color: @onDarkNoteColor50;
-    &:hover, &.changeCredit {
-      color: @onDarkNoteColor;
+    &.hasCredit {
+      width: 100px;
+      .bRemove, .bAdd {
+        display: inline-block;
+      }
+      .iCredit {
+        color: @onDarkNoteColor;
+      }
     }
   }
+
+
 }
 
 
