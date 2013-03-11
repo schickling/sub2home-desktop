@@ -16,7 +16,9 @@ define([
 		events: {
 			'click .iCart, .orderNow': '_checkout',
 			'focusout textarea': '_saveComment',
-			'click .credit': '_showCredit'
+			'click .credit.hasNoCredit': '_showCredit',
+			'click .credit .bAdd': '_increaseCredit',
+			'click .credit .bRemove': '_decreaseCredit'
 		},
 
 		initialize: function () {
@@ -123,6 +125,26 @@ define([
 			var orderModel = cartModel.get('orderModel');
 
 			orderModel.increaseCredit();
+		},
+
+		_decreaseCredit: function () {
+			var orderModel = cartModel.get('orderModel');
+
+			if (orderModel.get('credit') <= 0.50) {
+
+				var $credit = this.$('.credit');
+
+				$credit.animate({
+					width: 45
+				}, function () {
+					orderModel.decreaseCredit();
+				});
+
+			} else {
+				orderModel.decreaseCredit();
+			}
+
+
 		}
 
 	});

@@ -163,8 +163,6 @@ define([
 				totalWithCredit = total + credit,
 				isRound = (totalWithCredit % 0.5) === 0;
 
-			console.log(isRound);
-
 			if (isRound) {
 				credit += 0.50;
 			} else {
@@ -180,7 +178,19 @@ define([
 		},
 
 		decreaseCredit: function () {
+			var credit = this.get('credit');
 
+			if (credit >= 0.50) {
+				credit -= 0.50;
+			} else {
+				credit = 0;
+			}
+
+			this.set({
+				credit: credit
+			}, {
+				validate: true
+			});
 		}
 
 	});

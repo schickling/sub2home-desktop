@@ -24,7 +24,8 @@ define([
 			}
 
 			// validate token
-			var valid = false;
+			var valid = false,
+				self = this;
 
 			$.ajax({
 				url: '/api/frontend/checktoken',
@@ -33,6 +34,9 @@ define([
 				dataType: 'text', // needed because response is empty
 				success: function () {
 					valid = true;
+				},
+				error: function() {
+					self._dropToken();
 				}
 			});
 
@@ -126,7 +130,8 @@ define([
 			// force ssl
 			this._forceSSL();
 
-			var isLoggedOut = false;
+			var isLoggedOut = false,
+				self = this;
 
 			$.ajax({
 				url: '/api/frontend/logout',
@@ -134,7 +139,7 @@ define([
 				async: false,
 				dataType: 'text', // needed because response is empty
 				success: function (token) {
-					window.localStorage.removeItem('token');
+					self._dropToken();
 					isLoggedOut = true;
 				}
 			});
@@ -142,6 +147,10 @@ define([
 			this.set('isLoggedIn', !isLoggedOut);
 
 			return isLoggedOut;
+		},
+
+		_dropToken: function() {
+			window.localStorage.removeItem('token');
 		}
 
 	});
