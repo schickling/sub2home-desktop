@@ -109,21 +109,13 @@ define([
 
 		_showCredit: function () {
 			var $credit = this.$('.credit'),
-				$bAdd = $credit.find('.bAdd'),
-				$bRemove = $credit.find('.bRemove');
+				self = this;
 
 			$credit.animate({
 				width: 100
 			}, function () {
-				$bAdd.css({
-					display: 'inline-block'
-				});
-				$bRemove.css({
-					display: 'inline-block'
-				});
+				self._increaseCredit();
 			});
-
-			this._increaseCredit();
 
 		},
 
