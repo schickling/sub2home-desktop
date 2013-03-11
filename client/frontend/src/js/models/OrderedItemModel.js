@@ -196,20 +196,25 @@ define([
 					baseArticleModel = baseOrderedArticleModel.get('articleModel');
 
 				// calculate total of base article
-				total += baseArticleModel.get('total');
+				total = baseArticleModel.get('total');
 
 				// calculate total for menu upgrade
 				if (baseOrderedArticleModel.hasBeenUpgraded()) {
-					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel);
+					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel),
+						menuUpgradeModel = baseOrderedArticleModel.get('menuUpgradeModel');
+
+					total += menuUpgradeModel.get('price') + baseArticleModel.get('ingredientsTotal') + baseArticleModel.get('deposit');
 
 					_.each(menuUpgradeOrderedArticleModels, function (menuUpgradeOrderedArticleModel) {
 						var menuUpgradeArticleModel = menuUpgradeOrderedArticleModel.get('articleModel');
 
+						// "if" needed here
 						if (menuUpgradeArticleModel) {
 							total += menuUpgradeArticleModel.get('ingredientsTotal');
 							total += menuUpgradeArticleModel.get('deposit');
 						}
 					});
+
 
 				}
 
