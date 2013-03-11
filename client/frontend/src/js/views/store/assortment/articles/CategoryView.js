@@ -28,9 +28,13 @@ define([
 		},
 
 		_renderArticles: function() {
+			// needed to check if article is last active article
+			var articlesCollection = this.model.get('articlesCollection');
+			articlesCollection.categoryModel = this.model;
+
 			new ArticlesView({
 				el: this.$('.articles'),
-				collection: this.model.get('articlesCollection')
+				collection: articlesCollection
 			});
 		}
 

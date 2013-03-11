@@ -46,6 +46,11 @@ define([
 				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
+			if (!isActive && this._isLastActiveArticle()) {
+				notificationcenter.notify('views.store.assortment.articles.oneActiveArticleNeeded');
+				return;
+			}
+
 
 			this.model.set('isActive', isActive);
 			this.model.save({}, {
@@ -85,6 +90,26 @@ define([
 
 			$input.val(this.model.get('price'));
 			this._updateCustomPrice();
+		},
+
+		_isLastActiveArticle: function () {
+			var activeArticleCounter = 0,
+				articleModel = this.model,
+				articlesCollection = articleModel.collection,
+				categoriesCollection = articlesCollection.categoryModel.collection,
+				tempArticlesCollection;
+
+			_.each(categoriesCollection.models, function (tempCategoryModel) {
+				tempArticlesCollection = tempCategoryModel.get('articlesCollection');
+				_.each(tempArticlesCollection.models, function (tempArticleModel) {
+					if (tempArticleModel.get('isActive')) {
+						activeArticleCounter++;
+					}
+				});
+			});
+
+			return activeArticleCounter < 2;
+
 		}
 
 	});

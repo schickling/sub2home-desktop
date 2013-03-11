@@ -10,8 +10,7 @@ define([
 
 		events: {
 			'click .bReset': '_resetAllPrices',
-			'click .showAll': '_showAllArticles',
-			'click .hideAll': '_hideAllArticles'
+			'click .showAll': '_showAllArticles'
 		},
 
 		numberOfCurrentRequests: 0,
@@ -75,26 +74,6 @@ define([
 					if (!articleModel.get('isActive')) {
 						this._updateArticleModel(articleModel, {
 							isActive: true
-						});
-					}
-
-				}, this);
-			}, this);
-
-			this._updateLoadBar();
-
-		},
-
-		_hideAllArticles: function () {
-			_.each(this.collection.models, function (categoryModel) {
-				var articlesCollection = categoryModel.get('articlesCollection');
-
-				_.each(articlesCollection.models, function (articleModel) {
-
-					// check if deactivation needed
-					if (articleModel.get('isActive')) {
-						this._updateArticleModel(articleModel, {
-							isActive: false
 						});
 					}
 
