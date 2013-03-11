@@ -14,15 +14,17 @@ define([
 			// listen for further selection / deselection
 			_.each(this.collection.models, function (ingredientModel) {
 
-				ingredientModel.on('change:isSelected', this.render, this);
+				this.listenTo(ingredientModel, 'change:isSelected', this._render);
 
 			}, this);
 
-			this.render();
+			this._render();
+
+			this._listenForDestory();
 
 		},
 
-		render: function () {
+		_render: function () {
 
 			// reset view
 			this.$el.html('');
@@ -33,7 +35,7 @@ define([
 			});
 
 			_.each(activeIngredients, function (ingredientModel) {
-				this.renderIngredient(ingredientModel);
+				this._renderIngredient(ingredientModel);
 			}, this);
 
 			// mark penultimate ingredient
@@ -42,12 +44,16 @@ define([
 			}
 		},
 
-		renderIngredient: function (ingredientModel) {
+		_renderIngredient: function (ingredientModel) {
 			var ingredientView = new IngredientView({
 				model: ingredientModel
 			});
 
 			this.$el.append(ingredientView.el);
+		},
+
+		_listenForDestory: function () {
+			this.options.selectionView.once('destroy', this.stopListening, this);
 		}
 
 	});

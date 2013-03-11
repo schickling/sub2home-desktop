@@ -77,7 +77,7 @@ define([
 			// initialize listeners
 			this._initializeListeners();
 
-
+			this._listenForDestory();
 		},
 
 		_chacheDOM: function () {
@@ -414,13 +414,10 @@ define([
 			});
 		},
 
-		_cleanUp: function () {
-
-			// unbind events
-			$(document).off('keyup');
-
-			// TODO
-			this.model = null;
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				$(document).off('keyup');
+			}, this);
 		},
 
 

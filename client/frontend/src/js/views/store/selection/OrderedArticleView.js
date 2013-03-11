@@ -17,18 +17,24 @@ define([
 		 */
 
 		articleSelectionView: null,
-
 		ingredientsSelectionView: null,
-
 		menuUpgradeSelectionView: null,
 
+		parentView: null,
+
 		initialize: function () {
+
+			this.parentView = this.options.parentView;
+
 			this._render();
 
 			// remove view if model was destoryed
-			this.model.on('destroy', this._remove, this);
+			this.listenTo(this.model, 'destroy', this._remove);
 
-			this.model.on('articleModelWasSelected', this._renderIngredientsSelectionAgain, this);
+			this.listenTo(this.model, 'articleModelWasSelected', this._renderIngredientsSelectionAgain);
+
+
+			this._listenForDestory();
 
 		},
 
@@ -62,16 +68,23 @@ define([
 		},
 
 		_renderIngredientsSelectionAgain: function () {
-			this.ingredientsSelectionView.remove();
+			this.ingredientsSelectionView.trigger('destroy');
 			this._renderIngredientsSelection();
 		},
 
 		_remove: function () {
 
-			this.articleSelectionView.remove();
-			this.ingredientsSelectionView.remove();
-			this.menuUpgradeSelectionView.remove();
+			this.articleSelectionView.trigger('destroy');
+			this.ingredientsSelectionView.trigger('destroy');
+			this.menuUpgradeSelectionView.trigger('destroy');
 
+		},
+
+		_listenForDestory: function () {
+			this.parentView.once('destroy', function () {
+				this.stopListening();
+				this._remove();
+			}, this);
 		}
 
 	});

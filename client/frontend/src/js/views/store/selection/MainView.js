@@ -26,6 +26,12 @@ define([
 			'mouseleave .timeline': '_slideTimelineDown'
 		},
 
+		// referenced sub views
+		subViews: {
+			timelineControllerView: null,
+			orderedArticlesView: null
+		},
+
 		initialize: function () {
 
 			var selectionRessourceType = this.options.selectionRessourceType;
@@ -170,14 +176,14 @@ define([
 		},
 
 		_renderOrderedArticles: function () {
-			new OrderedArticlesView({
+			this.subViews.orderedArticlesView = new OrderedArticlesView({
 				collection: this.orderedItemModel.get('orderedArticlesCollection'),
 				el: this.$el
 			});
 		},
 
 		_initializeTimelineController: function () {
-			new TimelineControllerView({
+			this.subViews.timelineControllerView = new TimelineControllerView({
 				model: this.orderedItemModel,
 				collection: this.orderedItemModel.get('timelineItemsCollection'),
 				el: this.$el
@@ -199,10 +205,6 @@ define([
 
 		_unsetOrderedItemModel: function () {
 			this.orderedItemModel = null;
-		},
-
-		_unlockTimelineItemsOnEdit: function () {
-
 		}
 
 	});

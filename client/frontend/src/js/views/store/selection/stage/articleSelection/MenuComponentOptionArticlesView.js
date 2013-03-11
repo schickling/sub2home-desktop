@@ -8,24 +8,27 @@ define([
 
 	var MenuComponentOptionArticlesView = Backbone.View.extend({
 
+		orderedArticleModel: null,
+
 		initialize: function () {
 			this.orderedArticleModel = this.options.orderedArticleModel;
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (menuComponentOptionArticleModel) {
-				this.renderArticle(menuComponentOptionArticleModel);
+				this._renderArticle(menuComponentOptionArticleModel);
 			}, this);
 		},
 
-		renderArticle: function (menuComponentOptionArticleModel) {
+		_renderArticle: function (menuComponentOptionArticleModel) {
 			var menuComponentOptionArticleView = new MenuComponentOptionArticleView({
 				model: menuComponentOptionArticleModel,
-				orderedArticleModel: this.orderedArticleModel
+				orderedArticleModel: this.orderedArticleModel,
+				selectionView: this.options.selectionView
 			});
 
-			this.$el.append(menuComponentOptionArticleView.render().el);
+			this.$el.append(menuComponentOptionArticleView.el);
 		}
 
 	});

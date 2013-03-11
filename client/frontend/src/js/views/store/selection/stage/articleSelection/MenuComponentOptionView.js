@@ -15,15 +15,18 @@ define([
 
 		initialize: function() {
 			this.orderedArticleModel = this.options.orderedArticleModel;
+
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
 
 			var menuComponentOptionArticlesView = new MenuComponentOptionArticlesView({
 				collection: this.model.get('menuComponentOptionArticlesCollection'),
 				orderedArticleModel: this.orderedArticleModel,
-				el: this.$('.articles')
+				el: this.$('.articles'),
+				selectionView: this.options.selectionView
 			});
 
 			return this;

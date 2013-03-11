@@ -12,7 +12,9 @@ define([
 			this._render();
 
 			// listen for further ordered articles to be added
-			this.collection.on('add', this._renderOrderedArticle, this);
+			this.listenTo(this.collection, 'add', this._renderOrderedArticle);
+
+			this._listenForDestory();
 
 		},
 
@@ -25,8 +27,15 @@ define([
 		_renderOrderedArticle: function (orderedArticleModel) {
 			var orderedArticleView = new OrderedArticleView({
 				model: orderedArticleModel,
+				parentView: this,
 				el: this.$el
 			});
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 	});

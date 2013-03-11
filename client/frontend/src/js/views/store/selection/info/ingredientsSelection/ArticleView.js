@@ -14,6 +14,8 @@ define([
 			this._render();
 
 			this._listenForPriceChange();
+
+			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -38,7 +40,11 @@ define([
 		},
 
 		_listenForPriceChange: function () {
-			this.model.on('change:total', this._render, this);
+			this.listenTo(this.model, 'change:total', this._render);
+		},
+
+		_listenForDestory: function () {
+			this.options.selectionView.once('destroy', this.stopListening, this);
 		}
 
 	});

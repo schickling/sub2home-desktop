@@ -45,15 +45,14 @@ define([
 
 		_listenForSelection: function () {
 
-			var baseOrderedArticleModel = this.model,
-				orderedItemModel = this.model.get('orderedItemModel');
+			var baseOrderedArticleModel = this.model;
 
 			// listen for new menu upgrade selection
-			baseOrderedArticleModel.on('change:menuUpgradeModel', function () {
+			this.listenTo(baseOrderedArticleModel, 'change:menuUpgradeModel', function () {
 				if (baseOrderedArticleModel.get('menuUpgradeModel')) {
 					this._selectMenuUpgrade(baseOrderedArticleModel.get('menuUpgradeModel'));
 				}
-			}, this);
+			});
 
 		},
 

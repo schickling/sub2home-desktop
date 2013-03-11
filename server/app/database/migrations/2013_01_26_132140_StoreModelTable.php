@@ -24,7 +24,6 @@ class StoreModelTable extends Migration {
 			$table->decimal('commissionRate', 2, 2)->default(0);
 			$table->boolean('isActive')->default(false);
 			$table->boolean('isOpen')->default(false);
-			$table->text('description')->default('');
 			$table->timestamps();
 			// payment methods
 			$table->boolean('allowsPaymentCash')->default(true);

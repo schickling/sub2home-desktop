@@ -53,7 +53,6 @@ class ClientModelSeeder extends Seeder {
 			'commissionRate' => 0.05,
 			'isActive' => true,
 			'isOpen' => true,
-			'description' => 'Willkommen in Memmingen',
 			'allowsPaymentCash' => true,
 			'allowsPaymentEc' => true
 			);

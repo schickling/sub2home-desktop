@@ -76,6 +76,7 @@ define([
 			// increase selection counter
 			this._increaseSelectionCounter();
 
+			this._listenForDestory();
 
 		},
 
@@ -137,6 +138,8 @@ define([
 
 			this.infoView = new this.infoViewClass({
 				model: this.model,
+				// needed to stop listeners
+				selectionView: this,
 				el: $infoContainer
 			});
 		},
@@ -151,6 +154,8 @@ define([
 
 			this.stageView = new this.stageViewClass({
 				model: this.model,
+				// needed to stop listeners
+				selectionView: this,
 				el: $slideContainer
 			});
 		},
@@ -187,7 +192,7 @@ define([
 		},
 
 		// delegate remove
-		remove: function () {
+		_remove: function () {
 
 			if (this.active) {
 
@@ -202,6 +207,10 @@ define([
 
 			this._reclaimTimelineItems();
 
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', this._remove, this);
 		}
 
 	});

@@ -69,7 +69,8 @@ define([
 				menuComponentOptionArticlesCollection = menuComponentOptionModel.get('menuComponentOptionArticlesCollection');
 
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
-					menuComponentOptionArticleModel.on('change:isSelected', function () {
+
+					this.listenTo(menuComponentOptionArticleModel, 'change:isSelected', function () {
 
 						if (menuComponentOptionArticleModel.get('isSelected')) {
 							timelineItemModel = timelineItemsCollection.first();
@@ -78,8 +79,9 @@ define([
 						}
 
 					});
-				});
-			});
+
+				}, this);
+			}, this);
 		}
 
 	});

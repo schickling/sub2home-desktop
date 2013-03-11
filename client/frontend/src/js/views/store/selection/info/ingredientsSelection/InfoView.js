@@ -31,7 +31,8 @@ define([
 
 			this.articleView = new ArticleView({
 				model: this.model.get('articleModel'),
-				el: this.$('.articleInfo')
+				el: this.$('.articleInfo'),
+				selectionView: this.options.selectionView
 			});
 
 		},
@@ -42,7 +43,8 @@ define([
 
 			this.ingredientCategoriesView = new IngredientCategoriesView({
 				el: this.$('.ingredientInfo'),
-				collection: articleModel.get('ingredientCategoriesCollection')
+				collection: articleModel.get('ingredientCategoriesCollection'),
+				selectionView: this.options.selectionView
 			});
 
 		}

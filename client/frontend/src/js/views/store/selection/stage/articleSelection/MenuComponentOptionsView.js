@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/selection/stage/articleSelection/MenuComponentOptionsView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/selection/stage/SlideView',
-	'views/store/selection/stage/articleSelection/MenuComponentOptionView'
-	], function ($, _, Backbone, SlideView, MenuComponentOptionView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/selection/stage/SlideView',
+    'views/store/selection/stage/articleSelection/MenuComponentOptionView'
+    ], function ($, _, Backbone, SlideView, MenuComponentOptionView) {
 
 	var MenuComponentOptionsView = SlideView.extend({
 
@@ -17,31 +17,36 @@ define([
 
 			this.collection = menuComponentBlockModel.get('menuComponentOptionsCollection');
 
-			this.renderMenuComponentOptions();
+			this._renderMenuComponentOptions();
 
-			this.listenForArticleSelection();
+			this._listenForArticleSelection();
+
+			this._listenForDestory();
+
 		},
 
-		renderMenuComponentOptions: function () {
+		_renderMenuComponentOptions: function () {
 
 			_.each(this.collection.models, function (menuComponentOptionModel) {
-				this.renderMenuComponentOption(menuComponentOptionModel);
+				this._renderMenuComponentOption(menuComponentOptionModel);
 			}, this);
 
 		},
 
-		renderMenuComponentOption: function (menuComponentOptionModel) {
+		_renderMenuComponentOption: function (menuComponentOptionModel) {
 			var menuComponentOptionView = new MenuComponentOptionView({
 				model: menuComponentOptionModel,
-				orderedArticleModel: this.model
+				orderedArticleModel: this.model,
+				selectionView: this.options.selectionView
 			});
 
-			this.$el.append(menuComponentOptionView.render().el);
+			this.$el.append(menuComponentOptionView.el);
 		},
 
-		listenForArticleSelection: function () {
+		_listenForArticleSelection: function () {
 
-			var menuComponentOptionsCollection = this.collection;
+			var menuComponentOptionsCollection = this.collection,
+				self = this;
 
 			// unmark other articles if one gets isSelected
 			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel) {
@@ -50,7 +55,7 @@ define([
 
 				_.each(menuComponentOptionArticlesCollection.models, function (menuComponentOptionArticleModel) {
 
-					menuComponentOptionArticleModel.on('change:isSelected', function () {
+					self.listenTo(menuComponentOptionArticleModel, 'change:isSelected', function () {
 
 						if (menuComponentOptionArticleModel.get('isSelected')) {
 
@@ -68,12 +73,16 @@ define([
 
 						}
 
-					});
+					}); // end listenTo
 
 				});
 
 			});
 
+		},
+
+		_listenForDestory: function () {
+			this.options.selectionView.once('destroy', this.stopListening, this);
 		}
 
 	});

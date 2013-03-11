@@ -32,7 +32,8 @@ define([
 
 		renderIngredientCategory: function (ingredientCategoryModel) {
 			var ingredientCategoryView = new IngredientCategoryView({
-				model: ingredientCategoryModel
+				model: ingredientCategoryModel,
+				selectionView: this.options.selectionView
 			});
 
 			if (this.isFirstColumn) {

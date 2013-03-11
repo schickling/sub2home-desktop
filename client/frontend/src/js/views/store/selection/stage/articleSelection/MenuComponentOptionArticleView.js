@@ -14,20 +14,24 @@ define([
 		template: _.template(MenuComponentOptionArticleTemplate),
 
 		events: {
-			'click': 'select'
+			'click': '_select'
 		},
 
 		initialize: function () {
 			this.orderedArticleModel = this.options.orderedArticleModel;
 
-			// listen if model gets isSelected
-			this.model.on('change:isSelected', this.update, this);
+			this._render();
 
-			this.update();
+			// listen if model gets isSelected
+			this.listenTo(this.model, 'change:isSelected', this._update);
+
+			this._update();
+
+			this._listenForDestory();
 
 		},
 
-		render: function () {
+		_render: function () {
 
 			var json = {
 				title: this.model.get('title'),
@@ -41,11 +45,11 @@ define([
 			return this;
 		},
 
-		update: function() {
+		_update: function() {
 			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 
-		select: function () {
+		_select: function () {
 			var self = this,
 				completeArticleModel = new ArticleModel({
 					id: this.model.get('id')
@@ -60,6 +64,10 @@ define([
 					self.model.set('isSelected', true);
 				}
 			});
+		},
+
+		_listenForDestory: function () {
+			this.options.selectionView.once('destroy', this.stopListening, this);
 		}
 
 	});
