@@ -3097,15 +3097,15 @@ img.cookie {
   position: absolute;
   z-index: 100;
 }
-.timeline .itemsTimeline,
-.categoriesNavigation .itemsTimeline {
+#timeline .itemsTimeline,
+#categoriesNavigation .itemsTimeline {
   display: inline-block;
   min-width: 30px;
   margin-right: 65px;
   vertical-align: top;
 }
-.timeline .itemsTimeline .itemTimeline,
-.categoriesNavigation .itemsTimeline .itemTimeline {
+#timeline .itemsTimeline .itemTimeline,
+#categoriesNavigation .itemsTimeline .itemTimeline {
   position: relative;
   margin: 0;
   display: inline-block;
@@ -3113,41 +3113,41 @@ img.cookie {
   width: 70px;
   height: 70px;
 }
-.timeline .itemsTimeline .itemTimeline:first-child,
-.categoriesNavigation .itemsTimeline .itemTimeline:first-child {
+#timeline .itemsTimeline .itemTimeline:first-child,
+#categoriesNavigation .itemsTimeline .itemTimeline:first-child {
   margin-left: 0;
 }
-.timeline .itemsTimeline .itemTimeline .icn:before,
-.categoriesNavigation .itemsTimeline .itemTimeline .icn:before {
+#timeline .itemsTimeline .itemTimeline .icn:before,
+#categoriesNavigation .itemsTimeline .itemTimeline .icn:before {
   top: 1px;
 }
-.timeline .itemsTimeline .itemTimeline .iSnacks,
-.categoriesNavigation .itemsTimeline .itemTimeline .iSnacks {
+#timeline .itemsTimeline .itemTimeline .iSnacks,
+#categoriesNavigation .itemsTimeline .itemTimeline .iSnacks {
   position: relative;
   top: 4px;
 }
-.timeline .itemsTimeline .itemTimeline img,
-.categoriesNavigation .itemsTimeline .itemTimeline img {
+#timeline .itemsTimeline .itemTimeline img,
+#categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
   top: 0;
   left: 0px;
   width: 70px;
   height: auto;
 }
-.timeline .itemsTimeline:first-child .timelineItem:before,
-.categoriesNavigation .itemsTimeline:first-child .timelineItem:before {
+#timeline .itemsTimeline:first-child .timelineItem:before,
+#categoriesNavigation .itemsTimeline:first-child .timelineItem:before {
   content: " ";
 }
-.timeline .stageTimeline,
-.categoriesNavigation .stageTimeline {
+#timeline #stageTimeline,
+#categoriesNavigation #stageTimeline {
   text-align: center;
   vertical-align: top;
   position: relative;
   top: 11px;
   white-space: nowrap;
 }
-.timeline .stageTimeline .phrase,
-.categoriesNavigation .stageTimeline .phrase {
+#timeline #stageTimeline .phrase,
+#categoriesNavigation #stageTimeline .phrase {
   position: relative;
   margin: 13px 0 0 0;
   width: 100px;
@@ -3159,12 +3159,12 @@ img.cookie {
   font-size: 15px;
   white-space: pre-wrap;
 }
-.timeline .stageTimeline .itemTimeline,
-.categoriesNavigation .stageTimeline .itemTimeline {
+#timeline #stageTimeline .itemTimeline,
+#categoriesNavigation #stageTimeline .itemTimeline {
   color: #d1ba82;
 }
-.timeline .stageTimeline .itemTimeline .icn,
-.categoriesNavigation .stageTimeline .itemTimeline .icn {
+#timeline #stageTimeline .itemTimeline .icn,
+#categoriesNavigation #stageTimeline .itemTimeline .icn {
   margin-left: -2px;
   width: 70px;
   height: 43px;
@@ -3172,16 +3172,16 @@ img.cookie {
   color: #c3a55d;
   color: inherit;
 }
-.timeline .stageTimeline .itemTimeline .icn:before,
-.categoriesNavigation .stageTimeline .itemTimeline .icn:before {
+#timeline #stageTimeline .itemTimeline .icn:before,
+#categoriesNavigation #stageTimeline .itemTimeline .icn:before {
   font-size: 68px;
 }
-.timeline .stageTimeline .itemTimeline img,
-.categoriesNavigation .stageTimeline .itemTimeline img {
+#timeline #stageTimeline .itemTimeline img,
+#categoriesNavigation #stageTimeline .itemTimeline img {
   display: none;
 }
-.timeline .overlayTimeline,
-.categoriesNavigation .overlayTimeline {
+#timeline #overlayTimeline,
+#categoriesNavigation #overlayTimeline {
   display: none;
   width: 90px;
   height: 90px;
@@ -3189,8 +3189,8 @@ img.cookie {
   top: 0px;
   left: -10px;
 }
-.timeline .overlayFrameTimeline,
-.categoriesNavigation .overlayFrameTimeline {
+#timeline #overlayFrameTimeline,
+#categoriesNavigation #overlayFrameTimeline {
   display: block;
   overflow: hidden;
   width: 70px;
@@ -3209,8 +3209,8 @@ img.cookie {
   text-align: center;
   vertical-align: center;
 }
-.timeline .overlayFrameTimeline:before,
-.categoriesNavigation .overlayFrameTimeline:before {
+#timeline #overlayFrameTimeline:before,
+#categoriesNavigation #overlayFrameTimeline:before {
   content: " ";
   position: absolute;
   width: 100%;
@@ -3219,8 +3219,8 @@ img.cookie {
   top: 0;
   background: rgba(209, 186, 130, 0.3);
 }
-.timeline .overlayFrameTimeline .overlayFrameWrapperTimeline,
-.categoriesNavigation .overlayFrameTimeline .overlayFrameWrapperTimeline {
+#timeline #overlayFrameTimeline #overlayFrameWrapperTimeline,
+#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline {
   display: block;
   position: absolute;
   left: 0;
@@ -3228,12 +3228,12 @@ img.cookie {
   white-space: nowrap;
   margin: 0;
 }
-.timeline .overlayFrameTimeline .overlayFrameWrapperTimeline img,
-.categoriesNavigation .overlayFrameTimeline .overlayFrameWrapperTimeline img {
+#timeline #overlayFrameTimeline #overlayFrameWrapperTimeline img,
+#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline img {
   left: -2px;
 }
-.timeline .overlayFrameTimeline .itemsTimeline,
-.categoriesNavigation .overlayFrameTimeline .itemsTimeline {
+#timeline #overlayFrameTimeline .itemsTimeline,
+#categoriesNavigation #overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
 }
 #loader {
@@ -3682,7 +3682,7 @@ div#roleSwitch #handle:before {
 #content {
   padding: 0;
 }
-.locationSelection {
+#locationSelection {
   position: absolute;
   top: 50%;
   text-align: center;
@@ -3690,7 +3690,7 @@ div#roleSwitch #handle:before {
   height: 83px;
   margin: 0 20% 0 ;
 }
-.locationSelection label {
+#locationSelection label {
   font-size: 20px;
   line-height: 16px;
   font-family: "VAGRounded LT Thin";
@@ -3710,44 +3710,44 @@ input[type="text"]#locationSelectionInput {
   box-sizing: border-box;
   width: 100%;
 }
-.deliveryAreaSelection {
+#deliveryAreaSelection {
   margin-top: 20px;
   font-size: 40px;
   font-family: "VAGRounded LT Thin";
   color: #d1ba82;
   line-height: 1.2;
 }
-.deliveryAreaSelection span {
+#deliveryAreaSelection span {
   cursor: pointer;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.deliveryAreaSelection span.selected {
+#deliveryAreaSelection span.selected {
   color: #46a546;
 }
-.deliveryAreaSelection span:hover {
+#deliveryAreaSelection span:hover {
   color: #c3a55d;
   color: #9cc83e;
 }
-.deliveryAreaSelection span:before {
+#deliveryAreaSelection span:before {
   content: ", ";
   cursor: default;
   color: rgba(209, 186, 130, 0.5);
 }
-.deliveryAreaSelection span:first-child:before {
+#deliveryAreaSelection span:first-child:before {
   content: " ";
 }
-.deliveryAreaSelection span:last-child:before {
+#deliveryAreaSelection span:last-child:before {
   content: " oder ";
 }
-.deliveryAreaSelection span:last-child:after {
+#deliveryAreaSelection span:last-child:after {
   content: " ?";
   cursor: default;
   color: rgba(209, 186, 130, 0.5);
 }
-.map {
+#map {
   height: 100%;
   z-index: 6;
 }
@@ -3846,7 +3846,7 @@ input[type="text"]#locationSelectionInput {
 .storePreview.unavailable {
   cursor: default;
 }
-.categoriesNavigation {
+#categoriesNavigation {
   width: 50%;
   text-align: center;
   height: inherit;
@@ -3855,36 +3855,22 @@ input[type="text"]#locationSelectionInput {
   top: 50%;
   margin-top: -42px;
 }
-.categoriesNavigation .categoriesNavigationContainer {
+#categoriesNavigation #categoriesNavigationContainer {
   display: inline-block;
   height: inherit;
   position: relative;
 }
-.categoriesNavigation .categoriesNavigationContainer .overlayTimeline {
+#categoriesNavigation #categoriesNavigationContainer #overlayTimeline {
   display: block;
 }
-.categoriesNavigation .categoriesNavigationContainer .overlayTimeline .overlayFrameTimeline .overlayFrameWrapperTimeline img {
+#categoriesNavigation #categoriesNavigationContainer #overlayTimeline #overlayFrameTimeline #overlayFrameWrapperTimeline img {
   left: 0;
 }
-.categoriesNavigation .categoriesNavigationContainer .phrase {
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  display: inline-block;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  left: 0;
-  bottom: -20px;
-  -webkit-transition: opacity 0.1s linear;
-  -moz-transition: opacity 0.1s linear;
-  -o-transition: opacity 0.1s linear;
-  transition: opacity 0.1s linear;
-}
-.categoriesNavigation .itemTimeline:hover .phrase {
+#categoriesNavigation .itemTimeline:hover .phrase {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.storeDeliveryDetails {
+#storeDeliveryDetails {
   position: absolute;
   top: 96px;
   right: 20px;
@@ -3897,17 +3883,17 @@ input[type="text"]#locationSelectionInput {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.storeDeliveryDetails span {
+#storeDeliveryDetails span {
   color: #d1ba82;
 }
-.storeDeliveryDetails .bEdit {
+#storeDeliveryDetails .bEdit {
   position: relative;
   display: none;
   top: -2px;
   padding-left: 5px;
   height: 30px;
 }
-.storeDeliveryDetails .bEdit:before {
+#storeDeliveryDetails .bEdit:before {
   position: relative;
   top: 2px;
 }
@@ -5311,7 +5297,7 @@ input[type="text"]#locationSelectionInput {
   height: inherit;
   overflow: hidden;
 }
-.note.orders .toggleRevenues {
+.note.orders #toggleRevenues {
   margin: 30px;
   position: absolute;
   color: rgba(209, 186, 130, 0.5);
@@ -5321,7 +5307,7 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders .toggleRevenues .iTurnover {
+.note.orders #toggleRevenues .iTurnover {
   height: 37px;
   padding-left: 0px;
   color: rgba(209, 186, 130, 0.7);
@@ -5330,11 +5316,11 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders .toggleRevenues .iTurnover:after {
+.note.orders #toggleRevenues .iTurnover:after {
   font-size: 50px;
   position: relative;
 }
-.note.orders .toggleRevenues h3 {
+.note.orders #toggleRevenues h3 {
   color: inherit;
   margin: 0 0 0 5px;
   display: inline-block;
@@ -5342,16 +5328,16 @@ input[type="text"]#locationSelectionInput {
   top: 6px;
   vertical-align: top;
 }
-.note.orders .toggleRevenues:hover {
+.note.orders #toggleRevenues:hover {
   color: #d1ba82;
 }
-.note.orders .toggleRevenues:hover .iTurnover {
+.note.orders #toggleRevenues:hover .iTurnover {
   color: #d1ba82;
 }
-.note.orders .toggleRevenues.toggled .iTurnover {
+.note.orders #toggleRevenues.toggled .iTurnover {
   color: #d1ba82;
 }
-.note.orders .toggleRevenues.toggled .iTurnover:before {
+.note.orders #toggleRevenues.toggled .iTurnover:before {
   content: "\e05f";
   position: absolute;
   top: 5px;
@@ -5366,20 +5352,20 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders .toggleRevenues.toggled .iTurnover:hover:before {
+.note.orders #toggleRevenues.toggled .iTurnover:hover:before {
   color: #9d261d;
 }
-.note.orders .toggleRevenues.toggled h3 {
+.note.orders #toggleRevenues.toggled h3 {
   color: #d1ba82;
 }
-.note.orders .revenues {
+.note.orders #revenues {
   position: relative;
   margin: 80px 0 50px 0;
   height: 270px;
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.note.orders .revenues:before {
+.note.orders #revenues:before {
   content: " ";
   height: 1px;
   background: #d1ba82;
@@ -5388,20 +5374,20 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   bottom: 53px;
 }
-.note.orders .revenues .turnoverContainer {
+.note.orders #revenues #turnoverContainer {
   position: relative;
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
   height: 270px;
 }
-.note.orders .revenues .turnoverYear {
+.note.orders #revenues .turnoverYear {
   display: inline-block;
   padding: 90px 0 0 0;
   position: relative;
   margin-left: 30px;
 }
-.note.orders .revenues .turnoverYear:before {
+.note.orders #revenues .turnoverYear:before {
   content: " ";
   width: 1px;
   height: 165px;
@@ -5411,7 +5397,7 @@ input[type="text"]#locationSelectionInput {
   left: 35px;
   bottom: 49px;
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume {
+.note.orders #revenues .turnoverYear .yearlyTurnoverResume {
   position: absolute;
   top: 10px;
   left: 70px;
@@ -5419,17 +5405,17 @@ input[type="text"]#locationSelectionInput {
   font-size: 50px;
   color: rgba(209, 186, 130, 0.5);
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume .bDocument {
+.note.orders #revenues .turnoverYear .yearlyTurnoverResume .bDocument {
   margin: 0 5px;
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
+.note.orders #revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
   font-size: 50px;
   top: 1px;
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
+.note.orders #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
   content: "€";
 }
-.note.orders .revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverLabel {
+.note.orders #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverLabel {
   font-size: 18px;
   color: #d1ba82;
   text-transform: uppercase;
@@ -5438,7 +5424,7 @@ input[type="text"]#locationSelectionInput {
   white-space: pre-wrap;
   display: inline-block;
 }
-.note.orders .revenues .turnover {
+.note.orders #revenues .turnover {
   display: inline-block;
   text-align: center;
   font-family: "VAGRounded LT Thin";
@@ -5446,7 +5432,7 @@ input[type="text"]#locationSelectionInput {
   line-height: 1;
   margin-left: 70px;
 }
-.note.orders .revenues .turnover:before {
+.note.orders #revenues .turnover:before {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -5463,35 +5449,35 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: 0 1px 0 0 #ffffff, inset 0 1px 2px 0 #ad8d40;
   box-shadow: 0 1px 0 0 #ffffff, inset 0 1px 2px 0 #ad8d40;
 }
-.note.orders .revenues .turnover .turnoverValue {
+.note.orders #revenues .turnover .turnoverValue {
   font-size: 50px;
   color: #d1ba82;
   margin-bottom: 50px;
 }
-.note.orders .revenues .turnover .turnoverValue:after {
+.note.orders #revenues .turnover .turnoverValue:after {
   content: "€";
 }
-.note.orders .revenues .turnover .turnoverMonth {
+.note.orders #revenues .turnover .turnoverMonth {
   display: inline-block;
   color: #d1ba82;
   font-size: 24px;
   text-transform: uppercase;
   position: relative;
 }
-.note.orders .revenues .turnover .turnoverMonth .bDocument {
+.note.orders #revenues .turnover .turnoverMonth .bDocument {
   position: absolute;
   top: 0;
   right: -34px;
   width: 30px;
   height: 30px;
 }
-.note.orders .revenues .turnoverYear:first-child:before {
+.note.orders #revenues .turnoverYear:first-child:before {
   display: none;
 }
-.note.orders .revenues .turnoverYear:first-child .turnover:first-child {
+.note.orders #revenues .turnoverYear:first-child .turnover:first-child {
   margin: 0 0 0 100px;
 }
-.note.orders .revenues .turnoverYear:first-child .turnover:first-child:before {
+.note.orders #revenues .turnoverYear:first-child .turnover:first-child:before {
   width: 17px;
   height: 17px;
   background-color: #9cc83e;
@@ -5501,21 +5487,21 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.note.orders .revenues .turnoverYear:first-child .turnover:first-child .turnoverValue {
+.note.orders #revenues .turnoverYear:first-child .turnover:first-child .turnoverValue {
   font-size: 110px;
   color: #9cc83e;
   margin-bottom: 40px;
 }
-.note.orders .revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
+.note.orders #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
   display: none;
 }
-.orderControls {
+#orderControls {
   position: relative;
   text-align: right;
   height: 40px;
   margin: 92px 30px 0;
 }
-.orderControls .searchbar {
+#orderControls #searchbar {
   position: absolute;
   height: 30px;
   text-align: left;
@@ -5531,7 +5517,7 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 1px 0 #d1ba82, 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-.orderControls .searchbar:before {
+#orderControls #searchbar:before {
   content: "\e065";
   font-family: "Homicons";
   position: absolute;
@@ -5540,7 +5526,7 @@ input[type="text"]#locationSelectionInput {
   font-size: 24px;
   color: #d1ba82;
 }
-.orderControls .searchbar input {
+#orderControls #searchbar input {
   border: none;
   color: #57a827;
   font-size: 24px;
@@ -5550,21 +5536,21 @@ input[type="text"]#locationSelectionInput {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.orderControls .bRefresh {
+#orderControls .bRefresh {
   margin: 7px 10px 0 0;
   height: 27px;
 }
-.orderControls .bRefresh:before {
+#orderControls .bRefresh:before {
   top: -2px;
 }
 .content.orders {
   padding: 30px 5%;
 }
-.content.orders .orderListing {
+.content.orders #orderListing {
   display: none;
   cursor: default;
 }
-.content.orders .orderListing .order {
+.content.orders #orderListing .order {
   border-bottom: 1px solid #e4e4e4;
   width: 100%;
   font-family: "VAGRounded LT Thin";
@@ -5575,30 +5561,30 @@ input[type="text"]#locationSelectionInput {
   backface-visibility: hidden;
   *zoom: 1;
 }
-.content.orders .orderListing .order:before,
-.content.orders .orderListing .order:after {
+.content.orders #orderListing .order:before,
+.content.orders #orderListing .order:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.content.orders .orderListing .order:after {
+.content.orders #orderListing .order:after {
   clear: both;
 }
-.content.orders .orderListing .order:last-child {
+.content.orders #orderListing .order:last-child {
   border-bottom: none;
 }
-.content.orders .orderListing .order .orderHeader {
+.content.orders #orderListing .order .orderHeader {
   cursor: pointer;
   height: 38px;
   padding-top: 22px;
 }
-.content.orders .orderListing .order .orderHeader > div {
+.content.orders #orderListing .order .orderHeader > div {
   float: left;
 }
-.content.orders .orderListing .order .orderHeader > div:before {
+.content.orders #orderListing .order .orderHeader > div:before {
   color: #cecece;
 }
-.content.orders .orderListing .order .orderHeader > div.orderStatus {
+.content.orders #orderListing .order .orderHeader > div.orderStatus {
   margin: 0 20px;
   color: #f4f4f4;
   -webkit-transition: color 0.1s linear;
@@ -5606,17 +5592,17 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.content.orders .orderListing .order .orderHeader > div.orderStatus:before {
+.content.orders #orderListing .order .orderHeader > div.orderStatus:before {
   color: inherit;
 }
-.content.orders .orderListing .order .orderHeader > div.orderStatus:hover,
-.content.orders .orderListing .order .orderHeader > div.orderStatus.delivered {
+.content.orders #orderListing .order .orderHeader > div.orderStatus:hover,
+.content.orders #orderListing .order .orderHeader > div.orderStatus.delivered {
   color: #9cc83e;
 }
-.content.orders .orderListing .order .orderHeader > div.orderNumber {
+.content.orders #orderListing .order .orderHeader > div.orderNumber {
   width: 65px;
 }
-.content.orders .orderListing .order .orderHeader > div.alertOrder {
+.content.orders #orderListing .order .orderHeader > div.alertOrder {
   margin: 0 20px;
   color: #f4f4f4;
   -webkit-transition: color 0.1s linear;
@@ -5624,30 +5610,30 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.content.orders .orderListing .order .orderHeader > div.alertOrder:before {
+.content.orders #orderListing .order .orderHeader > div.alertOrder:before {
   color: inherit;
 }
-.content.orders .orderListing .order .orderHeader > div.alertOrder:hover,
-.content.orders .orderListing .order .orderHeader > div.alertOrder.claimed {
+.content.orders #orderListing .order .orderHeader > div.alertOrder:hover,
+.content.orders #orderListing .order .orderHeader > div.alertOrder.claimed {
   color: #dc952b;
 }
-.content.orders .orderListing .order .orderHeader > div.orderTime {
+.content.orders #orderListing .order .orderHeader > div.orderTime {
   width: 156px;
   margin-right: 5px;
 }
-.content.orders .orderListing .order .orderHeader > div.orderTime:before {
+.content.orders #orderListing .order .orderHeader > div.orderTime:before {
   content: "am ";
 }
-.content.orders .orderListing .order .orderHeader > div.orderDestination:before {
+.content.orders #orderListing .order .orderHeader > div.orderDestination:before {
   content: "nach ";
 }
-.content.orders .orderListing .order .orderHeader > div.orderTimeLimit,
-.content.orders .orderListing .order .orderHeader > div.bPrint,
-.content.orders .orderListing .order .orderHeader > div.orderPaymentMethod,
-.content.orders .orderListing .order .orderHeader > div.orderValue {
+.content.orders #orderListing .order .orderHeader > div.orderTimeLimit,
+.content.orders #orderListing .order .orderHeader > div.bPrint,
+.content.orders #orderListing .order .orderHeader > div.orderPaymentMethod,
+.content.orders #orderListing .order .orderHeader > div.orderValue {
   float: right;
 }
-.content.orders .orderListing .order .orderHeader > div.bPrint {
+.content.orders #orderListing .order .orderHeader > div.bPrint {
   margin-right: 20px;
   color: #e4e4e4;
   -webkit-transition: color 0.1s linear;
@@ -5655,26 +5641,26 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.content.orders .orderListing .order .orderHeader > div.bPrint:before {
+.content.orders #orderListing .order .orderHeader > div.bPrint:before {
   color: inherit;
 }
-.content.orders .orderListing .order .orderHeader > div.bPrint:hover {
+.content.orders #orderListing .order .orderHeader > div.bPrint:hover {
   color: #555555;
 }
-.content.orders .orderListing .order .orderHeader > div.orderValue {
+.content.orders #orderListing .order .orderHeader > div.orderValue {
   margin: 0 20px;
   width: 85px;
   text-align: right;
 }
-.content.orders .orderListing .order .orderHeader > div.orderPaymentMethod:before {
+.content.orders #orderListing .order .orderHeader > div.orderPaymentMethod:before {
   color: inherit;
   top: -7px;
 }
-.content.orders .orderListing .order .orderHeader > div.orderTimeLimit {
+.content.orders #orderListing .order .orderHeader > div.orderTimeLimit {
   margin-right: 20px;
   color: #dc952b;
 }
-.content.orders .orderListing .order .orderContent {
+.content.orders #orderListing .order .orderContent {
   width: 100%;
   margin-top: 10px;
   padding: 0 0 10px;
@@ -5684,14 +5670,14 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   display: none;
 }
-.content.orders .orderListing .order .orderContent .orderArticles {
+.content.orders #orderListing .order .orderContent .orderArticles {
   width: 70%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 40px;
 }
-.content.orders .orderListing .order .orderContent .printOrder {
+.content.orders #orderListing .order .orderContent .printOrder {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -5713,7 +5699,7 @@ input[type="text"]#locationSelectionInput {
   -o-transition: background .1s linear, border-color .1s linear;
   transition: background .1s linear, border-color .1s linear;
 }
-.content.orders .orderListing .order .orderContent .printOrder:after {
+.content.orders #orderListing .order .orderContent .printOrder:after {
   content: "\e06e";
   font-family: "Homicons";
   font-size: 150px;
@@ -5729,15 +5715,15 @@ input[type="text"]#locationSelectionInput {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.content.orders .orderListing .order .orderContent .printOrder:hover {
+.content.orders #orderListing .order .orderContent .printOrder:hover {
   background: #efefe9;
   border-color: #d0d0d0;
 }
-.content.orders .orderListing .order .orderContent .printOrder:hover:after {
+.content.orders #orderListing .order .orderContent .printOrder:hover:after {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.content.orders .orderListing .order .orderContent .orderArticle {
+.content.orders #orderListing .order .orderContent .orderArticle {
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -5746,55 +5732,55 @@ input[type="text"]#locationSelectionInput {
   padding: 20px 0;
   margin-bottom: 10px;
 }
-.content.orders .orderListing .order .orderContent .articleItem {
+.content.orders #orderListing .order .orderContent .articleItem {
   padding: 0 20px;
 }
-.content.orders .orderListing .order .orderContent .articleItem.sub {
+.content.orders #orderListing .order .orderContent .articleItem.sub {
   border-bottom: 1px solid #e4e4e4;
   padding-bottom: 10px;
 }
-.content.orders .orderListing .order .orderContent .articleItem.sub:last-child {
+.content.orders #orderListing .order .orderContent .articleItem.sub:last-child {
   border: none;
   padding-bottom: 0;
 }
-.content.orders .orderListing .order .orderContent .articleItem img {
+.content.orders #orderListing .order .orderContent .articleItem img {
   height: 43px;
   vertical-align: top;
   display: inline-block;
 }
-.content.orders .orderListing .order .orderContent .articleItem img.beverage {
+.content.orders #orderListing .order .orderContent .articleItem img.beverage {
   margin: 0 0px 0 -4px;
 }
-.content.orders .orderListing .order .orderContent .articleItem h3 {
+.content.orders #orderListing .order .orderContent .articleItem h3 {
   padding: 0;
   margin: 9px 0 0 5px;
   display: inline-block;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients {
   margin: 10px 0 0 0;
   *zoom: 1;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients:before,
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients:after {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients:before,
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients:after {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients:after {
   clear: both;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div {
   float: left;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div {
   font-size: 16px;
   padding: 5px;
   margin: 0 20px 0 0;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div:first-child {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div:first-child {
   border-bottom: 1px solid #e0e0e0;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: bold;
@@ -5802,79 +5788,79 @@ input[type="text"]#locationSelectionInput {
   padding: 0 3px;
   color: #ffffff;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.tomato {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.tomato {
   background: #971e1e;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.paprika {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.paprika {
   background: #3e5327;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.olive {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.olive {
   background: #bb8001;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.salad {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.vegetables span.salad {
   background: #a9c125;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span {
   margin-right: 5px;
   position: relative;
   top: 2px;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:before,
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:after {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:before,
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleCheese:after {
   content: "\e015";
   font-family: "Homicons";
   color: #cd9100;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:before,
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:after {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:before,
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div.extras span.doubleVeg:after {
   content: "\e016";
   font-family: "Homicons";
   color: #c64b00;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients > div > div:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients > div > div:before {
   font-family: "Homicons";
   color: #cecece;
   position: relative;
   top: 2px;
   padding: 0 10px 0 5px;
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .bread:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .bread:before {
   content: "\e014";
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .cheese:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .cheese:before {
   content: "\e015";
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .vegetables:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .vegetables:before {
   content: "\e016";
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .sauce:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .sauce:before {
   content: "\e017";
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .extras:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .extras:before {
   content: "\e05c";
 }
-.content.orders .orderListing .order .orderContent .articleItem .articleIngredients .toasted:before {
+.content.orders #orderListing .order .orderContent .articleItem .articleIngredients .toasted:before {
   content: "\e05c";
 }
-.content.orders .orderListing .order .orderContent .articleItem.additional {
+.content.orders #orderListing .order .orderContent .articleItem.additional {
   display: inline-block;
   padding: 0 0 0 20px;
   margin: 20px 0 0 0;
 }
-.content.orders .orderListing .order .orderContent .articleItem.additional:before {
+.content.orders #orderListing .order .orderContent .articleItem.additional:before {
   content: "+";
   margin: 0 10px 0 0;
   font-size: 35px;
   color: #949494;
 }
-.content.orders .orderListing .ordersToday {
+.content.orders #orderListing #ordersToday {
   border-bottom: 1px solid #e4e4e4;
   position: relative;
   width: 100%;
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
-.content.orders .orderListing .ordersToday:after {
+.content.orders #orderListing #ordersToday:after {
   content: " ";
   position: absolute;
   bottom: 1px;
@@ -5882,16 +5868,16 @@ input[type="text"]#locationSelectionInput {
   right: 0;
   border-bottom: 1px solid #e4e4e4;
 }
-.content.orders .orderListing .ordersToday .order .orderHeader .orderTime {
+.content.orders #orderListing #ordersToday .order .orderHeader .orderTime {
   width: 100px;
 }
-.content.orders .orderListing .ordersToday .order .orderHeader .orderTime:before {
+.content.orders #orderListing #ordersToday .order .orderHeader .orderTime:before {
   content: "um ";
 }
-.content.orders .orderListing .ordersToday .order .orderHeader .orderTimeLimit:before {
+.content.orders #orderListing #ordersToday .order .orderHeader .orderTimeLimit:before {
   content: "bis ";
 }
-.content.orders .orderListing .olderOrders {
+.content.orders #orderListing #olderOrders {
   opacity: 0.3;
   filter: alpha(opacity=30);
   -webkit-transition: opacity 0.1s linear;
@@ -5899,7 +5885,7 @@ input[type="text"]#locationSelectionInput {
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
-.content.orders .orderListing .olderOrders:hover {
+.content.orders #orderListing #olderOrders:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -5938,23 +5924,23 @@ header h2 {
   margin-bottom: 20px;
   font-size: 40px;
 }
-.storeBasics {
+#storeBasics {
   padding: 20px 10px 20px;
   overflow: hidden;
   position: relative;
 }
-.storeBasics input {
+#storeBasics input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 27px;
   width: 100%;
 }
-.storeBasics > div {
+#storeBasics > div {
   float: left;
   text-align: left;
 }
-.storeBasics > div#storeMap {
+#storeBasics > div#storeMap {
   position: relative;
   width: 50%;
   height: 450px;
@@ -5967,165 +5953,150 @@ header h2 {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.storeBasics > div.storeInfo {
+#storeBasics > div#storeInfo {
   width: 45%;
   padding: 30px 0 0 0;
   position: relative;
 }
-.storeBasics > div.storeInfo h1 {
+#storeBasics > div#storeInfo h1 {
   position: relative;
   padding-left: 81px;
 }
-.storeBasics > div.storeInfo h1 span {
+#storeBasics > div#storeInfo h1 span {
   position: relative;
   top: -1px;
   font-size: 30px;
   color: #d1ba82;
 }
-.storeBasics > div.storeInfo .sBOpen {
-  position: absolute;
-  top: -7px;
-  left: 0;
-}
-.storeBasics > div.storeInfo textarea {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  height: 55px;
-  margin: 30px 0 0 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.storeBasics > div.storeInfo .storeClient {
+#storeBasics > div#storeInfo #storeClient {
   position: relative;
   overflow: hidden;
   margin-top: 30px;
 }
-.storeBasics > div.storeInfo .storeClient input {
+#storeBasics > div#storeInfo #storeClient input {
   display: inline-block;
 }
-.storeBasics > div.storeInfo .storeClient input#storeClientFirstnameInput {
+#storeBasics > div#storeInfo #storeClient input#storeClientFirstnameInput {
   padding-left: 117px;
   width: 50%;
 }
-.storeBasics > div.storeInfo .storeClient input#storeClientLastnameInput {
+#storeBasics > div#storeInfo #storeClient input#storeClientLastnameInput {
   position: absolute;
   left: 50%;
   margin-left: 20px;
 }
-.storeBasics > div.storeInfo .storeAddress {
+#storeBasics > div#storeInfo #storeAddress {
   padding: 10px 0 0 0;
   position: relative;
 }
-.storeBasics > div.storeInfo .storeAddress > div {
+#storeBasics > div#storeInfo #storeAddress > div {
   position: relative;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact {
   margin-top: 10px;
   overflow: hidden;
   height: 27px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div {
   position: absolute;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storePostal,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storePostal,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storePostal,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storePostal {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storePostal,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storePostal,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storePostal,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storePostal {
   width: 93px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storePostal input,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storePostal input,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storePostal input,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storePostal input {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storePostal input,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storePostal input,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storePostal input,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storePostal input {
   padding-left: 38px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeCity,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeCity,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeCity,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeCity {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeCity,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeCity,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeCity,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeCity {
   left: 113px;
   right: 0;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeCity input,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeCity input,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeCity input,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeCity input {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeCity input,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeCity input,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeCity input,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeCity input {
   padding-left: 52px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetBasic,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetBasic,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetBasic,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetBasic {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetBasic,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetBasic,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetBasic,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetBasic {
   width: 60%;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetBasic input,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetBasic input,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetBasic input,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetBasic input {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetBasic input,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetBasic input,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetBasic input,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetBasic input {
   padding-left: 72px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional {
   width: 40%;
   padding-left: 20px;
   right: 0;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional label,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional label,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional label,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional label {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional label,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional label,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional label,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional label {
   left: 50px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet > div.storeStreetAdditional input,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity > div.storeStreetAdditional input,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact > div.storeStreetAdditional input,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact > div.storeStreetAdditional input {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional input,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional input,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional input,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional input {
   margin-left: 20px;
   padding-left: 57px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeStreet.storeStreet,
-.storeBasics > div.storeInfo .storeAddress > div.storePostalCity.storeStreet,
-.storeBasics > div.storeInfo .storeAddress > div.storeContact.storeStreet,
-.storeBasics > div.storeInfo .storeAddress > div.storeOrderingContact.storeStreet {
+#storeBasics > div#storeInfo #storeAddress > div#storeStreet#storeStreet,
+#storeBasics > div#storeInfo #storeAddress > div#storePostalCity#storeStreet,
+#storeBasics > div#storeInfo #storeAddress > div#storeContact#storeStreet,
+#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact#storeStreet {
   margin-top: 20px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeContact {
+#storeBasics > div#storeInfo #storeAddress > div#storeContact {
   margin-top: 10px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeContact .storePhone {
+#storeBasics > div#storeInfo #storeAddress > div#storeContact #storePhone {
   width: 210px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeContact .storePhone input {
+#storeBasics > div#storeInfo #storeAddress > div#storeContact #storePhone input {
   padding-left: 38px;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeContact .storeEmail {
+#storeBasics > div#storeInfo #storeAddress > div#storeContact #storeEmail {
   left: 230px;
   right: 0;
 }
-.storeBasics > div.storeInfo .storeAddress > div.storeContact .storeEmail input {
+#storeBasics > div#storeInfo #storeAddress > div#storeContact #storeEmail input {
   padding-left: 50px;
 }
-.storeOrderingContact {
+#storeOrderingContact {
   margin: 30px 0 90px;
   height: 34px;
   position: relative;
 }
-.storeOrderingContact label {
+#storeOrderingContact label {
   color: #c3a55d;
   bottom: 22px;
   left: 30px;
 }
-.storeOrderingContact input {
+#storeOrderingContact input {
   font-size: 24px;
   padding-left: 114px;
   height: 30px;
@@ -6137,13 +6108,13 @@ header h2 {
   right: 70px;
   width: auto;
 }
-.storeOrderingContact .bMail {
+#storeOrderingContact .bMail {
   position: absolute;
   right: 20px;
   top: 28px;
   color: #d1ba82;
 }
-.storeOrderingContact .bMail:hover {
+#storeOrderingContact .bMail:hover {
   color: #9cc83e;
 }
 div#payment {
@@ -6238,38 +6209,35 @@ div#payment > div.disabled .btn:active,
 div#payment > div.disabled .btn.active {
   background-color: rgba(195, 165, 93, 0.3) \9;
 }
-div#payment .bankaccount {
-  margin-left: 30px;
-}
-.storeConfig {
+#storeConfig {
   padding: 40px 10px 20px;
   position: relative;
   *zoom: 1;
 }
-.storeConfig:before,
-.storeConfig:after {
+#storeConfig:before,
+#storeConfig:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.storeConfig:after {
+#storeConfig:after {
   clear: both;
 }
-.storeConfig input {
+#storeConfig input {
   position: relative;
   top: -1px;
   margin: 0 3px;
 }
-.storeConfig .bAdd {
+#storeConfig .bAdd {
   position: absolute;
   margin: 0 0 0 14px;
   bottom: 0;
   display: block;
 }
-.storeConfig > div {
+#storeConfig > div {
   float: left;
 }
-.storeConfig > div.deliveryAreas {
+#storeConfig > div#deliveryAreas {
   position: absolute;
   right: 740px;
   left: 10px;
@@ -6281,7 +6249,7 @@ div#payment .bankaccount {
   color: rgba(0, 0, 0, 0.5);
   padding: 0 0 70px 0;
 }
-.storeConfig > div.deliveryAreas .unfolded div {
+#storeConfig > div#deliveryAreas .configContent div {
   padding: 12px 10px 8px;
   width: 100%;
   min-width: 517px;
@@ -6293,30 +6261,30 @@ div#payment .bankaccount {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.storeConfig > div.deliveryAreas .unfolded div:nth-child(odd) {
+#storeConfig > div#deliveryAreas .configContent div:nth-child(odd) {
   background: rgba(209, 186, 130, 0.3);
 }
-.storeConfig > div.deliveryAreas .unfolded div .bRemove {
+#storeConfig > div#deliveryAreas .configContent div .bRemove {
   top: -3px;
 }
-.storeConfig > div.deliveryAreas .bAdd {
+#storeConfig > div#deliveryAreas .bAdd {
   bottom: 30px;
 }
-.storeConfig > div.deliveryAreas span {
+#storeConfig > div#deliveryAreas span {
   color: #555555;
   margin: 0 12px 0 -20px;
 }
-.storeConfig > div.deliveryTimes {
+#storeConfig > div#deliveryTimes {
   width: 700px;
   float: right;
   margin-left: 20px;
   text-align: left;
   position: relative;
 }
-.storeConfig > div.deliveryTimes h2 {
+#storeConfig > div#deliveryTimes h2 {
   margin-left: 20px;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay {
   min-height: 80px;
   width: 328px;
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
@@ -6326,7 +6294,7 @@ div#payment .bankaccount {
   padding: 10px 0;
   position: relative;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .weekday {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .weekday {
   position: absolute;
   bottom: 33px;
   font-family: "VAGRounded LT Thin";
@@ -6343,24 +6311,24 @@ div#payment .bankaccount {
   text-align: left;
   left: 5%;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .openingHours {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .openingHours {
   position: relative;
   float: right;
   padding: 3px 5px 0 20px;
   min-height: 20px;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .openingHours .bAdd {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .openingHours .bAdd {
   right: 6px;
   bottom: 6px;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .deliveryTime {
   padding: 5px 35px 0 0;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime input {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .deliveryTime input {
   width: 45px;
   text-align: right;
 }
-.storeConfig > div.deliveryTimes .unfolded > div.businessDay .deliveryTime .bRemove {
+#storeConfig > div#deliveryTimes .configContent > div.businessDay .deliveryTime .bRemove {
   top: -6px;
 }
 .deliveryAreaPostal {
