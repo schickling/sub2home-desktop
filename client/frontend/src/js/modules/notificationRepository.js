@@ -335,7 +335,7 @@ define([
 			},
 
 			'views.store.tray.orderFailed': {
-				title: 'Da ist was schiefgelaufen',
+				title: 'Das ging leider schief',
 				description: 'Es tut uns leid, wir konnten deine Bestellung nicht abschicken. Dir bleibt aber immer noch die Möglichkeit, anzurufen. Ohne Schnickschnack, von Mensch zu Mensch. 094 580 34 95',
 				className: 'error'
 			},
