@@ -39,21 +39,21 @@ define([
 
 		_renderProfile: function () {
 			this.subViews.profileView = new ProfileView({
-				el: this.$('.clientBasics'),
+				el: this.$('#clientBasics'),
 				model: this.model
 			});
 		},
 
 		_renderAddress: function () {
 			new AddressView({
-				el: this.$('.clientAddress'),
+				el: this.$('#clientAddress'),
 				model: this.model.get('addressModel')
 			});
 		},
 
 		_renderBankaccount: function () {
 			new BankaccountView({
-				el: this.$('.clientBankData'),
+				el: this.$('#clientBankData'),
 				model: this.model.get('bankaccountModel')
 			});
 		}

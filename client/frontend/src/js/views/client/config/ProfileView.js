@@ -12,10 +12,10 @@ define([
 		template: _.template(ProfileTemplate),
 
 		events: {
-			'click .triggerEditPassword p': '_showPasswordFields',
-			'click .submitNewPassword': '_saveNewPassword',
-			'click .cancelEditPassword': '_hidePasswordFields',
-			'keyup .editPassword input': '_updateSubmitButton'
+			'click #triggerEditPassword p': '_showPasswordFields',
+			'click #submitNewPassword': '_saveNewPassword',
+			'click #cancelEditPassword': '_hidePasswordFields',
+			'keyup #editPassword input': '_updateSubmitButton'
 		},
 
 		initialize: function () {
@@ -43,10 +43,10 @@ define([
 		_showPasswordFields: function () {
 			var animationTime = 300,
 				$el = this.$el,
-				$editPassword = this.$('.editPassword'),
-				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
-				$cancelEditPassword = this.$('.cancelEditPassword'),
-				$submitNewPassword = this.$('.submitNewPassword');
+				$editPassword = this.$('#editPassword'),
+				$triggerEditPasswordButton = this.$('#triggerEditPassword p'),
+				$cancelEditPassword = this.$('#cancelEditPassword'),
+				$submitNewPassword = this.$('#submitNewPassword');
 
 			$triggerEditPasswordButton.fadeOut(animationTime / 2, function () {
 				$submitNewPassword.fadeIn(animationTime / 2);
@@ -66,10 +66,10 @@ define([
 		_hidePasswordFields: function () {
 			var animationTime = 300,
 				$el = this.$el,
-				$editPassword = this.$('.editPassword'),
-				$triggerEditPasswordButton = this.$('.triggerEditPassword p'),
-				$cancelEditPassword = this.$('.cancelEditPassword'),
-				$submitNewPassword = this.$('.submitNewPassword');
+				$editPassword = this.$('#editPassword'),
+				$triggerEditPasswordButton = this.$('#triggerEditPassword p'),
+				$cancelEditPassword = this.$('#cancelEditPassword'),
+				$submitNewPassword = this.$('#submitNewPassword');
 
 			$submitNewPassword.fadeOut(animationTime / 2, function () {
 				$triggerEditPasswordButton.fadeIn(animationTime / 2);
@@ -114,7 +114,7 @@ define([
 		},
 
 		_updateSubmitButton: function () {
-			var $submitNewPassword = this.$('.submitNewPassword');
+			var $submitNewPassword = this.$('#submitNewPassword');
 
 			$submitNewPassword.toggleClass('valid', this._isInputValid());
 		},
