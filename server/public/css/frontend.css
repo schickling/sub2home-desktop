@@ -6346,54 +6346,42 @@ div#payment > div.disabled .btn.active {
 .deliveryAreaDistrict {
   width: 20%;
 }
-.orderingOverview {
-  *zoom: 1;
-}
-.orderingOverview:before,
-.orderingOverview:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.orderingOverview:after {
-  clear: both;
-}
-.articleInfo {
+#articleInfo {
   margin: 30px 0;
   float: left;
   position: relative;
   width: 40%;
   text-align: center;
 }
-.articleInfo .wrapper {
+#articleInfo .wrapper {
   display: inline-block;
 }
-.articleInfo .articlePreview {
+#articleInfo #articlePreview {
   display: inline-block;
   position: relative;
   text-align: left;
   width: 265px;
 }
-.articleInfo .articlePreview img {
+#articleInfo #articlePreview img {
   height: 160px;
   width: auto;
 }
-.articleInfo .articlePreview .pricetag {
+#articleInfo #articlePreview .pricetag {
   right: 15px;
   bottom: 10px;
 }
-.articleInfo .articleBasics {
+#articleInfo #articleBasics {
   display: inline-block;
   width: 300px;
   vertical-align: top;
   padding-top: 40px;
 }
-.articleInfo .articleTitle {
+#articleInfo #articleTitle {
   padding-left: 15px;
   position: relative;
   text-align: left;
 }
-.articleInfo .articleDescription {
+#articleInfo #articleDescription {
   padding-left: 15px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   position: relative;
@@ -6402,16 +6390,12 @@ div#payment > div.disabled .btn.active {
   font-size: 15px;
   margin: 0;
 }
-.articleInfo.ft .articlePreview {
+#articleInfo.ft #articlePreview {
   width: 450px;
 }
-.articleInfo.ft div.articleBasics {
+#articleInfo.ft div#articleBasics {
   width: 430px;
   padding: 0 0 0 10px;
-}
-.subPreview {
-  position: relative;
-  height: 182px;
 }
 .sizeTag {
   position: relative;
@@ -6428,28 +6412,28 @@ div#payment > div.disabled .btn.active {
   left: 0;
   margin-left: 4px;
 }
-.ingredientInfo {
+#ingredientInfo {
   width: 52%;
   *zoom: 1;
   position: relative;
 }
-.ingredientInfo:before,
-.ingredientInfo:after {
+#ingredientInfo:before,
+#ingredientInfo:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.ingredientInfo:after {
+#ingredientInfo:after {
   clear: both;
 }
-.ingredientInfo .ingredientCategories {
+#ingredientInfo .ingredientCategories {
   float: left;
   width: 45%;
 }
-.ingredientInfo .ingredientCategories:last-child {
+#ingredientInfo .ingredientCategories:last-child {
   margin-left: 30px;
 }
-.ingredientInfo .ingredientCategory {
+#ingredientInfo .ingredientCategory {
   position: relative;
   min-height: 19px;
   vertical-align: top;
@@ -6457,43 +6441,43 @@ div#payment > div.disabled .btn.active {
   display: block;
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
 }
-.ingredientInfo .ingredientCategory .label {
+#ingredientInfo .ingredientCategory .label {
   position: absolute;
   left: 10px;
 }
-.ingredientInfo .ingredientCategory .ingredient {
+#ingredientInfo .ingredientCategory .ingredient {
   display: inline-block;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-.ingredientInfo .ingredientCategory .ingredient:after {
+#ingredientInfo .ingredientCategory .ingredient:after {
   content: ",";
   margin-right: 5px;
   cursor: default;
 }
-.ingredientInfo .ingredientCategory .ingredient.penultimate:after {
+#ingredientInfo .ingredientCategory .ingredient.penultimate:after {
   content: "";
 }
-.ingredientInfo .ingredientCategory .ingredient:last-child:before {
+#ingredientInfo .ingredientCategory .ingredient:last-child:before {
   content: "&";
   margin-right: 5px;
   cursor: default;
 }
-.ingredientInfo .ingredientCategory .ingredient:last-child:after {
+#ingredientInfo .ingredientCategory .ingredient:last-child:after {
   content: " ";
 }
-.ingredientInfo .ingredientCategory .ingredient:first-child:before {
+#ingredientInfo .ingredientCategory .ingredient:first-child:before {
   content: " ";
   margin-right: 0px;
 }
-.ingredientInfo .ingredientCategory .ingredient span {
+#ingredientInfo .ingredientCategory .ingredient span {
   cursor: pointer;
   white-space: pre;
 }
-.ingredientInfo .ingredientCategory .ingredient span:hover {
+#ingredientInfo .ingredientCategory .ingredient span:hover {
   text-decoration: line-through;
 }
-.ingredientInfo .ingredientCategory .ingredient span:hover:before {
+#ingredientInfo .ingredientCategory .ingredient span:hover:before {
   text-decoration: none;
 }
 .orderingCategory {
@@ -6512,11 +6496,11 @@ div#payment > div.disabled .btn.active {
   margin-top: 30px;
   font-family: "VAGRounded LT Thin";
 }
-.overlay {
+#overlay {
   position: absolute;
   width: 100%;
 }
-.overlay .iBtn {
+#overlay .iBtn {
   display: none;
   position: absolute;
   height: 76px;
@@ -6528,34 +6512,34 @@ div#payment > div.disabled .btn.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.overlay .iBtn:before {
+#overlay .iBtn:before {
   font-size: 100px;
   position: absolute;
   left: -30px;
   top: 30px;
 }
-.overlay .iBtn:hover {
+#overlay .iBtn:hover {
   color: rgba(0, 0, 0, 0.25);
 }
-.overlay .iBtn.bPrev {
+#overlay .iBtn.bPrev {
   left: 20px;
 }
-.overlay .iBtn.bNext {
+#overlay .iBtn.bNext {
   right: 20px;
 }
-.overlay .iBtn.bCart {
+#overlay .iBtn.bCart {
   color: rgba(156, 200, 62, 0.2);
   right: 100px;
   right: 20px;
   width: 80px;
 }
-.overlay .iBtn.bCart:before {
+#overlay .iBtn.bCart:before {
   left: -15px;
 }
-.overlay .iBtn.bCart:hover {
+#overlay .iBtn.bCart:hover {
   color: #9cc83e;
 }
-.stage {
+#stage {
   position: absolute;
   width: 40000px;
   *zoom: 1;
@@ -6563,13 +6547,13 @@ div#payment > div.disabled .btn.active {
   overflow: hidden;
   text-align: left;
 }
-.stage:before,
-.stage:after {
+#stage:before,
+#stage:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.stage:after {
+#stage:after {
   clear: both;
 }
 .slideContainer {
@@ -6926,7 +6910,7 @@ div#payment > div.disabled .btn.active {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.noUpgrade {
+#noUpgrade {
   position: absolute;
   width: 300px;
   background: #fafaf8;
@@ -6935,7 +6919,7 @@ div#payment > div.disabled .btn.active {
   bottom: 0;
   right: -301px;
 }
-.noUpgrade > div {
+#noUpgrade > div {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6943,18 +6927,18 @@ div#payment > div.disabled .btn.active {
   margin: -118px 0 0 -100px;
   cursor: pointer;
 }
-.noUpgrade h3 {
+#noUpgrade h3 {
   margin-top: 14px;
 }
-.noUpgrade img {
+#noUpgrade img {
   width: 200px;
 }
-.noUpgrade p {
+#noUpgrade p {
   margin-top: 20px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-.itemsTimeline .itemTimeline:first-child:before {
+#itemsTimeline #itemTimeline:first-child:before {
   font-family: "Homicons";
   content: "\e03f";
   position: absolute;
@@ -6965,32 +6949,32 @@ div#payment > div.disabled .btn.active {
   color: #c3a55d;
   cursor: default;
 }
-.itemsTimeline .itemTimeline .iBread,
-.itemsTimeline .itemTimeline .iCheese,
-.itemsTimeline .itemTimeline .iVegetables,
-.itemsTimeline .itemTimeline .iSauce,
-.itemsTimeline .itemTimeline .iExtras,
-.itemsTimeline .itemTimeline .iMenuUpgrade {
+#itemsTimeline #itemTimeline .iBread,
+#itemsTimeline #itemTimeline .iCheese,
+#itemsTimeline #itemTimeline .iVegetables,
+#itemsTimeline #itemTimeline .iSauce,
+#itemsTimeline #itemTimeline .iExtras,
+#itemsTimeline #itemTimeline .iMenuUpgrade {
   position: relative;
   top: 7px;
   left: 2px;
 }
-.itemsTimeline .itemTimeline .iMenuUpgrade {
+#itemsTimeline #itemTimeline .iMenuUpgrade {
   top: 1px;
   left: 0;
 }
-.itemsTimeline .itemTimeline .iCart.clickable {
+#itemsTimeline #itemTimeline .iCart.clickable {
   color: #9cc83e;
   text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #6f9029;
 }
-.itemsTimeline:first-child .itemTimeline:before {
+#itemsTimeline:first-child .itemTimeline:before {
   content: " ";
 }
-.note.timeline .stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
+.note.timeline #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
   width: auto;
   cursor: default;
 }
-.note.timeline .stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
+.note.timeline #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
   top: 15px;
   position: absolute;
   height: 43px;
@@ -6998,35 +6982,35 @@ div#payment > div.disabled .btn.active {
   left: auto;
   right: 0;
 }
-.stageTimeline .itemTimeline.visited .icn {
+#stageTimeline .itemTimeline.visited .icn {
   visibility: hidden;
 }
-.stageTimeline .itemTimeline.visited img {
+#stageTimeline .itemTimeline.visited img {
   display: block;
 }
-.stageTimeline .itemTimeline.locked .icn {
+#stageTimeline .itemTimeline.locked .icn {
   visibility: visible;
 }
-.stageTimeline .itemTimeline.locked img {
+#stageTimeline .itemTimeline.locked img {
   display: none;
 }
-.stageTimeline.itemsMultiple .itemTimeline:after {
+#stageTimeline.itemsMultiple .itemTimeline:after {
   content: "/";
   position: relative;
   top: -5px;
   margin: 0 5px 0 5px;
   color: #000000;
 }
-.stageTimeline.itemsMultiple .itemTimeline:last-child:after {
+#stageTimeline.itemsMultiple .itemTimeline:last-child:after {
   content: " ";
 }
-.orderedItems {
+#orderedItems {
   margin: 0;
   padding: 100px 8% 50px;
   position: relative;
   background: url("../img/static/common/note_background.jpg") repeat;
 }
-.orderedItems:before {
+#orderedItems:before {
   content: " ";
   height: 7px;
   position: absolute;
@@ -7035,7 +7019,7 @@ div#payment > div.disabled .btn.active {
   top: -7px;
   background: url("../img/static/common/note_top.png") repeat-x;
 }
-.orderedItems:after {
+#orderedItems:after {
   content: " ";
   height: 7px;
   position: absolute;
@@ -7044,13 +7028,13 @@ div#payment > div.disabled .btn.active {
   bottom: -7px;
   background: url("../img/static/common/note_bottom.png") repeat-x;
 }
-.orderedItems .itemDescription p {
+#orderedItems .itemDescription p {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
   width: inherit;
   text-align: center;
 }
-.orderedItems .controls {
+#orderedItems .controls {
   display: none;
   position: absolute;
   right: 15px;
@@ -7058,7 +7042,7 @@ div#payment > div.disabled .btn.active {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.orderedItems .controls i {
+#orderedItems .controls i {
   margin-left: 15px;
 }
 .amountOrderedItem {
@@ -7314,12 +7298,12 @@ div#payment > div.disabled .btn.active {
 .note.checkout > div {
   display: inline-block;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay,
-.note.checkout > div.deliveryTimeDisplay {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay,
+.note.checkout > div#deliveryTimeDisplay {
   position: relative;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay > p,
-.note.checkout > div.deliveryTimeDisplay > p {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay > p,
+.note.checkout > div#deliveryTimeDisplay > p {
   font-family: "VAGRounded LT Thin";
   font-size: 18px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -7329,15 +7313,15 @@ div#payment > div.disabled .btn.active {
   margin-top: 10px;
   line-height: 1;
 }
-#checkoutAdditionalOptions .deliveryTimeClock,
-.note.checkout .deliveryTimeClock {
+#checkoutAdditionalOptions #deliveryTimeClock,
+.note.checkout #deliveryTimeClock {
   position: relative;
   margin: 60px 0;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .hours,
-.note.checkout .deliveryTimeClock .hours,
-#checkoutAdditionalOptions .deliveryTimeClock .minutes,
-.note.checkout .deliveryTimeClock .minutes {
+#checkoutAdditionalOptions #deliveryTimeClock #hours,
+.note.checkout #deliveryTimeClock #hours,
+#checkoutAdditionalOptions #deliveryTimeClock #minutes,
+.note.checkout #deliveryTimeClock #minutes {
   position: relative;
   padding: 4px;
   background: #d1ba82;
@@ -7352,10 +7336,10 @@ div#payment > div.disabled .btn.active {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .topTile,
-.note.checkout .deliveryTimeClock .topTile,
-#checkoutAdditionalOptions .deliveryTimeClock .bottomTile,
-.note.checkout .deliveryTimeClock .bottomTile {
+#checkoutAdditionalOptions #deliveryTimeClock .topTile,
+.note.checkout #deliveryTimeClock .topTile,
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile,
+.note.checkout #deliveryTimeClock .bottomTile {
   position: relative;
   display: inline-block;
   padding: 0;
@@ -7389,24 +7373,24 @@ div#payment > div.disabled .btn.active {
   overflow: hidden;
   cursor: pointer;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .topTile span,
-.note.checkout .deliveryTimeClock .topTile span,
-#checkoutAdditionalOptions .deliveryTimeClock .bottomTile span,
-.note.checkout .deliveryTimeClock .bottomTile span {
+#checkoutAdditionalOptions #deliveryTimeClock .topTile span,
+.note.checkout #deliveryTimeClock .topTile span,
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span,
+.note.checkout #deliveryTimeClock .bottomTile span {
   display: inline-block;
   position: relative;
   top: 31px;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .bottomTile,
-.note.checkout .deliveryTimeClock .bottomTile {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile,
+.note.checkout #deliveryTimeClock .bottomTile {
   margin-top: 1px;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .bottomTile span,
-.note.checkout .deliveryTimeClock .bottomTile span {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span,
+.note.checkout #deliveryTimeClock .bottomTile span {
   top: -30px;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .clockSeparator,
-.note.checkout .deliveryTimeClock .clockSeparator {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator,
+.note.checkout #deliveryTimeClock #clockSeparator {
   position: relative;
   width: 11px;
   height: 42px;
@@ -7415,10 +7399,10 @@ div#payment > div.disabled .btn.active {
   text-align: left;
   margin: 45px 5px 0;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .clockSeparator:before,
-.note.checkout .deliveryTimeClock .clockSeparator:before,
-#checkoutAdditionalOptions .deliveryTimeClock .clockSeparator:after,
-.note.checkout .deliveryTimeClock .clockSeparator:after {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:before,
+.note.checkout #deliveryTimeClock #clockSeparator:before,
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after,
+.note.checkout #deliveryTimeClock #clockSeparator:after {
   content: " ";
   position: absolute;
   width: 11px;
@@ -7432,24 +7416,24 @@ div#payment > div.disabled .btn.active {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions .deliveryTimeClock .clockSeparator:after,
-.note.checkout .deliveryTimeClock .clockSeparator:after {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after,
+.note.checkout #deliveryTimeClock #clockSeparator:after {
   top: 30px;
 }
-.deliveryAdditionalNote {
+#deliveryAdditionalNote {
   position: absolute;
   left: 8%;
   right: 8%;
   margin-left: 400px;
 }
-.deliveryAdditionalNote div {
+#deliveryAdditionalNote div {
   width: 100%;
   height: 40px;
   border-top: 1px solid rgba(209, 186, 130, 0.5);
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
   margin-top: 40px;
 }
-.deliveryAdditionalNote textarea {
+#deliveryAdditionalNote textarea {
   position: absolute;
   top: 8px;
   left: 0;
@@ -7476,8 +7460,8 @@ div#payment > div.disabled .btn.active {
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn {
   position: absolute;
   cursor: default;
   opacity: 0.3;
@@ -7488,20 +7472,20 @@ div#payment > div.disabled .btn.active {
   color: #c3a55d;
   color: #d1ba82;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn:before,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn:before {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn:before,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn:before {
   top: 1px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn.iArrowUp,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn.iArrowUp {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowUp,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowUp {
   top: -32px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn.iArrowDown,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn.iArrowDown {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowDown,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowDown {
   bottom: -32px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn.active,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn.active {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
@@ -7510,8 +7494,8 @@ div#payment > div.disabled .btn.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .hours .iBtn.active:hover,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay .deliveryTimeClock .minutes .iBtn.active:hover {
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active:hover,
+#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active:hover {
   color: #c6aa64;
 }
 #checkoutBasicControls {
@@ -7523,11 +7507,11 @@ div#payment > div.disabled .btn.active {
   color: rgba(197, 168, 98, 0.5);
   line-height: 1.5;
 }
-#checkoutBasicControls .checkoutReadyControls {
+#checkoutBasicControls #checkoutReadyControls {
   padding: 25px 185px 0 0;
 }
 #checkoutBasicControls > span,
-#checkoutBasicControls .checkoutReadyControls > span {
+#checkoutBasicControls #checkoutReadyControls > span {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -7537,29 +7521,26 @@ div#payment > div.disabled .btn.active {
   position: relative;
 }
 #checkoutBasicControls > span:hover,
-#checkoutBasicControls .checkoutReadyControls > span:hover {
+#checkoutBasicControls #checkoutReadyControls > span:hover {
   color: #c5a862;
 }
-#checkoutBasicControls > span.price,
-#checkoutBasicControls .checkoutReadyControls > span.price {
-  color: #c5a862;
-}
-#checkoutBasicControls > span.setDeliveryAddress,
-#checkoutBasicControls .checkoutReadyControls > span.setDeliveryAddress,
-#checkoutBasicControls > span.orderNow,
-#checkoutBasicControls .checkoutReadyControls > span.orderNow {
+#checkoutBasicControls > span#setDeliveryAddress,
+#checkoutBasicControls #checkoutReadyControls > span#setDeliveryAddress,
+#checkoutBasicControls > span#orderNow,
+#checkoutBasicControls #checkoutReadyControls > span#orderNow {
   color: #c5a862;
   border-bottom: 2px solid #c5a862;
 }
-#checkoutBasicControls > span.price,
-#checkoutBasicControls .checkoutReadyControls > span.price {
+#checkoutBasicControls > span#price,
+#checkoutBasicControls #checkoutReadyControls > span#price {
+  color: #c5a862;
   cursor: default;
   white-space: normal;
 }
-#checkoutBasicControls > span.paymentMethod,
-#checkoutBasicControls .checkoutReadyControls > span.paymentMethod,
-#checkoutBasicControls > span.deliveryAddress,
-#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress {
+#checkoutBasicControls > span#paymentMethod,
+#checkoutBasicControls #checkoutReadyControls > span#paymentMethod,
+#checkoutBasicControls > span#deliveryAddress,
+#checkoutBasicControls #checkoutReadyControls > span#deliveryAddress {
   border-bottom: 2px solid rgba(197, 168, 98, 0.5);
   padding-right: 0;
   position: relative;
@@ -7568,10 +7549,10 @@ div#payment > div.disabled .btn.active {
   -o-transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
   transition: border-bottom-color .1s linear, color .1s linear, padding-right .1s ease-in-out;
 }
-#checkoutBasicControls > span.paymentMethod .iEdit,
-#checkoutBasicControls .checkoutReadyControls > span.paymentMethod .iEdit,
-#checkoutBasicControls > span.deliveryAddress .iEdit,
-#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress .iEdit {
+#checkoutBasicControls > span#paymentMethod .iEdit,
+#checkoutBasicControls #checkoutReadyControls > span#paymentMethod .iEdit,
+#checkoutBasicControls > span#deliveryAddress .iEdit,
+#checkoutBasicControls #checkoutReadyControls > span#deliveryAddress .iEdit {
   position: absolute;
   display: block;
   right: 10px;
@@ -7586,23 +7567,23 @@ div#payment > div.disabled .btn.active {
   transition: opacity 0.1s linear;
   z-index: 10;
 }
-#checkoutBasicControls > span.paymentMethod .iEdit:before,
-#checkoutBasicControls .checkoutReadyControls > span.paymentMethod .iEdit:before,
-#checkoutBasicControls > span.deliveryAddress .iEdit:before,
-#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress .iEdit:before {
+#checkoutBasicControls > span#paymentMethod .iEdit:before,
+#checkoutBasicControls #checkoutReadyControls > span#paymentMethod .iEdit:before,
+#checkoutBasicControls > span#deliveryAddress .iEdit:before,
+#checkoutBasicControls #checkoutReadyControls > span#deliveryAddress .iEdit:before {
   top: 1px;
 }
-#checkoutBasicControls > span.paymentMethod:hover,
-#checkoutBasicControls .checkoutReadyControls > span.paymentMethod:hover,
-#checkoutBasicControls > span.deliveryAddress:hover,
-#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress:hover {
+#checkoutBasicControls > span#paymentMethod:hover,
+#checkoutBasicControls #checkoutReadyControls > span#paymentMethod:hover,
+#checkoutBasicControls > span#deliveryAddress:hover,
+#checkoutBasicControls #checkoutReadyControls > span#deliveryAddress:hover {
   border-bottom-color: #c5a862;
   padding-right: 50px;
 }
-#checkoutBasicControls > span.paymentMethod:hover .iEdit,
-#checkoutBasicControls .checkoutReadyControls > span.paymentMethod:hover .iEdit,
-#checkoutBasicControls > span.deliveryAddress:hover .iEdit,
-#checkoutBasicControls .checkoutReadyControls > span.deliveryAddress:hover .iEdit {
+#checkoutBasicControls > span#paymentMethod:hover .iEdit,
+#checkoutBasicControls #checkoutReadyControls > span#paymentMethod:hover .iEdit,
+#checkoutBasicControls > span#deliveryAddress:hover .iEdit,
+#checkoutBasicControls #checkoutReadyControls > span#deliveryAddress:hover .iEdit {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -7641,7 +7622,7 @@ div#payment > div.disabled .btn.active {
 #checkoutBasicControls .iCredit:hover {
   color: #c5a862;
 }
-#checkoutBasicControls .credit {
+#checkoutBasicControls #credit {
   position: relative;
   display: inline-block;
   margin: 0 0 0 5px;
@@ -7649,8 +7630,8 @@ div#payment > div.disabled .btn.active {
   height: 44px;
   text-align: center;
 }
-#checkoutBasicControls .credit .bRemove,
-#checkoutBasicControls .credit .bAdd {
+#checkoutBasicControls #credit .bRemove,
+#checkoutBasicControls #credit .bAdd {
   font-size: 16px;
   z-index: 51;
   width: 40px;
@@ -7658,67 +7639,67 @@ div#payment > div.disabled .btn.active {
   position: relative;
   display: none;
 }
-#checkoutBasicControls .credit .bRemove:before,
-#checkoutBasicControls .credit .bAdd:before {
+#checkoutBasicControls #credit .bRemove:before,
+#checkoutBasicControls #credit .bAdd:before {
   position: absolute;
   top: 8px;
 }
-#checkoutBasicControls .credit .bRemove {
+#checkoutBasicControls #credit .bRemove {
   margin: 0 -20px 0 0;
 }
-#checkoutBasicControls .credit .bRemove:before {
+#checkoutBasicControls #credit .bRemove:before {
   left: 0;
 }
-#checkoutBasicControls .credit .bAdd {
+#checkoutBasicControls #credit .bAdd {
   margin: 0 0 0 -20px;
 }
-#checkoutBasicControls .credit .bAdd:before {
+#checkoutBasicControls #credit .bAdd:before {
   right: 0;
 }
-#checkoutBasicControls .credit.hasCredit {
+#checkoutBasicControls #credit.hasCredit {
   width: 100px;
 }
-#checkoutBasicControls .credit.hasCredit .bRemove,
-#checkoutBasicControls .credit.hasCredit .bAdd {
+#checkoutBasicControls #credit.hasCredit .bRemove,
+#checkoutBasicControls #credit.hasCredit .bAdd {
   display: inline-block;
 }
-#checkoutBasicControls .credit.hasCredit .iCredit {
+#checkoutBasicControls #credit.hasCredit .iCredit {
   color: #c5a862;
 }
-#checkoutBasicControls .credit.hasCredit .notice {
+#checkoutBasicControls #credit.hasCredit .notice {
   display: none;
 }
-#checkoutBasicControls .credit.hasNoCredit .bRemove,
-#checkoutBasicControls .credit.hasNoCredit .bAdd {
+#checkoutBasicControls #credit.hasNoCredit .bRemove,
+#checkoutBasicControls #credit.hasNoCredit .bAdd {
   display: none;
 }
-#checkoutBasicControls .credit.hasNoCredit .iCredit {
+#checkoutBasicControls #credit.hasNoCredit .iCredit {
   color: rgba(197, 168, 98, 0.5);
 }
-#checkoutBasicControls .credit.hasNoCredit .iCredit:hover {
+#checkoutBasicControls #credit.hasNoCredit .iCredit:hover {
   color: #c5a862;
 }
-.acceptAGB {
+#acceptAGB {
   font-size: 20px;
 }
-.acceptAGB span {
+#acceptAGB span {
   text-decoration: underline;
 }
-.checkoutSettings {
+#checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;
 }
-.checkoutSettings h1 {
+#checkoutSettings h1 {
   color: #ffffff;
   padding-top: 50px;
 }
-.deliveryAddressSettings {
+#deliveryAddressSettings {
   position: relative;
   width: 754px;
   padding-top: 55px;
   margin: 0 auto;
 }
-.deliveryAddressSettings input,
-.deliveryAddressSettings span {
+#deliveryAddressSettings input,
+#deliveryAddressSettings span {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   height: 32px;
@@ -7729,93 +7710,93 @@ div#payment > div.disabled .btn.active {
   color: #ffffff;
   font-family: "VAGRounded LT Thin";
 }
-.deliveryAddressSettings label {
+#deliveryAddressSettings label {
   color: rgba(255, 255, 255, 0.2);
 }
-.deliveryAddressSettings > div {
+#deliveryAddressSettings > div {
   width: 100%;
   margin-top: 30px;
   *zoom: 1;
 }
-.deliveryAddressSettings > div:before,
-.deliveryAddressSettings > div:after {
+#deliveryAddressSettings > div:before,
+#deliveryAddressSettings > div:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.deliveryAddressSettings > div:after {
+#deliveryAddressSettings > div:after {
   clear: both;
 }
-.deliveryAddressSettings > div > div {
+#deliveryAddressSettings > div > div {
   float: left;
   position: relative;
 }
-.deliveryAddressSettings > div.customerName > div {
+#deliveryAddressSettings > div#customerName > div {
   width: 367px;
 }
-.deliveryAddressSettings > div.customerName > div.customerFirstname {
+#deliveryAddressSettings > div#customerName > div#customerFirstname {
   margin-right: 20px;
 }
-.deliveryAddressSettings > div.customerName > div.customerFirstname input {
+#deliveryAddressSettings > div#customerName > div#customerFirstname input {
   padding-left: 70px;
 }
-.deliveryAddressSettings > div.customerName > div.customerLastname input {
+#deliveryAddressSettings > div#customerName > div#customerLastname input {
   padding-left: 77px;
 }
-.deliveryAddressSettings > div.customerContact .customerPhone {
+#deliveryAddressSettings > div#customerContact #customerPhone {
   width: 247px;
 }
-.deliveryAddressSettings > div.customerContact .customerPhone input {
+#deliveryAddressSettings > div#customerContact #customerPhone input {
   padding-left: 37px;
 }
-.deliveryAddressSettings > div.customerContact .customerEmail {
+#deliveryAddressSettings > div#customerContact #customerEmail {
   margin-left: 20px;
   width: 487px;
 }
-.deliveryAddressSettings > div.customerContact .customerEmail input {
+#deliveryAddressSettings > div#customerContact #customerEmail input {
   padding-left: 50px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerStreet {
+#deliveryAddressSettings > div#customerAddress > div#customerStreet {
   width: 472px;
   margin-right: 20px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerStreet input {
+#deliveryAddressSettings > div#customerAddress > div#customerStreet input {
   padding-left: 70px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerHouseNr {
+#deliveryAddressSettings > div#customerAddress > div#customerHouseNr {
   width: 85px;
   margin-right: 20px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerHouseNr input {
+#deliveryAddressSettings > div#customerAddress > div#customerHouseNr input {
   padding-left: 33px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerAddressAdditional {
+#deliveryAddressSettings > div#customerAddress > div#customerAddressAdditional {
   width: 262px;
 }
-.deliveryAddressSettings > div.customerAddress > div.customerAddressAdditional input {
+#deliveryAddressSettings > div#customerAddress > div#customerAddressAdditional input {
   padding-left: 58px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerPostal {
+#deliveryAddressSettings > div#customerPostalCity > div#customerPostal {
   width: 115px;
   margin-right: 20px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerPostal span {
+#deliveryAddressSettings > div#customerPostalCity > div#customerPostal span {
   display: inline-block;
   padding: 7px 0 0 38px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerCity {
+#deliveryAddressSettings > div#customerPostalCity > div#customerCity {
   width: 529px;
 }
-.deliveryAddressSettings > div.customerPostalCity > div.customerCity span {
+#deliveryAddressSettings > div#customerPostalCity > div#customerCity span {
   display: inline-block;
   padding: 7px 0 0 52px;
 }
-.deliveryAddressSettings button.btn {
+#deliveryAddressSettings button.btn {
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.paymentSettings {
+#paymentSettings {
   position: relative;
   cursor: default;
   width: 754px;
@@ -7830,13 +7811,13 @@ div#payment > div.disabled .btn.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.paymentSettings:hover span {
+#paymentSettings:hover span {
   color: rgba(255, 255, 255, 0.25);
 }
-.paymentSettings:hover span:hover {
+#paymentSettings:hover span:hover {
   color: rgba(255, 255, 255, 0.5);
 }
-.paymentSettings span {
+#paymentSettings span {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -7845,7 +7826,7 @@ div#payment > div.disabled .btn.active {
   margin-left: 57px;
   cursor: pointer;
 }
-.paymentSettings span.selected {
+#paymentSettings span.selected {
   color: rgba(255, 255, 255, 0.5);
 }
 .note.checkout {

@@ -1,47 +1,47 @@
-<div class="deliveryAddressSettings">
+<div id="deliveryAddressSettings">
 	<header>
 		<h1>Wohin soll deine Bestellung geliefert werden?</h1>
 	</header>
 
-	<div class="customerName">
-		<div class="customerFirstname">
+	<div id="customerName">
+		<div id="customerFirstname">
 			<label for="customerFirstnameInput">Vorname</label>
 			<input data-attribute="firstName" id="customerFirstnameInput" value="<%= firstName %>">
 		</div>
-		<div class="customerLastname">
+		<div id="customerLastname">
 			<label for="customerLastnameInput">Nachname</label>
 			<input data-attribute="lastName" id="customerLastnameInput" value="<%= lastName %>">
 		</div>
 	</div>
 
-	<div class="customerContact">
-		<div class="customerPhone">
+	<div id="customerContact">
+		<div id="customerPhone">
 			<label for="customerPhoneInput">Tel</label>
 			<input data-attribute="phone" id="customerPhoneInput" value="<%= phone %>">
 		</div>
-		<div class="customerEmail">
+		<div id="customerEmail">
 			<label for="customerEmailInput">Email</label>
 			<input data-attribute="email" id="customerEmailInput" value="<%= email %>">
 		</div>
 	</div>
 
-	<div class="customerAddress">
-		<div class="customerStreet">
+	<div id="customerAddress">
+		<div id="customerStreet">
 			<label for="customerStreetInput">Strasse</label>
 			<input data-attribute="street" id="customerStreetInput" value="<%= street %>">
 		</div>
-		<div class="customerAddressAdditional">
+		<div id="customerAddressAdditional">
 			<label for="customerAddressAdditionalInput">Zusatz</label>
 			<input data-attribute="streetAdditional" id="customerAddressAdditionalInput" value="<%= streetAdditional %>">
 		</div>
 	</div>
 
-	<div class="customerPostalCity">
-		<div class="customerPostal">
+	<div id="customerPostalCity">
+		<div id="customerPostal">
 			<label for="customerPostalInput">PLZ</label>
 			<span id="customerPostalInput"><%= postal %></span>
 		</div>
-		<div class="customerCity">
+		<div id="customerCity">
 			<label for="customerCityInput">Stadt</label>
 			<span id="customerCityInput"><%= city %></span>
 		</div>
@@ -49,6 +49,6 @@
 	</div>
 	<button id="save" class="btn btnSuccess">Fertig</button>
 </div>
-<div class="paymentSettings">
-	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" class="bar <% if (selectedPaymentMethod === 'cash') { %>selected<% } %>">Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" class="ecCard <% if (selectedPaymentMethod === 'ec') { %>selected<% } %>">mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" class="paypal <% if (selectedPaymentMethod === 'paypal') { %>selected<% } %>">via PayPal</span><% } %>
+<div id="paymentSettings">
+	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" id="bar" <% if (selectedPaymentMethod === 'cash') { %>class="selected"<% } %>>Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" id="ecCard" <% if (selectedPaymentMethod === 'ec') { %>class="selected"<% } %>>mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" id="paypal" <% if (selectedPaymentMethod === 'paypal') { %>class="selected"<% } %>>via PayPal</span><% } %>
 </div>

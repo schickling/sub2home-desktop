@@ -1,6 +1,6 @@
 <p>Wir sind frühestens in <%= minimumDuration %> Minuten bei dir, du kannst die Uhrzeit aber auch gerne korrigieren</p>
-<div class="deliveryTimeClock">
-	<span class="hours">
+<div id="deliveryTimeClock">
+	<span id="hours">
 		<i class="iBtn iArrowUp active"></i>
 		<span class="topTile">
 			<span><%= dueHours %></span>
@@ -11,8 +11,8 @@
 		<i class="iBtn iArrowDown <% if (!hoursAreMinimum) { %>active <% } %>"></i>
 	</span>
 
-	<span class="clockSeparator"></span>
-	<span class="minutes">
+	<span id="clockSeparator"></span>
+	<span id="minutes">
 		<i class="iBtn iArrowUp active"></i>
 		<span class="topTile">
 			<span><%= dueMinutes %></span>

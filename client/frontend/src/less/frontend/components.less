@@ -3502,11 +3502,11 @@ div#payment {
 @articleInfoPaddingLeft:  15px;
 
 
-.orderingOverview {
-  .clearfix;
-}
+// .orderingOverview {
+//   .clearfix;
+// }
 
-.articleInfo {
+#articleInfo {
 
   margin: 30px 0;
   .pull-left;
@@ -3519,7 +3519,7 @@ div#payment {
     //width: 300px;
   }
 
-  .articlePreview {
+  #articlePreview {
     display: inline-block;
     .positioned;
     text-align: left;
@@ -3535,20 +3535,20 @@ div#payment {
     }
   }
 
-  .articleBasics {
+  #articleBasics {
     display: inline-block;
     width: 300px;
     vertical-align: top;
     padding-top: 40px;
   }
 
-  .articleTitle {
+  #articleTitle {
     padding-left: @articleInfoPaddingLeft;
     .positioned;
     text-align: left;
 
   }
-  .articleDescription {
+  #articleDescription {
     padding-left: @articleInfoPaddingLeft;
     font-family: @handFontFamily;
     position: relative;
@@ -3559,20 +3559,20 @@ div#payment {
   }
 
   &.ft {
-    .articlePreview {
+    #articlePreview {
       width: 450px;
     }
-    div.articleBasics {
+    div#articleBasics {
       width: 430px;
       padding: 0 0 0 10px;
     }
   }
 }
 
-.subPreview {
-  .positioned;
-  height: 182px;
-}
+// .subPreview {
+//   .positioned;
+//   height: 182px;
+// }
 
 .sizeTag {
   .positioned;
@@ -3587,7 +3587,7 @@ div#payment {
   margin-left: 4px;
 }
 
-.ingredientInfo {
+#ingredientInfo {
   width: 52%;
   .clearfix;
   .positioned;
@@ -3680,7 +3680,7 @@ div#payment {
 }
 
 
-.overlay {
+#overlay {
   position: absolute;
   width: 100%;
   .iBtn {
@@ -3729,7 +3729,7 @@ div#payment {
 
 // SELECTION STAGE
 
-.stage {
+#stage {
   position: absolute;
   width: 40000px;
   .clearfix;
@@ -4119,7 +4119,7 @@ div#payment {
 
 }
 
-.noUpgrade {
+#noUpgrade {
   position: absolute;
   width: 300px;
   background: @separateStageArea;
@@ -4159,9 +4159,9 @@ div#payment {
 
 // TIMELINE
 
-.itemsTimeline {
+#itemsTimeline {
 
-  .itemTimeline {
+  #itemTimeline {
 
     &:first-child {
       &:before {
@@ -4205,7 +4205,7 @@ div#payment {
   }
 }
 
-.note.timeline .stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
+.note.timeline #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
   width: auto;
   cursor: default;
   img {
@@ -4222,7 +4222,7 @@ div#payment {
 
 
 
-.stageTimeline {
+#stageTimeline {
 
   .itemTimeline {
 
@@ -4265,7 +4265,7 @@ div#payment {
 // -------------------------------------------------------------------------------------------------------------------
 
 
-.orderedItems {
+#orderedItems {
   margin: 0;
   padding: 100px 8% 50px;
   .positioned;
@@ -4549,7 +4549,7 @@ div#payment {
 
   >div {
     display: inline-block;
-    &.deliveryTimeDisplay {
+    &#deliveryTimeDisplay {
       .positioned;
 
       >p {
@@ -4563,10 +4563,10 @@ div#payment {
       }
     }
   }
-  .deliveryTimeClock {
+  #deliveryTimeClock {
     .positioned;
     margin: 60px 0;
-    .hours, .minutes {
+    #hours, #minutes {
       .positioned;
       padding: 4px;
       background: @onNoteColor;
@@ -4610,7 +4610,7 @@ div#payment {
       }
     }
 
-    .clockSeparator {
+    #clockSeparator {
       .positioned;
       width: 11px;
       height: 42px;
@@ -4634,7 +4634,7 @@ div#payment {
   }
 }
 
-&.deliveryAdditionalNote {
+&#deliveryAdditionalNote {
   position: absolute;
   left: 8%;
   right: 8%;
@@ -4678,8 +4678,8 @@ div#payment {
   }
 
   >div {
-    &.deliveryTimeDisplay .deliveryTimeClock {
-      .hours, .minutes {
+    &.deliveryTimeDisplay #deliveryTimeClock {
+      #hours, #minutes {
         .iBtn {
           position: absolute;
           cursor: default;
@@ -4724,11 +4724,11 @@ div#payment {
   color: @onDarkNoteColor50;
   line-height: 1.5;
 
-  .checkoutReadyControls {
+  #checkoutReadyControls {
     padding: 25px 185px 0 0;
   }
 
-  >span, .checkoutReadyControls >span {
+  >span, #checkoutReadyControls >span {
     .transition(color .1s linear);
     white-space: pre-wrap;
     cursor: pointer;
@@ -4737,20 +4737,17 @@ div#payment {
       color: @onDarkNoteColor;
     }
 
-    &.price {
-      color: @onDarkNoteColor;
-    }
-
-    &.setDeliveryAddress, &.orderNow {
+    &#setDeliveryAddress, &#orderNow {
       color: @onDarkNoteColor;
       border-bottom: 2px solid @onDarkNoteColor;
     }
-    &.price {
+    &#price {
+      color: @onDarkNoteColor;
       cursor: default;
       white-space: normal;
     }
 
-    &.paymentMethod, &.deliveryAddress {
+    &#paymentMethod, &#deliveryAddress {
       border-bottom: 2px solid @onDarkNoteColor50;
       //white-space: nowrap;
       padding-right: 0;
@@ -4817,7 +4814,7 @@ div#payment {
     }
   }
 
-  .credit {
+  #credit {
     .positioned;
     display: inline-block;
     margin: 0 0 0 5px;
@@ -4877,7 +4874,7 @@ div#payment {
   }
 }
 
-.acceptAGB {
+#acceptAGB {
   font-size: 20px;
   span {
     text-decoration: underline;
@@ -4886,7 +4883,7 @@ div#payment {
 }
 
 
-.checkoutSettings {
+#checkoutSettings {
   background: @darkBackground;
   h1 {
     color: @white;
@@ -4894,7 +4891,7 @@ div#payment {
   }
 }
 // INPUTS
-.deliveryAddressSettings {
+#deliveryAddressSettings {
   .positioned;
   width: 754px;
   padding-top: 55px;
@@ -4921,16 +4918,16 @@ div#payment {
       float: left;
       .positioned;
     }
-    &.customerName {
+    &#customerName {
       >div {
         width: 367px;
-        &.customerFirstname {
+        &#customerFirstname {
           margin-right: 20px;
           input {
             padding-left: 70px;
           }
         }
-        &.customerLastname {
+        &#customerLastname {
           input {
             padding-left: 77px;
           }
@@ -4938,14 +4935,14 @@ div#payment {
       }
     }
 
-    &.customerContact {
-      .customerPhone {
+    &#customerContact {
+      #customerPhone {
         width: 247px;
         input {
           padding-left: 37px;
         }
       }
-      .customerEmail {
+      #customerEmail {
         margin-left: 20px;
         width: 487px;
         input {
@@ -4954,23 +4951,23 @@ div#payment {
       }
     }
 
-    &.customerAddress {
+    &#customerAddress {
       >div {
-        &.customerStreet {
+        &#customerStreet {
           width: 472px;
           margin-right: 20px;
           input {
             padding-left: 70px;
           }
         }
-        &.customerHouseNr {
+        &#customerHouseNr {
           width: 85px;
           margin-right: 20px;
           input {
             padding-left: 33px;
           }
         }
-        &.customerAddressAdditional {
+        &#customerAddressAdditional {
           width: 262px;
           input {
             padding-left: 58px;
@@ -4978,9 +4975,9 @@ div#payment {
         }
       }
     }
-    &.customerPostalCity {
+    &#customerPostalCity {
       >div {
-        &.customerPostal {
+        &#customerPostal {
           width: 115px;
           margin-right: 20px;
           span {
@@ -4988,7 +4985,7 @@ div#payment {
             padding: 7px 0 0 38px;
           }
         }
-        &.customerCity {
+        &#customerCity {
           width: 529px;
           span {
             display: inline-block;
@@ -5006,7 +5003,7 @@ div#payment {
   }
 }
 
-.paymentSettings {
+#paymentSettings {
   .positioned;
   cursor: default;
   width: 754px;
