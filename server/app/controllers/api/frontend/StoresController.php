@@ -51,8 +51,7 @@ class StoresController extends ApiController
 		if ($this->hasToken() && $storeModel->clientModel->id == $this->getClientModelIdFromToken()) {
 
 			$storeModel->setHidden((array(
-				'paypalToken',
-				'paypalTokensecret',
+				'paymentPaypalAuthHeader',
 				'created_at',
 				'updated_at',
 				'isActive',
@@ -90,9 +89,7 @@ class StoresController extends ApiController
 			'isOpen'				=> 'boolean|required',
 			'allowsPaymentCash'		=> 'boolean|required',
 			'allowsPaymentEc'		=> 'boolean|required',
-			'allowsPaymentPaypal'	=> 'boolean|required',
-			'latitude'				=> 'numeric|required',
-			'longitude'				=> 'numeric|required'
+			'allowsPaymentPaypal'	=> 'boolean|required'
 			);
 
 		$validator = Validator::make($input, $rules);
@@ -112,13 +109,11 @@ class StoresController extends ApiController
 		$storeModel->isOpen = (bool) $input['isOpen'];
 		$storeModel->allowsPaymentCash = (bool) $input['allowsPaymentCash'];
 		$storeModel->allowsPaymentEc = (bool) $input['allowsPaymentEc'];
-		$storeModel->latitude = $input['latitude'];
-		$storeModel->longitude = $input['longitude'];
 
 
 		// Paypal hook
 		
-		if ($input['allowsPaymentPaypal'] && (empty($storeModel->paypalToken) || empty($storeModel->paypalTokensecret))) {
+		if ($input['allowsPaymentPaypal'] && empty($storeModel->paymentPaypalAuthHeader)) {
 
 			return $this->respondWithStatus(400);
 

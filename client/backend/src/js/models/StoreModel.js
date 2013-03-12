@@ -9,11 +9,7 @@ define([
 	var StoreModel = Backbone.Model.extend({
 
 		defaults: {
-			addressModel: null,
-			monthlyTurnover: 0,
-			totalTurnover: 0,
-			monthlyOrders: 0,
-			totalOrders: 0
+			addressModel: null
 		},
 
 		urlRoot: server.getAddress() + 'stores',

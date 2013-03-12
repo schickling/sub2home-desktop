@@ -1,12 +1,13 @@
 // Filename: js/models/AddressModel.js
 define([
-	'underscore',
-	'backbone'
-	], function (_, Backbone) {
+    'underscore',
+    'backbone',
+    'server'
+    ], function (_, Backbone, server) {
 
 	var AddressModel = Backbone.Model.extend({
 
-		urlRoot: '/api/backend/addresses'
+		urlRoot: server.getAddress() + 'addresses'
 
 	});
 

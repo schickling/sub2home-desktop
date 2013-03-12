@@ -99,6 +99,7 @@ Route::group(array('https'), function()
 
 // clients
 Route::get('api/backend/clients', 									'App\Controllers\Api\Backend\ClientsController@index');
+Route::delete('api/backend/clients/{id}', 							'App\Controllers\Api\Backend\ClientsController@destroy');
 
 // addresses
 Route::put('api/backend/addresses/{id}', 							'App\Controllers\Api\Backend\AddressesController@update');

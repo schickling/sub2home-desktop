@@ -26,7 +26,7 @@ class ClientsController extends ApiController
 		return $clientsCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
-	public function update()
+	public function update($id)
 	{
 		// $input = Input::json();
 
@@ -45,5 +45,11 @@ class ClientsController extends ApiController
 
 		// return $storeModel;
 	}
+
+	public function destroy($id)
+	{
+		$clientModel = ClientModel::find($id);
+		$clientModel->delete();
+	}	
 
 }

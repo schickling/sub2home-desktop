@@ -1,21 +1,9 @@
 // Filename: server.js
 define([
-	'jquery',
-	'backbone'
-	], function ($, Backbone) {
+    'jquery',
+    'backbone'
+    ], function ($, Backbone) {
 
-	// set defaults for all api requests
-	$.ajaxSetup({
-
-		// all api requests are called synchronously
-		async: false,
-		crossDomain: true
-
-		// append token to all api requests to authenticate
-		// headers: {
-		// 	token: window.localStorage.getItem('token')
-		// }
-	});
 
 
 	var server = {
@@ -24,6 +12,25 @@ define([
 		url: 'sub2home.dev',
 		port: '80',
 		root: '/api/backend/',
+
+		init: function () {
+			// set defaults for all api requests
+			$.ajaxSetup({
+
+				// all api requests are called synchronously
+				async: false,
+				crossDomain: true,
+
+				xhrFields: {
+					withCredentials: true
+				},
+
+				// append token to all api requests to authenticate
+				headers: {
+					// 'Token': 'jo'
+				}
+			});
+		},
 
 		// returns the basic server http address
 		getAddress: function () {

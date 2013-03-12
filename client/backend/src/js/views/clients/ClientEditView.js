@@ -11,7 +11,6 @@ define([
 		template: _.template(ClientEditTemplate),
 
 		events: {
-			'click .confirmClient': '_updateClient',
 			'click .deleteClient': '_deleteClient',
 			'focusout input.editClientAddress': '_saveAddress'
 		},
@@ -64,62 +63,6 @@ define([
 
 			addressModel.set(attribute, val);
 			addressModel.save();
-
-		},
-
-		_updateClient: function () {
-			var $editClient = this.$('.editClient'),
-				$address = $editClient.find('.editClient_address'),
-				password = $editClient.find('.editClient_password').val(),
-				password_repeat = $editClient.find('.editClient_password_repeat').val(),
-				client = this.model,
-				self = this;
-
-			// Update address
-			_.each($address, function (field) {
-				var $field = $(field),
-					key = $field.attr('data-field'),
-					val = $field.val();
-				client.get('address')[key] = val;
-			});
-
-			// Update number
-			client.set('number', $editClient.find('.editClientNumber').val());
-
-			client.save({}, {
-				success: function () {
-
-					// Save password
-					if (password) {
-						$.ajax({
-							url: './update_password/',
-							type: 'post',
-							data: {
-								id: client.id,
-								password: password,
-								password_confirmation: password_repeat
-							},
-
-							success: function () {
-								app.popup('Password gespeichert. YES!', 'success');
-								self.hideEdit();
-							},
-
-							error: function (error) {
-								app.popup($.parseJSON(error.responseText), 'error');
-							}
-						});
-						// Password not changed
-					} else {
-						app.popup('Daten gespeichert. YES!', 'success');
-						self.hideEdit();
-					}
-				},
-
-				error: function (model, error) {
-					app.popup($.parseJSON(error.responseText), 'error');
-				}
-			});
 
 		}
 
