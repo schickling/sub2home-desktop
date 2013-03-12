@@ -296,13 +296,13 @@ aside#header .iInfo {
   background: url("../img/static/common/note_background.jpg") repeat;
   overflow: visible !important;
 }
-.note.home {
+.note#homeNote {
   height: 35%;
   text-align: center;
   padding-bottom: 80px;
   z-index: 50;
 }
-.note.home .container {
+.note#homeNote .container {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -310,11 +310,11 @@ aside#header .iInfo {
   padding: 80px 0;
   height: 100%;
 }
-.note.store {
+.note#storeNote {
   height: 150px;
   padding: 0;
 }
-.note.store .container {
+.note#storeNote .container {
   height: 100%;
   width: 100%;
 }
@@ -327,7 +327,7 @@ aside#header .iInfo {
   z-index: 50;
 }
 .note.full,
-.note.tray {
+.note#trayNote {
   position: absolute;
   top: 0;
   left: 0;
@@ -336,11 +336,11 @@ aside#header .iInfo {
   overflow: auto !important;
   padding: 100px 3% 30px;
 }
-.note.tray {
+.note#trayNote {
   top: -535px;
   padding: 0;
 }
-.note.timeline {
+.note#timelineNote {
   position: absolute;
   right: 0;
   left: 0;
@@ -349,23 +349,23 @@ aside#header .iInfo {
   bottom: -50px;
   text-align: center;
 }
-.note.timeline .container {
+.note#timelineNote .container {
   position: relative;
   display: inline-block;
   *zoom: 1;
   text-align: center;
   margin: 0;
 }
-.note.timeline .container:before,
-.note.timeline .container:after {
+.note#timelineNote .container:before,
+.note#timelineNote .container:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.note.timeline .container:after {
+.note#timelineNote .container:after {
   clear: both;
 }
-.note.timeline:before {
+.note#timelineNote:before {
   content: " ";
   height: 7px;
   position: absolute;
@@ -374,10 +374,10 @@ aside#header .iInfo {
   top: -7px;
   background: url("../img/static/common/note_top.png") repeat-x;
 }
-.note.home:after,
-.note.store:after,
-.note.selection:after,
-.note.orders:after {
+.note#homeNote:after,
+.note#storeNote:after,
+.note#selectionNote:after,
+.note#revenuesNote:after {
   content: " ";
   height: 7px;
   position: absolute;
@@ -386,11 +386,11 @@ aside#header .iInfo {
   bottom: -7px;
   background: url("../img/static/common/note_bottom.png") repeat-x;
 }
-.note.checkout {
+.note#checkoutNote {
   bottom: 0;
   height: 200px;
 }
-.note.checkout:before {
+.note#checkoutNote:before {
   content: " ";
   height: 7px;
   position: absolute;
@@ -399,26 +399,26 @@ aside#header .iInfo {
   top: -7px;
   background: url("../img/static/common/note_top.png") repeat-x;
 }
-.note.selection {
+.note#selectionNote {
   width: 100%;
 }
-.note.selection .container .info {
+.note#selectionNote #infoContainer .info {
   *zoom: 1;
   display: none;
 }
-.note.selection .container .info:before,
-.note.selection .container .info:after {
+.note#selectionNote #infoContainer .info:before,
+.note#selectionNote #infoContainer .info:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.note.selection .container .info:after {
+.note#selectionNote #infoContainer .info:after {
   clear: both;
 }
-.note.selection .container .info > div {
+.note#selectionNote #infoContainer .info > div {
   margin: 30px;
 }
-.note.selection .container .info > div.ingredientInfo {
+.note#selectionNote #infoContainer .info > div.ingredientInfo {
   margin: 90px 0 20px;
   float: right;
 }
@@ -2050,8 +2050,7 @@ input[type="text"].money {
 }
 .iSettings:before,
 .bSettings:before,
-.iStoreConfig:before,
-.bStoreConfig:before {
+#bStoreConfig:before {
   content: "\e05a";
 }
 .iHeart:before,
@@ -2115,7 +2114,8 @@ input[type="text"].money {
   content: "\e06a";
 }
 .iMail:before,
-.bMail:before {
+.bMail:before,
+#bMail:before {
   content: "\e06b";
 }
 .iStoreInfo:before,
@@ -2136,8 +2136,7 @@ input[type="text"].money {
 }
 .iTurnover:after,
 .bTurnover:after,
-.iStoreDashboard:after,
-.bStoreDashboard:after {
+#bStoreDashboard:after {
   content: "\e070";
 }
 .iBolt:before,
@@ -2164,24 +2163,20 @@ input[type="text"].money {
 .bSignin:before {
   content: "\e076";
 }
-.iSignout:before,
-.bSignout:before {
+#bSignout:before {
   content: "\e077";
 }
 .iFood:before,
 .bFood:before {
   content: "\e07b";
 }
-.iClientConfig:before,
-.bClientConfig:before {
+#bClientConfig:before {
   content: "\e07c";
 }
-.iStoreAssortment:before,
-.bStoreAssortment:before {
+#bStoreAssortment:before {
   content: "\e07d";
 }
-.iClientDashboard:before,
-.bClientDashboard:before {
+#bClientDashboard:before {
   content: "\e07e";
 }
 .iEye:before,
@@ -2250,7 +2245,7 @@ input[type="text"].money {
   color: #7c4800;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 -1px 0 #301c00;
 }
-.storeOpen {
+#storeOpen {
   cursor: pointer;
   position: absolute;
   top: -7px;
@@ -2260,7 +2255,7 @@ input[type="text"].money {
   background: url('../img/static/common/icons.png') no-repeat;
   background-position: 0 0;
 }
-.storeOpen.isOpen {
+#storeOpen.isOpen {
   background-position: -61px 0;
 }
 .btn {
@@ -3097,14 +3092,14 @@ img.cookie {
   position: absolute;
   z-index: 100;
 }
-#timeline .itemsTimeline,
+#timelineNote .itemsTimeline,
 #categoriesNavigation .itemsTimeline {
   display: inline-block;
   min-width: 30px;
   margin-right: 65px;
   vertical-align: top;
 }
-#timeline .itemsTimeline .itemTimeline,
+#timelineNote .itemsTimeline .itemTimeline,
 #categoriesNavigation .itemsTimeline .itemTimeline {
   position: relative;
   margin: 0;
@@ -3113,20 +3108,20 @@ img.cookie {
   width: 70px;
   height: 70px;
 }
-#timeline .itemsTimeline .itemTimeline:first-child,
+#timelineNote .itemsTimeline .itemTimeline:first-child,
 #categoriesNavigation .itemsTimeline .itemTimeline:first-child {
   margin-left: 0;
 }
-#timeline .itemsTimeline .itemTimeline .icn:before,
+#timelineNote .itemsTimeline .itemTimeline .icn:before,
 #categoriesNavigation .itemsTimeline .itemTimeline .icn:before {
   top: 1px;
 }
-#timeline .itemsTimeline .itemTimeline .iSnacks,
+#timelineNote .itemsTimeline .itemTimeline .iSnacks,
 #categoriesNavigation .itemsTimeline .itemTimeline .iSnacks {
   position: relative;
   top: 4px;
 }
-#timeline .itemsTimeline .itemTimeline img,
+#timelineNote .itemsTimeline .itemTimeline img,
 #categoriesNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
   top: 0;
@@ -3134,11 +3129,11 @@ img.cookie {
   width: 70px;
   height: auto;
 }
-#timeline .itemsTimeline:first-child .timelineItem:before,
+#timelineNote .itemsTimeline:first-child .timelineItem:before,
 #categoriesNavigation .itemsTimeline:first-child .timelineItem:before {
   content: " ";
 }
-#timeline #stageTimeline,
+#timelineNote #stageTimeline,
 #categoriesNavigation #stageTimeline {
   text-align: center;
   vertical-align: top;
@@ -3146,7 +3141,7 @@ img.cookie {
   top: 11px;
   white-space: nowrap;
 }
-#timeline #stageTimeline .phrase,
+#timelineNote #stageTimeline .phrase,
 #categoriesNavigation #stageTimeline .phrase {
   position: relative;
   margin: 13px 0 0 0;
@@ -3159,11 +3154,11 @@ img.cookie {
   font-size: 15px;
   white-space: pre-wrap;
 }
-#timeline #stageTimeline .itemTimeline,
+#timelineNote #stageTimeline .itemTimeline,
 #categoriesNavigation #stageTimeline .itemTimeline {
   color: #d1ba82;
 }
-#timeline #stageTimeline .itemTimeline .icn,
+#timelineNote #stageTimeline .itemTimeline .icn,
 #categoriesNavigation #stageTimeline .itemTimeline .icn {
   margin-left: -2px;
   width: 70px;
@@ -3172,15 +3167,15 @@ img.cookie {
   color: #c3a55d;
   color: inherit;
 }
-#timeline #stageTimeline .itemTimeline .icn:before,
+#timelineNote #stageTimeline .itemTimeline .icn:before,
 #categoriesNavigation #stageTimeline .itemTimeline .icn:before {
   font-size: 68px;
 }
-#timeline #stageTimeline .itemTimeline img,
+#timelineNote #stageTimeline .itemTimeline img,
 #categoriesNavigation #stageTimeline .itemTimeline img {
   display: none;
 }
-#timeline #overlayTimeline,
+#timelineNote #overlayTimeline,
 #categoriesNavigation #overlayTimeline {
   display: none;
   width: 90px;
@@ -3189,7 +3184,7 @@ img.cookie {
   top: 0px;
   left: -10px;
 }
-#timeline #overlayFrameTimeline,
+#timelineNote #overlayFrameTimeline,
 #categoriesNavigation #overlayFrameTimeline {
   display: block;
   overflow: hidden;
@@ -3209,7 +3204,7 @@ img.cookie {
   text-align: center;
   vertical-align: center;
 }
-#timeline #overlayFrameTimeline:before,
+#timelineNote #overlayFrameTimeline:before,
 #categoriesNavigation #overlayFrameTimeline:before {
   content: " ";
   position: absolute;
@@ -3219,7 +3214,7 @@ img.cookie {
   top: 0;
   background: rgba(209, 186, 130, 0.3);
 }
-#timeline #overlayFrameTimeline #overlayFrameWrapperTimeline,
+#timelineNote #overlayFrameTimeline #overlayFrameWrapperTimeline,
 #categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline {
   display: block;
   position: absolute;
@@ -3228,11 +3223,11 @@ img.cookie {
   white-space: nowrap;
   margin: 0;
 }
-#timeline #overlayFrameTimeline #overlayFrameWrapperTimeline img,
+#timelineNote #overlayFrameTimeline #overlayFrameWrapperTimeline img,
 #categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline img {
   left: -2px;
 }
-#timeline #overlayFrameTimeline .itemsTimeline,
+#timelineNote #overlayFrameTimeline .itemsTimeline,
 #categoriesNavigation #overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
 }
@@ -3267,7 +3262,7 @@ img.cookie {
   background: #9cc83e;
   height: 30px;
 }
-.loadMore {
+#loadMore {
   width: 200px;
   margin: 20px auto 0;
   height: 20px;
@@ -3296,7 +3291,7 @@ img.cookie {
   -o-transition: background 0.1s linear;
   transition: background 0.1s linear;
 }
-.loadMore:hover {
+#loadMore:hover {
   background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top, #fafafa, #f1f1f1);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#f1f1f1));
@@ -3306,7 +3301,7 @@ img.cookie {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffafafa', endColorstr='#fff1f1f1', GradientType=0);
 }
-.loadMore:active {
+#loadMore:active {
   background-color: #f5f5f5;
   background-image: -moz-linear-gradient(top, #f1f1f1, #fafafa);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#fafafa));
@@ -3569,17 +3564,17 @@ aside#header div#clientAreaNavigation .iBtn:hover {
 aside#header div#clientAreaNavigation .iBtn.active {
   color: #5f4e26;
 }
-aside#header div#clientAreaNavigation .bStoreConfig {
+aside#header div#clientAreaNavigation #bStoreConfig {
   margin-left: 19px;
 }
-aside#header div#clientAreaNavigation .bStoreDashboard {
+aside#header div#clientAreaNavigation #bStoreDashboard {
   margin-right: 19px;
 }
-aside#header div#clientAreaNavigation .bClientConfig {
+aside#header div#clientAreaNavigation #bClientConfig {
   margin: 24px 19px 0;
 }
-aside#header div#clientAreaNavigation .bClientDashboard,
-aside#header div#clientAreaNavigation .bSignout {
+aside#header div#clientAreaNavigation #bClientDashboard,
+aside#header div#clientAreaNavigation #bSignout {
   margin: 0;
   padding: 24px 19px 0;
   -webkit-box-shadow: -1px 0 0 0 rgba(133, 91, 0, 0.25), inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
@@ -3590,14 +3585,14 @@ aside#header div#clientAreaNavigation .bSignout {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header div#clientAreaNavigation .bClientDashboard:hover,
-aside#header div#clientAreaNavigation .bSignout:hover {
+aside#header div#clientAreaNavigation #bClientDashboard:hover,
+aside#header div#clientAreaNavigation #bSignout:hover {
   background: rgba(184, 126, 0, 0.35);
   -webkit-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
   -moz-box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
   box-shadow: inset 1px 0 2px 0 #bc9b4a, inset -1px 0 2px 0 #bc9b4a, -1px 0 0 0 rgba(255, 255, 255, 0.4);
 }
-aside#header div#clientAreaNavigation .bSignout {
+aside#header div#clientAreaNavigation #bSignout {
   display: block;
 }
 aside#header.isLoggedIn #headerClientContent,
@@ -3923,7 +3918,6 @@ input[type="text"]#locationSelectionInput {
   margin-top: 22px;
   padding: 0 5px 0 0;
   cursor: pointer;
-  display: none;
 }
 #deliveryAreas span:before {
   content: ", ";
@@ -4551,7 +4545,7 @@ input[type="text"]#locationSelectionInput {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.content.store.assortment #stage.assortment .slide {
+.content.assortment #stage .slide {
   height: 100%;
   overflow-y: auto;
 }
@@ -5904,18 +5898,18 @@ input[type="text"]#locationSelectionInput {
   font-family: "VAGRounded LT Thin";
   text-align: center;
 }
-#noOrders .bMail {
+#noOrders #bMail {
   font-size: 70px;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
   height: 75px;
   position: relative;
   top: 15px;
   margin: 0 0 0 30px;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
-#noOrders .bMail:hover {
+#noOrders #bMail:hover {
   color: #9cc83e;
 }
 #noOrders .notice {
@@ -6112,13 +6106,17 @@ header h2 {
   right: 70px;
   width: auto;
 }
-#storeOrderingContact .bMail {
+#storeOrderingContact #bMail {
   position: absolute;
   right: 20px;
   top: 28px;
   color: #d1ba82;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
-#storeOrderingContact .bMail:hover {
+#storeOrderingContact #bMail:hover {
   color: #9cc83e;
 }
 div#payment {
@@ -6350,42 +6348,42 @@ div#payment > div.disabled .btn.active {
 .deliveryAreaDistrict {
   width: 20%;
 }
-#articleInfo {
+.articleInfo {
   margin: 30px 0;
   float: left;
   position: relative;
   width: 40%;
   text-align: center;
 }
-#articleInfo .wrapper {
+.articleInfo .wrapper {
   display: inline-block;
 }
-#articleInfo #articlePreview {
+.articleInfo .articlePreview {
   display: inline-block;
   position: relative;
   text-align: left;
   width: 265px;
 }
-#articleInfo #articlePreview img {
+.articleInfo .articlePreview img {
   height: 160px;
   width: auto;
 }
-#articleInfo #articlePreview .pricetag {
+.articleInfo .articlePreview .pricetag {
   right: 15px;
   bottom: 10px;
 }
-#articleInfo #articleBasics {
+.articleInfo .articleBasics {
   display: inline-block;
   width: 300px;
   vertical-align: top;
   padding-top: 40px;
 }
-#articleInfo #articleTitle {
+.articleInfo .articleTitle {
   padding-left: 15px;
   position: relative;
   text-align: left;
 }
-#articleInfo #articleDescription {
+.articleInfo .articleDescription {
   padding-left: 15px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   position: relative;
@@ -6394,10 +6392,10 @@ div#payment > div.disabled .btn.active {
   font-size: 15px;
   margin: 0;
 }
-#articleInfo.ft #articlePreview {
+.articleInfo.ft #articlePreview {
   width: 450px;
 }
-#articleInfo.ft div#articleBasics {
+.articleInfo.ft div#articleBasics {
   width: 430px;
   padding: 0 0 0 10px;
 }
@@ -6416,28 +6414,28 @@ div#payment > div.disabled .btn.active {
   left: 0;
   margin-left: 4px;
 }
-#ingredientInfo {
+.ingredientInfo {
   width: 52%;
   *zoom: 1;
   position: relative;
 }
-#ingredientInfo:before,
-#ingredientInfo:after {
+.ingredientInfo:before,
+.ingredientInfo:after {
   display: table;
   content: "";
   line-height: 0;
 }
-#ingredientInfo:after {
+.ingredientInfo:after {
   clear: both;
 }
-#ingredientInfo .ingredientCategories {
+.ingredientInfo .ingredientCategories {
   float: left;
   width: 45%;
 }
-#ingredientInfo .ingredientCategories:last-child {
+.ingredientInfo .ingredientCategories:last-child {
   margin-left: 30px;
 }
-#ingredientInfo .ingredientCategory {
+.ingredientInfo .ingredientCategory {
   position: relative;
   min-height: 19px;
   vertical-align: top;
@@ -6445,43 +6443,43 @@ div#payment > div.disabled .btn.active {
   display: block;
   border-bottom: 1px solid rgba(209, 186, 130, 0.5);
 }
-#ingredientInfo .ingredientCategory .label {
+.ingredientInfo .ingredientCategory .label {
   position: absolute;
   left: 10px;
 }
-#ingredientInfo .ingredientCategory .ingredient {
+.ingredientInfo .ingredientCategory .ingredient {
   display: inline-block;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-#ingredientInfo .ingredientCategory .ingredient:after {
+.ingredientInfo .ingredientCategory .ingredient:after {
   content: ",";
   margin-right: 5px;
   cursor: default;
 }
-#ingredientInfo .ingredientCategory .ingredient.penultimate:after {
+.ingredientInfo .ingredientCategory .ingredient.penultimate:after {
   content: "";
 }
-#ingredientInfo .ingredientCategory .ingredient:last-child:before {
+.ingredientInfo .ingredientCategory .ingredient:last-child:before {
   content: "&";
   margin-right: 5px;
   cursor: default;
 }
-#ingredientInfo .ingredientCategory .ingredient:last-child:after {
+.ingredientInfo .ingredientCategory .ingredient:last-child:after {
   content: " ";
 }
-#ingredientInfo .ingredientCategory .ingredient:first-child:before {
+.ingredientInfo .ingredientCategory .ingredient:first-child:before {
   content: " ";
   margin-right: 0px;
 }
-#ingredientInfo .ingredientCategory .ingredient span {
+.ingredientInfo .ingredientCategory .ingredient span {
   cursor: pointer;
   white-space: pre;
 }
-#ingredientInfo .ingredientCategory .ingredient span:hover {
+.ingredientInfo .ingredientCategory .ingredient span:hover {
   text-decoration: line-through;
 }
-#ingredientInfo .ingredientCategory .ingredient span:hover:before {
+.ingredientInfo .ingredientCategory .ingredient span:hover:before {
   text-decoration: none;
 }
 .orderingCategory {
@@ -6942,7 +6940,7 @@ div#payment > div.disabled .btn.active {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
-#itemsTimeline #itemTimeline:first-child:before {
+.itemsTimeline .itemTimeline:first-child:before {
   font-family: "Homicons";
   content: "\e03f";
   position: absolute;
@@ -6953,32 +6951,32 @@ div#payment > div.disabled .btn.active {
   color: #c3a55d;
   cursor: default;
 }
-#itemsTimeline #itemTimeline .iBread,
-#itemsTimeline #itemTimeline .iCheese,
-#itemsTimeline #itemTimeline .iVegetables,
-#itemsTimeline #itemTimeline .iSauce,
-#itemsTimeline #itemTimeline .iExtras,
-#itemsTimeline #itemTimeline .iMenuUpgrade {
+.itemsTimeline .itemTimeline .iBread,
+.itemsTimeline .itemTimeline .iCheese,
+.itemsTimeline .itemTimeline .iVegetables,
+.itemsTimeline .itemTimeline .iSauce,
+.itemsTimeline .itemTimeline .iExtras,
+.itemsTimeline .itemTimeline .iMenuUpgrade {
   position: relative;
   top: 7px;
   left: 2px;
 }
-#itemsTimeline #itemTimeline .iMenuUpgrade {
+.itemsTimeline .itemTimeline .iMenuUpgrade {
   top: 1px;
   left: 0;
 }
-#itemsTimeline #itemTimeline .iCart.clickable {
+.itemsTimeline .itemTimeline .iCart.clickable {
   color: #9cc83e;
   text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #6f9029;
 }
-#itemsTimeline:first-child .itemTimeline:before {
+.itemsTimeline:first-child .itemTimeline:before {
   content: " ";
 }
-.note.timeline #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
+#timelineNote #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
   width: auto;
   cursor: default;
 }
-.note.timeline #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
+#timelineNote #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child img {
   top: 15px;
   position: absolute;
   height: 43px;
@@ -6986,26 +6984,26 @@ div#payment > div.disabled .btn.active {
   left: auto;
   right: 0;
 }
-#stageTimeline .itemTimeline.visited .icn {
+#timelineNote #stageTimeline .itemTimeline.visited .icn {
   visibility: hidden;
 }
-#stageTimeline .itemTimeline.visited img {
+#timelineNote #stageTimeline .itemTimeline.visited img {
   display: block;
 }
-#stageTimeline .itemTimeline.locked .icn {
+#timelineNote #stageTimeline .itemTimeline.locked .icn {
   visibility: visible;
 }
-#stageTimeline .itemTimeline.locked img {
+#timelineNote #stageTimeline .itemTimeline.locked img {
   display: none;
 }
-#stageTimeline.itemsMultiple .itemTimeline:after {
+#timelineNote #stageTimeline.itemsMultiple .itemTimeline:after {
   content: "/";
   position: relative;
   top: -5px;
   margin: 0 5px 0 5px;
   color: #000000;
 }
-#stageTimeline.itemsMultiple .itemTimeline:last-child:after {
+#timelineNote #stageTimeline.itemsMultiple .itemTimeline:last-child:after {
   content: " ";
 }
 #orderedItems {

@@ -134,7 +134,7 @@ aside#header {
   background: @noteBackground;
   overflow: visible !important;
 
-  &.home {
+  &#homeNote {
     height: 35%;
     text-align: center;
     padding-bottom: 80px;
@@ -147,7 +147,7 @@ aside#header {
     }
   }
 
-  &.store {
+  &#storeNote {
     height: 150px;
     padding: 0;
     .container {
@@ -164,7 +164,7 @@ aside#header {
     position: relative;
     z-index: 50;
   }
-  &.full, &.tray {
+  &.full, &#trayNote {
     position: absolute;
     top: 0;
     left: 0;
@@ -174,14 +174,14 @@ aside#header {
     padding: 100px 3% 30px;
   }
 
-  &.tray {
+  &#trayNote {
     top: -535px;
     padding: 0;
   }
   
   // Timeline
 
-  &.timeline {
+  &#timelineNote {
     position: absolute;
     right: 0;
     left: 0;
@@ -209,7 +209,7 @@ aside#header {
     }
   }
 
-  &.home, &.store, &.selection, &.orders {
+  &#homeNote, &#storeNote, &#selectionNote, &#revenuesNote {
     &:after {
       content: " ";
       height: 7px;
@@ -222,7 +222,7 @@ aside#header {
   }
 
 
-  &.checkout {
+  &#checkoutNote {
     bottom: 0;
     height: 200px;
 
@@ -241,9 +241,9 @@ aside#header {
 
 
 
-.note.selection {
+.note#selectionNote {
   width: 100%;
-  .container {
+  #infoContainer {
     .info {
       .clearfix;
       display: none;

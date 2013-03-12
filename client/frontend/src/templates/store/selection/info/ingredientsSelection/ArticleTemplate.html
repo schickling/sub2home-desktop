@@ -1,14 +1,14 @@
 <div class="wrapper">
-	<div id="articlePreview">
+	<div class="articlePreview">
 		<img src="../../../../<%= image %>">
 		<div class="pricetag"><span><%= total.toFixed(2) %> €</span></div>
 	</div>
-	<div id="articleBasics">
-		<h3 id="articleTitle">
+	<div class="articleBasics">
+		<h3 class="articleTitle">
 			<%= title %>
 			<% if (info) { %><span class="sizeTag">(<%= info %>)</span><% } %>
 		</h3>
-		<p id="articleDescription"><%= description %></p>
+		<p class="articleDescription"><%= description %></p>
 	</div>
 	
 </div>
