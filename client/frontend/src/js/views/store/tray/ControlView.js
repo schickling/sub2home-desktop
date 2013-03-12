@@ -14,7 +14,7 @@ define([
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click #orderNow': '_checkout',
+			'click .orderNow': '_checkout',
 			'focusout textarea': '_saveComment',
 			'click #credit.hasNoCredit': '_showCredit',
 			'click #credit .bAdd': '_increaseCredit',

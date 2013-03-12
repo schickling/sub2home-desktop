@@ -205,7 +205,7 @@ define([
 			}, 300);
 
 			this.$overlay.stop().animate({
-				bottom: 0
+				marginTop: -63
 			}, 300);
 		},
 
@@ -215,7 +215,7 @@ define([
 			}, 300);
 
 			this.$overlay.stop().animate({
-				bottom: -50
+				marginTop: -38
 			}, 300);
 		},
 

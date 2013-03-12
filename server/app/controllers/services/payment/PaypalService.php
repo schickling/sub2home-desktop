@@ -151,7 +151,7 @@ class PaypalService implements PaymentInterface
 	 */
 	private static function callApi($params, $header, $url)
 	{
-		var_dump($url);
+		// var_dump($url);
 
 		// add header fields
 		$standardHeader = array(
@@ -160,7 +160,7 @@ class PaypalService implements PaymentInterface
 
 		$header = array_merge($header, $standardHeader);
 
-		var_dump($header);
+		// var_dump($header);
 
 
 		// add parameters
@@ -173,7 +173,7 @@ class PaypalService implements PaymentInterface
 		// encode parameters
 		$parameterString = http_build_query($params);
 
-		var_dump($parameterString);
+		// var_dump($parameterString);
 
 		
 		$ch = curl_init();

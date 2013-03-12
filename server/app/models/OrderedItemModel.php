@@ -96,16 +96,24 @@ class OrderedItemModel extends BaseModel
 		throw new Exception('Total has to be calculated');
 	}
 
+	private function isMenu()
+	{
+		return $this->menuModel != null;
+	}
+
 	public function calculateTotal()
 	{
 		$store_model_id = $this->orderModel->storeModel->id;
 		$orderedArticlesCollection = $this->orderedArticlesCollection;
 		$total = (float) $this->baseArticleModel->returnCustomPrice($store_model_id);
+		$total += (float) $this->baseArticleModel->deposit;
 
-		if ($this->menuModel instanceof MenuBundleModel) {
-			$total = (float) $this->menuModel->returnCustomPrice($store_model_id);
-		} elseif ($this->menuModel instanceof MenuUpgradeModel) {
-			$total += (float) $this->menuModel->returnCustomPrice($store_model_id);
+		if ($this->isMenu()) {
+			if ($this->menuModel instanceof MenuBundleModel) {
+				$total = (float) $this->menuModel->returnCustomPrice($store_model_id);
+			} else {
+				$total += (float) $this->menuModel->returnCustomPrice($store_model_id);
+			}
 		}
 
 		// sum up ingredients
@@ -113,6 +121,7 @@ class OrderedItemModel extends BaseModel
 			foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
 				$total += (float) $ingredientModel->returnCustomPrice($store_model_id);
 			}
+			$total += (float) $orderedArticleModel->articleModel->deposit;
 		}
 
 		$this->attributes['total'] = $total * $this->amount;

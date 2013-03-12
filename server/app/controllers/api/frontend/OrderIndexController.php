@@ -16,6 +16,10 @@ class OrderIndexController extends ApiController
 		$this->loadStoreModel();
 		$this->checkAuthentification();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+
 		$page = Input::get('page');
 		$search = Input::get('search', '');
 		$pageSize = 50;

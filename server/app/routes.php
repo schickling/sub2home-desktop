@@ -7,20 +7,20 @@
 */
 
 // stores
-Route::get('api/frontend/stores', 									'App\Controllers\Api\Frontend\StoresController@index');
-Route::get('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@show');
+Route::get('api/frontend/stores', 										'App\Controllers\Api\Frontend\StoresController@index');
+Route::get('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@show');
 
 // categories
-Route::get('api/frontend/stores/{alias}/categories',				'App\Controllers\Api\Frontend\CategoriesController@index');
+Route::get('api/frontend/stores/{alias}/categories',					'App\Controllers\Api\Frontend\CategoriesController@index');
 
 // articles
-Route::get('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\Frontend\ArticlesController@show');
+Route::get('api/frontend/stores/{alias}/articles/{id}',					'App\Controllers\Api\Frontend\ArticlesController@show');
 
 // menu bundles
-Route::get('api/frontend/stores/{alias}/menubundles/{id}',			'App\Controllers\Api\Frontend\MenuBundlesController@show');
+Route::get('api/frontend/stores/{alias}/menubundles/{id}',				'App\Controllers\Api\Frontend\MenuBundlesController@show');
 
 // orders
-Route::post('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderCreateController@create');
+Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
 
 
 
@@ -55,7 +55,7 @@ Route::group(array('https'), function()
 	// orders
 	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
 	Route::get('api/frontend/stores/{alias}/orders/{id}', 				'App\Controllers\Api\Frontend\OrderShowController@show');
-	Route::post('api/frontend/stores/{alias}/testorder', 				'App\Controllers\Api\Frontend\OrderCreateController@testOrder');
+	Route::post('api/frontend/stores/{alias}/testorder', 				'App\Controllers\Api\Frontend\OrderTestOrderController@create');
 
 	// addresses
 	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
@@ -98,13 +98,13 @@ Route::group(array('https'), function()
 */
 
 // clients
-Route::get('api/backend/clients', 									'App\Controllers\Api\Backend\ClientsController@index');
-Route::delete('api/backend/clients/{id}', 							'App\Controllers\Api\Backend\ClientsController@destroy');
+Route::get('api/backend/clients', 										'App\Controllers\Api\Backend\ClientsController@index');
+Route::delete('api/backend/clients/{id}', 								'App\Controllers\Api\Backend\ClientsController@destroy');
 
 // addresses
-Route::put('api/backend/addresses/{id}', 							'App\Controllers\Api\Backend\AddressesController@update');
+Route::put('api/backend/addresses/{id}', 								'App\Controllers\Api\Backend\AddressesController@update');
 
 // stores
-Route::post('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@create');
-Route::put('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@update');
-Route::delete('api/backend/stores/{id}', 							'App\Controllers\Api\Backend\StoresController@destroy');
+Route::post('api/backend/stores/{id}', 									'App\Controllers\Api\Backend\StoresController@create');
+Route::put('api/backend/stores/{id}', 									'App\Controllers\Api\Backend\StoresController@update');
+Route::delete('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@destroy');

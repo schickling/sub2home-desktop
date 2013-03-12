@@ -1,10 +1,10 @@
 <% if (isReady) { %>
 <div id="checkoutReadyControls">
-	<span id="orderNow">Bestellen</span> für <span id="price"><%= total.toFixed(2) %> €<span id="credit" <% if (hasCredit) { %>class="hasCredit"<% } else { %>hasNoCredit<% } %>><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Gute Gäste geben Trinkgeld.</i></span></span>, bezahlen <span id="paymentMethod" class="settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
+	<span id="orderNow" class="orderNow">Bestellen</span> für <span id="price"><%= total.toFixed(2) %> €<span id="credit" <% if (hasCredit) { %>class="hasCredit"<% } else { %>hasNoCredit<% } %>><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Gute Gäste geben Trinkgeld.</i></span></span>, bezahlen <span id="paymentMethod" class="settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
 	und liefern <span id="deliveryAddress" class="settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span><br>
 	<span id="acceptAGB">Mit Absenden der Bestellung akzeptierst du unsere <span>AGB</span>.</span>
 </div>
-<div class="icn iCart"></div>
+<div class="icn iCart orderNow"></div>
 
 <% } else { %>
 Nur noch deine <span id="deliveryAddress" class="settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span id="price"><%= total.toFixed(2) %> €
