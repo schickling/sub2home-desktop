@@ -673,7 +673,7 @@ aside#header {
 
   // TO-THE-INFO SECTION
 
-  .bInfo {
+  #toTheInfo {
     width: 30px;
     float: right;
     cursor: pointer;
@@ -694,13 +694,6 @@ aside#header {
       background: @headerHoverBackground;
     }
   }
-  .switch {
-    position: absolute;
-    z-index: 50;
-    left: 300px;
-  }
-
-
 
   #headerClientContent, #headerCustomerContent {
     position: absolute;
@@ -713,7 +706,7 @@ aside#header {
     //float: left;
     .clearfix;
 
-    .initial {
+    #initial {
       font-size: 20px;
       padding: 25px 15px 0 ;
       display: inline-block;
@@ -730,11 +723,10 @@ aside#header {
       float: left;
     }
 
-    .currentInfo {
+    #currentInfo {
       height: 45px;
       margin: 8px 0 0 0;
       padding-top: 3px;
-      //width: 170px;
       span {
         width: 100px;
         display: inline-block;
@@ -746,7 +738,7 @@ aside#header {
 
   #headerCustomerContent {
 
-    .back {
+    #back {
       height: 48px;
       margin: 8px 0 0 0;
       float: right;
@@ -773,7 +765,7 @@ aside#header {
 
     // TRAY PREVIEW SECTION
 
-    .trayPreview {
+    #trayPreview {
       padding-top: 19px;
       height: 48px;
       cursor: pointer;
@@ -847,10 +839,10 @@ aside#header {
       }
     }
 
-    .sumContainer {
+    #sumContainer {
       display: inline-block;
       vertical-align: middle;
-      .minimum {
+      #minimum {
         white-space: nowrap;
       }
     }
@@ -896,7 +888,7 @@ aside#header {
   &.isLoggedIn {
     #headerClientContent, #headerCustomerContent {
       left: 120px;
-      .currentInfo {
+      #currentInfo {
         border-left: none;
         .box-shadow(none);
       }
@@ -929,7 +921,7 @@ div#roleSwitch {
       top: -8px;
     }
   }
-  .handle {
+  #handle {
     position: absolute;
     top:27px;
     left: 2px;
