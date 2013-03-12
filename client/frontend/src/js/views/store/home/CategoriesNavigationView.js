@@ -31,29 +31,29 @@ define([
 
 		initialize: function () {
 
-			this.prepareTimelineItems();
-			this.render();
-			this.cacheDom();
+			this._prepareTimelineItems();
+			this._render();
+			this._cacheDom();
 
-			this.initializeClickListneres();
-			this.initializeScrollListneres();
+			this._initializeClickListneres();
+			this._initializeScrollListneres();
 		},
 
-		cacheDom: function () {
+		_cacheDom: function () {
 			// content
 			this.$content = this.$('.content');
-			this.$categories = this.$content.find('.categories').children();
+			this.$categories = this.$content.find('#categories').children();
 
 			// navigation
-			this.$navigation = this.$('.categoriesNavigation');
-			this.$navigationStage = this.$navigation.find('.stageTimeline');
+			this.$navigation = this.$('#categoriesNavigation');
+			this.$navigationStage = this.$navigation.find('#stageTimeline');
 			this.$navigationItems = this.$navigationStage.find('.itemTimeline');
-			this.$navigationOverlay = this.$navigation.find('.overlayTimeline');
-			this.$navigationOverlayWrapper = this.$navigationOverlay.find('.overlayFrameWrapperTimeline');
+			this.$navigationOverlay = this.$navigation.find('#overlayTimeline');
+			this.$navigationOverlayWrapper = this.$navigationOverlay.find('#overlayFrameWrapperTimeline');
 
 		},
 
-		prepareTimelineItems: function () {
+		_prepareTimelineItems: function () {
 			this.timelineItemsCollection = new TimelineItemsCollection();
 
 			_.each(this.collection.models, function (categoryModel) {
@@ -64,14 +64,14 @@ define([
 			}, this);
 		},
 
-		render: function () {
+		_render: function () {
 			var timelineView = new TimelineBaseView({
-				el: this.$('.categoriesNavigation'),
+				el: this.$('#categoriesNavigation'),
 				collection: this.timelineItemsCollection
 			});
 		},
 
-		initializeClickListneres: function () {
+		_initializeClickListneres: function () {
 			var self = this;
 
 			this.$navigationItems.each(function (index) {
@@ -79,12 +79,12 @@ define([
 
 				$this.on('click', function () {
 					self.currentCategoryIndex = index;
-					self.navigate();
+					self._navigate();
 				});
 			});
 		},
 
-		initializeScrollListneres: function () {
+		_initializeScrollListneres: function () {
 			var self = this,
 				$content = this.$content,
 				$categories = this.$categories,
@@ -114,7 +114,7 @@ define([
 						}
 
 						self.currentCategoryIndex = currentIndex;
-						self.slideTimeline();
+						self._slideTimeline();
 					}, 20);
 
 				}
@@ -123,12 +123,12 @@ define([
 			});
 		},
 
-		navigate: function () {
-			this.slideTimeline();
-			this.scrollContent();
+		_navigate: function () {
+			this._slideTimeline();
+			this._scrollContent();
 		},
 
-		slideTimeline: function () {
+		_slideTimeline: function () {
 			var offsetRelative = this.currentCategoryIndex * 70;
 
 			this.$navigationOverlay.stop().animate({
@@ -140,7 +140,7 @@ define([
 			}, this.animationTime);
 		},
 
-		scrollContent: function () {
+		_scrollContent: function () {
 			var $currentCategory = this.$categories.eq(this.currentCategoryIndex),
 				self = this;
 

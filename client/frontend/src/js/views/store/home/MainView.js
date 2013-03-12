@@ -67,14 +67,14 @@ define([
 
 		_renderDeliveryView: function () {
 			new DeliveryView({
-				el: this.$('.storeDeliveryDetails')
+				el: this.$('#storeDeliveryDetails')
 			});
 		},
 
 		_renderCategories: function () {
 			var self = this,
 				$content = this.$('.content'),
-				$categories = $content.find('.categories');
+				$categories = $content.find('#categories');
 
 
 			var categoriesView = new CategoriesView({

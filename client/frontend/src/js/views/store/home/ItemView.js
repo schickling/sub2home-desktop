@@ -67,7 +67,7 @@ define([
 
 			this.$el.append(detailsView.el);
 
-			// check if item is too close to border
+			// TODO check if item is too close to border
 		},
 
 		_putArticleInCart: function () {

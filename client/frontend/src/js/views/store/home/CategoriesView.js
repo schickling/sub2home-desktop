@@ -1,12 +1,12 @@
 // Filename: src/js/views/store/home/CategoriesView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'collections/CategoriesCollection',
-	'views/store/home/CategoryView'
-	], function ($, _, Backbone, CategoriesCollection, CategoryView) {
-	
+    'jquery',
+    'underscore',
+    'backbone',
+    'collections/CategoriesCollection',
+    'views/store/home/CategoryView'
+    ], function ($, _, Backbone, CategoriesCollection, CategoryView) {
+
 
 	var CategoriesView = Backbone.View.extend({
 
@@ -38,7 +38,7 @@ define([
 				model: categoryModel
 			});
 
-			this.$el.append(categoryView.$el);
+			this.$el.append(categoryView.el);
 		}
 
 	});

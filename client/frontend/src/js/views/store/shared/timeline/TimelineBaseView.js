@@ -19,8 +19,8 @@ define([
 		},
 
 		render: function () {
-			var $stage = this.$('.stageTimeline'),
-				$overlay = this.$('.overlayFrameWrapperTimeline'),
+			var $stage = this.$('#stageTimeline'),
+				$overlay = this.$('#overlayFrameWrapperTimeline'),
 				$stageContainer = $('<div class="itemsTimeline">').appendTo($stage),
 				$overlayContainer = $('<div class="itemsTimeline">').appendTo($overlay);
 

@@ -1,23 +1,28 @@
+// Filename: src/js/views/store/home/CategoryView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/home/ItemsView',
-	'text!templates/store/home/CategoryTemplate.html'
-	], function ($, _, Backbone, ItemsView, CategoryTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/home/ItemsView',
+    'text!templates/store/home/CategoryTemplate.html'
+    ], function ($, _, Backbone, ItemsView, CategoryTemplate) {
 
 	var CategoryView = Backbone.View.extend({
 
 		className: 'category',
+
+		template: _.template(CategoryTemplate),
 
 		initialize: function () {
 			this.render();
 		},
 
 		render: function () {
-			this.$el.html(_.template(CategoryTemplate, this.model.toJSON()));
+			var json = {
+				title: this.model.get('title')
+			};
 
-			this.$el.attr('id', this.model.get('alias'));
+			this.$el.html(this.template(json));
 
 			var itemsView = new ItemsView({
 				collection: this.model.get('itemsCollection'),
