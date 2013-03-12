@@ -22,8 +22,8 @@ define([
 		orderedItemModel: null,
 
 		events: {
-			'mouseenter .timeline': '_slideTimelineUp',
-			'mouseleave .timeline': '_slideTimelineDown'
+			'mouseenter #timelineNote': '_slideTimelineUp',
+			'mouseleave #timelineNote': '_slideTimelineDown'
 		},
 
 		// referenced sub views
@@ -31,6 +31,10 @@ define([
 			timelineControllerView: null,
 			orderedArticlesView: null
 		},
+
+		// cached dom
+		$timelineNote: null,
+		$overlay: null,
 
 		initialize: function () {
 
@@ -147,6 +151,8 @@ define([
 			// render template
 			this.$el.html(MainTemplate);
 
+			this._cacheDom();
+
 			// append to body
 			this.append();
 
@@ -161,17 +167,20 @@ define([
 
 		},
 
+		_cacheDom: function() {
+			this.$timelineNote = this.$('#timelineNote');
+			this.$overlay = this.$('#overlay');
+		},
+
 		_renderCartTimelineItem: function () {
 			var timelineItemsCollection = new TimelineItemsCollection({
 				isDisabled: true,
 				icon: 'iCart'
 			});
 
-			var $timeline = this.$('.note.timeline');
-
 			new TimelineView({
 				collection: timelineItemsCollection,
-				el: $timeline
+				el: this.$timelineNote
 			});
 		},
 
@@ -188,17 +197,24 @@ define([
 				collection: this.orderedItemModel.get('timelineItemsCollection'),
 				el: this.$el
 			});
-
 		},
 
 		_slideTimelineUp: function () {
-			this.$('.timeline, .stage.overlay').stop().animate({
+			this.$timelineNote.stop().animate({
+				bottom: 0
+			}, 300);
+
+			this.$overlay.stop().animate({
 				bottom: 0
 			}, 300);
 		},
 
 		_slideTimelineDown: function () {
-			this.$('.timeline, .stage.overlay').stop().animate({
+			this.$timelineNote.stop().animate({
+				bottom: -50
+			}, 300);
+
+			this.$overlay.stop().animate({
 				bottom: -50
 			}, 300);
 		},

@@ -14,8 +14,6 @@ define([
 
 		template: _.template(NoUpgradeTemplate),
 
-		className: 'noUpgrade',
-
 		events: {
 			'click': '_resetMenuUpgrade'
 		},
@@ -32,6 +30,8 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+
+			this.$el.attr('id', 'noUpgrade');
 		},
 
 		_resetMenuUpgrade: function () {

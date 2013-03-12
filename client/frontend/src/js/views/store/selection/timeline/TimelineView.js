@@ -10,9 +10,9 @@ define([
 	var TimelineView = TimelineBaseView.extend({
 
 		render: function () {
-			var $stage = this.$('.stageTimeline'),
+			var $stage = this.$('#stageTimeline'),
 				$stageCart = $stage.find('.itemsTimeline').last(),
-				$overlay = this.$('.overlayFrameWrapperTimeline'),
+				$overlay = this.$('#overlayFrameWrapperTimeline'),
 				$overlayCart = $overlay.find('.itemsTimeline').last(),
 				$stageContainer, $overlayContainer;
 

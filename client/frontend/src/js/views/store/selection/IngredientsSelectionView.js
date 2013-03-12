@@ -76,7 +76,6 @@ define([
 			// mark as locked if no ingredient isSelected
 			timelineItemModel.set('isLocked', (isSelectedCount === 0));
 
-			console.log(isSelectedCount);
 		}
 
 	});

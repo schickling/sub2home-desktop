@@ -34,7 +34,7 @@ define([
 				model: modelItem
 			});
 
-			this.$el.append(itemContentView.$el);
+			this.$el.append(itemContentView.el);
 		}
 
 	});

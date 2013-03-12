@@ -40,15 +40,15 @@ define([
 
 		events: {
 			// buttons
-			'click .overlay .bNext': '_forward',
-			'click .overlay .bPrev': '_backward',
-			'click .overlay .bCart': '_finish',
+			'click #bNext': '_forward',
+			'click #bPrev': '_backward',
+			'click #bCart': '_finish',
 
 			// timeline
 			'click .iCart': '_finish',
 
 			// stage
-			'click .stage .noUpgrade': '_finish'
+			'click #noUpgrade': '_finish'
 		},
 
 		initialize: function () {
@@ -82,30 +82,30 @@ define([
 
 		_chacheDOM: function () {
 			// ui buttons in overlay
-			var $overlay = this.$('.overlay');
-			this.$buttonNext = $overlay.find('.bNext');
-			this.$buttonPrev = $overlay.find('.bPrev');
-			this.$buttonCart = $overlay.find('.bCart');
+			var $overlay = this.$('#overlay');
+			this.$buttonNext = $overlay.find('#bNext');
+			this.$buttonPrev = $overlay.find('#bPrev');
+			this.$buttonCart = $overlay.find('#bCart');
 
 			// stage
-			this.$stage = this.$('.stage');
-			this.$noUpgrade = this.$stage.find('.noUpgrade');
+			this.$stage = this.$('#stage');
+			this.$noUpgrade = this.$stage.find('#noUpgrade');
 
 			// info note
-			this.$infoContainer = this.$('.note.selection .container');
+			this.$infoContainer = this.$('#infoContainer');
 
 			// timeline
-			this.$timelineOverlay = this.$('.overlayTimeline');
-			this.$timelineOverlayWrapper = this.$timelineOverlay.find('.overlayFrameWrapperTimeline');
-			this.$timelineStage = this.$('.stageTimeline');
+			this.$timelineOverlay = this.$('#overlayTimeline');
+			this.$timelineOverlayWrapper = this.$timelineOverlay.find('#overlayFrameWrapperTimeline');
+			this.$timelineStage = this.$('#stageTimeline');
 			this.$timelineCart = this.$timelineStage.find('.iCart');
 		},
 
 		_initializeCurrentTimelineItem: function () {
 			// get first enabled item
-			this.currentTimelineItemModel = _(this.collection.where({
+			this.currentTimelineItemModel = this.collection.where({
 				isDisabled: false
-			})).first();
+			})[0];
 
 			// set index
 			this.currentTimelineItemIndex = this.collection.indexOf(this.currentTimelineItemModel);

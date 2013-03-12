@@ -108,7 +108,7 @@ define([
 		},
 
 		_cacheDom: function() {
-			this.$stageOverlay = this.$('.content .overlay');
+			this.$stageOverlay = this.$('#overlay');
 		},
 
 		_render: function () {
@@ -133,8 +133,7 @@ define([
 		},
 
 		_renderInfoView: function () {
-			var $info = this.$('.note.selection .container'),
-				$infoContainer = this.$('.note.selection .container');
+			var $infoContainer = this.$('#infoContainer');
 
 			this.infoView = new this.infoViewClass({
 				model: this.model,
@@ -145,7 +144,7 @@ define([
 		},
 
 		_renderStageView: function () {
-			var $stage = this.$('.stage'),
+			var $stage = this.$('#stage'),
 				$slideContainer = $('<div class="slideContainer">');
 
 			$slideContainer.appendTo($stage);
@@ -161,7 +160,7 @@ define([
 		},
 
 		_renderTimelineView: function () {
-			var $timeline = this.$('.note.timeline');
+			var $timeline = this.$('#timelineNote');
 
 			this.timelineView = new TimelineView({
 				collection: this.timelineItemsCollection,
