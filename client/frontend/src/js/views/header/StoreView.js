@@ -14,7 +14,7 @@ define([
 		template: _.template(StoreTemplate),
 
 		events: {
-			'click .back': '_back'
+			'click #back': '_back'
 		},
 
 		initialize: function () {
@@ -35,7 +35,7 @@ define([
 		_renderCart: function () {
 
 			var cartView = new CartView({
-				el: this.$('.trayPreview')
+				el: this.$('#trayPreview')
 			});
 
 		},

@@ -33,12 +33,12 @@ define([
 		animationTime: 150,
 
 		events: {
-			'click .bSignout': '_logout',
-			'click .bStoreConfig': '_navigateToStoreConfig',
-			'click .bClientConfig': '_navigateToClientConfig',
-			'click .bStoreAssortment': '_navigateToStoreAssortment',
-			'click .bStoreDashboard': '_navigateToStoreOrders',
-			'click .bClientDashboard': '_navigateToClientDashboard'
+			'click #bSignout': '_logout',
+			'click #bStoreConfig': '_navigateToStoreConfig',
+			'click #bClientConfig': '_navigateToClientConfig',
+			'click #bStoreAssortment': '_navigateToStoreAssortment',
+			'click #bStoreDashboard': '_navigateToStoreOrders',
+			'click #bClientDashboard': '_navigateToClientDashboard'
 		},
 
 		initialize: function () {
@@ -56,15 +56,15 @@ define([
 		},
 
 		_cacheDom: function () {
-			this.$buttonLogout = this.$('.bSignout');
-			this.$buttonClientDashboard = this.$('.bClientDashboard');
-			this.$buttonClientConfig = this.$('.bClientConfig');
-			this.$buttonStoreDashboard = this.$('.bStoreDashboard');
-			this.$buttonStoreAssortment = this.$('.bStoreAssortment');
-			this.$buttonStoreConfig = this.$('.bStoreConfig');
+			this.$buttonLogout = this.$('#bSignout');
+			this.$buttonClientDashboard = this.$('#bClientDashboard');
+			this.$buttonClientConfig = this.$('#bClientConfig');
+			this.$buttonStoreDashboard = this.$('#bStoreDashboard');
+			this.$buttonStoreAssortment = this.$('#bStoreAssortment');
+			this.$buttonStoreConfig = this.$('#bStoreConfig');
 			this.$allButtons = this.$('#clientAreaNavigation .iBtn').not(this.$buttonLogout);
-			this.$currentIcon = this.$('.currentIcon');
-			this.$title = this.$('.currentInfo span');
+			this.$currentIcon = this.$('#currentIcon');
+			this.$title = this.$('#currentInfo span');
 		},
 
 		_listenToCurrentRoute: function () {

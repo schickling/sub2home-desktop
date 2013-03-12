@@ -90,7 +90,7 @@ define([
 		},
 
 		_showClientView: function () {
-			var $handle = this.$('#roleSwitch div'),
+			var $handle = this.$('#handle'),
 				$headerCustomerContent = this.$('#headerCustomerContent'),
 				$headerClientContent = this.$('#headerClientContent');
 
@@ -106,7 +106,7 @@ define([
 		},
 
 		_showStoreView: function () {
-			var $handle = this.$('#roleSwitch div'),
+			var $handle = this.$('#handle'),
 				$headerCustomerContent = this.$('#headerCustomerContent'),
 				$headerClientContent = this.$('#headerClientContent');
 

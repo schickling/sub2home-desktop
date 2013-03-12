@@ -134,7 +134,7 @@ class PaypalService implements PaymentInterface
 	private static function callApiWithAuthHeader($params, $authHeader)
 	{
 		$header = array(
-			'X-PAYPAL-AUTHORIZATION: ' . $authHeader
+			'X-PP-AUTHORIZATION: ' . $authHeader
 			);
 		$url = static::getApiUrl();
 
@@ -151,13 +151,16 @@ class PaypalService implements PaymentInterface
 	 */
 	private static function callApi($params, $header, $url)
 	{
+		var_dump($url);
 
 		// add header fields
 		$standardHeader = array(
-			'X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T'
+			'X-PP-APPLICATION-ID: APP-80W284485P519543T'
 			);
 
 		$header = array_merge($header, $standardHeader);
+
+		var_dump($header);
 
 
 		// add parameters
@@ -169,6 +172,8 @@ class PaypalService implements PaymentInterface
 
 		// encode parameters
 		$parameterString = http_build_query($params);
+
+		var_dump($parameterString);
 
 		
 		$ch = curl_init();
