@@ -28,7 +28,7 @@ class AddressModel extends BaseModel
 	private function belongsToStoreModel()
 	{
 		// check for isset because it gets even called if the model wasn't saved yet
-		return isset($this->ownerModel_type) && $this->ownerModel instanceof StoreModel;
+		return isset($this->ownerModel_type) and $this->ownerModel instanceof StoreModel;
 	}
 
 	/**

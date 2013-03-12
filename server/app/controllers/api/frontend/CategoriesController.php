@@ -49,7 +49,7 @@ class CategoriesController extends ApiController
 
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
-				if ($itemModel->isPublished && $itemModel->isActive($store_model_id)) {
+				if ($itemModel->isPublished and $itemModel->isActive($store_model_id)) {
 
 					$itemModel->price = $itemModel->returnCustomPrice($store_model_id);
 

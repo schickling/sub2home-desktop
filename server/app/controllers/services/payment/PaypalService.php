@@ -194,7 +194,7 @@ class PaypalService implements PaymentInterface
 		// decode name value pairs into array
 		parse_str($response, $decodedResponse);
 
-		if (isset($decodedResponse['ACK']) && $decodedResponse['ACK'] == 'Failure') {
+		if (isset($decodedResponse['ACK']) and $decodedResponse['ACK'] == 'Failure') {
 			throw new Exception(sprintf('%s: %s', $decodedResponse['L_SHORTMESSAGE0'], $decodedResponse['L_LONGMESSAGE0']));
 		}
 

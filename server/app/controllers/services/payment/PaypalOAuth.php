@@ -290,7 +290,7 @@ class OAuthRequest {
    * attempt to build up a request from what was passed to the server
    */
   public static function from_request($http_method=NULL, $http_url=NULL, $parameters=NULL) {
-  	$scheme = (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
+  	$scheme = (!isset($_SERVER['HTTPS']) or $_SERVER['HTTPS'] != "on")
   	? 'http'
   	: 'https';
   	$http_url = ($http_url) ? $http_url : $scheme .
@@ -314,8 +314,8 @@ class OAuthRequest {
       // It's a POST request of the proper content-type, so parse POST
       // parameters and add those overriding any duplicates from GET
   		if ($http_method == "POST"
-  			&&  isset($request_headers['Content-Type'])
-  			&& strstr($request_headers['Content-Type'],
+  			and  isset($request_headers['Content-Type'])
+  			and strstr($request_headers['Content-Type'],
   				'application/x-www-form-urlencoded')
   			) {
   			$post_data = OAuthUtil::parse_parameters(
@@ -326,7 +326,7 @@ class OAuthRequest {
 
       // We have a Authorization-header with OAuth data. Parse the header
       // and add those overriding any duplicates from GET or POST
-  	if (isset($request_headers['Authorization']) && substr($request_headers['Authorization'], 0, 6) == 'OAuth ') {
+  	if (isset($request_headers['Authorization']) and substr($request_headers['Authorization'], 0, 6) == 'OAuth ') {
   		$header_parameters = OAuthUtil::split_header(
   			$request_headers['Authorization']
   			);
@@ -357,7 +357,7 @@ class OAuthRequest {
   }
 
   public function set_parameter($name, $value, $allow_duplicates = true) {
-  	if ($allow_duplicates && isset($this->parameters[$name])) {
+  	if ($allow_duplicates and isset($this->parameters[$name])) {
       // We have already added parameter(s) with this name, so add to the list
   		if (is_scalar($this->parameters[$name])) {
         // This is the first duplicate, so transform scalar (string)
@@ -443,8 +443,8 @@ class OAuthRequest {
   	$host = (isset($parts['host'])) ? $parts['host'] : '';
   	$path = (isset($parts['path'])) ? $parts['path'] : '';
 
-  	if (($scheme == 'https' && $port != '443')
-  		|| ($scheme == 'http' && $port != '80')) {
+  	if (($scheme == 'https' and $port != '443')
+  		or ($scheme == 'http' and $port != '80')) {
   		$host = "$host:$port";
   }
   return "$scheme://$host$path";
@@ -923,7 +923,7 @@ public static function get_headers() {
   // parameters like this
   // array('a' => array('b','c'), 'd' => 'e')
 public static function parse_parameters( $input ) {
-	if (!isset($input) || !$input) return array();
+	if (!isset($input) or !$input) return array();
 
 	$pairs = explode('&', $input);
 

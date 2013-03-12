@@ -38,7 +38,7 @@ class ArticlesController extends ApiController
 			))->find($articleModelId);
 
 
-		if ($articleModel == null || !$articleModel->isActive($this->storeModel->id)) {
+		if ($articleModel == null or !$articleModel->isActive($this->storeModel->id)) {
 			return $this->respondWithStatus(404);
 		}
 
@@ -90,7 +90,7 @@ class ArticlesController extends ApiController
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
 		// check if is last active article
-		if (!$input['isActive'] && $this->isLastActiveArticle()) {
+		if (!$input['isActive'] and $this->isLastActiveArticle()) {
 			return $this->respondWithStatus(400);
 		}
 

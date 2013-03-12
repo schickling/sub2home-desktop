@@ -135,7 +135,7 @@ class OrderCreateController extends ApiController
 			// add ordered articles
 			foreach ($orderedItemInput['orderedArticlesCollection'] as $index => $orderedArticleInput) {
 				// check first ordered article for menu upgrade
-				if ($index == 0 && $orderedArticleInput['menuUpgradeModel']) {
+				if ($index == 0 and $orderedArticleInput['menuUpgradeModel']) {
 					$orderedItemModel->menu_upgrade_model_id = $orderedArticleInput['menuUpgradeModel']['id'];
 				}
 
@@ -159,7 +159,7 @@ class OrderCreateController extends ApiController
 		$articleModel = $orderedArticleModel->articleModel;
 			$ingredientCategoriesCollectionInput = $orderedArticleInput['articleModel']['ingredientCategoriesCollection'];
 
-		if ($articleModel->allowsIngredients && $ingredientCategoriesCollectionInput) {
+		if ($articleModel->allowsIngredients and $ingredientCategoriesCollectionInput) {
 
 			// pick out selected ingredients and add to ingredients collection
 			foreach ($ingredientCategoriesCollectionInput as $ingredientCategoryInput) {

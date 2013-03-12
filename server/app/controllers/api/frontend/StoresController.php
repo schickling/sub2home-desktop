@@ -48,7 +48,7 @@ class StoresController extends ApiController
 			return $this->respondWithStatus(404);
 		}
 
-		if ($this->hasToken() && $storeModel->clientModel->id == $this->getClientModelIdFromToken()) {
+		if ($this->hasToken() and $storeModel->clientModel->id == $this->getClientModelIdFromToken()) {
 
 			$storeModel->setHidden((array(
 				'paymentPaypalAuthHeader',
@@ -99,7 +99,7 @@ class StoresController extends ApiController
 		}
 
 		// check if at least one payment method is selected
-		if (!$input['allowsPaymentCash'] && !$input['allowsPaymentEc'] && !$input['allowsPaymentPaypal']) {
+		if (!$input['allowsPaymentCash'] and !$input['allowsPaymentEc'] and !$input['allowsPaymentPaypal']) {
 			return $this->respondWithStatus(400);
 		}
 
@@ -113,7 +113,7 @@ class StoresController extends ApiController
 
 		// Paypal hook
 		
-		if ($input['allowsPaymentPaypal'] && empty($storeModel->paymentPaypalAuthHeader)) {
+		if ($input['allowsPaymentPaypal'] and empty($storeModel->paymentPaypalAuthHeader)) {
 
 			return $this->respondWithStatus(400);
 

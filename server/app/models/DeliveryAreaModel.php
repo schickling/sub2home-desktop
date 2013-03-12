@@ -39,7 +39,7 @@ class DeliveryAreaModel extends BaseModel
 			$city = substr($compoundCity, 0, -($lengthOfDistrict));
 		}
 
-		return $city == $this->city && $district == $this->district;
+		return $city == $this->city and $district == $this->district;
 	}
 
 

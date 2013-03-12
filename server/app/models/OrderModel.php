@@ -106,12 +106,12 @@ class OrderModel extends BaseModel
 
 		$isValid = true;
 
-		$isValid = $isValid && $this->verifyStore();
-		$isValid = $isValid && $this->verifyMinimumValue();
-		$isValid = $isValid && $this->verifyCredit();
-		$isValid = $isValid && $this->verifyMenus();
-		$isValid = $isValid && $this->verifyOrderedArticles();
-		$isValid = $isValid && $this->verifyDueDate();
+		$isValid = $isValid and $this->verifyStore();
+		$isValid = $isValid and $this->verifyMinimumValue();
+		$isValid = $isValid and $this->verifyCredit();
+		$isValid = $isValid and $this->verifyMenus();
+		$isValid = $isValid and $this->verifyOrderedArticles();
+		$isValid = $isValid and $this->verifyDueDate();
 
 		return $isValid;
 	}
@@ -138,7 +138,7 @@ class OrderModel extends BaseModel
 	private function verifyStore()
 	{
 		$storeModel = $this->storeModel;
-		return $storeModel->isActive && $storeModel->isOpen;
+		return $storeModel->isActive and $storeModel->isOpen;
 	}
 
 	private function verifyMinimumValue()
@@ -178,7 +178,7 @@ class OrderModel extends BaseModel
 		foreach ($this->orderedItemsCollection as $orderedItemModel) {
 			$menuModel = $orderedItemModel->menuModel;
 
-			if ($menuModel && !$menuModel->isActive($store_model_id)) {
+			if ($menuModel and !$menuModel->isActive($store_model_id)) {
 				return false;
 			}
 		}
@@ -201,7 +201,7 @@ class OrderModel extends BaseModel
 
 				// check if article has ingredients even if none allowed
 				$ingredientsCollection = $orderedArticleModel->ingredientsCollection;
-				if (!$articleModel->allowsIngredients && $ingredientsCollection->count() > 0) {
+				if (!$articleModel->allowsIngredients and $ingredientsCollection->count() > 0) {
 					return false;
 				}
 

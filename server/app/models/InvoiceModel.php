@@ -70,7 +70,7 @@ class InvoiceModel extends BaseModel
 
 	private function checkIfLocked()
 	{
-		if (!empty($this->invoiceDocumentName) || !empty($this->attachmentDocumentName)) {
+		if (!empty($this->invoiceDocumentName) or !empty($this->attachmentDocumentName)) {
 			throw new Exception('Invoice is already locked');
 		}
 	}

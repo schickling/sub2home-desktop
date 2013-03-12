@@ -43,7 +43,7 @@ abstract class FolderMigration extends Migration {
 		if (is_dir($dir)) {
 			$objects = scandir($dir);
 			foreach ($objects as $object) {
-				if ($object != '.' && $object != '..') {
+				if ($object != '.' and $object != '..') {
 					if (filetype($dir . '/' . $object) == 'dir') {
 						$this->rrmdir($dir . '/' . $object);
 					} else {

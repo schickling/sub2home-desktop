@@ -96,5 +96,5 @@ class BaseApiController extends Controller
 
 Validator::extend('boolean', function($attribute, $value, $parameters)
 {
-    return is_bool($value) || is_numeric($value);
+    return is_bool($value) or is_numeric($value);
 });
