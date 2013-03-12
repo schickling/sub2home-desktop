@@ -55,7 +55,7 @@ define([
 
 		_renderRevenues: function () {
 			new RevenuesView({
-				el: this.$('.note.orders'),
+				el: this.$('#revenuesNote'),
 				collection: this.model.get('invoicesCollection')
 			});
 		}

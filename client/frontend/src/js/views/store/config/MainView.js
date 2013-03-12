@@ -49,17 +49,17 @@ define([
 			});
 
 			new StoreInfoView({
-				el: this.$('.storeInfo'),
+				el: this.$('#storeInfo'),
 				model: this.model
 			});
 
 			this.subViews.deliveryAreasView = new DeliveryAreasView({
-				el: this.$('.deliveryAreas'),
+				el: this.$('#deliveryAreas'),
 				collection: this.model.get('deliveryAreasCollection')
 			});
 
 			this.subViews.deliveryTimesView = new DeliveryTimesView({
-				el: this.$('.deliveryTimes'),
+				el: this.$('#deliveryTimes'),
 				collection: this.model.get('deliveryTimesCollection')
 			});
 

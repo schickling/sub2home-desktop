@@ -15,7 +15,7 @@ define([
 		$orderControls: null,
 
 		events: {
-			'click .toggleRevenues': '_toggle'
+			'click #toggleRevenues': '_toggle'
 		},
 
 		initialize: function () {
@@ -34,8 +34,8 @@ define([
 		},
 
 		_cacheDom: function () {
-			this.$turnoverContainer = this.$('.turnoverContainer');
-			this.$orderControls = this.$('.orderControls');
+			this.$turnoverContainer = this.$('#turnoverContainer');
+			this.$orderControls = this.$('#orderControls');
 		},
 
 		_renderRevenuesYears: function () {
@@ -63,11 +63,11 @@ define([
 		_toggle: function () {
 			var animationTime = 300,
 				$el = this.$el,
-				$toggleRevenues = this.$('.toggleRevenues'),
-				$revenues = this.$('.revenues'),
-				$content = $('.content'), // dirty
+				$toggleRevenues = this.$('#toggleRevenues'),
+				$revenues = this.$('#revenues'),
+				$content = $('.content'), // TODO dirty
 				$orderControls = this.$orderControls,
-				$iTurnover = $toggleRevenues.find('.iTurnover');
+				$iTurnover = $toggleRevenues.find('#turnover');
 
 			// lazy render
 			if (!this.wasRendered) {

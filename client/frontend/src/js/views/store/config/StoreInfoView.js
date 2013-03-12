@@ -14,8 +14,8 @@ define([
 		events: {
 			'focusout #storeDescriptionInput': '_updateDescription',
 			'focusout #storeOrderingContactInput': '_updateOrderEmail',
-			'click .bMail': '_sendTestOrder',
-			'click .storeOpen': '_toggleOpen',
+			'click #bMail': '_sendTestOrder',
+			'click #storeOpen': '_toggleOpen',
 			// payment methods
 			'click #payment button.toggle': '_togglePaymentMethod',
 			'click #paypalSettings': '_updatePaypal'
@@ -39,7 +39,7 @@ define([
 			this.$el.html(_.template(StoreInfoTemplate, json));
 
 			new AddressView({
-				el: this.$('.storeAddress'),
+				el: this.$('#storeAddress'),
 				model: this.model
 			});
 		},
@@ -74,7 +74,7 @@ define([
 		},
 
 		_toggleOpen: function () {
-			var $button = this.$('.storeOpen'),
+			var $button = this.$('#storeOpen'),
 				isOpen = !this.model.get('isOpen');
 
 			this.model.set('isOpen', isOpen);

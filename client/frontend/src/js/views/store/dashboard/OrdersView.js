@@ -67,9 +67,9 @@ define([
 		},
 
 		_cacheDom: function () {
-			this.$orderListing = this.$('.orderListing');
-			this.$ordersToday = this.$('.ordersToday');
-			this.$olderOrders = this.$('.olderOrders');
+			this.$orderListing = this.$('#orderListing');
+			this.$ordersToday = this.$('#ordersToday');
+			this.$olderOrders = this.$('#olderOrders');
 			this.$search = this.$('#search');
 			this.$refresh = this.$('#refresh');
 			this.$loadMore = this.$('#loadMore');
