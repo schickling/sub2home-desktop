@@ -14,11 +14,11 @@ define([
 		template: _.template(ControlTemplate),
 
 		events: {
-			'click .iCart, .orderNow': '_checkout',
+			'click #orderNow': '_checkout',
 			'focusout textarea': '_saveComment',
-			'click .credit.hasNoCredit': '_showCredit',
-			'click .credit .bAdd': '_increaseCredit',
-			'click .credit .bRemove': '_decreaseCredit'
+			'click #credit.hasNoCredit': '_showCredit',
+			'click #credit .bAdd': '_increaseCredit',
+			'click #credit .bRemove': '_decreaseCredit'
 		},
 
 		initialize: function () {
@@ -110,7 +110,7 @@ define([
 		},
 
 		_showCredit: function () {
-			var $credit = this.$('.credit'),
+			var $credit = this.$('#credit'),
 				self = this;
 
 			$credit.animate({
@@ -132,7 +132,7 @@ define([
 
 			if (orderModel.get('credit') <= 0.50) {
 
-				var $credit = this.$('.credit');
+				var $credit = this.$('#credit');
 
 				$credit.animate({
 					width: 45

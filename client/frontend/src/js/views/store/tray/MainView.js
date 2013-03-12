@@ -19,7 +19,7 @@ define([
 		events: {
 			'click .settings': '_showCheckoutSettings',
 			// custom dom event because address needs to be checked first
-			'hide .checkoutSettings': '_hideCheckoutSettings'
+			'hide #checkoutSettings': '_hideCheckoutSettings'
 		},
 
 		// referenced sub views
@@ -27,6 +27,9 @@ define([
 			controlView: null,
 			deliveryTimeView: null
 		},
+
+		// cached dom
+		$trayNote: null,
 
 		initialize: function () {
 			// check if cart is not empty
@@ -44,44 +47,45 @@ define([
 		_render: function () {
 			this.$el.html(MainTemplate);
 
+			this._cacheDom();
+
 			this.subViews.controlView = new ControlView({
 				el: this.$('#checkoutBasicControls')
 			});
 
 			this.subViews.deliveryTimeView = new DeliveryTimeView({
-				el: this.$('.deliveryTimeDisplay')
+				el: this.$('#deliveryTimeDisplay')
 			});
 
 			new CommentView({
-				el: this.$('.deliveryAdditionalNote')
+				el: this.$('#deliveryAdditionalNote')
 			});
 
 			new CheckoutSettingsView({
-				el: this.$('.checkoutSettings')
+				el: this.$('#checkoutSettings')
 			});
 
 			new OrderedItemsView({
-				el: this.$('.orderedItems')
+				el: this.$('#orderedItems')
 			});
 
 			this.append();
 
 		},
 
-		_showCheckoutSettings: function () {
-			var $tray = this.$('.note.tray');
+		_cacheDom: function() {
+			this.$trayNote = this.$('#trayNote');
+		},
 
-			$tray.animate({
+		_showCheckoutSettings: function () {
+			this.$trayNote.animate({
 				top: 0,
 				scrollTop: 0
 			});
-
 		},
 
 		_hideCheckoutSettings: function () {
-			var $tray = this.$('.note.tray');
-
-			$tray.animate({
+			this.$trayNote.animate({
 				top: -535
 			});
 		}

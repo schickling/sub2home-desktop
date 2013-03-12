@@ -17,7 +17,7 @@ define([
 		events: {
 			'click #save': 'hide',
 			'focusout input': 'saveAddressData',
-			'click .paymentSettings span': 'choosePayment'
+			'click #paymentSettings span': 'choosePayment'
 		},
 
 		initialize: function () {

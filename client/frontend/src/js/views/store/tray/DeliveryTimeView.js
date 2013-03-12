@@ -14,10 +14,10 @@ define([
 		template: _.template(DeliveryTimeTemplate),
 
 		events: {
-			'click .hours .iArrowUp.active': '_addHour',
-			'click .hours .iArrowDown.active': '_substractHour',
-			'click .minutes .iArrowUp.active': '_addMinute',
-			'click .minutes .iArrowDown.active': '_substractMinute'
+			'click #hours .iArrowUp.active': '_addHour',
+			'click #hours .iArrowDown.active': '_substractHour',
+			'click #minutes .iArrowUp.active': '_addMinute',
+			'click #minutes .iArrowDown.active': '_substractMinute'
 		},
 
 		intervalTimer: null,
