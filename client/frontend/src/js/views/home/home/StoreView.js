@@ -34,8 +34,6 @@ define([
 			// set state
 			this.state = 'initialized';
 
-			console.log('ini');
-
 		};
 
 	StoreView.prototype = new gmaps.OverlayView();
@@ -101,8 +99,6 @@ define([
 			$note = this.$note;
 
 		this.state = 'available';
-
-		console.log('ava');
 
 		$el.animate({
 			opacity: 1

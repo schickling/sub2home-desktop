@@ -43,7 +43,7 @@ define([
 			//  search input
 			this.$search = this.$('#locationSelectionInput');
 
-			this.$deliveryAreaSelection = this.$('.deliveryAreaSelection');
+			this.$deliveryAreaSelection = this.$('#deliveryAreaSelection');
 
 			this.$map = this.$('#map');
 		},
