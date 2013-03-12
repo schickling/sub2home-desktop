@@ -449,7 +449,7 @@ img.cookie    { margin: 0 -10px;}
 
 // GENERAL
 
-.magnifier {
+#magnifier {
   background: @magnifier;
   height: 90px;
   width: 90px;
@@ -2176,7 +2176,7 @@ input[type="text"]#locationSelectionInput {
 
 
 
-.clientBasics {
+#clientBasics {
   overflow: hidden;
   .positioned;
   margin-top: 50px;
@@ -2195,7 +2195,7 @@ input[type="text"]#locationSelectionInput {
     top: -5px;
   }
 
-  .clientNr {
+  #clientNr {
     
     font-size: 40px;
     color: @onNoteColor;
@@ -2206,7 +2206,7 @@ input[type="text"]#locationSelectionInput {
     }
   }
   
-  .triggerEditPassword {
+  #triggerEditPassword {
     .clearfix;
     p {
       font-size: 24px;
@@ -2229,7 +2229,7 @@ input[type="text"]#locationSelectionInput {
         color: @onHeaderColor;
       }
     }
-    .submitNewPassword {
+    #submitNewPassword {
       float: left;
       .btn;
       .btnSuccess;
@@ -2244,7 +2244,7 @@ input[type="text"]#locationSelectionInput {
         .opacity(100);
       }
     }
-    .cancelEditPassword {
+    #cancelEditPassword {
       float: left;
       .btn;
       .btnWarning;
@@ -2264,7 +2264,7 @@ input[type="text"]#locationSelectionInput {
     }
   }
 
-  .editPassword {
+  #editPassword {
 
     position: absolute;
     top: 0;
@@ -2302,12 +2302,12 @@ input[type="text"]#locationSelectionInput {
 }
 
 
-.clientConfig {
+#clientConfig {
   .clearfix;
   margin-top: 50px;
 }
 
-.clientAddress, .clientBankData {
+#clientAddress, #clientBankData {
   float: left;
   .positioned;
   width: 50%;
@@ -2323,14 +2323,14 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-.clientAddress {
+#clientAddress {
 
   >div {
     .positioned;
     height: 27px;
     margin-top: 20px;
 
-    &.clientName, &.clientStreet {
+    &#clientName, &#clientStreet {
       .clearfix;
       >div {
         overflow: hidden;
@@ -2343,12 +2343,12 @@ input[type="text"]#locationSelectionInput {
           .border-box;
         }
       }
-      .clientFirstname {
+      #clientFirstname {
         input {
           padding-left: 69px;
         }
       }
-      .clientLastname {
+      #clientLastname {
         width: 58%;
         float: right;
         input {
@@ -2356,14 +2356,14 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
-      .clientStreetBasic {
+      #clientStreetBasic {
         width: 69%;
         input {
           padding-left: 72px;
         }
       }
 
-      .clientStreetAdditional {
+      #clientStreetAdditional {
         width: 28%;
         float: right;
         input {
@@ -2372,10 +2372,10 @@ input[type="text"]#locationSelectionInput {
       }
     }
 
-    &.clientPostalCity {
+    &#clientPostalCity {
       overflow: hidden;
       .positioned;
-      .clientPostal {
+      #clientPostal {
         width: 88px;
         input {
           padding-left: 38px;
@@ -2383,7 +2383,7 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
-      .clientCity {
+      #clientCity {
         position: absolute;
         left: 88px;
         margin-left: 3%;
@@ -2400,15 +2400,15 @@ input[type="text"]#locationSelectionInput {
 
 
 
-    &.clientContact {
-      .clientPhone {
+    &#clientContact {
+      #clientPhone {
         width: 210px;
         input {
           padding-left: 38px;
           width: 166px;
         }
       }
-      .clientEmail {
+      #clientEmail {
         position: absolute;
         top: 0;
         left: 210px;
@@ -2426,7 +2426,7 @@ input[type="text"]#locationSelectionInput {
 }
 
 
-.clientBankData {
+#clientBankData {
 
   >div {
     .positioned;
@@ -2438,22 +2438,22 @@ input[type="text"]#locationSelectionInput {
     }
   }
 
-  .bankaccountOwner {
+  #bankaccountOwner {
     input {
       padding-left: 98px;
     }
   }
 
-  .bankaccountNr {
+  #bankaccountNr {
     input {
       padding-left: 41px;
     }
   }
 
-  .bankId {
+  #bankId {
     .positioned;
 
-    .bankCodeNr {
+    #bankCodeNr {
       width: 116px;
 
       input {
@@ -2462,7 +2462,7 @@ input[type="text"]#locationSelectionInput {
       }
     }
 
-    .bankName {
+    #bankName {
       position: absolute;
       left: 116px;
       margin-left: 3%;
@@ -2476,11 +2476,6 @@ input[type="text"]#locationSelectionInput {
     }
   }
 }
-
-// .bankaccount.btnSuccess {
-//   width: 111px;
-// }
-
 
 // ---------------------------------------------  STORE DASHBOARD  ---------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------

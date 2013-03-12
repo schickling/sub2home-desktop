@@ -1,20 +1,20 @@
 <header>
 	<h2>Kontodaten</h2>
 </header>
-<div class="bankaccountOwner">
+<div id="bankaccountOwner">
 	<label for="bankaccountOwnerInput">Kontoinhaber</label>
 	<input data-field="name" id="bankaccountOwnerInput" value="<%= name %>">
 </div>
-<div class="bankaccountNr">
+<div id="bankaccountNr">
 	<label for="bankaccountNrInput">Kto</label>
 	<input data-field="accountNumber" id="bankaccountNrInput" placeholder="Kontonummer" value="<%= accountNumber %>">
 </div>
-<div class="bankId">
-	<div class="bankCodeNr">
+<div id="bankId">
+	<div id="bankCodeNr">
 		<label for="bankCodeNrInput">BLZ</label>
 		<input data-field="bankCodeNumber" id="bankCodeNrInput" value="<%= bankCodeNumber %>">
 	</div>
-	<div class="bankName">
+	<div id="bankName">
 		<label for="bankNameInput">Bank</label>
 		<input data-field="bankName" id="bankNameInput" placeholder="Bankname" value="<%= bankName %>">
 	</div>

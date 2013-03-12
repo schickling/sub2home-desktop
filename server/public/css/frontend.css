@@ -3704,7 +3704,7 @@ img.cookie {
   content: "\e079";
   color: #1e715c;
 }
-.magnifier {
+#magnifier {
   background: url("../img/static/common/magnifier.png") no-repeat;
   height: 90px;
   width: 90px;
@@ -5395,7 +5395,7 @@ input[type="text"]#locationSelectionInput {
 #clientStores .clientStore:hover .storeOverview > div {
   color: #d1ba82;
 }
-.clientBasics {
+#clientBasics {
   overflow: hidden;
   position: relative;
   margin-top: 50px;
@@ -5404,7 +5404,7 @@ input[type="text"]#locationSelectionInput {
   font-family: "VAGRounded LT Thin";
   height: 190px;
 }
-.clientBasics:before {
+#clientBasics:before {
   content: " ";
   background: url("../img/static/common/client_avtr.png") center no-repeat;
   width: 124px;
@@ -5413,28 +5413,28 @@ input[type="text"]#locationSelectionInput {
   left: 42px;
   top: -5px;
 }
-.clientBasics .clientNr {
+#clientBasics #clientNr {
   font-size: 40px;
   color: #d1ba82;
   margin-top: 30px;
 }
-.clientBasics .clientNr span {
+#clientBasics #clientNr span {
   font-size: 24px;
   margin-right: 15px;
 }
-.clientBasics .triggerEditPassword {
+#clientBasics #triggerEditPassword {
   *zoom: 1;
 }
-.clientBasics .triggerEditPassword:before,
-.clientBasics .triggerEditPassword:after {
+#clientBasics #triggerEditPassword:before,
+#clientBasics #triggerEditPassword:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.clientBasics .triggerEditPassword:after {
+#clientBasics #triggerEditPassword:after {
   clear: both;
 }
-.clientBasics .triggerEditPassword p {
+#clientBasics #triggerEditPassword p {
   font-size: 24px;
   color: #d1ba82;
   text-decoration: underline;
@@ -5445,18 +5445,18 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.clientBasics .triggerEditPassword p .iKey {
+#clientBasics #triggerEditPassword p .iKey {
   text-decoration: none;
   margin-right: 15px;
   font-size: 20px;
 }
-.clientBasics .triggerEditPassword p .iKey:before {
+#clientBasics #triggerEditPassword p .iKey:before {
   top: -1px;
 }
-.clientBasics .triggerEditPassword p:hover {
+#clientBasics #triggerEditPassword p:hover {
   color: #a78a44;
 }
-.clientBasics .triggerEditPassword .submitNewPassword {
+#clientBasics #triggerEditPassword #submitNewPassword {
   float: left;
   height: 38px;
   *display: inline;
@@ -5521,23 +5521,23 @@ input[type="text"]#locationSelectionInput {
   filter: alpha(opacity=50);
   display: none;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:hover,
-.clientBasics .triggerEditPassword .submitNewPassword:active,
-.clientBasics .triggerEditPassword .submitNewPassword.active,
-.clientBasics .triggerEditPassword .submitNewPassword.disabled,
-.clientBasics .triggerEditPassword .submitNewPassword[disabled] {
+#clientBasics #triggerEditPassword #submitNewPassword:hover,
+#clientBasics #triggerEditPassword #submitNewPassword:active,
+#clientBasics #triggerEditPassword #submitNewPassword.active,
+#clientBasics #triggerEditPassword #submitNewPassword.disabled,
+#clientBasics #triggerEditPassword #submitNewPassword[disabled] {
   color: #555555;
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:active,
-.clientBasics .triggerEditPassword .submitNewPassword.active {
+#clientBasics #triggerEditPassword #submitNewPassword:active,
+#clientBasics #triggerEditPassword #submitNewPassword.active {
   background-color: #cccccc \9;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:first-child {
+#clientBasics #triggerEditPassword #submitNewPassword:first-child {
   *margin-left: 0;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:hover {
+#clientBasics #triggerEditPassword #submitNewPassword:hover {
   color: #555555;
   text-decoration: none;
   background-color: #e6e6e6;
@@ -5550,13 +5550,13 @@ input[type="text"]#locationSelectionInput {
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:focus {
+#clientBasics #triggerEditPassword #submitNewPassword:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.clientBasics .triggerEditPassword .submitNewPassword.active,
-.clientBasics .triggerEditPassword .submitNewPassword:active {
+#clientBasics #triggerEditPassword #submitNewPassword.active,
+#clientBasics #triggerEditPassword #submitNewPassword:active {
   background-color: #e6e6e6;
   background-color: #d9d9d9 \9;
   background-image: none;
@@ -5565,24 +5565,24 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-.clientBasics .triggerEditPassword .submitNewPassword:hover,
-.clientBasics .triggerEditPassword .submitNewPassword:active,
-.clientBasics .triggerEditPassword .submitNewPassword.active,
-.clientBasics .triggerEditPassword .submitNewPassword.disabled,
-.clientBasics .triggerEditPassword .submitNewPassword[disabled] {
+#clientBasics #triggerEditPassword #submitNewPassword:hover,
+#clientBasics #triggerEditPassword #submitNewPassword:active,
+#clientBasics #triggerEditPassword #submitNewPassword.active,
+#clientBasics #triggerEditPassword #submitNewPassword.disabled,
+#clientBasics #triggerEditPassword #submitNewPassword[disabled] {
   color: #4b6f01;
   background-color: #9cc83e;
   *background-color: #8eb834;
 }
-.clientBasics .triggerEditPassword .submitNewPassword:active,
-.clientBasics .triggerEditPassword .submitNewPassword.active {
+#clientBasics #triggerEditPassword #submitNewPassword:active,
+#clientBasics #triggerEditPassword #submitNewPassword.active {
   background-color: #7fa42f \9;
 }
-.clientBasics .triggerEditPassword .submitNewPassword.valid {
+#clientBasics #triggerEditPassword #submitNewPassword.valid {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.clientBasics .triggerEditPassword .cancelEditPassword {
+#clientBasics #triggerEditPassword #cancelEditPassword {
   float: left;
   height: 38px;
   *display: inline;
@@ -5643,23 +5643,23 @@ input[type="text"]#locationSelectionInput {
   display: inline-block;
   margin: 30px 0 0 10px;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:hover,
-.clientBasics .triggerEditPassword .cancelEditPassword:active,
-.clientBasics .triggerEditPassword .cancelEditPassword.active,
-.clientBasics .triggerEditPassword .cancelEditPassword.disabled,
-.clientBasics .triggerEditPassword .cancelEditPassword[disabled] {
+#clientBasics #triggerEditPassword #cancelEditPassword:hover,
+#clientBasics #triggerEditPassword #cancelEditPassword:active,
+#clientBasics #triggerEditPassword #cancelEditPassword.active,
+#clientBasics #triggerEditPassword #cancelEditPassword.disabled,
+#clientBasics #triggerEditPassword #cancelEditPassword[disabled] {
   color: #555555;
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:active,
-.clientBasics .triggerEditPassword .cancelEditPassword.active {
+#clientBasics #triggerEditPassword #cancelEditPassword:active,
+#clientBasics #triggerEditPassword #cancelEditPassword.active {
   background-color: #cccccc \9;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:first-child {
+#clientBasics #triggerEditPassword #cancelEditPassword:first-child {
   *margin-left: 0;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:hover {
+#clientBasics #triggerEditPassword #cancelEditPassword:hover {
   color: #555555;
   text-decoration: none;
   background-color: #e6e6e6;
@@ -5672,13 +5672,13 @@ input[type="text"]#locationSelectionInput {
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:focus {
+#clientBasics #triggerEditPassword #cancelEditPassword:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword.active,
-.clientBasics .triggerEditPassword .cancelEditPassword:active {
+#clientBasics #triggerEditPassword #cancelEditPassword.active,
+#clientBasics #triggerEditPassword #cancelEditPassword:active {
   background-color: #e6e6e6;
   background-color: #d9d9d9 \9;
   background-image: none;
@@ -5687,36 +5687,36 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:hover,
-.clientBasics .triggerEditPassword .cancelEditPassword:active,
-.clientBasics .triggerEditPassword .cancelEditPassword.active,
-.clientBasics .triggerEditPassword .cancelEditPassword.disabled,
-.clientBasics .triggerEditPassword .cancelEditPassword[disabled] {
+#clientBasics #triggerEditPassword #cancelEditPassword:hover,
+#clientBasics #triggerEditPassword #cancelEditPassword:active,
+#clientBasics #triggerEditPassword #cancelEditPassword.active,
+#clientBasics #triggerEditPassword #cancelEditPassword.disabled,
+#clientBasics #triggerEditPassword #cancelEditPassword[disabled] {
   color: #ffffff;
   background-color: #dc952b;
   *background-color: #cc8822;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:active,
-.clientBasics .triggerEditPassword .cancelEditPassword.active {
+#clientBasics #triggerEditPassword #cancelEditPassword:active,
+#clientBasics #triggerEditPassword #cancelEditPassword.active {
   background-color: #b6791e \9;
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:before {
+#clientBasics #triggerEditPassword #cancelEditPassword:before {
   content: "\e05f";
 }
-.clientBasics .triggerEditPassword .cancelEditPassword:before {
+#clientBasics #triggerEditPassword #cancelEditPassword:before {
   font-family: "Homicons";
   position: relative;
   top: 2px;
   color: #8a5c17;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5);
 }
-.clientBasics .editPassword {
+#clientBasics #editPassword {
   position: absolute;
   top: 0;
   left: 222px;
   display: none;
 }
-.clientBasics .editPassword input {
+#clientBasics #editPassword input {
   display: block;
   width: 300px;
   font-size: 24px;
@@ -5726,34 +5726,34 @@ input[type="text"]#locationSelectionInput {
   line-height: 1.2;
   color: #57a827;
 }
-.clientBasics .editPassword input:last-child {
+#clientBasics #editPassword input:last-child {
   margin-top: 15px;
 }
-.clientBasics .editPassword .well {
+#clientBasics #editPassword .well {
   margin-top: 5px;
 }
-.clientBasics .editPassword .well:first-child {
+#clientBasics #editPassword .well:first-child {
   margin-top: 0;
 }
-.clientBasics .editPassword .well:first-child input {
+#clientBasics #editPassword .well:first-child input {
   color: #dc952b;
   margin-top: 0;
 }
-.clientConfig {
+#clientConfig {
   *zoom: 1;
   margin-top: 50px;
 }
-.clientConfig:before,
-.clientConfig:after {
+#clientConfig:before,
+#clientConfig:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.clientConfig:after {
+#clientConfig:after {
   clear: both;
 }
-.clientAddress,
-.clientBankData {
+#clientAddress,
+#clientBankData {
   float: left;
   position: relative;
   width: 50%;
@@ -5762,100 +5762,100 @@ input[type="text"]#locationSelectionInput {
   box-sizing: border-box;
   padding: 0 2%;
 }
-.clientAddress header,
-.clientBankData header {
+#clientAddress header,
+#clientBankData header {
   margin-bottom: 40px;
 }
-.clientAddress header h2,
-.clientBankData header h2 {
+#clientAddress header h2,
+#clientBankData header h2 {
   font-size: 40px;
   color: #d1ba82;
 }
-.clientAddress > div {
+#clientAddress > div {
   position: relative;
   height: 27px;
   margin-top: 20px;
 }
-.clientAddress > div.clientName,
-.clientAddress > div.clientStreet {
+#clientAddress > div#clientName,
+#clientAddress > div#clientStreet {
   *zoom: 1;
 }
-.clientAddress > div.clientName:before,
-.clientAddress > div.clientStreet:before,
-.clientAddress > div.clientName:after,
-.clientAddress > div.clientStreet:after {
+#clientAddress > div#clientName:before,
+#clientAddress > div#clientStreet:before,
+#clientAddress > div#clientName:after,
+#clientAddress > div#clientStreet:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.clientAddress > div.clientName:after,
-.clientAddress > div.clientStreet:after {
+#clientAddress > div#clientName:after,
+#clientAddress > div#clientStreet:after {
   clear: both;
 }
-.clientAddress > div.clientName > div,
-.clientAddress > div.clientStreet > div {
+#clientAddress > div#clientName > div,
+#clientAddress > div#clientStreet > div {
   overflow: hidden;
   position: relative;
   width: 39%;
   float: left;
 }
-.clientAddress > div.clientName > div input,
-.clientAddress > div.clientStreet > div input {
+#clientAddress > div#clientName > div input,
+#clientAddress > div#clientStreet > div input {
   width: 100%;
   height: 27px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.clientAddress > div.clientName .clientFirstname input,
-.clientAddress > div.clientStreet .clientFirstname input {
+#clientAddress > div#clientName #clientFirstname input,
+#clientAddress > div#clientStreet #clientFirstname input {
   padding-left: 69px;
 }
-.clientAddress > div.clientName .clientLastname,
-.clientAddress > div.clientStreet .clientLastname {
+#clientAddress > div#clientName #clientLastname,
+#clientAddress > div#clientStreet #clientLastname {
   width: 58%;
   float: right;
 }
-.clientAddress > div.clientName .clientLastname input,
-.clientAddress > div.clientStreet .clientLastname input {
+#clientAddress > div#clientName #clientLastname input,
+#clientAddress > div#clientStreet #clientLastname input {
   padding-left: 75px;
 }
-.clientAddress > div.clientName .clientStreetBasic,
-.clientAddress > div.clientStreet .clientStreetBasic {
+#clientAddress > div#clientName #clientStreetBasic,
+#clientAddress > div#clientStreet #clientStreetBasic {
   width: 69%;
 }
-.clientAddress > div.clientName .clientStreetBasic input,
-.clientAddress > div.clientStreet .clientStreetBasic input {
+#clientAddress > div#clientName #clientStreetBasic input,
+#clientAddress > div#clientStreet #clientStreetBasic input {
   padding-left: 72px;
 }
-.clientAddress > div.clientName .clientStreetAdditional,
-.clientAddress > div.clientStreet .clientStreetAdditional {
+#clientAddress > div#clientName #clientStreetAdditional,
+#clientAddress > div#clientStreet #clientStreetAdditional {
   width: 28%;
   float: right;
 }
-.clientAddress > div.clientName .clientStreetAdditional input,
-.clientAddress > div.clientStreet .clientStreetAdditional input {
+#clientAddress > div#clientName #clientStreetAdditional input,
+#clientAddress > div#clientStreet #clientStreetAdditional input {
   padding-left: 57px;
 }
-.clientAddress > div.clientPostalCity {
+#clientAddress > div#clientPostalCity {
   overflow: hidden;
   position: relative;
 }
-.clientAddress > div.clientPostalCity .clientPostal {
+#clientAddress > div#clientPostalCity #clientPostal {
   width: 88px;
 }
-.clientAddress > div.clientPostalCity .clientPostal input {
+#clientAddress > div#clientPostalCity #clientPostal input {
   padding-left: 38px;
   width: 50px;
 }
-.clientAddress > div.clientPostalCity .clientCity {
+#clientAddress > div#clientPostalCity #clientCity {
   position: absolute;
   left: 88px;
   margin-left: 3%;
   right: 0;
   top: 0;
 }
-.clientAddress > div.clientPostalCity .clientCity input {
+#clientAddress > div#clientPostalCity #clientCity input {
   height: 27px;
   width: 100%;
   padding-left: 51px;
@@ -5863,21 +5863,21 @@ input[type="text"]#locationSelectionInput {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.clientAddress > div.clientContact .clientPhone {
+#clientAddress > div#clientContact #clientPhone {
   width: 210px;
 }
-.clientAddress > div.clientContact .clientPhone input {
+#clientAddress > div#clientContact #clientPhone input {
   padding-left: 38px;
   width: 166px;
 }
-.clientAddress > div.clientContact .clientEmail {
+#clientAddress > div#clientContact #clientEmail {
   position: absolute;
   top: 0;
   left: 210px;
   margin-left: 3%;
   right: 0;
 }
-.clientAddress > div.clientContact .clientEmail input {
+#clientAddress > div#clientContact #clientEmail input {
   padding-left: 50px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -5885,39 +5885,39 @@ input[type="text"]#locationSelectionInput {
   width: 100%;
   height: 27px;
 }
-.clientBankData > div {
+#clientBankData > div {
   position: relative;
   height: 27px;
   margin-top: 20px;
   overflow: hidden;
 }
-.clientBankData > div input {
+#clientBankData > div input {
   width: 100%;
 }
-.clientBankData .bankaccountOwner input {
+#clientBankData #bankaccountOwner input {
   padding-left: 98px;
 }
-.clientBankData .bankaccountNr input {
+#clientBankData #bankaccountNr input {
   padding-left: 41px;
 }
-.clientBankData .bankId {
+#clientBankData #bankId {
   position: relative;
 }
-.clientBankData .bankId .bankCodeNr {
+#clientBankData #bankId #bankCodeNr {
   width: 116px;
 }
-.clientBankData .bankId .bankCodeNr input {
+#clientBankData #bankId #bankCodeNr input {
   padding-left: 41px;
   width: 75px;
 }
-.clientBankData .bankId .bankName {
+#clientBankData #bankId #bankName {
   position: absolute;
   left: 116px;
   margin-left: 3%;
   right: 0;
   top: 0;
 }
-.clientBankData .bankId .bankName input {
+#clientBankData #bankId #bankName input {
   padding-left: 48px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
