@@ -1,4 +1,4 @@
-// Filename: src/js/views/store/assortment/SectionNavigationView.js
+// Filename: src/js/views/store/assortment/SectionsNavigationView.js
 define([
     'jquery',
     'underscore',
@@ -8,7 +8,7 @@ define([
     ], function ($, _, Backbone, TimelineItemsCollection, TimelineBaseView) {
 
 
-	var SectionNavigationView = Backbone.View.extend({
+	var SectionsNavigationView = Backbone.View.extend({
 
 		timelineItemsCollection: null,
 
@@ -61,7 +61,7 @@ define([
 			this.$slides = this.$stage.children();
 
 			// navigation
-			this.$navigation = this.$('#sectionNavigation');
+			this.$navigation = this.$('#sectionsNavigation');
 			this.$navigationStage = this.$navigation.find('#stageTimeline');
 			this.$navigationItems = this.$navigationStage.find('.itemTimeline');
 			this.$navigationOverlay = this.$navigation.find('#overlayTimeline');
@@ -71,7 +71,7 @@ define([
 
 		_render: function () {
 			new TimelineBaseView({
-				el: this.$('#sectionNavigation'),
+				el: this.$('#sectionsNavigation'),
 				collection: this.timelineItemsCollection
 			});
 
@@ -114,6 +114,6 @@ define([
 
 	});
 
-	return SectionNavigationView;
+	return SectionsNavigationView;
 
 });

@@ -6,10 +6,10 @@ define([
     'router',
     'models/stateModel',
     'views/PageView',
-    'views/store/assortment/SectionNavigationView',
+    'views/store/assortment/SectionsNavigationView',
     'views/store/assortment/articles/CategoriesView',
     'text!templates/store/assortment/MainTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, PageView, SectionNavigationView, CategoriesView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, PageView, SectionsNavigationView, CategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -38,15 +38,15 @@ define([
 
 			this.$el.html(MainTemplate);
 
-			this._renderSectionNavigation();
+			this._renderSectionsNavigation();
 			this._renderArticleSection();
 
 			this.append();
 
 		},
 
-		_renderSectionNavigation: function() {
-			new SectionNavigationView({
+		_renderSectionsNavigation: function() {
+			new SectionsNavigationView({
 				el: this.$el
 			});
 		},
