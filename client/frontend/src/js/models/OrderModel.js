@@ -161,12 +161,21 @@ define([
 			var credit = this.get('credit'),
 				total = this.get('total'),
 				totalWithCredit = total + credit,
-				isRound = (totalWithCredit % 0.5) === 0;
+				step = 0.50,
+				isRound = (totalWithCredit % step) === 0;
 
 			if (isRound) {
-				credit += 0.50;
+				credit += step;
 			} else {
-				credit = Math.ceil(total) - total;
+
+				var benefit = Math.ceil(total) - total;
+
+				if (benefit > step) {
+					credit = benefit - step;
+				} else {
+					credit = benefit;
+				}
+
 			}
 
 			this.set({
@@ -178,10 +187,11 @@ define([
 		},
 
 		decreaseCredit: function () {
-			var credit = this.get('credit');
+			var credit = this.get('credit'),
+				step = 0.50;
 
-			if (credit >= 0.50) {
-				credit -= 0.50;
+			if (credit >= step) {
+				credit -= step;
 			} else {
 				credit = 0;
 			}

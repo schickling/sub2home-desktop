@@ -111,19 +111,40 @@ define([
 
 		_showCredit: function () {
 			var $credit = this.$('#credit'),
+				$notice = $credit.find('.notice'),
 				self = this;
 
-			$credit.animate({
-				width: 100
-			}, function () {
-				self._increaseCredit();
+			$notice.fadeOut(100, function () {
+				$credit.animate({
+					width: 100
+				}, 300, function () {
+					self._increaseCredit();
+				});
 			});
 
+
+		},
+
+		_hideCredit: function () {
+			var $credit = this.$('#credit'),
+				$notice = $credit.find('.notice'),
+				orderModel = cartModel.get('orderModel');
+
+			$credit.addClass('hasNoCredit');
+
+			$credit.animate({
+				width: 45
+			}, 300, function () {
+				$notice.fadeIn(100, function () {
+					orderModel.decreaseCredit();
+				});
+			});
 		},
 
 		_increaseCredit: function () {
 			var orderModel = cartModel.get('orderModel');
 
+			console.log('increase');
 			orderModel.increaseCredit();
 		},
 
@@ -131,19 +152,10 @@ define([
 			var orderModel = cartModel.get('orderModel');
 
 			if (orderModel.get('credit') <= 0.50) {
-
-				var $credit = this.$('#credit');
-
-				$credit.animate({
-					width: 45
-				}, function () {
-					orderModel.decreaseCredit();
-				});
-
+				this._hideCredit();
 			} else {
 				orderModel.decreaseCredit();
 			}
-
 
 		}
 
