@@ -311,7 +311,7 @@ define([
 			'views.store.home.addedOrderedItemToCart': {
 				title: 'Ist auf dem Tablett',
 				description: 'Du hast gerade einen Artikel auf dein Tablett gelegt. Natürlich nur bildlich.',
-				className: 'sucess'
+				className: 'success'
 			},	
 
 

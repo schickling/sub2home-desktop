@@ -6211,6 +6211,9 @@ div#payment > div.disabled .btn:active,
 div#payment > div.disabled .btn.active {
   background-color: rgba(195, 165, 93, 0.3) \9;
 }
+#payPalSettings {
+  vertical-align: top;
+}
 #storeConfig {
   padding: 40px 10px 20px;
   position: relative;
@@ -7825,7 +7828,7 @@ div#payment > div.disabled .btn.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
   color: rgba(255, 255, 255, 0.1);
-  margin-left: 57px;
+  margin-left: 54px;
   cursor: pointer;
 }
 #paymentSettings span.selected {
