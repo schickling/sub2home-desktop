@@ -27,7 +27,7 @@ define([
 		},
 
 		_cacheDom: function() {
-			this.$categories = this.$('.categories');
+			this.$categories = this.$('#articlesSection');
 		},
 
 		_renderCategories: function () {

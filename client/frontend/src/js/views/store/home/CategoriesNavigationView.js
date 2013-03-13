@@ -33,6 +33,7 @@ define([
 
 			this._prepareTimelineItems();
 			this._render();
+			// dom needs to be cached AFTER rendering
 			this._cacheDom();
 
 			this._initializeClickListneres();
@@ -65,7 +66,7 @@ define([
 		},
 
 		_render: function () {
-			var timelineView = new TimelineBaseView({
+			new TimelineBaseView({
 				el: this.$('#categoriesNavigation'),
 				collection: this.timelineItemsCollection
 			});

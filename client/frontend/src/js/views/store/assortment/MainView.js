@@ -1,14 +1,15 @@
 // Filename: src/js/views/store/assortment/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'router',
-	'models/stateModel',
-	'views/PageView',
-	'views/store/assortment/articles/CategoriesView',
-	'text!templates/store/assortment/MainTemplate.html'
-	], function ($, _, Backbone, router, stateModel, PageView, CategoriesView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/stateModel',
+    'views/PageView',
+    'views/store/assortment/SectionNavigationView',
+    'views/store/assortment/articles/CategoriesView',
+    'text!templates/store/assortment/MainTemplate.html'
+    ], function ($, _, Backbone, router, stateModel, PageView, SectionNavigationView, CategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -37,10 +38,17 @@ define([
 
 			this.$el.html(MainTemplate);
 
+			this._renderSectionNavigation();
 			this._renderArticleSection();
 
 			this.append();
 
+		},
+
+		_renderSectionNavigation: function() {
+			new SectionNavigationView({
+				el: this.$el
+			});
 		},
 
 		_renderArticleSection: function () {
