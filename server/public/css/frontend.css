@@ -2199,6 +2199,10 @@ input[type="text"].money {
 .bRefresh:before {
   content: "\e084";
 }
+.iAGB:before,
+.bAGB:before {
+  content: "\e085";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -2925,22 +2929,22 @@ img.cookie {
 }
 .notice.rightHandAbove:before {
   content: "\e049";
-  top: -7px;
+  top: -12px;
   left: -65px;
 }
 .notice.rightHandBelow:before {
   content: "\e048";
-  bottom: -7px;
+  bottom: -15px;
   left: -65px;
 }
 .notice.leftHandAbove:before {
   content: "\e047";
-  top: -7px;
+  top: -12px;
   right: -65px;
 }
 .notice.leftHandBelow:before {
   content: "\e046";
-  bottom: -7px;
+  bottom: -15px;
   right: -65px;
 }
 .note .notice {
@@ -7514,8 +7518,8 @@ div#payment > div.disabled .btn.active {
 }
 #checkoutBasicControls > span#setDeliveryAddress,
 #checkoutBasicControls #checkoutReadyControls > span#setDeliveryAddress,
-#checkoutBasicControls > span#orderNow,
-#checkoutBasicControls #checkoutReadyControls > span#orderNow {
+#checkoutBasicControls > span.orderNow,
+#checkoutBasicControls #checkoutReadyControls > span.orderNow {
   color: #c5a862;
   border-bottom: 2px solid #c5a862;
 }
@@ -7575,23 +7579,51 @@ div#payment > div.disabled .btn.active {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-#checkoutBasicControls .iCart {
+#checkoutBasicControls .iCart,
+#checkoutBasicControls .iAGB {
   position: absolute;
   right: 10px;
-  top: 25px;
+  top: 32px;
   width: 130px;
   height: 123px;
   cursor: pointer;
-  color: rgba(156, 200, 62, 0.4);
+  color: rgba(209, 186, 130, 0.5);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
-#checkoutBasicControls .iCart:before {
+#checkoutBasicControls .iCart:before,
+#checkoutBasicControls .iAGB:before {
   font-size: 150px;
   position: absolute;
   left: -10px;
   top: -10px;
 }
+#checkoutBasicControls .iCart:hover,
+#checkoutBasicControls .iAGB:hover {
+  color: #d1ba82;
+}
+#checkoutBasicControls .iCart {
+  color: rgba(209, 186, 130, 0.2);
+  right: -150px;
+  -webkit-transition: color .1s linear, right .3s ease-in-out;
+  -moz-transition: color .1s linear, right .3s ease-in-out;
+  -o-transition: color .1s linear, right .3s ease-in-out;
+  transition: color .1s linear, right .3s ease-in-out;
+  cursor: default;
+}
 #checkoutBasicControls .iCart:hover {
+  color: rgba(209, 186, 130, 0.3);
+  right: -140px;
+}
+#checkoutBasicControls .iCart.clickable {
+  color: rgba(156, 200, 62, 0.4);
+  cursor: pointer;
+}
+#checkoutBasicControls .iCart.clickable:hover {
   color: #9cc83e;
+  right: 10px;
 }
 #checkoutBasicControls .iCredit {
   font-size: 40px;
@@ -7668,10 +7700,25 @@ div#payment > div.disabled .btn.active {
   color: #c5a862;
 }
 #acceptAGB {
-  font-size: 20px;
+  right: 180px;
+  top: 180px;
 }
 #acceptAGB span {
-  text-decoration: underline;
+  cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+#acceptAGB span:hover {
+  color: #ad8d40;
+}
+#acceptAGB .iDocument {
+  position: relative;
+  top: 7px;
+  height: 24px;
+  font-size: 24px;
+  color: inherit;
 }
 #checkoutSettings {
   background: url("../img/static/common/dark_background.jpg") repeat;

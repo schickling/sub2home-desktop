@@ -229,7 +229,7 @@ img.cookie    { margin: 0 -10px;}
   &.rightHandAbove {
     &:before {
       content: "\e049";
-      top: -7px;
+      top: -12px;
       left: -65px;
     }
   }
@@ -237,7 +237,7 @@ img.cookie    { margin: 0 -10px;}
   &.rightHandBelow {
     &:before {
       content: "\e048";
-      bottom: -7px;
+      bottom: -15px;
       left: -65px;
     }
   }
@@ -247,7 +247,7 @@ img.cookie    { margin: 0 -10px;}
   &.leftHandAbove {
     &:before {
       content: "\e047";
-      top: -7px;
+      top: -12px;
       right: -65px;
     }
   }
@@ -255,7 +255,7 @@ img.cookie    { margin: 0 -10px;}
   &.leftHandBelow {
     &:before {
       content: "\e046";
-      bottom: -7px;
+      bottom: -15px;
       right: -65px;
     }
   }
@@ -4747,7 +4747,7 @@ div#payment {
       color: @onDarkNoteColor;
     }
 
-    &#setDeliveryAddress, &#orderNow {
+    &#setDeliveryAddress, &.orderNow {
       color: @onDarkNoteColor;
       border-bottom: 2px solid @onDarkNoteColor;
     }
@@ -4790,25 +4790,46 @@ div#payment {
       }
     }
   }
-  .iCart {
+  .iCart, .iAGB {
     position: absolute;
     right: 10px;
-    top: 25px;
+    top: 32px;
     width: 130px;
     height: 123px;
     cursor: pointer;
-    color: rgba(156,200,62,0.4);
+    color: @onNoteColor50;
+    
     &:before {
       font-size: 150px;
       position: absolute;
       left: -10px;
       top: -10px;
     }
+    .transition(color .1s linear);
     &:hover {
-      color: @greenLighter;
+      color: @onNoteColor;
     }
   } 
   
+  .iCart {
+    color: @onNoteColor20;
+    right: -150px;
+    .transition(e('color .1s linear, right .3s ease-in-out'));
+    cursor: default;
+    &:hover {
+      color: @onNoteColor30;
+      right: -140px;
+    }
+    &.clickable {
+      color: rgba(156,200,62,0.4);
+      cursor: pointer;
+
+      &:hover {
+        color: @greenLighter;
+        right: 10px;
+      }
+    }
+  }
   .iCredit {
     font-size: 40px;
     top: 4px;
@@ -4885,10 +4906,21 @@ div#payment {
 }
 
 #acceptAGB {
-  font-size: 20px;
+  right: 180px;
+  top: 180px;
   span {
-    text-decoration: underline;
-    // .transition(color .1s linear);
+    cursor: pointer;
+    .transition(color .1s linear);
+    &:hover {
+      color: darken(@onNoteColor, 20%);
+    }
+  }
+  .iDocument {
+    position: relative;
+    top: 7px;
+    height: 24px;
+    font-size: 24px;
+    color: inherit;
   }
 }
 
