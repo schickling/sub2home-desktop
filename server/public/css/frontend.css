@@ -3877,7 +3877,8 @@ input[type="text"]#locationSelectionInput {
 .storePreview.unavailable {
   cursor: default;
 }
-#categoriesNavigation {
+#categoriesNavigation,
+#sectionsNavigation {
   width: 50%;
   text-align: center;
   height: inherit;
@@ -3886,18 +3887,22 @@ input[type="text"]#locationSelectionInput {
   top: 50%;
   margin-top: -42px;
 }
-#categoriesNavigation #categoriesNavigationContainer {
+#categoriesNavigation #categoriesNavigationContainer,
+#sectionsNavigation #categoriesNavigationContainer {
   display: inline-block;
   height: inherit;
   position: relative;
 }
-#categoriesNavigation #categoriesNavigationContainer #overlayTimeline {
+#categoriesNavigation #categoriesNavigationContainer #overlayTimeline,
+#sectionsNavigation #categoriesNavigationContainer #overlayTimeline {
   display: block;
 }
-#categoriesNavigation #categoriesNavigationContainer #overlayTimeline #overlayFrameTimeline #overlayFrameWrapperTimeline img {
+#categoriesNavigation #categoriesNavigationContainer #overlayTimeline #overlayFrameTimeline #overlayFrameWrapperTimeline img,
+#sectionsNavigation #categoriesNavigationContainer #overlayTimeline #overlayFrameTimeline #overlayFrameWrapperTimeline img {
   left: 0;
 }
-#categoriesNavigation .itemTimeline:hover .phrase {
+#categoriesNavigation .itemTimeline:hover .phrase,
+#sectionsNavigation .itemTimeline:hover .phrase {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -4425,13 +4430,6 @@ input[type="text"]#locationSelectionInput {
 .bundleItems .several .icn.small:after,
 .bundleItems .several .icn.small:after {
   content: " ";
-}
-#sectionsNavigation {
-  position: relative;
-  width: 50%;
-  top: 50%;
-  margin-top: -42px;
-  height: 70%;
 }
 .assortmentControls {
   position: absolute;
