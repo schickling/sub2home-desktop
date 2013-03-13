@@ -8,8 +8,10 @@ define([
     'views/PageView',
     'views/store/assortment/SectionsNavigationView',
     'views/store/assortment/articles/CategoriesView',
+    'views/store/assortment/menus/MenusView',
+    'views/store/assortment/ingredients/IngredientCategoriesView',
     'text!templates/store/assortment/MainTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, PageView, SectionsNavigationView, CategoriesView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, PageView, SectionsNavigationView, CategoriesView, MenusView, IngredientCategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -40,12 +42,14 @@ define([
 
 			this._renderSectionsNavigation();
 			this._renderArticleSection();
+			this._renderMenusSection();
+			this._renderIngredientsSection();
 
 			this.append();
 
 		},
 
-		_renderSectionsNavigation: function() {
+		_renderSectionsNavigation: function () {
 			new SectionsNavigationView({
 				el: this.$el
 			});
@@ -53,6 +57,18 @@ define([
 
 		_renderArticleSection: function () {
 			new CategoriesView({
+				el: this.$el
+			});
+		},
+
+		_renderMenusSection: function () {
+			new MenusView({
+				el: this.$el
+			});
+		},
+
+		_renderIngredientsSection: function () {
+			new IngredientCategoriesView({
 				el: this.$el
 			});
 		}

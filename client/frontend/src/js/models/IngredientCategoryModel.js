@@ -1,8 +1,8 @@
 define([
-	'underscore',
-	'backbone',
-	'collections/IngredientsCollection'
-	], function (_, Backbone, IngredientsCollection) {
+    'underscore',
+    'backbone',
+    'collections/IngredientsCollection'
+    ], function (_, Backbone, IngredientsCollection) {
 
 	var IngredientCategoryModel = Backbone.Model.extend({
 
@@ -18,7 +18,7 @@ define([
 		toJSON: function () {
 
 			var attributes = _.clone(this.attributes);
-				
+
 			if (this.get('ingredientsCollection')) {
 				attributes.ingredientsCollection = attributes.ingredientsCollection.toJSON();
 			}

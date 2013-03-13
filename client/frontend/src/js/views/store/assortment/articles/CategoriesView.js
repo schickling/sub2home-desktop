@@ -1,36 +1,35 @@
 // Filename: src/js/views/store/assortment/articles/CategoriesView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'collections/CategoriesCollection',
-	'views/store/assortment/articles/CategoryView',
-	'views/store/assortment/articles/ControlView'
-	], function ($, _, Backbone, CategoriesCollection, CategoryView, ControlView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'collections/CategoriesCollection',
+    'views/store/assortment/SectionBaseView',
+    'views/store/assortment/articles/CategoryView',
+    'views/store/assortment/articles/ControlView'
+    ], function ($, _, Backbone, CategoriesCollection, SectionBaseView, CategoryView, ControlView) {
 
-	var CategoriesView = Backbone.View.extend({
+	var CategoriesView = SectionBaseView.extend({
 
-		$categories: null,
+		controlViewClass: ControlView,
+		collectionClass: CategoriesCollection,
 
-		initialize: function () {
-			this.collection = new CategoriesCollection();
+		contentDiv: '#articlesSection',
+
+		_fetchCollection: function () {
+			var self = this;
+
 			this.collection.fetch({
-				async: false,
 				data: $.param({
 					assortment: true
-				})
+				}),
+				success: function () {
+					self._renderContent();
+				}
 			});
-
-			this._cacheDom();
-			this._renderCategories();
-			this._renderControl();
 		},
 
-		_cacheDom: function() {
-			this.$categories = this.$('#articlesSection');
-		},
-
-		_renderCategories: function () {
+		_renderContent: function () {
 			_.each(this.collection.models, function (categoryModel) {
 				this._renderCategory(categoryModel);
 			}, this);
@@ -41,14 +40,7 @@ define([
 				model: categoryModel
 			});
 
-			this.$categories.append(categoryView.el);
-		},
-
-		_renderControl: function() {
-			new ControlView({
-				el: this.$('.assortmentControls'),
-				collection: this.collection
-			});
+			this.$content.append(categoryView.el);
 		}
 
 	});

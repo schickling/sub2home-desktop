@@ -28,6 +28,13 @@ class CategoriesController extends ApiController
 
 		// if client is logged in and changes his assortment
 		if (Input::get('assortment')) {
+			
+			$this->checkAuthentification();
+
+			if ($this->hasErrorOccured()) {
+				return $this->respondWithError();
+			}
+
 			$preparedCategoriesCollection = $this->prepareCategoriesForAssortmentListing($categoriesCollection);
 		} else {
 			$preparedCategoriesCollection = $this->prepareCategoriesWithAllItems($categoriesCollection);

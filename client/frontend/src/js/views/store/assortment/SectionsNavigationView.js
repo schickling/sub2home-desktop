@@ -12,7 +12,7 @@ define([
 
 		timelineItemsCollection: null,
 
-		currentCategoryIndex: null,
+		currentSectionIndex: null,
 
 		animationTime: 400,
 
@@ -42,13 +42,13 @@ define([
 
 			var timelineItems = [{
 				image: '../../img/static/categories/smallimages/salat.png',
-				icon: 'iSalad'
+				icon: 'iSub'
 			}, {
-				image: '../../img/static/categories/smallimages/salat.png',
-				icon: 'iSalad'
+				image: '../../img/static/common/menu_upgrade.png',
+				icon: 'iMenuUpgrade'
 			}, {
-				image: '../../img/static/categories/smallimages/salat.png',
-				icon: 'iSalad'
+				image: '../../img/static/ingredientcategories/smallimages/vegetables.png',
+				icon: 'iVegetables'
 			}];
 
 			this.timelineItemsCollection = new TimelineItemsCollection(timelineItems);
@@ -85,7 +85,7 @@ define([
 				var $this = $(this);
 
 				$this.on('click', function () {
-					self.currentCategoryIndex = index;
+					self.currentSectionIndex = index;
 					self._navigate();
 				});
 			});
@@ -93,11 +93,11 @@ define([
 
 		_navigate: function () {
 			this._slideTimeline();
-			this._scrollContent();
+			this._slideContent();
 		},
 
 		_slideTimeline: function () {
-			var offsetRelative = this.currentCategoryIndex * 70;
+			var offsetRelative = this.currentSectionIndex * 70;
 
 			this.$navigationOverlay.stop().animate({
 				left: offsetRelative - 10
@@ -108,8 +108,13 @@ define([
 			}, this.animationTime);
 		},
 
-		_scrollContent: function () {
-			
+		_slideContent: function () {
+			var left = -(this.currentSectionIndex * 100),
+				leftPercentage = left + '%';
+
+			this.$stage.animate({
+				left: leftPercentage
+			});
 		}
 
 	});

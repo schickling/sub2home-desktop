@@ -49,6 +49,14 @@ Route::group(array('https'), function()
 	Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
 	Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
 
+	// ingredient categories
+	Route::get('api/frontend/stores/{alias}/ingredientcategories',		'App\Controllers\Api\Frontend\IngredientCategoriesController@index');
+	Route::put('api/frontend/stores/{alias}/ingredientcategories/{id}',	'App\Controllers\Api\Frontend\IngredientCategoriesController@update');
+
+	// menus (menu bundles + menu upgrades)
+	Route::get('api/frontend/stores/{alias}/menus',						'App\Controllers\Api\Frontend\MenusController@index');
+	Route::put('api/frontend/stores/{alias}/menus/{id}',				'App\Controllers\Api\Frontend\MenusController@update');
+
 	// invoices
 	Route::get('api/frontend/stores/{alias}/invoices', 					'App\Controllers\Api\Frontend\InvoicesController@index');
 

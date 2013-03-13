@@ -1,10 +1,11 @@
 // Filename: src/js/collections/IngredientCategoriesCollection.js
 define([
-	'underscore',
-	'backbone',
-	'models/IngredientCategoryModel',
-	'collections/IngredientsCollection'
-	], function (_, Backbone, IngredientCategoryModel, IngredientsCollection) {
+    'underscore',
+    'backbone',
+    'global',
+    'models/IngredientCategoryModel',
+    'collections/IngredientsCollection'
+    ], function (_, Backbone, global, IngredientCategoryModel, IngredientsCollection) {
 
 	var IngredientCategoriesCollection = Backbone.Collection.extend({
 
@@ -23,6 +24,10 @@ define([
 			});
 
 			return ingredientModels;
+		},
+
+		url: function () {
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/ingredientcategories';
 		}
 
 	});

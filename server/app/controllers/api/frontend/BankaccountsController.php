@@ -12,7 +12,13 @@ class BankaccountsController extends ApiController
 
 	public function update()
 	{
+		$this->loadStoreModel();
+		$this->checkAuthentification();
 
+		if ($this->hasErrorOccured()) {
+			return $this->respondWithError();
+		}
+		
 		// check input
 		$input = Input::json();
 		$rules = array(
