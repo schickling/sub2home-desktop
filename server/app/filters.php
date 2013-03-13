@@ -11,9 +11,20 @@
 |
 */
 
+// TODO wait unitl OPTIONS support
 App::before(function($request)
 {
-	//
+    // Sent by the browser since request come in as cross-site AJAX
+    if ($request->getMethod() == 'OPTIONS') {
+
+    	$response = Response::make();
+
+        $response->headers->set('Access-Control-Allow-Origin', 'http://backend.sub2home.dev');
+		$response->headers->set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD, OPTIONS');
+		$response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+
+        return $response;
+    }
 });
 
 
@@ -57,7 +68,7 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
-	if (Session::getToken() != Input::get('csrf_token'))
+	if (Session::getToken() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}

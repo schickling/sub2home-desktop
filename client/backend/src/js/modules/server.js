@@ -19,16 +19,16 @@ define([
 
 				// all api requests are called synchronously
 				async: false,
-				crossDomain: true,
+				// crossDomain: true,
 
-				xhrFields: {
-					withCredentials: true
-				},
+				// xhrFields: {
+				// 	withCredentials: true
+				// },
 
-				// append token to all api requests to authenticate
-				headers: {
-					// 'Token': 'jo'
-				}
+				// // append token to all api requests to authenticate
+				// headers: {
+				// 	// 'Token': 'jo'
+				// }
 			});
 		},
 
