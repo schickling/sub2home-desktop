@@ -60,18 +60,13 @@ class ClientsController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respondWithStatus(400);
 		}
 
 
 		// compare current password
 		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {
-			return $this->respondWithStatus(400, 'Invalid current password');
-		}
-
-		// check if password has changed
-		if ($input['currentPassword'] == $input['newPassword']) {
-			return $this->respondWithStatus(400, 'New password is still the same');
+			return $this->respondWithStatus(400);
 		}
 
 		// save new password

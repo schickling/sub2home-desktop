@@ -130,6 +130,12 @@ define([
 				className: 'error'
 			},
 
+			'views.client.config.changePassword.success': {
+				title: 'Passwort geändert',
+				description: 'Ihr Passwort wurde erfolgreich aktualisiert.',
+				className: 'success'
+			},
+
 			'views.client.config.changePassword.oldPasswordWrong': {
 				title: 'Falsches Passwort',
 				description: 'Das ist leider nicht ihr altes Passwort.',

@@ -15,7 +15,8 @@ define([
 			'click #triggerEditPassword p': '_showPasswordFields',
 			'click #submitNewPassword': '_saveNewPassword',
 			'click #cancelEditPassword': '_hidePasswordFields',
-			'keyup #editPassword input': '_updateSubmitButton'
+			'keyup #editPassword input': '_updateSubmitButton',
+			'keypress #editPassword input': '_checkEnterKey'
 		},
 
 		initialize: function () {
@@ -34,7 +35,7 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		_listenToNameChange: function() {
+		_listenToNameChange: function () {
 			var addressModel = this.model.get('addressModel');
 
 			this.listenTo(addressModel, 'change:firstName change:lastName', this._render);
@@ -58,7 +59,7 @@ define([
 				paddingLeft: 622
 			}, animationTime);
 
-			$editPassword.delay(100).fadeIn(animationTime - 100, function() {
+			$editPassword.delay(100).fadeIn(animationTime - 100, function () {
 				$editPassword.find('input').first().focus();
 			});
 		},
@@ -106,6 +107,7 @@ define([
 					}),
 					success: function () {
 						self._hidePasswordFields();
+						notificationcenter.notify('views.client.config.changePassword.success');
 					},
 					error: function () {
 						notificationcenter.notify('views.client.config.changePassword.oldPasswordWrong');
@@ -137,6 +139,12 @@ define([
 			}
 
 			return true;
+		},
+
+		_checkEnterKey: function (e) {
+			if (e.keyCode == 13) {
+				this._saveNewPassword();
+			}
 		},
 
 		_listenForDestory: function () {
