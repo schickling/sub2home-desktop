@@ -63,8 +63,7 @@ class ClientsController extends ApiController
 			return $this->respondWithStatus(400);
 		}
 
-
-		// compare current password
+		// check if entered old password is correct
 		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {
 			return $this->respondWithStatus(400);
 		}
