@@ -5053,15 +5053,18 @@ div#payment {
   position: absolute;
   padding-top: 50px;
   padding-bottom: 50px;
+  text-align: center;
 
-  p {
+  #thxText {
     font-family: @headingsFontFamily;
     font-size: 24px;
     color: @onNoteColor;
-    width: 100%;
+    .positioned;
+    //width: 100%;
     margin-top: 10px;
     text-align: center;
     line-height: 1.3;
+    display: inline-block;
     span {
         font-size: 16px;
         display: inline-block;
@@ -5075,6 +5078,14 @@ div#payment {
         padding: 0;
       }
     }
+    .notice {
+      position: relative;
+      margin-top: 20px;
+      width: 100%;
+      span{
+        color: darken(@onNoteColor, 20%);
+      }
+    }
   }
 
   #countdown {
@@ -5084,6 +5095,7 @@ div#payment {
     color: @onNoteColor30;
     text-align: center;
     margin: 0 auto;
+    cursor: default;
     span {
       .positioned;
       top: -15px;
@@ -5098,7 +5110,7 @@ div#payment {
 
 .content.checkout {
   top: 0;
-  bottom: 300px;
+  bottom: 330px;
   background: @grayLight;
 }
 

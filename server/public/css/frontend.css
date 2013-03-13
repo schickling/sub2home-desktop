@@ -388,7 +388,7 @@ aside#header .iInfo {
 }
 .note#checkoutNote {
   bottom: 0;
-  height: 200px;
+  height: 230px;
 }
 .note#checkoutNote:before {
   content: " ";
@@ -7821,27 +7821,37 @@ div#payment > div.disabled .btn.active {
   position: absolute;
   padding-top: 50px;
   padding-bottom: 50px;
+  text-align: center;
 }
-#checkoutNote p {
+#checkoutNote #thxText {
   font-family: "VAGRounded LT Thin";
   font-size: 24px;
   color: #d1ba82;
-  width: 100%;
+  position: relative;
   margin-top: 10px;
   text-align: center;
   line-height: 1.3;
+  display: inline-block;
 }
-#checkoutNote p span {
+#checkoutNote #thxText span {
   font-size: 16px;
   display: inline-block;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   padding-top: 18px;
 }
-#checkoutNote p span.emphasized {
+#checkoutNote #thxText span.emphasized {
   font-family: "VAGRounded LT Thin";
   font-size: 24px;
   color: #57a827;
   padding: 0;
+}
+#checkoutNote #thxText .notice {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+}
+#checkoutNote #thxText .notice span {
+  color: #ad8d40;
 }
 #checkoutNote #countdown {
   font-size: 150px;
@@ -7850,6 +7860,7 @@ div#payment > div.disabled .btn.active {
   color: rgba(209, 186, 130, 0.3);
   text-align: center;
   margin: 0 auto;
+  cursor: default;
 }
 #checkoutNote #countdown span {
   position: relative;
@@ -7861,7 +7872,7 @@ div#payment > div.disabled .btn.active {
 }
 .content.checkout {
   top: 0;
-  bottom: 300px;
+  bottom: 330px;
   background: #cecece;
 }
 aside.infoNavigation {
