@@ -377,7 +377,8 @@ aside#header .iInfo {
 .note#homeNote:after,
 .note#storeNote:after,
 .note#selectionNote:after,
-.note#revenuesNote:after {
+.note#revenuesNote:after,
+.note#assortmentNote:after {
   content: " ";
   height: 7px;
   position: absolute;
@@ -385,6 +386,9 @@ aside#header .iInfo {
   right: 0;
   bottom: -7px;
   background: url("../img/static/common/note_bottom.png") repeat-x;
+}
+.note#assortmentNote {
+  height: 150px;
 }
 .note#checkoutNote {
   bottom: 0;
@@ -3101,14 +3105,16 @@ img.cookie {
   z-index: 100;
 }
 #timelineNote .itemsTimeline,
-#categoriesNavigation .itemsTimeline {
+#categoriesNavigation .itemsTimeline,
+#sectionsNavigation .itemsTimeline {
   display: inline-block;
   min-width: 30px;
   margin-right: 65px;
   vertical-align: top;
 }
 #timelineNote .itemsTimeline .itemTimeline,
-#categoriesNavigation .itemsTimeline .itemTimeline {
+#categoriesNavigation .itemsTimeline .itemTimeline,
+#sectionsNavigation .itemsTimeline .itemTimeline {
   position: relative;
   margin: 0;
   display: inline-block;
@@ -3117,20 +3123,24 @@ img.cookie {
   height: 70px;
 }
 #timelineNote .itemsTimeline .itemTimeline:first-child,
-#categoriesNavigation .itemsTimeline .itemTimeline:first-child {
+#categoriesNavigation .itemsTimeline .itemTimeline:first-child,
+#sectionsNavigation .itemsTimeline .itemTimeline:first-child {
   margin-left: 0;
 }
 #timelineNote .itemsTimeline .itemTimeline .icn:before,
-#categoriesNavigation .itemsTimeline .itemTimeline .icn:before {
+#categoriesNavigation .itemsTimeline .itemTimeline .icn:before,
+#sectionsNavigation .itemsTimeline .itemTimeline .icn:before {
   top: 1px;
 }
 #timelineNote .itemsTimeline .itemTimeline .iSnacks,
-#categoriesNavigation .itemsTimeline .itemTimeline .iSnacks {
+#categoriesNavigation .itemsTimeline .itemTimeline .iSnacks,
+#sectionsNavigation .itemsTimeline .itemTimeline .iSnacks {
   position: relative;
   top: 4px;
 }
 #timelineNote .itemsTimeline .itemTimeline img,
-#categoriesNavigation .itemsTimeline .itemTimeline img {
+#categoriesNavigation .itemsTimeline .itemTimeline img,
+#sectionsNavigation .itemsTimeline .itemTimeline img {
   position: absolute;
   top: 0;
   left: 0px;
@@ -3138,11 +3148,13 @@ img.cookie {
   height: auto;
 }
 #timelineNote .itemsTimeline:first-child .timelineItem:before,
-#categoriesNavigation .itemsTimeline:first-child .timelineItem:before {
+#categoriesNavigation .itemsTimeline:first-child .timelineItem:before,
+#sectionsNavigation .itemsTimeline:first-child .timelineItem:before {
   content: " ";
 }
 #timelineNote #stageTimeline,
-#categoriesNavigation #stageTimeline {
+#categoriesNavigation #stageTimeline,
+#sectionsNavigation #stageTimeline {
   text-align: center;
   vertical-align: top;
   position: relative;
@@ -3150,7 +3162,8 @@ img.cookie {
   white-space: nowrap;
 }
 #timelineNote #stageTimeline .phrase,
-#categoriesNavigation #stageTimeline .phrase {
+#categoriesNavigation #stageTimeline .phrase,
+#sectionsNavigation #stageTimeline .phrase {
   position: relative;
   margin: 13px 0 0 0;
   width: 100px;
@@ -3163,11 +3176,13 @@ img.cookie {
   white-space: pre-wrap;
 }
 #timelineNote #stageTimeline .itemTimeline,
-#categoriesNavigation #stageTimeline .itemTimeline {
+#categoriesNavigation #stageTimeline .itemTimeline,
+#sectionsNavigation #stageTimeline .itemTimeline {
   color: #d1ba82;
 }
 #timelineNote #stageTimeline .itemTimeline .icn,
-#categoriesNavigation #stageTimeline .itemTimeline .icn {
+#categoriesNavigation #stageTimeline .itemTimeline .icn,
+#sectionsNavigation #stageTimeline .itemTimeline .icn {
   margin-left: -2px;
   width: 70px;
   height: 43px;
@@ -3176,15 +3191,18 @@ img.cookie {
   color: inherit;
 }
 #timelineNote #stageTimeline .itemTimeline .icn:before,
-#categoriesNavigation #stageTimeline .itemTimeline .icn:before {
+#categoriesNavigation #stageTimeline .itemTimeline .icn:before,
+#sectionsNavigation #stageTimeline .itemTimeline .icn:before {
   font-size: 68px;
 }
 #timelineNote #stageTimeline .itemTimeline img,
-#categoriesNavigation #stageTimeline .itemTimeline img {
+#categoriesNavigation #stageTimeline .itemTimeline img,
+#sectionsNavigation #stageTimeline .itemTimeline img {
   display: none;
 }
 #timelineNote #overlayTimeline,
-#categoriesNavigation #overlayTimeline {
+#categoriesNavigation #overlayTimeline,
+#sectionsNavigation #overlayTimeline {
   display: none;
   width: 90px;
   height: 90px;
@@ -3193,7 +3211,8 @@ img.cookie {
   left: -10px;
 }
 #timelineNote #overlayFrameTimeline,
-#categoriesNavigation #overlayFrameTimeline {
+#categoriesNavigation #overlayFrameTimeline,
+#sectionsNavigation #overlayFrameTimeline {
   display: block;
   overflow: hidden;
   width: 70px;
@@ -3213,7 +3232,8 @@ img.cookie {
   vertical-align: center;
 }
 #timelineNote #overlayFrameTimeline:before,
-#categoriesNavigation #overlayFrameTimeline:before {
+#categoriesNavigation #overlayFrameTimeline:before,
+#sectionsNavigation #overlayFrameTimeline:before {
   content: " ";
   position: absolute;
   width: 100%;
@@ -3223,7 +3243,8 @@ img.cookie {
   background: rgba(209, 186, 130, 0.3);
 }
 #timelineNote #overlayFrameTimeline #overlayFrameWrapperTimeline,
-#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline {
+#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline,
+#sectionsNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline {
   display: block;
   position: absolute;
   left: 0;
@@ -3232,11 +3253,13 @@ img.cookie {
   margin: 0;
 }
 #timelineNote #overlayFrameTimeline #overlayFrameWrapperTimeline img,
-#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline img {
+#categoriesNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline img,
+#sectionsNavigation #overlayFrameTimeline #overlayFrameWrapperTimeline img {
   left: -2px;
 }
 #timelineNote #overlayFrameTimeline .itemsTimeline,
-#categoriesNavigation #overlayFrameTimeline .itemsTimeline {
+#categoriesNavigation #overlayFrameTimeline .itemsTimeline,
+#sectionsNavigation #overlayFrameTimeline .itemsTimeline {
   white-space: nowrap;
 }
 #loader {
@@ -3702,6 +3725,11 @@ div#roleSwitch #handle:before {
   color: #d1ba82;
   left: 50%;
   margin-left: -174px;
+}
+#homeNote .notice {
+  width: 240px;
+  right: 30px;
+  bottom: -62px;
 }
 input[type="text"]#locationSelectionInput {
   font-size: 65px;
@@ -4398,6 +4426,13 @@ input[type="text"]#locationSelectionInput {
 .bundleItems .several .icn.small:after {
   content: " ";
 }
+#sectionsNavigation {
+  position: relative;
+  width: 50%;
+  top: 50%;
+  margin-top: -42px;
+  height: 70%;
+}
 .assortmentControls {
   position: absolute;
   right: 3%;
@@ -4553,7 +4588,11 @@ input[type="text"]#locationSelectionInput {
   opacity: 1;
   filter: alpha(opacity=100);
 }
+.content.assortment #stage {
+  width: 300%;
+}
 .content.assortment #stage .slide {
+  width: 33.3333333%;
   height: 100%;
   overflow-y: auto;
 }

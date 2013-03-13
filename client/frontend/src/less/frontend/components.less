@@ -463,7 +463,7 @@ img.cookie    { margin: 0 -10px;}
   z-index: 100;
 }
 
-#timelineNote, #categoriesNavigation {
+#timelineNote, #categoriesNavigation, #sectionsNavigation {
   .itemsTimeline {
     display: inline-block;
     min-width: 30px;
@@ -999,6 +999,12 @@ div#roleSwitch {
   //     }
   //   }
   // }
+}
+
+#homeNote .notice {
+  width: 240px;
+  right: 30px;
+  bottom: -62px;
 }
 
 input[type="text"]#locationSelectionInput {
@@ -1756,6 +1762,15 @@ input[type="text"]#locationSelectionInput {
 // Article Edit Mode
 // -------------------------------------------------------
 
+
+#sectionsNavigation {
+  position: relative;
+  width: 50%;
+  top: 50%;
+  margin-top: -42px;
+  height: 70%;
+}
+
 .assortmentControls {
   position: absolute;
   right: 3%;
@@ -1918,10 +1933,17 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-.content.assortment #stage {
-  .slide {
-    height: 100%;
-    overflow-y: auto;
+
+
+
+.content.assortment {
+  #stage {
+    width: 300%;
+    .slide {
+      width: 33.3333333%;
+      height: 100%;
+      overflow-y: auto;
+    }
   }
 }
 
@@ -4827,7 +4849,7 @@ div#payment {
     &.clickable {
       color: rgba(156,200,62,0.4);
       cursor: pointer;
-
+      
       &:hover {
         color: @greenLighter;
         right: 10px;
