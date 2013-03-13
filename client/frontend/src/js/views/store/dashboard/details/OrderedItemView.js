@@ -1,18 +1,24 @@
 // Filename: src/js/views/store/dashboard/details/OrderedItemView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/dashboard/details/OrderedArticlesView'
+    ], function ($, _, Backbone, OrderedArticlesView) {
 
 	var OrderedItemView = Backbone.View.extend({
 
+		className: 'orderArticle',
+
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
-			console.log(this.model);
+		_render: function () {
+			new OrderedArticlesView({
+				el: this.$el,
+				collection: this.model.get('orderedArticlesCollection')
+			});
 		}
 
 	});

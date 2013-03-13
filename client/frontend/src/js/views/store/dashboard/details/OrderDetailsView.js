@@ -4,20 +4,20 @@ define([
 	'underscore',
 	'backbone',
 	'views/store/dashboard/details/OrderedItemsView',
-	'text!templates/store/dashboard/OrderDetailsTemplate.html'
+	'text!templates/store/dashboard/details/OrderDetailsTemplate.html'
 	], function ($, _, Backbone, OrderedItemsView, OrderDetailsTemplate) {
 
 	var OrderDetailsView = Backbone.View.extend({
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			this.$el.html(OrderDetailsTemplate);
 
 			new OrderedItemsView({
-				el: this.$('.orderContent'),
+				el: this.$('.orderArticles'),
 				collection: this.model.get('orderedItemsCollection')
 			});
 		}

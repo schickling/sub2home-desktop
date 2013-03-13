@@ -9,16 +9,16 @@ define([
 	var OrderedItemsView = Backbone.View.extend({
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (orderedItemModel) {
-				this.renderOrderedItem(orderedItemModel);
+				this._renderOrderedItem(orderedItemModel);
 			}, this);
 		},
 
-		renderOrderedItem: function (orderedItemModel) {
+		_renderOrderedItem: function (orderedItemModel) {
 			var orderedItemView = new OrderedItemView({
 				model: orderedItemModel
 			});
