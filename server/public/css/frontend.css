@@ -2253,10 +2253,10 @@ input[type="text"].money {
   width: 61px;
   height: 61px;
   background: url('../img/static/common/icons.png') no-repeat;
-  background-position: 0 0;
+  background-position: -61px 0;
 }
 #storeOpen.isOpen {
-  background-position: -61px 0;
+  background-position: 0 0;
 }
 .btn {
   display: inline-block;
@@ -5287,15 +5287,15 @@ input[type="text"]#locationSelectionInput {
   box-sizing: border-box;
   height: 27px;
 }
-.note.orders {
+#revenuesNote {
   min-height: 150px;
   height: 150px;
 }
-.note.orders .container {
+#revenuesNote .container {
   height: inherit;
   overflow: hidden;
 }
-.note.orders #toggleRevenues {
+#revenuesNote #toggleRevenues {
   margin: 30px;
   position: absolute;
   color: rgba(209, 186, 130, 0.5);
@@ -5305,7 +5305,7 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders #toggleRevenues .iTurnover {
+#revenuesNote #toggleRevenues .iTurnover {
   height: 37px;
   padding-left: 0px;
   color: rgba(209, 186, 130, 0.7);
@@ -5314,11 +5314,11 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders #toggleRevenues .iTurnover:after {
+#revenuesNote #toggleRevenues .iTurnover:after {
   font-size: 50px;
   position: relative;
 }
-.note.orders #toggleRevenues h3 {
+#revenuesNote #toggleRevenues h3 {
   color: inherit;
   margin: 0 0 0 5px;
   display: inline-block;
@@ -5326,16 +5326,16 @@ input[type="text"]#locationSelectionInput {
   top: 6px;
   vertical-align: top;
 }
-.note.orders #toggleRevenues:hover {
+#revenuesNote #toggleRevenues:hover {
   color: #d1ba82;
 }
-.note.orders #toggleRevenues:hover .iTurnover {
+#revenuesNote #toggleRevenues:hover .iTurnover {
   color: #d1ba82;
 }
-.note.orders #toggleRevenues.toggled .iTurnover {
+#revenuesNote #toggleRevenues.toggled .iTurnover {
   color: #d1ba82;
 }
-.note.orders #toggleRevenues.toggled .iTurnover:before {
+#revenuesNote #toggleRevenues.toggled .iTurnover:before {
   content: "\e05f";
   position: absolute;
   top: 5px;
@@ -5350,20 +5350,20 @@ input[type="text"]#locationSelectionInput {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.note.orders #toggleRevenues.toggled .iTurnover:hover:before {
+#revenuesNote #toggleRevenues.toggled .iTurnover:hover:before {
   color: #9d261d;
 }
-.note.orders #toggleRevenues.toggled h3 {
+#revenuesNote #toggleRevenues.toggled h3 {
   color: #d1ba82;
 }
-.note.orders #revenues {
+#revenuesNote #revenues {
   position: relative;
   margin: 80px 0 50px 0;
   height: 270px;
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.note.orders #revenues:before {
+#revenuesNote #revenues:before {
   content: " ";
   height: 1px;
   background: #d1ba82;
@@ -5372,20 +5372,20 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   bottom: 53px;
 }
-.note.orders #revenues #turnoverContainer {
+#revenuesNote #revenues #turnoverContainer {
   position: relative;
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
   height: 270px;
 }
-.note.orders #revenues .turnoverYear {
+#revenuesNote #revenues .turnoverYear {
   display: inline-block;
   padding: 90px 0 0 0;
   position: relative;
   margin-left: 30px;
 }
-.note.orders #revenues .turnoverYear:before {
+#revenuesNote #revenues .turnoverYear:before {
   content: " ";
   width: 1px;
   height: 165px;
@@ -5395,7 +5395,7 @@ input[type="text"]#locationSelectionInput {
   left: 35px;
   bottom: 49px;
 }
-.note.orders #revenues .turnoverYear .yearlyTurnoverResume {
+#revenuesNote #revenues .turnoverYear .yearlyTurnoverResume {
   position: absolute;
   top: 10px;
   left: 70px;
@@ -5403,17 +5403,17 @@ input[type="text"]#locationSelectionInput {
   font-size: 50px;
   color: rgba(209, 186, 130, 0.5);
 }
-.note.orders #revenues .turnoverYear .yearlyTurnoverResume .bDocument {
+#revenuesNote #revenues .turnoverYear .yearlyTurnoverResume .bDocument {
   margin: 0 5px;
 }
-.note.orders #revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
+#revenuesNote #revenues .turnoverYear .yearlyTurnoverResume .bDocument:before {
   font-size: 50px;
   top: 1px;
 }
-.note.orders #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
+#revenuesNote #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverValue:after {
   content: "€";
 }
-.note.orders #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverLabel {
+#revenuesNote #revenues .turnoverYear .yearlyTurnoverResume .yearlyTurnoverLabel {
   font-size: 18px;
   color: #d1ba82;
   text-transform: uppercase;
@@ -5422,7 +5422,7 @@ input[type="text"]#locationSelectionInput {
   white-space: pre-wrap;
   display: inline-block;
 }
-.note.orders #revenues .turnover {
+#revenuesNote #revenues .turnover {
   display: inline-block;
   text-align: center;
   font-family: "VAGRounded LT Thin";
@@ -5430,7 +5430,7 @@ input[type="text"]#locationSelectionInput {
   line-height: 1;
   margin-left: 70px;
 }
-.note.orders #revenues .turnover:before {
+#revenuesNote #revenues .turnover:before {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -5447,35 +5447,35 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: 0 1px 0 0 #ffffff, inset 0 1px 2px 0 #ad8d40;
   box-shadow: 0 1px 0 0 #ffffff, inset 0 1px 2px 0 #ad8d40;
 }
-.note.orders #revenues .turnover .turnoverValue {
+#revenuesNote #revenues .turnover .turnoverValue {
   font-size: 50px;
   color: #d1ba82;
   margin-bottom: 50px;
 }
-.note.orders #revenues .turnover .turnoverValue:after {
+#revenuesNote #revenues .turnover .turnoverValue:after {
   content: "€";
 }
-.note.orders #revenues .turnover .turnoverMonth {
+#revenuesNote #revenues .turnover .turnoverMonth {
   display: inline-block;
   color: #d1ba82;
   font-size: 24px;
   text-transform: uppercase;
   position: relative;
 }
-.note.orders #revenues .turnover .turnoverMonth .bDocument {
+#revenuesNote #revenues .turnover .turnoverMonth .bDocument {
   position: absolute;
   top: 0;
   right: -34px;
   width: 30px;
   height: 30px;
 }
-.note.orders #revenues .turnoverYear:first-child:before {
+#revenuesNote #revenues .turnoverYear:first-child:before {
   display: none;
 }
-.note.orders #revenues .turnoverYear:first-child .turnover:first-child {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child {
   margin: 0 0 0 100px;
 }
-.note.orders #revenues .turnoverYear:first-child .turnover:first-child:before {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child:before {
   width: 17px;
   height: 17px;
   background-color: #9cc83e;
@@ -5485,12 +5485,12 @@ input[type="text"]#locationSelectionInput {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.note.orders #revenues .turnoverYear:first-child .turnover:first-child .turnoverValue {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverValue {
   font-size: 110px;
   color: #9cc83e;
   margin-bottom: 40px;
 }
-.note.orders #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
   display: none;
 }
 #orderControls {
