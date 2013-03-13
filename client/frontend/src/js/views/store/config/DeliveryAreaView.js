@@ -14,7 +14,7 @@ define([
 			'focusout .deliveryAreaCity': '_updateCity',
 			'focusout .deliveryAreaDistrict': '_updateDistrict',
 			'keypress input': '_blurOnEnter',
-			'click .sBRemove': '_destroy'
+			'click .bRemove': '_destroy'
 		},
 
 		parentView: null,

@@ -104,7 +104,6 @@ class StoresController extends ApiController
 		}
 
 
-		$storeModel->description = $input['description'];
 		$storeModel->orderEmail = $input['orderEmail'];
 		$storeModel->isOpen = (bool) $input['isOpen'];
 		$storeModel->allowsPaymentCash = (bool) $input['allowsPaymentCash'];

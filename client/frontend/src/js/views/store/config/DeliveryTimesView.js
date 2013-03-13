@@ -9,7 +9,7 @@ define([
 
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
-			'click .sBAdd': '_addDeliveryTime'
+			'click .bAdd': '_addDeliveryTime'
 		},
 
 		initialize: function () {

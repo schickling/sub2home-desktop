@@ -11,11 +11,19 @@ define([
 	var DeliveryAreasView = Backbone.View.extend({
 
 		events: {
-			'click .sBAdd': '_addDeliveryArea'
+			'click .bAdd': '_addDeliveryArea'
 		},
 
+		// cached dom
+		$configContent: null,
+
 		initialize: function () {
+			this._cacheDom();
 			this._render();
+		},
+
+		_cacheDom: function() {
+			this.$configContent = this.$('.configContent');
 		},
 
 		_render: function () {
@@ -30,7 +38,7 @@ define([
 				parentView: this
 			});
 
-			this.$('.unfolded').append(deliveryAreaView.el);
+			this.$configContent.append(deliveryAreaView.el);
 		},
 
 		_addDeliveryArea: function () {
