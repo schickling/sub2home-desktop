@@ -2907,44 +2907,48 @@ img.cookie {
   content: "\e043";
   left: 50%;
   margin-left: -25px;
-  bottom: -65px;
+  bottom: -75px;
 }
 .notice.aboveRight:before {
   content: "\e042";
   right: 50%;
   margin-right: -25px;
-  bottom: -65px;
+  bottom: -75px;
 }
 .notice.belowLeft:before {
   content: "\e045";
   left: 50%;
   margin-left: -25px;
-  top: -65px;
+  top: -75px;
 }
 .notice.belowRight:before {
   content: "\e044";
   right: 50%;
   margin-right: -25px;
-  top: -65px;
+  top: -75px;
 }
 .notice.rightHandAbove:before {
   content: "\e049";
-  top: -12px;
+  top: 50%;
+  margin-top: -27px;
   left: -65px;
 }
 .notice.rightHandBelow:before {
   content: "\e048";
-  bottom: -15px;
+  top: 50%;
+  margin-top: -57px;
   left: -65px;
 }
 .notice.leftHandAbove:before {
   content: "\e047";
-  top: -12px;
+  top: 50%;
+  margin-top: -27px;
   right: -65px;
 }
 .notice.leftHandBelow:before {
   content: "\e046";
-  bottom: -15px;
+  top: 50%;
+  margin-top: -57px;
   right: -65px;
 }
 .note .notice {
@@ -2952,7 +2956,7 @@ img.cookie {
 }
 #login .notice {
   right: 30px;
-  top: -90px;
+  top: -100px;
 }
 #checkoutBasicControls .notice {
   color: rgba(197, 168, 98, 0.7);
