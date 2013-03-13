@@ -7294,21 +7294,17 @@ div#payment > div.disabled .btn.active {
   width: 100%;
   background: rgba(224, 166, 54, 0.2);
 }
-#checkoutAdditionalOptions,
-.note.checkout {
+#checkoutAdditionalOptions {
   position: relative;
   padding: 0 8% 50px;
 }
-#checkoutAdditionalOptions > div,
-.note.checkout > div {
+#checkoutAdditionalOptions > div {
   display: inline-block;
 }
-#checkoutAdditionalOptions > div#deliveryTimeDisplay,
-.note.checkout > div#deliveryTimeDisplay {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay {
   position: relative;
 }
-#checkoutAdditionalOptions > div#deliveryTimeDisplay > p,
-.note.checkout > div#deliveryTimeDisplay > p {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay > p {
   font-family: "VAGRounded LT Thin";
   font-size: 18px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -7318,15 +7314,12 @@ div#payment > div.disabled .btn.active {
   margin-top: 10px;
   line-height: 1;
 }
-#checkoutAdditionalOptions #deliveryTimeClock,
-.note.checkout #deliveryTimeClock {
+#checkoutAdditionalOptions #deliveryTimeClock {
   position: relative;
   margin: 60px 0;
 }
 #checkoutAdditionalOptions #deliveryTimeClock #hours,
-.note.checkout #deliveryTimeClock #hours,
-#checkoutAdditionalOptions #deliveryTimeClock #minutes,
-.note.checkout #deliveryTimeClock #minutes {
+#checkoutAdditionalOptions #deliveryTimeClock #minutes {
   position: relative;
   padding: 4px;
   background: #d1ba82;
@@ -7342,9 +7335,7 @@ div#payment > div.disabled .btn.active {
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px 0 #a1874d;
 }
 #checkoutAdditionalOptions #deliveryTimeClock .topTile,
-.note.checkout #deliveryTimeClock .topTile,
-#checkoutAdditionalOptions #deliveryTimeClock .bottomTile,
-.note.checkout #deliveryTimeClock .bottomTile {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile {
   position: relative;
   display: inline-block;
   padding: 0;
@@ -7379,23 +7370,18 @@ div#payment > div.disabled .btn.active {
   cursor: pointer;
 }
 #checkoutAdditionalOptions #deliveryTimeClock .topTile span,
-.note.checkout #deliveryTimeClock .topTile span,
-#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span,
-.note.checkout #deliveryTimeClock .bottomTile span {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span {
   display: inline-block;
   position: relative;
   top: 31px;
 }
-#checkoutAdditionalOptions #deliveryTimeClock .bottomTile,
-.note.checkout #deliveryTimeClock .bottomTile {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile {
   margin-top: 1px;
 }
-#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span,
-.note.checkout #deliveryTimeClock .bottomTile span {
+#checkoutAdditionalOptions #deliveryTimeClock .bottomTile span {
   top: -30px;
 }
-#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator,
-.note.checkout #deliveryTimeClock #clockSeparator {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator {
   position: relative;
   width: 11px;
   height: 42px;
@@ -7405,9 +7391,7 @@ div#payment > div.disabled .btn.active {
   margin: 45px 5px 0;
 }
 #checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:before,
-.note.checkout #deliveryTimeClock #clockSeparator:before,
-#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after,
-.note.checkout #deliveryTimeClock #clockSeparator:after {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after {
   content: " ";
   position: absolute;
   width: 11px;
@@ -7421,8 +7405,7 @@ div#payment > div.disabled .btn.active {
   -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4), inset 0 1px 2px 0 #a1874d;
 }
-#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after,
-.note.checkout #deliveryTimeClock #clockSeparator:after {
+#checkoutAdditionalOptions #deliveryTimeClock #clockSeparator:after {
   top: 30px;
 }
 #deliveryAdditionalNote {
@@ -7465,8 +7448,8 @@ div#payment > div.disabled .btn.active {
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn {
   position: absolute;
   cursor: default;
   opacity: 0.3;
@@ -7477,20 +7460,20 @@ div#payment > div.disabled .btn.active {
   color: #c3a55d;
   color: #d1ba82;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn:before,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn:before {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn:before,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn:before {
   top: 1px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowUp,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowUp {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowUp,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowUp {
   top: -32px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowDown,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowDown {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.iArrowDown,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.iArrowDown {
   bottom: -32px;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
@@ -7499,8 +7482,8 @@ div#payment > div.disabled .btn.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active:hover,
-#checkoutAdditionalOptions > div.deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active:hover {
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #hours .iBtn.active:hover,
+#checkoutAdditionalOptions > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active:hover {
   color: #c6aa64;
 }
 #checkoutBasicControls {
@@ -7834,45 +7817,51 @@ div#payment > div.disabled .btn.active {
 #paymentSettings span.selected {
   color: rgba(255, 255, 255, 0.5);
 }
-.note.checkout {
+#checkoutNote {
   position: absolute;
   padding-top: 50px;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
-.note.checkout .deliveryTimeClock.countdown {
-  width: 380px;
-  margin: 0;
-  text-align: center;
-}
-.note.checkout .deliveryTimeClock.countdown p {
+#checkoutNote p {
   font-family: "VAGRounded LT Thin";
   font-size: 24px;
   color: #d1ba82;
   width: 100%;
+  margin-top: 10px;
   text-align: center;
   line-height: 1.3;
 }
-.note.checkout .deliveryTimeClock.countdown p span {
+#checkoutNote p span {
   font-size: 16px;
   display: inline-block;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   padding-top: 18px;
 }
-.note.checkout .deliveryTimeClock.countdown p span.emphasized {
+#checkoutNote p span.emphasized {
   font-family: "VAGRounded LT Thin";
   font-size: 24px;
   color: #57a827;
   padding: 0;
 }
-.note.checkout div.deliveryAdditionalNote {
-  margin: 60px 0 0 450px;
+#checkoutNote #countdown {
+  font-size: 150px;
+  line-height: 1;
+  font-family: "VAGRounded LT Thin";
+  color: rgba(209, 186, 130, 0.3);
+  text-align: center;
+  margin: 0 auto;
 }
-.note.checkout div.deliveryAdditionalNote textarea {
-  color: #d1ba82;
+#checkoutNote #countdown span {
+  position: relative;
+  top: -15px;
+}
+#checkoutNote #countdown span.emphasized {
+  color: rgba(209, 186, 130, 0.5);
+  top: 0;
 }
 .content.checkout {
   top: 0;
-  bottom: 400px;
+  bottom: 300px;
   background: #cecece;
 }
 aside.infoNavigation {
