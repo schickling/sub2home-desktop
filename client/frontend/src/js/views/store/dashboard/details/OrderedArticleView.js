@@ -20,7 +20,6 @@ define([
 			var json = {
 
 			};
-			console.log('yolo');
 
 			this.$el.html(this.template(json));
 		}

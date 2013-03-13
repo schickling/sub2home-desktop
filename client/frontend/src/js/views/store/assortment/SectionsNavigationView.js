@@ -74,8 +74,6 @@ define([
 				el: this.$('#sectionsNavigation'),
 				collection: this.timelineItemsCollection
 			});
-
-			console.log(this.timelineItemsCollection);
 		},
 
 		_initializeClickListneres: function () {

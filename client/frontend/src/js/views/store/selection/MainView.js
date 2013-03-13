@@ -75,8 +75,6 @@ define([
 						orderedItemModel: self.orderedItemModel
 					});
 
-					console.log(articleModel.toJSON());
-
 					self._render();
 				},
 
@@ -118,9 +116,6 @@ define([
 						orderedArticlesCollection.add(orderedArticleModel);
 
 					});
-
-
-					console.log(menuBundleModel.toJSON());
 
 					self._render();
 				},

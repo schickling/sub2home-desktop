@@ -18,8 +18,6 @@ define([
 
 		_render: function () {
 
-			console.log(this.model.toJSON());
-
 			var json = {
 				title: this._getComposedTitle(),
 				image: this.model.get('largeImage')

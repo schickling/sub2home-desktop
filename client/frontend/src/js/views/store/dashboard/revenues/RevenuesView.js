@@ -54,8 +54,6 @@ define([
 				collection: invoicesCollection
 			});
 
-			console.log(invoicesCollection);
-
 			// prepend because of inverted order
 			this.$turnoverContainer.prepend(revenuesYearView.el);
 		},
