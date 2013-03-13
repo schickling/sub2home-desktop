@@ -67,12 +67,16 @@ define([
 			var animationTime = 300,
 				$el = this.$el,
 				$editPassword = this.$('#editPassword'),
+				$inputs = $editPassword.find('input'),
 				$triggerEditPasswordButton = this.$('#triggerEditPassword p'),
 				$cancelEditPassword = this.$('#cancelEditPassword'),
 				$submitNewPassword = this.$('#submitNewPassword');
 
 			$submitNewPassword.fadeOut(animationTime / 2, function () {
 				$triggerEditPasswordButton.fadeIn(animationTime / 2);
+
+				// clear inputs
+				$inputs.val('');
 			});
 
 			$cancelEditPassword.fadeOut(animationTime / 2);
