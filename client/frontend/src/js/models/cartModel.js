@@ -59,6 +59,9 @@ define([
 
 			if (!couldBeFetched) {
 				this.set('orderModel', new OrderModel());
+
+				// initialize dueDate
+				this._correctDueDate();
 			}
 
 			this._listenToOrderModel();
@@ -182,7 +185,6 @@ define([
 
 		setPaymentMethod: function (paymentMethod) {
 			var orderModel = this.get('orderModel');
-			console.log('jooaso');
 
 			orderModel.set({
 				paymentMethod: paymentMethod
@@ -225,15 +227,19 @@ define([
 			});
 		},
 
-		getValidDueDate: function () {
-			var orderModel = this.get('orderModel'),
-				dueDate = orderModel.get('dueDate');
+		getDueDate: function() {
+			var orderModel = this.get('orderModel');
 
-			if (!dueDate || !this._isDueDateValid()) {
+			return orderModel.get('dueDate');
+		},
+
+		getValidDueDate: function () {
+
+			if (!this._isDueDateValid()) {
 				this._correctDueDate();
 			}
 
-			return orderModel.get('dueDate');
+			return this.getDueDate();
 		},
 
 		setDueDate: function (dueDate) {
@@ -255,8 +261,6 @@ define([
 			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
 			orderModel.set({
 				dueDate: dueDate
-			}, {
-				silent: true
 			});
 		},
 
@@ -284,6 +288,18 @@ define([
 				storeModel = stateModel.get('storeModel');
 
 			return orderModel.get('total') >= storeModel.getMinimumValue();
+		},
+
+		cleanUp: function () {
+			var orderModel = this.get('orderModel');
+
+			orderModel.get('orderedItemsCollection').reset();
+			orderModel.set({
+				total: 0,
+				credit: 0,
+				comment: ''
+			});
+
 		}
 
 

@@ -77,8 +77,11 @@ define([
 
 			orderModel.save({}, {
 				success: function () {
+
 					self._ringBell();
-					orderModel.get('orderedItemsCollection').reset();
+
+					cartModel.cleanUp();
+
 					router.navigate('store/danke', {
 						trigger: true,
 						replace: true
@@ -86,7 +89,6 @@ define([
 				},
 				error: function () {
 					notificationcenter.notify('views.store.tray.orderFailed');
-					console.log(b);
 				}
 			});
 		},
@@ -144,7 +146,6 @@ define([
 		_increaseCredit: function () {
 			var orderModel = cartModel.get('orderModel');
 
-			console.log('increase');
 			orderModel.increaseCredit();
 		},
 

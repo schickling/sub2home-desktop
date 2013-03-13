@@ -26,15 +26,7 @@ define([
 			this._render();
 
 			// keep due date in time
-			var self = this;
-			this.intervalTimer = setInterval(function () {
-				var spareMinutes = cartModel.getSpareMinutes();
-
-				if (spareMinutes === 0) {
-					self._addMinute();
-				}
-
-			}, 60000);
+			this._initializeIntervalTimer();
 
 			this._listenForDestory();
 		},
@@ -53,6 +45,18 @@ define([
 				};
 
 			this.$el.html(this.template(json));
+		},
+
+		_initializeIntervalTimer: function () {
+			var self = this;
+			this.intervalTimer = setInterval(function () {
+				var spareMinutes = cartModel.getSpareMinutes();
+
+				if (spareMinutes === 0) {
+					self._addMinute();
+				}
+
+			}, 60000);
 		},
 
 		_addHour: function () {

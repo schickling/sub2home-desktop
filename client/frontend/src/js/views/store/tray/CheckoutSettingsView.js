@@ -43,8 +43,6 @@ define([
 					allowsPaymentPaypal: storeModel.get('allowsPaymentPaypal')
 				};
 
-			console.log(json);
-
 			this.$el.html(this.template(json));
 		},
 

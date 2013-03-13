@@ -15,7 +15,6 @@ define([
 	var OrderModel = Backbone.Model.extend({
 
 		defaults: {
-			isDelivered: false,
 
 			// paymentMethod
 			paymentMethod: 'cash',
@@ -28,15 +27,19 @@ define([
 			credit: 0,
 
 			// relations
-			addressModel: null,
+
 			// customer address
+			addressModel: null,
 			orderedItemsCollection: null,
 
-			// dates
-			created_at: '',
+			// due date
 			due_at: '',
-			createdDate: null,
-			dueDate: null
+			dueDate: null,
+
+			// only needed for store.dashboard
+			isDelivered: false,
+			created_at: '',
+			createdDate: null
 		},
 
 		urlRoot: function () {
