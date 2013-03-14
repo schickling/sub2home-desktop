@@ -334,6 +334,14 @@ aside#header .iInfo {
   right: 0;
   bottom: 0;
   overflow: auto !important;
+  padding: 0;
+}
+.note.full .container,
+.note#trayNote .container {
+  background: url("../img/static/common/note_background.jpg") repeat;
+}
+.note.full > .container,
+.note#trayNote > .container {
   padding: 100px 3% 30px;
 }
 .note#trayNote {
@@ -3955,26 +3963,32 @@ input[type="text"]#locationSelectionInput {
 #currentDeliveryArea.editable:hover .bEdit {
   color: #d1ba82;
 }
-#deliveryAreas {
+#storeNote #deliveryAreas,
+#homeNote #deliveryAreas {
   text-align: right;
   margin-top: 22px;
   padding: 0 5px 0 0;
   cursor: pointer;
 }
-#deliveryAreas span:before {
+#storeNote #deliveryAreas span:before,
+#homeNote #deliveryAreas span:before {
   content: ", ";
   color: rgba(209, 186, 130, 0.5);
 }
-#deliveryAreas span:last-child:before {
+#storeNote #deliveryAreas span:last-child:before,
+#homeNote #deliveryAreas span:last-child:before {
   content: " oder ";
 }
-#deliveryAreas span:first-child:before {
+#storeNote #deliveryAreas span:first-child:before,
+#homeNote #deliveryAreas span:first-child:before {
   content: " ";
 }
-#deliveryAreas span:hover {
+#storeNote #deliveryAreas span:hover,
+#homeNote #deliveryAreas span:hover {
   color: #9cc83e;
 }
-#deliveryAreas span.selected {
+#storeNote #deliveryAreas span.selected,
+#homeNote #deliveryAreas span.selected {
   color: #57a827;
 }
 .category header,
@@ -5971,8 +5985,22 @@ header h2 {
 }
 #storeBasics {
   padding: 20px 10px 20px;
-  overflow: hidden;
   position: relative;
+  *zoom: 1;
+}
+#storeBasics:before,
+#storeBasics:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#storeBasics:after {
+  clear: both;
+}
+#storeBasics .notice {
+  top: -40px;
+  width: 210px;
+  left: 80px;
 }
 #storeBasics input {
   -webkit-box-sizing: border-box;
@@ -5989,9 +6017,7 @@ header h2 {
   position: relative;
   width: 50%;
   height: 450px;
-  margin: 0 5% 0 0;
-  top: 20px;
-  bottom: 20px;
+  margin: 20px 5% 20px 0;
   background: rgba(209, 186, 130, 0.3);
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 2px;
@@ -8278,11 +8304,11 @@ aside#header {
   }
 }
 @media (max-width: 1186px) {
-  aside#header #headerCustomerContent .trayPreview {
+  aside#header #headerCustomerContent #trayPreview {
     height: 51px;
     padding-top: 16px;
   }
-  aside#header span.sumContainer {
+  aside#header span#sumContainer {
     width: 86px;
   }
 }
@@ -8299,59 +8325,59 @@ aside#header {
   aside#header div#clientAreaNavigation .iBtn {
     margin: 24px 5px 0;
   }
-  aside#header div#clientAreaNavigation .bStoreConfig {
+  aside#header div#clientAreaNavigation #bStoreConfig {
     margin-left: 12px;
   }
-  aside#header div#clientAreaNavigation .bStoreDashboard {
+  aside#header div#clientAreaNavigation #bStoreDashboard {
     margin-right: 12px;
   }
-  aside#header div#clientAreaNavigation .bClientDashboard,
-  aside#header div#clientAreaNavigation .bSignout {
+  aside#header div#clientAreaNavigation #bClientDashboard,
+  aside#header div#clientAreaNavigation #bSignout {
     padding: 24px 12px 0;
     margin: 0;
   }
 }
 @media (max-width: 1304px) {
-  .categoriesNavigation {
+  #categoriesNavigation {
     width: 45%;
   }
 }
 @media (max-width: 1113px) {
-  .categoriesNavigation {
+  #categoriesNavigation {
     width: 40%;
     padding-left: 15px;
   }
 }
 @media (max-width: 1425px) {
-  .note.selection .info > div.articleInfo .articleBasics {
+  #selectionNote .info > div.articleInfo .articleBasics {
     padding: 40px 0 0 0;
     width: 250px;
   }
-  .note.selection .info > div.articleInfo.ft .articleBasics {
+  #selectionNote .info > div.articleInfo.ft .articleBasics {
     width: 430px;
     padding: 0 0 0 10px;
   }
 }
 @media (max-width: 1304px) {
-  .note.selection .info > div.articleInfo {
+  #selectionNote .info > div.articleInfo {
     margin: 10px 30px 15px;
     width: 35%;
   }
-  .note.selection .info > div.articleInfo .articleBasics {
+  #selectionNote .info > div.articleInfo .articleBasics {
     padding: 0 0 0 10px;
     width: 250px;
   }
-  .note.selection .info > div.articleInfo.ft .wrapper {
+  #selectionNote .info > div.articleInfo.ft .wrapper {
     width: 100%;
   }
-  .note.selection .info > div.articleInfo.ft .articlePreview {
+  #selectionNote .info > div.articleInfo.ft .articlePreview {
     width: 100%;
   }
-  .note.selection .info > div.articleInfo.ft .articlePreview img {
+  #selectionNote .info > div.articleInfo.ft .articlePreview img {
     height: auto;
     width: 100%;
   }
-  .note.selection .info > div.articleInfo.ft .articleBasics {
+  #selectionNote .info > div.articleInfo.ft .articleBasics {
     width: 100%;
   }
   .ingredientInfo {
@@ -8359,11 +8385,11 @@ aside#header {
   }
 }
 @media (max-width: 1113px) {
-  .note.selection .info > div.articleInfo {
+  #selectionNote .info > div.articleInfo {
     margin: 10px 30px 15px;
     width: 30%;
   }
-  .note.selection .info > div.articleInfo .articleBasics {
+  #selectionNote .info > div.articleInfo .articleBasics {
     padding: 0 0 0 10px;
     width: 250px;
   }
@@ -8372,10 +8398,10 @@ aside#header {
   }
 }
 @media (max-width: 1404px) {
-  .storeConfig > div.deliveryTimes {
+  #storeConfig > div#deliveryTimes {
     width: 348px;
   }
-  .storeConfig > div.deliveryAreas {
+  #storeConfig > div#deliveryAreas {
     right: 378px;
   }
   .deliveryAreaCity,

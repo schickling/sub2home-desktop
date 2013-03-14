@@ -1261,31 +1261,33 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-#deliveryAreas {
-  text-align: right;
-  margin-top: 22px;
-  padding: 0 5px 0 0;
-  cursor: pointer;
-  span {
+#storeNote, #homeNote {
+  #deliveryAreas {
+    text-align: right;
+    margin-top: 22px;
+    padding: 0 5px 0 0;
+    cursor: pointer;
+    span {
 
-    &:before {
-      content: ", ";
-      color: @onNoteColor50;
-    }
+      &:before {
+        content: ", ";
+        color: @onNoteColor50;
+      }
 
-    &:last-child:before {
-      content: " oder ";
-    }
+      &:last-child:before {
+        content: " oder ";
+      }
 
-    &:first-child:before {
-      content: " ";
-    }
+      &:first-child:before {
+        content: " ";
+      }
 
-    &:hover {
-      color: @greenLighter;
-    }
-    &.selected {
-      color: @greenLight;
+      &:hover {
+        color: @greenLighter;
+      }
+      &.selected {
+        color: @greenLight;
+      }
     }
   }
 }
@@ -3120,7 +3122,15 @@ header h2 {
 
 #storeBasics {
   padding: 20px 10px 20px;
-  overflow: hidden;
+  position: relative;
+  .clearfix;
+
+
+  .notice {
+    top: -40px;
+    width: 210px;
+    left: 80px;
+  }
 
   input {
     .border-box;
@@ -3128,7 +3138,7 @@ header h2 {
     width: 100%;
   }
 
-  position: relative;
+  
 
   >div {
     float: left;
@@ -3139,9 +3149,7 @@ header h2 {
       .positioned;
       width: 50%;
       height: 450px;
-      margin: 0 5% 0 0;
-      top: 20px;
-      bottom: 20px;
+      margin: 20px 5% 20px 0;
       background: @onNoteColor30;
       .border-radius(2px);
     }
