@@ -4446,6 +4446,9 @@ input[type="text"]#locationSelectionInput {
 .bundleItems .several .icn.small:after {
   content: " ";
 }
+#sectionsNavigation {
+  width: 400px;
+}
 .assortmentControls {
   position: absolute;
   right: 3%;
