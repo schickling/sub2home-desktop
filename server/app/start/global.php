@@ -63,4 +63,5 @@ App::error(function(Exception $exception, $code)
 |
 */
 
-require __DIR__.'/../filters.php';
+// not needed until now
+// require __DIR__.'/../filters.php';

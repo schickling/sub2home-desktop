@@ -105,10 +105,14 @@ Route::group(array('https'), function()
 |--------------------------------------------------------------------------
 */
 
+// enable OPTIONS request
+Route::options('api/backend/{resource}/{id}', 							'App\Controllers\Api\Backend\ApiController@options');
+
 // clients
 Route::get('api/backend/clients', 										'App\Controllers\Api\Backend\ClientsController@index');
 Route::put('api/backend/clients/{id}', 									'App\Controllers\Api\Backend\ClientsController@update');
 Route::delete('api/backend/clients/{id}', 								'App\Controllers\Api\Backend\ClientsController@destroy');
+Route::options('api/backend/clients/{id}/changepassword', 				'App\Controllers\Api\Backend\ClientsController@options');
 Route::post('api/backend/clients/{id}/changepassword',		 			'App\Controllers\Api\Backend\ClientsController@changePassword');
 
 // addresses
