@@ -1,4 +1,4 @@
-// Filename: src/js/models/ClientModel.js
+// Filename: src/js/models/clientModel.js
 define([
     'underscore',
     'backbone',
@@ -10,8 +10,9 @@ define([
 	var ClientModel = Backbone.Model.extend({
 
 		defaults: {
-			password: '',
-			email: '',
+			bankaccountModel: null,
+			storesCollection: null,
+			addressModel: null,
 			number: 0
 		},
 
@@ -34,10 +35,22 @@ define([
 			}
 
 			return response;
+		},
+
+		getName: function () {
+			var addressModel = this.get('addressModel');
+
+			return addressModel.get('firstName');
 		}
 
 	});
 
-	return ClientModel;
+	var clientModel = new ClientModel();
+
+	clientModel.fetch({
+		async: false
+	});
+
+	return clientModel;
 
 });

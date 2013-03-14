@@ -6,12 +6,12 @@ define([
     'router',
     'moment',
     'models/stateModel',
-    'models/ClientModel',
+    'models/clientModel',
     'views/PageView',
     'views/client/dashboard/StoresView',
     'views/client/dashboard/RevenuesView',
     'text!templates/client/dashboard/MainTemplate.html'
-    ], function ($, _, Backbone, router, moment, stateModel, ClientModel, PageView, StoresView, RevenuesView, MainTemplate) {
+    ], function ($, _, Backbone, router, moment, stateModel, clientModel, PageView, StoresView, RevenuesView, MainTemplate) {
 
 	// set global moment language
 	moment.lang('de', {
@@ -22,10 +22,7 @@ define([
 	var MainView = PageView.extend({
 
 		initialize: function () {
-			this.model = new ClientModel();
-			this.model.fetch({
-				async: false
-			});
+			this.model = clientModel;
 
 			// select store model if not already selected
 			this._selectFirstStoreModel();

@@ -8,10 +8,9 @@ define([
     'models/authentificationModel',
     'models/stateModel',
     'views/header/StoreView',
-    'views/header/ClientView',
     'text!templates/header/HeaderTemplate.html',
     'text!templates/header/RoleSwitchTemplate.html'
-    ], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, ClientView, HeaderTemplate, RoleSwitchTemplate) {
+    ], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, HeaderTemplate, RoleSwitchTemplate) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -84,9 +83,17 @@ define([
 		},
 
 		_renderClientView: function () {
-			new ClientView({
-				el: this.$('#headerClientContent')
+
+			// require view when its needed
+			var self = this;
+			require(['views/header/ClientView'], function (ClientView) {
+
+				new ClientView({
+					el: this.$('#headerClientContent')
+				});
+
 			});
+
 		},
 
 		_showClientView: function () {

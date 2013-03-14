@@ -5,9 +5,10 @@ define([
     'backbone',
     'router',
     'models/stateModel',
+    'models/clientModel',
     'models/authentificationModel',
     'text!templates/header/ClientTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, authentificationModel, ClientTemplate) {
+    ], function ($, _, Backbone, router, stateModel, clientModel, authentificationModel, ClientTemplate) {
 
 	$.objectOfArray = function (a) {
 		var c = jQuery();
@@ -100,7 +101,7 @@ define([
 		_showClientDashboard: function () {
 			var $neededButtons = this.$buttonClientConfig,
 				$unneededButtons = this.$allButtons.not($neededButtons),
-				title = 'Dashboard';
+				title = clientModel.getName() + '\'s sub2home';
 
 			this.$allButtons.removeClass('active');
 
@@ -115,7 +116,7 @@ define([
 		_showClientConfig: function () {
 			var $neededButtons = this.$buttonClientDashboard,
 				$unneededButtons = this.$allButtons.not($neededButtons),
-				title = 'Einstellungen';
+				title = clientModel.getName() + '\'s sub2home';
 
 			this.$allButtons.removeClass('active');
 

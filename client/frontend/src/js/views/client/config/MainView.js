@@ -3,13 +3,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'models/ClientModel',
+    'models/clientModel',
     'views/PageView',
     'views/client/config/ProfileView',
     'views/client/config/AddressView',
     'views/client/config/BankaccountView',
     'text!templates/client/config/MainTemplate.html'
-    ], function ($, _, Backbone, ClientModel, PageView, ProfileView, AddressView, BankaccountView, MainTemplate) {
+    ], function ($, _, Backbone, clientModel, PageView, ProfileView, AddressView, BankaccountView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -19,10 +19,7 @@ define([
 		},
 
 		initialize: function () {
-			this.model = new ClientModel();
-			this.model.fetch({
-				async: false
-			});
+			this.model = clientModel;
 
 			this._render();
 		},
