@@ -54,7 +54,7 @@ define([
 			'keyup #search': '_delayedSearch',
 			'click #refresh': '_refresh',
 			'click #loadMore': '_loadMore',
-			'click #testOrder': '_sendTestOrder'
+			'click #bMail': '_sendTestOrder'
 		},
 
 		initialize: function () {
