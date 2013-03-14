@@ -3728,8 +3728,9 @@ div#roleSwitch #handle:before {
 }
 #homeNote .notice {
   width: 240px;
-  right: 30px;
+  left: 50%;
   bottom: -62px;
+  margin-left: 30px;
 }
 input[type="text"]#locationSelectionInput {
   font-size: 65px;
