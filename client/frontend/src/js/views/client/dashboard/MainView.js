@@ -39,7 +39,7 @@ define([
 			this.$el.html(MainTemplate);
 
 			new StoresView({
-				el: this.$('#clientStores'),
+				el: this.$('#clientStores .container'),
 				collection: this.model.get('storesCollection')
 			});
 
