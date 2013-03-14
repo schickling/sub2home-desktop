@@ -2,6 +2,10 @@
 
 use App\Models\ClientModel;
 
+use Input;
+use Validator;
+use Hash;
+
 /**
 * 
 */
@@ -28,28 +32,63 @@ class ClientsController extends ApiController
 
 	public function update($id)
 	{
-		// $input = Input::json();
+		$input = Input::json();
 
-		// $storeModel = StoreModel::find($id);
+		$clientModel = ClientModel::find($id);
 
-		// if ($storeModel == null) {
-		// 	$this->error(404);
-		// }
+		if ($clientModel == null) {
+			return $this->respondWithStatus(404);
+		}
 
-		// $storeModel->isActive = $input['isActive'];
-		// $storeModel->isOpen = $input['isOpen'];
-		// $storeModel->number = $input['number'];
-		// $storeModel->title = $input['title'];
+		$clientModel->number = $input['number'];
+		$clientModel->save();
 
-		// $storeModel->save();
+		return $this->respondWithStatus(204);
+	}
 
-		// return $storeModel;
+	public function changePassword($id)
+	{
+
+		// fetch clientModel
+		$clientModel = ClientModel::find($id);
+
+		if ($clientModel == null) {
+			return $this->respondWithStatus(404);
+		}
+
+
+		// check input
+		$input = Input::json();
+		$rules = array(
+			'password' => 'alpha_dash|required|min:8'
+			);
+
+		$validator = Validator::make($input, $rules);
+
+		if ($validator->fails()) {
+			return $this->respondWithStatus(400);
+		}
+
+		// save new password
+		$clientModel->hashedPassword = Hash::make($input['password']);
+		$clientModel->save();
+
+
+		return $this->respondWithStatus(204);
+
 	}
 
 	public function destroy($id)
 	{
 		$clientModel = ClientModel::find($id);
+
+		if ($clientModel == null) {
+			return $this->respondWithStatus(404);
+		}
+
 		$clientModel->delete();
+
+		return $this->respondWithStatus(204);
 	}	
 
 }

@@ -18,13 +18,12 @@ define([
 		events: {
 			'click .foldedClient': '_toggleStoresView',
 			'click .iconEditYellowSmall': '_toggleEditView',
-			'click .iconAddSmall': '_addStore'
+			'click .iconAddSmall': '_addStore',
+			'click .close': '_hideEditView'
 		},
 
 		initialize: function () {
 			this._render();
-
-			this.model.on('change', this._render, this);
 		},
 
 		_render: function () {
@@ -128,19 +127,22 @@ define([
 		},
 
 		_hideEditView: function () {
-			var $foldedClient = this.$('.foldedClient'),
+			var self = this,
+				$foldedClient = this.$('.foldedClient'),
 				$editClient = this.$('.editClient'),
 				$clientSiblings = $foldedClient.closest('.client').siblings();
 
 			$clientSiblings.removeClass('inactive');
 
-			$editClient.fadeOut();
+			$editClient.fadeOut(function(){
+				self._render();
+			});
 		},
 
 		_renderEditView: function () {
 			var clientEditView = new ClientEditView({
 				model: this.model,
-				el: this.$('.editClient')
+				el: this.$el
 			});
 		},
 

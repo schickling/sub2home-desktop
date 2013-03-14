@@ -2,30 +2,30 @@
 </div>
 <div class="editBasicData">
 	<span>#</span>
-	<input type="text" data-field="number" class="editClientNumber" value="<%= number %>">
+	<input type="text" data-attribute="number" class="editClientNumber" value="<%= number %>">
 	<label class="labelEditClientFirstname">Vorname</label>
-	<input type="text" data-field="firstName" class="editClientAddress editClientFirstname" value="<%= firstName %>">
+	<input type="text" data-attribute="firstName" class="editClientAddress editClientFirstname" value="<%= firstName %>">
 	<label class="labelEditClientLastname">Nachname</label>
-	<input type="text" data-field="lastName" class="editClientAddress editClientLastname" value="<%= lastName %>">
+	<input type="text" data-attribute="lastName" class="editClientAddress editClientLastname" value="<%= lastName %>">
 </div>
 <div class="editContactData">
 	<div class="column">
 		<label>Straße</label>
-		<input type="text" data-field="street" class="editClientAddress editClientStreet" value="<%= street %>">
+		<input type="text" data-attribute="street" class="editClientAddress editClientStreet" value="<%= street %>">
 		<label class="secondRow">Zusatz</label>
-		<input type="text" data-field="streetAdditional" class="editClientAddress editClientStreetAdditional" value="<%= streetAdditional %>">
+		<input type="text" data-attribute="streetAdditional" class="editClientAddress editClientStreetAdditional" value="<%= streetAdditional %>">
 	</div>	
 	<div class="column">
 		<label>PLZ</label>	
-		<input type="text" data-field="postal" class="editClientAddress editClientPostal" value="<%= postal %>">
+		<input type="text" data-attribute="postal" class="editClientAddress editClientPostal" value="<%= postal %>">
 		<label class="secondRow">STADT</label>
-		<input type="text" data-field="city" class="editClientAddress editClientCity" value="<%= city %>">
+		<input type="text" data-attribute="city" class="editClientAddress editClientCity" value="<%= city %>">
 	</div>
 	<div class="column">
 		<label>Tel</label>
-		<input type="text" data-field="phone" class="editClientAddress editClientPhone" value="<%= phone %>">
+		<input type="text" data-attribute="phone" class="editClientAddress editClientPhone" value="<%= phone %>">
 		<label class="secondRow">Email</label>
-		<input type="text" data-field="email" class="editClientAddress editClientEmail" value="<%= email %>">
+		<input type="text" data-attribute="email" class="editClientAddress editClientEmail" value="<%= email %>">
 	</div>
 	<br class="clear">
 </div>
@@ -40,8 +40,9 @@
 	</div>
 	<div class="column">
 		<div class="btn-group">
-			<button class="deleteClient btn">Löschen</button>
-			<button class="confirmClient btn">Bestätigen</button>
+			<button class="changePassword btn">Passwort ändern</button>
+			<button class="deleteClient btn">Client löschen</button>
+			<button class="close btn">Schließen</button>
 		</div>
 	</div>
 	<br class="clear">

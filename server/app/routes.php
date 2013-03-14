@@ -107,7 +107,9 @@ Route::group(array('https'), function()
 
 // clients
 Route::get('api/backend/clients', 										'App\Controllers\Api\Backend\ClientsController@index');
+Route::put('api/backend/clients/{id}', 									'App\Controllers\Api\Backend\ClientsController@update');
 Route::delete('api/backend/clients/{id}', 								'App\Controllers\Api\Backend\ClientsController@destroy');
+Route::post('api/backend/clients/{id}/changepassword',		 			'App\Controllers\Api\Backend\ClientsController@changePassword');
 
 // addresses
 Route::put('api/backend/addresses/{id}', 								'App\Controllers\Api\Backend\AddressesController@update');

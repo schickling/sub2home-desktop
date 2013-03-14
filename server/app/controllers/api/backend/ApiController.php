@@ -2,8 +2,6 @@
 
 use App\Controllers\Api\BaseApiController;
 
-use Log;
-
 /**
 * 
 */

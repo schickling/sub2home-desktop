@@ -1,10 +1,11 @@
 // Filename: js/models/ClientModel.js
 define([
-	'underscore',
-	'backbone',
-	'models/AddressModel',
-	'collections/StoresCollection'
-	], function (_, Backbone, AddressModel, StoresCollection) {
+    'underscore',
+    'backbone',
+    'server',
+    'models/AddressModel',
+    'collections/StoresCollection'
+    ], function (_, Backbone, server, AddressModel, StoresCollection) {
 
 	var ClientModel = Backbone.Model.extend({
 
@@ -13,7 +14,7 @@ define([
 			storesCollection: null
 		},
 
-		urlRoot: '/api/backend/clients',
+		urlRoot: server.getAddress() + 'clients',
 
 		parse: function (response) {
 

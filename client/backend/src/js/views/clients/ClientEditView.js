@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'server',
     'text!templates/clients/ClientEditTemplate.html'
-    ], function ($, _, Backbone, ClientEditTemplate) {
+    ], function ($, _, Backbone, server, ClientEditTemplate) {
 
 	var ClientEditView = Backbone.View.extend({
 
@@ -12,7 +13,9 @@ define([
 
 		events: {
 			'click .deleteClient': '_deleteClient',
-			'focusout input.editClientAddress': '_saveAddress'
+			'focusout input.editClientAddress': '_saveAddress',
+			'focusout input.editClientNumber': '_saveClientNumber',
+			'click .changePassword': '_changePassword'
 		},
 
 		initialize: function () {
@@ -35,7 +38,8 @@ define([
 				email: addressModel.get('email')
 			};
 
-			this.$el.html(this.template(json));
+
+			this.$('.editClient').html(this.template(json));
 		},
 
 		_deleteClient: function () {
@@ -55,15 +59,61 @@ define([
 			}
 		},
 
-		_saveAddress: function(e) {
+		_saveAddress: function (e) {
 			var $input = $(e.target),
 				val = $input.val(),
-				attribute = $input.attr('field'),
+				attribute = $input.attr('data-attribute'),
 				addressModel = this.model.get('addressModel');
 
 			addressModel.set(attribute, val);
 			addressModel.save();
 
+		},
+
+		_saveClientNumber: function () {
+			var $input = this.$('.editClientNumber'),
+				val = $input.val();
+
+			this.model.save({
+				number: val
+			});
+		},
+
+		_changePassword: function () {
+			if (this._isPasswordInputValid()) {
+
+				var url = server.getAddress() + 'clients/' + this.model.get('id') + '/changepassword',
+					password = this.$('.editClientPassword').val(),
+					self = this;
+
+				$.ajax({
+					url: url,
+					type: 'post',
+					contentType: 'application/json; charset=utf-8',
+					dataType: 'json',
+					data: JSON.stringify({
+						password: password
+					})
+				});
+
+			} else {
+				alert('Password not ok');
+			}
+		},
+
+		_isPasswordInputValid: function () {
+			var password = this.$('.editClientPassword').val(),
+				passwordRepeat = this.$('.editClientPasswordRepeat').val();
+
+			if (password.length < 8 || passwordRepeat.length < 8) {
+				return false;
+			}
+
+			if (password !== passwordRepeat) {
+				return false;
+			}
+
+			return true;
 		}
 
 	});
