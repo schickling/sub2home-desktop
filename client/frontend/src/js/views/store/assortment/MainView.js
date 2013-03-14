@@ -15,6 +15,12 @@ define([
 
 	var MainView = PageView.extend({
 
+		subViews: {
+			categoriesView: null,
+			ingredientCategoriesView: null,
+			menusView: null
+		},
+
 		initialize: function () {
 
 			// to be absolutly consistent reload the store model from server
@@ -56,19 +62,19 @@ define([
 		},
 
 		_renderArticleSection: function () {
-			new CategoriesView({
+			this.subViews.categoriesView = new CategoriesView({
 				el: this.$el
 			});
 		},
 
 		_renderMenusSection: function () {
-			new MenusView({
+			this.subViews.menusView = new MenusView({
 				el: this.$el
 			});
 		},
 
 		_renderIngredientsSection: function () {
-			new IngredientCategoriesView({
+			this.subViews.ingredientCategoriesView = new IngredientCategoriesView({
 				el: this.$el
 			});
 		}

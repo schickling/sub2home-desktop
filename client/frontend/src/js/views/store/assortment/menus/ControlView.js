@@ -3,114 +3,53 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/store/assortment/ControlBaseView',
     'text!templates/store/assortment/menus/ControlTemplate.html'
-    ], function ($, _, Backbone, ControlTemplate) {
+    ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
 
-	var ControlView = Backbone.View.extend({
+	var ControlView = ControlBaseView.extend({
+
+		template: ControlTemplate,
 
 		events: {
 			'click .bReset': '_resetAllPrices',
-			'click .showAll': '_showAllArticles'
+			'click .showAll': '_showAllMenus'
 		},
 
-		numberOfCurrentRequests: 0,
-		numberOfArticles: 0,
-
-		$loader: null,
-		$loadbar: null,
-
-		initialize: function () {
-			this._render();
-			this._countArticles();
-			this._cacheDom();
-		},
-
-		_render: function () {
-			this.$el.html(ControlTemplate);
-		},
-
-		_countArticles: function () {
-			var numberOfArticles = 0;
-
-			_.each(this.collection.models, function (categoryModel) {
-				numberOfArticles += categoryModel.get('menusCollection').length;
-			});
-
-			this.numberOfArticles = numberOfArticles;
-		},
-
-		_cacheDom: function () {
-			this.$loader = this.$('#loader');
-			this.$loadbar = this.$loader.find('#loadbar');
+		_countItems: function () {
+			this.numberOfItems = this.collection.length;
 		},
 
 		_resetAllPrices: function () {
-			_.each(this.collection.models, function (categoryModel) {
-				var menusCollection = categoryModel.get('menusCollection');
-
-				_.each(menusCollection.models, function (articleModel) {
+			_.each(this.collection.models, function (menuModel) {
 
 					// check if price reset is needed
-					if (articleModel.get('price') !== articleModel.get('customPrice')) {
-						this._updateArticleModel(articleModel, {
-							customPrice: articleModel.get('price')
+					if (menuModel.get('price') !== menuModel.get('customPrice')) {
+						this._updateModel(menuModel, {
+							customPrice: menuModel.get('price')
 						});
 					}
 
-				}, this);
 			}, this);
 
 			this._updateLoadBar();
 
 		},
 
-		_showAllArticles: function () {
-			_.each(this.collection.models, function (categoryModel) {
-				var menusCollection = categoryModel.get('menusCollection');
-
-				_.each(menusCollection.models, function (articleModel) {
+		_showAllMenus: function () {
+			_.each(this.collection.models, function (menuModel) {
 
 					// check if activation needed
-					if (!articleModel.get('isActive')) {
-						this._updateArticleModel(articleModel, {
+					if (menuModel.get('isActive')) {
+						this._updateModel(menuModel, {
 							isActive: true
 						});
 					}
 
-				}, this);
 			}, this);
 
 			this._updateLoadBar();
 
-		},
-
-		_updateArticleModel: function (articleModel, changedAttributes) {
-
-			var self = this;
-
-			this.numberOfCurrentRequests++;
-
-			articleModel.save(changedAttributes, {
-				success: function () {
-					self.numberOfCurrentRequests--;
-					self._updateLoadBar();
-
-					articleModel.trigger('renderAgain');
-				}
-			});
-		},
-
-		_updateLoadBar: function () {
-			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles,
-				relativeWidth = progress * 100 + '%';
-
-			if (progress < 1) {
-				this.$loader.fadeIn();
-			} else {
-				this.$loader.fadeOut();
-			}
-
-			this.$loadbar.width(relativeWidth);
 		}
 
 	});

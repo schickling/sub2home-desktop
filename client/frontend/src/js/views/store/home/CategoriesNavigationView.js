@@ -13,7 +13,7 @@ define([
 
 		timelineItemsCollection: null,
 
-		currentCategoryIndex: null,
+		currentCategoryIndex: 0,
 
 		animationTime: 400,
 

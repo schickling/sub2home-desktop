@@ -14,7 +14,7 @@ define([
 		controlViewClass: ControlView,
 		collectionClass: IngredientCategoriesCollection,
 
-		contentDiv: '#ingredientsSection',
+		className: 'ingredients',
 
 		_fetchCollection: function () {
 			var self = this;

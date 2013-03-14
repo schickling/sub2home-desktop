@@ -10,22 +10,28 @@ define([
 		// dom
 		$content: null,
 		$assortmentControls: null,
-		contentDiv: '',
+		$loader: null,
+
+		className: '',
 
 		// controll view class
 		controlViewClass: null,
 		collectionClass: null,
+
+		controlView: null,
 
 		initialize: function () {
 			this._cacheDom();
 			this._initializeCollection();
 			this._renderControl();
 			this._fetchCollection();
+			this._listenForDestory();
 		},
 
 		_cacheDom: function () {
-			this.$content = this.$(this.contentDiv);
-			this.$assortmentControls = this.$('.assortmentControls');
+			this.$content = this.$('.slide.' + this.className);
+			this.$assortmentControls = this.$('.assortmentControls.' + this.className);
+			this.$loader = this.$('#loader');
 		},
 
 		_initializeCollection: function () {
@@ -37,10 +43,17 @@ define([
 		_renderContent: function () {},
 
 		_renderControl: function () {
-			new this.controlViewClass({
+			this.controlView = new this.controlViewClass({
 				el: this.$assortmentControls,
+				$loader: this.$loader,
 				collection: this.collection
 			});
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.controlView.trigger('destroy');
+			}, this);
 		}
 
 	});

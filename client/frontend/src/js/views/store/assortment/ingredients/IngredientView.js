@@ -1,23 +1,22 @@
-// Filename: src/js/views/store/assortment/ArticleView.js
+// Filename: src/js/views/store/assortment/ingredients/Ingredient.js
 define([
     'jquery',
     'underscore',
     'backbone',
     'notificationcenter',
-    'text!templates/store/assortment/articles/ArticleTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
+    'text!templates/store/assortment/ingredients/IngredientTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, IngredientTemplate) {
 
-	var ArticleView = Backbone.View.extend({
+	var Ingredient = Backbone.View.extend({
 
-		className: 'article',
+		className: 'ingredient',
 
 		events: {
-			'click .bEye': '_toggleIsActive',
 			'focusout input': '_updateCustomPrice',
 			'click .bReset': '_resetCustomPrice'
 		},
 
-		template: _.template(ArticleTemplate),
+		template: _.template(IngredientTemplate),
 
 		initialize: function () {
 			this._render();
@@ -30,46 +29,12 @@ define([
 				title: this.model.get('title'),
 				price: this.model.get('customPrice'),
 				info: this.model.get('info'),
-				isActive: this.model.get('isActive'),
 				buyed: this.model.get('buyedInStore'),
 				image: this.model.get('smallImage')
 			};
 
 			this.$el.html(this.template(json));
 
-			this.$el.toggleClass('inactive', !this.model.get('isActive'));
-
-		},
-
-		_toggleIsActive: function () {
-			var articleModel = this.model,
-				$eye = this.$('.bEye'),
-				$el = this.$el,
-				isActive = !this.model.get('isActive');
-
-			if (!isActive && this._isLastActiveArticle()) {
-				notificationcenter.notify('views.store.assortment.articles.oneActiveArticleNeeded');
-				return;
-			}
-
-
-			articleModel.set('isActive', isActive);
-			articleModel.save({}, {
-				success: function () {
-					$eye.toggleClass('open', isActive);
-					$el.toggleClass('inactive', !isActive);
-
-					if (isActive) {
-						notificationcenter.notify('views.store.assortment.articles.success.isActive');
-					} else {
-						notificationcenter.notify('views.store.assortment.articles.success.isNotActive');
-					}
-				},
-				error: function () {
-					notificationcenter.notify('views.store.assortment.articles.error');
-					articleModel.set('isActive', !isActive);
-				}
-			});
 		},
 
 		_updateCustomPrice: function () {
@@ -82,7 +47,7 @@ define([
 					notificationcenter.notify('Preis geaendert');
 				},
 				error: function () {
-					notificationcenter.notify('views.store.assortment.articles.error');
+					notificationcenter.notify('views.store.assortment.ingredients.error');
 				}
 			});
 		},
@@ -92,30 +57,10 @@ define([
 
 			$input.val(this.model.get('price'));
 			this._updateCustomPrice();
-		},
-
-		_isLastActiveArticle: function () {
-			var activeArticleCounter = 0,
-				articleModel = this.model,
-				articlesCollection = articleModel.collection,
-				categoriesCollection = articlesCollection.categoryModel.collection,
-				tempArticlesCollection;
-
-			_.each(categoriesCollection.models, function (tempCategoryModel) {
-				tempArticlesCollection = tempCategoryModel.get('articlesCollection');
-				_.each(tempArticlesCollection.models, function (tempArticleModel) {
-					if (tempArticleModel.get('isActive')) {
-						activeArticleCounter++;
-					}
-				});
-			});
-
-			return activeArticleCounter < 2;
-
 		}
 
 	});
 
-	return ArticleView;
+	return Ingredient;
 
 });

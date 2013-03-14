@@ -14,7 +14,7 @@ define([
 		controlViewClass: ControlView,
 		collectionClass: MenusCollection,
 
-		contentDiv: '#menusSection',
+		className: 'menus',
 
 		_fetchCollection: function () {
 			var self = this;

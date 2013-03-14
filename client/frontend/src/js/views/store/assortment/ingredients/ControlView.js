@@ -1,59 +1,40 @@
-// Filename: src/js/views/store/assortment/articles/ControlView.js
+// Filename: src/js/views/store/assortment/ingredients/ControlView.js
 define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/store/assortment/articles/ControlTemplate.html'
-    ], function ($, _, Backbone, ControlTemplate) {
+    'views/store/assortment/ControlBaseView',
+    'text!templates/store/assortment/ingredients/ControlTemplate.html'
+    ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
 
-	var ControlView = Backbone.View.extend({
+	var ControlView = ControlBaseView.extend({
+
+		template: ControlTemplate,
 
 		events: {
-			'click .bReset': '_resetAllPrices',
-			'click .showAll': '_showAllArticles'
+			'click .bReset': '_resetAllPrices'
 		},
 
-		numberOfCurrentRequests: 0,
-		numberOfArticles: 0,
+		_countItems: function () {
+			var numberOfItems = 0;
 
-		$loader: null,
-		$loadbar: null,
-
-		initialize: function () {
-			this._render();
-			this._countArticles();
-			this._cacheDom();
-		},
-
-		_render: function () {
-			this.$el.html(ControlTemplate);
-		},
-
-		_countArticles: function () {
-			var numberOfArticles = 0;
-
-			_.each(this.collection.models, function (categoryModel) {
-				numberOfArticles += categoryModel.get('articlesCollection').length;
+			_.each(this.collection.models, function (ingredientCategoryModel) {
+				numberOfItems += ingredientCategoryModel.get('ingredientsCollection').length;
 			});
 
-			this.numberOfArticles = numberOfArticles;
-		},
-
-		_cacheDom: function () {
-			this.$loader = this.$('#loader');
-			this.$loadbar = this.$loader.find('#loadbar');
+			this.numberOfItems = numberOfItems;
 		},
 
 		_resetAllPrices: function () {
-			_.each(this.collection.models, function (categoryModel) {
-				var articlesCollection = categoryModel.get('articlesCollection');
+			_.each(this.collection.models, function (ingredientCategoryModel) {
+				var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
 
-				_.each(articlesCollection.models, function (articleModel) {
+				_.each(ingredientsCollection.models, function (ingredient) {
 
 					// check if price reset is needed
-					if (articleModel.get('price') !== articleModel.get('customPrice')) {
-						this._updateArticleModel(articleModel, {
-							customPrice: articleModel.get('price')
+					if (ingredient.get('price') !== ingredient.get('customPrice')) {
+						this._updateModel(ingredient, {
+							customPrice: ingredient.get('price')
 						});
 					}
 
@@ -62,55 +43,6 @@ define([
 
 			this._updateLoadBar();
 
-		},
-
-		_showAllArticles: function () {
-			_.each(this.collection.models, function (categoryModel) {
-				var articlesCollection = categoryModel.get('articlesCollection');
-
-				_.each(articlesCollection.models, function (articleModel) {
-
-					// check if activation needed
-					if (!articleModel.get('isActive')) {
-						this._updateArticleModel(articleModel, {
-							isActive: true
-						});
-					}
-
-				}, this);
-			}, this);
-
-			this._updateLoadBar();
-
-		},
-
-		_updateArticleModel: function (articleModel, changedAttributes) {
-
-			var self = this;
-
-			this.numberOfCurrentRequests++;
-
-			articleModel.save(changedAttributes, {
-				success: function () {
-					self.numberOfCurrentRequests--;
-					self._updateLoadBar();
-
-					articleModel.trigger('renderAgain');
-				}
-			});
-		},
-
-		_updateLoadBar: function () {
-			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles,
-				relativeWidth = progress * 100 + '%';
-
-			if (progress < 1) {
-				this.$loader.fadeIn();
-			} else {
-				this.$loader.fadeOut();
-			}
-
-			this.$loadbar.width(relativeWidth);
 		}
 
 	});

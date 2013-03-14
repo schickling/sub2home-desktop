@@ -3,45 +3,27 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/store/assortment/ControlBaseView',
     'text!templates/store/assortment/articles/ControlTemplate.html'
-    ], function ($, _, Backbone, ControlTemplate) {
+    ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
 
-	var ControlView = Backbone.View.extend({
+	var ControlView = ControlBaseView.extend({
+
+		template: ControlTemplate,
 
 		events: {
 			'click .bReset': '_resetAllPrices',
 			'click .showAll': '_showAllArticles'
 		},
 
-		numberOfCurrentRequests: 0,
-		numberOfArticles: 0,
-
-		$loader: null,
-		$loadbar: null,
-
-		initialize: function () {
-			this._render();
-			this._countArticles();
-			this._cacheDom();
-		},
-
-		_render: function () {
-			this.$el.html(ControlTemplate);
-		},
-
-		_countArticles: function () {
-			var numberOfArticles = 0;
+		_countItems: function () {
+			var numberOfItems = 0;
 
 			_.each(this.collection.models, function (categoryModel) {
-				numberOfArticles += categoryModel.get('articlesCollection').length;
+				numberOfItems += categoryModel.get('articlesCollection').length;
 			});
 
-			this.numberOfArticles = numberOfArticles;
-		},
-
-		_cacheDom: function () {
-			this.$loader = this.$('#loader');
-			this.$loadbar = this.$loader.find('#loadbar');
+			this.numberOfItems = numberOfItems;
 		},
 
 		_resetAllPrices: function () {
@@ -52,7 +34,7 @@ define([
 
 					// check if price reset is needed
 					if (articleModel.get('price') !== articleModel.get('customPrice')) {
-						this._updateArticleModel(articleModel, {
+						this._updateModel(articleModel, {
 							customPrice: articleModel.get('price')
 						});
 					}
@@ -71,8 +53,8 @@ define([
 				_.each(articlesCollection.models, function (articleModel) {
 
 					// check if activation needed
-					if (!articleModel.get('isActive')) {
-						this._updateArticleModel(articleModel, {
+					if (articleModel.get('isActive')) {
+						this._updateModel(articleModel, {
 							isActive: true
 						});
 					}
@@ -82,35 +64,6 @@ define([
 
 			this._updateLoadBar();
 
-		},
-
-		_updateArticleModel: function (articleModel, changedAttributes) {
-
-			var self = this;
-
-			this.numberOfCurrentRequests++;
-
-			articleModel.save(changedAttributes, {
-				success: function () {
-					self.numberOfCurrentRequests--;
-					self._updateLoadBar();
-
-					articleModel.trigger('renderAgain');
-				}
-			});
-		},
-
-		_updateLoadBar: function () {
-			var progress = 1 - this.numberOfCurrentRequests / this.numberOfArticles,
-				relativeWidth = progress * 100 + '%';
-
-			if (progress < 1) {
-				this.$loader.fadeIn();
-			} else {
-				this.$loader.fadeOut();
-			}
-
-			this.$loadbar.width(relativeWidth);
 		}
 
 	});

@@ -1,33 +1,33 @@
-// Filename: src/js/views/store/assortment/ArticlesView.js
+// Filename: src/js/views/store/assortment/ingredients/IngredientsView.js
 define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/store/assortment/articles/ArticleView'
-	], function ($, _, Backbone, ArticleView) {
+	'views/store/assortment/ingredients/IngredientView'
+	], function ($, _, Backbone, IngredientView) {
 
-	var ArticlesView = Backbone.View.extend({
+	var IngredientsView = Backbone.View.extend({
 
 		initialize: function () {
 			this._render();
 		},
 
 		_render: function () {
-			_.each(this.collection.models, function (articleModel) {
-				this._renderArticle(articleModel);
+			_.each(this.collection.models, function (ingredientModel) {
+				this._renderIngredient(ingredientModel);
 			}, this);
 		},
 
-		_renderArticle: function (articleModel) {
-			var articleView = new ArticleView({
-				model: articleModel
+		_renderIngredient: function (ingredientModel) {
+			var ingredientView = new IngredientView({
+				model: ingredientModel
 			});
 
-			this.$el.append(articleView.el);
+			this.$el.append(ingredientView.el);
 		}
 
 	});
 
-	return ArticlesView;
+	return IngredientsView;
 
 });

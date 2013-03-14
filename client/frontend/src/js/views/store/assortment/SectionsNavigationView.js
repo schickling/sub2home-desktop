@@ -12,7 +12,7 @@ define([
 
 		timelineItemsCollection: null,
 
-		currentSectionIndex: null,
+		currentSectionIndex: 0,
 
 		animationTime: 400,
 
@@ -27,6 +27,7 @@ define([
 		$navigationOverlay: null,
 		$navigationOverlayWrapper: null,
 		$navigationItems: null,
+		$assortmentControls: null,
 
 		initialize: function () {
 
@@ -67,6 +68,9 @@ define([
 			this.$navigationOverlay = this.$navigation.find('#overlayTimeline');
 			this.$navigationOverlayWrapper = this.$navigationOverlay.find('#overlayFrameWrapperTimeline');
 
+			// assortment controls
+			this.$assortmentControls = this.$('.assortmentControls');
+
 		},
 
 		_render: function () {
@@ -92,6 +96,7 @@ define([
 		_navigate: function () {
 			this._slideTimeline();
 			this._slideContent();
+			this._changeControlView();
 		},
 
 		_slideTimeline: function () {
@@ -112,6 +117,16 @@ define([
 
 			this.$stage.animate({
 				left: leftPercentage
+			});
+		},
+
+		_changeControlView: function () {
+			var $newControl = this.$assortmentControls.eq(this.currentSectionIndex),
+				$oldControls = this.$assortmentControls.not($newControl),
+				animationTime = this.animationTime / 2;
+
+			$oldControls.fadeOut(animationTime, function() {
+				$newControl.fadeIn(animationTime);
 			});
 		}
 

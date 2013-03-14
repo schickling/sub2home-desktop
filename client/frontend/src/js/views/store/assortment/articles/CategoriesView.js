@@ -14,7 +14,7 @@ define([
 		controlViewClass: ControlView,
 		collectionClass: CategoriesCollection,
 
-		contentDiv: '#articlesSection',
+		className: 'articles',
 
 		_fetchCollection: function () {
 			var self = this;
