@@ -107,7 +107,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.removeClass();
+			this.$currentIcon.removeClass('storeIcon');
+			this.$currentIcon.addClass('clientIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -122,7 +123,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.removeClass();
+			this.$currentIcon.removeClass('storeIcon');
+			this.$currentIcon.addClass('clientIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -139,7 +141,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.addClass('imgIcn storeIcon');
+			this.$currentIcon.removeClass('clientIcon');
+			this.$currentIcon.addClass('storeIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -156,7 +159,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.addClass('imgIcn storeIcon');
+			this.$currentIcon.removeClass('clientIcon');
+			this.$currentIcon.addClass('storeIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -173,7 +177,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.addClass('imgIcn storeIcon');
+			this.$currentIcon.removeClass('clientIcon');
+			this.$currentIcon.addClass('storeIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
@@ -189,7 +194,8 @@ define([
 
 			this.$title.text(title);
 
-			this.$currentIcon.addClass('imgIcn storeIcon');
+			this.$currentIcon.removeClass('clientIcon');
+			this.$currentIcon.addClass('storeIcon');
 
 			$unneededButtons.fadeOut(this.animationTime);
 			$neededButtons.delay(this.animationTime + 10).fadeIn(this.animationTime + 50);
