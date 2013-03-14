@@ -4,8 +4,8 @@
 	und liefern <span id="deliveryAddress" class="settings">an <%= firstName %> <%= lastName %> in die <%= street %><i class="icn iEdit"></i></span><br>
 	<div id="acceptAGB" class="notice leftHandBelow">Um zu bestellen, musst du unsere <span><i class="icn iDocument"></i>AGB</span> akzeptieren. Und dann Bestellen.</div>
 </div>
-<div class="icn iAGB"></div>
-<div class="icn iCart orderNow"></div>
+<div class="icn iAGB" id="iAGB"></div>
+<div class="icn iCart orderNow" id="iCart"></div>
 
 <% } else { %>
 Nur noch deine <span id="deliveryAddress" class="settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span id="price"><%= total.toFixed(2) %> €

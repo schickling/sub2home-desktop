@@ -82,6 +82,11 @@ define([
 			}, this);
 
 
+			// due date
+			if (!this.get('dueDate')) {
+				this.set('dueDate', new Date());
+			}
+
 			// address model
 			if (!this.get('addressModel')) {
 				this.set('addressModel', new AddressModel());

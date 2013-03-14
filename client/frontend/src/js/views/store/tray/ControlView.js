@@ -1,13 +1,14 @@
 // Filename: src/js/views/store/tray/ControlView.js
 define([
     'jquery',
+    'jqueryColor',
     'underscore',
     'backbone',
     'router',
     'notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/ControlTemplate.html'
-    ], function ($, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {
+    ], function ($, jqueryColor, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {
 
 	var ControlView = Backbone.View.extend({
 
@@ -15,7 +16,7 @@ define([
 
 		events: {
 			'click .orderNow': '_checkout',
-			'focusout textarea': '_saveComment',
+			'click #iAGB': '_acceptAGB',
 			'click #credit.hasNoCredit': '_showCredit',
 			'click #credit .bAdd': '_increaseCredit',
 			'click #credit .bRemove': '_decreaseCredit'
@@ -65,6 +66,23 @@ define([
 			this.listenTo(cartModel, 'change', this._render);
 		},
 
+		_acceptAGB: function () {
+			var $iAGB = this.$('#iAGB'),
+				$iCart = this.$('#iCart'),
+				$notice = this.$('#acceptAGB');
+
+			$notice.fadeOut(100);
+
+			$iAGB.fadeOut(100);
+
+			$iCart.animate({
+				right: 10,
+				color: $.Color('rgba(156,200,62,0.4)')
+			}, 20050, function () {
+				$iCart.addClass('clickable');
+			});
+		},
+
 		_checkout: function () {
 
 			var orderModel = cartModel.get('orderModel'),
@@ -98,18 +116,10 @@ define([
 			sound.play();
 		},
 
-		_saveComment: function (e) {
-			var $textarea = $(e.target),
-				comment = $textarea.val();
 
-			cartModel.setComment(comment);
-		},
-
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
-		},
+		/*
+		 * Credit methods
+		 */
 
 		_showCredit: function () {
 			var $credit = this.$('#credit'),
@@ -123,8 +133,6 @@ define([
 					self._increaseCredit();
 				});
 			});
-
-
 		},
 
 		_hideCredit: function () {
@@ -158,6 +166,12 @@ define([
 				orderModel.decreaseCredit();
 			}
 
+		},
+
+		_listenForDestory: function () {
+			this.once('destroy', function () {
+				this.stopListening();
+			}, this);
 		}
 
 	});

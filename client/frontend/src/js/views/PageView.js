@@ -285,9 +285,14 @@ define([
 		},
 
 		destroyAllSubViews: function () {
+			var key, subView;
 			// this syntax needed since this.subViews is an object not an array
-			for (var key in this.subViews) {
-				this.subViews[key].trigger('destroy');
+			for (key in this.subViews) {
+				subView = this.subViews[key];
+
+				if (subView) {
+					subView.trigger('destroy');
+				}
 			}
 		}
 

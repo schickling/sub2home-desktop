@@ -8,6 +8,7 @@
     "jquery": null,
     "jquery-easing": null,
     "jquery-browser-selector": null,
+    "jquery-color": null,
     "moment": null,
     "underscore": null,
     "backbone": null,

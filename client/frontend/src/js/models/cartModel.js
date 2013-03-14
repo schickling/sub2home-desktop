@@ -59,9 +59,6 @@ define([
 
 			if (!couldBeFetched) {
 				this.set('orderModel', new OrderModel());
-
-				// initialize dueDate
-				this._correctDueDate();
 			}
 
 			this._listenToOrderModel();
