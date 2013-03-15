@@ -3696,13 +3696,20 @@ div#roleSwitch #handle:before {
   bottom: 16px;
   color: #d1ba82;
   left: 50%;
-  margin-left: -174px;
+  margin-left: -229px;
 }
 #homeNote .notice {
   width: 300px;
   left: 50%;
   bottom: -65px;
   margin-left: 0px;
+}
+.iSettings {
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  bottom: 10px;
+  font-size: 50px;
 }
 input[type="text"]#locationSelectionInput {
   font-size: 65px;
