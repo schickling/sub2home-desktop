@@ -35,7 +35,7 @@ define([
 		$noOrders: null,
 
 		// pagination counter
-		page: 0,
+		pageOffset: 0,
 
 		// search value for fetching
 		search: '',
@@ -80,7 +80,7 @@ define([
 			this.listenTo(this.collection, 'add remove', this._render);
 		},
 
-		_fetchCollection: function () {
+		_fetchCollection: function (viewShouldBeResetted) {
 
 			var self = this;
 
@@ -90,18 +90,28 @@ define([
 
 				this._startRotateRefresh();
 
+				// reset page offset
+				if (viewShouldBeResetted) {
+					this.pageOffset = 0;
+				}
+
 				this.collection.fetch({
 
 					parse: true,
 
 					data: $.param({
 						search: this.search,
-						page: this.page
+						page: this.pageOffset
 					}),
 
 					success: function (collection, receivedOrders) {
 						self.isReady = true;
 						self._stopRotateRefresh();
+
+						if (viewShouldBeResetted) {
+							self._resetView();
+						}
+
 						self._renderOrders();
 
 						if (receivedOrders.length === 0 || self.search) {
@@ -180,26 +190,23 @@ define([
 
 			this.search = this.$search.val();
 
-			this._resetView();
-
 			if (this.search) {
 				this.$olderOrders.addClass('opaque');
 			}
 
 			this._hideLoadMore();
-			this._fetchCollection();
+			this._fetchCollection(true);
 		},
 
 		_refresh: function () {
 			this._clearSearch();
-			this._resetView();
-			this._fetchCollection();
+			this._fetchCollection(true);
 		},
 
 		_loadMore: function () {
-			this.page++;
+			this.pageOffset++;
 			this._clearSearch();
-			this._fetchCollection();
+			this._fetchCollection(false);
 		},
 
 		_startRotateRefresh: function () {
@@ -227,7 +234,6 @@ define([
 		},
 
 		_resetView: function () {
-			this.page = 0;
 			this.$olderOrders.removeClass('opaque');
 			this.$ordersToday.empty();
 			this.$olderOrders.empty();
