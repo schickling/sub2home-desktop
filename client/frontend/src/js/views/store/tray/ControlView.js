@@ -75,12 +75,10 @@ define([
 
 			$iAGB.fadeOut(100);
 
-			$iCart.animate({
+			$iCart.addClass('clickable').animate({
 				right: 10,
 				color: $.Color('rgba(156,200,62,0.4)')
-			}, 250, function () {
-				$iCart.addClass('clickable');
-			});
+			}, 250);
 		},
 
 		_checkout: function () {
