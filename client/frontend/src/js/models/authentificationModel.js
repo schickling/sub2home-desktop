@@ -18,11 +18,6 @@ define([
 
 		_hasValidToken: function () {
 
-			// check if even a token is in localstorage
-			if (!window.localStorage.getItem('token')) {
-				return false;
-			}
-
 			// validate token
 			var valid = false,
 				self = this;
@@ -47,7 +42,7 @@ define([
 			$.ajaxSetup({
 				// append token to all api requests to authenticate
 				headers: {
-					Token: window.localStorage.getItem('token')
+					Token: this._getToken()
 				}
 			});
 
@@ -64,6 +59,11 @@ define([
 			// check for cache
 			if (this.get('isLoggedIn')) {
 				return true;
+			}
+
+			// check if even a token is in localstorage
+			if (!this._getToken()) {
+				return false;
 			}
 
 			if (!this._isSetup) {
@@ -87,7 +87,8 @@ define([
 			// force ssl
 			this._forceSSL();
 
-			var isLoggedIn = false;
+			var isLoggedIn = false,
+				self = this;
 
 			$.ajax({
 				url: '/api/frontend/login',
@@ -99,10 +100,11 @@ define([
 				async: false,
 				dataType: 'json',
 				success: function (response) {
-					var token = response.token;
 
-					window.localStorage.setItem('token', token);
+					self._setToken(response.token);
+			
 					isLoggedIn = true;
+
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
 
@@ -147,6 +149,14 @@ define([
 			this.set('isLoggedIn', !isLoggedOut);
 
 			return isLoggedOut;
+		},
+
+		_setToken: function(token) {
+			window.localStorage.setItem('token', token);
+		},
+
+		_getToken: function() {
+			return window.localStorage.getItem('token');
 		},
 
 		_dropToken: function() {
