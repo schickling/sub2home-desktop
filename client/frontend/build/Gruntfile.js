@@ -2,6 +2,7 @@ module.exports = function (grunt) {
 
 	var include = [
 		'main',
+		'models/clientModel',
         'views/header/HeaderView',
         'views/home/home/MainView',
         'views/home/info/MainView',

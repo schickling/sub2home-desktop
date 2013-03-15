@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend;
 
-use App\Controllers\Api\BaseApiController;
+use App\Controllers\Api\Common\BaseApiController;
 use Request;
 
 use App\Models\StoreModel;

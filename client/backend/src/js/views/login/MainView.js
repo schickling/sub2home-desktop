@@ -1,22 +1,43 @@
-// Filename: js/views/dashboard/MainView.js
+// Filename: js/views/login/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/PageView',
-	'text!templates/dashboard/MainTemplate.html'
-	], function ($, _, Backbone, PageView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'router',
+    'models/authentificationModel',
+    'views/PageView',
+    'text!templates/login/MainTemplate.html'
+    ], function ($, _, Backbone, router, authentificationModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		pageTitle: 'Dashboard',
 
-		initialize: function () {
-			this.render();
+		events: {
+			'click #submit': '_login'
 		},
 
-		render: function () {
+		initialize: function () {
+			this._render();
+		},
+
+		_render: function () {
 			this.$el.html(MainTemplate);
+		},
+
+		_login: function () {
+			var password = this.$('#password').val(),
+				loginSucceded;
+
+			loginSucceded = authentificationModel.login(password);
+
+			if (loginSucceded) {
+				router.navigate('dashboard', {
+					trigger: true,
+					replace: true
+				});
+			}
+
 		}
 
 	});

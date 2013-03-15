@@ -85,7 +85,7 @@ Route::group(array('https'), function()
 
 /*
 |--------------------------------------------------------------------------
-| API Services Routes
+| API Services Routes (secure)
 |--------------------------------------------------------------------------
 */
 
@@ -101,30 +101,35 @@ Route::group(array('https'), function()
 
 /*
 |--------------------------------------------------------------------------
-| API Backend Routes
+| API Backend Routes (secure)
 |--------------------------------------------------------------------------
 */
 
-// enable OPTIONS request
-Route::options('api/backend/{resource}/{id}', 							'App\Controllers\Api\Backend\ApiController@options');
+Route::group(array('https'), function()
+{
+	// enable OPTIONS request
+	Route::options('api/backend/{resource}/{id}', 						'App\Controllers\Api\Backend\ApiController@options');
 
-// clients
-Route::get('api/backend/clients', 										'App\Controllers\Api\Backend\ClientsController@index');
-Route::post('api/backend/clients',		 								'App\Controllers\Api\Backend\ClientsController@create');
-Route::put('api/backend/clients/{id}', 									'App\Controllers\Api\Backend\ClientsController@update');
-Route::delete('api/backend/clients/{id}', 								'App\Controllers\Api\Backend\ClientsController@destroy');
-Route::options('api/backend/clients/{id}/changepassword', 				'App\Controllers\Api\Backend\ClientsController@options');
-Route::post('api/backend/clients/{id}/changepassword',		 			'App\Controllers\Api\Backend\ClientsController@changePassword');
+	// clients
+	Route::get('api/backend/clients', 									'App\Controllers\Api\Backend\ClientsController@index');
+	Route::post('api/backend/clients',									'App\Controllers\Api\Backend\ClientsController@create');
+	Route::put('api/backend/clients/{id}', 								'App\Controllers\Api\Backend\ClientsController@update');
+	Route::delete('api/backend/clients/{id}', 							'App\Controllers\Api\Backend\ClientsController@destroy');
+	Route::options('api/backend/clients/{id}/changepassword', 			'App\Controllers\Api\Backend\ClientsController@options');
+	Route::post('api/backend/clients/{id}/changepassword',				'App\Controllers\Api\Backend\ClientsController@changePassword');
 
-// addresses
-Route::put('api/backend/addresses/{id}', 								'App\Controllers\Api\Backend\AddressesController@update');
+	// addresses
+	Route::put('api/backend/addresses/{id}', 							'App\Controllers\Api\Backend\AddressesController@update');
 
-// stores
-Route::post('api/backend/stores', 										'App\Controllers\Api\Backend\StoresController@create');
-Route::put('api/backend/stores/{id}', 									'App\Controllers\Api\Backend\StoresController@update');
-Route::delete('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@destroy');
+	// stores
+	Route::post('api/backend/stores', 									'App\Controllers\Api\Backend\StoresController@create');
+	Route::put('api/backend/stores/{id}', 								'App\Controllers\Api\Backend\StoresController@update');
+	Route::delete('api/backend/stores/{id}', 							'App\Controllers\Api\Backend\StoresController@destroy');
 
-// authentification
-Route::post('api/backend/login',										'App\Controllers\Api\Backend\AuthentificationController@login');
-Route::post('api/backend/logout',										'App\Controllers\Api\Backend\AuthentificationController@logout');
-Route::post('api/backend/checktoken',									'App\Controllers\Api\Backend\AuthentificationController@checkToken');
+	// authentification
+	Route::post('api/backend/login',									'App\Controllers\Api\Backend\AuthentificationController@login');
+	Route::post('api/backend/logout',									'App\Controllers\Api\Backend\AuthentificationController@logout');
+	Route::post('api/backend/checktoken',								'App\Controllers\Api\Backend\AuthentificationController@checkToken');
+});
+
+

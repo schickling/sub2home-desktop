@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api;
+<?php namespace App\Controllers\Api\Common;
 
 use Controller;
 use App;

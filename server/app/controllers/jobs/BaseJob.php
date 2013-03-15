@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Jobs;
 
 use Log;
+use Exception;
 
 abstract class BaseJob {
 
@@ -18,7 +19,7 @@ abstract class BaseJob {
 			Log::error($e);
 		}
 
-		$this->job->delete();
+		$job->delete();
 
 	}
 

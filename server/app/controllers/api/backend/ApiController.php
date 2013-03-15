@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api\Backend;
 
-use App\Controllers\Api\BaseApiController;
+use App\Controllers\Api\Common\BaseApiController;
 
 use Response;
 

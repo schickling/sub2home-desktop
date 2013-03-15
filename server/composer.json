@@ -1,7 +1,8 @@
 {
 	"require": {
 		"laravel/framework": "dev-master",
-		"tcpdf/tcpdf": "dev-master"
+		"tcpdf/tcpdf": "dev-master",
+		"filp/damnit": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "dev-master"
