@@ -12,6 +12,20 @@ define([
     'collections/StoresCollection'
     ], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
 
+	$.fn.extend({
+		rotate: function (deg) {
+			var $this = $(this);
+
+			$this.css({
+				'-webkit-transform': 'rotate(' + deg + 'deg)',
+				'-moz-transform': 'rotate(' + deg + 'deg)',
+				'-ms-transform': 'rotate(' + deg + 'deg)',
+				'-o-transform': 'rotate(' + deg + 'deg)',
+				'transform': 'rotate(' + deg + 'deg)'
+			});
+		}
+	});
+
 	var StoresView = Backbone.View.extend({
 
 		postal: 0,
@@ -24,8 +38,12 @@ define([
 
 		storeViews: [],
 
+		rotateInterval: null,
+
 		// cached dom
 		$search: null,
+		$deliveryAreaSelection: null,
+		$location: null,
 		$map: null,
 
 		initialize: function () {
@@ -40,11 +58,9 @@ define([
 		},
 
 		_cacheDom: function () {
-			//  search input
 			this.$search = this.$('#locationSelectionInput');
-
 			this.$deliveryAreaSelection = this.$('#deliveryAreaSelection');
-
+			this.$location = this.$('#location');
 			this.$map = this.$('#map');
 		},
 
@@ -88,6 +104,7 @@ define([
 				var self = this;
 
 				notificationcenter.notify('views.home.home.lookupLocation');
+				this._startRotateLocation();
 
 				// wait for collection fetched and maps loaded
 				$.when(this.mapDeffered, this.collectionDeffered).done(function () {
@@ -98,6 +115,11 @@ define([
 						self.geocoder.geocode({
 							latLng: latlng
 						}, function (results, status) {
+
+							// stop location rotation
+							self._stopRotateLocation();
+
+
 							if (status == gmaps.GeocoderStatus.OK) {
 								var postal = 0;
 
@@ -111,7 +133,6 @@ define([
 									}
 								}
 
-
 								// write postal back to search field
 								self.$search.val(postal);
 
@@ -123,6 +144,7 @@ define([
 						});
 					}, function () {
 						notificationcenter.notify('views.home.home.lookupFailed');
+						self._stopRotateLocation();
 					});
 				}); // end deffered
 			}
@@ -302,7 +324,23 @@ define([
 			}, this);
 
 			return matchingDeliveryAreas;
-		}
+		},
+
+		_startRotateLocation: function () {
+
+			var $location = this.$location,
+				deg = 0;
+
+			this.rotateInterval = setInterval(function () {
+				deg = (deg + 3) % 30;
+				$location.rotate(deg);
+			}, 20);
+		},
+
+		_stopRotateLocation: function () {
+			clearInterval(this.rotateInterval);
+			this.$location.fadeOut();
+		},
 
 	});
 
