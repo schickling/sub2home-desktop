@@ -2088,8 +2088,7 @@ input[type="text"].money {
   content: "\e06f";
 }
 .iTurnover:after,
-.bTurnover:after,
-#bStoreDashboard:after {
+.bTurnover:after {
   content: "\e070";
 }
 .iBolt:before,
@@ -2156,6 +2155,11 @@ input[type="text"].money {
 .bAGB:before,
 #iAGB:before {
   content: "\e085";
+}
+.iHome:before,
+.bHome:before,
+#bStoreDashboard:before {
+  content: "\e086";
 }
 #toTheInfo:before {
   content: "\e068";
@@ -7717,7 +7721,7 @@ div#payment > div.disabled .btn.active {
   transition: color 0.1s linear;
 }
 #checkoutBasicControls #iCart.clickable:hover {
-  color: #9cc83e;
+  color: #9cc83e !important;
   right: 10px;
 }
 #checkoutBasicControls .iCredit {
