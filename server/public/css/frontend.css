@@ -7711,6 +7711,10 @@ div#payment > div.disabled .btn.active {
 #checkoutBasicControls #iCart.clickable {
   color: rgba(156, 200, 62, 0.4);
   cursor: pointer;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
 }
 #checkoutBasicControls #iCart.clickable:hover {
   color: #9cc83e;

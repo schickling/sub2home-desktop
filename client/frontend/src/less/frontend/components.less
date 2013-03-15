@@ -4865,9 +4865,10 @@ div#payment {
     &.clickable {
       color: rgba(156,200,62,0.4);
       cursor: pointer;
+      .transition(color .1s linear);
       
       &:hover {
-        color: @greenLighter;
+        color: rgba(156,200,62,1);
         right: 10px;
       }
     }
