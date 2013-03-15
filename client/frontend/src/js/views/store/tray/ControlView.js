@@ -78,7 +78,7 @@ define([
 			$iCart.animate({
 				right: 10,
 				color: $.Color('rgba(156,200,62,0.4)')
-			}, 20050, function () {
+			}, 250, function () {
 				$iCart.addClass('clickable');
 			});
 		},
