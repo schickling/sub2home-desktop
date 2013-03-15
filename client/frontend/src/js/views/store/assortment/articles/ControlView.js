@@ -53,7 +53,7 @@ define([
 				_.each(articlesCollection.models, function (articleModel) {
 
 					// check if activation needed
-					if (articleModel.get('isActive')) {
+					if (!articleModel.get('isActive')) {
 						this._updateModel(articleModel, {
 							isActive: true
 						});

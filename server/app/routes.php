@@ -51,7 +51,9 @@ Route::group(array('https'), function()
 
 	// ingredient categories
 	Route::get('api/frontend/stores/{alias}/ingredientcategories',		'App\Controllers\Api\Frontend\IngredientCategoriesController@index');
-	Route::put('api/frontend/stores/{alias}/ingredientcategories/{id}',	'App\Controllers\Api\Frontend\IngredientCategoriesController@update');
+
+	// ingredients
+	Route::put('api/frontend/stores/{alias}/ingredients/{id}',			'App\Controllers\Api\Frontend\IngredientsController@update');
 
 	// menus (menu bundles + menu upgrades)
 	Route::get('api/frontend/stores/{alias}/menus',						'App\Controllers\Api\Frontend\MenusController@index');

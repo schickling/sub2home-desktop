@@ -30,7 +30,8 @@ define([
 				price: this.model.get('customPrice'),
 				info: this.model.get('info'),
 				buyed: this.model.get('buyedInStore'),
-				image: this.model.get('smallImage')
+				image: this.model.get('largeImage'),
+				priceDiffers: this.model.get('customPrice') !== this.model.get('price')
 			};
 
 			this.$el.html(this.template(json));
@@ -39,12 +40,16 @@ define([
 
 		_updateCustomPrice: function () {
 			var $input = this.$('.pricetag input'),
-				customPrice = parseFloat($input.val());
+				customPrice = parseFloat($input.val()),
+				self = this;
 
 			this.model.set('customPrice', customPrice);
 			this.model.save({}, {
 				success: function () {
 					notificationcenter.notify('Preis geaendert');
+
+					// rerender for reset button
+					self._render();
 				},
 				error: function () {
 					notificationcenter.notify('views.store.assortment.ingredients.error');
