@@ -14,47 +14,52 @@
 // For the white version of the icons, just add the .foundicon_white class:
 // <i class="foundicon_inbox foundicon_white"></i>
 
-.sBtn,
-.sBdg {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  .ie7-restore-right-whitespace();
-  line-height: 14px;
-  vertical-align: text-top;
-  background-image: url("@{iconSpritePath}");
-  background-position: 14px 14px;
-  background-repeat: no-repeat;
-  margin-top: 1px;
-  position: relative;
-}
+// .sBtn,
+// .sBdg {
+//   display: inline-block;
+//   width: 14px;
+//   height: 14px;
+//   .ie7-restore-right-whitespace();
+//   line-height: 14px;
+//   vertical-align: text-top;
+//   background-image: url("@{iconSpritePath}");
+//   background-position: 14px 14px;
+//   background-repeat: no-repeat;
+//   margin-top: 1px;
+//   position: relative;
+// }
 
-.sBtn {
-  cursor: pointer;
-}
+// .sBtn {
+//   cursor: pointer;
+// }
 
 
-.sBAdd         { background-position:      0      0  ; width:  29px; height:  29px; }
-.sBRemove      { background-position:  -29px      0  ; width:  29px; height:  29px; }
-.sBChecked     { background-position:  -58px      0  ; width:  29px; height:  29px; }
-.sBUnchecked   { background-position:  -87px      0  ; width:  29px; height:  29px; }
-.sBOpen        { background-position:  -61px  -30px  ; width:  61px; height:  61px;
-  &.open      { background-position:      0  -30px  ; width:  61px; height:  61px; }
-}  
+// .sBAdd         { background-position:      0      0  ; width:  29px; height:  29px; }
+// .sBRemove      { background-position:  -29px      0  ; width:  29px; height:  29px; }
+// .sBChecked     { background-position:  -58px      0  ; width:  29px; height:  29px; }
+// .sBUnchecked   { background-position:  -87px      0  ; width:  29px; height:  29px; }
+// .sBOpen        { background-position:  -61px  -30px  ; width:  61px; height:  61px;
+//   &.open      { background-position:      0  -30px  ; width:  61px; height:  61px; }
+// }  
 
-.sBGreen        { background-position: -122px  -16px  ; width:  35px; height:  35px; }
+// .sBGreen        { background-position: -122px  -16px  ; width:  35px; height:  35px; }
 
-.imgIcn.storeIcon {
+.imgIcn {
   display: inline-block;
   height: 46px;
   width: 56px;
   .ie7-restore-right-whitespace();
   line-height: 35px;
   vertical-align: middle;
-  background: url('../img/static/common/store_icon.png') no-repeat;
   position: relative;
   //top: -15px;
   margin-right: 10px;
   background-size: 90%;
   background-position: center;
+  &.storeIcon {
+    background: url('../img/static/common/store_icon.png') no-repeat;
+  }
+  &.clientIcon {
+    background: url('../img/static/common/client_icon.png') no-repeat;
+  }
 }

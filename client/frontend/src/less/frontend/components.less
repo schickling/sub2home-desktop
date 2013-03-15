@@ -1755,6 +1755,10 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   right: 3%;
   top: 91px;
+  display: none;
+  &.articles {
+    display: block;
+  }
 
 
   .iBtn {
@@ -1781,13 +1785,27 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-.content.store.assortment {
+.content.assortment {
 
-  .articles {
+  #stage {
+    width: 300%;
+    .slide {
+      width: 33.3333333%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 0;
+      &.menus {
+        .border-box;
+        padding: 28px;
+      }
+    }
+  }
+
+  .articles, .ingredients {
     padding: 28px;
   }
 
-  .article {
+  .article, .menu, .ingredient {
     cursor: default;
     width: 100%;
     //height: 60px;
@@ -1917,15 +1935,7 @@ input[type="text"]#locationSelectionInput {
 
 
 .content.assortment {
-  #stage {
-    width: 300%;
-    .slide {
-      width: 33.3333333%;
-      height: 100%;
-      overflow-y: auto;
-      padding: 0;
-    }
-  }
+  
 }
 
 // ----------------------------------------------  CLIENT LOGIN  -----------------------------------------------------
@@ -4557,6 +4567,7 @@ div#payment {
   padding: 50px 0;
   width: 100%;
   background: @darkNote;
+  overflow: hidden;
 }
 
 
@@ -4803,7 +4814,7 @@ div#payment {
       }
     }
   }
-  .iCart, .iAGB {
+  #iCart, #iAGB {
     position: absolute;
     right: 10px;
     top: 32px;
@@ -4824,7 +4835,7 @@ div#payment {
     }
   } 
   
-  .iCart {
+  #iCart {
     color: @onNoteColor20;
     right: -150px;
     .transition(e('color .1s linear, right .3s ease-in-out'));
