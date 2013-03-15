@@ -349,6 +349,9 @@ aside#header .iInfo {
   top: -535px;
   padding: 0;
 }
+.note#trayNote .container {
+  padding: 0;
+}
 .note#timelineNote {
   position: absolute;
   right: 0;
@@ -1760,24 +1763,6 @@ textarea:-ms-input-placeholder {
 input[type="text"].money {
   padding-right: 20px;
 }
-.imgIcn {
-  display: inline-block;
-  height: 46px;
-  width: 56px;
-  *margin-right: .3em;
-  line-height: 35px;
-  vertical-align: middle;
-  position: relative;
-  margin-right: 10px;
-  background-size: 90%;
-  background-position: center;
-}
-.imgIcn.storeIcon {
-  background: url('../img/static/common/store_icon.png') no-repeat;
-}
-.imgIcn.clientIcon {
-  background: url('../img/static/common/client_icon.png') no-repeat;
-}
 @font-face {
   font-family: "Homicons";
   src: url("../fonts/Homicons.eot");
@@ -2230,6 +2215,24 @@ input[type="text"].money {
 }
 #storeOpen.isOpen {
   background-position: 0 0;
+}
+.imgIcn {
+  display: inline-block;
+  height: 46px;
+  width: 56px;
+  *margin-right: .3em;
+  line-height: 35px;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 10px;
+  background-size: 90%;
+  background-position: center;
+}
+.imgIcn.storeIcon {
+  background: url('../img/static/common/store_icon.png') no-repeat;
+}
+.imgIcn.clientIcon {
+  background: url('../img/static/common/client_icon.png') no-repeat;
 }
 .btn {
   display: inline-block;
