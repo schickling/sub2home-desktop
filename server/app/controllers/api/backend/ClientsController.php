@@ -30,6 +30,11 @@ class ClientsController extends ApiController
 		return $clientsCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
+	public function create()
+	{
+		
+	}
+
 	public function update($id)
 	{
 		$input = Input::json();
@@ -45,6 +50,19 @@ class ClientsController extends ApiController
 
 		return $this->respondWithStatus(204);
 	}
+
+	public function destroy($id)
+	{
+		$clientModel = ClientModel::find($id);
+
+		if ($clientModel == null) {
+			return $this->respondWithStatus(404);
+		}
+
+		$clientModel->delete();
+
+		return $this->respondWithStatus(204);
+	}	
 
 	public function changePassword($id)
 	{
@@ -77,18 +95,5 @@ class ClientsController extends ApiController
 		return $this->respondWithStatus(204);
 
 	}
-
-	public function destroy($id)
-	{
-		$clientModel = ClientModel::find($id);
-
-		if ($clientModel == null) {
-			return $this->respondWithStatus(404);
-		}
-
-		$clientModel->delete();
-
-		return $this->respondWithStatus(204);
-	}	
 
 }
