@@ -84,11 +84,11 @@ define([
 
 		_transitionAFoward: function () {
 			var $new = this.$el,
-				$newNote = $new.find('.note'),
+				$newNote = $new.find('#storeNote'),
 				$newNoteContainer = $newNote.children('.container'),
 				$newContent = $new.find('.content'),
 				$current = $('.main'),
-				$currentNote = $current.find('.note'),
+				$currentNote = $current.find('#homeNote'),
 				$currentNoteContainer = $currentNote.children('.container'),
 				$currentContent = $current.find('.content'),
 				self = this;
@@ -99,8 +99,8 @@ define([
 			}, this._animationTime, function () {
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
-				// toggle classes
-				$currentNote.removeClass('home').addClass('store');
+				// set correct id
+				$currentNote.attr('id', 'storeNote');
 			});
 
 			$currentNoteContainer.fadeOut();
@@ -125,11 +125,11 @@ define([
 
 		_transitionABackward: function () {
 			var $new = this.$el,
-				$newNote = $new.find('.note'),
+				$newNote = $new.find('#homeNote'),
 				$newNoteContainer = $newNote.children('.container'),
 				$newContent = $new.find('.content'),
 				$current = $('.main'),
-				$currentNote = $current.find('.note'),
+				$currentNote = $current.find('#storeNote'),
 				$currentNoteContainer = $currentNote.children('.container'),
 				$currentContent = $current.find('.content'),
 				self = this;
@@ -140,8 +140,8 @@ define([
 			}, this._animationTime, function () {
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
-				// toggle classes
-				$currentNote.removeClass('store').addClass('home');
+				// set correct id
+				$currentNote.attr('id', 'homeNote');
 			});
 
 			$currentNoteContainer.fadeOut();

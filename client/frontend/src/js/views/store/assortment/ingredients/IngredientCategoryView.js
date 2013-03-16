@@ -9,7 +9,7 @@ define([
 
 	var IngredientCategoryView = Backbone.View.extend({
 
-		className: 'ingredientCategory',
+		className: 'category',
 
 		template: _.template(IngredientCategoryTemplate),
 

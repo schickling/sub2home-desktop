@@ -319,7 +319,7 @@ define([
 				deg = 0;
 
 			this.rotateInterval = setInterval(function () {
-				deg = (deg + 3) % 30;
+				deg = (deg + 5) % 360;
 				$location.rotate(deg);
 			}, 20);
 		},
