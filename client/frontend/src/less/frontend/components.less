@@ -989,7 +989,7 @@ div#roleSwitch {
     font-size: 49px;
     height: 49px;
     width: 49px;
-    color: @onNoteColor50;
+    color: @onNoteColor70;
     &:before {
       top: 0;
     }
@@ -2885,6 +2885,7 @@ input[type="text"]#locationSelectionInput {
       }
 
       .orderContent {
+        font-family: @baseFontFamily;
         width: 100%;
         margin-top: 10px;
         padding: 0 0 10px;
@@ -2940,11 +2941,17 @@ input[type="text"]#locationSelectionInput {
           border: 1px solid @grayLighter;
           padding: 20px 0;
           margin-bottom: 10px;
-
-        }
-        .articleItem {
           
-          padding: 0 20px;
+        }
+        .orderedArticle {
+          
+          .border-radius(2px);
+          border: 1px solid @grayLighter;
+          padding: 20px 0;
+          margin-bottom: 10px;
+
+          padding: 20px 20px 20px 50px;
+          color: @black;
           
           &.sub {
             border-bottom: 1px solid @grayLighter;
@@ -2955,19 +2962,15 @@ input[type="text"]#locationSelectionInput {
             }
           }
           
-
-          img {
-            height:43px;
-            vertical-align: top;
-            display: inline-block;
-            &.beverage {
-              margin: 0 0px 0 -4px;
-            }
-          }
           h3 {
             padding: 0;
-            margin: 9px 0 0 5px;
+            margin: 0 0 5px 10px;
             display: inline-block;
+            color: inherit;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 0.8;
           }
           .articleIngredients {
             margin: 10px 0 0 0;
@@ -2981,49 +2984,19 @@ input[type="text"]#locationSelectionInput {
                 &:first-child {
                   border-bottom: 1px solid @grayEvenLighter;
                 }
-
-                &.vegetables {
-                  span {
-                    
+                span {
+                    background: @black;
                     font-family: @baseFontFamily;
                     font-size: 13px;
                     font-weight: bold;
                     text-transform: uppercase;
                     padding: 0 3px;
                     color: @white;
-
-                    &.tomato {background: #971e1e; }
-                    &.paprika {background: #3e5327; }
-                    &.olive {background: #bb8001;}
-                    &.salad {background: #a9c125; }
                   }
-                }
-
-                &.extras {
-                  span {
-                    margin-right: 5px;
-                    .positioned;
-                    top: 2px;
-                    &.doubleCheese {
-                      &:before, &:after {
-                        content: "\e015";
-                        font-family: "Homicons";
-                        color: #cd9100;
-                      }
-                    } 
-                    &.doubleVeg {
-                      &:before, &:after {
-                        content: "\e016";
-                        font-family: "Homicons";
-                        color: #c64b00;
-                      }
-                    }  
-                  }
-                }
 
                 &:before {
                   font-family: "Homicons";
-                  color: @grayLight;
+                  color: @black;
                   position: relative;
                   top: 2px;
                   padding: 0 10px 0 5px;
@@ -3036,7 +3009,7 @@ input[type="text"]#locationSelectionInput {
           .vegetables:before  { content: "\e016"; }
           .sauce:before       { content: "\e017"; }
           .extras:before      { content: "\e05c"; }
-          .toasted:before     { content: "\e05c"; }
+          .toasted:before     { content: "\e074"; }
           }
 
           &.additional {
@@ -3050,6 +3023,38 @@ input[type="text"]#locationSelectionInput {
             padding:0 0 0 20px;
             margin: 20px 0 0 0;
           }
+          
+          .menuPrice, .articleAmount {
+            font-size: 16px;
+            background: @grayLightest;
+            position: absolute;
+            top: 0;
+            padding: 5px;
+            span {
+              padding: 5px;
+            }
+          }
+
+          .menuPrice {
+            right: 0;
+            .border-radius(0 0 0 2px);
+            border-bottom: 1px solid @grayLighter;
+            border-left: 1px solid @grayLighter;
+            span.price {
+              padding-left: 10px;
+              margin-left: 5px;
+              border-left: 1px solid @grayLighter;
+              font-weight: bold;
+            }
+          }
+          .articleAmount {
+            left: 0;
+            .border-radius(0 0 2px 0);
+            border-bottom: 1px solid @grayLighter;
+            border-right: 1px solid @grayLighter;
+            font-weight: bold;
+          }
+
         }
       }
       &.crediting {
