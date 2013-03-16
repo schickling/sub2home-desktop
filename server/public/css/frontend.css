@@ -5879,7 +5879,17 @@ input[type="text"]#locationSelectionInput {
   padding: 0 3px;
   color: #ffffff;
 }
-.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div:before {
+.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div > div {
+  display: inline-block;
+}
+.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div > div.sauce {
+  margin-left: 10px;
+}
+.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div > div.sauce:before {
+  padding-right: 5px;
+}
+.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div:before,
+.content.orders #orderListing .order .orderContent .orderedArticle .articleIngredients > div > div > div:before {
   font-family: "Homicons";
   color: #000000;
   position: relative;

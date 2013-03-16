@@ -2984,16 +2984,29 @@ input[type="text"]#locationSelectionInput {
                 &:first-child {
                   border-bottom: 1px solid @grayEvenLighter;
                 }
+                // &.vegetables {
+                //   border: none;
+                // }
                 span {
-                    background: @black;
-                    font-family: @baseFontFamily;
-                    font-size: 13px;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    padding: 0 3px;
-                    color: @white;
+                  background: @black;
+                  font-family: @baseFontFamily;
+                  font-size: 13px;
+                  font-weight: bold;
+                  text-transform: uppercase;
+                  padding: 0 3px;
+                  color: @white;
+                }
+                >div {
+                  display: inline-block;
+                  &.sauce {
+                    margin-left: 10px;
+                    &:before {
+                      padding-right: 5px;
+                    }
                   }
-
+                }
+              }
+              >div, >div>div {
                 &:before {
                   font-family: "Homicons";
                   color: @black;
