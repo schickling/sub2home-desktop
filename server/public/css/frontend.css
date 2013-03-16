@@ -4591,6 +4591,7 @@ input[type="text"]#locationSelectionInput {
   top: auto;
   left: auto;
   float: right;
+  margin-right: 15px;
 }
 .content.assortment .pricetag span input {
   color: inherit;
@@ -4614,7 +4615,7 @@ input[type="text"]#locationSelectionInput {
 }
 .content.assortment .iBtn.bReset {
   float: right;
-  margin: 15px 15px 0;
+  margin: 15px 15px 0 0;
 }
 .content.assortment .iBtn:hover {
   color: #949494;
