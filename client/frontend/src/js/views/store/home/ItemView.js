@@ -4,13 +4,14 @@ define([
     'underscore',
     'backbone',
     'notificationcenter',
+    'router',
     'models/cartModel',
     'models/ArticleModel',
     'models/OrderedItemModel',
     'views/store/home/ArticleDetailsView',
     'views/store/home/MenuBundleDetailsView',
     'text!templates/store/home/ItemTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
+    ], function ($, _, Backbone, notificationcenter, router, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
 
 	var ItemView = Backbone.View.extend({
 
@@ -50,19 +51,33 @@ define([
 		_showDetails: function () {
 			var detailsView;
 
-			if (this.model.has('allowsIngredients')) {
+			if (this.model.has('allowsIngredients')) { // article model
+
 				if (this.model.get('allowsIngredients')) {
-					detailsView = new ArticleDetailsView({
-						model: this.model
-					});
+
+					if (this.model.get('attachedItemsCollection')) { // article has related article
+
+						detailsView = new ArticleDetailsView({
+							model: this.model
+						});
+
+					} else { // just go to selection
+
+						router.navigate('store/theke/artikel/' + this.model.get('id'), true);
+
+					}
+
 				} else {
 					this._putArticleInCart();
 					return;
 				}
-			} else {
+
+			} else { // menu bundle model
+
 				detailsView = new MenuBundleDetailsView({
 					model: this.model
 				});
+
 			}
 
 			this.$el.append(detailsView.el);
