@@ -2164,6 +2164,10 @@ input[type="text"].money {
 #bStoreDashboard:before {
   content: "\e086";
 }
+.iCompass:before,
+.bCompass:before {
+  content: "\e087";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -3701,21 +3705,24 @@ div#roleSwitch #handle:before {
   left: 50%;
   margin-left: -229px;
 }
-#locationSelection .iSettings {
+#locationSelection .iCompass {
   position: absolute;
   left: 50%;
   margin-left: -60px;
-  bottom: 10px;
-  font-size: 50px;
+  bottom: 16px;
+  font-size: 49px;
+  height: 49px;
+  width: 49px;
+  color: rgba(209, 186, 130, 0.5);
 }
-#locationSelection .iSettings:before {
-  top: 1px;
+#locationSelection .iCompass:before {
+  top: 0;
 }
 #homeNote .notice {
   width: 300px;
   left: 50%;
   bottom: -65px;
-  margin-left: 0px;
+  margin-left: 30px;
 }
 input[type="text"]#locationSelectionInput {
   font-size: 65px;
@@ -6507,10 +6514,10 @@ div#payment > div.disabled .btn.active {
   font-size: 15px;
   margin: 0;
 }
-.articleInfo.ft #articlePreview {
+.articleInfo.ft .articlePreview {
   width: 450px;
 }
-.articleInfo.ft div#articleBasics {
+.articleInfo.ft div.articleBasics {
   width: 430px;
   padding: 0 0 0 10px;
 }

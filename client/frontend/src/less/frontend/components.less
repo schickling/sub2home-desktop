@@ -981,14 +981,17 @@ div#roleSwitch {
     margin-left: -174px - 55px;
   }
 
-  .iSettings {
+  .iCompass {
     position: absolute;
     left: 50%;
     margin-left: -60px;
-    bottom: 10px;
-    font-size: 50px;
+    bottom: 16px;
+    font-size: 49px;
+    height: 49px;
+    width: 49px;
+    color: @onNoteColor50;
     &:before {
-      top: 1px;
+      top: 0;
     }
   }
 }
@@ -997,7 +1000,7 @@ div#roleSwitch {
   width: 300px;
   left: 50%;
   bottom: -65px;
-  margin-left: 0px;
+  margin-left: 30px;
 }
 
 
@@ -3619,10 +3622,10 @@ div#payment {
   }
 
   &.ft {
-    #articlePreview {
+    .articlePreview {
       width: 450px;
     }
-    div#articleBasics {
+    div.articleBasics {
       width: 430px;
       padding: 0 0 0 10px;
     }
