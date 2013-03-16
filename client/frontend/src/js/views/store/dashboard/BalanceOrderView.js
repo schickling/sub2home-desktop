@@ -19,8 +19,8 @@ define([
 		_render: function () {
 
 			var json = {
-				id: this.model.get('id'),
-				balanceId: this.model.get('balance_order_model_id'),
+				number: this.model.getOrderNumber(),
+				balanceNumber: this.model.getBalanceOrderNumber(),
 				total: this.model.get('total')
 			};
 

@@ -32,7 +32,7 @@ define([
 				dateOrTime = this._getDateOrTime();
 
 			var json = {
-				id: orderModel.get('id'),
+				number: orderModel.getOrderNumber(),
 				total: orderModel.get('total'),
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),

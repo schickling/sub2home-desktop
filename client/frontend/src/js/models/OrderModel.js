@@ -212,6 +212,18 @@ define([
 
 		isBalanceOrderModel: function() {
 			return this.get('balance_order_model_id') !== 0;
+		},
+
+		getBalanceOrderNumber: function() {
+			var orderNumber = '00000' + this.get('balance_order_model_id');
+
+			return orderNumber.substr(orderNumber.length - 6);
+		},
+
+		getOrderNumber: function() {
+			var orderNumber = '00000' + this.get('id');
+
+			return orderNumber.substr(orderNumber.length - 6);
 		}
 
 	});
