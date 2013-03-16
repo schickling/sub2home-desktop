@@ -1,6 +1,7 @@
 // Filename: src/js/views/home/home/StoresView.js
 define([
     'jquery',
+    'jqueryRotate',
     'underscore',
     'backbone',
     'router',
@@ -10,21 +11,7 @@ define([
     'views/assets/mapStyles',
     'views/home/home/StoreView',
     'collections/StoresCollection'
-    ], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
-
-	$.fn.extend({
-		rotate: function (deg) {
-			var $this = $(this);
-
-			$this.css({
-				'-webkit-transform': 'rotate(' + deg + 'deg)',
-				'-moz-transform': 'rotate(' + deg + 'deg)',
-				'-ms-transform': 'rotate(' + deg + 'deg)',
-				'-o-transform': 'rotate(' + deg + 'deg)',
-				'transform': 'rotate(' + deg + 'deg)'
-			});
-		}
-	});
+    ], function ($, jqueryRotate, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
 
 	var StoresView = Backbone.View.extend({
 

@@ -1,26 +1,11 @@
 // Filename: src/js/views/store/selection/stage/ingredientsSelection/IngredientView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html'
-	], function ($, _, Backbone, IngredientTemplate) {
-
-	// extend jquery with random rotate
-	$.fn.extend({
-		randomRotate: function () {
-			var $this = $(this),
-				random = Math.floor(Math.random() * 359);
-
-			$this.css({
-				'-webkit-transform': 'rotate(' + random + 'deg)',
-				'-moz-transform': 'rotate(' + random + 'deg)',
-				'-ms-transform': 'rotate(' + random + 'deg)',
-				'-o-transform': 'rotate(' + random + 'deg)',
-				'transform': 'rotate(' + random + 'deg)'
-			});
-		}
-	});
+    'jquery',
+    'jqueryRotate',
+    'underscore',
+    'backbone',
+    'text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html'
+    ], function ($, jqueryRotate, _, Backbone, IngredientTemplate) {
 
 	var IngredientView = Backbone.View.extend({
 
@@ -44,11 +29,11 @@ define([
 			this.$el.html(this.template(this.model.toJSON()));
 
 			// rotate circle
-			this.$('.accentIngredient').randomRotate();
+			this.$('.accentIngredient').rotate();
 
 		},
 
-		_updateView: function() {
+		_updateView: function () {
 			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 

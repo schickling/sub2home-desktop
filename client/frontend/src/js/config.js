@@ -6,6 +6,7 @@ require.config({
 		async: 'vendor/requirejs-plugins/src/async',
 		text: 'vendor/requirejs-text/text',
 		jquery: 'vendor/jquery/jquery',
+		jqueryRotate: 'vendor/jquery-rotate/jquery.rotate',
 		jqueryEasing: 'vendor/jquery-easing/jquery.easing',
 		jqueryColor: 'vendor/jquery-color/jquery.color',
 		underscore: 'vendor/underscore/underscore',

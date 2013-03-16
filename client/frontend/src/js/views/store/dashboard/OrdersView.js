@@ -1,6 +1,7 @@
 // Filename: src/js/views/store/dashboard/OrdersView.js
 define([
     'jquery',
+    'jqueryRotate',
     'underscore',
     'backbone',
     'global',
@@ -8,21 +9,7 @@ define([
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
     'text!templates/store/dashboard/NoOrdersTemplate.html'
-    ], function ($, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
-
-	$.fn.extend({
-		rotate: function (deg) {
-			var $this = $(this);
-
-			$this.css({
-				'-webkit-transform': 'rotate(' + deg + 'deg)',
-				'-moz-transform': 'rotate(' + deg + 'deg)',
-				'-ms-transform': 'rotate(' + deg + 'deg)',
-				'-o-transform': 'rotate(' + deg + 'deg)',
-				'transform': 'rotate(' + deg + 'deg)'
-			});
-		}
-	});
+    ], function ($, jqueryRotate, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
 
 	var OrdersView = Backbone.View.extend({
 
