@@ -8,7 +8,7 @@ define([
 
 	var OrderedArticleView = Backbone.View.extend({
 
-		className: 'articleItem',
+		className: 'orderedArticle',
 
 		template: _.template(OrderedArticleTemplate),
 

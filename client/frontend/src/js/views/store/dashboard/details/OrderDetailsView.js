@@ -17,7 +17,7 @@ define([
 			this.$el.html(OrderDetailsTemplate);
 
 			new OrderedItemsView({
-				el: this.$('.orderArticles'),
+				el: this.$('.orderedItems'),
 				collection: this.model.get('orderedItemsCollection')
 			});
 		}
