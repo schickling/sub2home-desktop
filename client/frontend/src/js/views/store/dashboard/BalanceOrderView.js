@@ -10,7 +10,7 @@ define([
 
 		template: _.template(BalanceOrderTemplate),
 
-		className: 'balanceOrder',
+		className: 'order balance',
 
 		initialize: function () {
 			this._render();
