@@ -1,12 +1,12 @@
 // Filename: src/js/views/store/dashboard/OrderView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'moment',
-	'views/store/dashboard/details/OrderDetailsView',
-	'text!templates/store/dashboard/OrderTemplate.html'
-	], function ($, _, Backbone, moment, OrderDetailsView, OrderTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'moment',
+    'views/store/dashboard/details/OrderDetailsView',
+    'text!templates/store/dashboard/OrderTemplate.html'
+    ], function ($, _, Backbone, moment, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({
 
@@ -15,27 +15,21 @@ define([
 		className: 'order',
 
 		events: {
-			'click .orderHeader': 'toggleDetailsView'
+			'click .orderHeader': '_toggleDetailsView'
 		},
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var orderModel = this.model,
 				addressModel = orderModel.get('addressModel'),
-				createdDate = orderModel.get('createdDate'),
-				createdMoment = moment(createdDate),
 				dueDate = orderModel.get('createdDate'),
+				createdDate = orderModel.get('createdDate'),
+				createdMoment = moment(createdDate)
 				dueTime = createdMoment.format('HH:mm'),
-				dateOrTime;
-
-			if (orderModel.wasCreatedToday()) {
-				dateOrTime = createdMoment.format('HH:mm');
-			} else {
-				dateOrTime = createdMoment.format('DD.MM.YYYY');
-			}
+				dateOrTime = this._getDateOrTime();
 
 			var json = {
 				id: orderModel.get('id'),
@@ -49,17 +43,17 @@ define([
 			this.$el.html(this.template(json));
 		},
 
-		toggleDetailsView: function () {
+		_toggleDetailsView: function () {
 			var $orderContent = this.$('.orderContent');
 
 			if (!$orderContent.html().trim()) {
-				this.renderDetailsView();
+				this._renderDetailsView();
 			}
 
 			$orderContent.toggle();
 		},
 
-		renderDetailsView: function () {
+		_renderDetailsView: function () {
 			this.model.fetch({
 				async: false
 			});
@@ -68,6 +62,17 @@ define([
 				el: this.$('.orderContent'),
 				model: this.model
 			});
+		},
+
+		_getDateOrTime: function () {
+			var createdDate = this.model.get('createdDate'),
+				createdMoment = moment(createdDate);
+
+			if (this.model.wasCreatedToday()) {
+				return createdMoment.format('HH:mm');
+			} else {
+				return createdMoment.format('DD.MM.YYYY');
+			}
 		}
 
 	});

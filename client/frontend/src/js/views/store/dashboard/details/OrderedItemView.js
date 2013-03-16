@@ -9,7 +9,7 @@ define([
 
 	var OrderedItemView = Backbone.View.extend({
 
-		className: 'orderedItems',
+		className: 'orderedItem',
 
 		template: _.template(OrderedItemTemplate),
 

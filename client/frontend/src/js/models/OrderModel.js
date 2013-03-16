@@ -26,8 +26,6 @@ define([
 			total: 0,
 			credit: 0,
 
-			// relations
-
 			// customer address
 			addressModel: null,
 			orderedItemsCollection: null,
@@ -39,7 +37,8 @@ define([
 			// only needed for store.dashboard
 			isDelivered: false,
 			created_at: '',
-			createdDate: null
+			createdDate: null,
+			balance_order_model_id: 0
 		},
 
 		urlRoot: function () {
@@ -209,6 +208,10 @@ define([
 			}, {
 				validate: true
 			});
+		},
+
+		isBalanceOrderModel: function() {
+			return this.get('balance_order_model_id') !== 0;
 		}
 
 	});

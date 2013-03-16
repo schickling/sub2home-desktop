@@ -50,6 +50,16 @@ class OrderModel extends BaseModel
 	}
 
 	/**
+	 * Returns the balance order model (if exists)
+	 * 
+	 * @return object
+	 */
+	public function balanceOrderModel()
+	{
+		return $this->hasOne('App\\Models\\OrderModel');
+	}
+
+	/**
 	 * Returns the invoice the order will belong to
 	 * 
 	 * @return object
