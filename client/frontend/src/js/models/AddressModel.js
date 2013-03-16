@@ -1,9 +1,9 @@
 define([
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'global'
-	], function (_, Backbone, notificationcenter, global) {
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'global'
+    ], function (_, Backbone, notificationcenter, global) {
 
 	var AddressModel = Backbone.Model.extend({
 
@@ -31,6 +31,24 @@ define([
 			return '/api/frontend/stores/' + global.getStoreAlias() + '/addresses';
 		},
 
+		get: function (attr) {
+
+			// this custom getter is needed since phone numbers get saved as integers
+			if (attr === 'phone') {
+				var phone = this.attributes[attr],
+					firstNumber = parseInt(String(phone).charAt(0), 10);
+
+
+				if (firstNumber > 0 && firstNumber <= 9) {
+					phone = '0' + phone;
+				}
+
+				return phone;
+			}
+
+			return this.attributes[attr];
+		},
+
 		validate: function (attributes) {
 
 			if (attributes.firstName === '') {
@@ -53,18 +71,22 @@ define([
 				return 'city';
 			}
 
-			if (attributes.phone === '') {
+			if (!this._validatePhone(attributes.phone)) {
 				return 'phone';
 			}
 
-			if (attributes.email === '' || !this.validateEmail(attributes.email)) {
+			if (!this._validateEmail(attributes.email)) {
 				return 'email';
 			}
 		},
 
-		validateEmail: function (email) {
+		_validateEmail: function (email) {
 			var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 			return re.test(email);
+		},
+
+		_validatePhone: function(phone) {
+			return true;
 		}
 
 	});

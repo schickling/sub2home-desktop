@@ -18,7 +18,7 @@ class AddressModelTable extends Migration {
 			$table->string('street', 128)->default('');
 			$table->string('streetAdditional', 128)->default('');
 			$table->string('city', 128)->default('');
-			$table->string('phone', 128)->default('');
+			$table->string('phone', 128)->default('0123456789');
 			$table->string('email', 128)->default('');
 			$table->integer('postal')->unsigned()->default(0);
 			$table->string('ownerModel_type');

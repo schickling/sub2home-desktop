@@ -1,11 +1,11 @@
 // Filename: src/js/views/client/config/AddressView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
+    'jquery',
+    'underscore',
+    'backbone',
     'notificationcenter',
-	'text!templates/client/config/AddressTemplate.html'
-	], function ($, _, Backbone, notificationcenter, AddressTemplate) {
+    'text!templates/client/config/AddressTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, AddressTemplate) {
 
 	var AddressView = Backbone.View.extend({
 
@@ -20,7 +20,18 @@ define([
 		},
 
 		_render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
+			var json = {
+				firstName: this.model.get('firstName'),
+				lastName: this.model.get('lastName'),
+				street: this.model.get('street'),
+				streetAdditional: this.model.get('streetAdditional'),
+				city: this.model.get('city'),
+				phone: this.model.get('phone'),
+				email: this.model.get('email'),
+				postal: this.model.get('postal')
+			};
+
+			this.$el.html(this.template(json));
 		},
 
 		_update: function (e) {
