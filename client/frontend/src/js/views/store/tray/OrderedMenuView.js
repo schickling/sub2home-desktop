@@ -35,7 +35,7 @@ define([
 
 			var json = {
 				title: this.model.getMenuTitle(),
-				total: this.model.get('total'),
+				total: this.model.get('total') / this.model.get('amount'),
 				amount: this.model.get('amount')
 			};
 

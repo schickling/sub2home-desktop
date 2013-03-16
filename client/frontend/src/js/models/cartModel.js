@@ -203,9 +203,15 @@ define([
 		},
 
 		getNumberOfOrderedItems: function () {
-			var orderModel = this.get('orderModel');
+			var orderModel = this.get('orderModel'),
+				orderedItemsCollection = orderModel.get('orderedItemsCollection'),
+				numberOfOrderedItems = 0;
 
-			return orderModel.get('orderedItemsCollection').length;
+			_.each(orderedItemsCollection.models, function(orderedItemModel) {
+				numberOfOrderedItems += orderedItemModel.get('amount');
+			});
+
+			return numberOfOrderedItems;
 		},
 
 		getComment: function () {

@@ -32,7 +32,7 @@ define([
 					title: articleModel.get('title'),
 					image: articleModel.get('largeImage'),
 					info: articleModel.get('info'),
-					total: this.model.get('total'),
+					total: this.model.get('total') / this.model.get('amount'),
 					amount: this.model.get('amount'),
 					description: this._getDescription()
 				};
