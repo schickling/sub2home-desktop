@@ -319,14 +319,26 @@ define([
 				deg = 0;
 
 			this.rotateInterval = setInterval(function () {
-				deg = (deg + 5) % 360;
+				deg = (deg + 5) % 180;
 				$location.rotate(deg);
 			}, 20);
 		},
 
 		_stopRotateLocation: function () {
+			var $locationSelection = this.$('#locationSelection'),
+				$label = $locationSelection.find('label'),
+				$notice = $locationSelection.find('.notice');
+
 			clearInterval(this.rotateInterval);
-			this.$location.fadeOut();
+
+			this.$location.fadeOut(150, function () {
+				$label.animate({
+					marginLeft: -174
+				});
+			});
+
+			$notice.fadeOut(150);
+
 		},
 
 	});
