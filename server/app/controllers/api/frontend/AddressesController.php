@@ -56,16 +56,25 @@ class AddressesController extends ApiController
 		$addressModel->streetAdditional = $input['streetAdditional'];
 		$addressModel->postal = $input['postal'];
 		$addressModel->city = $input['city'];
-		$addressModel->phone = $input['phone'];
+		$addressModel->phone = $this->fixPhoneNumber($input['phone']);
 		$addressModel->email = $input['email'];
 
 		$addressModel->save();
 
 
-		unset($addressModel->storeModel);
+		return $this->respondWithStatus(204);
+	}
 
+	private function fixPhoneNumber($phone)
+	{
+		// stringify
+		$phone = strval($phone);
 
-		return $addressModel->toJson(JSON_NUMERIC_CHECK);
+		if (substr($phone, 0, 1) != 0) {
+			$phone = '0' . $phone;
+		}
+
+		return $phone;
 	}
 
 

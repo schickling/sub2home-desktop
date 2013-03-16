@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/config/AddressView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'text!templates/store/config/AddressTemplate.html'
-	], function ($, _, Backbone, notificationcenter, AddressTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'text!templates/store/config/AddressTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, AddressTemplate) {
 
 	var AddressView = Backbone.View.extend({
 
@@ -13,13 +13,26 @@ define([
 			'focusout input': '_update'
 		},
 
+		template: _.template(AddressTemplate),
+
 		initialize: function () {
 			this._render();
 		},
 
 		_render: function () {
-			var addressModel = this.model.get('addressModel');
-			this.$el.html(_.template(AddressTemplate, addressModel.toJSON()));
+			var addressModel = this.model.get('addressModel'),
+				json = {
+					firstName: addressModel.get('firstName'),
+					lastName: addressModel.get('lastName'),
+					street: addressModel.get('street'),
+					streetAdditional: addressModel.get('streetAdditional'),
+					city: addressModel.get('city'),
+					phone: addressModel.get('phone'),
+					email: addressModel.get('email'),
+					postal: addressModel.get('postal')
+				};
+
+			this.$el.html(this.template(json));
 		},
 
 		_update: function (e) {

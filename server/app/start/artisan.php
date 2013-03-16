@@ -16,7 +16,7 @@ use App\Commands\Test\TestActivateCommand;
 |
 */
 
-Artisan::add(new SendInvoiceMailsForLastMonthCommand);
-Artisan::add(new GenerateMissingDocumentsCommand);
-Artisan::add(new TestOrdersCommand);
-Artisan::add(new TestActivateCommand);
+$artisan->add(new SendInvoiceMailsForLastMonthCommand);
+$artisan->add(new GenerateMissingDocumentsCommand);
+$artisan->add(new TestOrdersCommand);
+$artisan->add(new TestActivateCommand);
