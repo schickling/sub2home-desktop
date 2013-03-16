@@ -15,7 +15,7 @@ class CustomArticleModelTable extends Migration {
 			$table->increments('id');
 			$table->integer('article_model_id')->unsigned();
 			$table->integer('store_model_id')->unsigned();
-			$table->integer('buyed')->unsigned();
+			$table->integer('buyed')->unsigned()->default(0);
 			$table->decimal('price', 5, 2)->default(0);
 			$table->boolean('isActive')->default(false);
 			$table->timestamps();

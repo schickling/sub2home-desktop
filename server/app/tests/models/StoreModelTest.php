@@ -10,6 +10,9 @@ use App\Models\ClientModel;
 
 class StoreModelTest extends TestCase {
 
+    protected $loadMigrations = true;
+    protected $loadSeeds = true;
+
 	public function testCoordsOnModelCreate()
 	{
 		$storeModel = StoreModel::where('number', 1)->first();
@@ -40,26 +43,7 @@ class StoreModelTest extends TestCase {
 
 	protected function seedDatabase()
 	{
-		$address = array(
-			'street' => 'Maximilianstr 4',
-			'postal' => 87700,
-			'city' => 'Memmingen'
-			);
-
-		$clientModel = new ClientModel(array(
-			'number' => 1,
-			'hashedPassword' => Hash::make('superSecure'),
-			'email' => 'firstClient@test.de'
-			));
-		$clientModel->save();
-		$clientModel->addressModel()->create($address);
-
-		$storeModel = new StoreModel(array(
-			'title' => 'Teststore',
-			'number' => 1,
-			'client_model_id' => $clientModel->id
-			));
-		$storeModel->save();
+		$this->createTestStore();
 	}
 
 }

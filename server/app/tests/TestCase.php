@@ -6,12 +6,14 @@ use Mail;
 
 class TestCase extends BaseTestCase {
 
+    protected $loadMigrations = false;
+    protected $loadSeeds = false;
+
     public function setUp()
     {
         parent::setUp();
 
         $this->prepareForTests();
-        $this->seedDatabase();
     }
 
     /**
@@ -34,10 +36,38 @@ class TestCase extends BaseTestCase {
      */
     private function prepareForTests()
     {
-        Artisan::call('migrate');
+        $this->prepareDatabase();
+
         Mail::pretend(true);
     }
 
+    private function prepareDatabase()
+    {
+        if ($this->loadMigrations) {
+
+            Artisan::call('migrate');
+
+            $this->seedDatabase();
+
+            if ($this->loadSeeds) {
+                Artisan::call('db:seed');
+            }
+
+        }
+    }
+
     protected function seedDatabase() {}
+
+    /*
+     * content helper methods 
+     */
+
+    protected function createTestStore()
+    {
+        // article models needed so load seeds
+        $this->loadSeeds = true;
+
+        // use store model from seeds, so nothing more to do
+    }
 
 }

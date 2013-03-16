@@ -17,7 +17,7 @@ class CustomMenuModelTable extends Migration {
 			$table->string('menuModel_type');
 			$table->integer('menuModel_id')->unsigned();
 			$table->integer('store_model_id')->unsigned();
-			$table->integer('buyed')->unsigned();
+			$table->integer('buyed')->unsigned()->default(0);
 			$table->decimal('price', 5, 2)->default(0);
 			$table->boolean('isActive')->default(false);
 			$table->timestamps();

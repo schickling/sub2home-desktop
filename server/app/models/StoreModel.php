@@ -2,6 +2,7 @@
 
 use DateTime;
 use Str;
+use Exception;
 
 class StoreModel extends BaseModel
 {
@@ -75,6 +76,11 @@ class StoreModel extends BaseModel
 
 		// make at least one article active
 		$firstArticleModel = ArticleModel::where('isPublished', true)->first();
+
+		if ($firstArticleModel == null) {
+			throw new Exception('No article found');
+		}
+
 		$customArticleModel = $firstArticleModel->returnCustomModel($this->id);
 		$customArticleModel->isActive = true;
 		$customArticleModel->save();

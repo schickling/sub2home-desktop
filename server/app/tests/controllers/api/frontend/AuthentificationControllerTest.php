@@ -10,6 +10,8 @@ use App\Models\ClientModel;
 
 class AuthentificationControllerTest extends TestCase {
 
+	protected $loadMigrations = true;
+
 	public function testLoginShouldBeSuccessful()
 	{
 		$response = $this->getReponseOfSuccessfulLogin();
@@ -137,11 +139,9 @@ class AuthentificationControllerTest extends TestCase {
 	{
 		$clientModel = new ClientModel(array(
 			'number' => 1,
-			'hashedPassword' => Hash::make('superSecure'),
-			'email' => 'client@test.de'
+			'hashedPassword' => Hash::make('superSecure')
 			));
 		$clientModel->save();
-		$clientModel->addressModel()->create(array());
 
 	}
 

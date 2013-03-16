@@ -10,6 +10,8 @@ use App\Models\StoreModel;
 
 class AddressesControllerTest extends TestCase {
 
+    protected $loadMigrations = true;
+
 	private $correctAddress = array(
 			'firstName' => 'Johannes',
 			'lastName' => 'Schickling',
@@ -47,24 +49,7 @@ class AddressesControllerTest extends TestCase {
 
 	protected function seedDatabase()
 	{
-
-		$clientModel = new ClientModel(array(
-			'number' => 1,
-			'hashedPassword' => Hash::make('haallo'),
-			'email' => 'client@test.de'
-			));
-		$clientModel->save();
-		$clientModel->addressModel()->create($this->correctAddress);
-
-		$storeModel = new StoreModel(array(
-			'title' => 'Teststore',
-			'number' => 1,
-			'isActive' => true,
-			'isOpen' => true,
-			'client_model_id' => $clientModel->id,
-			'orderEmail' => 'test@test.de'
-			));
-		$storeModel->save();
+		$this->createTestStore();
 	}
 
 }
