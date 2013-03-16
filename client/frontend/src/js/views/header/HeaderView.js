@@ -17,7 +17,7 @@ define([
 		el: $('#header'),
 
 		events: {
-			'click .logo': '_reset',
+			'click #logo': '_goToHomeHome',
 			'click #roleSwitch': '_switchContentView'
 		},
 
@@ -128,8 +128,8 @@ define([
 			});
 		},
 
-		_reset: function () {
-			window.localStorage.clear();
+		_goToHomeHome: function () {
+			router.navigate('/', true);
 		},
 
 		_switchContentView: function () {

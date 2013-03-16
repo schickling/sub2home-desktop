@@ -97,8 +97,10 @@ define([
 			$currentNote.delay(300).animate({
 				height: 150
 			}, this._animationTime, function () {
+
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
+
 				// set correct id
 				$currentNote.attr('id', 'storeNote');
 			});
@@ -138,8 +140,10 @@ define([
 			$currentNote.animate({
 				height: '35%'
 			}, this._animationTime, function () {
+
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
+				
 				// set correct id
 				$currentNote.attr('id', 'homeNote');
 			});

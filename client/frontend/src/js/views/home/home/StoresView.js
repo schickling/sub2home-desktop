@@ -32,6 +32,8 @@ define([
 		$deliveryAreaSelection: null,
 		$location: null,
 		$map: null,
+		$locationNotice: null,
+		$locationLabel: null,
 
 		initialize: function () {
 
@@ -49,6 +51,8 @@ define([
 			this.$deliveryAreaSelection = this.$('#deliveryAreaSelection');
 			this.$location = this.$('#location');
 			this.$map = this.$('#map');
+			this.$locationNotice = this.$('#locationNotice');
+			this.$locationLabel = this.$('#locationLabel');
 		},
 
 		_loadStores: function () {
@@ -325,19 +329,16 @@ define([
 		},
 
 		_stopRotateLocation: function () {
-			var $locationSelection = this.$('#locationSelection'),
-				$label = $locationSelection.find('label'),
-				$notice = $locationSelection.find('.notice');
 
 			clearInterval(this.rotateInterval);
 
-			this.$location.fadeOut(150, function () {
-				$label.animate({
-					marginLeft: -174
-				});
+			this.$location.fadeOut(150);
+			this.$locationNotice.fadeOut(150);
+
+			this.$locationLabel.delay(140).animate({
+				marginLeft: -174
 			});
 
-			$notice.fadeOut(150);
 
 		},
 
