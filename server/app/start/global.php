@@ -1,5 +1,8 @@
 <?php
 
+use App\Exceptions\NotAuthentificatedException;
+use App\Exceptions\ModelException;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Laravel Class Loader
@@ -47,9 +50,22 @@ Log::useDailyFiles(__DIR__.'/../storage/logs/'.$logFile);
 |
 */
 
+App::error(function(ModelException $exception, $code)
+{
+	Log::error($exception);
+});
+
+
+// TODO check and remove
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+});
+
+
+App::error(function(NotAuthentificatedException $exception, $code)
+{
+	return Response::make('Not authentificated', 401);
 });
 
 /*
@@ -65,3 +81,16 @@ App::error(function(Exception $exception, $code)
 
 // not needed until now
 // require __DIR__.'/../filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Extend Validator
+|--------------------------------------------------------------------------
+|
+*/
+
+Validator::extend('boolean', function($attribute, $value, $parameters)
+{
+    return is_bool($value) or is_numeric($value);
+});

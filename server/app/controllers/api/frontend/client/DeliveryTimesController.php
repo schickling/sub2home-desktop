@@ -1,8 +1,7 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use Validator;
 use Input;
-use Request;
 
 use App\Models\DeliveryTimeModel;
 
@@ -45,7 +44,7 @@ class DeliveryTimesController extends ApiController
 		return $deliveryTimeModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
-	public function update()
+	public function update($id)
 	{
 		$this->checkAuthentification();
 
@@ -71,7 +70,6 @@ class DeliveryTimesController extends ApiController
 		}
 
 		// fetch deliveryTimeModel
-		$id = Request::segment(6);
 		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
 		// verify owner
@@ -88,7 +86,7 @@ class DeliveryTimesController extends ApiController
 		$deliveryTimeModel->save();
 	}
 
-	public function destroy()
+	public function destroy($id)
 	{
 		$this->checkAuthentification();
 		
@@ -97,7 +95,6 @@ class DeliveryTimesController extends ApiController
 		}
 
 		// fetch deliveryTimeModel
-		$id = Request::segment(6);
 		$deliveryTimeModel = DeliveryTimeModel::find($id);
 
 		// verify owner

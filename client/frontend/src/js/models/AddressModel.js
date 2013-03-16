@@ -1,9 +1,8 @@
 define([
     'underscore',
     'backbone',
-    'notificationcenter',
-    'global'
-    ], function (_, Backbone, notificationcenter, global) {
+    'notificationcenter'
+    ], function (_, Backbone, notificationcenter) {
 
 	var AddressModel = Backbone.Model.extend({
 
@@ -18,6 +17,8 @@ define([
 			postal: 0
 		},
 
+		urlRoot: '/api/frontend/addresses',
+
 		initialize: function () {
 			// throw errors
 			this.on('invalid', function (model, error) {
@@ -25,10 +26,6 @@ define([
 					error: error
 				});
 			});
-		},
-
-		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/addresses';
 		},
 
 		get: function (attr) {
@@ -85,7 +82,7 @@ define([
 			return re.test(email);
 		},
 
-		_validatePhone: function(phone) {
+		_validatePhone: function (phone) {
 			return true;
 		}
 

@@ -1,7 +1,6 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use Input;
-use Request;
 use Validator;
 
 use App\Models\DeliveryAreaModel;
@@ -37,7 +36,7 @@ class DeliveryAreasController extends ApiController
 		return $deliveryAreaModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
-	public function update()
+	public function update($id)
 	{
 		// security
 		$this->checkAuthentification();
@@ -63,7 +62,6 @@ class DeliveryAreasController extends ApiController
 		}
 
 		// fetch deliveryAreaModel
-		$id = Request::segment(6);
 		$deliveryAreaModel = DeliveryAreaModel::find($id);
 
 		// verify owner
@@ -81,6 +79,8 @@ class DeliveryAreasController extends ApiController
 		$deliveryAreaModel->district = $input['district'];
 
 		$deliveryAreaModel->save();
+
+		return $this->respondWithStatus(204);
 	}
 
 	public function destroy()
@@ -92,7 +92,6 @@ class DeliveryAreasController extends ApiController
 		}
 
 		// fetch deliveryAreaModel
-		$id = Request::segment(6);
 		$deliveryAreaModel = DeliveryAreaModel::find($id);
 
 		// verify owner

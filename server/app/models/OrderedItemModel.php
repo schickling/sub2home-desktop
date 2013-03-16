@@ -1,6 +1,6 @@
 <?php namespace App\Models;
 
-use Exception;
+use App\Exceptions\ModelException;
 
 /**
  * Ordered Menu class
@@ -27,7 +27,7 @@ class OrderedItemModel extends BaseModel
 
 	public function delete()
 	{
-		throw new Exception("Can not delete an ordered item");
+		throw new ModelException("Can not delete an ordered item");
 	}
 
 	/**
@@ -93,7 +93,7 @@ class OrderedItemModel extends BaseModel
 
 	public function setTotalAttribute()
 	{
-		throw new Exception('Total has to be calculated');
+		throw new ModelException('Total has to be calculated');
 	}
 
 	private function isMenu()

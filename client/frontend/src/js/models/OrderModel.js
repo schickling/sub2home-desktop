@@ -3,11 +3,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'global',
     'notificationcenter',
     'models/AddressModel',
     'collections/OrderedItemsCollection'
-    ], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
+    ], function ($, _, Backbone, notificationcenter, AddressModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -41,9 +40,7 @@ define([
 			balance_order_model_id: 0
 		},
 
-		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
-		},
+		urlRoot: '/api/frontend/orders',
 
 		initialize: function () {
 

@@ -26,7 +26,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setDayOfWeekAttribute($dayOfWeek)
 	{
 		if ($dayOfWeek < 0 or $dayOfWeek > 6) {
-			throw new Exception("No valid week day");
+			throw new ModelException("No valid week day");
 		}
 		$this->attributes['dayOfWeek'] = $dayOfWeek;
 	}
@@ -34,7 +34,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setStartMinutesAttribute($startMinutes)
 	{
 		if ($startMinutes < 0 or $startMinutes >= 24 * 60) {
-			throw new Exception("No valid day time");
+			throw new ModelException("No valid day time");
 		}
 		$this->attributes['startMinutes'] = $startMinutes;
 	}
@@ -42,7 +42,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setEndMinutesAttribute($endMinutes)
 	{
 		if ($endMinutes < 0 or $endMinutes >= 24 * 60) {
-			throw new Exception("No valid day time");
+			throw new ModelException("No valid day time");
 		}
 		$this->attributes['endMinutes'] = $endMinutes;
 	}

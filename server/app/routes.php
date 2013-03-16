@@ -7,20 +7,20 @@
 */
 
 // stores
-Route::get('api/frontend/stores', 										'App\Controllers\Api\Frontend\StoresController@index');
-Route::get('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\StoresController@show');
+Route::get('api/frontend/stores', 										'App\Controllers\Api\Frontend\Customer\StoresController@index');
+Route::get('api/frontend/stores/{alias}',								'App\Controllers\Api\Frontend\Customer\StoresController@show');
 
 // categories
-Route::get('api/frontend/stores/{alias}/categories',					'App\Controllers\Api\Frontend\CategoriesController@index');
+Route::get('api/frontend/stores/{alias}/categories',					'App\Controllers\Api\Frontend\Customer\CategoriesController@index');
 
-// articles
-Route::get('api/frontend/stores/{alias}/articles/{id}',					'App\Controllers\Api\Frontend\ArticlesController@show');
+// articles (relation to store needed because of custom items)
+Route::get('api/frontend/stores/{alias}/articles/{id}',					'App\Controllers\Api\Frontend\Customer\ArticlesController@show');
 
-// menu bundles
-Route::get('api/frontend/stores/{alias}/menubundles/{id}',				'App\Controllers\Api\Frontend\MenuBundlesController@show');
+// menu bundles (relation to store needed because of custom items)
+Route::get('api/frontend/stores/{alias}/menubundles/{id}',				'App\Controllers\Api\Frontend\Customer\MenuBundlesController@show');
 
 // orders
-Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\OrderCreateController@create');
+Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Frontend\Customer\OrderCreateController@create');
 
 
 
@@ -33,54 +33,58 @@ Route::post('api/frontend/stores/{alias}/orders', 						'App\Controllers\Api\Fro
 Route::group(array('https'), function()
 {
 	// stores
-	Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\StoresController@updatePaypal');
-	Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\StoresController@update');
+	Route::get('api/frontend/stores/{alias}/updatepaypal',				'App\Controllers\Api\Frontend\Client\StoresController@updatePaypal');
+	Route::put('api/frontend/stores/{alias}',							'App\Controllers\Api\Frontend\Client\StoresController@update');
 
-	// articles
-	Route::put('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\Frontend\ArticlesController@update');
+	// articles (relation to store needed because of custom items)
+	Route::put('api/frontend/stores/{alias}/articles/{id}',				'App\Controllers\Api\Frontend\Client\ArticlesController@update');
 
 	// delivery areas
-	Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\DeliveryAreasController@create');
-	Route::put('api/frontend/stores/{alias}/deliveryareas/{id}', 		'App\Controllers\Api\Frontend\DeliveryAreasController@update');
-	Route::delete('api/frontend/stores/{alias}/deliveryareas/{id}', 	'App\Controllers\Api\Frontend\DeliveryAreasController@destroy');
+	Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\Client\DeliveryAreasController@create');
+	Route::put('api/frontend/deliveryareas/{id}',				 		'App\Controllers\Api\Frontend\Client\DeliveryAreasController@update');
+	Route::delete('api/frontend/deliveryareas/{id}',				 	'App\Controllers\Api\Frontend\Client\DeliveryAreasController@destroy');
 
 	// delivery times
-	Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\DeliveryTimesController@create');
-	Route::put('api/frontend/stores/{alias}/deliverytimes/{id}', 		'App\Controllers\Api\Frontend\DeliveryTimesController@update');
-	Route::delete('api/frontend/stores/{alias}/deliverytimes/{id}', 	'App\Controllers\Api\Frontend\DeliveryTimesController@destroy');
+	Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\Client\DeliveryTimesController@create');
+	Route::put('api/frontend/deliverytimes/{id}', 						'App\Controllers\Api\Frontend\Client\DeliveryTimesController@update');
+	Route::delete('api/frontend/deliverytimes/{id}', 					'App\Controllers\Api\Frontend\Client\DeliveryTimesController@destroy');
 
 	// ingredient categories
-	Route::get('api/frontend/stores/{alias}/ingredientcategories',		'App\Controllers\Api\Frontend\IngredientCategoriesController@index');
+	Route::get('api/frontend/stores/{alias}/ingredientcategories',		'App\Controllers\Api\Frontend\Client\IngredientCategoriesController@index');
 
-	// ingredients
-	Route::put('api/frontend/stores/{alias}/ingredients/{id}',			'App\Controllers\Api\Frontend\IngredientsController@update');
+	// ingredients (relation to store needed because of custom items)
+	Route::put('api/frontend/stores/{alias}/ingredients/{id}',			'App\Controllers\Api\Frontend\Client\IngredientsController@update');
 
-	// menus (menu bundles + menu upgrades)
-	Route::get('api/frontend/stores/{alias}/menus',						'App\Controllers\Api\Frontend\MenusController@index');
-	Route::put('api/frontend/stores/{alias}/menus/{id}',				'App\Controllers\Api\Frontend\MenusController@update');
+	// menus bundles (relation to store needed because of custom items)
+	Route::get('api/frontend/stores/{alias}/menubundles',				'App\Controllers\Api\Frontend\Client\MenuBundlesController@index');
+	Route::put('api/frontend/stores/{alias}/menubundles/{id}',			'App\Controllers\Api\Frontend\Client\MenuBundlesController@update');
+
+	// menus upgrades (relation to store needed because of custom items)
+	Route::get('api/frontend/stores/{alias}/menuupgrades',				'App\Controllers\Api\Frontend\Client\MenuUpgradesController@index');
+	Route::put('api/frontend/stores/{alias}/menuupgrades/{id}',			'App\Controllers\Api\Frontend\Client\MenuUpgradesController@update');
 
 	// invoices
-	Route::get('api/frontend/stores/{alias}/invoices', 					'App\Controllers\Api\Frontend\InvoicesController@index');
+	Route::get('api/frontend/stores/{alias}/invoices', 					'App\Controllers\Api\Frontend\Client\InvoicesController@index');
 
 	// orders
-	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\OrderIndexController@index');
-	Route::get('api/frontend/stores/{alias}/orders/{id}', 				'App\Controllers\Api\Frontend\OrderShowController@show');
-	Route::post('api/frontend/stores/{alias}/testorder', 				'App\Controllers\Api\Frontend\OrderTestOrderController@create');
+	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\Client\OrderIndexController@index');
+	Route::get('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\Client\OrderShowController@show');
+	Route::post('api/frontend/stores/{alias}/testorder', 				'App\Controllers\Api\Frontend\Client\OrderTestOrderController@create');
 
 	// addresses
-	Route::put('api/frontend/stores/{alias}/addresses/{id}', 			'App\Controllers\Api\Frontend\AddressesController@update');
+	Route::put('api/frontend/addresses/{id}', 							'App\Controllers\Api\Frontend\Client\AddressesController@update');
 
 	// bankaccounts
-	Route::put('api/frontend/bankaccounts/{id}', 						'App\Controllers\Api\Frontend\BankaccountsController@update');
+	Route::put('api/frontend/bankaccounts/{id}', 						'App\Controllers\Api\Frontend\Client\BankaccountsController@update');
 
 	// clients
-	Route::get('api/frontend/clients',						 			'App\Controllers\Api\Frontend\ClientsController@show');
-	Route::post('api/frontend/clients/changepassword',		 			'App\Controllers\Api\Frontend\ClientsController@changePassword');
+	Route::get('api/frontend/clients',						 			'App\Controllers\Api\Frontend\Client\ClientsController@show');
+	Route::post('api/frontend/clients/changepassword',		 			'App\Controllers\Api\Frontend\Client\ClientsController@changePassword');
 
 	// authentification
-	Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\AuthentificationController@login');
-	Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\AuthentificationController@logout');
-	Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\AuthentificationController@checkToken');
+	Route::post('api/frontend/login',									'App\Controllers\Api\Frontend\Client\AuthentificationController@login');
+	Route::post('api/frontend/logout',									'App\Controllers\Api\Frontend\Client\AuthentificationController@logout');
+	Route::post('api/frontend/checktoken',								'App\Controllers\Api\Frontend\Client\AuthentificationController@checkToken');
 });
 
 

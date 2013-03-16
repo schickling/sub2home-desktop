@@ -2,17 +2,12 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'models/MenuModel'
-    ], function (_, Backbone, global, MenuModel) {
+    ], function (_, Backbone, MenuModel) {
 
 	var MenusCollection = Backbone.Collection.extend({
 
-		model: MenuModel,
-
-		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/menus';
-		}
+		model: MenuModel
 
 	});
 

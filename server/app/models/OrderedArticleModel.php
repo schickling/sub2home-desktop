@@ -14,7 +14,7 @@ class OrderedArticleModel extends BaseModel
 
 	public function delete()
 	{
-		throw new Exception("Can not delete an ordered article");
+		throw new ModelException("Can not delete an ordered article");
 	}
 
 	/**

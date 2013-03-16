@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use Input;
 use Response;

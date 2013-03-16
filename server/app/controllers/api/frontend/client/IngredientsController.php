@@ -1,6 +1,5 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
-use Request;
 use Input;
 use Validator;
 
@@ -13,7 +12,7 @@ class IngredientsController extends ApiController
 {
 
 	
-	public function update()
+	public function update($id)
 	{
 		// security
 		$this->loadStoreModel();
@@ -26,7 +25,7 @@ class IngredientsController extends ApiController
 		// check input
 		$input = Input::json();
 		$rules = array(
-			'customPrice'		=> 'numeric|required|min:0'
+			'customPrice' => 'numeric|required|min:0'
 			);
 
 		$validator = Validator::make($input, $rules);
@@ -36,7 +35,6 @@ class IngredientsController extends ApiController
 		}
 
 		// fetch customIngredientModel
-		$id = Request::segment(6);
 		$ingredientModel = IngredientModel::find($id);
 		$customIngredientModel = $ingredientModel->returnCustomModel($this->storeModel->id);
 

@@ -1,8 +1,7 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use Validator;
 use Input;
-use Request;
 
 use App\Models\AddressModel;
 
@@ -10,15 +9,8 @@ use App\Models\AddressModel;
 class AddressesController extends ApiController
 {
 
-	public function update()
+	public function update($id)
 	{
-		
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
 
 		// check input
 		$input = Input::json();
@@ -39,15 +31,7 @@ class AddressesController extends ApiController
 		}
 
 		// fetch addressModel
-		$id = Request::segment(6);
 		$addressModel = AddressModel::find($id);
-
-		// verify owner
-		$this->checkBelongsToThisStore($addressModel->ownerModel->id);
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
 
 		// update
 		$addressModel->firstName = $input['firstName'];

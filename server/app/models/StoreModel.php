@@ -2,7 +2,7 @@
 
 use DateTime;
 use Str;
-use Exception;
+use App\Exceptions\ModelException;
 
 class StoreModel extends BaseModel
 {
@@ -78,7 +78,7 @@ class StoreModel extends BaseModel
 		$firstArticleModel = ArticleModel::where('isPublished', true)->first();
 
 		if ($firstArticleModel == null) {
-			throw new Exception('No article found');
+			throw new ModelException('No article found');
 		}
 
 		$customArticleModel = $firstArticleModel->returnCustomModel($this->id);

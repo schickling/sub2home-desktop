@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use Input;
 use Hash;
@@ -12,8 +12,7 @@ class ClientsController extends ApiController
 
 	public function show()
 	{
-		// authentication is implied by fetching client model id
-		$client_model_id = $this->getClientModelIdFromToken();
+		$clientModelId = $this->getClientModelIdFromToken();
 
 		$clientModel = ClientModel::with(array(
 										'storesCollection',
@@ -21,7 +20,7 @@ class ClientsController extends ApiController
 										'addressModel',
 										'bankaccountModel'
 									))
-									->find($client_model_id);
+									->find($clientModelId);
 
 
 		if ($clientModel == null) {
@@ -29,9 +28,10 @@ class ClientsController extends ApiController
 		}
 
 		foreach ($clientModel->storesCollection as $storeModel) {
-			$storeModel->numberOfUndoneOrders = $storeModel->ordersCollection()->where('isDelivered', false)->count();
+			$storeModel->numberOfUndoneOrders = $storeModel->ordersCollection()
+															->where('isDelivered', false)
+															->count();
 		}
-
 		
 		return $clientModel->toJson(JSON_NUMERIC_CHECK);
 	}
@@ -40,10 +40,10 @@ class ClientsController extends ApiController
 	public function changePassword()
 	{
 		// authentication is implied by fetching client model id
-		$client_model_id = $this->getClientModelIdFromToken();
+		$clientModelId = $this->getClientModelIdFromToken();
 
 		// fetch clientModel
-		$clientModel = ClientModel::find($client_model_id);
+		$clientModel = ClientModel::find($clientModelId);
 
 		if ($clientModel == null) {
 			return $this->respondWithStatus(401);
@@ -75,6 +75,12 @@ class ClientsController extends ApiController
 
 		return $this->respondWithStatus(204);
 
+	}
+
+	protected function getClientModelIdFromResource()
+	{
+		// authentication is implied by fetching client model id
+		return $this->getClientModelIdFromToken();
 	}
 
 

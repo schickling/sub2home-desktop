@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Customer;
 
 use App\Controllers\Api\Common\BaseApiController;
 use Request;
@@ -67,14 +67,14 @@ class ApiController extends BaseApiController
 
 	protected function checkBelongsToThisStore($storeIdOfElement)
 	{
-		// load store model if needed
-		if (!$this->storeModel) {
-			$this->loadStoreModel();
-		}
+		// // load store model if needed
+		// if (!$this->storeModel) {
+		// 	$this->loadStoreModel();
+		// }
 
-		if ($this->storeModel->id != $storeIdOfElement) {
-			$this->reportError(401);
-		}
+		// if ($this->storeModel->id != $storeIdOfElement) {
+		// 	$this->reportError(401);
+		// }
 	}
 
 

@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Frontend;
+<?php namespace App\Controllers\Api\Frontend\Customer;
 
 use Input;
 use Illuminate\Database\Eloquent\Collection;

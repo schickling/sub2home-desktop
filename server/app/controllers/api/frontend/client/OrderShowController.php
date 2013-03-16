@@ -1,6 +1,4 @@
-<?php namespace App\Controllers\Api\Frontend;
-
-use Request;
+<?php namespace App\Controllers\Api\Frontend\Client;
 
 use App\Models\OrderModel;
 
@@ -11,15 +9,13 @@ class OrderShowController extends ApiController
 {
 
 
-	public function show()
+	public function show($id)
 	{
 		$this->checkAuthentification();
 
 		if ($this->hasErrorOccured()) {
 			return $this->respondWithError();
 		}
-		
-		$id = Request::segment(6);
 
 		$orderModel = OrderModel::with(array(
 			'orderedItemsCollection',
