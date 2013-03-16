@@ -1861,6 +1861,9 @@ input[type="text"].money {
 .iChips:before {
   content: "\e007";
 }
+.iMenuBundle:before {
+  content: "\e008";
+}
 .iBread:before {
   content: "\e014";
 }
@@ -3698,18 +3701,21 @@ div#roleSwitch #handle:before {
   left: 50%;
   margin-left: -229px;
 }
-#homeNote .notice {
-  width: 300px;
-  left: 50%;
-  bottom: -65px;
-  margin-left: 0px;
-}
-.iSettings {
+#locationSelection .iSettings {
   position: absolute;
   left: 50%;
   margin-left: -60px;
   bottom: 10px;
   font-size: 50px;
+}
+#locationSelection .iSettings:before {
+  top: 1px;
+}
+#homeNote .notice {
+  width: 300px;
+  left: 50%;
+  bottom: -65px;
+  margin-left: 0px;
 }
 input[type="text"]#locationSelectionInput {
   font-size: 65px;
