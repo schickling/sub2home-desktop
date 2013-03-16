@@ -5962,26 +5962,23 @@ input[type="text"]#locationSelectionInput {
   border-right: 1px solid #e4e4e4;
   font-weight: bold;
 }
-.content.orders #orderListing .order.crediting {
+.content.orders #orderListing .order.balance {
   color: #dc952b;
 }
-.content.orders #orderListing .order.crediting .orderHeader > div.orderStatus {
+.content.orders #orderListing .order.balance .orderHeader > div.orderStatus {
   color: inherit;
 }
-.content.orders #orderListing .order.crediting .orderHeader > div.orderStatus:before {
+.content.orders #orderListing .order.balance .orderHeader > div.orderStatus:before {
   content: "\e06f";
   position: relative;
   top: -7px;
 }
-.content.orders #orderListing .order.crediting .alertOrder,
-.content.orders #orderListing .order.crediting .orderTime,
-.content.orders #orderListing .order.crediting .orderDestination,
-.content.orders #orderListing .order.crediting .orderTimeLimit,
-.content.orders #orderListing .order.crediting .orderPaymentMethod {
-  display: none;
+.content.orders #orderListing .order.balance .orderHeader > div.orderTitle {
+  margin-left: 20px;
 }
-.content.orders #orderListing .order.crediting .orderValue {
+.content.orders #orderListing .order.balance .orderHeader > div.orderValue {
   color: inherit;
+  margin: 0 70px;
 }
 .content.orders #orderListing #ordersToday {
   border-bottom: 1px solid #e4e4e4;

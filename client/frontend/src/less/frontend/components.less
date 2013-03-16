@@ -3070,23 +3070,28 @@ input[type="text"]#locationSelectionInput {
 
         }
       }
-      &.crediting {
+      &.balance {
         color: @orange;
         
-        .orderHeader > div.orderStatus {
-          color: inherit;
-          &:before {
-            content: "\e06f";
-            position: relative;
-            top: -7px;
+        .orderHeader > div {
+            
+          &.orderStatus {
+            color: inherit;
+            &:before {
+              content: "\e06f";
+              position: relative;
+              top: -7px;
+            }
           }
-        }
 
-        .alertOrder, .orderTime, .orderDestination, .orderTimeLimit, .orderPaymentMethod {
-          display: none;
-        }
-        .orderValue {
-          color: inherit;
+          &.orderTitle {
+            margin-left: 20px;
+          }
+      
+          &.orderValue {
+            color: inherit;
+            margin: 0 70px;
+          }
         }
       }
     }
