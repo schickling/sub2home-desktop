@@ -41,31 +41,31 @@ abstract class ApiController extends BaseApiController
 		}
 	}
 
-    protected function getClientModelIdFromToken()
-    {
-    	if ($this->clientModelId != 0) {
-    		return $this->clientModelId;
-    	}
+	protected function getClientModelIdFromToken()
+	{
+		if ($this->clientModelId != 0) {
+			return $this->clientModelId;
+		}
 
-        $token = Request::header('Token');
-        $clientModelId = Cache::get($token);
+		$token = Request::header('Token');
+		$clientModelId = Cache::get($token);
 
-        if (!$clientModelId) {
-            throw new NotAuthentificatedException();
-        }
+		if (!$clientModelId) {
+			throw new NotAuthentificatedException();
+		}
 
         // cache client model it
-        $this->clientModelId = $clientModelId;
+		$this->clientModelId = $clientModelId;
 
-        return $clientModelId;
-    }
+		return $clientModelId;
+	}
 
-    abstract protected function getClientModelIdFromResourceModel();
+	abstract protected function getClientModelIdFromResourceModel();
 
 
 
     /*
-     * Model helper methods
+     * Model helper methods (not needed collections)
      */
 
     protected function fetchResourceModel() {}

@@ -7,18 +7,14 @@ use App\Models\OrderModel;
 /**
 * 
 */
-class OrderIndexController extends ApiController
+class OrderIndexController extends StoreRelatedApiController
 {
 
-
+	/**
+	 * @GET('api/frontend/stores/{alias}/orders/{id}')
+	 */
 	public function index()
 	{
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
 
 		$page = Input::get('page');
 		$search = Input::get('search', '');

@@ -15,7 +15,7 @@ class AddressesController extends ApiController
 	/**
 	 * @PUT('api/frontend/addresses/{id}')
 	 */
-	public function update($id)
+	public function update()
 	{
 
 		// check input

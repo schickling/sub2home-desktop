@@ -13,7 +13,7 @@ class BankaccountsController extends ApiController
 	/**
 	 * @PUT('api/frontend/bankaccounts/{id}')
 	 */
-	public function update($id)
+	public function update()
 	{
 		
 		// check input
