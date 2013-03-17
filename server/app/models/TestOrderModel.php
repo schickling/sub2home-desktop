@@ -53,7 +53,8 @@ class TestOrderModel extends OrderModel
 			$balanceOrderModel->commissionRate = $storeModel->commissionRate;
 			$balanceOrderModel->isDelivered = true;
 			$balanceOrderModel->comment = 'Testbestellung Ausgleich';
-			$balanceOrderModel->balance_order_model_id = $orderModel->id;
+			$balanceOrderModel->order_model_id = $orderModel->id; // set reference to belonging order model
+			$balanceOrderModel->setRelation('balanceOrderModel', $orderModel);
 			$balanceOrderModel->setBalance(-$orderModel->total);
 
 			$balanceOrderModel->save();

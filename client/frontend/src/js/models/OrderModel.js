@@ -37,7 +37,7 @@ define([
 			isDelivered: false,
 			created_at: '',
 			createdDate: null,
-			balance_order_model_id: 0
+			order_model_id: 0 // id of the balanced order model
 		},
 
 		urlRoot: '/api/frontend/orders',
@@ -208,11 +208,11 @@ define([
 		},
 
 		isBalanceOrderModel: function() {
-			return this.get('balance_order_model_id') !== 0;
+			return this.get('order_model_id') !== 0;
 		},
 
 		getBalanceOrderNumber: function() {
-			var orderNumber = '00000' + this.get('balance_order_model_id');
+			var orderNumber = '00000' + this.get('order_model_id');
 
 			return orderNumber.substr(orderNumber.length - 6);
 		},

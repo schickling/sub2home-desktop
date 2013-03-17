@@ -16,7 +16,7 @@ class OrderModelTable extends Migration {
 			$table->enum('paymentMethod', array('cash', 'ec', 'paypal'))->default('cash');
 			$table->boolean('isDelivered')->default(false);
 			$table->boolean('store_model_id')->default(false);
-			$table->integer('balance_order_model_id')->unsigned()->default(0);
+			$table->integer('order_model_id')->unsigned()->default(0); // balance order model
 			$table->integer('invoice_model_id')->unsigned();
 			$table->decimal('credit', 7, 2)->default(0);
 			$table->decimal('total', 7, 2)->default(0);

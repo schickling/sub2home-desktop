@@ -86,7 +86,7 @@ class OrderModel extends BaseModel
 
 	public function setBalance($total)
 	{
-		if ($this->isBalance) {
+		if ($this->isBalance()) {
 			$this->attributes['total'] = $total;
 		}
 	}
@@ -110,7 +110,7 @@ class OrderModel extends BaseModel
 	 */
 	public function isValid()
 	{
-		if ($this->isBalance) {
+		if ($this->isBalance()) {
 			return true;
 		}
 
@@ -224,6 +224,11 @@ class OrderModel extends BaseModel
 	private function verifyDueDate()
 	{
 		return $this->due_at >= $this->created_at;
+	}
+
+	public function isBalance()
+	{
+		return $this->balanceOrderModel != null;
 	}
 
 }

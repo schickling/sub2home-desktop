@@ -5,23 +5,17 @@ use App\Models\TestOrderModel;
 /**
 * 
 */
-class OrderTestOrderController extends ApiController
+class OrderTestOrderController extends StoreRelatedApiController
 {
-
+	
+	/**
+	 * @POST('api/frontend/stores/{alias}/testorder')
+	 */
 	public function create()
 	{
-		// prepare
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
 		TestOrderModel::generateTestOrderForStore($this->storeModel->id, true);
 
 		return $this->respondWithStatus(204);
 	}
-
 
 }

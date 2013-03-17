@@ -63,9 +63,6 @@ Route::group(array('https'), function()
 	Route::get('api/frontend/stores/{alias}/menuupgrades',				'App\Controllers\Api\Frontend\Client\MenuUpgradesController@index');
 	Route::put('api/frontend/stores/{alias}/menuupgrades/{id}',			'App\Controllers\Api\Frontend\Client\MenuUpgradesController@update');
 
-	// invoices
-	Route::get('api/frontend/stores/{alias}/invoices', 					'App\Controllers\Api\Frontend\Client\InvoicesController@index');
-
 	// orders
 	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\Client\OrderIndexController@index');
 	Route::get('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\Client\OrderShowController@show');
