@@ -2,6 +2,7 @@
 
 use App\Controllers\Api\Common\BaseApiController;
 use App\Exceptions\NotAuthentificatedException;
+use App\Exceptions\NotFoundException;
 use Request;
 use Cache;
 
@@ -14,6 +15,9 @@ abstract class ApiController extends BaseApiController
 
 	// cache client model id since its used sometimes
 	protected $clientModelId = 0;
+
+	// cache resource model since its needed for authentification and for content
+	protected $resourceModel = null;
 
 	/**
 	 * run authentification on every route
@@ -32,7 +36,7 @@ abstract class ApiController extends BaseApiController
 	 */
 	protected function checkAuthentification()
 	{
-		if ($this->getClientModelIdFromToken() != $this->getClientModelIdFromResource()) {
+		if ($this->getClientModelIdFromToken() != $this->getClientModelIdFromResourceModel()) {
 			throw new NotAuthentificatedException();
 		}
 	}
@@ -56,6 +60,29 @@ abstract class ApiController extends BaseApiController
         return $clientModelId;
     }
 
-    abstract protected function getClientModelIdFromResource();
+    abstract protected function getClientModelIdFromResourceModel();
+
+
+
+    /*
+     * Model helper methods
+     */
+
+    protected function fetchResourceModel() {}
+
+    protected function getResourceModel()
+    {
+    	// lazy load resource
+    	if (is_null($this->resourceModel)) {
+    		$this->resourceModel = $this->fetchResourceModel();
+    	}
+
+    	// check if found
+    	if (is_null($this->resourceModel)) {
+    		throw new NotFoundException();
+    	}
+
+    	return $this->resourceModel;
+    }
 
 }

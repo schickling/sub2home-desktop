@@ -10,20 +10,17 @@ use App\Models\BankaccountModel;
 class BankaccountsController extends ApiController
 {
 
-	public function update()
+	/**
+	 * @PUT('api/frontend/bankaccounts/{id}')
+	 */
+	public function update($id)
 	{
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
 		
 		// check input
 		$input = Input::json();
 		$rules = array(
-			'name'				=> 'alpha_dash|required',
-			'bankName'			=> 'alpha_dash|required',
+			'name'				=> 'required',
+			'bankName'			=> 'required',
 			'bankCodeNumber'	=> 'numeric|required|min:0',
 			'accountNumber'		=> 'numeric|required|min:0'
 			);
@@ -35,13 +32,7 @@ class BankaccountsController extends ApiController
 		}
 
 		// fetch bankaccountModel
-		$id = Request::segment(4);
-		$bankaccountModel = BankaccountModel::find($id);
-
-		// verify owner
-		if ($this->getClientModelIdFromToken() != $bankaccountModel->client_model_id) {
-			return $this->respondWithStatus(401);
-		}
+		$bankaccountModel = $this->getResourceModel();
 
 		// update
 		$bankaccountModel->name = $input['name'];
@@ -52,7 +43,20 @@ class BankaccountsController extends ApiController
 		$bankaccountModel->save();
 
 
-		return $bankaccountModel->toJson(JSON_NUMERIC_CHECK);
+		return $this->respondWithStatus(204);
+	}
+
+
+	protected function getClientModelIdFromResourceModel()
+	{
+		$bankaccountModel = $this->getResourceModel();
+
+		return $bankaccountModel->clientModel->id;
+	}
+
+	protected function fetchResourceModel() {
+		$id = Request::segment(4);
+		return BankaccountModel::find($id);
 	}
 
 

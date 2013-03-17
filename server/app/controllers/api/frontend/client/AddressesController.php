@@ -2,13 +2,19 @@
 
 use Validator;
 use Input;
+use Request;
 
 use App\Models\AddressModel;
+use App\Models\ClientModel;
+use App\Models\StoreModel;
 
 
 class AddressesController extends ApiController
 {
 
+	/**
+	 * @PUT('api/frontend/addresses/{id}')
+	 */
 	public function update($id)
 	{
 
@@ -31,7 +37,7 @@ class AddressesController extends ApiController
 		}
 
 		// fetch addressModel
-		$addressModel = AddressModel::find($id);
+		$addressModel = $this->getResourceModel();
 
 		// update
 		$addressModel->firstName = $input['firstName'];
@@ -59,6 +65,27 @@ class AddressesController extends ApiController
 		}
 
 		return $phone;
+	}
+
+
+	protected function getClientModelIdFromResourceModel()
+	{
+		$addressModel = $this->getResourceModel();
+		$ownerModel = $addressModel->ownerModel;
+
+		if ($ownerModel instanceof ClientModel) {
+			return $ownerModel->id;
+		}
+
+		if ($ownerModel instanceof StoreModel) {
+			return $ownerModel->storeModel->client_model_id;
+		}
+
+	}
+
+	protected function fetchResourceModel() {
+		$id = Request::segment(4);
+		return AddressModel::find($id);
 	}
 
 

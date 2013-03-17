@@ -10,6 +10,9 @@ use App\Models\ClientModel;
 class ClientsController extends ApiController
 {
 
+	/**
+	 * @GET('api/frontend/clients')
+	 */
 	public function show()
 	{
 		$clientModelId = $this->getClientModelIdFromToken();
@@ -36,7 +39,9 @@ class ClientsController extends ApiController
 		return $clientModel->toJson(JSON_NUMERIC_CHECK);
 	}
 
-
+	/**
+	 * @POST('api/frontend/clients/changepassword')
+	 */
 	public function changePassword()
 	{
 		// authentication is implied by fetching client model id
@@ -77,7 +82,7 @@ class ClientsController extends ApiController
 
 	}
 
-	protected function getClientModelIdFromResource()
+	protected function getClientModelIdFromResourceModel()
 	{
 		// authentication is implied by fetching client model id
 		return $this->getClientModelIdFromToken();

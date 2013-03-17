@@ -10,7 +10,7 @@ class MenuUpgradesController extends ApiController
 {
 
 	/**
-	 * @Route('api/frontend/stores/{alias}/menuupgrades')
+	 * @GET('api/frontend/stores/{alias}/menuupgrades')
 	 */
 	public function index($storeAlias)
 	{
@@ -31,7 +31,7 @@ class MenuUpgradesController extends ApiController
 	}
 
 	/**
-	 * @Route('api/frontend/stores/{alias}/menuupgrades/{id}')
+	 * @PUT('api/frontend/stores/{alias}/menuupgrades/{id}')
 	 */
 	public function update($storeAlias, $id)
 	{

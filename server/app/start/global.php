@@ -2,6 +2,7 @@
 
 use App\Exceptions\NotAuthentificatedException;
 use App\Exceptions\ModelException;
+use App\Exceptions\NotFoundException;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,11 @@ App::error(function(Exception $exception, $code)
 App::error(function(NotAuthentificatedException $exception, $code)
 {
 	return Response::make('Not authentificated', 401);
+});
+
+App::error(function(NotFoundException $exception, $code)
+{
+	return Response::make('Not found', 404);
 });
 
 /*
