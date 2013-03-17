@@ -2,7 +2,7 @@
 	"require": {
 		"laravel/framework": "dev-master",
 		"tcpdf/tcpdf": "dev-master",
-		"filp/damnit": "dev-master"
+		"filp/whoops": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "dev-master"
@@ -19,6 +19,9 @@
         "files": [
         	"app/helpers.php"
         ]
+	},
+	"scripts": {
+		"post-update-cmd": "php artisan optimize"
 	},
 	"config": {
 		"process-timeout": 600
