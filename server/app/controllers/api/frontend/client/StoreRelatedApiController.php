@@ -17,7 +17,9 @@ abstract class StoreRelatedApiController extends ApiController
 	protected function getClientModelIdFromResourceModel()
 	{
 		$storeAlias = Request::segment(4);
-		$storeModel = StoreModel::where('alias', $storeAlias)->first();
+		$storeModel = StoreModel::where('alias', $storeAlias)
+									->where('isActive', true)
+									->first();
 
 		if (is_null($storeModel)) {
 			throw new NotFoundException();

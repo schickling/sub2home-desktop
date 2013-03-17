@@ -3,16 +3,16 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/MenusCollection',
+    'collections/MenuUpgradesCollection',
     'views/store/assortment/SectionBaseView',
     'views/store/assortment/menus/MenuView',
     'views/store/assortment/menus/ControlView'
-    ], function ($, _, Backbone, MenusCollection, SectionBaseView, MenuView, ControlView) {
+    ], function ($, _, Backbone, MenuUpgradesCollection, SectionBaseView, MenuView, ControlView) {
 
 	var MenusView = SectionBaseView.extend({
 
 		controlViewClass: ControlView,
-		collectionClass: MenusCollection,
+		collectionClass: MenuUpgradesCollection,
 
 		className: 'menus',
 

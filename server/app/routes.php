@@ -53,7 +53,7 @@ Route::group(array('https'), function()
 	Route::get('api/frontend/stores/{alias}/ingredientcategories',		'App\Controllers\Api\Frontend\Client\IngredientCategoriesController@index');
 
 	// ingredients (relation to store needed because of custom items)
-	Route::put('api/frontend/stores/{alias}/ingredients/{id}',			'App\Controllers\Api\Frontend\Client\IngredientsController@update');
+	Route::put('api/frontend/stores/{alias}/ingredients/{id}',			'App\Controllers\Api\Frontend\Client\IngredientsUpdateController@update');
 
 	// menus bundles (relation to store needed because of custom items)
 	Route::get('api/frontend/stores/{alias}/menubundles',				'App\Controllers\Api\Frontend\Client\MenuBundlesController@index');

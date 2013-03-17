@@ -1,33 +1,27 @@
 <?php namespace App\Controllers\Api\Frontend\Client;
 
-use Illuminate\Database\Eloquent\Collection;
-
 use App\Models\IngredientCategoryModel;
 
 
-class IngredientCategoriesController extends ApiController
+class IngredientCategoriesController extends StoreRelatedApiController
 {
 
-	public function index($storeAlias)
+	/**
+	 * @GET('api/frontend/stores/{alias}/ingredientcategories')
+	 */
+	public function index()
 	{
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
 
 		$ingredientCategoriesCollection = IngredientCategoryModel::with('ingredientsCollection')
 																	->orderBy('order')
 																	->get();
 
 
-		$store_model_id = $this->storeModel->id;
+		$storeModelId = $this->storeModel->id;
 
 		foreach ($ingredientCategoriesCollection as $ingredientCategoryModel) {
 			foreach ($ingredientCategoryModel->ingredientsCollection as $ingredientModel) {
-				$ingredientModel->customPrice = $ingredientModel->returnCustomPrice($store_model_id);
+				$ingredientModel->customPrice = $ingredientModel->returnCustomPrice($storeModelId);
 			}
 		}
 

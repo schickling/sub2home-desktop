@@ -78,7 +78,7 @@ class AddressesController extends ApiController
 		}
 
 		if ($ownerModel instanceof StoreModel) {
-			return $ownerModel->storeModel->client_model_id;
+			return $ownerModel->client_model_id;
 		}
 
 	}

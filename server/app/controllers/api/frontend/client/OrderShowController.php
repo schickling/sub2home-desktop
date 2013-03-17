@@ -1,5 +1,7 @@
 <?php namespace App\Controllers\Api\Frontend\Client;
 
+use Request;
+
 use App\Models\OrderModel;
 
 /**
@@ -8,27 +10,13 @@ use App\Models\OrderModel;
 class OrderShowController extends ApiController
 {
 
-
+	/**
+	 * @GET('api/frontend/orders/{id}')
+	 */
 	public function show($id)
 	{
-		$this->checkAuthentification();
 
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
-		$orderModel = OrderModel::with(array(
-			'orderedItemsCollection',
-			'orderedItemsCollection.orderedArticlesCollection',
-			'orderedItemsCollection.orderedArticlesCollection.articleModel',
-			'orderedItemsCollection.orderedArticlesCollection.ingredientsCollection',
-			'addressModel'
-			))
-		->find($id);
-
-		if (!$orderModel) {
-			return $this->respondWithStatus(404);
-		}
+		$orderModel = $this->getResourceModel();
 
 		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {
 			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
@@ -41,6 +29,28 @@ class OrderShowController extends ApiController
 
 		return $orderModel->toJson(JSON_NUMERIC_CHECK);
 
+	}
+
+
+	protected function getClientModelIdFromResourceModel()
+	{
+		$orderModel = $this->getResourceModel();
+		$storeModel = $orderModel->storeModel;
+
+		return $storeModel->clientModel->id;
+	}
+
+	protected function fetchResourceModel() {
+		$id = Request::segment(4);
+
+		return OrderModel::with(array(
+			'orderedItemsCollection',
+			'orderedItemsCollection.orderedArticlesCollection',
+			'orderedItemsCollection.orderedArticlesCollection.articleModel',
+			'orderedItemsCollection.orderedArticlesCollection.ingredientsCollection',
+			'addressModel'
+			))
+		->find($id);
 	}
 
 

@@ -2,26 +2,22 @@
 
 use Input;
 use Validator;
+use Request;
+use App\Exceptions\NotFoundException;
 
 use App\Models\IngredientModel;
 
 /**
 * 
 */
-class IngredientsController extends ApiController
+class IngredientsUpdateController extends StoreRelatedApiController
 {
 
-	
-	public function update($id)
+	/**
+	 * @PUT('api/frontend/stores/{alias}/ingredients/{id}')
+	 */
+	public function update()
 	{
-		// security
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
 		// check input
 		$input = Input::json();
 		$rules = array(
@@ -35,17 +31,21 @@ class IngredientsController extends ApiController
 		}
 
 		// fetch customIngredientModel
+		$id = Request::segment(6);
 		$ingredientModel = IngredientModel::find($id);
+
+		// check if found
+    	if (is_null($ingredientModel)) {
+    		throw new NotFoundException();
+    	}
+
 		$customIngredientModel = $ingredientModel->returnCustomModel($this->storeModel->id);
 
 		// update
 		$customIngredientModel->price = $input['customPrice'];
-
 		$customIngredientModel->save();
 
 		return $this->respondWithStatus(204);
 	}
-
-
 
 }

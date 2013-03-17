@@ -28,54 +28,5 @@ class ApiController extends BaseApiController
     	}
 	}
 
-	/**
-	 * verify!
-	 * 
-	 * @return boolean
-	 */
-	protected function isAuthentificatedClient()
-	{
-		// load store model if needed
-		if (!$this->storeModel) {
-			$this->loadStoreModel();
-		}
-
-		if ($this->hasErrorOccured()) {
-			return;
-		}
-
-		// get client id from store model
-		$idFromStore = $this->storeModel->clientModel->id;
-
-		// get client id from token
-		$idFromToken = $this->getClientModelIdFromToken();
-
-		if ($this->hasErrorOccured()) {
-			return;
-		}
-
-		return $idFromStore == $idFromToken;
-	}
-
-
-	protected function checkAuthentification()
-	{
-		if (!$this->isAuthentificatedClient()) {
-			$this->reportError(401);
-		}
-	}
-
-	protected function checkBelongsToThisStore($storeIdOfElement)
-	{
-		// // load store model if needed
-		// if (!$this->storeModel) {
-		// 	$this->loadStoreModel();
-		// }
-
-		// if ($this->storeModel->id != $storeIdOfElement) {
-		// 	$this->reportError(401);
-		// }
-	}
-
 
 }

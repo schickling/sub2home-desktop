@@ -1,30 +1,24 @@
 <?php namespace App\Controllers\Api\Frontend\Client;
 
-use Illuminate\Database\Eloquent\Collection;
-
-use App\Models\MenuBundleModel;
 use App\Models\MenuUpgradeModel;
 
 
-class MenuUpgradesController extends ApiController
+class MenuUpgradesController extends StoreRelatedApiController
 {
 
 	/**
 	 * @GET('api/frontend/stores/{alias}/menuupgrades')
 	 */
-	public function index($storeAlias)
+	public function index()
 	{
-		$this->loadStoreModel();
-		$this->checkAuthentification();
+		
+		$menuUpgradesCollection = MenuUpgradeModel::where('isPublished', true)
+													->get();
 
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
-		$menuUpgradesCollection = MenuUpgradeModel::where('isPublished', true)->get();
+		$storeModelId = $this->storeModel->id;
 
 		foreach ($menuUpgradesCollection as $menuUpgradeModel) {
-			$menuUpgradeModel->customPrice = $menuUpgradeModel->returnCustomPrice($this->storeModel->id);			
+			$menuUpgradeModel->customPrice = $menuUpgradeModel->returnCustomPrice($storeModelId);			
 		}
 
 		return $menuUpgradesCollection->toJson(JSON_NUMERIC_CHECK);
@@ -33,7 +27,7 @@ class MenuUpgradesController extends ApiController
 	/**
 	 * @PUT('api/frontend/stores/{alias}/menuupgrades/{id}')
 	 */
-	public function update($storeAlias, $id)
+	public function update()
 	{
 		
 		
