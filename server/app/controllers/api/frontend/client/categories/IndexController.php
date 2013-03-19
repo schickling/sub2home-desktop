@@ -1,21 +1,21 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Categories;
 
+use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\CategoryModel;
 
 
-class IndexController extends ApiController
+class IndexController extends StoreRelatedApiController
 {
 	
 	/**
-	 * @GET('api/frontend/stores/{alias}/categories')
+	 * @GET('api/frontend/stores/{alias}/categories/assortment')
 	 */
 	public function route()
 	{
 		$categoriesCollection = CategoryModel::with(array(
-												'articlesCollection',
-												'menuBundlesCollection'
+												'articlesCollection'
 												))
 												->orderBy('order')
 												->get();
@@ -27,7 +27,7 @@ class IndexController extends ApiController
 
 	private function prepareCategoriesCollection($categoriesCollection)
 	{
-		$store_model_id = $this->storeModel->id;
+		$storeModelId = $this->storeModel->id;
 
 		foreach ($categoriesCollection as $categoryModel) {
 
@@ -45,7 +45,7 @@ class IndexController extends ApiController
 					unset($articleModel->allowsMenuUpgrades);
 					unset($articleModel->largeImage);
 
-					$customArticleModel = $articleModel->returnCustomModel($store_model_id);
+					$customArticleModel = $articleModel->returnCustomModel($storeModelId);
 
 					$articleModel->isActive = $customArticleModel->isActive;
 					$articleModel->buyedInStore = $customArticleModel->buyed;
@@ -58,9 +58,6 @@ class IndexController extends ApiController
 			}
 
 			$categoryModel->setRelation('articlesCollection', $articlesCollection);
-
-			// discard loaded relationships
-			unset($categoryModel->menuBundlesCollection);
 
 			
 		}
