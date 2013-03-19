@@ -41,7 +41,6 @@ define([
 			this.collection.create({
 				dayOfWeek: dayOfWeek
 			}, {
-				url: this.collection.url(),
 				validate: false,
 				success: function (deliveryTimeModel) {
 					self._renderDeliveryTime(deliveryTimeModel);

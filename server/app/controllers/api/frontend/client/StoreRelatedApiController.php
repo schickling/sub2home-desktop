@@ -21,9 +21,7 @@ abstract class StoreRelatedApiController extends ApiController
 									->where('isActive', true)
 									->first();
 
-		if (is_null($storeModel)) {
-			throw new NotFoundException();
-		}
+		$this->checkModelFound($storeModel);
 
 		// cache store model id
 		$this->storeModel = $storeModel;

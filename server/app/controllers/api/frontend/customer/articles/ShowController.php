@@ -7,41 +7,37 @@ use App\Models\ArticleModel;
 use App\Models\IngredientCategoryModel;
 
 /**
-* 
-*/
+ * Returns the article as json object respecting the store
+ * including menuuprades, menucomponentblocks, menucomponentoptions and their articles
+ * and the allowed ingredients
+ */
 class ShowController extends ApiController
 {
 
 	/**
-	 * Returns the article as json object respecting the store
-	 * including menuuprades, menucomponentblocks, menucomponentoptions and their articles
-	 * and the allowed ingredients
-	 * 
-	 * @return string
+	 * @GET('api/frontend/stores/{alias}/articles/{id}')
 	 */
 	public function route()
 	{
-		$this->loadStoreModel();
 
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
-		$articleModelId = Request::segment(6);
+		$id = Request::segment(6);
 		$articleModel = ArticleModel::with(array(
 			'ingredientsCollection',
 			'menuUpgradesCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
 			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
-			))->find($articleModelId);
+			))->find($id);
 
+		$this->checkModelFound($articleModel);
 
-		if ($articleModel == null or !$articleModel->isActive($this->storeModel->id)) {
+		
+		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
+
+		if (!$customArticleModel->isActive) {
 			return $this->respondWithStatus(404);
 		}
 
-		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
 		// get article price
 		$articleModel->price = $customArticleModel->price;
@@ -109,13 +105,6 @@ class ShowController extends ApiController
 		}
 
 		unset($articleModel->ingredientsCollection);
-	}
-
-	private function isLastActiveArticle()
-	{
-		$numberOfActiveCustomArticles = $this->storeModel->customArticlesCollection()->where('isActive', true)->count();
-
-		return $numberOfActiveCustomArticles < 2;
 	}
 
 }

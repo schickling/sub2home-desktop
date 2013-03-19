@@ -10,6 +10,8 @@ use Request;
 class ShowController extends ApiController
 {
 
+	protected $storeShouldBeLoaded = false;
+
 	/**
 	 * @GET('api/frontend/stores/{alias}')
 	 */

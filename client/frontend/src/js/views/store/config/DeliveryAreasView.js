@@ -45,7 +45,6 @@ define([
 			var self = this;
 
 			this.collection.create({}, {
-				url: this.collection.url(),
 				validate: false,
 				success: function (deliveryAreaModel) {
 					self._renderDeliveryArea(deliveryAreaModel);

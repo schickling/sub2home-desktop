@@ -1,17 +1,12 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'models/DeliveryAreaModel'
-    ], function (_, Backbone, global, DeliveryAreaModel) {
+    ], function (_, Backbone, DeliveryAreaModel) {
 
 	var DeliveryAreasCollection = Backbone.Collection.extend({
 
-		model: DeliveryAreaModel,
-
-		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/deliveryareas';
-		}
+		model: DeliveryAreaModel
 
 	});
 

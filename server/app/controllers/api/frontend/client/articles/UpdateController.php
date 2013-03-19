@@ -1,27 +1,22 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Articles;
 
+use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Input;
 use Validator;
-
+use Request;
 use App\Models\ArticleModel;
 
 /**
 * 
 */
-class UpdateController extends ApiController
+class UpdateController extends StoreRelatedApiController
 {
 
-
-
+	/**
+	 * @PUT('api/frontend/stores/{alias}/articles/{id}')
+	 */
 	public function route()
 	{
-		// security
-		$this->loadStoreModel();
-		$this->checkAuthentification();
-
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
 
 		// check input
 		$input = Input::json();
@@ -37,8 +32,13 @@ class UpdateController extends ApiController
 		}
 
 		// fetch customArticleModel
+		$id = Request::segment(6);
+
 		$articleModel = ArticleModel::find($id);
+		$this->checkModelFound($articleModel);
+
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
+
 
 		// check if is last active article
 		if (!$input['isActive'] and $this->isLastActiveArticle()) {
@@ -60,5 +60,6 @@ class UpdateController extends ApiController
 
 		return $numberOfActiveCustomArticles < 2;
 	}
+
 
 }

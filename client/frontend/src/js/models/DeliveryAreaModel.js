@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
+    'global',
     'notificationcenter'
-    ], function (_, Backbone, notificationcenter) {
+    ], function (_, Backbone, global, notificationcenter) {
 
 	var DeliveryAreaModel = Backbone.Model.extend({
 
@@ -16,7 +17,13 @@ define([
 			isSelected: false
 		},
 
-		urlRoot: '/api/frontend/deliveryareas',
+		urlRoot: function () {
+			if (this.isNew()) {
+				return '/api/frontend/stores/' + global.getStoreAlias() + '/deliveryareas';
+			} else {
+				return '/api/frontend/deliveryareas';
+			}
+		},
 
 		initialize: function () {
 

@@ -1,18 +1,14 @@
-<?php namespace App\Tests\Controllers\Api\Frontend;
+<?php namespace App\Tests\Controllers\Api\Frontend\Customer\Stores;
 
 use App\Tests\TestCase;
-
-use Hash;
-
 use App\Models\StoreModel;
-use App\Models\ClientModel;
 
 
-class StoresControllerTest extends TestCase {
+class IndexControllerTest extends TestCase {
 
     protected $loadMigrations = true;
 
-	public function testIndex()
+	public function testShouldMatch()
 	{
 		$response = $this->call('GET', 'api/frontend/stores');
 
@@ -25,7 +21,8 @@ class StoresControllerTest extends TestCase {
 											->get();
 		$realStores = $realStoresCollection->toArray();
 
-		$this->assertTrue($response->isOk());
+		$this->assertResponseOk();
+		
 
 		$jsonStoresFromResponse = $response->getContent();
 		$storesFromResponse = json_decode($jsonStoresFromResponse, true);

@@ -13,19 +13,31 @@ class ApiController extends BaseApiController
 {
 	protected $storeModel;
 
+	protected $storeShouldBeLoaded = true;
+
+	public function __construct() {
+
+		if ($this->storeShouldBeLoaded) {
+			$this->loadStoreModel();
+		}
+
+	}
+
 	/**
 	 * Checks if store exists and sets store as property
 	 * 
 	 * @return void
 	 */
-	protected function loadStoreModel()
+	private function loadStoreModel()
 	{
 		$storeAlias = Request::segment(4);
-		$this->storeModel = StoreModel::where('alias', $storeAlias)
-										->where('isActive', true)
-										->first();
+		$storeModel = StoreModel::where('alias', $storeAlias)
+									->where('isActive', true)
+									->first();
 
-    	$this->checkModelFound($this->storeModel);
+    	$this->checkModelFound($storeModel);
+
+    	$this->storeModel = $storeModel;
 	}
 
 

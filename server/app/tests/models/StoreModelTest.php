@@ -15,7 +15,7 @@ class StoreModelTest extends TestCase {
 
 	public function testCoordsOnModelCreate()
 	{
-		$storeModel = StoreModel::where('number', 1)->first();
+		$storeModel = StoreModel::where('number', 1000)->first();
 
 		$expectedLatitude = 47.984883;
 		$expectedLongitude = 10.182592;
@@ -26,7 +26,7 @@ class StoreModelTest extends TestCase {
 
 	public function testCoordsOnAddressChange()
 	{
-		$storeModel = StoreModel::where('number', 1)->first();
+		$storeModel = StoreModel::where('number', 1000)->first();
 		$addressModel = $storeModel->addressModel;
 
 		$addressModel->street = 'Illerstr 11';

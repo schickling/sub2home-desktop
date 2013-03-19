@@ -8,6 +8,8 @@ use App\Models\StoreModel;
 */
 class IndexController extends ApiController
 {
+
+	protected $storeShouldBeLoaded = false;
 	
 	/**
 	 * @GET('api/frontend/stores')

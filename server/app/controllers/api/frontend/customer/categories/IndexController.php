@@ -13,8 +13,6 @@ class IndexController extends ApiController
 	 */
 	public function route()
 	{
-		$this->loadStoreModel();
-
 		$categoriesCollection = CategoryModel::with(array(
 												'articlesCollection',
 												'menuBundlesCollection'
@@ -30,7 +28,7 @@ class IndexController extends ApiController
 	private function prepareCategoriesCollection($categoriesCollection)
 	{
 		$categoriesCollectionWithItems = new Collection();
-		$store_model_id = $this->storeModel->id;
+		$storeModelId = $this->storeModel->id;
 
 		// pick out "visible" categories
 		foreach ($categoriesCollection as $categoryModel) {
@@ -40,9 +38,9 @@ class IndexController extends ApiController
 
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
-				if ($itemModel->isPublished and $itemModel->isActive($store_model_id)) {
+				if ($itemModel->isPublished and $itemModel->isActive($storeModelId)) {
 
-					$itemModel->price = $itemModel->returnCustomPrice($store_model_id);
+					$itemModel->price = $itemModel->returnCustomPrice($storeModelId);
 
 					// discard unused attributes
 					unset($itemModel->allowsDeposit);

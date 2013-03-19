@@ -10,12 +10,11 @@ use Cache;
 use App\Models\ClientModel;
 
 
-
 class LoginController extends BaseApiController
 {
 
     // number of how many failed attempts are allowed
-	private $toleranceOfFailedAttempts = 5;
+	private $limitOfFailedAttempts = 5;
 
     // periode how long a token is valid
     private $periodOfValidity = 4320; // 3 days
@@ -38,7 +37,7 @@ class LoginController extends BaseApiController
 
     	$rules = array(
     		'number'	=> 'numeric|between:1000,9999|required',
-    		'password'	=> 'min:1|required'
+    		'password'	=> 'min:8|required'
     		);
 
     	$validator = Validator::make($input, $rules);
@@ -54,9 +53,8 @@ class LoginController extends BaseApiController
     	$cacheKey = 'attempt_' . $number . '_from_' . $ip;
     	$numberOfFailedAttempts = Cache::get($cacheKey, 0);
 
-    	if ($numberOfFailedAttempts > $this->toleranceOfFailedAttempts) {
+    	if ($numberOfFailedAttempts >= $this->limitOfFailedAttempts) {
 
-    		$numberOfFailedAttempts++;
     		$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
     		Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 

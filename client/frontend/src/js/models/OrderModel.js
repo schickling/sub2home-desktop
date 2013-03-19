@@ -3,10 +3,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'global',
     'notificationcenter',
     'models/AddressModel',
     'collections/OrderedItemsCollection'
-    ], function ($, _, Backbone, notificationcenter, AddressModel, OrderedItemsCollection) {
+    ], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -40,7 +41,13 @@ define([
 			order_model_id: 0 // id of the balanced order model
 		},
 
-		urlRoot: '/api/frontend/orders',
+		urlRoot: function () {
+			if (this.isNew()) {
+				return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+			} else {
+				return '/api/frontend/orders';
+			}
+		},
 
 		initialize: function () {
 
@@ -207,17 +214,17 @@ define([
 			});
 		},
 
-		isBalanceOrderModel: function() {
+		isBalanceOrderModel: function () {
 			return this.get('order_model_id') !== 0;
 		},
 
-		getBalanceOrderNumber: function() {
+		getBalanceOrderNumber: function () {
 			var orderNumber = '00000' + this.get('order_model_id');
 
 			return orderNumber.substr(orderNumber.length - 6);
 		},
 
-		getOrderNumber: function() {
+		getOrderNumber: function () {
 			var orderNumber = '00000' + this.get('id');
 
 			return orderNumber.substr(orderNumber.length - 6);

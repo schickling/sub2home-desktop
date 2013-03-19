@@ -24,23 +24,6 @@ class CreateController extends ApiController
 	private $input;
 
 
-	// this controller is so complex, i splitted it up in steps
-	// the steps will call the appropirate methods
-	private $steps = array(
-		'loadStoreModel',
-		'validateInput',
-		'prepareOrderModel',
-		'checkModelIds',
-		'prepareRelationships',
-		'calculateTotal',
-		'validateTotal',
-		'setOrderData',
-		'validateOrder',
-		'saveOrderModel',
-		'saveRelationships',
-		'computePaymentMethod'
-		);
-
 	/**
 	 * @POST('api/frontend/stores/{alias}/orders')
 	 */
@@ -48,17 +31,20 @@ class CreateController extends ApiController
 	{
 		$this->input = Input::json();
 
-		foreach ($this->steps as $step) {
-			$this->{$step}();
+		$this->validateInput();
+		$this->prepareOrderModel();
+		$this->checkModelIds();
+		$this->prepareRelationships();
+		$this->calculateTotal();
+		$this->validateTotal();
+		$this->setOrderData();
+		$this->validateOrder();
+		$this->saveOrderModel();
+		$this->saveRelationships();
+		$this->computePaymentMethod();
 
-			// var_dump($step);
-			if ($this->hasErrorOccured()) {
-				return $this->respondWithError();
-			}
-		}
 
 		return $this->respondWithStatus(204);
-
 	}
 
 

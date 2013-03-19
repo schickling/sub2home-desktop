@@ -16,27 +16,19 @@ class ShowController extends ApiController
 	 */
 	public function route()
 	{
-		$this->loadStoreModel();
 
-		if ($this->hasErrorOccured()) {
-			return $this->respondWithError();
-		}
-
-		$menuBundleModelId = Request::segment(6);
+		$id = Request::segment(6);
 		$menuBundleModel = MenuBundleModel::with(array(
 			'menuComponentBlocksCollection',
 			'menuComponentBlocksCollection.menuComponentOptionsCollection',
 			'menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
-			))->find($menuBundleModelId);
+			))->find($id);
 
 
-		if ($menuBundleModel == null) {
-			return $this->respondWithStatus(404);
-		}
+		$this->checkModelFound($menuBundleModel);
 
 		// get menuBundle price
 		$menuBundleModel->price = $menuBundleModel->returnCustomPrice($this->storeModel->id);
-		
 
 		return $menuBundleModel->toJson(JSON_NUMERIC_CHECK);
 	}
