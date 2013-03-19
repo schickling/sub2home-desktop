@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api\Services;
 
-use App\Controllers\Api\BaseApiController;
+use App\Controllers\Api\Common\BaseApiController;
 use Input;
 use Cache;
 use Validator;

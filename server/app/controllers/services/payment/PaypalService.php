@@ -155,7 +155,7 @@ class PaypalService implements PaymentInterface
 
 		// add header fields
 		$standardHeader = array(
-			'X-PP-APPLICATION-ID: APP-80W284485P519543T'
+			'X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T'
 			);
 
 		$header = array_merge($header, $standardHeader);
@@ -196,6 +196,10 @@ class PaypalService implements PaymentInterface
 
 		if (isset($decodedResponse['ACK']) and $decodedResponse['ACK'] == 'Failure') {
 			throw new Exception(sprintf('%s: %s', $decodedResponse['L_SHORTMESSAGE0'], $decodedResponse['L_LONGMESSAGE0']));
+		}
+
+		if (isset($decodedResponse['responseEnvelope_ack']) and $decodedResponse['responseEnvelope_ack'] == 'Failure') {
+			throw new Exception($decodedResponse['error(0)_message']);
 		}
 
 		return $decodedResponse;
