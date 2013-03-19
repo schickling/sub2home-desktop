@@ -10,6 +10,7 @@
     "jquery-easing": null,
     "jquery-browser-selector": null,
     "jquery-color": null,
+    "jquery-overscroll": null,
     "moment": null,
     "underscore": null,
     "backbone": null,

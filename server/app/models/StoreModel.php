@@ -8,7 +8,6 @@ class StoreModel extends BaseModel
 {
 	protected $hidden = array(
 		'paymentPaypalAuthHeader',
-		'totalTurnover',
 		'number',
 		'created_at',
 		'updated_at',

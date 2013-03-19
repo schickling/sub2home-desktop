@@ -3,11 +3,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'global',
     'collections/CategoriesCollection',
     'views/store/assortment/SectionBaseView',
     'views/store/assortment/articles/CategoryView',
     'views/store/assortment/articles/ControlView'
-    ], function ($, _, Backbone, CategoriesCollection, SectionBaseView, CategoryView, ControlView) {
+    ], function ($, _, Backbone, global, CategoriesCollection, SectionBaseView, CategoryView, ControlView) {
 
 	var CategoriesView = SectionBaseView.extend({
 
@@ -20,12 +21,13 @@ define([
 			var self = this;
 
 			this.collection.fetch({
-				data: $.param({
-					assortment: true
-				}),
+
+				url: '/api/frontend/stores/' + global.getStoreAlias() + '/categories/assortment', // use custom route
+
 				success: function () {
 					self._renderContent();
 				}
+
 			});
 		},
 

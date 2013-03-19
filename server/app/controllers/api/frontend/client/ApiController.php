@@ -2,8 +2,6 @@
 
 use App\Controllers\Api\Common\BaseApiController;
 use App\Exceptions\NotAuthentificatedException;
-use App\Exceptions\NotFoundException;
-use Request;
 use Cache;
 
 
@@ -43,11 +41,12 @@ abstract class ApiController extends BaseApiController
 
 	protected function getClientModelIdFromToken()
 	{
+		// check if clientModelId was cached
 		if ($this->clientModelId != 0) {
 			return $this->clientModelId;
 		}
 
-		$token = Request::header('Token');
+		$token = $this->getToken();
 		$clientModelId = Cache::get($token);
 
 		if (!$clientModelId) {
@@ -78,9 +77,7 @@ abstract class ApiController extends BaseApiController
     	}
 
     	// check if found
-    	if (is_null($this->resourceModel)) {
-    		throw new NotFoundException();
-    	}
+    	$this->checkModelFound($this->resourceModel);
 
     	return $this->resourceModel;
     }

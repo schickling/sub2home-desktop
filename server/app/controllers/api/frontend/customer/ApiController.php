@@ -21,11 +21,11 @@ class ApiController extends BaseApiController
 	protected function loadStoreModel()
 	{
 		$storeAlias = Request::segment(4);
-		$this->storeModel = StoreModel::where('alias', $storeAlias)->first();
+		$this->storeModel = StoreModel::where('alias', $storeAlias)
+										->where('isActive', true)
+										->first();
 
-    	if ($this->storeModel == null) {
-    		$this->reportError(404);
-    	}
+    	$this->checkModelFound($this->storeModel);
 	}
 
 
