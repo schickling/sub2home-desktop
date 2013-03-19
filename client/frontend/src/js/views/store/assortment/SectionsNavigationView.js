@@ -48,6 +48,9 @@ define([
 				image: '../../img/static/common/menu_upgrade.png',
 				icon: 'iMenuUpgrade'
 			}, {
+				image: '../../img/static/common/menu_upgrade.png',
+				icon: 'iMenuUpgrade'
+			}, {
 				image: '../../img/static/ingredientcategories/smallimages/vegetables.png',
 				icon: 'iVegetables'
 			}];

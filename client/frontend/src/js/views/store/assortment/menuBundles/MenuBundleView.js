@@ -1,15 +1,15 @@
-// Filename: src/js/views/store/assortment/MenuView.js
+// Filename: src/js/views/store/assortment/menuBundles/MenuBundleView.js
 define([
     'jquery',
     'underscore',
     'backbone',
     'notificationcenter',
-    'text!templates/store/assortment/menus/MenuTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, MenuTemplate) {
+    'text!templates/store/assortment/menuBundles/MenuBundleTemplate.html'
+    ], function ($, _, Backbone, notificationcenter, MenuBundleTemplate) {
 
-	var MenuView = Backbone.View.extend({
+	var MenuBundleView = Backbone.View.extend({
 
-		className: 'menu',
+		className: 'menuBundle',
 
 		events: {
 			'click .bEye': '_toggleIsActive',
@@ -17,7 +17,7 @@ define([
 			'click .bReset': '_resetCustomPrice'
 		},
 
-		template: _.template(MenuTemplate),
+		template: _.template(MenuBundleTemplate),
 
 		initialize: function () {
 			this._render();
@@ -42,32 +42,32 @@ define([
 		},
 
 		_toggleIsActive: function () {
-			var menuModel = this.model,
+			var menuBundleModel = this.model,
 				$eye = this.$('.bEye'),
 				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
-			if (!isActive && this._isLastActiveMenu()) {
-				notificationcenter.notify('views.store.assortment.menus.oneActiveMenuNeeded');
+			if (!isActive && this._isLastActiveMenuBundle()) {
+				notificationcenter.notify('views.store.assortment.menuBundles.oneActiveMenuBundleNeeded');
 				return;
 			}
 
 
-			menuModel.set('isActive', isActive);
-			menuModel.save({}, {
+			menuBundleModel.set('isActive', isActive);
+			menuBundleModel.save({}, {
 				success: function () {
 					$eye.toggleClass('open', isActive);
 					$el.toggleClass('inactive', !isActive);
 
 					if (isActive) {
-						notificationcenter.notify('views.store.assortment.menus.success.isActive');
+						notificationcenter.notify('views.store.assortment.menuBundles.success.isActive');
 					} else {
-						notificationcenter.notify('views.store.assortment.menus.success.isNotActive');
+						notificationcenter.notify('views.store.assortment.menuBundles.success.isNotActive');
 					}
 				},
 				error: function () {
-					notificationcenter.notify('views.store.assortment.menus.error');
-					menuModel.set('isActive', !isActive);
+					notificationcenter.notify('views.store.assortment.menuBundles.error');
+					menuBundleModel.set('isActive', !isActive);
 				}
 			});
 		},
@@ -82,7 +82,7 @@ define([
 					notificationcenter.notify('Preis geaendert');
 				},
 				error: function () {
-					notificationcenter.notify('views.store.assortment.menus.error');
+					notificationcenter.notify('views.store.assortment.menuBundles.error');
 				}
 			});
 		},
@@ -96,6 +96,6 @@ define([
 
 	});
 
-	return MenuView;
+	return MenuBundleView;
 
 });

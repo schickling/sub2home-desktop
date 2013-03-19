@@ -25,14 +25,5 @@ class IndexController extends StoreRelatedApiController
 		return $menuUpgradesCollection->toJson(JSON_NUMERIC_CHECK);
 	}
 
-	/**
-	 * @PUT('api/frontend/stores/{alias}/menuupgrades/{id}')
-	 */
-	public function route()
-	{
-		
-		
-	}
-
 
 }

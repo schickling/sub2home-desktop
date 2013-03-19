@@ -1,10 +1,10 @@
-// Filename: src/js/views/store/assortment/menus/ControlView.js
+// Filename: src/js/views/store/assortment/menuUpgrades/ControlView.js
 define([
     'jquery',
     'underscore',
     'backbone',
     'views/store/assortment/ControlBaseView',
-    'text!templates/store/assortment/menus/ControlTemplate.html'
+    'text!templates/store/assortment/menuUpgrades/ControlTemplate.html'
     ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
 
 	var ControlView = ControlBaseView.extend({
@@ -21,12 +21,12 @@ define([
 		},
 
 		_resetAllPrices: function () {
-			_.each(this.collection.models, function (menuModel) {
+			_.each(this.collection.models, function (menuUpgradeModel) {
 
 					// check if price reset is needed
-					if (menuModel.get('price') !== menuModel.get('customPrice')) {
-						this._updateModel(menuModel, {
-							customPrice: menuModel.get('price')
+					if (menuUpgradeModel.get('price') !== menuUpgradeModel.get('customPrice')) {
+						this._updateModel(menuUpgradeModel, {
+							customPrice: menuUpgradeModel.get('price')
 						});
 					}
 
@@ -37,11 +37,11 @@ define([
 		},
 
 		_showAllMenus: function () {
-			_.each(this.collection.models, function (menuModel) {
+			_.each(this.collection.models, function (menuUpgradeModel) {
 
 					// check if activation needed
-					if (menuModel.get('isActive')) {
-						this._updateModel(menuModel, {
+					if (menuUpgradeModel.get('isActive')) {
+						this._updateModel(menuUpgradeModel, {
 							isActive: true
 						});
 					}

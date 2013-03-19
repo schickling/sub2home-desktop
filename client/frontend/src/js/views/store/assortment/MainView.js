@@ -9,17 +9,19 @@ define([
     'views/PageView',
     'views/store/assortment/SectionsNavigationView',
     'views/store/assortment/articles/CategoriesView',
-    'views/store/assortment/menus/MenusView',
+    'views/store/assortment/menuUpgrades/MenuUpgradesView',
+    'views/store/assortment/menuBundles/MenuBundlesView',
     'views/store/assortment/ingredients/IngredientCategoriesView',
     'text!templates/store/assortment/MainTemplate.html'
-    ], function ($, _, Backbone, router, global, stateModel, PageView, SectionsNavigationView, CategoriesView, MenusView, IngredientCategoriesView, MainTemplate) {
+    ], function ($, _, Backbone, router, global, stateModel, PageView, SectionsNavigationView, CategoriesView, MenuUpgradesView, MenuBundlesView, IngredientCategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		subViews: {
 			categoriesView: null,
 			ingredientCategoriesView: null,
-			menusView: null
+			menuUpgradesView: null,
+			menuBundlesView: null
 		},
 
 		initialize: function () {
@@ -48,9 +50,13 @@ define([
 
 			this.$el.html(MainTemplate);
 
+			// render navigation
 			this._renderSectionsNavigation();
+
+			// render slides
 			this._renderArticleSection();
-			this._renderMenusSection();
+			this._renderMenuUpgradesSection();
+			this._renderMenuBundlesSection();
 			this._renderIngredientsSection();
 
 			this.append();
@@ -69,8 +75,14 @@ define([
 			});
 		},
 
-		_renderMenusSection: function () {
-			this.subViews.menusView = new MenusView({
+		_renderMenuUpgradesSection: function () {
+			this.subViews.menuUpgradesView = new MenuUpgradesView({
+				el: this.$el
+			});
+		},
+
+		_renderMenuBundlesSection: function () {
+			this.subViews.menuBundlesView = new MenuBundlesView({
 				el: this.$el
 			});
 		},
