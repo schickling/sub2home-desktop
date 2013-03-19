@@ -42,12 +42,12 @@ Route::group(array('https'), function()
 	// delivery areas
 	Route::post('api/frontend/stores/{alias}/deliveryareas', 			'App\Controllers\Api\Frontend\Client\DeliveryAreas\CreateController@route');
 	Route::put('api/frontend/deliveryareas/{id}',				 		'App\Controllers\Api\Frontend\Client\DeliveryAreas\UpdateController@route');
-	Route::delete('api/frontend/deliveryareas/{id}',				 	'App\Controllers\Api\Frontend\Client\DeliveryAreas\DestoryController@route');
+	Route::delete('api/frontend/deliveryareas/{id}',				 	'App\Controllers\Api\Frontend\Client\DeliveryAreas\DestroyController@route');
 
 	// delivery times
 	Route::post('api/frontend/stores/{alias}/deliverytimes', 			'App\Controllers\Api\Frontend\Client\DeliveryTimes\CreateController@route');
 	Route::put('api/frontend/deliverytimes/{id}', 						'App\Controllers\Api\Frontend\Client\DeliveryTimes\UpdateController@route');
-	Route::delete('api/frontend/deliverytimes/{id}', 					'App\Controllers\Api\Frontend\Client\DeliveryTimes\DestoryController@route');
+	Route::delete('api/frontend/deliverytimes/{id}', 					'App\Controllers\Api\Frontend\Client\DeliveryTimes\DestroyController@route');
 
 	// categories
 	Route::get('api/frontend/stores/{alias}/categories/assortment',		'App\Controllers\Api\Frontend\Client\Categories\IndexController@route');

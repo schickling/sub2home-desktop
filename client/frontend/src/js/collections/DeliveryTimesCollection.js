@@ -1,13 +1,17 @@
 define([
-    'jquery',
     'underscore',
     'backbone',
+    'global',
     'models/DeliveryTimeModel'
-    ], function ($, _, Backbone, DeliveryTimeModel) {
+    ], function (_, Backbone, global, DeliveryTimeModel) {
 
 	var DeliveryTimesCollection = Backbone.Collection.extend({
 
-		model: DeliveryTimeModel
+		model: DeliveryTimeModel,
+
+		url: function () {
+			return '/api/frontend/stores/' + global.getStoreAlias() + '/deliverytimes';
+		}
 
 	});
 

@@ -85,23 +85,27 @@ define([
 
 		parse: function (response) {
 
-			if (response.hasOwnProperty('addressModel')) {
-				response.addressModel = new AddressModel(response.addressModel);
-			}
+			if (response) {
+				
+				if (response.hasOwnProperty('addressModel')) {
+					response.addressModel = new AddressModel(response.addressModel);
+				}
 
-			if (response.hasOwnProperty('deliveryAreasCollection')) {
-				response.deliveryAreasCollection = new DeliveryAreasCollection(response.deliveryAreasCollection);
-			}
+				if (response.hasOwnProperty('deliveryAreasCollection')) {
+					response.deliveryAreasCollection = new DeliveryAreasCollection(response.deliveryAreasCollection);
+				}
 
-			if (response.hasOwnProperty('deliveryTimesCollection')) {
-				response.deliveryTimesCollection = new DeliveryTimesCollection(response.deliveryTimesCollection);
-			}
+				if (response.hasOwnProperty('deliveryTimesCollection')) {
+					response.deliveryTimesCollection = new DeliveryTimesCollection(response.deliveryTimesCollection);
+				}
 
-			if (response.hasOwnProperty('invoicesCollection') && response.invoicesCollection) {
-				response.invoicesCollection = new InvoicesCollection(response.invoicesCollection);
-			}
+				if (response.hasOwnProperty('invoicesCollection') && response.invoicesCollection) {
+					response.invoicesCollection = new InvoicesCollection(response.invoicesCollection);
+				}
 
-			return response;
+				return response;
+
+			}
 		},
 
 		validate: function (attributes) {

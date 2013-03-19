@@ -1,12 +1,11 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter',
-	'models/DeliveryAreaModel',
-	'collections/DeliveryAreasCollection',
-	'views/store/config/DeliveryAreaView'
-	], function ($, _, Backbone, notificationcenter, DeliveryAreaModel, DeliveryAreasCollection, DeliveryAreaView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter',
+    'models/DeliveryAreaModel',
+    'views/store/config/DeliveryAreaView'
+    ], function ($, _, Backbone, notificationcenter, DeliveryAreaModel, DeliveryAreaView) {
 
 	var DeliveryAreasView = Backbone.View.extend({
 
@@ -22,7 +21,7 @@ define([
 			this._render();
 		},
 
-		_cacheDom: function() {
+		_cacheDom: function () {
 			this.$configContent = this.$('.configContent');
 		},
 
@@ -42,20 +41,20 @@ define([
 		},
 
 		_addDeliveryArea: function () {
-			var deliveryAreaModel = new DeliveryAreaModel();
 
 			var self = this;
 
-			deliveryAreaModel.save({}, {
+			this.collection.create({}, {
+				url: this.collection.url(),
 				validate: false,
-				success: function () {
+				success: function (deliveryAreaModel) {
 					self._renderDeliveryArea(deliveryAreaModel);
-					self.collection.add(deliveryAreaModel);
 				},
 				error: function () {
 					notificationcenter.notify('views.store.config.deliveryArea.add.error');
 				}
 			});
+
 		}
 
 	});
