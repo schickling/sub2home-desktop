@@ -38,14 +38,16 @@ define([
 			var dayOfWeek = $(e.target).parents('.businessDay').first().attr('data-day'),
 				self = this;
 
-			var deliveryTimeModel = new DeliveryTimeModel({
+			this.collection.create({
 				dayOfWeek: dayOfWeek
-			});
-
-			deliveryTimeModel.save({}, {
-				success: function () {
+			}, {
+				url: this.collection.url(),
+				validate: false,
+				success: function (deliveryTimeModel) {
 					self._renderDeliveryTime(deliveryTimeModel);
-					self.collection.add(deliveryTimeModel);
+				},
+				error: function () {
+					notificationcenter.notify('views.store.config.deliveryTime.add.error');
 				}
 			});
 		}
