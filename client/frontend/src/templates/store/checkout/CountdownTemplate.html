@@ -1,8 +1,13 @@
-<% if (minutes > 5) { %>
+
 <div id="countdown">
-	<%= hours %><span>:</span><span class="emphasized"><%= minutes %></span>	
+	<% if (minutes > 5) { %>
+		<%= hours %><span>:</span><span class="emphasized"><%= minutes %></span>
+	<% } else if (minutes > 0) { %>
+		00<span>:</span><span class="emphasized">05</span>
+	<% } else { %>
+		00<span>:</span><span class="emphasized">00</span>
+	<% } %>
 </div>
-<% } %>
 <div id="thxText">
 	<% if (minutes > 5) { %>
 	<span>Danke für deine Bestellung, <%= firstName %>. Wir sind ca. <span class="emphasized"><%= dueTime %> Uhr</span> bei dir in der <%= street %>.</span>
