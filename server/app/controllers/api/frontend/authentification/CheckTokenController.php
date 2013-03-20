@@ -1,13 +1,9 @@
 <?php namespace App\Controllers\Api\Frontend\Authentification;
 
-use App\Controllers\Api\Common\BaseApiController;
 use Cache;
-
 use App\Models\ClientModel;
 
-
-
-class CheckTokenController extends BaseApiController
+class CheckTokenController extends ApiController
 {
 
     /**
@@ -20,13 +16,11 @@ class CheckTokenController extends BaseApiController
     	$token = $this->getToken();
     	$tokenIsCached = Cache::has($token);
 
-    	if ($tokenIsCached) {
-	    	return $this->respondWithStatus(200);
-    	} else {
-	    	return $this->respondWithStatus(401);
-    	}
+        if (!$tokenIsCached) {
+            $this->throwException();
+        }
 
-
+        return $this->respondWithStatus(204);
     }
 
 

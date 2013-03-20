@@ -3,7 +3,7 @@ composer.phar
 composer.lock
 .DS_Store
 
-/bootstrap/compiled.php
+bootstrap/compiled.php
 
 public/js
 public/templates

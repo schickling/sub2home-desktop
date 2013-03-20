@@ -1,11 +1,11 @@
 <?php namespace App\Tests\Controllers\Api\Frontend\Authentification;
 
-use App\Tests\TestCase;
+use App\Tests\Controllers\Api\ApiTestCase;
 use Hash;
 use App\Models\ClientModel;
 
 
-class AuthentificationTestCase extends TestCase {
+abstract class AuthentificationTestCase extends ApiTestCase {
 
 	protected $loadMigrations = true;
 

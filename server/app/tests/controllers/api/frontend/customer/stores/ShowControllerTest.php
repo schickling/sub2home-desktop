@@ -1,16 +1,17 @@
 <?php namespace App\Tests\Controllers\Api\Frontend\Customer\Stores;
 
-use App\Tests\TestCase;
+use App\Tests\Controllers\Api\ApiTestCase;
 use App\Models\StoreModel;
 
 
-class ShowControllerTest extends TestCase {
+class ShowControllerTest extends ApiTestCase {
 
-    protected $loadMigrations = true;
+	protected $route = 'api/frontend/stores/memmingen';
+	protected $method = 'GET';
 
 	public function testShouldMatch()
 	{
-		$response = $this->call('GET', 'api/frontend/stores/memmingen');
+		$this->callRoute();
 
 		$storeModel = StoreModel::with(array(
 									'deliveryAreasCollection',
@@ -24,19 +25,8 @@ class ShowControllerTest extends TestCase {
 
 		$realStore = $storeModel->toArray();
 
-		$this->assertResponseOk();
-
-		$jsonStoreFromResponse = $response->getContent();
-		$storeFromResponse = json_decode($jsonStoreFromResponse, true);
-
+		$storeFromResponse = $this->getDecodedContent();
 		$this->assertEquals($realStore, $storeFromResponse);
-	}
-
-	public function testShouldNotBeFound()
-	{
-		$response = $this->call('GET', 'api/frontend/stores/not-there');
-
-		$this->assertEquals(404, $response->getStatus());
 	}
 
 	protected function seedDatabase()
