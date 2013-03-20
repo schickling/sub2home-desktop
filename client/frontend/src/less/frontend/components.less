@@ -1816,11 +1816,11 @@ input[type="text"]#locationSelectionInput {
     }
   }
 
-  .articles, .ingredients {
+  .articles, .ingredients, .menuBundles, .menuUpgrades {
     padding: 28px;
   }
 
-  .article, .menu, .ingredient {
+  .article, .menu, .ingredient, .menuBundle, .menuUpgrade {
     cursor: default;
     width: 100%;
     //height: 60px;
@@ -5176,16 +5176,14 @@ div#payment {
     line-height: 1.3;
     display: inline-block;
     span {
-        font-size: 16px;
+        font-size: 24px;
         display: inline-block;
-        font-family: @handFontFamily;
+        font-family: @headingsFontFamily;
         padding-top: 18px;
 
       &.emphasized {
-        font-family: @headingsFontFamily;
-        font-size: 24px;
         color: @greenLight;
-        padding: 0;
+        //padding: 0;
       }
     }
     .notice {
@@ -5206,6 +5204,7 @@ div#payment {
     text-align: center;
     margin: 0 auto;
     cursor: default;
+    height: ;
     span {
       .positioned;
       top: -15px;
