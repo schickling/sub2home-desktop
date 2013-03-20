@@ -84,8 +84,8 @@ define([
 			},
 
 			'models.authentificationModel.dataWrong': {
-				title: 'Nicht registiert',
-				description: 'Diese Kundennummer ist nicht registriert. Vielleicht ein Tippfehler?',
+				title: 'Fehlgeschlagen',
+				description: 'Die eingegebenen Daten passen zu keinem sub2home-Konto. Vielleicht ein Tippfehler?',
 				className: 'error'
 			},
 			
@@ -242,6 +242,12 @@ define([
 				title: 'Falsches Zeitformat',
 				description: 'Vielleicht ein Tippfehler ? Sie müssen eine gültige Uhrzeit angeben.',
 				className: 'warning'
+			},
+
+			'views.store.config.deliveryTime.add.error': {
+				title: 'Hinzufügen fehlgeschlagen',
+				description: 'Es konnte keine neue Lieferzeit hinzugefügt werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
 			},
 
 			'views.store.config.testOrder.success': {
