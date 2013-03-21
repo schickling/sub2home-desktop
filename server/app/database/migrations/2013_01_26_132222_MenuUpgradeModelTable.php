@@ -13,7 +13,6 @@ class MenuUpgradeModelTable extends Migration {
 	{
 		Schema::create('menu_upgrade_models', function($table) {
 			$table->increments('id');
-			$table->string('image', 128)->default('');
 			$table->string('title', 128)->default('');
 			$table->integer('buyed')->unsigned();
 			$table->boolean('isPublished')->default(false);

@@ -29,9 +29,8 @@ define([
 			var json = {
 				title: this.model.get('title'),
 				price: this.model.get('customPrice'),
-				info: this.model.get('info'),
 				isActive: this.model.get('isActive'),
-				buyed: this.model.get('buyedInStore'),
+				buyed: this.model.get('buyed'),
 				image: this.model.get('smallImage')
 			};
 
@@ -47,14 +46,9 @@ define([
 				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
-			if (!isActive && this._isLastActiveMenuBundle()) {
-				notificationcenter.notify('views.store.assortment.menuBundles.oneActiveMenuBundleNeeded');
-				return;
-			}
-
-
-			menuBundleModel.set('isActive', isActive);
-			menuBundleModel.save({}, {
+			menuBundleModel.save({
+				isActive: isActive
+			}, {
 				success: function () {
 					$eye.toggleClass('open', isActive);
 					$el.toggleClass('inactive', !isActive);
@@ -76,8 +70,9 @@ define([
 			var $input = this.$('.pricetag input'),
 				customPrice = parseFloat($input.val());
 
-			this.model.set('customPrice', customPrice);
-			this.model.save({}, {
+			this.model.save({
+				customPrice: customPrice
+			}, {
 				success: function () {
 					notificationcenter.notify('Preis geaendert');
 				},

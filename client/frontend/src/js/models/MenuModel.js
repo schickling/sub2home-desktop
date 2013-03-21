@@ -1,15 +1,11 @@
 // Filename: src/js/models/MenuModel.js
 define([
-	'underscore',
-	'backbone',
-	'collections/MenuComponentBlocksCollection'
-	], function (_, Backbone, MenuComponentBlocksCollection) {
+    'underscore',
+    'backbone',
+    'collections/MenuComponentBlocksCollection'
+    ], function (_, Backbone, MenuComponentBlocksCollection) {
 
 	var MenuModel = Backbone.Model.extend({
-
-		defaults: {
-			menuComponentBlocksCollection: null
-		},
 
 		toJSON: function () {
 
@@ -23,13 +19,18 @@ define([
 		},
 
 		parse: function (response) {
-			if (response.hasOwnProperty('menuComponentBlocksCollection') && response.menuComponentBlocksCollection !== null) {
-				response.menuComponentBlocksCollection = new MenuComponentBlocksCollection(response.menuComponentBlocksCollection, {
-					parse: true
-				});
-			}
 
-			return response;
+			if (response) {
+
+				if (response.hasOwnProperty('menuComponentBlocksCollection') && response.menuComponentBlocksCollection !== null) {
+					response.menuComponentBlocksCollection = new MenuComponentBlocksCollection(response.menuComponentBlocksCollection, {
+						parse: true
+					});
+				}
+
+				return response;
+
+			}
 		}
 
 	});

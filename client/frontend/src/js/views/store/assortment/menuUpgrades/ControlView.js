@@ -40,7 +40,7 @@ define([
 			_.each(this.collection.models, function (menuUpgradeModel) {
 
 					// check if activation needed
-					if (menuUpgradeModel.get('isActive')) {
+					if (!menuUpgradeModel.get('isActive')) {
 						this._updateModel(menuUpgradeModel, {
 							isActive: true
 						});

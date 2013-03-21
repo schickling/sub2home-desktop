@@ -19,7 +19,11 @@ class IndexController extends StoreRelatedApiController
 		$storeModelId = $this->storeModel->id;
 
 		foreach ($menuBundlesCollection as $menuBundleModel) {
-			$menuBundleModel->customPrice = $menuBundleModel->returnCustomPrice($storeModelId);			
+			$customMenuModel = $menuBundleModel->returnCustomModel($storeModelId);
+
+			$menuBundleModel->customPrice = $customMenuModel->price;			
+			$menuBundleModel->buyed = $customMenuModel->buyed;
+			$menuBundleModel->isActive = $customMenuModel->isActive;
 		}
 
 		return $menuBundlesCollection->toJson(JSON_NUMERIC_CHECK);

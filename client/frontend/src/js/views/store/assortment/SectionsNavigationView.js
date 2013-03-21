@@ -42,7 +42,7 @@ define([
 		_prepareTimelineItems: function () {
 
 			var timelineItems = [{
-				image: '../../img/static/categories/smallimages/salat.png',
+				image: '../../img/static/categories/smallimages/sub.png',
 				icon: 'iSub'
 			}, {
 				image: '../../img/static/common/menu_upgrade.png',

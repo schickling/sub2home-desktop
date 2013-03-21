@@ -19,8 +19,13 @@ class IndexController extends StoreRelatedApiController
 		$storeModelId = $this->storeModel->id;
 
 		foreach ($menuUpgradesCollection as $menuUpgradeModel) {
-			$menuUpgradeModel->customPrice = $menuUpgradeModel->returnCustomPrice($storeModelId);			
+			$customMenuModel = $menuUpgradeModel->returnCustomModel($storeModelId);
+
+			$menuUpgradeModel->customPrice = $customMenuModel->price;			
+			$menuUpgradeModel->buyed = $customMenuModel->buyed;
+			$menuUpgradeModel->isActive = $customMenuModel->isActive;
 		}
+
 
 		return $menuUpgradesCollection->toJson(JSON_NUMERIC_CHECK);
 	}

@@ -40,16 +40,10 @@ class IndexController extends StoreRelatedApiController
 			foreach ($sortedArticlesCollection as $articleModel) {
 				if ($articleModel->isPublished) {
 
-					// discard unused attributes
-					unset($articleModel->allowsDeposit);
-					unset($articleModel->allowsMenuUpgrades);
-					unset($articleModel->largeImage);
-
 					$customArticleModel = $articleModel->returnCustomModel($storeModelId);
 
 					$articleModel->isActive = $customArticleModel->isActive;
-					$articleModel->buyedInStore = $customArticleModel->buyed;
-
+					$articleModel->buyed = $customArticleModel->buyed;
 					$articleModel->customPrice = $customArticleModel->price;
 
 

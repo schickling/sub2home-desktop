@@ -29,10 +29,8 @@ define([
 			var json = {
 				title: this.model.get('title'),
 				price: this.model.get('customPrice'),
-				info: this.model.get('info'),
 				isActive: this.model.get('isActive'),
-				buyed: this.model.get('buyedInStore'),
-				image: this.model.get('smallImage')
+				buyed: this.model.get('buyed')
 			};
 
 			this.$el.html(this.template(json));
@@ -47,14 +45,9 @@ define([
 				$el = this.$el,
 				isActive = !this.model.get('isActive');
 
-			if (!isActive && this._isLastActiveMenuUpgrade()) {
-				notificationcenter.notify('views.store.assortment.menuUpgrades.oneActiveMenuUpgradeNeeded');
-				return;
-			}
-
-
-			menuUpgradeModel.set('isActive', isActive);
-			menuUpgradeModel.save({}, {
+			menuUpgradeModel.save({
+				isActive: isActive
+			}, {
 				success: function () {
 					$eye.toggleClass('open', isActive);
 					$el.toggleClass('inactive', !isActive);
@@ -76,8 +69,9 @@ define([
 			var $input = this.$('.pricetag input'),
 				customPrice = parseFloat($input.val());
 
-			this.model.set('customPrice', customPrice);
-			this.model.save({}, {
+			this.model.save({
+				customPrice: customPrice
+			}, {
 				success: function () {
 					notificationcenter.notify('Preis geaendert');
 				},
