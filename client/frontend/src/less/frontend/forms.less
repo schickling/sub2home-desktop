@@ -748,6 +748,16 @@ input[type="text"], textarea {
       &:-ms-input-placeholder { color: @onNoteColor70 !important; }
     }
   }
+  
+  #gratisCookieOption {
+    ::-webkit-input-placeholder  { color: @onNoteColor70; padding-top: 5px !important;}
+    input[type="text"], input [type="text"], textarea {
+      &::-webkit-input-placeholder {color: @onNoteColor70 !important; }
+      &::-moz-placeholder {color: @onNoteColor70 !important; padding-bottom: 0px !important; }
+      &:-ms-input-placeholder { color: @onNoteColor70 !important; }
+    }
+  }
+
 }
 
 .darkback {
