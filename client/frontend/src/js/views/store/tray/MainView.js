@@ -9,11 +9,12 @@ define([
     'views/store/tray/DeliveryTimeView',
     'views/store/tray/CommentView',
     'views/store/tray/SubcardView',
+    'views/store/tray/FreeCookieView',
     'views/store/tray/ControlView',
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, SubcardView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, SubcardView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -66,6 +67,10 @@ define([
 				el: this.$('#subcardOption')
 			});
 
+			new FreeCookieView({
+				el: this.$('#gratisCookieOption')
+			});
+
 			new CheckoutSettingsView({
 				el: this.$('#checkoutSettings')
 			});
@@ -78,7 +83,7 @@ define([
 
 		},
 
-		_cacheDom: function() {
+		_cacheDom: function () {
 			this.$trayNote = this.$('#trayNote');
 		},
 
