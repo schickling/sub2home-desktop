@@ -115,10 +115,10 @@ define([
 
 			this.model.save(changedAttributes, {
 				validate: true,
-				success: function() {
+				success: function () {
 					notificationcenter.notify('views.store.config.deliveryArea.change.success');
 				},
-				error: function() {
+				error: function () {
 					notificationcenter.notify('views.store.config.deliveryArea.change.error');
 
 					// rerender

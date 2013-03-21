@@ -47,6 +47,7 @@ define([
 			this.collection.create({}, {
 				validate: false,
 				success: function (deliveryAreaModel) {
+					notificationcenter.notify('views.store.config.deliveryArea.add.success');
 					self._renderDeliveryArea(deliveryAreaModel);
 				},
 				error: function () {

@@ -2,10 +2,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'notificationcenter',
     'models/DeliveryTimeModel',
     'collections/DeliveryTimesCollection',
     'views/store/config/DeliveryTimeView'
-    ], function ($, _, Backbone, DeliveryTimeModel, DeliveryTimesCollection, DeliveryTimeView) {
+    ], function ($, _, Backbone, notificationcenter, DeliveryTimeModel, DeliveryTimesCollection, DeliveryTimeView) {
 
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
@@ -43,6 +44,7 @@ define([
 			}, {
 				validate: false,
 				success: function (deliveryTimeModel) {
+					notificationcenter.notify('views.store.config.deliveryTime.add.success');
 					self._renderDeliveryTime(deliveryTimeModel);
 				},
 				error: function () {

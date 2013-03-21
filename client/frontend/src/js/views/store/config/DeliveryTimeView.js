@@ -55,13 +55,9 @@ define([
 				time = $input.val();
 
 			if (this._checkTimeFormat(time)) {
-
-				this.model.set({
+				this._updateModel({
 					startMinutes: this._parseTime(time)
-				}, {
-					validate: true
 				});
-				this.model.save();
 			} else {
 				this._render();
 			}
@@ -73,15 +69,29 @@ define([
 				time = $input.val();
 
 			if (this._checkTimeFormat(time)) {
-				this.model.set({
+				this._updateModel({
 					endMinutes: this._parseTime(time)
-				}, {
-					validate: true
 				});
-				this.model.save();
 			} else {
 				this._render();
 			}
+		},
+
+		_updateModel: function (changedAttributes) {
+			var self = this;
+
+			this.model.save(changedAttributes, {
+				validate: true,
+				success: function () {
+					notificationcenter.notify('views.store.config.deliveryTime.change.success');
+				},
+				error: function () {
+					notificationcenter.notify('views.store.config.deliveryTime.change.error');
+
+					// rerender
+					self._render();
+				}
+			});
 		},
 
 		_checkTimeFormat: function (time) {
