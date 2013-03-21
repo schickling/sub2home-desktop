@@ -19,6 +19,9 @@ define([
 			// paymentMethod
 			paymentMethod: 'cash',
 
+			// decoded subcard code
+			subcardCode: '',
+
 			// comment
 			comment: '',
 

@@ -1,5 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Orders;
 
+use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use App\Models\TestOrderModel;
 
 /**

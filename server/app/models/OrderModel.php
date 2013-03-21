@@ -134,7 +134,7 @@ class OrderModel extends BaseModel
 	public function confirm()
 	{
 		if (!$this->isValid()) {
-			throw new ModelException('No valid order');
+			throw new ModelException();
 		}
 
 		$jobData = array('order_model_id' => $this->id);
@@ -223,6 +223,7 @@ class OrderModel extends BaseModel
 
 	private function verifyDueDate()
 	{
+		// TODO
 		return $this->due_at >= $this->created_at;
 	}
 

@@ -3,7 +3,6 @@
 use Input;
 use Validator;
 use Request;
-use App\Exceptions\NotFoundException;
 
 use App\Models\IngredientModel;
 
@@ -35,9 +34,7 @@ class UpdateController extends StoreRelatedApiController
 		$ingredientModel = IngredientModel::find($id);
 
 		// check if found
-    	if (is_null($ingredientModel)) {
-    		throw new NotFoundException();
-    	}
+    	$this->checkModelFound($ingredientModel);
 
 		$customIngredientModel = $ingredientModel->returnCustomModel($this->storeModel->id);
 

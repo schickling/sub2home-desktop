@@ -2,4 +2,4 @@
 
 use Exception;
 
-class NotFoundException extends Exception {}
+class ServiceException extends Exception {}

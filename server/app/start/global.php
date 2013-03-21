@@ -1,8 +1,8 @@
 <?php
 
-use App\Exceptions\NotAuthentificatedException;
+use App\Exceptions\ApiException;
 use App\Exceptions\ModelException;
-use App\Exceptions\NotFoundException;
+use App\Exceptions\ServiceException;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,15 +64,11 @@ App::error(function(Exception $exception, $code)
 });
 
 
-App::error(function(NotAuthentificatedException $exception, $code)
+App::error(function(ApiException $exception, $code)
 {
-	return Response::make('Not authentificated', 401);
+	return Response::make('', $exception->getStatusCode());
 });
 
-App::error(function(NotFoundException $exception, $code)
-{
-	return Response::make('Not found', 404);
-});
 
 /*
 |--------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\Api\Frontend\Client;
 
 use App\Controllers\Api\Common\BaseApiController;
-use App\Exceptions\NotAuthentificatedException;
+use App\Exceptions\ApiException;
 use Cache;
 
 
@@ -35,7 +35,7 @@ abstract class ApiController extends BaseApiController
 	protected function checkAuthentification()
 	{
 		if ($this->getClientModelIdFromToken() != $this->getClientModelIdFromResourceModel()) {
-			throw new NotAuthentificatedException();
+			$this->throwException(401);
 		}
 	}
 
@@ -50,7 +50,7 @@ abstract class ApiController extends BaseApiController
 		$clientModelId = Cache::get($token);
 
 		if (!$clientModelId) {
-			throw new NotAuthentificatedException();
+			$this->throwException(401);
 		}
 
         // cache client model it

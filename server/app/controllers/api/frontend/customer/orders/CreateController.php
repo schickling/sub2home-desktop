@@ -50,7 +50,22 @@ class CreateController extends ApiController
 
 	private function validateInput()
 	{
-		
+		$rules = array(
+			'paymentMethod'				=> 'alpha|required',
+			'total'						=> 'min:0|required',
+			'credit'					=> 'min:0|required',
+			'subcardCode'				=> 'alpha_dash|required',
+			'due_at'					=> 'date|required',
+			'orderedItemsCollection'	=> 'required',
+			'addressModel'				=> 'required'
+			);
+
+		$validator = Validator::make($this->input, $rules);
+
+		if ($validator->fails()) {
+			return $this->respondWithStatus(400, $validator->messages());
+		}
+
 	}
 
 
@@ -110,6 +125,7 @@ class CreateController extends ApiController
 		$this->orderModel->isDelivered = false;
 		$this->orderModel->credit = $this->input['credit'];
 		$this->orderModel->comment = $this->input['comment'];
+		$this->orderModel->subcardCode = $this->input['subcardCode'];
 
 		$this->orderModel->due_at = new DateTime();
 		$this->orderModel->due_at->setTimestamp($this->input['due_at'] / 1000);

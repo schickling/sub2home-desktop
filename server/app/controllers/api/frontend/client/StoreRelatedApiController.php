@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client;
 
 use Request;
-use App\Exceptions\NotFoundException;
 
 use App\Models\StoreModel;
 
