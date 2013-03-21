@@ -672,6 +672,7 @@ aside#header {
     .positioned;
     z-index:2;
     float: left;
+    cursor: pointer;
   }
 
 
@@ -4821,6 +4822,7 @@ div#payment {
       color: @onNoteColor;
       font-family: @headingsFontFamily;
       margin-top: 4px;
+      cursor: pointer;
     }
   }
   #subcardOption {
@@ -4832,6 +4834,8 @@ div#payment {
     width: 450px;
     .iBtn {
       font-size: 80px;
+      .transition(color .1s linear);
+
     }
     span {
       width: 340px;
