@@ -21,6 +21,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Stores&Umsätze [client] - sub2home',
+
 		initialize: function () {
 			this.model = clientModel;
 

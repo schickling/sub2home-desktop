@@ -10,6 +10,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Seite nicht gefunden - sub2home',
+
 		events: {
 			'click .bigBack': '_back'
 		},

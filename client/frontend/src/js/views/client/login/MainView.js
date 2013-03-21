@@ -12,6 +12,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Einloggen - sub2home',
+
 		$number: null,
 		$password: null,
 		$submit: null,

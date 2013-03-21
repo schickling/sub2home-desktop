@@ -14,6 +14,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Bestellungen&Umsätze [store] - sub2home',
+
 		initialize: function () {
 
 			// for authentification reload the store model

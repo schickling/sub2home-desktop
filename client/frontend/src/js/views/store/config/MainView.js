@@ -16,6 +16,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Storeeinstellungen [store] - sub2home',
+
 		// referenced sub views
 		subViews: {
 			mapView: null,

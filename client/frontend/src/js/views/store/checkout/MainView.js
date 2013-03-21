@@ -10,6 +10,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Danke für Deine Bestellung - sub2home',
+
 		subViews: {
 			countdownView: null
 		},

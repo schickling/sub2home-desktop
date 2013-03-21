@@ -13,6 +13,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Stammdaten [client] - sub2home',
+
 		// referenced sub views
 		subViews: {
 			profileView: null

@@ -159,7 +159,7 @@ define([
 			if (stateModel.currentRouteIsStoreRelated()) {
 				router.navigate('store/info', true);
 			} else {
-				router.navigate('home/info', true);
+				router.navigate('info', true);
 			}
 		}
 

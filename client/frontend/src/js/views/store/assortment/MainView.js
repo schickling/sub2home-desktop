@@ -17,6 +17,8 @@ define([
 
 	var MainView = PageView.extend({
 
+		pageTitle: 'Sortimentverwaltung [Store] - sub2home',
+
 		subViews: {
 			categoriesView: null,
 			ingredientCategoriesView: null,

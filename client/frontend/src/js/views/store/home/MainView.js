@@ -52,7 +52,7 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Subway Memmingen',
+		pageTitle: 'SUBWAY® Memmingen - sub2home',
 
 		initialize: function () {
 			this._render();

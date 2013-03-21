@@ -11,7 +11,7 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Startseite',
+		pageTitle: 'sub2home - Deine SUBWAY®-Onlinetheke',
 
 		events: {
 			'keyup #locationSelectionInput': '_checkInputKeyUp',

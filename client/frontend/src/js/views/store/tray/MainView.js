@@ -24,6 +24,8 @@ define([
 			'hide #checkoutSettings': '_hideCheckoutSettings'
 		},
 
+		pageTitle: 'Fast fertig - sub2home',
+
 		// referenced sub views
 		subViews: {
 			controlView: null,

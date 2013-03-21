@@ -42,10 +42,13 @@ define([
 
 			// load ordered item and render
 			if (selectionRessourceType === 'artikel') {
+				this.pageTitle = 'Beleg dein [Name] - sub2home';
 				this._createOrderedItemFromArticle();
 			} else if (selectionRessourceType === 'menu') {
+				this.pageTitle = 'Vervollständige dein [Name] - sub2home';
 				this._createOrderedItemFromMenuBundle();
 			} else {
+				this.pageTitle = 'Nochmal ändern - sub2home';
 				this._loadOrderedItemFromLocalStorage();
 			}
 

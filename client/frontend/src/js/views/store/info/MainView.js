@@ -9,7 +9,7 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Store Info',
+		pageTitle: 'Infotheke [store] - sub2home',
 
 		initialize: function () {
 			this._render();
