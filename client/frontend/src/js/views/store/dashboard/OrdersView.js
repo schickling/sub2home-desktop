@@ -93,7 +93,6 @@ define([
 					}),
 
 					success: function (collection, receivedOrders) {
-						self.isReady = true;
 						self._stopRotateRefresh();
 
 						if (viewShouldBeResetted) {
@@ -114,6 +113,9 @@ define([
 							self.hasOrders = true;
 							self._showOrders();
 						}
+
+						self.isReady = true;
+
 					},
 
 					error: function () {
@@ -206,6 +208,9 @@ define([
 		},
 
 		_startRotateRefresh: function () {
+
+			// clean old interval
+			clearInterval(this.rotateInterval);
 
 			var $refresh = this.$refresh,
 				self = this;
