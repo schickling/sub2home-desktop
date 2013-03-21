@@ -731,10 +731,14 @@ aside#header {
       height: 45px;
       margin: 8px 0 0 0;
       padding-top: 3px;
+      white-space: nowrap;
+      max-width: 34%;
       span {
-        width: 100px;
+        //width: auto
         display: inline-block;
         vertical-align: middle;
+        white-space: normal;
+        max-width: 80%;
       }
     }
 
@@ -1088,9 +1092,9 @@ input[type="text"]#locationSelectionInput {
     content:" ";
     background: @smallNoteLeftBackground;
     position: absolute;
-    width: 63px;
+    width: 83px;
     height: 63px;
-    left: -63px;
+    left: -83px;
     top: 0;
   }
   &:after {
@@ -1105,7 +1109,7 @@ input[type="text"]#locationSelectionInput {
 
   h3, .centerContent {
     .positioned;
-    margin-left: -40px;
+    margin-left: -63px;
     margin-right: -40px;
     z-index: 50;
     white-space: nowrap;
@@ -1251,7 +1255,9 @@ input[type="text"]#locationSelectionInput {
       top: 2px;
     }
   }
-
+  #deliveryAreas {
+    display: none;
+  }
 }
 
 
@@ -1638,16 +1644,6 @@ input[type="text"]#locationSelectionInput {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .article {
@@ -4382,7 +4378,7 @@ div#payment {
       font-family: @handFontFamily;
       font-size: 15px;
       width: inherit;
-      text-align: center;
+      text-align: left;
     }
   }
 
@@ -4580,11 +4576,13 @@ div#payment {
       line-height: 1.3;
       margin: 0 0 10px;
     }
+    p {
+      text-align: center;
+    }
   }
   &.descriptive {
     .itemDescription h3 {
       text-align: left;
-
     }
   }
   &:before {
@@ -4999,6 +4997,9 @@ div#payment {
     height: 24px;
     font-size: 24px;
     color: inherit;
+  }
+  &.accepted {
+    display: none;
   }
 }
 

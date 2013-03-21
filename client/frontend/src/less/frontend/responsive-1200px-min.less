@@ -11,7 +11,7 @@ html, body, .main {
 }
 
 aside#header {
-  min-width: 555px;
+  min-width: 615px;
 }
 
 
@@ -80,37 +80,34 @@ aside#header {
 // Header & store.home
 // ------
 
-@media (max-width: 1304px) {
+@media (max-width: 1360px) {
 
   aside#header {
     width: 55%;
-  }
-}
-
-
-@media (max-width: 1186px) {
-
-  aside#header {
-    
-    #headerCustomerContent #trayPreview {
-      height: 51px;
-      padding-top: 16px;
-    } 
-    span#sumContainer {
-      width: 86px;
+    #currentInfo {
+      max-width: 30%;
+      span {
+        max-width: 80%;
+      }
     }
   }
 }
 
-@media (max-width: 1113px) {
+
+
+
+@media (max-width: 1235px) {
 
   aside#header {
     width: 58%;
-    #headerCustomerContent {
-      >div {
-        padding: 0 7px;
+    
+    #currentInfo {
+      max-width: 30%;
+      span {
+        max-width: 80%;
       }
     }
+
     i.imgIcn {
       margin-right: 0;
     }
@@ -122,8 +119,31 @@ aside#header {
       #bClientDashboard, #bSignout { padding: 24px 12px 0; margin: 0;}
     }
   }
+}
 
+@media (max-width: 1186px) {
 
+  aside#header {
+    
+    #currentInfo {
+      span {
+        max-width: 53%;
+      }
+    }
+
+    #headerCustomerContent #trayPreview {
+      height: 51px;
+      padding-top: 16px;
+    } 
+    span#sumContainer {
+      width: 86px;
+    }
+    #headerCustomerContent {
+      >div {
+        padding: 0 7px;
+      }
+    }
+  }
 }
 
 // store.home  -------------------------------------------------------------------------------------------------------
