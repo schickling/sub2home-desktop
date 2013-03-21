@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'notificationcenter',
     'text!templates/store/config/DeliveryAreaTemplate.html'
-    ], function ($, _, Backbone, DeliveryAreaTemplate) {
+    ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 
 	var DeliveryAreaView = Backbone.View.extend({
 
@@ -52,60 +53,48 @@ define([
 			var $input = this.$('.deliveryAreaMinimumDuration'),
 				minimumDuration = parseInt($input.val(), 10);
 
-			this.model.set({
+			this._updateModel({
 				minimumDuration: minimumDuration
-			}, {
-				validate: true
 			});
-			this.model.save();
 		},
 
 		_updateMinimumValue: function () {
 			var $input = this.$('.deliveryAreaMinimumValue'),
 				minimumValue = parseFloat($input.val());
 
-			this.model.set({
+			this._updateModel({
 				minimumValue: minimumValue
-			}, {
-				validate: true
 			});
-			this.model.save();
+
+			$input.val(minimumValue.toFixed(2));
 		},
 
 		_updatePostal: function () {
 			var $input = this.$('.deliveryAreaPostal'),
 				postal = parseInt($input.val(), 10);
 
-			this.model.set({
+			this._updateModel({
 				postal: postal
-			}, {
-				validate: true
 			});
-			this.model.save();
+
 		},
 
 		_updateCity: function () {
 			var $input = this.$('.deliveryAreaCity'),
 				city = $input.val();
 
-			this.model.set({
+			this._updateModel({
 				city: city
-			}, {
-				validate: true
 			});
-			this.model.save();
 		},
 
 		_updateDistrict: function () {
 			var $input = this.$('.deliveryAreaDistrict'),
 				district = $input.val();
 
-			this.model.set({
+			this._updateModel({
 				district: district
-			}, {
-				validate: true
 			});
-			this.model.save();
 		},
 
 		_blurOnEnter: function (e) {
@@ -119,6 +108,23 @@ define([
 			this.parentView.once('destroy', function () {
 				this.stopListening();
 			}, this);
+		},
+
+		_updateModel: function (changedAttributes) {
+			var self = this;
+
+			this.model.save(changedAttributes, {
+				validate: true,
+				success: function() {
+					notificationcenter.notify('views.store.config.deliveryArea.change.success');
+				},
+				error: function() {
+					notificationcenter.notify('views.store.config.deliveryArea.change.error');
+
+					// rerender
+					self._render();
+				}
+			});
 		}
 
 	});

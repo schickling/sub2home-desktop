@@ -22,8 +22,7 @@ class UpdateController extends ApiController
 			'minimumDuration'	=> 'numeric|required|min:0',
 			'minimumValue'		=> 'numeric|required|min:0',
 			'postal'			=> 'numeric|required|between:10000,99999',
-			'city'				=> 'alpha_dash|required',
-			'district'			=> 'required'
+			'city'				=> 'alpha_dash|required'
 			);
 
 		$validator = Validator::make($input, $rules);

@@ -15,11 +15,11 @@ define([
 			},
 
 
-	// Global Notifications
-	// --------------------
+			// Global Notifications
+			// --------------------
 
 
-	// Invalid Address-Data
+			// Invalid Address-Data
 
 			'models.addressModel.invalid': {
 				title: 'Falsche Adressdaten',
@@ -27,7 +27,7 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Price-Data
+			// Invalid Price-Data
 
 			'models.articleModel.invalid': {
 				title: 'Ungültiger Preis',
@@ -35,7 +35,7 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Bankaccount-Data
+			// Invalid Bankaccount-Data
 
 			'models.bankaccountModel.invalid': {
 				title: 'Ungültige Bankverbindung',
@@ -43,15 +43,15 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Store-Data
+			// Invalid Store-Data
 
 			'models.storeModel.invalid': {
 				title: 'Ungültige Daten',
 				description: 'Bitte geben Sie gültige Daten an.',
 				className: 'warning'
-			},	
+			},
 
-	// Invalid Delivery-Area
+			// Invalid Delivery-Area
 
 			'models.deliveryAreaModel.invalid': {
 				title: 'Ungültiges Liefergebiet',
@@ -59,7 +59,7 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Delivery-Time
+			// Invalid Delivery-Time
 
 			'models.deliveryTimeModel.invalid': {
 				title: 'Ungültige Lieferzeit',
@@ -67,7 +67,7 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Order-Data
+			// Invalid Order-Data
 
 			'models.orderModel.invalid': {
 				title: 'Ungültige Bestellung',
@@ -75,7 +75,7 @@ define([
 				className: 'warning'
 			},
 
-	// Invalid Authenfication-Data
+			// Invalid Authenfication-Data
 
 			'models.authentificationModel.tooManyErrors': {
 				title: 'Zu viele Fehler',
@@ -88,13 +88,13 @@ define([
 				description: 'Die eingegebenen Daten passen zu keinem sub2home-Konto. Vielleicht ein Tippfehler?',
 				className: 'error'
 			},
-			
-
-	// View-Related Notifications
-	// --------------------------
 
 
-	// header
+			// View-Related Notifications
+			// --------------------------
+
+
+			// header
 
 			'views.header.cart.empty': {
 				title: 'Dein Tablett ist leer',
@@ -104,7 +104,7 @@ define([
 
 
 
-	// client.config
+			// client.config
 
 			'views.client.config.address.success': {
 				title: 'Adresse geändert',
@@ -150,7 +150,7 @@ define([
 
 
 
-	// home.home
+			// home.home
 
 			'views.home.home.lookupLocation': {
 				title: 'Einen Moment bitte',
@@ -190,7 +190,7 @@ define([
 
 
 
-	// store.assortment
+			// store.assortment
 
 			'views.store.assortment.articles.success.isActive': {
 				title: 'Artikel aktiviert',
@@ -218,7 +218,7 @@ define([
 
 
 
-	// store.config
+			// store.config
 
 			'views.store.config.address.success': {
 				title: 'Adresse aktualisiert',
@@ -315,20 +315,20 @@ define([
 				description: 'Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
 			},
-	
 
 
-	// store.home
+
+			// store.home
 
 			'views.store.home.addedOrderedItemToCart': {
 				title: 'Ist auf dem Tablett',
 				description: 'Du hast gerade einen Artikel auf dein Tablett gelegt. Natürlich nur bildlich.',
 				className: 'success'
-			},	
+			},
 
 
 
-	// store.selection
+			// store.selection
 
 			'views.store.selection.notReady': {
 				title: 'Da fehlt noch was',
@@ -338,7 +338,7 @@ define([
 
 
 
-	// store.selection
+			// store.selection
 
 			'views.store.tray.minimumNotReached': {
 				title: 'Mindestbestellwert',
@@ -366,7 +366,7 @@ define([
 
 
 
-	// store.dashboard
+			// store.dashboard
 
 			'views.store.dashboard.testOrder.success': {
 				title: 'Testbestellung gesendet',
