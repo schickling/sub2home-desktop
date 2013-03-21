@@ -56,7 +56,7 @@ class LoginController extends ApiController
     		$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
     		Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 
-    		return $this->respondWithStatus(429);
+    		return $this->respond(429);
     	}
 
 
@@ -77,7 +77,6 @@ class LoginController extends ApiController
     	}
 
 
-
         // create, cache and return token
         $token = md5(uniqid($clientModel->id, true)); // token is unique
 
@@ -85,9 +84,12 @@ class LoginController extends ApiController
         Cache::put($token, $clientModel->id, $this->periodOfValidity);
 
 
-        $responseArray = array('token' => $token);
+        $json = json_encode(array(
+            'token' => $token
+            ));
 
-        return json_encode($responseArray);
+
+        return $this->respond(200, $json);
 
     }
 

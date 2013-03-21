@@ -28,7 +28,7 @@ class UpdateController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// fetch deliveryAreaModel
@@ -43,7 +43,7 @@ class UpdateController extends ApiController
 
 		$deliveryAreaModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 

@@ -31,7 +31,7 @@ class AddressesController extends ApiController
 
 		$addressModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 }

@@ -27,7 +27,7 @@ class PaypalController extends BaseApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(404);
+			return $this->respond(404);
 		}
 
 		$token = Input::get('request_token');
@@ -38,7 +38,7 @@ class PaypalController extends BaseApiController
 		$store_model_id = Cache::get($token);
 
 		if (!$store_model_id) {
-			return $this->respondWithStatus(400, 'Token expired');
+			return $this->respond(400, 'Token expired');
 		}
 
 

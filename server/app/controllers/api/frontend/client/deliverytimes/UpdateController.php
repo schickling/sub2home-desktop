@@ -26,11 +26,11 @@ class UpdateController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		if ($input['startMinutes'] >= $input['endMinutes']) {
-			return $this->respondWithStatus(400, 'endMinutes must be bigger then startMinutes');
+			return $this->respond(400, 'endMinutes must be bigger then startMinutes');
 		}
 
 		// fetch deliveryTimeModel
@@ -42,7 +42,7 @@ class UpdateController extends ApiController
 
 		$deliveryTimeModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 

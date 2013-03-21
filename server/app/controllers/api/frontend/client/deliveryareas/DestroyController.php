@@ -16,7 +16,7 @@ class DestroyController extends ApiController
 		$deliveryAreaModel = $this->getResourceModel();
 		$deliveryAreaModel->delete();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 

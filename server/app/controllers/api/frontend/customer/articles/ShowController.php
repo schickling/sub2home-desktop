@@ -35,7 +35,7 @@ class ShowController extends ApiController
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
 		if (!$customArticleModel->isActive) {
-			return $this->respondWithStatus(404);
+			return $this->respond(404);
 		}
 
 

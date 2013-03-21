@@ -8,11 +8,12 @@ define([
     'views/PageView',
     'views/store/tray/DeliveryTimeView',
     'views/store/tray/CommentView',
+    'views/store/tray/SubcardView',
     'views/store/tray/ControlView',
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, SubcardView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -59,6 +60,10 @@ define([
 
 			new CommentView({
 				el: this.$('#deliveryAdditionalNote')
+			});
+
+			new SubcardView({
+				el: this.$('#subcardOption')
 			});
 
 			new CheckoutSettingsView({

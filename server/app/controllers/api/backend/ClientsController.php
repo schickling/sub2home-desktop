@@ -42,13 +42,13 @@ class ClientsController extends ApiController
 		$clientModel = ClientModel::find($id);
 
 		if ($clientModel == null) {
-			return $this->respondWithStatus(404);
+			return $this->respond(404);
 		}
 
 		$clientModel->number = $input['number'];
 		$clientModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 	public function destroy($id)
@@ -56,12 +56,12 @@ class ClientsController extends ApiController
 		$clientModel = ClientModel::find($id);
 
 		if ($clientModel == null) {
-			return $this->respondWithStatus(404);
+			return $this->respond(404);
 		}
 
 		$clientModel->delete();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}	
 
 	public function changePassword($id)
@@ -71,7 +71,7 @@ class ClientsController extends ApiController
 		$clientModel = ClientModel::find($id);
 
 		if ($clientModel == null) {
-			return $this->respondWithStatus(404);
+			return $this->respond(404);
 		}
 
 
@@ -84,7 +84,7 @@ class ClientsController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 		}
 
 		// save new password
@@ -92,7 +92,7 @@ class ClientsController extends ApiController
 		$clientModel->save();
 
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 
 	}
 

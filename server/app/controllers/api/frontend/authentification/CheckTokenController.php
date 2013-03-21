@@ -20,7 +20,7 @@ class CheckTokenController extends ApiController
             $this->throwException();
         }
 
-        return $this->respondWithStatus(204);
+        return $this->respond(204);
     }
 
 

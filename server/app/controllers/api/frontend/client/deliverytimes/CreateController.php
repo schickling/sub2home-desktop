@@ -23,7 +23,7 @@ class CreateController extends StoreRelatedApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// create new deliveryTimeModel

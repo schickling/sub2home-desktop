@@ -26,7 +26,7 @@ class UpdateController extends StoreRelatedApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// fetch customIngredientModel
@@ -42,7 +42,7 @@ class UpdateController extends StoreRelatedApiController
 		$customIngredientModel->price = $input['customPrice'];
 		$customIngredientModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 }

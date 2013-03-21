@@ -32,12 +32,12 @@ class UpdateController extends StoreRelatedApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// check if at least one payment method is selected
 		if (!$input['allowsPaymentCash'] and !$input['allowsPaymentEc'] and !$input['allowsPaymentPaypal']) {
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 		}
 
 
@@ -51,7 +51,7 @@ class UpdateController extends StoreRelatedApiController
 		
 		if ($input['allowsPaymentPaypal'] and empty($storeModel->paymentPaypalAuthHeader)) {
 
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 
 		// already authorized
 		} else {
@@ -60,7 +60,7 @@ class UpdateController extends StoreRelatedApiController
 
 		$storeModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 
 	}
 

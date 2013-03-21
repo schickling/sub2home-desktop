@@ -23,7 +23,7 @@ class ChangePasswordController extends ApiController
 		$clientModel = ClientModel::find($clientModelId);
 
 		if ($clientModel == null) {
-			return $this->respondWithStatus(401);
+			return $this->respond(401);
 		}
 
 
@@ -37,12 +37,12 @@ class ChangePasswordController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 		}
 
 		// check if entered old password is correct
 		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 		}
 
 		// save new password
@@ -50,7 +50,7 @@ class ChangePasswordController extends ApiController
 		$clientModel->save();
 
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 
 	}
 

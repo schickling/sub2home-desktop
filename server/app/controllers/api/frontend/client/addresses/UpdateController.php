@@ -34,7 +34,7 @@ class UpdateController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// fetch addressModel
@@ -53,7 +53,7 @@ class UpdateController extends ApiController
 		$addressModel->save();
 
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 	private function fixPhoneNumber($phone)

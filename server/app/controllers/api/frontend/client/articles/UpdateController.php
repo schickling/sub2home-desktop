@@ -28,7 +28,7 @@ class UpdateController extends StoreRelatedApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 		// fetch customArticleModel
@@ -42,7 +42,7 @@ class UpdateController extends StoreRelatedApiController
 
 		// check if is last active article
 		if (!$input['isActive'] and $this->isLastActiveArticle()) {
-			return $this->respondWithStatus(400);
+			return $this->respond(400);
 		}
 
 		// update
@@ -51,7 +51,7 @@ class UpdateController extends StoreRelatedApiController
 
 		$customArticleModel->save();
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 	private function isLastActiveArticle()

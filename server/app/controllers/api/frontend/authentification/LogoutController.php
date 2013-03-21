@@ -16,7 +16,7 @@ class LogoutController extends ApiController
 
 		Cache::forget($token);
 
-        return $this->respondWithStatus(204);
+        return $this->respond(204);
     }
 
 

@@ -44,7 +44,7 @@ class CreateController extends ApiController
 		$this->computePaymentMethod();
 
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 
@@ -63,7 +63,7 @@ class CreateController extends ApiController
 		$validator = Validator::make($this->input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respondWithStatus(400, $validator->messages());
+			return $this->respond(400, $validator->messages());
 		}
 
 	}

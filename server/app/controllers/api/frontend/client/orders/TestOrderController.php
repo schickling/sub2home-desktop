@@ -16,7 +16,7 @@ class TestOrderController extends StoreRelatedApiController
 	{
 		TestOrderModel::generateTestOrderForStore($this->storeModel->id, true);
 
-		return $this->respondWithStatus(204);
+		return $this->respond(204);
 	}
 
 }

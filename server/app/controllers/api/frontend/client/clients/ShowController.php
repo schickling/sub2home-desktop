@@ -28,7 +28,7 @@ class ShowController extends ApiController
 
 
 		if ($clientModel == null) {
-			return $this->respondWithStatus(401);
+			return $this->respond(401);
 		}
 
 		foreach ($clientModel->storesCollection as $storeModel) {

@@ -19,7 +19,7 @@ abstract class BaseApiController extends Controller
 	 * @param  string       $message
 	 * @return void
 	 */
-	protected function respondWithStatus($statusCode, $message = '') {
+	protected function respond($statusCode, $message = '') {
 
 		$response = Response::make($message, $statusCode);
 		$response->headers->set('Content-Type', 'application/json');
