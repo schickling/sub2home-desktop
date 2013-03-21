@@ -60,6 +60,8 @@ define([
 
 			this.$el.html(this.template(json));
 
+			this.$el.toggleClass('accepted', cartModel.get('termsAccepted'));
+
 		},
 
 		_listenForDataChanges: function () {
@@ -71,14 +73,16 @@ define([
 				$iCart = this.$('#iCart'),
 				$notice = this.$('#acceptAGB');
 
-			$notice.fadeOut(100);
+			$notice.removeClass('leftHandBelow');
 
 			$iAGB.fadeOut(100);
 
 			$iCart.addClass('clickable').animate({
 				right: 10,
 				color: $.Color('rgba(156,200,62,0.4)')
-			}, 250);
+			}, 250, function() {
+				cartModel.set('termsAccepted', true);
+			});
 		},
 
 		_checkout: function () {

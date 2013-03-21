@@ -1,16 +1,14 @@
 <?php namespace App\Controllers\Api\Frontend\Authentification;
 
-use App\Controllers\Api\Common\BaseApiController;
 use Input;
 use Request;
 use Validator;
 use Hash;
 use Cache;
-
 use App\Models\ClientModel;
 
 
-class LoginController extends BaseApiController
+class LoginController extends ApiController
 {
 
     // number of how many failed attempts are allowed
@@ -43,7 +41,7 @@ class LoginController extends BaseApiController
     	$validator = Validator::make($input, $rules);
 
     	if ($validator->fails()) {
-    		return $this->respondWithStatus(401);
+    		$this->throwException();
     	}
 
 
@@ -58,19 +56,14 @@ class LoginController extends BaseApiController
     		$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
     		Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 
-    		return $this->respondWithStatus(429, $exponentialWaitingTime);
-
+    		return $this->respondWithStatus(429);
     	}
-
 
 
         // search client
     	$clientModel = ClientModel::where('number', $number)->first();
 
-    	if (!$clientModel) {
-    		return $this->respondWithStatus(404);
-    	}
-
+        $this->checkModelFound($clientModel);
 
         // check password
     	$passwordMatched = Hash::check($password, $clientModel->hashedPassword);
@@ -80,7 +73,7 @@ class LoginController extends BaseApiController
     		$numberOfFailedAttempts++;
     		Cache::put($cacheKey, $numberOfFailedAttempts, 1);
 
-    		return $this->respondWithStatus(401);
+    		$this->throwException();
     	}
 
 

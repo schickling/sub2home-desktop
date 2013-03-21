@@ -6,6 +6,8 @@ use App\Models\ClientModel;
 
 class LoginControllerTest extends AuthentificationTestCase {
 
+	protected $route = 'https://sub2home.dev/api/frontend/login';
+	protected $method = 'POST';
 
 	public function testShouldBeSuccessful()
 	{
@@ -19,17 +21,16 @@ class LoginControllerTest extends AuthentificationTestCase {
 
 	public function testWithoutHeadersShouldFail()
 	{
-		$response = $this->call('POST', $this->getUrl());
-
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute();
+		$this->assertResponseStatus(401);
 	}
 
 	public function testWithoutDataShouldFail()
 	{
 		$loginFormData = array();
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
+		$this->callRoute($loginFormData);
 
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->assertResponseStatus(401);
 	}
 
 	public function testWithWrongPasswordShouldFail()
@@ -38,9 +39,9 @@ class LoginControllerTest extends AuthentificationTestCase {
 			'number' => $this->correctNumber,
 			'password' => $this->wrongPassword
 			);
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
+		$this->callRoute($loginFormData);
 
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->assertResponseStatus(401);
 	}
 
 	public function testShouldBlockAfterFiveRequestsWithWrongPassword()
@@ -51,33 +52,29 @@ class LoginControllerTest extends AuthentificationTestCase {
 			);
 
 		// first try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(401);
 
 		// second try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(401);
 
 		// third try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(401);
 
 		// fourth try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(401);
 
 		// fifth try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(401);
 
 		// sixth try
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
-		$this->assertEquals(429, $response->getStatusCode());
-	}
+		$this->callRoute($loginFormData);
+		$this->assertResponseStatus(429);
 
-	private function getUrl()
-	{
-		return 'https://sub2home.dev/api/frontend/login';
 	}
 
 }

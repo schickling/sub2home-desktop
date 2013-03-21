@@ -70,10 +70,4 @@ class TestCase extends BaseTestCase {
         // use store model from seeds, so nothing more to do
     }
 
-    protected function assertResponseOk()
-    {
-        $response = $this->client->getResponse();
-        $this->assertTrue($response->isOk());
-    }
-
 }

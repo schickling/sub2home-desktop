@@ -3,20 +3,23 @@
 
 class CheckTokenControllerTest extends AuthentificationTestCase {
 
+	protected $route = 'https://sub2home.dev/api/frontend/checktoken';
+	protected $method = 'POST';
 
 	public function testWithoutHeadersShouldFail()
 	{
-		$response = $this->call('POST', $this->getUrl());
+		$this->callRoute();
 
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->assertResponseStatus(401);
 	}
 
 	public function testWithWrongTokenShouldFail()
 	{
 		$content = 'Token: xx';
-		$response = $this->call('POST', $this->getUrl(), array(), array(), array(), $content);
+		// $response = $this->call('POST', $this->getUrl(), array(), array(), array(), $content);
+		$this->callRoute();
 
-		$this->assertEquals(401, $response->getStatusCode());
+		$this->assertResponseStatus(401);
 	}
 
 	public function testShouldBeSuccessful()
@@ -28,15 +31,12 @@ class CheckTokenControllerTest extends AuthentificationTestCase {
 			'HTTP_Token' => $token,
 			'Token' => $token
 			);
-		$tokenResponse = $this->call('POST', $this->getUrl(), array(), array(), $server, $content);
+		// $tokenResponse = $this->call('POST', $this->getUrl(), array(), array(), $server, $content);
+		$this->callRoute();
 
 		// TODO
 		// $this->assertResponseOk();
 	}
 
-	private function getUrl()
-	{
-		return 'https://sub2home.dev/api/frontend/checktoken';
-	}
 
 }

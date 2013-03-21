@@ -2738,13 +2738,20 @@ class Request
                     for ($i = 0, $max = count($codes); $i < $max; $i++) {
                         if ($i == 0) {
                             $lang = strtolower($codes[0]);
+                            // First segment of compound language codes
+                            // is added to supported languages list
+                            if (!in_array($lang, $this->languages)) {
+                                $this->languages[] = $lang;
+                            }
                         } else {
                             $lang .= '_' . strtoupper($codes[$i]);
                         }
                     }
                 }
             }
-            $this->languages[] = $lang;
+            if (!in_array($lang, $this->languages)) {
+                $this->languages[] = $lang;
+            }
         }
         return $this->languages;
     }
@@ -4359,6 +4366,16 @@ class Str
         return mb_substr($value, 0, $limit, 'UTF-8') . $end;
     }
     /**
+     * Convert the given string to lower-case.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public static function lower($value)
+    {
+        return mb_strtolower($value);
+    }
+    /**
      * Limit the number of words in a string.
      *
      * @param  string  $value
@@ -4417,6 +4434,16 @@ class Str
     {
         $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
+    }
+    /**
+     * Convert the given string to upper-case.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public static function upper($value)
+    {
+        return mb_strtoupper($value);
     }
     /**
      * Get the singular form of an English word.
@@ -6778,7 +6805,7 @@ class Router
     protected function mergeGroup($action, $index)
     {
         $prefix = $this->mergeGroupPrefix($action);
-        $action = array_merge($this->groupStack[$index], $action);
+        $action = array_merge_recursive($this->groupStack[$index], $action);
         // If we have a prefix, we will override the merged prefix with this correctly
         // concatenated one since prefixes shouldn't merge like the other groupable
         // attributes on the action. Then we can return this final merged arrays.

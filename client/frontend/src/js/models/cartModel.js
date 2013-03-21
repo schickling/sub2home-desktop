@@ -16,7 +16,9 @@ define([
 			// id needed for singleton
 			id: 0,
 
-			orderModel: null
+			orderModel: null,
+
+			termsAccepted: false
 
 		},
 
