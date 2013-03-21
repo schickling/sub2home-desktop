@@ -25,13 +25,7 @@ class LoginController extends ApiController
     public function route()
     {   
         // validate input
-    	$number = Input::get('number');
-    	$password = Input::get('password');
-
-    	$input = array(
-    		'number'	=> $number,
-    		'password'	=> $password
-    		);
+        $input = Input::json();
 
     	$rules = array(
     		'number'	=> 'numeric|between:1000,9999|required',
@@ -43,7 +37,9 @@ class LoginController extends ApiController
     	if ($validator->fails()) {
     		$this->throwException();
     	}
-
+        
+        $number = $input['number'];
+        $password = $input['password'];
 
 
         // check for failed attempts

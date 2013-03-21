@@ -92,10 +92,10 @@ define([
 
 			$.ajax({
 				url: '/api/frontend/login',
-				data: {
+				data: JSON.stringify({
 					number: number,
 					password: password
-				},
+				}),
 				type: 'post',
 				async: false,
 				dataType: 'json',
@@ -106,7 +106,7 @@ define([
 					isLoggedIn = true;
 
 				},
-				error: function (jqXHR, textStatus, errorThrown) {
+				error: function (jqXHR) {
 
 					var statusCode = jqXHR.status;
 

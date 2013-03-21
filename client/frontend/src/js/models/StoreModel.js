@@ -2,11 +2,12 @@
 define([
     'underscore',
     'backbone',
+    'notificationcenter',
     'models/AddressModel',
     'collections/DeliveryAreasCollection',
     'collections/DeliveryTimesCollection',
     'collections/InvoicesCollection'
-    ], function (_, Backbone, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) {
+    ], function (_, Backbone, notificationcenter, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) {
 
 	var StoreModel = Backbone.Model.extend({
 
@@ -174,7 +175,7 @@ define([
 			var dueDate = this._addMinutesToDate(dueDate, minutesToAdd);
 
 			// check if due date respects minimum duration
-			var spareMinutes = Math.ceil((dueDate - now) / 60000),
+			var spareMinutes = Math.ceil((dueDate - now) / 60000) - 1,
 				minimumDuration = this.getMinimumDuration();
 
 			if (spareMinutes < minimumDuration) {

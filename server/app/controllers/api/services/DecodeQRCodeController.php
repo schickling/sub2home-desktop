@@ -4,6 +4,7 @@ use App\Controllers\Api\Common\BaseApiController;
 use Input;
 use Validator;
 use App\Controllers\Services\Image\DecodeQRCodeService;
+use App\Exceptions\ServiceException;
 
 use App\Models\StoreModel;
 
@@ -30,7 +31,7 @@ class DecodeQRCodeController extends BaseApiController
 		// prepare data
 		$filePath = app_path() . '/storage/cache/' . uniqid();
 		$base64 = $input['image'];
-		$imagePattern = '/^data:image\/(png|jpg);base64,/';
+		$imagePattern = '/^data:image\/(png|jpeg);base64,/';
 
 		// check if base64 is an image
 		if (!preg_match($imagePattern, $base64)) {
