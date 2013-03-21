@@ -30,6 +30,7 @@ define([
 			':alias/tablett': '_showStoreTray',
 			':alias/danke': '_showStoreCheckout',
 			':alias/info': '_showStoreInfo',
+			':alias/login': '_showStoreLogin',
 
 			// store (logged in)
 			':alias/einstellungen': '_showStoreConfig',
@@ -277,6 +278,15 @@ define([
 				this._loadMainView('views/store/info/MainView');
 
 			}
+
+		},
+
+		_showStoreLogin: function (alias) {
+
+			this.navigate('login', {
+				replace: true,
+				trigger: true
+			});
 
 		},
 
