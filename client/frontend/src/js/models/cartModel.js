@@ -209,7 +209,7 @@ define([
 				orderedItemsCollection = orderModel.get('orderedItemsCollection'),
 				numberOfOrderedItems = 0;
 
-			_.each(orderedItemsCollection.models, function(orderedItemModel) {
+			_.each(orderedItemsCollection.models, function (orderedItemModel) {
 				numberOfOrderedItems += orderedItemModel.get('amount');
 			});
 
@@ -232,55 +232,52 @@ define([
 			});
 		},
 
-		getDueDate: function() {
+
+		/*
+		 * Due date stuff
+		 */
+
+		getDueDate: function () {
 			var orderModel = this.get('orderModel');
 
 			return orderModel.get('dueDate');
 		},
 
-		getValidDueDate: function () {
+		_getValidDueDate: function (options) {
+			var storeModel = stateModel.get('storeModel');
 
-			if (!this._isDueDateValid()) {
-				this._correctDueDate();
-			}
-
-			return this.getDueDate();
+			return storeModel.getValidDueDate(options);
 		},
 
-		setDueDate: function (dueDate) {
-			var orderModel = this.get('orderModel');
-
-			orderModel.set('dueDate', dueDate);
-		},
-
-		_isDueDateValid: function () {
-			return this.getSpareMinutes() >= 0;
-		},
-
-		_correctDueDate: function () {
+		validateDueDate: function () {
 			var orderModel = this.get('orderModel'),
-				now = new Date(),
-				storeModel = stateModel.get('storeModel'),
-				minimumDuration = storeModel.getMinimumDuration();
+				options = {
+					dueDate: this.getDueDate()
+				};
 
-			var dueDate = new Date(now.getTime() + minimumDuration * 60000); // 60 * 1000
-			orderModel.set({
-				dueDate: dueDate
-			});
+			orderModel.set('dueDate', this._getValidDueDate(options));
 		},
 
-		// time between duedate and now + mininum duration
-		getSpareMinutes: function () {
-			var now = new Date(),
-				orderModel = this.get('orderModel'),
-				dueDate = orderModel.get('dueDate'),
-				minimumDuration = this.getMinimumDuration(),
-				// one minute tolerance
-				spareMilliseconds = dueDate.getTime() - now.getTime() - minimumDuration * 59000;
+		isValidDueDateChange: function (minutesToAdd) {
 
+			var options = {
+				dueDate: this.getDueDate(),
+				minutesToAdd: minutesToAdd
+			};
 
-			return parseInt(spareMilliseconds / 60000, 10);
+			return this._getValidDueDate(options) !== null;
 		},
+
+		changeDueDate: function (minutesToAdd) {
+			var orderModel = this.get('orderModel'),
+				options = {
+					dueDate: this.getDueDate(),
+					minutesToAdd: minutesToAdd
+				};
+
+			orderModel.set('dueDate', this._getValidDueDate(options));
+		},
+
 
 		getMinimumDuration: function () {
 			var storeModel = stateModel.get('storeModel');

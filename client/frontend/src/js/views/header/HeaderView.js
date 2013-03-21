@@ -18,7 +18,8 @@ define([
 
 		events: {
 			'click #logo': '_goToHomeHome',
-			'click #roleSwitch': '_switchContentView'
+			'click #roleSwitch': '_switchContentView',
+			'click #toTheInfo': '_goToInfo'
 		},
 
 		initialize: function () {
@@ -151,6 +152,14 @@ define([
 						router.navigate('dashboard', true);
 					}
 				}
+			}
+		},
+
+		_goToInfo: function() {
+			if (stateModel.currentRouteIsStoreRelated()) {
+				router.navigate('store/info', true);
+			} else {
+				router.navigate('home/info', true);
 			}
 		}
 

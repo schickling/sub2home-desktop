@@ -8,7 +8,7 @@ define([
 	var DeliveryTimeModel = Backbone.Model.extend({
 
 		defaults: {
-			dayOfWeek: 0,
+			dayOfWeek: 0, // A Number, from 0 to 6, Sunday is 0, Monday is 1, and so on.
 			startMinutes: 0,
 			endMinutes: 60
 		},

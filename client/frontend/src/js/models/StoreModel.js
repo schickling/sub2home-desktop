@@ -86,7 +86,7 @@ define([
 		parse: function (response) {
 
 			if (response) {
-				
+
 				if (response.hasOwnProperty('addressModel')) {
 					response.addressModel = new AddressModel(response.addressModel);
 				}
@@ -109,8 +109,6 @@ define([
 		},
 
 		validate: function (attributes) {
-
-			var startMinutes = attributes.startMinutes;
 
 			if (!attributes.allowsPaymentPaypal && !attributes.allowsPaymentEc && !attributes.allowsPaymentCash) {
 				return 'at least one payment method has to be selected';
@@ -160,6 +158,75 @@ define([
 
 		},
 
+		getValidDueDate: function (options) {
+			var now = new Date();
+
+			// prepare options
+			options = options || {};
+			options.dueDate = options.dueDate || now;
+			options.minutesToAdd = options.minutesToAdd || 0;
+
+			var checkOnly = options.minutesToAdd !== 0;
+
+			// add minutes
+			var dueDate = this._addMinutesToDate(options.dueDate, options.minutesToAdd);
+
+			// check if due date respects minimum duration
+			var spareMinutes = (dueDate - now) / 60000,
+				minimumDuration = this.getMinimumDuration();
+
+			if (spareMinutes < minimumDuration) {
+				if (checkOnly) {
+					return null;
+				}
+
+				dueDate = this._addMinutesToDate(dueDate, minimumDuration - spareMinutes);
+			}
+
+			var dueDateCouldBeFound = false,
+				contemporaryDayOfWeek = now.getDay(),
+				contemporaryTotalMinutes = now.getMinutes() + now.getHours() * 60,
+				totalMinutesOfDueDate = dueDate.getMinutes() + dueDate.getHours() * 60,
+				deliveryTimesCollection = this.get('deliveryTimesCollection'),
+				contemporaryDeliveryTimeModels = deliveryTimesCollection.filter(function (deliveryTimeModel) {
+					return deliveryTimeModel.get('dayOfWeek') === contemporaryDayOfWeek && deliveryTimeModel.get('endMinutes') > (contemporaryTotalMinutes + minimumDuration);
+				});
+
+			// find next delivery time model
+			var nextDeliveryTimeModel;
+
+			_.each(contemporaryDeliveryTimeModels, function (deliveryTimeModel) {
+				if (!nextDeliveryTimeModel || nextDeliveryTimeModel.get('startMinutes') > deliveryTimeModel.get('startMinutes')) {
+					nextDeliveryTimeModel = deliveryTimeModel;
+				}
+			});
+
+
+			if (nextDeliveryTimeModel) {
+
+				if (nextDeliveryTimeModel.get('endMinutes') < totalMinutesOfDueDate) {
+					return null;
+				}
+
+				// increase due date so it matches a delivery time
+				if (nextDeliveryTimeModel.get('startMinutes') > totalMinutesOfDueDate) {
+
+					// needed to check if changes would be valid
+					if (checkOnly) {
+						return null;
+					}
+
+					dueDate = this._addMinutesToDate(dueDate, nextDeliveryTimeModel.get('startMinutes') - totalMinutesOfDueDate);
+				}
+
+				return dueDate;
+
+			} else {
+				return null;
+			}
+
+		},
+
 		_listenForDeliveryAreasCollectionChanges: function () {
 			var deliveryAreasCollection = this.get('deliveryAreasCollection');
 
@@ -178,6 +245,10 @@ define([
 					this.trigger('change');
 				}, this);
 			}
+		},
+
+		_addMinutesToDate: function (date, minutes) {
+			return new Date(date.getTime() + minutes * 60000);
 		}
 
 	});

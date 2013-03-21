@@ -23,6 +23,9 @@ define([
 		intervalTimer: null,
 
 		initialize: function () {
+
+			cartModel.validateDueDate();
+
 			this._render();
 
 			// keep due date in time
@@ -33,12 +36,13 @@ define([
 
 		_render: function () {
 
-			var dueDate = cartModel.getValidDueDate(),
+			var dueDate = cartModel.getDueDate(),
 				dueMoment = moment(dueDate),
-				spareMinutes = cartModel.getSpareMinutes(),
 				json = {
-					hoursAreMinimum: spareMinutes < 60,
-					minutesAreMinimum: spareMinutes < 1,
+					hoursAreMinimum: !this._isValidDueDateChange(-60),
+					minutesAreMinimum: !this._isValidDueDateChange(-1),
+					hoursAreMaximum: !this._isValidDueDateChange(60),
+					minutesAreMaximum: !this._isValidDueDateChange(1),
 					dueHours: dueMoment.format('HH'),
 					dueMinutes: dueMoment.format('mm'),
 					minimumDuration: cartModel.getMinimumDuration()
@@ -50,11 +54,9 @@ define([
 		_initializeIntervalTimer: function () {
 			var self = this;
 			this.intervalTimer = setInterval(function () {
-				var spareMinutes = cartModel.getSpareMinutes();
 
-				if (spareMinutes === 0) {
-					self._addMinute();
-				}
+				cartModel.validateDueDate();
+				self.render();
 
 			}, 60000);
 		},
@@ -75,17 +77,12 @@ define([
 			this._addMinutesToDueDate(-1);
 		},
 
-		_addMinutesToDueDate: function (minutes) {
-			var currentDueDate = cartModel.getValidDueDate(),
-				newDueDate = new Date(currentDueDate.getTime() + minutes * 60000),
-				spareMinutes = cartModel.getSpareMinutes();
+		_isValidDueDateChange: function (minutesToAdd) {
+			return cartModel.isValidDueDateChange(minutesToAdd);
+		},
 
-			if (spareMinutes + minutes >= 0) {
-				cartModel.setDueDate(newDueDate);
-			} else {
-				notificationcenter.notify('views.store.tray.invalidDueTime');
-			}
-
+		_addMinutesToDueDate: function (minutesToAdd) {
+			cartModel.changeDueDate(minutesToAdd);
 			this._render();
 		},
 
