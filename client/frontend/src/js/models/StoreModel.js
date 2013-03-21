@@ -163,16 +163,18 @@ define([
 
 			// prepare options
 			options = options || {};
-			options.dueDate = options.dueDate || now;
-			options.minutesToAdd = options.minutesToAdd || 0;
 
-			var checkOnly = options.minutesToAdd !== 0;
+			// prepare variables
+			var checkOnly = options.minutesToAdd !== undefined,
+				dateWasGiven = options.dueDate !== undefined,
+				minutesToAdd = options.minutesToAdd || 0,
+				dueDate = options.dueDate || now;
 
 			// add minutes
-			var dueDate = this._addMinutesToDate(options.dueDate, options.minutesToAdd);
+			var dueDate = this._addMinutesToDate(dueDate, minutesToAdd);
 
 			// check if due date respects minimum duration
-			var spareMinutes = (dueDate - now) / 60000,
+			var spareMinutes = Math.ceil((dueDate - now) / 60000),
 				minimumDuration = this.getMinimumDuration();
 
 			if (spareMinutes < minimumDuration) {
@@ -189,10 +191,10 @@ define([
 				totalMinutesOfDueDate = dueDate.getMinutes() + dueDate.getHours() * 60,
 				deliveryTimesCollection = this.get('deliveryTimesCollection'),
 				contemporaryDeliveryTimeModels = deliveryTimesCollection.filter(function (deliveryTimeModel) {
-					return deliveryTimeModel.get('dayOfWeek') === contemporaryDayOfWeek && deliveryTimeModel.get('endMinutes') > (contemporaryTotalMinutes + minimumDuration);
+					return deliveryTimeModel.get('dayOfWeek') === contemporaryDayOfWeek && deliveryTimeModel.get('endMinutes') >= totalMinutesOfDueDate;
 				});
 
-			// find next delivery time model
+			// find delivery time model with smallest start minutes
 			var nextDeliveryTimeModel;
 
 			_.each(contemporaryDeliveryTimeModels, function (deliveryTimeModel) {
@@ -204,11 +206,13 @@ define([
 
 			if (nextDeliveryTimeModel) {
 
+				// check if due date still matches delivery time model
 				if (nextDeliveryTimeModel.get('endMinutes') < totalMinutesOfDueDate) {
-					return null;
+					// try again and reset given duedate
+					return this.getValidDueDate();
 				}
 
-				// increase due date so it matches a delivery time
+				// increase due date so it matches a delivery time if its to small
 				if (nextDeliveryTimeModel.get('startMinutes') > totalMinutesOfDueDate) {
 
 					// needed to check if changes would be valid

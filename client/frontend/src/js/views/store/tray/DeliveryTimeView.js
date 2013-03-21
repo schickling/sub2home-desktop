@@ -56,7 +56,7 @@ define([
 			this.intervalTimer = setInterval(function () {
 
 				cartModel.validateDueDate();
-				self.render();
+				self._render();
 
 			}, 60000);
 		},
