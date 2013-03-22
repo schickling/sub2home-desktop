@@ -216,6 +216,41 @@ define([
 				className: 'warning'
 			},
 
+			'views.store.assortment.menuUpgrades.error': {
+				title: 'Menu-Upgrades unverändert',
+				description: 'Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			},
+
+			'views.store.assortment.menuUpgrades.success.isNotActive': {
+				title: 'Menu-Upgrades deaktiviert',
+				description: 'Die gewählten Menu-Upgrades wurden aus Ihrem Sortiment entfernt.',
+				className: 'success'
+			},
+
+			'views.store.assortment.menuUpgrades.success.isActive': {
+				title: 'Menu-Upgrades aktiviert',
+				description: 'Die gewählten Menu-Upgrades sind jetzt im Store verfügbar.',
+				className: 'success'
+			},
+
+			'views.store.assortment.menuBundles.error': {
+				title: 'Menu-Bundles unverändert',
+				description: 'Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			},
+
+			'views.store.assortment.menuBundles.success.isNotActive': {
+				title: 'Menu-Bundles deaktiviert',
+				description: 'Die gewählten Menu-Bundles wurden aus Ihrem Sortiment entfernt.',
+				className: 'success'
+			},
+
+			'views.store.assortment.menuBundles.success.isActive': {
+				title: 'Menu-Bundles aktiviert',
+				description: 'Die gewählten Menu-Bundles sind jetzt im Store verfügbar.',
+				className: 'success'
+			},
 
 
 			// store.config
@@ -316,7 +351,41 @@ define([
 				className: 'error'
 			},
 
+			'views.store.config.deliveryArea.change.error': {
+				title: 'Änderung fehlgeschlagen',
+				description: 'Das Liefergebiet konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			},
 
+			'views.store.config.deliveryArea.change.success': {
+				title: 'Liefergebiet aktualisiert',
+				description: 'Das Liefergebiet wurde erfolgreich geändert.',
+				className: 'success'
+			},
+
+			'views.store.config.deliveryTime.change.error': {
+				title: 'Änderung fehlgeschlagen',
+				description: 'Die Lieferzeit konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support.',
+				className: 'error'
+			},
+
+			'views.store.config.deliveryTime.change.success': {
+				title: 'Lieferzeit aktualisiert',
+				description: 'Die Lieferzeit wurde erfolgreich geändert.',
+				className: 'success'
+			},
+
+			'views.store.config.deliveryArea.add.success': {
+				title: 'Liefergebiet hinzugefügt',
+				description: 'Die Liefergebiete wurden erfolgreich aktualisiert.',
+				className: 'success'
+			},
+
+			'views.store.config.deliveryTime.add.success': {
+				title: 'Lieferzeit hinzugefügt',
+				description: 'Die Lieferzeiten wurden erfolgreich aktualisiert',
+				className: 'success'
+			},
 
 			// store.home
 
@@ -338,7 +407,7 @@ define([
 
 
 
-			// store.selection
+			// store.tray
 
 			'views.store.tray.minimumNotReached': {
 				title: 'Mindestbestellwert',
@@ -364,6 +433,23 @@ define([
 				className: 'info'
 			},
 
+			'views.store.tray.subcard.invalidFileType': {
+				title: 'Falsches Dateiformat',
+				description: 'Das hat leider das falsche Dateiformat. Lade eine JPG oder PNG-Datei hoch, um deine Subcard zu scannen.',
+				className: 'error'
+			},
+
+			'views.store.tray.subcard.success': {
+				title: 'Subcard gescannt',
+				description: 'Deine Subcard wurde erfolgreich gescannt. Damit bekommst du Punkte für diese Bestellung',
+				className: 'success'
+			},
+
+			'views.store.tray.subcard.invalidImage': {
+				title: 'Scannen fehlgeschlagen',
+				description: 'Deine Subcard konnte leider nicht gescannt werden. Versuche, den Code gerade von oben zu fotografieren, und probier es nochmal.',
+				className: 'error'
+			},
 
 
 			// store.dashboard
