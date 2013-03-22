@@ -4,11 +4,12 @@ define([
     'underscore',
     'backbone',
     'router',
+    'notificationcenter',
     'models/stateModel',
     'models/clientModel',
     'models/authentificationModel',
     'text!templates/header/ClientTemplate.html'
-    ], function ($, _, Backbone, router, stateModel, clientModel, authentificationModel, ClientTemplate) {
+    ], function ($, _, Backbone, router, notificationcenter, stateModel, clientModel, authentificationModel, ClientTemplate) {
 
 	$.objectOfArray = function (a) {
 		var c = jQuery();
@@ -38,8 +39,16 @@ define([
 			'click #bStoreConfig': '_navigateToStoreConfig',
 			'click #bClientConfig': '_navigateToClientConfig',
 			'click #bStoreAssortment': '_navigateToStoreAssortment',
-			'click #bStoreDashboard': '_navigateToStoreOrders',
-			'click #bClientDashboard': '_navigateToClientDashboard'
+			'click #bStoreDashboard': '_navigateToStoreDashboard',
+			'click #bClientDashboard': '_navigateToClientDashboard',
+			'mouseenter #bSignout': '_tooltipLogout',
+			'mouseenter #bStoreConfig': '_tooltipForStoreConfig',
+			'mouseenter #bClientConfig': '_tooltipForClientConfig',
+			'mouseenter #bStoreAssortment': '_tooltipForStoreAssortment',
+			'mouseenter #bStoreDashboard': '_tooltipForStoreDashboard',
+			'mouseenter #bClientDashboard': '_tooltipForClientDashboard',
+			'mouseleave .iBtn': '_dismissTooltip'
+
 		},
 
 		initialize: function () {
@@ -217,7 +226,7 @@ define([
 			router.navigate('store/sortiment', true);
 		},
 
-		_navigateToStoreOrders: function () {
+		_navigateToStoreDashboard: function () {
 			router.navigate('store/dashboard', true);
 		},
 
@@ -231,6 +240,40 @@ define([
 
 		remove: function () {
 			stateModel.off('change:currentRoute', this._selectViewFromCurrentRoute, this);
+		},
+
+		_tooltipLogout: function () {
+			var offset = this.$buttonLogout.offset();
+			notificationcenter.tooltip('views.header.logout', offset.top + 54, offset.left + 14);
+		},
+
+		_tooltipForStoreConfig: function () {
+			var offset = this.$buttonStoreConfig.offset();
+			notificationcenter.tooltip('views.header.store.config', offset.top + 24, offset.left + 14);
+		},
+
+		_tooltipForStoreAssortment: function () {
+			var offset = this.$buttonStoreAssortment.offset();
+			notificationcenter.tooltip('views.header.store.assortment', offset.top + 24, offset.left + 14);
+		},
+
+		_tooltipForStoreDashboard: function () {
+			var offset = this.$buttonStoreDashboard.offset();
+			notificationcenter.tooltip('views.header.store.dashboard', offset.top + 24, offset.left + 14);
+		},
+
+		_tooltipForClientDashboard: function () {
+			var offset = this.$buttonClientDashboard.offset();
+			notificationcenter.tooltip('views.header.client.dashboard', offset.top + 54, offset.left + 14);
+		},
+
+		_tooltipForClientConfig: function () {
+			var offset = this.$buttonClientConfig.offset();
+			notificationcenter.tooltip('views.header.client.config', offset.top + 54, offset.left + 14);
+		},
+
+		_dismissTooltip: function () {
+			notificationcenter.hideTooltip();
 		}
 
 	});
