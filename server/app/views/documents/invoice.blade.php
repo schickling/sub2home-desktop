@@ -1,4 +1,8 @@
-<style>
+<!DOCTYPE html>
+<html style="padding: 0; margin: 0" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <style>
   .addressField {
     width: 84mm;
     line-height: 1.5;
@@ -86,7 +90,11 @@
   width: 160mm;
 }
 </style>
-<div><table cellpadding="0" cellspacing="0">
+  </head>
+  <body style="font-family: Helvetica, Arial, sans-serif; padding: 30px 0; margin: 0">
+
+
+<table cellpadding="0" style="width: 100%; margin-bottom: 50px" cellspacing="0">
 
 <!-- Pagehead -->
 
@@ -94,16 +102,18 @@
   <!-- Logo Row -->
 
     <tr>
-      <td colspan="2" style="height: 11mm;"></td>
+      <td style="padding-left: 20px" colspan="2">
+        <h2>Neue Bestellung <span style="font-weight: normal; font-size: 18px">#0348273</span></h2>
+      </td>
     </tr>
 
   <!-- Address & sub2home-Info Row -->
     <tr>
-      <td style="width: 84mm; height: 11mm"></td>
 
       <!-- sub2home-Info Table -->
+      <td></td>
 
-      <td rowspan="2"><table class="sub2homeInfo"><tbody>
+      <td rowspan="2" align="right"><table class="sub2homeInfo"><tbody>
         <tr>
           <td colspan="6" style="height: 7mm"></td>
         </tr>
@@ -160,8 +170,8 @@
     </tbody></table></td>
     </tr>
     <tr>
-      <td style="width: 6mm"></td>
-      <td class="addressField">
+      <td style="padding-left: 20px" class="addressField">
+        An<br>
         <b>{{ $addressFirstName }} {{ $addressLastName }}</b><br>
         {{ $addressStreet }}<br>
         {{ $addressPostal }} {{ $addressCity }}
@@ -170,115 +180,144 @@
   </tbody>
 </table>
 
-<!-- Title & Store-Info -->
-  
-<table>
-  <tbody>
-    <tr>
-      <td colspan="4" style="height: 17mm"></td>
-    </tr>
-    <tr>
-      <td style="width: 65mm"></td>
+<!-- ORDER CONTENT START -->
+
+<div style="padding: 0 20px">
+
+
+
+
+
+<!-- ORDER BODY START -->
+
+
+  <table style="border: 1px solid #e4e4e4; width:100%" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center;" rowspan="2" width="30">
+          <table cellpadding="3">
+            <tbody>
+              <tr>
+                <!-- Amount -->
+                <td>3x</td>
+                <!-- / Amount -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td height="0"></td>
+        <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
+          <table width="70" style="text-align: right" cellpadding="3">
+            <tbody>
+              <tr>
+                <!-- Price -->
+                <td>05.30€</td>
+                <!-- / Price -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <!-- Title -->
+        <td style="font-size: 20px; padding: 15px; font-weight: bold" rowspan="2">SUB: 2 FT</td>
+        <!-- / Title -->
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- INGREDIENTS -->
       
-      <!-- Store Info -->
-      
-      <td class="storeInfo"><table cellpadding="0" cellspacing="0"><tbody>
-        <tr>
-          <td colspan="6" style="text-align: right">Store {{ $infoStoreTitle }} ({{ $infoStoreNumber }})</td>
-        </tr>
-        <tr>
-          <td style="height: 2mm" colspan="6"></td>
-        </tr>
-        <tr>
-          <td class="siTag1">ZEITRAUM</td>
-          <td class="siSeparator"></td>
-          <td style="width: 18mm">{{ $infoTimeSpan }}</td>
-          <td class="siTag2">RG-NR</td>
-          <td class="siSeparator"></td>
-          <td style="width: 16mm">{{ $infoInvoiceNumber }}</td>
-        </tr>
-        <tr>
-          <td class="siTag1">DATUM</td>
-          <td class="siSeparator"></td>
-          <td style="width: 18mm">{{ $infoInvoiceDate }}</td>
-          <td class="siTag2">KD-NR</td>
-          <td class="siSeparator"></td>
-          <td style="width: 16mm">{{ $infoClientNumber }}</td>
-        </tr>
-      </tbody></table></td>
-      <td style="width: 22mm;"></td>
-    </tr>
-  </tbody>
-</table>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <table style="padding: 0 6px 15px">
+            <tbody>
+              <tr>
+                <td style="padding-right: 15px"> 
+                  <table style="border-bottom: 1px solid #e0e0e0; padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">BROT</td>
+                        <td >
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">VK</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                </td>
+                <td colspan="2">
+                  <table style="border-bottom: 1px solid #e0e0e0; padding: 5px; width: 100%">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">GEMÜSE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">TO</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">OL</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">SA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">PA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">EG</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">KÄSE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CC</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
 
-<!-- Numbers -->
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">EXTRAS</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">BC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DF</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
 
-<table>
-  <tbody>
-    <tr>
-      <td style="height: 19mm" colspan="5"></td>
-    </tr>
-    <tr>
-      <td style="width: 5mm"></td>
-      <td class="numbersText">Wir vermittelten  Ihnen auf<br/>unserer Bestellplattform folgende<br/>Lieferungen im oben aufgeführten<br/>Zeitraum und stellen Ihnen diese<br/>hiermit in Rechnung.</td>
-      <td style="width: 16mm"></td>
-      <td><table class="nmbrs"><tbody>
-        <tr>
-          <td class="nmbrsMargin"></td>
-          <td class="nmbrsCol1">Summe Lieferungen</td>
-          <td class="nmbrsCol2"><b>{{ $total }}€</b></td>
-          <td class="nmbrsMargin"></td>
-        </tr>
-        <tr>
-          <td class="nmbrsMargin" rowspan="2"></td>
-          <td class="nmbrsCol1" style="font-size: 7pt; line-height:3.9" rowspan="2">Daraus ergibt sich folgende Provision:</td>
-          <td colspan="2" style="border-bottom: 1px solid #ccc"></td>
-        </tr>
-        <tr>
-          <td colspan="2"></td>
-        </tr>
-        <tr>
-          <td class="nmbrsMargin"></td>
-          <td class="nmbrsCol1">Summe Netto</td>
-          <td class="nmbrsCol2">{{ $netAmount }}€</td>
-          <td class="nmbrsMargin"></td>
-        </tr>
-        <tr>
-          <td class="nmbrsMargin"></td>
-          <td class="nmbrsCol1">MwSt (19%)</td>
-          <td class="nmbrsCol2">{{ $tax }}€</td>
-          <td class="nmbrsMargin"></td>
-        </tr>
-        <tr>
-          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; border-bottom: 1px solid #ccc; height: 3mm"></td>
-        </tr>
-        <tr>
-          <td colspan="4" cellpadding="0" cellspacing="0" style="line-height: 0.1; height: 2mm"></td>
-        </tr>
-        <tr>
-          <td class="nmbrsMargin"></td>
-          <td class="nmbrsCol1">Summe Brutto</td>
-          <td class="nmbrsCol2" style="font-weight: bold" cellpadding="3">{{ $grossAmount }}€</td>
-          <td class="nmbrsMargin"></td>
-        </tr>
-      </tbody></table></td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td colspan="3" style="height: 16mm"></td>
-    </tr>
-    <tr>
-      <td style="width: 5mm"></td>
-      <td class="fazit">Der Rechnungsbetrag in Höhe von {{ $grossAmount }}€ wird in den nächsten Tagen von ihrem Konto (Nr. {{ $bankaccountAccountNumber }}, BLZ {{ $bankaccountBankCodeNumber }}, {{ $bankaccountBankName }}) abgebucht. <br/>Vielen Dank für Ihre Zusammenarbeit.</td>
-      <td style="width: 5mm"></td>
-    </tr>
-  </tbody>
-</table>
-
-
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">SAUCE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CS</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
+<!-- ORDER BODY END -->
+
+
+  </body>
+</html>
