@@ -14,7 +14,7 @@
 
     <tr>
       <td style="padding-left: 20px">
-          <h2 style="font-size: 24px">Bestellung #0348273</h2>
+          <h2 style="font-size: 24px">Bestellung #{{ $orderNumber }}</h2>
       </td>
       <td style="text-align: right; padding-right: 30px; padding-bottom: 24px"><img src="http://sub2home.com/img/static/common/subway_logo.png"></td>
     </tr>

@@ -31,23 +31,38 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		$emailAddress = $storeModel->orderEmail;
 		$addressModel = $storeModel->addressModel;
 		$name = $addressModel->firstName . ' ' . $addressModel->lastName;
-		$subject = sprintf('Neue Bestellung #%s', $this->orderModel->number);
+		$subject = sprintf('Neue Bestellung #%s', $this->orderModel->id);
 
 		$data = $this->getDataForMail();
 
-		Mail::send('emails.customer.order', $data, function($mail) use ($emailAddress, $name, $subject)
+		Mail::send('emails.client.order', $data, function($mail) use ($emailAddress, $name, $subject)
 		{
 			$mail->from('bestellung@sub2home.com', 'sub2home');
 			$mail->to($emailAddress, $name);
 			$mail->subject($subject);
 		});
 
+		Log::info($emailAddress);
+		Log::info($name);
+
 		Log::info($subject);
 	}
 
 	private function getDataForMail()
 	{
-		return array();
+		$orderModel = $this->orderModel;
+		$addressModelOfCustomer = $orderModel->addressModel;
+
+		$data = array(
+			'addressFirstName'	=> $addressModelOfCustomer->firstName,
+			'addressLastName'	=> $addressModelOfCustomer->lastName,
+			'addressStreet'		=> $addressModelOfCustomer->street,
+			'addressPostal'		=> $addressModelOfCustomer->postal,
+			'addressCity'		=> $addressModelOfCustomer->city,
+			'orderNumber'		=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT)
+			);
+
+		return $data;
 	}
 
 
