@@ -57,12 +57,12 @@ define([
 				model: this.model
 			});
 
-			this.subViews.deliveryAreasView = new DeliveryAreasView({
+			new DeliveryAreasView({
 				el: this.$('#deliveryAreas'),
 				collection: this.model.get('deliveryAreasCollection')
 			});
 
-			this.subViews.deliveryTimesView = new DeliveryTimesView({
+			new DeliveryTimesView({
 				el: this.$('#deliveryTimes'),
 				collection: this.model.get('deliveryTimesCollection')
 			});
