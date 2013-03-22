@@ -49,7 +49,7 @@ define([
 			this._isSetup = true;
 		},
 
-		_forceSSL: function () {
+		forceSSL: function () {
 			if (location.protocol !== 'https:') {
 				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 			}
@@ -71,7 +71,7 @@ define([
 			}
 
 			// force ssl
-			this._forceSSL();
+			this.forceSSL();
 
 			// validate token
 			var tokenIsValid = this._hasValidToken();
@@ -85,7 +85,7 @@ define([
 		login: function (number, password) {
 
 			// force ssl
-			this._forceSSL();
+			this.forceSSL();
 
 			var isLoggedIn = false,
 				self = this;
@@ -130,7 +130,7 @@ define([
 		logout: function () {
 
 			// force ssl
-			this._forceSSL();
+			this.forceSSL();
 
 			var isLoggedOut = false,
 				self = this;

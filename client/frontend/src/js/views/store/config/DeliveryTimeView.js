@@ -30,7 +30,6 @@ define([
 				this._render();
 			});
 
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -127,10 +126,8 @@ define([
 			$input.blur();
 		},
 
-		_listenForDestory: function () {
-			this.parentView.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
 		}
 
 	});

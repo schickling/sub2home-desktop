@@ -43,7 +43,6 @@ define([
 				gmaps.event.trigger(map, 'resize');
 				self._addMarker();
 				self._listenForCoordinateChanges();
-				self._listenForDestory();
 			});
 
 		},
@@ -73,10 +72,8 @@ define([
 			});
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
 		}
 
 	});

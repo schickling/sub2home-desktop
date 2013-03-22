@@ -4,11 +4,12 @@ define([
     'underscore',
     'backbone',
     'router',
+    'notificationcenter',
     'models/authentificationModel',
     'models/stateModel',
     'views/PageView',
     'text!templates/client/login/MainTemplate.html'
-    ], function ($, _, Backbone, router, authentificationModel, stateModel, PageView, MainTemplate) {
+    ], function ($, _, Backbone, router, notificationcenter, authentificationModel, stateModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -18,12 +19,16 @@ define([
 		$password: null,
 		$submit: null,
 
+		loginAllowed: false,
+
 		events: {
 			'keyup #login input': '_evalKeyboard',
 			'click #loginSubmit': '_login'
 		},
 
 		initialize: function () {
+
+			authentificationModel.forceSSL();
 
 			this._render();
 
@@ -46,6 +51,12 @@ define([
 		},
 
 		_login: function () {
+
+			if (!this.loginAllowed) {
+				notificationcenter.notify('models.authentificationModel.dataWrong');
+				return;
+			}
+
 			var number = this.$number.val(),
 				password = this.$password.val(),
 				loginSucceded;
@@ -66,6 +77,7 @@ define([
 			// listen for enter
 			if (e.keyCode === 13) {
 				this._login();
+				return;
 			}
 
 			var number = this.$number.val(),
@@ -76,10 +88,12 @@ define([
 				this.$submit.stop().animate({
 					opacity: 1
 				});
+				this.loginAllowed = true;
 			} else {
 				this.$submit.stop().animate({
 					opacity: 0.5
 				});
+				this.loginAllowed = false;
 			}
 
 		}

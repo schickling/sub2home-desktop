@@ -21,8 +21,6 @@ define([
 
 			// since collection is loaded async the number has to be calculated on complete
 			this.listenTo(this.collection, 'sync', this._countItems);
-
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -65,10 +63,8 @@ define([
 			this.$loadbar.width(relativeWidth);
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
 		}
 
 	});

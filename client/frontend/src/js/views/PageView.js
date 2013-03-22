@@ -300,7 +300,7 @@ define([
 				subView = this.subViews[key];
 
 				if (subView) {
-					subView.trigger('destroy');
+					subView.destroy();
 				}
 			}
 		}

@@ -25,7 +25,6 @@ define([
 			this._initializeCollection();
 			this._renderControl();
 			this._fetchCollection();
-			this._listenForDestory();
 		},
 
 		_cacheDom: function () {
@@ -50,10 +49,8 @@ define([
 			});
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.controlView.trigger('destroy');
-			}, this);
+		destroy: function () {
+			this.controlView.destroy();
 		}
 
 	});

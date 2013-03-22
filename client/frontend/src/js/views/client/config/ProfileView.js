@@ -22,7 +22,6 @@ define([
 		initialize: function () {
 			this._render();
 			this._listenToNameChange();
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -147,10 +146,8 @@ define([
 			}
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
 		}
 
 

@@ -28,8 +28,6 @@ define([
 
 			// keep due date in time
 			this._initializeIntervalTimer();
-
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -85,10 +83,8 @@ define([
 			this._render();
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				clearInterval(this.intervalTimer);
-			}, this);
+		destroy: function () {
+			clearInterval(this.intervalTimer);
 		}
 
 	});

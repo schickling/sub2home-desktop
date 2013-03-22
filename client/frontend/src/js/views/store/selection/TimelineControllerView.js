@@ -77,7 +77,6 @@ define([
 			// initialize listeners
 			this._initializeListeners();
 
-			this._listenForDestory();
 		},
 
 		_chacheDOM: function () {
@@ -408,11 +407,9 @@ define([
 			});
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				$(document).off('keyup');
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			$(document).off('keyup');
+			this.stopListening();
 		},
 
 

@@ -1,10 +1,10 @@
 // Filename: src/js/views/store/selection/OrderedArticlesView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/selection/OrderedArticleView'
-	], function ($, _, Backbone, OrderedArticleView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/selection/OrderedArticleView'
+    ], function ($, _, Backbone, OrderedArticleView) {
 
 	var OrderedArticlesView = Backbone.View.extend({
 
@@ -13,8 +13,6 @@ define([
 
 			// listen for further ordered articles to be added
 			this.listenTo(this.collection, 'add', this._renderOrderedArticle);
-
-			this._listenForDestory();
 
 		},
 
@@ -32,10 +30,11 @@ define([
 			});
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
+
+			// needed since multiplee ordered articles are listening
+			this.trigger('destroy');
 		}
 
 	});

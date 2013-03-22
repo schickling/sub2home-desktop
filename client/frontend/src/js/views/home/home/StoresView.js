@@ -27,6 +27,13 @@ define([
 
 		rotateInterval: null,
 
+		userInteractionTookPlace: false,
+
+		events: {
+			'keyup #locationSelectionInput': '_checkInputKeyUp',
+			'keydown #locationSelectionInput': '_checkInputKeyDown'
+		},
+
 		// cached dom
 		$search: null,
 		$deliveryAreaSelection: null,
@@ -107,30 +114,33 @@ define([
 							latLng: latlng
 						}, function (results, status) {
 
-							// stop location rotation
-							self._stopRotateLocation();
+							if (!self.userInteractionTookPlace) {
 
+								// stop location rotation
+								self._stopRotateLocation();
 
-							if (status == gmaps.GeocoderStatus.OK) {
-								var postal = 0;
+								if (status == gmaps.GeocoderStatus.OK) {
+									var postal = 0;
 
-								// parse results for postal
-								for (i = 0; i < results[0].address_components.length; i++) {
-									for (j = 0; j < results[0].address_components[i].types.length; j++) {
-										if (results[0].address_components[i].types[j] == "postal_code") {
-											postal = results[0].address_components[i].long_name;
-											break;
+									// parse results for postal
+									for (i = 0; i < results[0].address_components.length; i++) {
+										for (j = 0; j < results[0].address_components[i].types.length; j++) {
+											if (results[0].address_components[i].types[j] == "postal_code") {
+												postal = results[0].address_components[i].long_name;
+												break;
+											}
 										}
 									}
+
+									// write postal back to search field
+									self.$search.val(postal);
+
+									self._lookUpStoresForPostal(postal, false);
+
+								} else {
+									notificationcenter.notify('views.home.home.lookupFailed');
 								}
 
-								// write postal back to search field
-								self.$search.val(postal);
-
-								self.lookUpStoresForPostal(postal, false);
-
-							} else {
-								notificationcenter.notify('views.home.home.lookupFailed');
 							}
 						});
 					}, function () {
@@ -141,7 +151,51 @@ define([
 			}
 		},
 
-		lookUpStoresForPostal: function (postal) {
+		_checkInputKeyUp: function (e) {
+			var input = e.target.value,
+				postal = parseInt(input, 10);
+
+			if (postal > 9999) {
+				this._lookUpStoresForPostal(postal);
+			}
+		},
+
+		_checkInputKeyDown: function (e) {
+
+			// stop location automation on user interaction
+			this._stopLocationDetermination();
+
+			var val = e.target.value,
+				offset, tooltipTop, tooltipLeft;
+
+			// show tooltip on wrong input
+			if (e.keyCode < 48 || e.keyCode > 57) { // Ensure that it is a number
+				if (e.keyCode == 46 || e.keyCode == 8 || e.keyCode == 13 || // Allow backspace, delete and enter
+				e.keyCode > 95 && e.keyCode < 106 || // allow numblock
+				e.keyCode > 36 && e.keyCode < 41) { // allow arrow keys
+					notificationcenter.hideTooltip();
+				} else {
+					offset = this.$search.offset();
+					tooltipTop = offset.top + 72;
+					tooltipLeft = window.innerWidth * 0.5 + val.length * 32; // offset for each letter
+					notificationcenter.tooltip('views.home.home.input', tooltipTop, tooltipLeft);
+					return false;
+				}
+			} else if (val.length > 4) {
+				return false;
+			} else {
+				notificationcenter.hideTooltip();
+			}
+		},
+
+		_stopLocationDetermination: function () {
+			if (!this.userInteractionTookPlace) {
+				this._stopRotateLocation();
+				this.userInteractionTookPlace = true;
+			}
+		},
+
+		_lookUpStoresForPostal: function (postal) {
 
 			// set postal
 			this.postal = parseInt(postal, 10);
@@ -339,7 +393,10 @@ define([
 				marginLeft: -174
 			});
 
+		},
 
+		destroy: function () {
+			this._stopLocationDetermination();
 		}
 
 	});

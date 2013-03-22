@@ -20,8 +20,6 @@ define([
 
 			// keep due date in time
 			this._initializeCountdownTimer();
-
-			this._listenForDestory();
 		},
 
 		_initializeCountdownTimer: function () {
@@ -62,10 +60,8 @@ define([
 			return number;
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				clearInterval(this.countdownTimer);
-			}, this);
+		destroy: function () {
+			clearInterval(this.countdownTimer);
 		}
 
 

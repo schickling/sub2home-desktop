@@ -25,8 +25,6 @@ define([
 		initialize: function () {
 			this._render();
 			this._listenForDataChanges();
-
-			this._listenForDestory();
 		},
 
 		_render: function () {
@@ -80,7 +78,7 @@ define([
 			$iCart.addClass('clickable').animate({
 				right: 10,
 				color: $.Color('rgba(156,200,62,0.4)')
-			}, 250, function() {
+			}, 250, function () {
 				cartModel.set('termsAccepted', true);
 			});
 		},
@@ -170,10 +168,8 @@ define([
 
 		},
 
-		_listenForDestory: function () {
-			this.once('destroy', function () {
-				this.stopListening();
-			}, this);
+		destroy: function () {
+			this.stopListening();
 		}
 
 	});
