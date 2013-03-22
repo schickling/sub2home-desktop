@@ -25,11 +25,7 @@ class UpdateController extends ApiController
 			'city'				=> 'alpha_dash|required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// fetch deliveryAreaModel
 		$deliveryAreaModel = $this->getResourceModel();

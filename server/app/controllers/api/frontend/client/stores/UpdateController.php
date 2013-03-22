@@ -29,15 +29,11 @@ class UpdateController extends StoreRelatedApiController
 			'allowsPaymentPaypal'	=> 'boolean|required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// check if at least one payment method is selected
 		if (!$input['allowsPaymentCash'] and !$input['allowsPaymentEc'] and !$input['allowsPaymentPaypal']) {
-			return $this->respond(400);
+			$this->throwException(400);
 		}
 
 
@@ -51,7 +47,7 @@ class UpdateController extends StoreRelatedApiController
 		
 		if ($input['allowsPaymentPaypal'] and empty($storeModel->paymentPaypalAuthHeader)) {
 
-			return $this->respond(400);
+			$this->throwException(400);
 
 		// already authorized
 		} else {

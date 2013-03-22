@@ -20,11 +20,7 @@ class CreateController extends StoreRelatedApiController
 			'dayOfWeek'	=> 'numeric|required|between:0,6'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// create new deliveryTimeModel
 		$deliveryTimeModel = new DeliveryTimeModel(array(

@@ -27,9 +27,7 @@ class ShowController extends ApiController
 									->find($clientModelId);
 
 
-		if ($clientModel == null) {
-			return $this->respond(401);
-		}
+		$this->checkModelFound($clientModel);
 
 		foreach ($clientModel->storesCollection as $storeModel) {
 			$storeModel->numberOfUndoneOrders = $storeModel->ordersCollection()

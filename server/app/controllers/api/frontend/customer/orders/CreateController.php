@@ -60,12 +60,7 @@ class CreateController extends ApiController
 			'addressModel'				=> 'required'
 			);
 
-		$validator = Validator::make($this->input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
-
+		$this->validate($this->input, $rules);
 	}
 
 
@@ -80,9 +75,9 @@ class CreateController extends ApiController
 
 	private function checkModelIds()
 	{
-		if (!$this->articleModelIdsAreValid() or !$this->menuModelIdsAreValid() or !$this->ingredientModelIdsAreValid()) {
-			$this->reportError(400);
-		}
+		$this->checkArticleModelIdsAreValid();
+		$this->checkMenuModelIdsAreValid();
+		$this->checkIngredientModelIdsAreValid();
 	}
 
 	/**
@@ -110,7 +105,7 @@ class CreateController extends ApiController
 		// compare totals (relation to store needed for custom prices)
 		if ($this->orderModel->total != $this->input['total']) {
 			var_dump('total: ' . $this->orderModel->total);
-			$this->reportError(400);
+			$this->throwException(400);
 		}
 	}
 
@@ -136,7 +131,7 @@ class CreateController extends ApiController
 	private function validateOrder()
 	{	
 		if (!$this->orderModel->isValid()) {
-			$this->reportError(400);
+			$this->throwException(400);
 		}
 	}
 
@@ -157,10 +152,12 @@ class CreateController extends ApiController
 
 	private function computePaymentMethod()
 	{
+		// TODO
 		if ($this->orderModel->paymentMethod == 'paypal') {
 
 			$paypalUrl = PaypalService::getCheckoutUrl($this->orderModel);
-			$this->reportError(303, $paypalUrl);
+
+			return 'yolo';
 
 		} else {
 
@@ -178,21 +175,21 @@ class CreateController extends ApiController
 	*/
 
 
-	private function articleModelIdsAreValid()
+	private function checkArticleModelIdsAreValid()
 	{
-		return true;
+		
 	}
 
 
-	private function menuModelIdsAreValid()
+	private function checkMenuModelIdsAreValid()
 	{
-		return true;
+		
 	}
 
 
-	private function ingredientModelIdsAreValid()
+	private function checkIngredientModelIdsAreValid()
 	{
-		return true;
+		
 	}
 
 
@@ -229,7 +226,7 @@ class CreateController extends ApiController
 					$orderedItemModel->menu_upgrade_model_id = $menuUpgradeModel->id;
 				}
 
-				$orderedArticleModel = $this->prepareOrderedArticleModel($orderedArticleInput);
+				$orderedArticleModel = $this->getPreparedOrderedArticleModel($orderedArticleInput);
 				$orderedItemModel->orderedArticlesCollection->add($orderedArticleModel);
 			}
 
@@ -242,7 +239,7 @@ class CreateController extends ApiController
 	}
 
 
-	private function prepareOrderedArticleModel($orderedArticleInput)
+	private function getPreparedOrderedArticleModel($orderedArticleInput)
 	{
 		$orderedArticleModel = new OrderedArticleModel();
 

@@ -23,14 +23,10 @@ class UpdateController extends ApiController
 			'endMinutes'	=> 'numeric|required|between:0,1439'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		if ($input['startMinutes'] >= $input['endMinutes']) {
-			return $this->respond(400, 'endMinutes must be bigger then startMinutes');
+			$this->throwException(400);
 		}
 
 		// fetch deliveryTimeModel

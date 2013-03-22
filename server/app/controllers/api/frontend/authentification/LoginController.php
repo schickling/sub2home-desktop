@@ -32,11 +32,7 @@ class LoginController extends ApiController
     		'password'	=> 'min:8|required'
     		);
 
-    	$validator = Validator::make($input, $rules);
-
-    	if ($validator->fails()) {
-    		$this->throwException();
-    	}
+    	$this->validate($input, $rules);
         
         $number = $input['number'];
         $password = $input['password'];
@@ -52,7 +48,7 @@ class LoginController extends ApiController
     		$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
     		Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
 
-    		return $this->respond(429);
+    		$this->throwException(429);
     	}
 
 

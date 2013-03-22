@@ -26,7 +26,7 @@ class AuthentificationController extends ApiController
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {
-			return $this->respond(401);
+			$this->throwException(401);
 		}
 
 
@@ -64,7 +64,7 @@ class AuthentificationController extends ApiController
 			$numberOfFailedAttempts++;
 			Cache::put($cacheKey, $numberOfFailedAttempts, 1);
 
-			return $this->respond(401);
+			$this->throwException(401);
 		}
 
 

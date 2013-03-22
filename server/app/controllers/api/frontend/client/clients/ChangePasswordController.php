@@ -22,9 +22,7 @@ class ChangePasswordController extends ApiController
 		// fetch clientModel
 		$clientModel = ClientModel::find($clientModelId);
 
-		if ($clientModel == null) {
-			return $this->respond(401);
-		}
+		$this->checkModelFound($clientModel);
 
 
 		// check input
@@ -34,15 +32,11 @@ class ChangePasswordController extends ApiController
 			'newPassword'		=> 'alpha_dash|required|min:8'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400);
-		}
+		$this->validate($input, $rules);
 
 		// check if entered old password is correct
 		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {
-			return $this->respond(400);
+			$this->throwException(400);
 		}
 
 		// save new password

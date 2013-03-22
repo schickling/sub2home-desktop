@@ -31,11 +31,7 @@ class UpdateController extends ApiController
 			'email'				=> 'email|required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// fetch addressModel
 		$addressModel = $this->getResourceModel();

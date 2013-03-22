@@ -25,11 +25,7 @@ class UpdateController extends StoreRelatedApiController
 			'isActive'			=> 'boolean|required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// fetch customArticleModel
 		$id = Request::segment(6);
@@ -42,7 +38,7 @@ class UpdateController extends StoreRelatedApiController
 
 		// check if is last active article
 		if (!$input['isActive'] and $this->isLastActiveArticle()) {
-			return $this->respond(400);
+			$this->throwException(400);
 		}
 
 		// update

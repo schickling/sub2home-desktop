@@ -22,11 +22,7 @@ class UpdateController extends StoreRelatedApiController
 			'isActive'			=> 'boolean|required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// fetch customMenuModel
 		$id = Request::segment(6);

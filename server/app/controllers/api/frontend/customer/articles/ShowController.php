@@ -22,12 +22,14 @@ class ShowController extends ApiController
 
 		$id = Request::segment(6);
 		$articleModel = ArticleModel::with(array(
-			'ingredientsCollection',
-			'menuUpgradesCollection',
-			'menuUpgradesCollection.menuComponentBlocksCollection',
-			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
-			'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
-			))->find($id);
+											'ingredientsCollection',
+											'menuUpgradesCollection',
+											'menuUpgradesCollection.menuComponentBlocksCollection',
+											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
+											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
+											))
+										->where('isPublished', true)
+										->find($id);
 
 		$this->checkModelFound($articleModel);
 
@@ -35,7 +37,7 @@ class ShowController extends ApiController
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
 		if (!$customArticleModel->isActive) {
-			return $this->respond(404);
+			$this->throwException(404);
 		}
 
 

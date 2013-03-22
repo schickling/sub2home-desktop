@@ -23,11 +23,7 @@ class UpdateController extends StoreRelatedApiController
 			'customPrice' => 'numeric|required|min:0'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validate($input, $rules);
 
 		// fetch customIngredientModel
 		$id = Request::segment(6);

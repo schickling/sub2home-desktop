@@ -4,6 +4,8 @@ use App\Exceptions\ApiException;
 use Controller;
 use Response;
 use Request;
+use Eloquent;
+use Validator;
 
 
 /**
@@ -19,7 +21,7 @@ abstract class BaseApiController extends Controller
 	 * @param  string       $message
 	 * @return void
 	 */
-	protected function respond($statusCode, $message = '') {
+	final protected function respond($statusCode, $message = '') {
 
 		$response = Response::make($message, $statusCode);
 		$response->headers->set('Content-Type', 'application/json');
@@ -27,19 +29,28 @@ abstract class BaseApiController extends Controller
 		return $response;
 	}
 
-	protected function getToken()
+	final protected function getToken()
 	{
 		return Request::header('Token');
 	}
 
-	protected function checkModelFound($model)
+	final protected function checkModelFound($model)
 	{
-		if (is_null($model)) {
+		if (is_null($model) or !$model instanceof Eloquent) {
 			$this->throwException(404);
 		}
 	}
 
-	protected function throwException($statusCode)
+	final protected function validate($input, $rules)
+	{
+		$validator = Validator::make($input, $rules);
+
+		if ($validator->fails()) {
+			$this->throwException(400);
+		}
+	}
+
+	final protected function throwException($statusCode)
 	{
 		throw new ApiException($statusCode);
 	}
