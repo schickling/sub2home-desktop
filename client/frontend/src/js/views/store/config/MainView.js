@@ -16,8 +16,6 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Storeeinstellungen [store] - sub2home',
-
 		// referenced sub views
 		subViews: {
 			mapView: null,
@@ -33,6 +31,9 @@ define([
 				url: '/api/frontend/stores/' + global.getStoreAlias() + '/auth', // use custom route
 				async: false
 			});
+
+			// set page title
+			this.pageTitle = 'Storeeinstellungen ' + this.model.get('title') + ' - sub2home';
 
 			// check if client is allowed to view this page
 			if (stateModel.clientOwnsThisStore()) {

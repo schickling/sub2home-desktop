@@ -21,10 +21,11 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Stores&Umsätze [client] - sub2home',
-
 		initialize: function () {
 			this.model = clientModel;
+
+			// set page title
+			this.pageTitle = 'Stores&Umsätze ' + this.model.getName() + ' - sub2home';
 
 			// select store model if not already selected
 			this._selectFirstStoreModel();

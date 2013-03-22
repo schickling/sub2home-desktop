@@ -3,12 +3,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'models/stateModel',
     'views/PageView',
     'views/store/home/DeliveryView',
     'views/store/home/CategoriesView',
     'views/store/home/CategoriesNavigationView',
     'text!templates/store/home/MainTemplate.html'
-    ], function ($, _, Backbone, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
+    ], function ($, _, Backbone, stateModel, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 
 	$.fn.lazyload = function () {
@@ -52,9 +53,11 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'SUBWAY® Memmingen - sub2home',
-
 		initialize: function () {
+			// set page title
+			var storeModel = stateModel.get('storeModel');
+			this.pageTitle = 'SUBWAY® ' + storeModel.get('title') + ' - sub2home';
+
 			this._render();
 		},
 

@@ -1,17 +1,21 @@
 // Filename: src/js/views/store/info/MainView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/PageView',
-	'text!templates/store/info/MainTemplate.html'
-	], function ($, _, Backbone, PageView, MainTemplate) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/stateModel',
+    'views/PageView',
+    'text!templates/store/info/MainTemplate.html'
+    ], function ($, _, Backbone, stateModel, PageView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Infotheke [store] - sub2home',
-
 		initialize: function () {
+
+			// set page title
+			var storeModel = stateModel.get('storeModel');
+			this.pageTitle = 'Infotheke ' + storeModel.get('title') + ' - sub2home';
+
 			this._render();
 		},
 

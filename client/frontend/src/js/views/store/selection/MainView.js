@@ -42,13 +42,10 @@ define([
 
 			// load ordered item and render
 			if (selectionRessourceType === 'artikel') {
-				this.pageTitle = 'Beleg dein [Name] - sub2home';
 				this._createOrderedItemFromArticle();
 			} else if (selectionRessourceType === 'menu') {
-				this.pageTitle = 'Vervollständige dein [Name] - sub2home';
 				this._createOrderedItemFromMenuBundle();
 			} else {
-				this.pageTitle = 'Nochmal ändern - sub2home';
 				this._loadOrderedItemFromLocalStorage();
 			}
 
@@ -77,6 +74,9 @@ define([
 						articleModel: articleModel,
 						orderedItemModel: self.orderedItemModel
 					});
+
+					// set page title
+					self.pageTitle = 'Beleg dein ' + articleModel.get('title') + ' - sub2home';
 
 					self._render();
 				},
@@ -120,6 +120,9 @@ define([
 
 					});
 
+					// set page title
+					self.pageTitle = 'Vervollständige dein ' + menuBundleModel.get('title') + ' - sub2home';
+
 					self._render();
 				},
 
@@ -136,6 +139,10 @@ define([
 			this.orderedItemModel = orderedItemsCollection.get(this.options.selectionRessourceId);
 
 			if (this.orderedItemModel) {
+
+				// set page title
+				this.pageTitle = 'Nochmal ändern - sub2home';
+
 				this._render();
 				this._unlockTimelineItemsOnEdit();
 			} else {
@@ -165,7 +172,7 @@ define([
 
 		},
 
-		_cacheDom: function() {
+		_cacheDom: function () {
 			this.$timelineNote = this.$('#timelineNote');
 			this.$overlay = this.$('#overlay');
 		},

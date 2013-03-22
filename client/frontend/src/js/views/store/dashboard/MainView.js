@@ -14,8 +14,6 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Bestellungen&Umsätze [store] - sub2home',
-
 		initialize: function () {
 
 			// for authentification reload the store model
@@ -24,6 +22,9 @@ define([
 				url: '/api/frontend/stores/' + global.getStoreAlias() + '/auth', // use custom route
 				async: false
 			});
+
+			// set page title
+			this.pageTitle = 'Bestellungen&Umsätze ' + this.model.get('title') + ' - sub2home';
 
 			// check if client is allowed to view this page
 			if (stateModel.clientOwnsThisStore()) {

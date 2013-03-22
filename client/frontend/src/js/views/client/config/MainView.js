@@ -13,8 +13,6 @@ define([
 
 	var MainView = PageView.extend({
 
-		pageTitle: 'Stammdaten [client] - sub2home',
-
 		// referenced sub views
 		subViews: {
 			profileView: null
@@ -22,6 +20,9 @@ define([
 
 		initialize: function () {
 			this.model = clientModel;
+
+			// set page title
+			this.pageTitle = 'Stammdaten ' + this.model.getName() + ' - sub2home';
 
 			this._render();
 		},
