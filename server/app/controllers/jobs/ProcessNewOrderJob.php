@@ -19,7 +19,6 @@ class ProcessNewOrderJob extends BaseJob {
 		}
 
 		$this->updateHowOftenAnItemWasBuyed();
-		$this->updateTotalTurnoverOfStore();
 		$this->updateInvoiceOfMatchingMonth();
 
 	}
@@ -46,15 +45,6 @@ class ProcessNewOrderJob extends BaseJob {
 			// TODO add menu support
 
 		}
-	}
-
-	private function updateTotalTurnoverOfStore()
-	{
-		$orderModel = $this->orderModel;
-		$storeModel = $orderModel->storeModel;
-
-		$storeModel->totalTurnover += $orderModel->total;
-		$storeModel->save();
 	}
 
 	private function updateInvoiceOfMatchingMonth()
