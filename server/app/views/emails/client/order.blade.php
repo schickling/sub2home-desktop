@@ -35,14 +35,14 @@
           <td style="width: 128px; text-align: left;" valign="middle" rowspan="2" style="font-weight: bold;">sub2home UG</td>
           <td style="width: 34px; font-size: 9px; text-align: right;" valign="bottom">ADD</td>
             <td style="width: 8px;"></td>
-          <td style="width: 161px; text-align: left;" valign="bottom">Maximilianstraße 7</td>
+          <td style="width: 161px; text-align: left;" valign="bottom">{{ $storeStreet }}</td>
         </tr>
         <tr>
             
           
           <td style="width: 34px; font-size: 9px; text-align: right;"></td>
           <td style="width: 8px;"></td>
-          <td style="width: 161px; text-align: left;" valign="middle">87700 Memmingen</td>
+          <td style="width: 161px; text-align: left;" valign="middle">{{ $storePostal }} {{ $storeCity }}</td>
         </tr>
         <tr>
           <td style="width: 41px; font-size: 9px; text-align: right;" valign="bottom">TEL</td>
@@ -84,9 +84,9 @@
     <tr>
       <td style="width: 317px; line-height: 1.5; padding-left: 20px">
         An<br>
-        <b>{{ $addressFirstName }} {{ $addressLastName }}</b><br>
-        {{ $addressStreet }}<br>
-        {{ $addressPostal }} {{ $addressCity }}
+        <b>{{ $customerFirstName }} {{ $customerLastName }}</b><br>
+        {{ $customerStreet }}<br>
+        {{ $customerPostal }} {{ $customerCity }}
       </td>
     </tr>
   </tbody>

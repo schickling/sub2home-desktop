@@ -31,7 +31,7 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		$emailAddress = $storeModel->orderEmail;
 		$addressModel = $storeModel->addressModel;
 		$name = $addressModel->firstName . ' ' . $addressModel->lastName;
-		$subject = sprintf('Neue Bestellung #%s', $this->orderModel->id);
+		$subject = sprintf('Neue Bestellung #%s', str_pad($this->orderModel->id, 8, '0', STR_PAD_LEFT));
 
 		$data = $this->getDataForMail();
 
@@ -51,14 +51,19 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 	private function getDataForMail()
 	{
 		$orderModel = $this->orderModel;
+		$storeModel = $this->orderModel->storeModel;
 		$addressModelOfCustomer = $orderModel->addressModel;
+		$addressModelOfStore = $storeModel->addressModel;
 
 		$data = array(
-			'addressFirstName'	=> $addressModelOfCustomer->firstName,
-			'addressLastName'	=> $addressModelOfCustomer->lastName,
-			'addressStreet'		=> $addressModelOfCustomer->street,
-			'addressPostal'		=> $addressModelOfCustomer->postal,
-			'addressCity'		=> $addressModelOfCustomer->city,
+			'customerFirstName'	=> $addressModelOfCustomer->firstName,
+			'customerLastName'	=> $addressModelOfCustomer->lastName,
+			'customerStreet'	=> $addressModelOfCustomer->street,
+			'customerPostal'	=> $addressModelOfCustomer->postal,
+			'customerCity'		=> $addressModelOfCustomer->city,
+			'storeStreet'		=> $addressModelOfStore->street,
+			'storePostal'		=> $addressModelOfStore->postal,
+			'storeCity'			=> $addressModelOfStore->city,
 			'orderNumber'		=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT)
 			);
 
