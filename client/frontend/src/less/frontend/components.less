@@ -2933,14 +2933,7 @@ input[type="text"]#locationSelectionInput {
 
         }
 
-        .orderedItem {
-          .border-radius(2px);
-          border: 1px solid @grayLighter;
-          padding: 20px 0;
-          margin-bottom: 10px;
-          
-        }
-        .orderedArticle {
+        .orderedArticle, .orderedMenu {
           
           .border-radius(2px);
           border: 1px solid @grayLighter;
@@ -4826,6 +4819,8 @@ div#payment {
     }
   }
   #subcardOption {
+    .positioned;
+    overflow: hidden;
     font-family: @headingsFontFamily;
     font-size: 17px;
     color: @onNoteColor;
@@ -4837,6 +4832,12 @@ div#payment {
       .transition(color .1s linear);
 
     }
+
+    #uploadImage {
+      position: absolute;
+      bottom: -50px;
+    }
+
     span {
       width: 340px;
       display: inline-block;
