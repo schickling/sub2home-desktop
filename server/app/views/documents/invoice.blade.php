@@ -185,34 +185,34 @@
 <div style="padding: 0 20px">
 
 
+  <!-- ORDER BODY START -->
 
-
-
-<!-- ORDER BODY START -->
-
-
-  <table style="border: 1px solid #e4e4e4; width:100%" cellspacing="0">
+  <table style="border: 1px solid #e4e4e4; width:100%;  margin-top: 20px" cellspacing="0" cellpadding="0">
     <tbody>
+
+      <!-- Item Head -->
+
       <tr>
-        <td style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center;" rowspan="2" width="30">
-          <table cellpadding="3">
+        <td rowspan="2" width="30">
+<!--          <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
             <tbody>
               <tr>
-                <!-- Amount -->
+                
                 <td>3x</td>
-                <!-- / Amount -->
+                
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </td>
         <td height="0"></td>
         <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
-          <table width="70" style="text-align: right" cellpadding="3">
+          <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="0">
             <tbody>
               <tr>
-                <!-- Price -->
-                <td>05.30€</td>
-                <!-- / Price -->
+                <!-- Price & Menu -->
+                <!-- <td style="border-right: 1px solid #e4e4e4; font-weight: normal; padding: 0 7px">Sparmenü</td> -->
+                <td style="padding: 0 7px">05.30€</td>
+                <!-- / Price & Menu -->
               </tr>
             </tbody>
           </table>
@@ -228,7 +228,9 @@
         <td></td>
       </tr>
 
-      <!-- INGREDIENTS -->
+      <!-- / Item Head -->
+
+      <!-- Ingredients -->
       
       <tr>
         <td></td>
@@ -312,11 +314,227 @@
           </table>
         </td>
       </tr>
+  
+      <!-- / Ingredients -->
+
     </tbody>
   </table>
+
+  <!-- ORDER BODY END -->
+
+  <!-- ORDER BODY START -->
+
+  <table style="border: 1px solid #e4e4e4; width:100%;  margin-top: 20px" cellspacing="0" cellpadding="0">
+    <tbody>
+
+      <!-- Item Head -->
+
+      <tr>
+        <td rowspan="2" width="30">
+          <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
+            <tbody>
+              <tr>
+                <!-- Amount -->
+                <td>3x</td>
+                <!-- / Amount -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td height="0"></td>
+        <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
+          <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <!-- Price & Menu -->
+                <!-- <td style="border-right: 1px solid #e4e4e4; font-weight: normal; padding: 0 7px">Sparmenü</td> -->
+                <td style="padding: 0 7px">05.30€</td>
+                <!-- / Price & Menu -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <!-- Title -->
+        <td style="font-size: 20px; padding: 15px; font-weight: bold" rowspan="2">SUB: 2 FT</td>
+        <!-- / Title -->
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- / Item Head -->
+    </tbody>
+  </table>
+
+  <!-- ORDER BODY END -->
+
+  <!-- ORDER BODY START -->
+
+  <table style="border: 1px solid #e4e4e4; width:100%;  margin-top: 20px" cellspacing="0" cellpadding="0">
+    <tbody>
+
+      <!-- Item Head -->
+
+      <tr>
+        <td rowspan="2" width="30">
+          <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
+            <tbody>
+              <tr>
+                <!-- Amount -->
+                <td>3x</td>
+                <!-- / Amount -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td height="0"></td>
+        <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
+          <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <!-- Price & Menu -->
+                <td style="border-right: 1px solid #e4e4e4; font-weight: normal; padding: 0 7px">Sparmenü</td>
+                <td style="padding: 0 7px">05.30€</td>
+                <!-- / Price & Menu -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <!-- Title -->
+        <td style="font-size: 20px; padding: 15px; font-weight: bold" rowspan="2">SUB: 2 FT</td>
+        <!-- / Title -->
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- / Item Head -->
+
+      <!-- Ingredients -->
+      
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <table style="padding: 0 6px 15px">
+            <tbody>
+              <tr>
+                <td style="padding-right: 15px"> 
+                  <table style="border-bottom: 1px solid #e0e0e0; padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">BROT</td>
+                        <td >
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">VK</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                </td>
+                <td colspan="2">
+                  <table style="border-bottom: 1px solid #e0e0e0; padding: 5px; width: 100%">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">GEMÜSE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">TO</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">OL</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">SA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">PA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">EG</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">KÄSE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CC</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">EXTRAS</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">BC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DF</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+
+                <td>
+                  <table style="padding: 5px">
+                    <tbody>
+                      <tr>
+                        <td style="font-size: 12px; padding-right: 5px">SAUCE</td>
+                        <td>
+                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CS</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+  
+      <!-- / Ingredients -->
+
+      <!-- Menu Components -->
+
+      <tr>
+        <td colspan="3">
+          <table cellspacing="0" style="border-top: 1px solid #e0e0e0; width: 100%;">
+            <tbody>
+              <tr>
+                <!-- Component-Title -->
+                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 3px" valign="top" height="39" width="42">+</td>
+                <td style="font-size: 20px; padding: 10px" rowspan="2">SUB: 2 FT</td>
+                <!-- / Component-Title -->
+                <!-- Component-Title -->
+                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 3px" valign="top" height="39" width="42">+</td>
+                <td style="font-size: 20px; padding: 10px;" rowspan="2">SUB: 2 FT</td>
+                <!-- / Component-Title -->
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <!-- / Menu Components -->
+
+    </tbody>
+  </table>
+
+  <!-- ORDER BODY END -->
+
+  
 </div>
 
-<!-- ORDER BODY END -->
+
 
 
   </body>
