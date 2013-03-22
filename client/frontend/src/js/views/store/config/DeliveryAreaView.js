@@ -18,17 +18,8 @@ define([
 			'click .bRemove': '_destroy'
 		},
 
-		parentView: null,
-
 		initialize: function () {
-			this.parentView = this.options.parentView;
-
 			this._render();
-
-			this.listenTo(this.model, 'invalid', function () {
-				this._render();
-			});
-
 		},
 
 		_render: function () {
@@ -101,10 +92,6 @@ define([
 
 			var $input = $(e.target);
 			$input.blur();
-		},
-
-		destroy: function () {
-			this.stopListening();
 		},
 
 		_updateModel: function (changedAttributes) {

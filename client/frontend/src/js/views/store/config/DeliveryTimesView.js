@@ -25,8 +25,7 @@ define([
 
 		_renderDeliveryTime: function (deliveryTimeModel) {
 			var deliveryTimeView = new DeliveryTimeView({
-				model: deliveryTimeModel,
-				parentView: this
+				model: deliveryTimeModel
 			});
 
 			var $matchingBusinessDay = this.$('.businessDay[data-day="' + deliveryTimeModel.get('dayOfWeek') + '"]'),

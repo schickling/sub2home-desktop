@@ -33,8 +33,7 @@ define([
 
 		_renderDeliveryArea: function (item) {
 			var deliveryAreaView = new DeliveryAreaView({
-				model: item,
-				parentView: this
+				model: item
 			});
 
 			this.$configContent.append(deliveryAreaView.el);

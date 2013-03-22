@@ -18,13 +18,11 @@ define([
 
 		// referenced sub views
 		subViews: {
-			mapView: null,
-			deliveryAreasView: null,
-			deliveryTimesView: null
+			mapView: null
 		},
 
 		initialize: function () {
-			
+
 			// for authentification reload the store model
 			this.model = stateModel.get('storeModel');
 			this.model.fetch({

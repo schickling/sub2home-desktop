@@ -8,8 +8,6 @@ define([
 
 	var DeliveryTimeView = Backbone.View.extend({
 
-		parentView: null,
-
 		className: 'deliveryTime',
 
 		template: _.template(DeliveryTimeTemplate),
@@ -22,14 +20,7 @@ define([
 		},
 
 		initialize: function () {
-			this.parentView = this.options.parentView;
-
 			this._render();
-
-			this.listenTo(this.model, 'invalid', function () {
-				this._render();
-			});
-
 		},
 
 		_render: function () {
@@ -124,10 +115,6 @@ define([
 
 			var $input = $(e.target);
 			$input.blur();
-		},
-
-		destroy: function () {
-			this.stopListening();
 		}
 
 	});
