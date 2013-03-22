@@ -3,10 +3,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'router',
+    'models/cartModel',
     'views/PageView',
     'views/store/checkout/CountdownView',
     'text!templates/store/checkout/MainTemplate.html'
-    ], function ($, _, Backbone, PageView, CountdownView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, CountdownView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -17,7 +19,16 @@ define([
 		},
 
 		initialize: function () {
-			this.render();
+
+			if (cartModel.get('isClosed')) {
+				this.render();
+			} else {
+				router.navigate('store', {
+					trigger: true,
+					replace: true
+				});
+			}
+
 		},
 
 		render: function () {
@@ -30,7 +41,6 @@ define([
 			this.append();
 
 		}
-
 
 	});
 

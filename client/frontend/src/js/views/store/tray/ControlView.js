@@ -99,6 +99,7 @@ define([
 					self._ringBell();
 
 					cartModel.cleanUp();
+					cartModel.set('isClosed', true);
 
 					router.navigate('store/danke', {
 						trigger: true,

@@ -18,7 +18,8 @@ define([
 
 			orderModel: null,
 
-			termsAccepted: false
+			termsAccepted: false,
+			isClosed: false
 
 		},
 
@@ -168,6 +169,9 @@ define([
 		},
 
 		addOrderedItemModel: function (orderedItemModel) {
+
+			this.set('isClosed', false);
+
 			var orderedItemsCollection = this.getOrderedItemsCollection();
 
 			orderedItemModel.trigger('recalculate');
@@ -303,7 +307,6 @@ define([
 			});
 
 		}
-
 
 	});
 
