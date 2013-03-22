@@ -1,0 +1,70 @@
+[2013-03-21 16:11:52] log.ERROR: exception 'Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'totalTurnover' in 'field list' (SQL: update `store_models` set `updated_at` = ?, `totalTurnover` = ? where `id` = ?) (Bindings: array (
+  0 => 
+  DateTime::__set_state(array(
+     'date' => '2013-03-21 16:11:52',
+     'timezone_type' => 3,
+     'timezone' => 'Europe/Berlin',
+  )),
+  1 => 13.47,
+  2 => 1,
+))' in /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php:483
+Stack trace:
+#0 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(456): Illuminate\Database\Connection->handleQueryException(Object(PDOException), 'update `store_m...', Array)
+#1 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(333): Illuminate\Database\Connection->run('update `store_m...', Array, Object(Closure))
+#2 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(278): Illuminate\Database\Connection->affectingStatement('update `store_m...', Array)
+#3 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(1098): Illuminate\Database\Connection->update('update `store_m...', Array)
+#4 [internal function]: Illuminate\Database\Query\Builder->update(Array)
+#5 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(450): call_user_func_array(Array, Array)
+#6 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8631): Illuminate\Database\Eloquent\Builder->__call('update', Array)
+#7 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8631): Illuminate\Database\Eloquent\Builder->update(Array)
+#8 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8604): Illuminate\Database\Eloquent\Model->performUpdate(Object(Illuminate\Database\Eloquent\Builder))
+#9 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/models/BaseModel.php(36): Illuminate\Database\Eloquent\Model->save()
+#10 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/ProcessNewOrderJob.php(57): App\Models\BaseModel->save()
+#11 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/ProcessNewOrderJob.php(22): App\Controllers\Jobs\ProcessNewOrderJob->updateTotalTurnoverOfStore()
+#12 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/BaseJob.php(17): App\Controllers\Jobs\ProcessNewOrderJob->run()
+#13 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Jobs/BeanstalkdJob.php(61): App\Controllers\Jobs\BaseJob->fire(Object(Illuminate\Queue\Jobs\BeanstalkdJob), Array)
+#14 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(68): Illuminate\Queue\Jobs\BeanstalkdJob->fire()
+#15 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(46): Illuminate\Queue\Worker->process(Object(Illuminate\Queue\Jobs\BeanstalkdJob), '0')
+#16 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(62): Illuminate\Queue\Worker->pop(NULL, 'default', '0', '128', true)
+#17 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Console/Command.php(107): Illuminate\Queue\Console\WorkCommand->fire()
+#18 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(240): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Console/Command.php(95): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Application.php(106): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/artisan(59): Symfony\Component\Console\Application->run()
+#23 {main} [] []
+[2013-03-21 16:11:57] log.ERROR: exception 'Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'totalTurnover' in 'field list' (SQL: update `store_models` set `updated_at` = ?, `totalTurnover` = ? where `id` = ?) (Bindings: array (
+  0 => 
+  DateTime::__set_state(array(
+     'date' => '2013-03-21 16:11:57',
+     'timezone_type' => 3,
+     'timezone' => 'Europe/Berlin',
+  )),
+  1 => -13.47,
+  2 => 1,
+))' in /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php:483
+Stack trace:
+#0 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(456): Illuminate\Database\Connection->handleQueryException(Object(PDOException), 'update `store_m...', Array)
+#1 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(333): Illuminate\Database\Connection->run('update `store_m...', Array, Object(Closure))
+#2 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Connection.php(278): Illuminate\Database\Connection->affectingStatement('update `store_m...', Array)
+#3 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(1098): Illuminate\Database\Connection->update('update `store_m...', Array)
+#4 [internal function]: Illuminate\Database\Query\Builder->update(Array)
+#5 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(450): call_user_func_array(Array, Array)
+#6 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8631): Illuminate\Database\Eloquent\Builder->__call('update', Array)
+#7 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8631): Illuminate\Database\Eloquent\Builder->update(Array)
+#8 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/bootstrap/compiled.php(8604): Illuminate\Database\Eloquent\Model->performUpdate(Object(Illuminate\Database\Eloquent\Builder))
+#9 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/models/BaseModel.php(36): Illuminate\Database\Eloquent\Model->save()
+#10 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/ProcessNewOrderJob.php(57): App\Models\BaseModel->save()
+#11 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/ProcessNewOrderJob.php(22): App\Controllers\Jobs\ProcessNewOrderJob->updateTotalTurnoverOfStore()
+#12 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/app/controllers/jobs/BaseJob.php(17): App\Controllers\Jobs\ProcessNewOrderJob->run()
+#13 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Jobs/BeanstalkdJob.php(61): App\Controllers\Jobs\BaseJob->fire(Object(Illuminate\Queue\Jobs\BeanstalkdJob), Array)
+#14 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(68): Illuminate\Queue\Jobs\BeanstalkdJob->fire()
+#15 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(46): Illuminate\Queue\Worker->process(Object(Illuminate\Queue\Jobs\BeanstalkdJob), '0')
+#16 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(62): Illuminate\Queue\Worker->pop(NULL, 'default', '0', '128', true)
+#17 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Console/Command.php(107): Illuminate\Queue\Console\WorkCommand->fire()
+#18 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(240): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/laravel/framework/src/Illuminate/Console/Command.php(95): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/vendor/symfony/console/Symfony/Component/Console/Application.php(106): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /Users/johannes/Dropbox/Code/htdocs/sub2home/dev/server/artisan(59): Symfony\Component\Console\Application->run()
+#23 {main} [] []

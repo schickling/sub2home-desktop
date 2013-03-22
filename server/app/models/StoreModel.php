@@ -226,21 +226,6 @@ class StoreModel extends BaseModel
 	}
 
 	/**
-	 * Returns whether the store is delivering at the moment
-	 * 
-	 * @return boolean
-	 */
-	public function getIsDeliveringAttribute()
-	{
-		foreach ($this->deliveryTimesCollection as $deliveryTimeModel) {
-			if ($deliveryTimeModel->check()) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
 	 * Sets the title and the alias
 	 * 
 	 * @param string $title

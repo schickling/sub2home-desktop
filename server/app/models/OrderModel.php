@@ -223,8 +223,21 @@ class OrderModel extends BaseModel
 
 	private function verifyDueDate()
 	{
-		// TODO
-		return $this->due_at >= $this->created_at;
+		// check if is due in future
+		$isInFuture = ($this->due_at >= $this->created_at);
+
+		// check delivery times
+		$deliveryTimesCollection = $this->storeModel->deliveryTimesCollection;
+		$matchesDeliveryTimes = false;
+		$dateTime = $this->getDateTimeFor('due_at');
+
+		foreach ($deliveryTimesCollection as $deliveryTimeModel) {
+			if ($deliveryTimeModel->checkDateTime($dateTime)) {
+				$matchesDeliveryTimes = true;
+			}
+		}
+
+		return $isInFuture and $matchesDeliveryTimes;
 	}
 
 	public function isBalance()

@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use App\Execptions\ModelException;
+
 /**
  * Delivery time class
  *
@@ -48,14 +50,16 @@ class DeliveryTimeModel extends BaseModel
 	}
 
 	/**
-	 * Returns whether this delivery time matches current time
+	 * Returns whether this delivery time matches given date time object
 	 * 
+	 * @param  object $datetime
 	 * @return boolean
 	 */
-	public function check()
+	public function checkDateTime($dateTime)
 	{
-		$dayOfWeek = date('N');
-		$minutes = date('G') * 60 + (int)date('i');
+
+		$dayOfWeek = $dateTime->format('N');
+		$minutes = $dateTime->format('G') * 60 + (int) $dateTime->format('i');
 		
 		if ($dayOfWeek != $this->dayOfWeek or
 			$minutes < $this->startMinutes or
