@@ -2,7 +2,6 @@
 
 use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Input;
-use Validator;
 
 
 /**
@@ -29,7 +28,7 @@ class UpdateController extends StoreRelatedApiController
 			'allowsPaymentPaypal'	=> 'boolean|required'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// check if at least one payment method is selected
 		if (!$input['allowsPaymentCash'] and !$input['allowsPaymentEc'] and !$input['allowsPaymentPaypal']) {

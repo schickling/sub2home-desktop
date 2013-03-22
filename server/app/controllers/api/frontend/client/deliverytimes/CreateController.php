@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\DeliveryTimes;
 
 use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
-use Validator;
 use Input;
 
 use App\Models\DeliveryTimeModel;
@@ -20,7 +19,7 @@ class CreateController extends StoreRelatedApiController
 			'dayOfWeek'	=> 'numeric|required|between:0,6'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// create new deliveryTimeModel
 		$deliveryTimeModel = new DeliveryTimeModel(array(

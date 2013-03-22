@@ -2,7 +2,6 @@
 
 use App\Controllers\Api\Common\BaseApiController;
 use Input;
-use Validator;
 use App\Controllers\Services\Image\DecodeQRCodeService;
 use App\Exceptions\ServiceException;
 
@@ -22,11 +21,7 @@ class DecodeQRCodeController extends BaseApiController
 			'image'	=> 'required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(400, $validator->messages());
-		}
+		$this->validateInput($rules);
 
 		// prepare data
 		$filePath = app_path() . '/storage/cache/' . uniqid();

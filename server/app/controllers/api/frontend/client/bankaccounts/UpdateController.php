@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Bankaccounts;
 
 use App\Controllers\Api\Frontend\Client\ApiController;
-use Validator;
 use Input;
 use Request;
 
@@ -26,7 +25,7 @@ class UpdateController extends ApiController
 			'accountNumber'		=> 'numeric|required|min:0'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch bankaccountModel
 		$bankaccountModel = $this->getResourceModel();

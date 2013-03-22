@@ -3,7 +3,6 @@
 use App\Controllers\Api\Common\BaseApiController;
 use Input;
 use Cache;
-use Validator;
 use Redirect;
 use App\Controllers\Services\Payment\PaypalService;
 
@@ -24,11 +23,7 @@ class PaypalController extends BaseApiController
 			'verification_code'	=> 'required'
 			);
 
-		$validator = Validator::make($input, $rules);
-
-		if ($validator->fails()) {
-			return $this->respond(404);
-		}
+		$this->validateInput($rules);
 
 		$token = Input::get('request_token');
 		$verificationCode = Input::get('verification_code');
@@ -38,19 +33,21 @@ class PaypalController extends BaseApiController
 		$store_model_id = Cache::get($token);
 
 		if (!$store_model_id) {
-			return $this->respond(400, 'Token expired');
+			$this->throwException(400);
 		}
 
 
 		// write data to store model
 		$storeModel = StoreModel::find($store_model_id);
+		$this->checkModelFound($storeModel);
 
+		// create auth header
 		$authHeader = PaypalService::createAuthHeaderForStore($token, $verificationCode);
 
-
+		// save auth header
 		$storeModel->paymentPaypalAuthHeader = $authHeader;
 
-		// Enable payment method
+		// Enable paypal payment method
 		$storeModel->allowsPaymentPaypal = true;
 
 		$storeModel->save();

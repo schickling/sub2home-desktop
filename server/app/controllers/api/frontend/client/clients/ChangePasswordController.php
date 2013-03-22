@@ -3,7 +3,6 @@
 use App\Controllers\Api\Frontend\Client\ApiController;
 use Input;
 use Hash;
-use Validator;
 
 use App\Models\ClientModel;
 
@@ -32,7 +31,7 @@ class ChangePasswordController extends ApiController
 			'newPassword'		=> 'alpha_dash|required|min:8'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// check if entered old password is correct
 		if (!Hash::check($input['currentPassword'], $clientModel->hashedPassword)) {

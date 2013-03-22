@@ -2,7 +2,6 @@
 
 use App\Controllers\Api\Frontend\Client\ApiController;
 use Input;
-use Validator;
 use Request;
 
 use App\Models\DeliveryAreaModel;
@@ -25,7 +24,7 @@ class UpdateController extends ApiController
 			'city'				=> 'alpha_dash|required'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch deliveryAreaModel
 		$deliveryAreaModel = $this->getResourceModel();

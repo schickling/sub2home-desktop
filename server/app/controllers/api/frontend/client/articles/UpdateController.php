@@ -2,7 +2,6 @@
 
 use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Input;
-use Validator;
 use Request;
 use App\Models\ArticleModel;
 
@@ -25,7 +24,7 @@ class UpdateController extends StoreRelatedApiController
 			'isActive'			=> 'boolean|required'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch customArticleModel
 		$id = Request::segment(6);

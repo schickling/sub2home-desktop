@@ -6,6 +6,7 @@ use Response;
 use Request;
 use Eloquent;
 use Validator;
+use Input;
 
 
 /**
@@ -41,8 +42,9 @@ abstract class BaseApiController extends Controller
 		}
 	}
 
-	final protected function validate($input, $rules)
+	final protected function validateInput($rules)
 	{
+		$input = Input::json();
 		$validator = Validator::make($input, $rules);
 
 		if ($validator->fails()) {

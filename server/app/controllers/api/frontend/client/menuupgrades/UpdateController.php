@@ -2,7 +2,6 @@
 
 use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Input;
-use Validator;
 use Request;
 use App\Models\MenuUpgradeModel;
 
@@ -22,7 +21,7 @@ class UpdateController extends StoreRelatedApiController
 			'isActive'			=> 'boolean|required'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch customMenuModel
 		$id = Request::segment(6);

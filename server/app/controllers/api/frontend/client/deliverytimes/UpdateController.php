@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\DeliveryTimes;
 
 use App\Controllers\Api\Frontend\Client\ApiController;
-use Validator;
 use Input;
 use Request;
 
@@ -23,7 +22,7 @@ class UpdateController extends ApiController
 			'endMinutes'	=> 'numeric|required|between:0,1439'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		if ($input['startMinutes'] >= $input['endMinutes']) {
 			$this->throwException(400);

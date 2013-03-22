@@ -60,7 +60,7 @@ class CreateController extends ApiController
 			'addressModel'				=> 'required'
 			);
 
-		$this->validate($this->input, $rules);
+		$this->validateInput($rules);
 	}
 
 

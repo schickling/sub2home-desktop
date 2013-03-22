@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Addresses;
 
 use App\Controllers\Api\Frontend\Client\ApiController;
-use Validator;
 use Input;
 use Request;
 
@@ -31,7 +30,7 @@ class UpdateController extends ApiController
 			'email'				=> 'email|required'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch addressModel
 		$addressModel = $this->getResourceModel();

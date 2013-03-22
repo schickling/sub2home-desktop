@@ -3,7 +3,6 @@
 use App\Controllers\Api\Frontend\Client\ApiController;
 use Input;
 use Hash;
-use Validator;
 
 use App\Models\ClientModel;
 

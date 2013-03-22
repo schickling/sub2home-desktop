@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Ingredients;
 
 use Input;
-use Validator;
 use Request;
 
 use App\Models\IngredientModel;
@@ -23,7 +22,7 @@ class UpdateController extends StoreRelatedApiController
 			'customPrice' => 'numeric|required|min:0'
 			);
 
-		$this->validate($input, $rules);
+		$this->validateInput($rules);
 
 		// fetch customIngredientModel
 		$id = Request::segment(6);

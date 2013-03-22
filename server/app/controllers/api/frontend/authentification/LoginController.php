@@ -2,7 +2,6 @@
 
 use Input;
 use Request;
-use Validator;
 use Hash;
 use Cache;
 use App\Models\ClientModel;
@@ -32,7 +31,7 @@ class LoginController extends ApiController
     		'password'	=> 'min:8|required'
     		);
 
-    	$this->validate($input, $rules);
+    	$this->validateInput($rules);
         
         $number = $input['number'];
         $password = $input['password'];
