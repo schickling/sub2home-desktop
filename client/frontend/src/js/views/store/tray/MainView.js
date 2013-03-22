@@ -53,33 +53,40 @@ define([
 
 			this._cacheDom();
 
-			this.subViews.controlView = new ControlView({
-				el: this.$('#checkoutBasicControls')
-			});
-
-			this.subViews.deliveryTimeView = new DeliveryTimeView({
-				el: this.$('#deliveryTimeDisplay')
-			});
-
-			new CommentView({
-				el: this.$('#deliveryAdditionalNote')
-			});
-
-			new SubcardView({
-				el: this.$('#subcardOption')
-			});
-
-			new FreeCookieView({
-				el: this.$('#gratisCookieOption')
-			});
-
-			new CheckoutSettingsView({
-				el: this.$('#checkoutSettings')
-			});
-
 			new OrderedItemsView({
 				el: this.$('#orderedItems')
 			});
+
+			// check if store is delivering
+			cartModel.validateDueDate();
+
+			if (this._storeIsDelivering()) {
+
+				this.subViews.controlView = new ControlView({
+					el: this.$('#checkoutBasicControls')
+				});
+
+				this.subViews.deliveryTimeView = new DeliveryTimeView({
+					el: this.$('#deliveryTimeDisplay')
+				});
+
+				new CommentView({
+					el: this.$('#deliveryAdditionalNote')
+				});
+
+				new SubcardView({
+					el: this.$('#subcardOption')
+				});
+
+				new FreeCookieView({
+					el: this.$('#gratisCookieOption')
+				});
+
+				new CheckoutSettingsView({
+					el: this.$('#checkoutSettings')
+				});
+
+			}
 
 			this.append();
 
@@ -100,6 +107,12 @@ define([
 			this.$trayNote.animate({
 				top: -535
 			});
+		},
+
+		_storeIsDelivering: function() {
+			cartModel.validateDueDate();
+
+			return cartModel.getDueDate() !== null;
 		}
 
 

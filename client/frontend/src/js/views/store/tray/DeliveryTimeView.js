@@ -6,9 +6,8 @@ define([
     'moment',
     'notificationcenter',
     'models/cartModel',
-    'text!templates/store/tray/DeliveryTimeTemplate.html',
-    'text!templates/store/tray/NoDeliveryTimeTemplate.html'
-    ], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate, NoDeliveryTimeTemplate) {
+    'text!templates/store/tray/DeliveryTimeTemplate.html'
+    ], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate) {
 
 	var DeliveryTimeView = Backbone.View.extend({
 
@@ -25,8 +24,6 @@ define([
 
 		initialize: function () {
 
-			cartModel.validateDueDate();
-
 			this._render();
 
 			// keep due date in time
@@ -37,10 +34,7 @@ define([
 
 		_render: function () {
 
-			var dueDate = cartModel.getDueDate();
-
-			if (dueDate) {
-
+			var dueDate = cartModel.getDueDate(),
 				dueMoment = moment(dueDate),
 				json = {
 					hoursAreMinimum: !this._isValidDueDateChange(-60),
@@ -52,11 +46,7 @@ define([
 					minimumDuration: cartModel.getMinimumDuration()
 				};
 
-				this.$el.html(this.template(json));
-
-			} else {
-				this.$el.html(NoDeliveryTimeTemplate);
-			}
+			this.$el.html(this.template(json));
 
 		},
 

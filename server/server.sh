@@ -23,6 +23,9 @@ fi
 # dump autoload
 composer dump-autoload --optimize
 
+# compile
+php artisan optimize
+
 # start queue
 beanstalkd &
 php artisan queue:listen --timeout 300 & #job times out after 5 minutes
