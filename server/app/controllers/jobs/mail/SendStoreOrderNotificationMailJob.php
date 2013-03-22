@@ -29,7 +29,7 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		$emailAddress = $storeModel->orderEmail;
 		$addressModel = $storeModel->addressModel;
 		$name = $addressModel->firstName . ' ' . $addressModel->lastName;
-		$subject = sprintf('Neue Bestellung #%s', $orderModel->number);
+		$subject = sprintf('Neue Bestellung #%s', $this->orderModel->number);
 
 		$data = $this->getDataForMail();
 
