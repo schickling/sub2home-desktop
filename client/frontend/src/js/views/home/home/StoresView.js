@@ -146,6 +146,8 @@ define([
 					}, function () {
 						notificationcenter.notify('views.home.home.lookupFailed');
 						self._stopRotateLocation();
+					}, {
+						timeout: 10000
 					});
 				}); // end deffered
 			}
