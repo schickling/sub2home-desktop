@@ -10,6 +10,7 @@ require.config({
 		jqueryEasing: 'vendor/jquery-easing/jquery.easing',
 		jqueryColor: 'vendor/jquery-color/jquery.color',
 		jqueryOverscroll: 'vendor/jquery-overscroll/jquery.overscroll',
+		jqueryBrowserSelector: 'vendor/jquery-browser-selector/jquery.browser.selector',
 		underscore: 'vendor/underscore/underscore',
 		backbone: 'vendor/backbone/backbone',
 		backboneLocalStorage: 'vendor/backbone.localStorage/backbone.localStorage',

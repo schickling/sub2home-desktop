@@ -23,7 +23,7 @@ class PaypalController extends BaseApiController
 			'verification_code'	=> 'required'
 			);
 
-		$this->validateInput($rules);
+		$this->validateInput($rules, $input);
 
 		$token = Input::get('request_token');
 		$verificationCode = Input::get('verification_code');

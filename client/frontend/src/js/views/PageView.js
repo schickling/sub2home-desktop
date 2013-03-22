@@ -1,13 +1,14 @@
 define([
     'jquery',
     'jqueryEasing',
+    'jqueryBrowserSelector',
     'underscore',
     'backbone',
     'router',
     'notificationcenter',
     'models/stateModel',
     'views/assets/transitions'
-    ], function ($, jqueryEasing, _, Backbone, router, notificationcenter, stateModel, transitions) {
+    ], function ($, jqueryEasing, jqueryBrowserSelector, _, Backbone, router, notificationcenter, stateModel, transitions) {
 
 	// "static" variable needed here
 	var pageWasInitialized = false;
@@ -30,8 +31,7 @@ define([
 			if (pageWasInitialized) {
 				this._transition();
 			} else {
-				this.$el.appendTo($('body'));
-				pageWasInitialized = true;
+				this._initializePage();
 			}
 
 			// set page title
@@ -44,6 +44,11 @@ define([
 				trigger: true,
 				replace: true
 			});
+		},
+
+		_initializePage: function() {
+			this.$el.appendTo($('body'));
+			pageWasInitialized = true;
 		},
 
 		_transition: function () {
@@ -143,7 +148,7 @@ define([
 
 				$currentNoteContainer.remove();
 				$newNoteContainer.hide().appendTo($currentNote).fadeIn();
-				
+
 				// set correct id
 				$currentNote.attr('id', 'homeNote');
 			});
