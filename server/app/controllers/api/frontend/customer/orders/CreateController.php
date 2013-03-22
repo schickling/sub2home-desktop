@@ -7,6 +7,7 @@ use DateTime;
 use App\Controllers\Services\Payment\PaypalService;
 
 use App\Models\OrderModel;
+use App\Models\ArticleModel;
 use App\Models\AddressModel;
 use App\Models\IngredientModel;
 use App\Models\OrderedArticleModel;
@@ -31,7 +32,7 @@ class CreateController extends ApiController
 	{
 		$this->input = Input::json();
 
-		$this->validateInput();
+		$this->checkInput();
 		$this->prepareOrderModel();
 		$this->checkModelIds();
 		$this->prepareRelationships();
@@ -48,19 +49,19 @@ class CreateController extends ApiController
 	}
 
 
-	private function validateInput()
+	private function checkInput()
 	{
 		$rules = array(
 			'paymentMethod'				=> 'alpha|required',
 			'total'						=> 'min:0|required',
 			'credit'					=> 'min:0|required',
-			'subcardCode'				=> 'alpha_dash|required',
-			'due_at'					=> 'date|required',
-			'orderedItemsCollection'	=> 'required',
-			'addressModel'				=> 'required'
+			'subcardCode'				=> 'alpha_dash',
+			'due_at'					=> 'required'
 			);
 
 		$this->validateInput($rules);
+
+		$this->validateInputArrayStructure();
 	}
 
 
@@ -175,21 +176,142 @@ class CreateController extends ApiController
 	*/
 
 
+	private function validateInputArrayStructure()
+	{
+		$arrayStructure = array(
+			'comment',
+			'credit',
+			'due_at',
+			'paymentMethod',
+			'subcardCode',
+			'total',
+			'addressModel' => array(
+				'city',
+				'email',
+				'firstName',
+				'lastName',
+				'phone',
+				'postal',
+				'street',
+				'streetAdditional'
+				),
+			'orderedItemsCollection' => array(
+				array(
+					'amount',
+					'menuBundleModel',
+					'orderedArticlesCollection' => array(
+						array(
+							'articleModel' => array(
+								'id',
+								'ingredientCategoriesCollection'
+								),
+							'menuUpgradeModel'
+							)
+						)
+					)
+				)
+			);
+
+		if (!checkArrayStructure($arrayStructure, $this->input)) {
+			$this->throwException(400);
+		}
+
+	}
+
+
 	private function checkArticleModelIdsAreValid()
 	{
-		
+		foreach ($this->input['orderedItemsCollection'] as $orderedItemInput) {
+			foreach ($orderedItemInput['orderedArticlesCollection'] as $orderedArticleInput) {
+
+				$articleModel = ArticleModel::where('isPublished', true)
+												->where('id', $orderedArticleInput['articleModel']['id'])
+												->first();
+				$this->checkModelFound($articleModel);
+
+				$customArticleModel =  $articleModel->returnCustomModel($this->storeModel->id);
+				$this->checkModelFound($customArticleModel);
+
+				if (!$customArticleModel->isActive) {
+					$this->throwException(400);
+				}
+
+			}
+		}
 	}
 
 
 	private function checkMenuModelIdsAreValid()
 	{
-		
+		foreach ($this->input['orderedItemsCollection'] as $orderedItemInput) {
+
+			if ($orderedItemInput['menuBundleModel']) {
+				$menuBundleModel = MenuBundleModel::where('isPublished', true)
+													->where('id', $orderedItemInput['menuBundleModel']['id'])
+													->first();
+				$this->checkModelFound($menuBundleModel);
+
+				$customMenuModel = $menuBundleModel->returnCustomModel($this->storeModel->id);
+				$this->checkModelFound($customMenuModel);
+
+				if (!$customMenuModel->isActive) {
+					$this->throwException(400);
+				}
+			}
+
+			foreach ($orderedItemInput['orderedArticlesCollection'] as $orderedArticleInput) {
+
+				if ($orderedArticleInput['menuUpgradeModel']) {
+					$menuUpgradeModel = MenuUpgradeModel::where('isPublished', true)
+														->where('id', $orderedArticleInput['menuUpgradeModel']['id'])
+														->first();
+					$this->checkModelFound($menuUpgradeModel);
+
+					$customMenuModel = $menuUpgradeModel->returnCustomModel($this->storeModel->id);
+					$this->checkModelFound($customMenuModel);
+
+					if (!$customMenuModel->isActive) {
+						$this->throwException(400);
+					}
+				}
+
+			}
+		}
 	}
 
 
 	private function checkIngredientModelIdsAreValid()
 	{
-		
+		foreach ($this->input['orderedItemsCollection'] as $orderedItemInput) {
+			foreach ($orderedItemInput['orderedArticlesCollection'] as $orderedArticleInput) {
+
+				$articleModel = ArticleModel::where('isPublished', true)
+												->where('id', $orderedArticleInput['articleModel']['id'])
+												->first();
+
+				$ingredientCategoriesCollectionInput = $orderedArticleInput['articleModel']['ingredientCategoriesCollection'];
+				$numberOfSelectedIngredients = 0;
+
+				if ($ingredientCategoriesCollectionInput) {
+					foreach ($ingredientCategoriesCollectionInput as $ingredientCategoryInput) {
+						foreach ($ingredientCategoryInput['ingredientsCollection'] as $ingredientInput) {
+							if ($ingredientInput['isSelected']) {
+
+								$ingredientModel = IngredientModel::find($ingredientInput['id']);
+								$this->checkModelFound($ingredientModel);
+
+								$numberOfSelectedIngredients++;
+							}
+						}
+					}
+				}
+
+				if (!$articleModel->allowsIngredients && $numberOfSelectedIngredients > 0) {
+					$this->throwException(400);
+				}
+
+			}
+		}
 	}
 
 
@@ -198,7 +320,6 @@ class CreateController extends ApiController
 	{
 		$orderedItemsInput = $this->input['orderedItemsCollection'];
 
-		// TODO
 		$orderedItemsCollection = new Collection();
 
 		foreach ($orderedItemsInput as $orderedItemInput) {
@@ -211,7 +332,9 @@ class CreateController extends ApiController
 
 			// check if is menu bundle
 			if ($orderedItemInput['menuBundleModel']) {
+
 				$menuBundleModel = MenuBundleModel::find($orderedItemInput['menuBundleModel']['id']);
+
 				$orderedItemModel->setRelation('menuBundleModel', $menuBundleModel);
 				$orderedItemModel->menu_bundle_model_id = $menuBundleModel->id;
 			}
@@ -221,7 +344,9 @@ class CreateController extends ApiController
 
 				// check first ordered article for menu upgrade
 				if ($index == 0 and $orderedArticleInput['menuUpgradeModel']) {
+
 					$menuUpgradeModel = MenuUpgradeModel::find($orderedArticleInput['menuUpgradeModel']['id']);
+
 					$orderedItemModel->setRelation('menuUpgradeModel', $menuUpgradeModel);
 					$orderedItemModel->menu_upgrade_model_id = $menuUpgradeModel->id;
 				}
@@ -254,7 +379,9 @@ class CreateController extends ApiController
 			foreach ($ingredientCategoriesCollectionInput as $ingredientCategoryInput) {
 				foreach ($ingredientCategoryInput['ingredientsCollection'] as $ingredientInput) {
 					if ($ingredientInput['isSelected']) {
+
 						$ingredientModel = IngredientModel::find($ingredientInput['id']);
+
 						$orderedArticleModel->ingredientsCollection->add($ingredientModel);
 					}
 				}

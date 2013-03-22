@@ -17,7 +17,7 @@ class CheckTokenController extends ApiController
     	$tokenIsCached = Cache::has($token);
 
         if (!$tokenIsCached) {
-            $this->throwException();
+            $this->throwException(401);
         }
 
         return $this->respond(204);
