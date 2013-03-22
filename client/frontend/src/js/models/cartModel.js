@@ -306,6 +306,8 @@ define([
 				comment: ''
 			});
 
+			this.set('termsAccepted', false);
+
 		}
 
 	});
