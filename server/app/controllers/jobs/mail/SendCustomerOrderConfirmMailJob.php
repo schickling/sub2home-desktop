@@ -34,7 +34,7 @@ class SendCustomerOrderConfirmMailJob extends BaseJob {
 
 		Mail::send('emails.client.order', $data, function($mail) use ($emailAddress, $name)
 		{
-			$mail->from('bestellungen@sub2home.de', 'sub2home');
+			$mail->from('bestellung@sub2home.com', 'sub2home');
 			$mail->to($emailAddress, $name);
 			$mail->subject('Neue Bestellung');
 		});

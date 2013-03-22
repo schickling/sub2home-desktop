@@ -25,18 +25,25 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 
 	private function sendMail()
 	{
-		$addressModel = $this->orderModel->addressModel;
-		$emailAddress = $addressModel->email;
+		$storeModel = $this->orderModel->storeModel;
+		$emailAddress = $storeModel->orderEmail;
+		$addressModel = $storeModel->addressModel;
 		$name = $addressModel->firstName . ' ' . $addressModel->lastName;
+		$subject = sprintf('Neue Bestellung #%s', $orderModel->number);
 
-		$data = array();
+		$data = $this->getDataForMail();
 
-		Mail::send('emails.customer.order', $data, function($mail) use ($emailAddress, $name)
+		Mail::send('emails.customer.order', $data, function($mail) use ($emailAddress, $name, $subject)
 		{
-			$mail->from('danke@sub2home.de', 'sub2home');
+			$mail->from('bestellung@sub2home.com', 'sub2home');
 			$mail->to($emailAddress, $name);
-			$mail->subject('Danke fuer deine Bestellungen');
+			$mail->subject($subject);
 		});
+	}
+
+	private function getDataForMail()
+	{
+		return array();
 	}
 
 

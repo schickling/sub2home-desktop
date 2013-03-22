@@ -34,7 +34,7 @@ class SendInvoiceMailJob extends BaseJob {
 
 		Mail::send('emails.client.invoice', $data, function($mail) use ($emailAddress, $name)
 		{
-			$mail->from('rechnungen@sub2home.de', 'sub2home');
+			$mail->from('buchhaltung@sub2home.com', 'sub2home');
 			$mail->to($emailAddress, $name);
 			$mail->subject('Rechnung');
 		});

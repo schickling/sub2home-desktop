@@ -172,7 +172,7 @@ define([
 				dueDate = options.dueDate || now;
 
 			// add minutes
-			var dueDate = this._addMinutesToDate(dueDate, minutesToAdd);
+			dueDate = this._addMinutesToDate(dueDate, minutesToAdd);
 
 			// check if due date respects minimum duration
 			var spareMinutes = Math.ceil((dueDate - now) / 60000) - 1,

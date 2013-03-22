@@ -27,7 +27,7 @@ define([
 				addressModel = orderModel.get('addressModel'),
 				dueDate = orderModel.get('createdDate'),
 				createdDate = orderModel.get('createdDate'),
-				createdMoment = moment(createdDate)
+				createdMoment = moment(createdDate),
 				dueTime = createdMoment.format('HH:mm'),
 				dateOrTime = this._getDateOrTime();
 
