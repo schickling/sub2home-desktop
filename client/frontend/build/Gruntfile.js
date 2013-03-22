@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 		'main',
 		'models/clientModel',
         'views/header/HeaderView',
+        'views/header/ClientView',
         'views/home/home/MainView',
         'views/home/info/MainView',
         'views/home/404/MainView',
