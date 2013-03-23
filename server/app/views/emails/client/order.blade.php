@@ -25,7 +25,7 @@
       <!-- sub2home-Info Table -->
       <td></td>
 
-      <td rowspan="2" align="right"><table cellpadding="0" cellspacing="0" style="width: 395px; height: 217px; border-left: 1px solid #e4e4e4; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4; text-align: center; background-color: #f8f8f8; font-size: 14px; line-height: 1;"><tbody>
+      <td rowspan="2" align="right"><!-- <table cellpadding="0" cellspacing="0" style="width: 395px; height: 217px; border-left: 1px solid #e4e4e4; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4; text-align: center; background-color: #f8f8f8; font-size: 14px; line-height: 1;"><tbody>
         <tr>
           <td colspan="6" style="height: 26px"></td>
         </tr>
@@ -79,7 +79,7 @@
         <tr>
           <td colspan="6" style="height: 30px"></td>
         </tr>     
-    </tbody></table></td>
+    </tbody></table> --></td>
     </tr>
     <tr>
       <td style="width: 317px; line-height: 1.5; padding-left: 20px">
@@ -154,9 +154,9 @@
                   <table style="border-bottom: 1px solid #e0e0e0; padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">BROT</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">BROT</td>
                         <td >
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">VK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">VK</span>
                         </td>
                       </tr>
                     </tbody>
@@ -167,13 +167,13 @@
                   <table style="border-bottom: 1px solid #e0e0e0; padding: 5px; width: 100%">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">GEMÜSE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">GEMÜSE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">TO</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">OL</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">SA</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">PA</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">EG</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">TO</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">OL</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">SA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">PA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">EG</span>
                         </td>
                       </tr>
                     </tbody>
@@ -185,9 +185,9 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">KÄSE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">KÄSE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">CC</span>
                         </td>
                       </tr>
                     </tbody>
@@ -198,11 +198,11 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">EXTRAS</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">EXTRAS</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DK</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">BC</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DF</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">DK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">BC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">DF</span>
                         </td>
                       </tr>
                     </tbody>
@@ -213,9 +213,9 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">SAUCE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">SAUCE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CS</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">CS</span>
                         </td>
                       </tr>
                     </tbody>
@@ -304,12 +304,12 @@
         </td>
         <td height="0"></td>
         <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
-          <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="0">
+          <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="3">
             <tbody>
               <tr>
                 <!-- Price & Menu -->
                 <td style="border-right: 1px solid #e4e4e4; font-weight: normal; padding: 0 7px">Sparmenü</td>
-                <td style="padding: 0 7px">05.30€</td>
+                <td style="padding: 0 7px; font-weight: bold">05.30€</td>
                 <!-- / Price & Menu -->
               </tr>
             </tbody>
@@ -340,9 +340,9 @@
                   <table style="border-bottom: 1px solid #e0e0e0; padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">BROT</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">BROT</td>
                         <td >
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">VK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">VK</span>
                         </td>
                       </tr>
                     </tbody>
@@ -353,13 +353,13 @@
                   <table style="border-bottom: 1px solid #e0e0e0; padding: 5px; width: 100%">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">GEMÜSE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">GEMÜSE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">TO</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">OL</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">SA</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">PA</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">EG</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">TO</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">OL</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">SA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">PA</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">EG</span>
                         </td>
                       </tr>
                     </tbody>
@@ -371,9 +371,9 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">KÄSE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">KÄSE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">CC</span>
                         </td>
                       </tr>
                     </tbody>
@@ -384,11 +384,11 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">EXTRAS</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">EXTRAS</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DK</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">BC</span>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">DF</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">DK</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">BC</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">DF</span>
                         </td>
                       </tr>
                     </tbody>
@@ -399,9 +399,9 @@
                   <table style="padding: 5px">
                     <tbody>
                       <tr>
-                        <td style="font-size: 12px; padding-right: 5px">SAUCE</td>
+                        <td style="font-size: 10px; padding-right: 5px; color: #999;">SAUCE</td>
                         <td>
-                          <span style="padding: 2px 3px 0 3px; background-color: #000; color: #fff; font-weight: bold">CS</span>
+                          <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">CS</span>
                         </td>
                       </tr>
                     </tbody>
@@ -423,11 +423,11 @@
             <tbody>
               <tr>
                 <!-- Component-Title -->
-                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 3px" valign="top" height="39" width="42">+</td>
+                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 6px" valign="top" height="39" width="42">+</td>
                 <td style="font-size: 20px; padding: 10px" rowspan="2">SUB: 2 FT</td>
                 <!-- / Component-Title -->
                 <!-- Component-Title -->
-                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 3px" valign="top" height="39" width="42">+</td>
+                <td style=" background-color: #f4f4f4; border-right: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; text-align: center; font-weight: bold; font-size: 30px; color: #555; padding-top: 6px" valign="top" height="39" width="42">+</td>
                 <td style="font-size: 20px; padding: 10px;" rowspan="2">SUB: 2 FT</td>
                 <!-- / Component-Title -->
               </tr>

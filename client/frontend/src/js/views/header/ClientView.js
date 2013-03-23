@@ -264,12 +264,12 @@ define([
 
 		_tooltipForClientDashboard: function () {
 			var offset = this.$buttonClientDashboard.offset();
-			notificationcenter.tooltip('views.header.client.dashboard', offset.top + 54, offset.left + 14);
+			notificationcenter.tooltip('views.header.client.dashboard', offset.top + 64, offset.left + 26);
 		},
 
 		_tooltipForClientConfig: function () {
 			var offset = this.$buttonClientConfig.offset();
-			notificationcenter.tooltip('views.header.client.config', offset.top + 54, offset.left + 14);
+			notificationcenter.tooltip('views.header.client.config', offset.top + 40, offset.left + 16);
 		},
 
 		_dismissTooltip: function () {

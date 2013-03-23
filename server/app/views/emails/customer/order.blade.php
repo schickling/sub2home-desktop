@@ -9,7 +9,6 @@
 				<tr>
 					<td valign="middle" width="60" style="padding: 20px">
 						<img src="http://sub2home.com/img/static/common/store_icon.png">
-
 					</td>
 					<td valign="middle" style="">
 						<h3 style="margin: 0;">SUBWAY Memmingen</h3>
@@ -17,13 +16,11 @@
 					</td>
 					<td valign="top" style="text-align: right; padding: 20px">
 						<img src="http://sub2home.com/img/static/common/subway_logo.png">
-												<p style="font-size: 13px; padding-right: 32px">
+						<p style="font-size: 13px; padding-right: 32px; color: #d1ba82; text-decoration: none">
 							Store Memmingen<br>
 							Maximilianstr. 15<br>
 							23892 Memmingen<br><br>
 							Tel. 023 230 239 23 23<br>
-
-
 						</p>
 					</td>
 			</tr>
@@ -40,12 +37,9 @@
 		<p style="font-size: 20px; padding: 0 10% 20px; text-align: center; color: #9cc83e">
 			Da du schon online bezahlt hast, musst du nur noch deine Bestellung entgegennehmen. Unser Lieferbote kommt <span style="color: #57a827; white-space: nowrap;">ca. 18:15 Uhr</span>, bereite deinen Appetit schonmal vor.
 		</p>
-		<p style="font-size: 13px; padding: 0 10%; text-align: center; color: #aaa">Gib Feedback und erhalte einen Gratiscookie. Schnell und einfach.<br>
-		<a style="text-decoration: none; color: #9cc83e" href="http://www.subway-sandwiches.de/footer/kundenfeedback.html">www.subway-sandwiches.de/footer/kundenfeedback.html</a>
+		<p style="font-size: 13px; padding: 0 10%; text-align: center; color: #aaa">
+			Gib Feedback und erhalte einen Gratiscookie. Schnell und einfach. Wirklich.<br>
+			<a style="text-decoration: none; color: #9cc83e" href="http://www.subway-sandwiches.de/footer/kundenfeedback.html">www.subway-sandwiches.de/footer/kundenfeedback.html</a>
 		</p>
- 
-		<div>
-			
-		</div>
 	</body>
 </html>
