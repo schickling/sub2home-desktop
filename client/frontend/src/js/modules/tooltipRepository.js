@@ -20,7 +20,43 @@ define([
 			'store.dashboard.invoice.download': {
 				text: 'Rechnung herunterladen',
 				className: 'info'
+			},
+
+			'views.header.client.config': {
+				text: 'Stammdaten',
+				className: 'info'
+			},
+
+			'views.header.client.dashboard': {
+				text: 'Store-Übersicht',
+				className: 'info'
+			},
+			
+			'views.header.store.dashboard': {
+				text: 'Bestellungen & Umsätze',
+				className: 'info'
+			},
+			
+			'views.header.store.assortment': {
+				text: 'Sortiment-Einstellungen',
+				className: 'info'
+			},
+
+			'views.header.store.config': {
+				text: 'Store-Einstellungen',
+				className: 'info'
+			},
+			
+			'views.header.logout': {
+				text: 'Logout',
+				className: 'info'
 			}
+			
+			
+			
+			
+			
+			
 		},
 
 		getTooltipModel: function (alias, data) {
