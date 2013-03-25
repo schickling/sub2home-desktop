@@ -35,7 +35,7 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 
 		$data = $this->getDataForMail();
 
-		Mail::send('emails.client.order', $data, function($mail) use ($emailAddress, $name, $subject)
+		Mail::send('emails.client.order.order', $data, function($mail) use ($emailAddress, $name, $subject)
 		{
 			$mail->from('bestellung@sub2home.com', 'sub2home');
 			$mail->to($emailAddress, $name);
