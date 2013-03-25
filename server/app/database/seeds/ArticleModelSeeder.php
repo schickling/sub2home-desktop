@@ -622,7 +622,6 @@ class ArticleModelSeeder extends Seeder {
 				'isPublished'			=> true,
 				'buyed'					=> 0,
 				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
 				),
 
 			array (
@@ -1599,6 +1598,24 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				'id' 					=> 85,
+				'category_model_id'		=> 5,
+				'title' 				=> 'Apollinaris Medium',
+				'info'					=> '0.5l',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/beverages/apomedium.png',
+				'largeImage'			=> 'img/static/articles/largeimages/beverages/apomedium-b.png',
+				'price'					=> 2.00,
+				'deposit'				=> 0.25,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> true,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				'id' 					=> 86,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Vio Mineralwasser',
 				'info'					=> '0.5l',
