@@ -96,7 +96,7 @@ class OrderedItemModel extends BaseModel
 		throw new ModelException('Total has to be calculated');
 	}
 
-	private function isMenu()
+	public function getIsMenuAttribute()
 	{
 		return $this->menuModel != null;
 	}
@@ -108,7 +108,7 @@ class OrderedItemModel extends BaseModel
 		$total = (float) $this->baseArticleModel->returnCustomPrice($store_model_id);
 		$total += (float) $this->baseArticleModel->deposit;
 
-		if ($this->isMenu()) {
+		if ($this->isMenu) {
 			if ($this->menuModel instanceof MenuBundleModel) {
 				$total = (float) $this->menuModel->returnCustomPrice($store_model_id);
 			} else {
