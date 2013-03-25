@@ -61,6 +61,8 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 			'customerStreet'			=> $addressModelOfCustomer->street,
 			'customerPostal'			=> $addressModelOfCustomer->postal,
 			'customerCity'				=> $addressModelOfCustomer->city,
+			'customerEmail'				=> $addressModelOfCustomer->email,
+			'customerPhone'				=> $addressModelOfCustomer->phone,
 			'storeStreet'				=> $addressModelOfStore->street,
 			'storePostal'				=> $addressModelOfStore->postal,
 			'storeCity'					=> $addressModelOfStore->city,
@@ -69,6 +71,37 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 			);
 
 		return $data;
+	}
+
+	private function wrapIngredientsInCategories($articleModel)
+	{
+		$ingredientsCollectionOfArticle = $articleModel->ingredientsCollection;
+
+		$ingredientCategoriesCollection = IngredientCategoryModel::orderBy('order')->get();
+
+		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
+
+			// filter and reindex ingredients
+			$filteredIngredients = array_values(array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
+				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
+			}));
+
+			if (count($filteredIngredients) > 0) {
+				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
+				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
+			} else {
+				// check this, might not work
+				$ingredientCategoriesCollection->offsetUnset($index);
+			}
+
+
+		}
+
+		if (!$ingredientCategoriesCollection->isEmpty()) {
+			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
+		}
+
+		unset($articleModel->ingredientsCollection);
 	}
 
 

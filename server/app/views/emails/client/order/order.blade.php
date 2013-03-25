@@ -86,7 +86,8 @@
         An<br>
         <b>{{ $customerFirstName }} {{ $customerLastName }}</b><br>
         {{ $customerStreet }}<br>
-        {{ $customerPostal }} {{ $customerCity }}
+        {{ $customerPostal }} {{ $customerCity }}<br>
+        {{ $customerEmail }} {{ $customerPhone }}
       </td>
     </tr>
   </tbody>
@@ -98,7 +99,7 @@
   <!-- ORDER CONTENT START -->
   @foreach ($orderedItemsCollection as $orderedItemModel)
 
-  <!-- DAS MUSSTE RAUS -->
+  <!-- DAS MUSSTE AENDERN -->
   <table>
     <tr>
       <td rowspan="2" width="30">
@@ -123,7 +124,7 @@
               @if ($orderedItemModel->isMenu)
               <td style="border-right: 1px solid #e4e4e4; font-weight: normal; padding: 0 7px">{{ $orderedItemModel->menuModel->title }}</td>
               @endif
-              <td style="padding: 0 7px">05.30€</td>
+              <td style="padding: 0 7px">{{ $orderedItemModel->total }}€</td>
               <!-- / Price & Menu -->
             </tr>
           </tbody>
@@ -131,23 +132,16 @@
       </td>
     </tr>
   </table>
-  <!-- DAS MUSSTE RAUS ENDE -->
+  <!-- DAS MUSSTE AENDERN ENDE -->
 
-
-  <!-- ORDER BODY START -->
   @foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel)
-
-  @include('emails.client.orderedArticle', array('orderedArticleModel' => $orderedArticleModel))
-
+  @include('emails.client.order.orderedArticle', array('orderedArticleModel' => $orderedArticleModel))
   @endforeach
 
-
-  <!-- ORDER BODY END -->
   @endforeach
 
 
 </div>
-
 
 </body>
 </html>

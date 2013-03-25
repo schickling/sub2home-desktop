@@ -17,7 +17,7 @@
     <!-- Ingredients -->
     @if ($orderedArticleModel->articleModel->allowsIngredients)
     @foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel)
-    <span>Zutat (Kategorien mach ich noch): {{ $ingredientModel->title }}</span>
+    <span>Zutat: {{ $ingredientModel->title }}</span>
     @endforeach
     <tr>
       <td></td>
