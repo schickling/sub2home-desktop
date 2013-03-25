@@ -56,15 +56,16 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		$addressModelOfStore = $storeModel->addressModel;
 
 		$data = array(
-			'customerFirstName'	=> $addressModelOfCustomer->firstName,
-			'customerLastName'	=> $addressModelOfCustomer->lastName,
-			'customerStreet'	=> $addressModelOfCustomer->street,
-			'customerPostal'	=> $addressModelOfCustomer->postal,
-			'customerCity'		=> $addressModelOfCustomer->city,
-			'storeStreet'		=> $addressModelOfStore->street,
-			'storePostal'		=> $addressModelOfStore->postal,
-			'storeCity'			=> $addressModelOfStore->city,
-			'orderNumber'		=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT)
+			'customerFirstName'			=> $addressModelOfCustomer->firstName,
+			'customerLastName'			=> $addressModelOfCustomer->lastName,
+			'customerStreet'			=> $addressModelOfCustomer->street,
+			'customerPostal'			=> $addressModelOfCustomer->postal,
+			'customerCity'				=> $addressModelOfCustomer->city,
+			'storeStreet'				=> $addressModelOfStore->street,
+			'storePostal'				=> $addressModelOfStore->postal,
+			'storeCity'					=> $addressModelOfStore->city,
+			'orderNumber'				=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT),
+			'orderedItemsCollection'	=> $orderModel->orderedItemsCollection
 			);
 
 		return $data;

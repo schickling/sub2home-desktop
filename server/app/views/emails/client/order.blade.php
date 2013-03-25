@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html style="padding: 0; margin: 0" lang="en-US">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body style="font-family: Helvetica, Arial, sans-serif; padding: 30px 0; margin: 0">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="font-family: Helvetica, Arial, sans-serif; padding: 30px 0; margin: 0">
 
-<table cellpadding="0" style="width: 100%; margin-bottom: 50px" cellspacing="0">
+  <table cellpadding="0" style="width: 100%; margin-bottom: 50px" cellspacing="0">
 
-<!-- Pagehead -->
+    <!-- Pagehead -->
 
-  <tbody>
-  <!-- Logo Row -->
+    <tbody>
+      <!-- Logo Row -->
 
-    <tr>
-      <td style="padding-left: 20px">
+      <tr>
+        <td style="padding-left: 20px">
           <h2 style="font-size: 24px">Bestellung #{{ $orderNumber }}</h2>
-      </td>
-      <td style="text-align: right; padding-right: 30px; padding-bottom: 24px"><img src="http://sub2home.com/img/static/common/subway_logo.png"></td>
-    </tr>
+        </td>
+        <td style="text-align: right; padding-right: 30px; padding-bottom: 24px"><img src="http://sub2home.com/img/static/common/subway_logo.png"></td>
+      </tr>
 
-  <!-- Address & sub2home-Info Row -->
-    <tr>
+      <!-- Address & sub2home-Info Row -->
+      <tr>
 
-      <!-- sub2home-Info Table -->
-      <td></td>
+        <!-- sub2home-Info Table -->
+        <td></td>
 
       <td rowspan="2" align="right"><!-- <table cellpadding="0" cellspacing="0" style="width: 395px; height: 217px; border-left: 1px solid #e4e4e4; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4; text-align: center; background-color: #f8f8f8; font-size: 14px; line-height: 1;"><tbody>
         <tr>
@@ -79,7 +79,7 @@
         <tr>
           <td colspan="6" style="height: 30px"></td>
         </tr>     
-    </tbody></table> --></td>
+      </tbody></table> --></td>
     </tr>
     <tr>
       <td style="width: 317px; line-height: 1.5; padding-left: 20px">
@@ -92,6 +92,40 @@
   </tbody>
 </table>
 
+
+<!-- Skeleton START -->
+@foreach ($orderedItemsCollection as $orderedItemModel)
+
+<span>Amount: {{ $orderedItemModel->amount }}</span>
+<span>Total: {{ $orderedItemModel->total }}</span>
+
+@if ($orderedItemModel->isMenu())
+<span>Menutitel: {{ $orderedItemModel->menuModel->title }}</span>
+@endif
+
+<!-- / OrderedArticle (inkl. MenuComponentBlocks) -->
+@foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel)
+<span>Arikeltitel: {{ $orderedArticleModel->articleModel->title }}</span>
+<span>Arikelinfo: {{ $orderedArticleModel->articleModel->info }}</span>
+<span>Arikelnummer: {{ $orderedArticleModel->articleModel->number }}</span>
+<span>Kategorie: {{ $orderedArticleModel->articleModel->categoryModel->title }}</span>
+
+<!-- Ingredients -->
+@if ($orderedArticleModel->articleModel->allowsIngredients)
+
+@foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel)
+<span>Zutat (Kategorien mach ich noch): {{ $ingredientModel->title }}</span>
+@endforeach
+
+@endif
+<!-- / Ingredients -->
+
+@endforeach
+<!-- / OrderedArticles -->
+
+@endforeach
+<!-- Skeleton STOP -->
+
 <!-- ORDER CONTENT START -->
 
 <div style="padding: 0 20px">
@@ -99,22 +133,28 @@
 
   <!-- ORDER BODY START -->
 
+  
+
   <table style="border: 1px solid #e4e4e4; width:100%;  margin-top: 20px" cellspacing="0" cellpadding="0">
     <tbody>
 
       <!-- Item Head -->
 
+      
+
       <tr>
         <td rowspan="2" width="30">
-<!--          <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
+
+          <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
             <tbody>
               <tr>
-                
+
                 <td>3x</td>
                 
               </tr>
             </tbody>
-          </table> -->
+          </table>
+          
         </td>
         <td height="0"></td>
         <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
@@ -226,12 +266,13 @@
           </table>
         </td>
       </tr>
-  
+
       <!-- / Ingredients -->
 
     </tbody>
   </table>
 
+  
   <!-- ORDER BODY END -->
 
   <!-- ORDER BODY START -->
@@ -412,7 +453,7 @@
           </table>
         </td>
       </tr>
-  
+
       <!-- / Ingredients -->
 
       <!-- Menu Components -->
@@ -449,5 +490,5 @@
 
 
 
-  </body>
+</body>
 </html>
