@@ -6,6 +6,7 @@ define([
     'router',
     'models/cartModel',
     'views/PageView',
+    'views/store/tray/NoDeliveryView',
     'views/store/tray/DeliveryTimeView',
     'views/store/tray/CommentView',
     'views/store/tray/SubcardView',
@@ -14,7 +15,7 @@ define([
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, DeliveryTimeView, CommentView, SubcardView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -86,6 +87,12 @@ define([
 					el: this.$('#checkoutSettings')
 				});
 
+			} else {
+
+				new NoDeliveryView({
+					el: this.$('#checkoutControls')
+				});
+				
 			}
 
 			this.append();
@@ -109,7 +116,7 @@ define([
 			});
 		},
 
-		_storeIsDelivering: function() {
+		_storeIsDelivering: function () {
 			cartModel.validateDueDate();
 
 			return cartModel.getDueDate() !== null;
