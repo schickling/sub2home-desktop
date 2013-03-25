@@ -37,9 +37,14 @@
 		<p style="font-size: 20px; padding: 0 10% 20px; text-align: center; color: #9cc83e">
 			Da du schon online bezahlt hast, musst du nur noch deine Bestellung entgegennehmen. Unser Lieferbote kommt <span style="color: #57a827; white-space: nowrap;">ca. 18:15 Uhr</span>, bereite deinen Appetit schonmal vor.
 		</p>
-		<p style="font-size: 13px; padding: 0 10%; text-align: center; color: #aaa">
+		<p style="font-size: 13px; padding: 0 10% 20px; text-align: center; color: #aaa">
 			Gib Feedback und erhalte einen Gratiscookie. Schnell und einfach. Wirklich.<br>
 			<a style="text-decoration: none; color: #9cc83e" href="http://www.subway-sandwiches.de/footer/kundenfeedback.html">www.subway-sandwiches.de/footer/kundenfeedback.html</a>
+		</p>
+
+		<p style="font-size: 13px; padding: 0 10%; text-align: center; color: #aaa">
+		Bitte antworte nicht auf diese Mail, da wir keine Mails lesen, die an diese Mailadresse geschickt werden. Wenn du Fragen hast oder uns einfach so kontaktieren willst: <a href="mailto:kontakt@sub2home.com">kontakt@sub2home.com</a>
+
 		</p>
 	</body>
 </html>
