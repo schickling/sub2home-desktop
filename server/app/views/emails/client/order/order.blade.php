@@ -96,7 +96,6 @@
 
 <div style="padding: 0 20px">
 
-  <!-- ORDER CONTENT START -->
   @foreach ($orderedItemsCollection as $orderedItemModel)
 
   <!-- DAS MUSSTE AENDERN -->
@@ -139,7 +138,6 @@
   @endforeach
 
   @endforeach
-
 
 </div>
 

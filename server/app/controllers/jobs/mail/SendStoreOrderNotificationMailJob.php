@@ -55,6 +55,8 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		$addressModelOfCustomer = $orderModel->addressModel;
 		$addressModelOfStore = $storeModel->addressModel;
 
+		$this->prepareIngredientCategories();
+
 		$data = array(
 			'customerFirstName'			=> $addressModelOfCustomer->firstName,
 			'customerLastName'			=> $addressModelOfCustomer->lastName,
@@ -73,9 +75,24 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		return $data;
 	}
 
-	private function wrapIngredientsInCategories($articleModel)
+	private function prepareIngredientCategories()
 	{
-		$ingredientsCollectionOfArticle = $articleModel->ingredientsCollection;
+		$orderedItemsCollection = $this->orderModel->orderedItemsCollection;
+
+		foreach ($orderedItemsCollection as $orderedItemModel) {
+			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
+				$articleModel = $orderedArticleModel->articleModel;
+
+				if ($articleModel->allowsIngredients) {
+					$this->wrapIngredientsInCategories($orderedArticleModel);
+				}
+			}
+		}
+	}
+
+	private function wrapIngredientsInCategories($orderedArticleModel)
+	{
+		$ingredientsCollectionOfArticle = $orderedArticleModel->ingredientsCollection;
 
 		$ingredientCategoriesCollection = IngredientCategoryModel::orderBy('order')->get();
 
@@ -90,7 +107,7 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
 				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
 			} else {
-				// check this, might not work
+				// TODO: check this, might not work
 				$ingredientCategoriesCollection->offsetUnset($index);
 			}
 
@@ -98,10 +115,10 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 		}
 
 		if (!$ingredientCategoriesCollection->isEmpty()) {
-			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
+			$orderedArticleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
 		}
 
-		unset($articleModel->ingredientsCollection);
+		unset($orderedArticleModel->ingredientsCollection);
 	}
 
 

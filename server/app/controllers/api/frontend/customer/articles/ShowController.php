@@ -95,7 +95,7 @@ class ShowController extends ApiController
 				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
 				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
 			} else {
-				// check this, might not work
+				// TODO: check this, might not work
 				$ingredientCategoriesCollection->offsetUnset($index);
 			}
 
