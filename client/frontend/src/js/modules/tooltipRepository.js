@@ -52,11 +52,6 @@ define([
 				className: 'info'
 			}
 			
-			
-			
-			
-			
-			
 		},
 
 		getTooltipModel: function (alias, data) {

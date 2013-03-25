@@ -1083,7 +1083,7 @@ input[type="text"]#locationSelectionInput {
   position: absolute;
   display: block;
   top: -70px;
-  left: 11px;
+  left: 7px;
   min-width: 3px;
   cursor: pointer;
   text-align: center;
@@ -3612,6 +3612,7 @@ div#payment {
       right: 15px;
       bottom: 10px;
     }
+
   }
 
   .articleBasics {
@@ -3644,6 +3645,18 @@ div#payment {
     div.articleBasics {
       width: 430px;
       padding: 0 0 0 10px;
+    }
+  }
+
+  &.w {
+    .articlePreview .pricetag {
+      right: 75px;
+    }
+  }
+
+  &.s {
+    .articlePreview .pricetag {
+      right: 45px;
     }
   }
 }
@@ -5252,7 +5265,7 @@ div#payment {
         font-size: 24px;
         display: inline-block;
         font-family: @headingsFontFamily;
-        padding-top: 18px;
+        padding-top: 8px;
 
       &.emphasized {
         color: @greenLight;
@@ -5292,7 +5305,7 @@ div#payment {
 
 .content.checkout {
   top: 0;
-  bottom: 330px;
+  bottom: 310px;
   background: @checkoutImage;
 }
 
