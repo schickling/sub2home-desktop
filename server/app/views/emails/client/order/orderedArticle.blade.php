@@ -14,7 +14,7 @@
     <!-- / Item Head -->
 
     <!-- Ingredients -->
-    @if ($orderedArticleModel->articleModel->allowsIngredients)
+    @if ($orderedArticleModel->articleModel->allowsIngredients and $orderedArticleModel->ingredientCategoriesCollection)
     <tr>
       <td></td>
       <td colspan="2">

@@ -431,7 +431,10 @@ class CreateController extends ApiController
 
 	private function saveAddressModel()
 	{
-		$this->orderModel->addressModel->save();
+		$orderModel = $this->orderModel;
+		$addressModel = $orderModel->addressModel;
+
+		$orderModel->addressModel()->save($addressModel);
 	}
 
 

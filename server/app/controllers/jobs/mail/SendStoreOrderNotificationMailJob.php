@@ -4,9 +4,8 @@ use App\Controllers\Jobs\BaseJob;
 use Exception;
 use Mail;
 
-use Log;
-
 use App\Models\OrderModel;
+use App\Models\IngredientCategoryModel;
 
 class SendStoreOrderNotificationMailJob extends BaseJob {
 
@@ -42,10 +41,6 @@ class SendStoreOrderNotificationMailJob extends BaseJob {
 			$mail->subject($subject);
 		});
 
-		Log::info($emailAddress);
-		Log::info($name);
-
-		Log::info($subject);
 	}
 
 	private function getDataForMail()
