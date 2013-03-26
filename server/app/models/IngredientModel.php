@@ -5,7 +5,7 @@
  *
  * An ingredient of an article. May also have an additional price.
  */
-class IngredientModel extends BaseModel
+class IngredientModel extends ItemModel
 {
 
 	protected $table = 'ingredient_models';
@@ -103,17 +103,6 @@ class IngredientModel extends BaseModel
 		}
 
 		return $customIngredientModel;
-	}
-
-	/**
-	 * Returns the custom price of the item
-	 *
-	 * @param int $store_model_id
-	 * @return float
-	 */
-	public function returnCustomPrice($store_model_id)
-	{
-		return $this->returnCustomModel($store_model_id)->price;
 	}
 
 }

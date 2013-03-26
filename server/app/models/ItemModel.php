@@ -20,14 +20,14 @@ abstract class ItemModel extends BaseModel
 	 *
 	 * @return void
 	 */
-	protected function check()
+	final protected function check()
 	{
 		if (!$this->isPublished) {
 			$this->throwException('Item not published');
 		}
 	}
 
-	public function isActive($store_model_id)
+	final public function isActive($store_model_id)
 	{
 		return $this->returnCustomModel($store_model_id)->isActive;
 	}
@@ -38,7 +38,7 @@ abstract class ItemModel extends BaseModel
 	 * @param int $store_model_id
 	 * @return float
 	 */
-	public function returnCustomPrice($store_model_id)
+	final public function returnCustomPrice($store_model_id)
 	{
 		$this->check();
 

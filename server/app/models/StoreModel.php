@@ -18,9 +18,14 @@ class StoreModel extends BaseModel
 		);
 
 	protected $fillable = array(
+		'title',
+		'commissionRate',
 		'number',
 		'isActive',
+		'isOpen',
 		'orderEmail',
+		'allowsPaymentCash',
+		'allowsPaymentEc'
 		);
 
 	protected $table = 'store_models';
@@ -49,20 +54,18 @@ class StoreModel extends BaseModel
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
 			$noon = new DeliveryTimeModel(array(
-				'store_model_id' => $this->id,
 				'dayOfWeek' => $dayOfWeek,
 				'startMinutes' => 690, // 11:30
 				'endMinutes' => 840 // 14:00
 				));
-			$noon->save();
+			$this->deliveryTimesCollection()->save($noon);
 
 			$evening = new DeliveryTimeModel(array(
-				'store_model_id' => $this->id,
 				'dayOfWeek' => $dayOfWeek,
 				'startMinutes' => 1020, // 17:00
 				'endMinutes' => 1320 // 22:00
 				));
-			$evening->save();
+			$this->deliveryTimesCollection()->save($evening);
 		}
 
 		// Create default delivery area
@@ -73,7 +76,7 @@ class StoreModel extends BaseModel
 			'minimumDuration' => 20,
 			'city' => $this->addressModel->city
 			));
-		$deliveryAreaModel->save();
+		$this->deliveryAreasCollection()->save($deliveryAreaModel);
 
 		// initalize invoices
 		$this->checkInvoices();
@@ -238,6 +241,19 @@ class StoreModel extends BaseModel
 	public function setTitleAttribute($title) {
 		$this->attributes['title'] = $title;
 		$this->attributes['alias'] = Str::slug($title);
+	}
+
+	public function setNumberAttribute($number)
+	{
+		if ($this->number != 0) {
+			$this->throwException('Store number may not be changed');
+		}
+
+		if ($number < 1000 || $number > 9999) {
+			$this->throwException('No valid store number');
+		}
+
+		$this->attributes['number'] = $number;
 	}
 
 

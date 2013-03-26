@@ -31,7 +31,7 @@ class TestOrderModel extends OrderModel
 		$orderModel->comment = 'Testbestellungen';
 
 		$orderModel->save();
-		$orderModel->addressModel()->create(static::getTestAddressForStore($storeModel));
+		$orderModel->addressModel()->save(static::getTestAddressModelForStore($storeModel));
 
 		// set timestamps after first save
 		$orderModel->created_at = $createdAtDateTime;
@@ -57,7 +57,7 @@ class TestOrderModel extends OrderModel
 			$balanceOrderModel->setBalance(-$orderModel->total);
 
 			$balanceOrderModel->save();
-			$balanceOrderModel->addressModel()->create(static::getTestAddressForStore($storeModel));
+			$balanceOrderModel->addressModel()->save(static::getTestAddressModelForStore($storeModel));
 
 			// set timestamps after first save
 			$balanceOrderModel->created_at = $createdAtDateTime;
@@ -68,7 +68,7 @@ class TestOrderModel extends OrderModel
 		}
 	}
 
-	private static function getTestAddressForStore($storeModel)
+	private static function getTestAddressModelForStore($storeModel)
 	{
 		
 		$deliveryArea = $storeModel->deliveryAreasCollection->first();
@@ -80,7 +80,7 @@ class TestOrderModel extends OrderModel
 		$validPostal = $deliveryArea->postal;
 		$validCity = $deliveryArea->city;
 
-		return array(
+		$addressData = array(
 			'firstName'			=> 'Max',
 			'lastName'			=> 'Mustermann',
 			'street'			=> 'Bahnhofstr. 4',
@@ -90,6 +90,8 @@ class TestOrderModel extends OrderModel
 			'email'				=> 'max@mustermann.de',
 			'phone'				=> '08731 000000'
 			);
+
+		return new AddressModel($addressData);
 	}
 
 	private static function createOrderedItemsForTestOrder($orderModel)
