@@ -54,7 +54,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -72,7 +72,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -82,7 +82,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckfajita-st.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/ckfajita-st.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/ckfajita6g-st.png',
 				'price'					=> 4.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -90,8 +90,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -101,7 +100,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckfajitaFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/ckfajitaFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/ckfajitaFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -109,8 +108,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -120,7 +118,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckteriyaki-st.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/ckteriyaki-st.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/ckteriyaki6g-st.png',
 				'price'					=> 4.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -128,7 +126,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -138,7 +136,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckteriyakiFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/ckteriyakiFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/ckteriyakiFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -146,7 +144,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -156,7 +154,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ham-sml.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/ham-sml.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/ham6g-sml.png',
 				'price'					=> 3.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -164,7 +162,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -174,7 +172,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/hamFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/hamFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/hamFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -182,7 +180,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -200,8 +198,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 10,
@@ -218,8 +216,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 11,
@@ -228,7 +226,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreast-sm.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/roastedchickenbreast-sm.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/roastedchickenbreast6g-sm.png',
 				'price'					=> 3.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -236,8 +234,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 12,
@@ -246,7 +244,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreastFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/roastedchickenbreastFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/roastedchickenbreastFtlng6g-ft.png',
 				'price'					=> 5.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -254,8 +252,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 13,
@@ -272,8 +270,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 14,
@@ -290,8 +288,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 15,
@@ -308,8 +306,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 16,
@@ -326,7 +324,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
@@ -344,8 +342,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 18,
@@ -362,8 +360,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 19,
@@ -380,8 +378,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 20,
@@ -398,7 +396,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -408,7 +406,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkey-smt.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/turkey-smt.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/turkey6g-smt.png',
 				'price'					=> 3.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -416,8 +414,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 22,
@@ -426,7 +424,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -434,8 +432,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 23,
@@ -444,7 +442,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyham-sm.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyham-sm.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyham6g-sm.png',
 				'price'					=> 3.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -452,7 +450,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
@@ -462,7 +460,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyhamFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyhamFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/turkeyhamFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -470,8 +468,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 25,
@@ -488,8 +486,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 26,
@@ -506,8 +504,8 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
 				'id' 					=> 27,
@@ -516,7 +514,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> '6inch',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedelite-sl.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/veggiedelite-sl.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/veggiedelite6g-sl.png',
 				'price'					=> 3.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -524,7 +522,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
@@ -534,7 +532,7 @@ class ArticleModelSeeder extends Seeder {
 				'info'					=> 'footlong',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedeliteFtlng-ft.png',
-				'largeImage'			=> 'img/static/articles/largeimages/subs/veggiedeliteFtlng-ft.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/veggiedeliteFtlng6g-ft.png',
 				'price'					=> 5.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> true,
@@ -542,7 +540,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 
@@ -561,7 +559,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 
@@ -580,16 +578,109 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
+
+
+// Kids-Pak Subs ---------------
+
+			array (
+				'id' 					=> 31,
+				'category_model_id'		=> 1,
+				'title' 				=> 'Ham',
+				'info'					=> 'Mini',
+				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
+				'smallImage'			=> 'img/static/articles/smallimages/subs/hamMini.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/hamMini.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
+
+			array (
+				'id' 					=> 32,
+				'category_model_id'		=> 1,
+				'title' 				=> 'Salami',
+				'info'					=> 'Mini',
+				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
+				'smallImage'			=> 'img/static/articles/smallimages/subs/salamiMini.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/salamiMini.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
+
+			array (
+				'id' 					=> 33,
+				'category_model_id'		=> 1,
+				'title' 				=> 'Tuna',
+				'info'					=> 'Mini',
+				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
+				'smallImage'			=> 'img/static/articles/smallimages/subs/tunaMini.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/tunaMini.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
+
+			array (
+				'id' 					=> 34,
+				'category_model_id'		=> 1,
+				'title' 				=> 'Veggie Delite',
+				'info'					=> 'Mini',
+				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
+				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedeliteMini.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/veggiedeliteMini.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
+
+			array (
+				'id' 					=> 35,
+				'category_model_id'		=> 1,
+				'title' 				=> 'Roasted Chicken Breast',
+				'info'					=> 'Mini',
+				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
+				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreastMini.png',
+				'largeImage'			=> 'img/static/articles/largeimages/subs/roastedchickenbreastMini.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 // WRAPS -----------------------
 // -----------------------------
 
 
 			array (
-				'id' 					=> 31,
+				'id' 					=> 36,
 				'category_model_id'		=> 2,
 				'title' 				=> 'BBQ Rib',
 				'info'					=> '',
@@ -603,11 +694,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 32,
+				'id' 					=> 37,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Fajita',
 				'info'					=> '',
@@ -621,11 +712,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 33,
+				'id' 					=> 38,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Teriyaki',
 				'info'					=> '',
@@ -639,11 +730,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 34,
+				'id' 					=> 39,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Ham',
 				'info'					=> '',
@@ -657,11 +748,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 35,
+				'id' 					=> 40,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Italian B.M.T.',
 				'info'					=> '',
@@ -675,11 +766,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
-				'id' 					=> 36,
+				'id' 					=> 41,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Roasted Chicken Breast',
 				'info'					=> '',
@@ -693,11 +784,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 37,
+				'id' 					=> 42,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Salami',
 				'info'					=> '',
@@ -711,11 +802,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
-				'id' 					=> 38,
+				'id' 					=> 43,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Spicy Italian',
 				'info'					=> '',
@@ -729,11 +820,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 39,
+				'id' 					=> 44,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Steak & Cheese',
 				'info'					=> '',
@@ -747,11 +838,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
-				'id' 					=> 40,
+				'id' 					=> 45,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Tuna',
 				'info'					=> '',
@@ -765,11 +856,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 41,
+				'id' 					=> 46,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey',
 				'info'					=> '',
@@ -783,11 +874,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 42,
+				'id' 					=> 47,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey & Ham',
 				'info'					=> '',
@@ -801,11 +892,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 43,
+				'id' 					=> 48,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'info'					=> '',
@@ -819,11 +910,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 44,
+				'id' 					=> 49,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Veggie Delite',
 				'info'					=> '',
@@ -837,12 +928,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 45,
+				'id' 					=> 50,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Veggie Patty',
 				'info'					=> '',
@@ -856,7 +946,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 
@@ -865,7 +955,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 46,
+				'id' 					=> 51,
 				'category_model_id'		=> 3,
 				'title' 				=> 'BBQ Rib',
 				'info'					=> '',
@@ -879,11 +969,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 47,
+				'id' 					=> 52,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Fajita',
 				'info'					=> '',
@@ -897,12 +987,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 48,
+				'id' 					=> 53,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Teriyaki',
 				'info'					=> '',
@@ -916,11 +1005,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 49,
+				'id' 					=> 54,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Ham',
 				'info'					=> '',
@@ -934,11 +1023,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 50,
+				'id' 					=> 55,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Italian B.M.T.',
 				'info'					=> '',
@@ -952,11 +1041,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 51,
+				'id' 					=> 56,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Roasted Chicken Breast',
 				'info'					=> '',
@@ -970,11 +1059,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 52,
+				'id' 					=> 57,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Salami',
 				'info'					=> '',
@@ -988,11 +1077,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 53,
+				'id' 					=> 58,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Spicy Italian',
 				'info'					=> '',
@@ -1006,11 +1095,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 54,
+				'id' 					=> 59,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Steak & Cheese',
 				'info'					=> '',
@@ -1024,11 +1113,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 55,
+				'id' 					=> 60,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Tuna',
 				'info'					=> '',
@@ -1042,11 +1131,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
-				'id' 					=> 56,
+				'id' 					=> 61,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey',
 				'info'					=> '',
@@ -1060,11 +1149,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),	
 
 			array (
-				'id' 					=> 57,
+				'id' 					=> 62,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey & Ham',
 				'info'					=> '',
@@ -1078,11 +1167,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 58,
+				'id' 					=> 63,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'info'					=> '',
@@ -1096,11 +1185,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-				),	
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				),
 
 			array (
-				'id' 					=> 59,
+				'id' 					=> 64,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Veggie Delite',
 				'info'					=> '',
@@ -1114,12 +1203,11 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 			array (
-				'id' 					=> 60,
+				'id' 					=> 65,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Veggie Patty',
 				'info'					=> '',
@@ -1133,7 +1221,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isPublished'			=> true,
 				'buyed'					=> 0,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
+				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
 				),
 
 
@@ -1142,7 +1230,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 61,
+				'id' 					=> 66,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Chocolate Chip',
 				'info'					=> '',
@@ -1160,7 +1248,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 62,
+				'id' 					=> 67,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Chocolate Chip Rainbow Candy',
 				'info'					=> '',
@@ -1178,7 +1266,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 63,
+				'id' 					=> 68,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Double Chocolate Chip',
 				'info'					=> '',
@@ -1196,7 +1284,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 64,
+				'id' 					=> 69,
 				'category_model_id'		=> 4,
 				'title' 				=> 'White Chip Macadamia Nut',
 				'info'					=> '',
@@ -1213,13 +1301,31 @@ class ArticleModelSeeder extends Seeder {
 				'ingredient_model_ids'	=> array()
 				),
 
+			array (
+				'id' 					=> 70,
+				'category_model_id'		=> 4,
+				'title' 				=> 'Peanut Butter',
+				'info'					=> '',
+				'description'			=> 'Subway Cookie mit weißen Macadamia Nüssen',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/peanutbutter.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/peanutbutter-cdm.png',
+				'price'					=> 0.89,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array()
+				),
+
 
 			// MUFFINS ---------------------
 			// -----------------------------
 
 
 			array (
-				'id' 					=> 65,
+				'id' 					=> 71,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Milka Schoko-Muffin',
 				'info'					=> '',
@@ -1237,7 +1343,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 66,
+				'id' 					=> 72,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Deep Blueberry',
 				'info'					=> '',
@@ -1255,7 +1361,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 67,
+				'id' 					=> 73,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Rich Chocolate Muffin',
 				'info'					=> '',
@@ -1278,7 +1384,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 68,
+				'id' 					=> 74,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Milka Schoko-Donut',
 				'info'					=> '',
@@ -1301,7 +1407,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 69,
+				'id' 					=> 75,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Paprika',
 				'info'					=> '',
@@ -1319,7 +1425,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 70,
+				'id' 					=> 76,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Salt & Vinegar',
 				'info'					=> '',
@@ -1337,7 +1443,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 71,
+				'id' 					=> 77,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Cheese & Onion',
 				'info'					=> '',
@@ -1355,7 +1461,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 72,
+				'id' 					=> 78,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Salted',
 				'info'					=> '',
@@ -1373,7 +1479,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 73,
+				'id' 					=> 79,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Barbecue',
 				'info'					=> '',
@@ -1391,7 +1497,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 74,
+				'id' 					=> 80,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Sourcream & Onion',
 				'info'					=> '',
@@ -1410,7 +1516,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 75,
+				'id' 					=> 81,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Doritos Nacho Cheese',
 				'info'					=> '',
@@ -1428,7 +1534,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 76,
+				'id' 					=> 82,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Doritos Sweet Chili Pepper',
 				'info'					=> '',
@@ -1451,7 +1557,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 77,
+				'id' 					=> 83,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Coca Cola',
 				'info'					=> '0.5l',
@@ -1469,7 +1575,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 78,
+				'id' 					=> 84,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Coca Cola Light',
 				'info'					=> '0.5l',
@@ -1487,7 +1593,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 79,
+				'id' 					=> 85,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Fanta',
 				'info'					=> '0.5l',
@@ -1505,7 +1611,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 80,
+				'id' 					=> 86,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Sprite',
 				'info'					=> '0.5l',
@@ -1524,7 +1630,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 81,
+				'id' 					=> 87,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apfelschorle',
 				'info'					=> '0.5l',
@@ -1542,7 +1648,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 82,
+				'id' 					=> 88,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Nestea Pfirsich',
 				'info'					=> '0.5l',
@@ -1561,7 +1667,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				'id' 					=> 83,
+				'id' 					=> 89,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Nestea Zitrone',
 				'info'					=> '0.5l',
@@ -1579,7 +1685,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 84,
+				'id' 					=> 90,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apollinaris Classic',
 				'info'					=> '0.5l',
@@ -1597,7 +1703,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 85,
+				'id' 					=> 91,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apollinaris Medium',
 				'info'					=> '0.5l',
@@ -1615,13 +1721,30 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 86,
+				'id' 					=> 92,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Vio Mineralwasser',
 				'info'					=> '0.5l',
 				'description'			=> '',
-				'smallImage'			=> 'img/static/articles/smallimages/beverages/vio.png',
-				'largeImage'			=> 'img/static/articles/largeimages/beverages/vio-b.png',
+				'smallImage'			=> 'img/static/articles/smallimages/beverages/vio05.png',
+				'largeImage'			=> 'img/static/articles/largeimages/beverages/vio05-b.png',
+				'price'					=> 2.00,
+				'deposit'				=> 0.25,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> true,
+				'allowsMenuUpgrades'	=> false,
+				'isPublished'			=> true,
+				'buyed'					=> 0,
+				'ingredient_model_ids'	=> array()
+				),
+			array (
+				'id' 					=> 93,
+				'category_model_id'		=> 5,
+				'title' 				=> 'Vio Mineralwasser',
+				'info'					=> '0.75l',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/beverages/vio075.png',
+				'largeImage'			=> 'img/static/articles/largeimages/beverages/vio075-b.png',
 				'price'					=> 2.00,
 				'deposit'				=> 0.25,
 				'allowsIngredients'		=> false,
@@ -1631,6 +1754,11 @@ class ArticleModelSeeder extends Seeder {
 				'buyed'					=> 0,
 				'ingredient_model_ids'	=> array()
 				)
+
+			// CATERING --------------------
+			// -----------------------------
+
+
 			);
 }
 

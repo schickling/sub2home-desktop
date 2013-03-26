@@ -155,9 +155,9 @@ class IngredientModelSeeder extends Seeder {
 				'id' 							=> 12,
 				'order' 						=> 11,
 				'ingredient_category_model_id'	=> 3,
-				'title' 						=> 'Grüne Paprika',
-				'shortTitle'					=> 'Paprika',
-				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/paprika.png',
+				'title' 						=> 'Essiggurken',
+				'shortTitle'					=> 'Essiggurken',
+				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/essiggurke.png',
 				'price'							=> 0.00
 				),
 
@@ -165,9 +165,9 @@ class IngredientModelSeeder extends Seeder {
 				'id' 							=> 13,
 				'order' 						=> 12,
 				'ingredient_category_model_id'	=> 3,
-				'title' 						=> 'Rote Zwiebeln',
-				'shortTitle'					=> 'Zwiebeln',
-				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/zwiebel.png',
+				'title' 						=> 'Grüne Paprika',
+				'shortTitle'					=> 'Paprika',
+				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/paprika.png',
 				'price'							=> 0.00
 				),
 
@@ -185,9 +185,9 @@ class IngredientModelSeeder extends Seeder {
 				'id' 							=> 15,
 				'order' 						=> 14,
 				'ingredient_category_model_id'	=> 3,
-				'title' 						=> 'Jalapeños (scharf)',
-				'shortTitle'					=> 'Jalapeños',
-				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/jalapeno.png',
+				'title' 						=> 'Rote Zwiebeln',
+				'shortTitle'					=> 'Zwiebeln',
+				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/zwiebel.png',
 				'price'							=> 0.00
 				),
 
@@ -195,9 +195,9 @@ class IngredientModelSeeder extends Seeder {
 				'id' 							=> 16,
 				'order' 						=> 15,
 				'ingredient_category_model_id'	=> 3,
-				'title' 						=> 'Essiggurken',
-				'shortTitle'					=> 'Essiggurken',
-				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/essiggurke.png',
+				'title' 						=> 'Jalapeños (scharf)',
+				'shortTitle'					=> 'Jalapeños',
+				'largeImage'					=> 'img/static/ingredients/largeimages/vegetables/jalapeno.png',
 				'price'							=> 0.00
 				),
 
@@ -210,15 +210,37 @@ class IngredientModelSeeder extends Seeder {
 				'id' 							=> 17,
 				'order' 						=> 16,
 				'ingredient_category_model_id'	=> 4,
-				'title' 						=> 'Doppelt Fleisch',
-				'shortTitle'					=> 'Doppelt Fleisch',
-				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
-				'price'							=> 1.00
+				'title' 						=> 'Getoasted',
+				'shortTitle'					=> 'Getoasted',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/toasted.png',
+				'price'							=> 0.00
 				),
 
 			array (
 				'id' 							=> 18,
 				'order' 						=> 17,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Belag',
+				'shortTitle'					=> 'Extra Belag',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
+				'price'							=> 1.00
+				),
+
+			// Footlong
+
+			array (
+				'id' 							=> 19,
+				'order' 						=> 18,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Belag',
+				'shortTitle'					=> 'Extra Belag',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
+				'price'							=> 2.00
+				),
+
+			array (
+				'id' 							=> 20,
+				'order' 						=> 19,
 				'ingredient_category_model_id'	=> 4,
 				'title' 						=> 'Knuspriger Bacon',
 				'shortTitle'					=> 'Bacon',
@@ -226,19 +248,89 @@ class IngredientModelSeeder extends Seeder {
 				'price'							=> 0.60
 				),
 
+			// Footlong
+
 			array (
-				'id' 							=> 19,
-				'order' 						=> 18,
+				'id' 							=> 21,
+				'order' 						=> 20,
 				'ingredient_category_model_id'	=> 4,
-				'title' 						=> 'Doppelt Käse',
-				'shortTitle'					=> 'Doppelt Käse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/extras/doppeltkaese.png',
+				'title' 						=> 'Knuspriger Bacon',
+				'shortTitle'					=> 'Bacon',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/bacon.png',
+				'price'							=> 1.20
+				),
+
+			array (
+				'id' 							=> 22,
+				'order' 						=> 21,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Cheddar',
+				'shortTitle'					=> 'Extra Cheddar',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
+				'price'							=> 0.30
+				),
+
+			// Footlong
+
+			array (
+				'id' 							=> 23,
+				'order' 						=> 22,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Cheddar',
+				'shortTitle'					=> 'Extra Cheddar',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
+				'price'							=> 0.60
+				),
+
+
+
+			array (
+				'id' 							=> 24,
+				'order' 						=> 23,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Scheibenkäse',
+				'shortTitle'					=> 'Extra Scheibenkäse',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
+				'price'							=> 0.30
+				),
+
+			// Footlong
+
+			array (
+				'id' 							=> 25,
+				'order' 						=> 14,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Scheibenkäse',
+				'shortTitle'					=> 'Extra Scheibenkäse',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
 				'price'							=> 0.60
 				),
 
 			array (
-				'id' 							=> 20,
-				'order' 						=> 19,
+				'id' 							=> 26,
+				'order' 						=> 25,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Streichkäse',
+				'shortTitle'					=> 'Extra Streichkäse',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
+				'price'							=> 0.30
+				),
+
+			// Footlong
+
+			array (
+				'id' 							=> 27,
+				'order' 						=> 26,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Extra Streichkäse',
+				'shortTitle'					=> 'Extra Streichkäse',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
+				'price'							=> 0.60
+				),
+
+			array (
+				'id' 							=> 28,
+				'order' 						=> 27,
 				'ingredient_category_model_id'	=> 4,
 				'title' 						=> 'Oregano',
 				'shortTitle'					=> 'Oregano',
@@ -247,8 +339,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 21,
-				'order' 						=> 20,
+				'id' 							=> 29,
+				'order' 						=> 28,
 				'ingredient_category_model_id'	=> 4,
 				'title' 						=> 'Salz',
 				'shortTitle'					=> 'Salz',
@@ -257,8 +349,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 22,
-				'order' 						=> 21,
+				'id' 							=> 30,
+				'order' 						=> 29,
 				'ingredient_category_model_id'	=> 4,
 				'title' 						=> 'Pfeffer',
 				'shortTitle'					=> 'Pfeffer',
@@ -267,12 +359,32 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 23,
-				'order' 						=> 22,
+				'id' 							=> 31,
+				'order' 						=> 30,
 				'ingredient_category_model_id'	=> 4,
 				'title' 						=> 'Parmesan',
 				'shortTitle'					=> 'Parmesan',
 				'largeImage'					=> 'img/static/ingredients/largeimages/extras/parmesan.png',
+				'price'							=> 0.00
+				),
+
+			array (
+				'id' 							=> 32,
+				'order' 						=> 31,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Essig',
+				'shortTitle'					=> 'Essig',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/essig.png',
+				'price'							=> 0.00
+				),
+
+			array (
+				'id' 							=> 33,
+				'order' 						=> 32,
+				'ingredient_category_model_id'	=> 4,
+				'title' 						=> 'Öl',
+				'shortTitle'					=> 'Öl',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/oel.png',
 				'price'							=> 0.00
 				),
 
@@ -282,8 +394,8 @@ class IngredientModelSeeder extends Seeder {
 
 
 			array (
-				'id' 							=> 24,
-				'order' 						=> 23,
+				'id' 							=> 34,
+				'order' 						=> 33,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Chipotle Southwest',
 				'shortTitle'					=> 'Chipotle Southwest',
@@ -292,8 +404,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 25,
-				'order' 						=> 24,
+				'id' 							=> 35,
+				'order' 						=> 34,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Asiago Cesar',
 				'shortTitle'					=> 'Asiago Cesar',
@@ -302,8 +414,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 26,
-				'order' 						=> 25,
+				'id' 							=> 36,
+				'order' 						=> 35,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'BBQ-Sauce',
 				'shortTitle'					=> 'BBQ-Sauce',
@@ -312,8 +424,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 27,
-				'order' 						=> 26,
+				'id' 							=> 37,
+				'order' 						=> 36,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Joghurt-Dressing',
 				'shortTitle'					=> 'Joghurt-Dressing',
@@ -322,8 +434,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 28,
-				'order' 						=> 27,
+				'id' 							=> 38,
+				'order' 						=> 37,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Sweet Onion',
 				'shortTitle'					=> 'Sweet Onion',
@@ -332,8 +444,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 29,
-				'order' 						=> 28,
+				'id' 							=> 39,
+				'order' 						=> 38,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Honey Mustard',
 				'shortTitle'					=> 'Honey Mustard',
@@ -342,8 +454,8 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 30,
-				'order' 						=> 29,
+				'id' 							=> 40,
+				'order' 						=> 39,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Lite Mayonaise',
 				'shortTitle'					=> 'Lite Mayonaise',
@@ -352,15 +464,15 @@ class IngredientModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 							=> 31,
-				'order' 						=> 30,
+				'id' 							=> 41,
+				'order' 						=> 40,
 				'ingredient_category_model_id'	=> 5,
 				'title' 						=> 'Hot Sauce',
 				'shortTitle'					=> 'Hot Sauce',
 				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/hotsauce.png',
 				'price'							=> 0.00
 				)
-
+			
 			);
 }
 }

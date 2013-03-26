@@ -29,42 +29,58 @@ class CategoryModelSeeder extends Seeder {
 			array (
 				'id' 					=> 1,
 				'order' 				=> 1,
+				'title' 				=> 'Aktionen',
+				'smallImage'			=> 'img/static/categories/smallimages/aktionen.png',
+				'icon'					=> 'iPromotion'
+				),
+
+			array (
+				'id' 					=> 2,
+				'order' 				=> 2,
 				'title' 				=> 'Subs',
 				'smallImage'			=> 'img/static/categories/smallimages/sub.png',
 				'icon'					=> 'iSub'
 				),
 
 			array (
-				'id' 					=> 2,
-				'order' 				=> 2,
+				'id' 					=> 3,
+				'order' 				=> 3,
 				'title' 				=> 'Wraps',
 				'smallImage'			=> 'img/static/categories/smallimages/wrap.png',
 				'icon'					=> 'iWrap'
 				),
 
 			array (
-				'id' 					=> 3,
-				'order' 				=> 3,
+				'id' 					=> 4,
+				'order' 				=> 4,
 				'title' 				=> 'Salate',
 				'smallImage'			=> 'img/static/categories/smallimages/salat.png',
 				'icon'					=> 'iSalad'
 				),
 
 			array (
-				'id' 					=> 4,
-				'order' 				=> 4,
+				'id' 					=> 5,
+				'order' 				=> 5,
 				'title' 				=> 'Snacks',
 				'smallImage'			=> 'img/static/categories/smallimages/snacks.png',
 				'icon'					=> 'iSnacks'
 				),
 
 			array (
-				'id' 					=> 5,
-				'order' 				=> 5,
+				'id' 					=> 6,
+				'order' 				=> 6,
 				'title' 				=> 'Getränke',
 				'smallImage'			=> 'img/static/categories/smallimages/getraenk.png',
 				'icon'					=> 'iBeverage'
+				),
+
+			array (
+				'id' 					=> 7,
+				'order' 				=> 7,
+				'title' 				=> 'Catering',
+				'smallImage'			=> 'img/static/categories/smallimages/catering.png',
+				'icon'					=> 'iCatering'
 				)
-			);
+		);
 	}
 }

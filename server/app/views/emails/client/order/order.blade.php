@@ -98,10 +98,12 @@
 
   @foreach ($orderedItemsCollection as $orderedItemModel)
 
-  <!-- DAS MUSSTE AENDERN -->
-  <table>
+  <table style="border: 1px solid #e4e4e4; width:100%;  margin-top: 20px" cellspacing="0" cellpadding="0">
     <tr>
-      <td rowspan="2" width="30">
+
+<!-- Amount -->
+
+      <td width="30">
 
         <table style="font-size: 16px; background-color: #f4f4f4; border-bottom: 1px  solid #e4e4e4; border-right: 1px solid #e4e4e4; text-align: center; height: 30px" width="30" cellpadding="3">
           <tbody>
@@ -112,11 +114,24 @@
             </tr>
           </tbody>
         </table>
-
       </td>
-      <td height="0"></td>
-      <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70" rowspan="2">
-        <table width="70" style="text-align: right; height: 30px" cellspacing="0" cellpadding="0">
+
+<!-- / Amount -->
+
+<!-- Title -->
+
+      <td rowspan="2">
+        @foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel)
+        @include('emails.client.order.orderedArticle', array('orderedArticleModel' => $orderedArticleModel))
+        @endforeach
+      </td>
+
+<!-- / Title -->
+
+<!-- Menu & Price -->
+
+      <td style="border-bottom: 1px  solid #e4e4e4; border-left: 1px solid #e4e4e4; background: #f4f4f4; font-size: 16px; font-weight: bold;" width="70">
+        <table style="text-align: right; height: 30px" width="70" cellspacing="0" cellpadding="0">
           <tbody>
             <tr>
               <!-- Price & Menu -->
@@ -130,12 +145,48 @@
         </table>
       </td>
     </tr>
-  </table>
-  <!-- DAS MUSSTE AENDERN ENDE -->
 
-  @foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel)
-  @include('emails.client.order.orderedArticle', array('orderedArticleModel' => $orderedArticleModel))
-  @endforeach
+<!-- / Menu & Price -->
+
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+
+<!-- Ingredients -->
+
+    @if ($orderedArticleModel->articleModel->allowsIngredients and $orderedArticleModel->ingredientCategoriesCollection)
+    <tr>
+      <td>
+        <table style="padding: 0 6px 15px">
+          <tbody>
+            <tr>
+              @foreach ($orderedArticleModel->ingredientCategoriesCollection as $ingredientCategoryModel)
+              <td style="padding-right: 15px"> 
+                <table style="border-bottom: 1px solid #e0e0e0; padding: 5px">
+                  <tbody>
+                    <tr>
+                      <td style="font-size: 10px; padding-right: 5px; color: #999;">{{ $ingredientCategoryModel->title }}</td>
+                      <td >
+                        @foreach ($ingredientCategoryModel->ingredientsCollection as $ingredientModel)
+                        <span style="padding: 2px 3px 0 3px; background-color: none; color: #000; font-weight: bold">{{ $ingredientModel->shortcut }}</span>
+                        @endforeach
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              @endforeach
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    @endif
+  
+<!-- / Ingredients -->
+    
+  </table>
 
   @endforeach
 
