@@ -15,11 +15,14 @@ class IngredientModel extends ItemModel
 	protected $fillable = array(
 		'order',
 		'title',
+		'description',
 		'shortTitle',
 		'shortcut',
+		'smallImage',
 		'largeImage',
 		'icon',
 		'price',
+		'isPublished',
 		'ingredient_category_model_id'
 		);
 

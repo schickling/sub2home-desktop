@@ -26,6 +26,7 @@ class ArticleModelTable extends Migration {
 			$table->boolean('allowsIngredients')->default(false);
 			$table->boolean('allowsDeposit')->default(false);
 			$table->boolean('allowsMenuUpgrades')->default(false);
+			$table->boolean('isOnlyAllowedByMenus')->default(false);
 			$table->boolean('isPublished')->default(false);
 			$table->timestamps();
 		});

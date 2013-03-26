@@ -23,6 +23,7 @@ class ArticleModel extends ItemModel
 		'allowsIngredients',
 		'allowsDeposit',
 		'allowsMenuUpgrades',
+		'isOnlyAllowedByMenus',
 		'isPublished'
 		);
 
