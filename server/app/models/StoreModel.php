@@ -2,7 +2,6 @@
 
 use DateTime;
 use Str;
-use App\Exceptions\ModelException;
 
 class StoreModel extends BaseModel
 {
@@ -18,6 +17,12 @@ class StoreModel extends BaseModel
 		'id'
 		);
 
+	protected $fillable = array(
+		'number',
+		'isActive',
+		'orderEmail',
+		);
+
 	protected $table = 'store_models';
 
 	/**
@@ -29,7 +34,7 @@ class StoreModel extends BaseModel
 	{
 
 		// Copy address of owner
-		$copiedAddress = array(
+		$copiedAddressModel = new AddressModel(array(
 			'firstName' => $this->clientModel->addressModel->firstName,
 			'lastName' => $this->clientModel->addressModel->lastName,
 			'street' => $this->clientModel->addressModel->street,
@@ -38,8 +43,8 @@ class StoreModel extends BaseModel
 			'city' => $this->clientModel->addressModel->city,
 			'phone' => $this->clientModel->addressModel->phone,
 			'email' => $this->clientModel->addressModel->email
-			);
-		$this->addressModel()->create($copiedAddress);
+			));
+		$this->addressModel()->save($copiedAddressModel);
 
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
@@ -77,7 +82,7 @@ class StoreModel extends BaseModel
 		$firstArticleModel = ArticleModel::where('isPublished', true)->first();
 
 		if ($firstArticleModel == null) {
-			throw new ModelException('No article found');
+			$this->throwException('No article found');
 		}
 
 		$customArticleModel = $firstArticleModel->returnCustomModel($this->id);

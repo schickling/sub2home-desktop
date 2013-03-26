@@ -9,6 +9,8 @@ class MenuComponentOptionModel extends BaseModel
 
 	protected $hidden = array('menu_component_block_model_id', 'category_model_id');
 
+	protected $fillable = array('menu_component_block_model_id', 'category_model_id', 'title');
+
 	protected $table = 'menu_component_option_models';
 
 	protected function afterFirstSave()

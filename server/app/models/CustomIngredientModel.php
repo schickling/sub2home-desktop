@@ -5,7 +5,7 @@
  *
  * A custom ingredient of an article. Just changes the charge
  */
-class CustomIngredientModel extends BaseModel
+class CustomIngredientModel extends CustomModel
 {
 
 	protected $table = 'custom_ingredient_models';
@@ -18,16 +18,6 @@ class CustomIngredientModel extends BaseModel
 	public function ingredientModel()
 	{
 		return $this->belongsTo('App\\Models\\IngredientModel');
-	}
-
-	/**
-	 * Returns the store
-	 * 
-	 * @return object
-	 */
-	public function storeModel()
-	{
-		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 }

@@ -11,6 +11,8 @@ class DeliveryAreaModel extends BaseModel
 
 	protected $table = 'delivery_area_models';
 
+	protected $fillable = array('minimumValue', 'minimumDuration', 'city', 'district', 'postal');
+
 	protected $hidden = array('store_model_id');
 
 	/**

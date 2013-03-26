@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\ClientModel;
+use App\Models\AddressModel;
+use App\Models\BankaccountModel;
 use App\Models\StoreModel;
 
 class ClientModelSeeder extends Seeder {
@@ -13,7 +15,7 @@ class ClientModelSeeder extends Seeder {
 	public function run()
 	{
 
-		$addressData = array(
+		$addressModel = new AddressModel(array(
 			'firstName' => 'Sebastian',
 			'lastName' => 'Weigold',
 			'street' => 'Maximilianstr 4',
@@ -22,14 +24,14 @@ class ClientModelSeeder extends Seeder {
 			'city' => 'Memmingen',
 			'phone' => '083318338433',
 			'email' => 'office@my-sub.de'
-			);
+			));
 
-		$bankaccountData = array(
+		$bankaccountModel = new BankaccountModel(array(
 			'name' => 'Sebastian Weigold',
 			'bankName' => 'Sparkasse Memmingen-Lindau-Mindelheim',
 			'bankCodeNumber' => 73150000,
 			'accountNumber' => 1001012606
-			);
+			));
 
 		$clientData = array(
 			'hashedPassword' => Hash::make('password'),
@@ -39,11 +41,9 @@ class ClientModelSeeder extends Seeder {
 		$clientModel = new ClientModel($clientData);
 		$clientModel->save();
 
-		$clientModel->addressModel->fill($addressData);
-		$clientModel->addressModel->save();
-
-		$clientModel->bankaccountModel->fill($bankaccountData);
-		$clientModel->bankaccountModel->save();
+		// save relations
+		$clientModel->addressModel()->save($addressModel);
+		$clientModel->bankaccountModel()->save($bankaccountModel);
 
 
 		$storeData = array(

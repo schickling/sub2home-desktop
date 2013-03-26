@@ -1,7 +1,5 @@
 <?php namespace App\Models;
 
-use App\Execptions\ModelException;
-
 /**
  * Delivery time class
  *
@@ -14,6 +12,8 @@ class DeliveryTimeModel extends BaseModel
 	protected $table = 'delivery_time_models';
 
 	protected $hidden = array('store_model_id');
+
+	protected $fillable = array('startMinutes', 'endMinutes', 'dayOfWeek');
 
 	/**
 	 * Returns the store
@@ -28,7 +28,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setDayOfWeekAttribute($dayOfWeek)
 	{
 		if ($dayOfWeek < 0 or $dayOfWeek > 6) {
-			throw new ModelException("No valid week day");
+			$this->throwException('No valid week day');
 		}
 		$this->attributes['dayOfWeek'] = $dayOfWeek;
 	}
@@ -36,7 +36,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setStartMinutesAttribute($startMinutes)
 	{
 		if ($startMinutes < 0 or $startMinutes >= 24 * 60) {
-			throw new ModelException("No valid day time");
+			$this->throwException('No valid day time');
 		}
 		$this->attributes['startMinutes'] = $startMinutes;
 	}
@@ -44,7 +44,7 @@ class DeliveryTimeModel extends BaseModel
 	public function setEndMinutesAttribute($endMinutes)
 	{
 		if ($endMinutes < 0 or $endMinutes >= 24 * 60) {
-			throw new ModelException("No valid day time");
+			$this->throwException('No valid day time');
 		}
 		$this->attributes['endMinutes'] = $endMinutes;
 	}

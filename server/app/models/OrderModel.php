@@ -1,7 +1,6 @@
 <?php namespace App\Models;
 
 use Queue;
-use App\Exceptions\ModelException;
 use Request;
 
 /**
@@ -26,7 +25,7 @@ class OrderModel extends BaseModel
 
 	public function delete()
 	{
-		throw new ModelException("Can not delete an order");
+		$this->throwException('Can not delete an order');
 	}
 
 	/**
@@ -81,7 +80,7 @@ class OrderModel extends BaseModel
 
 	public function setTotalAttribute()
 	{
-		throw new ModelException('Total has to be calculated');
+		$this->throwException('Total has to be calculated');
 	}
 
 	public function setBalance($total)
@@ -134,7 +133,7 @@ class OrderModel extends BaseModel
 	public function confirm()
 	{
 		if (!$this->isValid()) {
-			throw new ModelException();
+			$this->throwException();
 		}
 
 		$jobData = array('order_model_id' => $this->id);

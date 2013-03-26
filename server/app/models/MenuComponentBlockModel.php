@@ -9,6 +9,8 @@ class MenuComponentBlockModel extends BaseModel
 
 	protected $hidden = array('menu_bundle_model_id', 'menu_upgrade_model_id');
 
+	protected $fillable = array('menu_bundle_model_id', 'menu_upgrade_model_id', 'icon', 'smallImage', 'largeImage', 'placeholder');
+
 	protected $table = 'menu_component_block_models';
 
 	/**

@@ -16,6 +16,7 @@ class CustomIngredientModelTable extends Migration {
 			$table->integer('ingredient_model_id')->unsigned();
 			$table->integer('store_model_id')->unsigned();
 			$table->decimal('price', 5, 2)->default(0);
+			$table->boolean('isActive')->default(false);
 			$table->timestamps();
 		});
 	}

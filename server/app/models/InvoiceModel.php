@@ -1,7 +1,6 @@
 <?php namespace App\Models;
 
 use File;
-use App\Exceptions\ModelException;
 use Queue;
 use DateTime;
 
@@ -56,7 +55,7 @@ class InvoiceModel extends BaseModel
 	{
 		$currentTotalNumberOfMonths = getTotalNumberOfMonthsFromDateTime(new DateTime());
 		if ($timeSpan > $currentTotalNumberOfMonths) {
-			throw new ModelException('Invoice can\'t be in the future');
+			$this->throwException('Invoice can\'t be in the future');
 		}
 
 		$this->attributes['timeSpan'] = $timeSpan;
@@ -71,7 +70,7 @@ class InvoiceModel extends BaseModel
 	private function checkIfLocked()
 	{
 		if (!empty($this->invoiceDocumentName) or !empty($this->attachmentDocumentName)) {
-			throw new ModelException('Invoice is already locked');
+			$this->throwException('Invoice is already locked');
 		}
 	}
 

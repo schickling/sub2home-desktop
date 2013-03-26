@@ -27,7 +27,7 @@ class IngredientCategoryModelSeeder extends Seeder {
 		return array (
 
 			array (
-				'id' 			=> 1,
+				// 'id' 			=> 1,
 				'order' 		=> 1,
 				'title' 		=> 'Brot',
 				'smallImage'	=> 'img/static/ingredientcategories/smallimages/bread.png',
@@ -37,7 +37,7 @@ class IngredientCategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 			=> 2,
+				// 'id' 			=> 2,
 				'order' 		=> 2,
 				'title' 		=> 'Käse',
 				'smallImage'	=> 'img/static/ingredientcategories/smallimages/cheese.png',
@@ -47,7 +47,7 @@ class IngredientCategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 			=> 3,
+				// 'id' 			=> 3,
 				'order' 		=> 3,
 				'title' 		=> 'Gemüse',
 				'smallImage'	=> 'img/static/ingredientcategories/smallimages/vegetables.png',
@@ -57,7 +57,7 @@ class IngredientCategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 			=> 4,
+				// 'id' 			=> 4,
 				'order' 		=> 4,
 				'title' 		=> 'Extras',
 				'smallImage'	=> 'img/static/ingredientcategories/smallimages/extras.png',
@@ -67,7 +67,7 @@ class IngredientCategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 			=> 5,
+				// 'id' 			=> 5,
 				'order' 		=> 5,
 				'title' 		=> 'Sauce',
 				'smallImage'	=> 'img/static/ingredientcategories/smallimages/sauce.png',

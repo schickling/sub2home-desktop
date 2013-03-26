@@ -5,7 +5,7 @@
  *
  * A custom article.
  */
-class CustomArticleModel extends BaseModel
+class CustomArticleModel extends CustomModel
 {
 
 	protected $table = 'custom_article_models';
@@ -18,16 +18,6 @@ class CustomArticleModel extends BaseModel
 	public function articleModel()
 	{
 		return $this->belongsTo('App\\Models\\ArticleModel');
-	}
-
-	/**
-	 * Returns the store
-	 * 
-	 * @return object
-	 */
-	public function storeModel()
-	{
-		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 	public function loadCustomIngredientPrices()

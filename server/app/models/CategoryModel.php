@@ -12,6 +12,8 @@ class CategoryModel extends BaseModel
 
 	protected $hidden = array('order');
 
+	protected $fillable = array('order', 'title', 'smallImage', 'icon');
+
 	protected $table = 'category_models';
 
 	protected function beforeFirstSave()

@@ -27,7 +27,7 @@ class CategoryModelSeeder extends Seeder {
 		return array (
 
 			array (
-				'id' 					=> 1,
+				// 'id' 					=> 1,
 				'order' 				=> 1,
 				'title' 				=> 'Aktionen',
 				'smallImage'			=> 'img/static/categories/smallimages/aktionen.png',
@@ -35,7 +35,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 2,
+				// 'id' 					=> 2,
 				'order' 				=> 2,
 				'title' 				=> 'Subs',
 				'smallImage'			=> 'img/static/categories/smallimages/sub.png',
@@ -43,7 +43,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 3,
+				// 'id' 					=> 3,
 				'order' 				=> 3,
 				'title' 				=> 'Wraps',
 				'smallImage'			=> 'img/static/categories/smallimages/wrap.png',
@@ -51,7 +51,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 4,
+				// 'id' 					=> 4,
 				'order' 				=> 4,
 				'title' 				=> 'Salate',
 				'smallImage'			=> 'img/static/categories/smallimages/salat.png',
@@ -59,7 +59,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 5,
+				// 'id' 					=> 5,
 				'order' 				=> 5,
 				'title' 				=> 'Snacks',
 				'smallImage'			=> 'img/static/categories/smallimages/snacks.png',
@@ -67,7 +67,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 6,
+				// 'id' 					=> 6,
 				'order' 				=> 6,
 				'title' 				=> 'Getränke',
 				'smallImage'			=> 'img/static/categories/smallimages/getraenk.png',
@@ -75,7 +75,7 @@ class CategoryModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 					=> 7,
+				// 'id' 					=> 7,
 				'order' 				=> 7,
 				'title' 				=> 'Catering',
 				'smallImage'			=> 'img/static/categories/smallimages/catering.png',

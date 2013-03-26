@@ -23,7 +23,7 @@ abstract class ItemModel extends BaseModel
 	protected function check()
 	{
 		if (!$this->isPublished) {
-			throw new ModelException("Item not published");
+			$this->throwException('Item not published');
 		}
 	}
 

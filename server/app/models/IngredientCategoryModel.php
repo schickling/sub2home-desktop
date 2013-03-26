@@ -10,6 +10,8 @@ class IngredientCategoryModel extends BaseModel
 
 	protected $table = 'ingredient_category_models';
 
+	protected $fillable = array('order', 'title', 'smallImage', 'icon', 'isSingle', 'isMandatory');
+
 	protected function beforeFirstSave()
 	{
 		// Calculate new order concerning a category

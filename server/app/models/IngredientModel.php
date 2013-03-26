@@ -1,7 +1,5 @@
 <?php namespace App\Models;
 
-use App\Exceptions\ModelException;
-
 /**
  * IngredientModel class
  *
@@ -10,12 +8,20 @@ use App\Exceptions\ModelException;
 class IngredientModel extends BaseModel
 {
 
-	public $timestamps = false;
-
 	protected $table = 'ingredient_models';
 
 	protected $hidden = array('ingredient_category_model_id', 'order');
 
+	protected $fillable = array(
+		'order',
+		'title',
+		'shortTitle',
+		'shortcut',
+		'largeImage',
+		'icon',
+		'price',
+		'ingredient_category_model_id'
+		);
 
 	protected function beforeFirstSave()
 	{
@@ -91,10 +97,9 @@ class IngredientModel extends BaseModel
 		if ($customIngredientModel == null) {
 			$customIngredientModel = new CustomIngredientModel(array(
 				'store_model_id' => $store_model_id,
-				'ingredient_model_id' => $this->id,
 				'price' => $this->price
 				));
-			$customIngredientModel->save();
+			$this->customIngredientsCollection()->save($customIngredientModel);
 		}
 
 		return $customIngredientModel;

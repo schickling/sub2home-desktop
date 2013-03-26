@@ -5,25 +5,14 @@
  *
  * A custom menu
  */
-class CustomMenuModel extends BaseModel
+class CustomMenuModel extends CustomModel
 {
 
 	protected $table = 'custom_menu_models';
-	
 
 	public function menuModel()
 	{
 		return $this->morphTo('menuModel');
-	}
-
-	/**
-	 * Returns the store
-	 * 
-	 * @return object
-	 */
-	public function storeModel()
-	{
-		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
 }

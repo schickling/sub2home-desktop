@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Eloquent;
+use App\Exceptions\ModelException;
 use DateTime;
 
 class BaseModel extends Eloquent
@@ -55,6 +56,11 @@ class BaseModel extends Eloquent
 		} else {
 			return new DateTime($time);
 		}
+	}
+
+	final protected function throwException($reason = '')
+	{
+		throw new ModelException($reason);
 	}
 
 

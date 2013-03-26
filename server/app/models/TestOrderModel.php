@@ -1,7 +1,6 @@
 <?php namespace App\Models;
 
 use DateTime;
-use App\Exceptions\ModelException;
 
 class TestOrderModel extends OrderModel
 {
@@ -15,13 +14,13 @@ class TestOrderModel extends OrderModel
 		$storeModel = StoreModel::find($store_model_id);
 
 		if ($storeModel == null) {
-			throw new ModelException('No store model found');
+			$this->throwException('No store model found');
 		}
 
 		$storeModelCreatedAtDateTime = $storeModel->getDateTimeFor('created_at');
 
 		if ($createdAtDateTime < $storeModelCreatedAtDateTime) {
-			throw new ModelException('Store didn\'t exist when this order was generated');
+			$this->throwException('Store didn\'t exist when this order was generated');
 		}
 
 		// create test order
@@ -75,7 +74,7 @@ class TestOrderModel extends OrderModel
 		$deliveryArea = $storeModel->deliveryAreasCollection->first();
 
 		if ($deliveryArea == null) {
-			throw new ModelException('Store has no delivery area');
+			$this->throwException('Store has no delivery area');
 		}
 
 		$validPostal = $deliveryArea->postal;
@@ -105,7 +104,7 @@ class TestOrderModel extends OrderModel
 		$firstActiveCustomArticle = $storeModel->customArticlesCollection()->where('isActive', true)->first();
 
 		if ($firstActiveCustomArticle == null) {
-			throw new ModelException('No article is active');
+			$this->throwException('No article is active');
 		}
 
 		$firstArticleModel = $firstActiveCustomArticle->articleModel;

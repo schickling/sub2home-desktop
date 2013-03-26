@@ -8,6 +8,8 @@ class MenuUpgradeModel extends MenuModel
 	
 	protected $hidden = array('buyed', 'created_at', 'updated_at', 'isPublished');
 
+	protected $fillable = array('title', 'description', 'price', 'isPublished');
+
 	protected $table = 'menu_upgrade_models';
 
 	/**

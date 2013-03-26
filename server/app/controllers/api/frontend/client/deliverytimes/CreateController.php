@@ -23,14 +23,13 @@ class CreateController extends StoreRelatedApiController
 
 		// create new deliveryTimeModel
 		$deliveryTimeModel = new DeliveryTimeModel(array(
-			'store_model_id' => $this->storeModel->id,
 			'startMinutes' => 0,
 			'endMinutes' => 60,
 			'dayOfWeek' => $input['dayOfWeek']
 			));
 
 		// save
-		$deliveryTimeModel->save();
+		$this->storeModel->deliveryTimesCollection()->save($deliveryTimeModel);
 
 		// return as json
 		return $deliveryTimeModel->toJson(JSON_NUMERIC_CHECK);

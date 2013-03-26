@@ -14,6 +14,7 @@ class IngredientModelTable extends Migration {
 		Schema::create('ingredient_models', function($table) {
 			$table->increments('id');
 			$table->string('title', 128)->default('');
+			$table->string('description', 128)->default('');
 			$table->string('shortTitle', 128)->default('');
 			$table->string('shortcut', 128)->default('');
 			$table->string('smallImage', 128)->default('');
@@ -22,6 +23,8 @@ class IngredientModelTable extends Migration {
 			$table->integer('ingredient_category_model_id')->unsigned();
 			$table->integer('order')->unsigned();
 			$table->decimal('price', 5, 2);
+			$table->boolean('isPublished')->default(false);
+			$table->timestamps();
 		});
 	}
 

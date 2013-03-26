@@ -11,10 +11,13 @@ class BankaccountModel extends BaseModel
 
 	protected $table = 'bankaccount_models';
 
+	protected $fillable = array('name', 'bankName', 'bankCodeNumber', 'accountNumber');
+
 	protected $hidden = array('client_model_id');
 
 	public function clientModel()
 	{
 		return $this->belongsTo('App\\Models\\ClientModel');
 	}
+	
 }

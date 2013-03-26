@@ -1,23 +1,12 @@
 <?php namespace App\Models;
 
-use Queue;
-
 class ClientModel extends BaseModel {
 
 	protected $hidden = array('hashedPassword', 'created_at', 'updated_at');
 
+	protected $fillable = array('hashedPassword', 'number');
+
 	protected $table = 'client_models';
-
-	public function afterFirstSave()
-	{
-		// initialize mandatory relationships
-		$this->addressModel()->create(array());
-		$this->bankaccountModel()->create(array());
-
-		// send client data
-		$jobData = array('client_model_id' => $this->id);
-		Queue::push('App\\Controllers\\Jobs\\Mail\\SendClientCreatedMailJob', $jobData);
-	}
 
 	/**
 	 * Hook delete
@@ -70,5 +59,17 @@ class ClientModel extends BaseModel {
 		return $this->hasOne('App\\Models\\BankaccountModel');
 	}
 
+	public function setNumberAttribute($number)
+	{
+		if ($this->number != 0) {
+			$this->throwException('Client number may not be changed');
+		}
+
+		if ($number < 1000 || $number > 9999) {
+			$this->throwException('No valid client number');
+		}
+
+		$this->attributes['number'] = $number;
+	}
 
 }

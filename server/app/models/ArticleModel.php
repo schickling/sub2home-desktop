@@ -11,6 +11,21 @@ class ArticleModel extends ItemModel
 
 	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
+	protected $fillable = array(
+		'category_model_id',
+		'title',
+		'info',
+		'description',
+		'smallImage',
+		'largeImage',
+		'price',
+		'deposit',
+		'allowsIngredients',
+		'allowsDeposit',
+		'allowsMenuUpgrades',
+		'isPublished'
+		);
+
 	protected $table = 'article_models';
 
 	protected function beforeFirstSave()
@@ -112,11 +127,10 @@ class ArticleModel extends ItemModel
 		// lazy initialize
 		if ($customArticleModel == null) {
 			$customArticleModel = new CustomArticleModel(array(
-									'store_model_id' => $store_model_id,
-									'article_model_id' => $this->id,
-									'price' => $this->price
-									));
-			$customArticleModel->save();
+				'store_model_id' => $store_model_id,
+				'price' => $this->price
+				));
+			$this->customArticlesCollection()->save($customArticleModel);
 		}
 
 		return $customArticleModel;

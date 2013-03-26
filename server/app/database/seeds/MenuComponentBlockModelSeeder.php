@@ -30,7 +30,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 			// -----------------------------
 
 			array (
-				'id' 						=> 1,
+				// 'id' 						=> 1,
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iBeverage',
@@ -40,7 +40,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				),
 
 			array (
-				'id' 						=> 2,
+				// 'id' 						=> 2,
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iSnacks',
@@ -53,7 +53,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 			// -----------------------------
 
 			array ( // sub
-				'id' 						=> 3,
+				// 'id' 						=> 3,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',
@@ -63,7 +63,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				),
 
 			array ( // drink
-				'id' 						=> 4,
+				// 'id' 						=> 4,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',
@@ -73,7 +73,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				),
 
 			array ( // cookie
-				'id' 						=> 5,
+				// 'id' 						=> 5,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
 				'icon'						=> 'iStuff',

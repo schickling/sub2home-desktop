@@ -11,12 +11,10 @@ class CreateController extends StoreRelatedApiController
 	 */
 	public function route()
 	{
-		
-		// create new deliveryAreaModel
 		$addressModelOfStore = $this->storeModel->addressModel;
 
+		// create new deliveryAreaModel
 		$deliveryAreaModel = new DeliveryAreaModel(array(
-			'store_model_id' => $this->storeModel->id,
 			'minimumValue' => 0.00,
 			'minimumDuration' => 0,
 			'city' => $addressModelOfStore->city,
@@ -25,7 +23,7 @@ class CreateController extends StoreRelatedApiController
 			));
 
 		// save
-		$deliveryAreaModel->save();
+		$this->storeModel->deliveryAreasCollection()->save($deliveryAreaModel);
 
 		// return as json
 		return $deliveryAreaModel->toJson(JSON_NUMERIC_CHECK);

@@ -36,12 +36,11 @@ class MenuUpgradeModelSeeder extends Seeder {
 		return array (
 
 			array (
-				'id' 					=> 1,
+				// 'id' 					=> 1,
 				'title' 				=> 'Sparmenu',
 				'description'			=> 'Sparmenu',
 				'price'					=> 2.00,
 				'isPublished'			=> true,
-				'buyed'					=> 0,
 				'article_model_ids'		=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
 				)
 

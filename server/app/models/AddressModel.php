@@ -9,6 +9,8 @@ class AddressModel extends BaseModel
 {
 	protected $hidden = array('ownerModel_id', 'ownerModel_type');
 
+	protected $fillable = array('firstName', 'lastName', 'street', 'streetAdditional', 'postal', 'city', 'email');
+
 	public $timestamps = false;
 
 	protected $table = 'address_models';
