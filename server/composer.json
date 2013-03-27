@@ -3,7 +3,8 @@
 		"laravel/framework": "dev-master",
 		"tcpdf/tcpdf": "dev-master",
 		"filp/whoops": "dev-master",
-		"endroid/qrcode": "dev-master"
+		"endroid/qrcode": "dev-master",
+		"pda/pheanstalk": "2.0.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "dev-master",
@@ -18,8 +19,8 @@
             "app/database",
             "app/tests"
         ],
-        "files": [
-        	"app/helpers.php"
+		"files": [
+            "app/helpers.php"
         ]
 	},
 	"scripts": {
