@@ -46,6 +46,7 @@ class IndexController extends StoreRelatedApiController
 					$articleModel->buyed = $customArticleModel->buyed;
 					$articleModel->customPrice = $customArticleModel->price;
 
+					$articleModel->unhideAttribute('buyed');
 
 					$articlesCollection->add($articleModel);
 				}

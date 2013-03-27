@@ -1,8 +1,8 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Ingredients;
 
+use App\Controllers\Api\Frontend\Client\StoreRelatedApiController;
 use Input;
 use Request;
-
 use App\Models\IngredientModel;
 
 /**

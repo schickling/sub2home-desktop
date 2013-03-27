@@ -22,7 +22,15 @@ class IndexController extends StoreRelatedApiController
 
 		foreach ($ingredientCategoriesCollection as $ingredientCategoryModel) {
 			foreach ($ingredientCategoryModel->ingredientsCollection as $ingredientModel) {
-				$ingredientModel->customPrice = $ingredientModel->returnCustomPrice($storeModelId);
+
+				$customIngredientModel = $ingredientModel->returnCustomModel($storeModelId);
+
+				$ingredientModel->isActive = $customIngredientModel->isActive;
+				$ingredientModel->buyed = $customIngredientModel->buyed;
+				$ingredientModel->customPrice = $customIngredientModel->price;
+
+				$ingredientModel->unhideAttribute('buyed');
+
 			}
 		}
 

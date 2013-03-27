@@ -10,7 +10,14 @@ class IngredientModel extends ItemModel
 
 	protected $table = 'ingredient_models';
 
-	protected $hidden = array('ingredient_category_model_id', 'order');
+	protected $hidden = array(
+		'ingredient_category_model_id',
+		'order',
+		'buyed',
+		'isPublished',
+		'created_at',
+		'updated_at'
+		);
 
 	protected $fillable = array(
 		'order',

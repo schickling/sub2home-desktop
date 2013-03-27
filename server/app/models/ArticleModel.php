@@ -9,7 +9,14 @@
 class ArticleModel extends ItemModel
 {
 
-	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
+	protected $hidden = array(
+		'category_model_id',
+		'buyed',
+		'created_at',
+		'updated_at',
+		'isPublished',
+		'order'
+		);
 
 	protected $fillable = array(
 		'category_model_id',

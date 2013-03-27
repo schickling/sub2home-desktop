@@ -13,7 +13,12 @@ define([
 			largeImage: 'default',
 			icon: '',
 			isSelected: false,
-			price: 0
+			price: 0,
+
+			// for assortment
+			isActive: false,
+			customPrice: 0,
+			buyed: 0
 		},
 
 		urlRoot: function () {

@@ -63,5 +63,12 @@ class BaseModel extends Eloquent
 		throw new ModelException($reason);
 	}
 
+	final public function unhideAttribute($attribute)
+	{
+		if (($key = array_search($attribute, $this->hidden)) !== false) {
+			unset($this->hidden[$key]);
+		}
+	}
+
 
 }

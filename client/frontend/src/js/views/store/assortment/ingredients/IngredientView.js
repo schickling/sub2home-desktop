@@ -30,6 +30,7 @@ define([
 				title: this.model.get('title'),
 				price: this.model.get('customPrice'),
 				info: this.model.get('info'),
+				isActive: this.model.get('isActive'),
 				buyed: this.model.get('buyed'),
 				image: this.model.get('largeImage'),
 				priceDiffers: this.model.get('customPrice') !== this.model.get('price')
