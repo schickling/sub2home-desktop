@@ -1,8 +1,5 @@
 <?php namespace App\Controllers\Jobs;
 
-use Exception;
-use DateTime;
-
 use App\Models\OrderModel;
 
 class ProcessNewOrderJob extends BaseJob {
@@ -15,7 +12,7 @@ class ProcessNewOrderJob extends BaseJob {
 		$this->orderModel = OrderModel::find($order_model_id);
 
 		if ($this->orderModel == null) {
-			throw new Exception('Invalid order to process');
+			$this->throwExecption('Invalid order to process');
 		}
 
 		$this->updateHowOftenAnItemWasBuyed();
@@ -29,20 +26,28 @@ class ProcessNewOrderJob extends BaseJob {
 
 		foreach ($orderedItemsCollection as $orderedItemModel) {
 
+			$amount = $orderedItemModel->amount;
 			$orderedArticlesCollection = $orderedItemModel->orderedArticlesCollection;
 
 			foreach ($orderedArticlesCollection as $orderedArticleModel) {
-				$articleModel = $orderedArticleModel->articleModel;
-				$customArticleModel = $articleModel->returnCustomModel($this->orderModel->storeModel->id);
 
-				$articleModel->buyed += $orderedArticleModel->amount;
-				$articleModel->save();
+				// increase article and custom article count
+				$this->increaseBuyedCount($orderedArticleModel->articleModel, $amount);
 
-				$customArticleModel->buyed += $orderedArticleModel->amount;
-				$customArticleModel->save();
+				// increase ingredients and custom ingredient count
+				if ($orderedArticleModel->hasIngredients) {
+
+					foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
+						$this->increaseBuyedCount($ingredientModel, $amount);
+					}
+
+				}
 			}
 
-			// TODO add menu support
+			// increase menu and custom menu count
+			if ($orderedItemModel->isMenu) {
+				$this->increaseBuyedCount($orderedItemModel->menuModel, $amount);
+			}
 
 		}
 	}
@@ -57,11 +62,11 @@ class ProcessNewOrderJob extends BaseJob {
 		$totalNumberOfMonthsSinceOrderCreation = getTotalNumberOfMonthsFromDateTime($createdDateTime);
 
 		$invoiceModel = $storeModel->invoicesCollection()
-										->where('timeSpan', $totalNumberOfMonthsSinceOrderCreation)
-										->first();
+									->where('timeSpan', $totalNumberOfMonthsSinceOrderCreation)
+									->first();
 
 		if ($invoiceModel == null) {
-			throw new Exception('No invoice found for current order');
+			$this->throwExecption('No invoice found for current order');
 		}
 
 		// TODO check attach
@@ -71,6 +76,16 @@ class ProcessNewOrderJob extends BaseJob {
 		$invoiceModel->total += $orderModel->total;
 		$invoiceModel->save();
 
+	}
+
+	private function increaseBuyedCount($itemModel, $toAdd)
+	{
+		$itemModel->buyed += $amount;
+		$itemModel->save();
+
+		$customItemModel = $itemModel->returnCustomModel($this->orderModel->storeModel->id);
+		$customItemModel->buyed += $amount;
+		$customItemModel->save();
 	}
 
 

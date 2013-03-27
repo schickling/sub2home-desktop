@@ -30,7 +30,7 @@ class AddressModel extends BaseModel
 	private function belongsToStoreModel()
 	{
 		// check for isset because it gets even called if the model wasn't saved yet
-		return isset($this->ownerModel_type) and $this->ownerModel instanceof StoreModel;
+		return array_key_exists('ownerModel', $this->relations) and $this->ownerModel instanceof StoreModel;
 	}
 
 	/**
@@ -42,7 +42,6 @@ class AddressModel extends BaseModel
 	{
 		// Fetch coordinate from google api
 		$url = sprintf('http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false', urlencode($this->toString()));
-
 
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

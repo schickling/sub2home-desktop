@@ -47,4 +47,9 @@ class OrderedArticleModel extends BaseModel
 		return $this->belongsToMany('App\\Models\\IngredientModel');
 	}
 
+	public function getHasIngredientsAttribute()
+	{
+		return $this->articleModel->allowsIngredients and ! $this->ingredientsCollection->isEmpty();
+	}
+
 }

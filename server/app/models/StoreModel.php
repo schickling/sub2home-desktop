@@ -21,6 +21,8 @@ class StoreModel extends BaseModel
 		'title',
 		'commissionRate',
 		'number',
+		'latitude',
+		'longitude',
 		'isActive',
 		'isOpen',
 		'orderEmail',
@@ -49,6 +51,10 @@ class StoreModel extends BaseModel
 			'phone' => $this->clientModel->addressModel->phone,
 			'email' => $this->clientModel->addressModel->email
 			));
+
+		// TODO MERGE
+		$copiedAddressModel->setRelation('ownerModel', $this);
+
 		$this->addressModel()->save($copiedAddressModel);
 
 		// Create default delivery times
