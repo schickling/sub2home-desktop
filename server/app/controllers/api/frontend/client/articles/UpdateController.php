@@ -18,7 +18,7 @@ class UpdateController extends StoreRelatedApiController
 	{
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'customPrice'	=> 'numeric|required|min:0',
 			'isActive'		=> 'boolean|required'

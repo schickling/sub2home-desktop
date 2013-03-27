@@ -1,10 +1,10 @@
 // Filename: src/js/models/authentificationModel.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'notificationcenter'
-	], function ($, _, Backbone, notificationcenter) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'notificationcenter'
+    ], function ($, _, Backbone, notificationcenter) {
 
 	var AuthentificationModel = Backbone.Model.extend({
 
@@ -30,7 +30,7 @@ define([
 				success: function () {
 					valid = true;
 				},
-				error: function() {
+				error: function () {
 					self._dropToken();
 				}
 			});
@@ -99,10 +99,11 @@ define([
 				type: 'post',
 				async: false,
 				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
 				success: function (response) {
 
 					self._setToken(response.token);
-			
+
 					isLoggedIn = true;
 
 				},
@@ -151,15 +152,15 @@ define([
 			return isLoggedOut;
 		},
 
-		_setToken: function(token) {
+		_setToken: function (token) {
 			window.localStorage.setItem('token', token);
 		},
 
-		_getToken: function() {
+		_getToken: function () {
 			return window.localStorage.getItem('token');
 		},
 
-		_dropToken: function() {
+		_dropToken: function () {
 			window.localStorage.removeItem('token');
 		}
 

@@ -45,7 +45,7 @@ abstract class BaseApiController extends Controller
 	final protected function validateInput($rules, $input = null)
 	{
 		if (!$input) {
-			$input = Input::json();
+			$input = Input::all();
 		}
 		
 		$validator = Validator::make($input, $rules);

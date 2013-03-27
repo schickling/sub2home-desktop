@@ -14,7 +14,7 @@ class CreateController extends StoreRelatedApiController
 	public function route()
 	{
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'dayOfWeek'	=> 'numeric|required|between:0,6'
 			);

@@ -29,7 +29,7 @@ class StoresController extends ApiController
 
 	public function update($id)
 	{
-		$input = Input::json();
+		$input = Input::all();
 
 		$storeModel = StoreModel::find($id);
 

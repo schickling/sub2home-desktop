@@ -16,7 +16,7 @@ class UpdateController extends ApiController
 	{
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'minimumDuration'	=> 'numeric|required|min:0',
 			'minimumValue'		=> 'numeric|required|min:0',

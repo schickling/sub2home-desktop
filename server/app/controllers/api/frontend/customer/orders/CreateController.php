@@ -30,7 +30,7 @@ class CreateController extends ApiController
 	 */
 	public function route()
 	{
-		$this->input = Input::json();
+		$this->input = Input::all();
 
 		$this->checkInput();
 		$this->prepareOrderModel();

@@ -16,7 +16,7 @@ class UpdateController extends ApiController
 	{
 		
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'startMinutes'	=> 'numeric|required|between:0,1438',
 			'endMinutes'	=> 'numeric|required|between:0,1439'

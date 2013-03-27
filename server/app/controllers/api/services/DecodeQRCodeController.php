@@ -16,7 +16,7 @@ class DecodeQRCodeController extends BaseApiController
 	public function decode()
 	{
 
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'image'	=> 'required'
 			);

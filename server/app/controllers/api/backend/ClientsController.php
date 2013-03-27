@@ -37,7 +37,7 @@ class ClientsController extends ApiController
 
 	public function update($id)
 	{
-		$input = Input::json();
+		$input = Input::all();
 
 		$clientModel = ClientModel::find($id);
 
@@ -76,7 +76,7 @@ class ClientsController extends ApiController
 
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'password' => 'alpha_dash|required|min:8'
 			);

@@ -17,7 +17,7 @@ class UpdateController extends ApiController
 	{
 		
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'name'				=> 'required',
 			'bankName'			=> 'required',

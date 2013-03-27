@@ -25,7 +25,7 @@ class ChangePasswordController extends ApiController
 
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'currentPassword'	=> 'alpha_dash|required|min:8',
 			'newPassword'		=> 'alpha_dash|required|min:8'

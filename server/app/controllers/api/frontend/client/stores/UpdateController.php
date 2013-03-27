@@ -19,7 +19,7 @@ class UpdateController extends StoreRelatedApiController
 		$storeModel = $this->storeModel;
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'orderEmail'			=> 'email|required',
 			'isOpen'				=> 'boolean|required',

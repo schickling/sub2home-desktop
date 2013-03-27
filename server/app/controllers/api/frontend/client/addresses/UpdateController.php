@@ -19,7 +19,7 @@ class UpdateController extends ApiController
 	{
 
 		// check input
-		$input = Input::json();
+		$input = Input::all();
 		$rules = array(
 			'firstName'			=> 'alpha_dash|required',
 			'lastName'			=> 'alpha_dash|required',

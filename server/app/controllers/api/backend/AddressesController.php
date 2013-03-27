@@ -12,7 +12,7 @@ class AddressesController extends ApiController
 
 	public function update($id)
 	{
-		$input = Input::json();
+		$input = Input::all();
 
 		$addressModel = AddressModel::find($id);
 
