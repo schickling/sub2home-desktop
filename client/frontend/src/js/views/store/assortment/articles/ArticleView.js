@@ -4,43 +4,15 @@ define([
     'underscore',
     'backbone',
     'notificationcenter',
+    'views/store/assortment/ItemBaseView',
     'text!templates/store/assortment/articles/ArticleTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
+    ], function ($, _, Backbone, notificationcenter, ItemBaseView, ArticleTemplate) {
 
-	var ArticleView = Backbone.View.extend({
-
-		className: 'article',
-
-		events: {
-			'click .bEye': '_toggleIsActive',
-			'focusout input': '_updateCustomPrice',
-			'click .bReset': '_resetCustomPrice'
-		},
+	var ArticleView = ItemBaseView.extend({
 
 		template: _.template(ArticleTemplate),
 
-		initialize: function () {
-			this._render();
-
-			this.model.on('renderAgain', this._render, this);
-		},
-
-		_render: function () {
-			var json = {
-				title: this.model.get('title'),
-				price: this.model.get('customPrice'),
-				info: this.model.get('info'),
-				isActive: this.model.get('isActive'),
-				buyed: this.model.get('buyed'),
-				image: this.model.get('smallImage'),
-				priceDiffers: this.model.get('customPrice') !== this.model.get('price')
-			};
-
-			this.$el.html(this.template(json));
-
-			this.$el.toggleClass('inactive', !this.model.get('isActive'));
-
-		},
+		className: 'article',
 
 		_toggleIsActive: function () {
 			var articleModel = this.model,
@@ -52,7 +24,6 @@ define([
 				notificationcenter.notify('views.store.assortment.articles.oneActiveArticleNeeded');
 				return;
 			}
-
 
 			articleModel.set('isActive', isActive);
 			articleModel.save({}, {
@@ -71,32 +42,6 @@ define([
 					articleModel.set('isActive', !isActive);
 				}
 			});
-		},
-
-		_updateCustomPrice: function () {
-			var $input = this.$('.pricetag input'),
-				customPrice = parseFloat($input.val()),
-				self = this;
-
-			this.model.set('customPrice', customPrice);
-			this.model.save({}, {
-				success: function () {
-					notificationcenter.notify('Preis geaendert');
-
-					// rerender for reset button
-					self._render();
-				},
-				error: function () {
-					notificationcenter.notify('views.store.assortment.articles.error');
-				}
-			});
-		},
-
-		_resetCustomPrice: function () {
-			var $input = this.$('.pricetag input');
-
-			$input.val(this.model.get('price'));
-			this._updateCustomPrice();
 		},
 
 		_isLastActiveArticle: function () {

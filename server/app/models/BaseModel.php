@@ -15,7 +15,7 @@ class BaseModel extends Eloquent
 	 * @param  string  $key
 	 * @return void
 	 */
-	public function __unset($key)
+	final public function __unset($key)
 	{
 		unset($this->attributes[$key]);
 		unset($this->relations[$key]);
@@ -26,7 +26,7 @@ class BaseModel extends Eloquent
 	 * 
 	 * @return boolean
 	 */
-	public function save()
+	final public function save()
 	{
 		$modelExists = $this->exists;
 
@@ -47,7 +47,7 @@ class BaseModel extends Eloquent
 
 	protected function afterFirstSave() {}
 
-	public function getDateTimeFor($attribute)
+	final public function getDateTimeFor($attribute)
 	{
 		$time = $this->{$attribute};
 

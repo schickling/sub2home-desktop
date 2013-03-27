@@ -134,7 +134,9 @@ class PaypalService implements PaymentInterface
 	private static function callApiWithAuthHeader($params, $authHeader)
 	{
 		$header = array(
-			'X-PP-AUTHORIZATION: ' . $authHeader
+			'X-PAYPAL-AUTHORIZATION: ' . $authHeader,
+			'X-PAYPAL-REQUEST-DATA-FORMAT:NV',
+			'X-PAYPAL-RESPONSE-DATA-FORMAT:NV'
 			);
 		$url = static::getApiUrl();
 
@@ -190,6 +192,8 @@ class PaypalService implements PaymentInterface
 
 		$response = curl_exec($ch);
 		curl_close($ch);
+
+		// var_dump($response);
 
 		// decode name value pairs into array
 		parse_str($response, $decodedResponse);

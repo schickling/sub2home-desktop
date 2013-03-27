@@ -187,12 +187,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "13522832fb15dec1e09a979badae64238fc4a743"
+                "reference": "9b3ae4f76b78c06e03e4f10af0312e6133222742"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/13522832fb15dec1e09a979badae64238fc4a743",
-                "reference": "13522832fb15dec1e09a979badae64238fc4a743",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9b3ae4f76b78c06e03e4f10af0312e6133222742",
+                "reference": "9b3ae4f76b78c06e03e4f10af0312e6133222742",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-03-27 13:21:41"
+            "time": "2013-03-27 20:27:21"
         },
         {
             "name": "monolog/monolog",
@@ -1651,12 +1651,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "d2f41989ecf5f67bed6aba65861150c3152d70b1"
+                "reference": "60c33e9b20a4e009787ee8c6288d691d2d4513cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/d2f41989ecf5f67bed6aba65861150c3152d70b1",
-                "reference": "d2f41989ecf5f67bed6aba65861150c3152d70b1",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/60c33e9b20a4e009787ee8c6288d691d2d4513cb",
+                "reference": "60c33e9b20a4e009787ee8c6288d691d2d4513cb",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1693,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2013-02-16 10:32:14"
+            "time": "2013-03-27 19:19:33"
         },
         {
             "name": "sebastian/exporter",

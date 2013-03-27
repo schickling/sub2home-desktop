@@ -125,12 +125,10 @@ define([
 
 		_changeControlView: function () {
 			var $newControl = this.$assortmentControls.eq(this.currentSectionIndex),
-				$oldControls = this.$assortmentControls.not($newControl),
-				animationTime = this.animationTime / 2;
+				$oldControls = this.$assortmentControls.not($newControl);
 
-			$oldControls.fadeOut(animationTime, function() {
-				$newControl.fadeIn(animationTime);
-			});
+			$oldControls.hide();
+			$newControl.show();
 		}
 
 	});

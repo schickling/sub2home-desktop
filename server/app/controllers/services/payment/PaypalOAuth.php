@@ -38,7 +38,7 @@ class PaypalOAuth
 		$signature = $response['oauth_signature'];
 
 		// encode data
-		$authHeaderString = sprintf('timestamp=%s,token=%s,signature=%s', $timestamp, $token, $signature);
+		$authHeaderString = sprintf('token=%s,signature=%s,timeStamp=%s', $token, $signature, $timestamp);
 
 		return $authHeaderString;
 	}
