@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\Jobs;
 
 use Log;
-use App/Exceptions/JobException;
+use App\Exceptions\JobException;
 
 abstract class BaseJob {
 

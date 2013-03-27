@@ -45,4 +45,14 @@ abstract class ItemModel extends BaseModel
 		return $this->returnCustomModel($store_model_id)->price;
 	}
 
+	final public function increaseBuyedCounter($increase)
+	{
+		if ($increase < 1) {
+			$this->throwException('Invalid increment for buyed value');
+		}
+
+		$this->attributes['buyed'] += $increase;
+	}
+
+
 }

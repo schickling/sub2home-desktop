@@ -80,11 +80,11 @@ class ProcessNewOrderJob extends BaseJob {
 
 	private function increaseBuyedCount($itemModel, $toAdd)
 	{
-		$itemModel->buyed += $amount;
+		$itemModel->increaseBuyedCounter($toAdd);
 		$itemModel->save();
 
 		$customItemModel = $itemModel->returnCustomModel($this->orderModel->storeModel->id);
-		$customItemModel->buyed += $amount;
+		$customItemModel->increaseBuyedCounter($toAdd);
 		$customItemModel->save();
 	}
 

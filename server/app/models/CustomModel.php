@@ -16,4 +16,13 @@ abstract class CustomModel extends BaseModel
 		return $this->belongsTo('App\\Models\\StoreModel');
 	}
 
+	final public function increaseBuyedCounter($increase)
+	{
+		if ($increase < 1) {
+			$this->throwException('Invalid increment for buyed value');
+		}
+
+		$this->attributes['buyed'] += $increase;
+	}
+
 }
