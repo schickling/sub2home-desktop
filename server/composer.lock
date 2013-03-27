@@ -187,12 +187,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "115c53f58751f20fabd0a30df9812a40bfc9d039"
+                "reference": "6ffb64c9b309841e3de1d778d8c79f12c75183f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/115c53f58751f20fabd0a30df9812a40bfc9d039",
-                "reference": "115c53f58751f20fabd0a30df9812a40bfc9d039",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6ffb64c9b309841e3de1d778d8c79f12c75183f1",
+                "reference": "6ffb64c9b309841e3de1d778d8c79f12c75183f1",
                 "shasum": ""
             },
             "require": {
@@ -246,7 +246,8 @@
             "require-dev": {
                 "aws/aws-sdk-php": "2.2.*",
                 "iron-io/iron_mq": "1.4.4",
-                "mockery/mockery": "0.7.2"
+                "mockery/mockery": "0.7.2",
+                "pda/pheanstalk": "2.0.*"
             },
             "type": "library",
             "extra": {
@@ -255,9 +256,6 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src/Illuminate/Queue/Pheanstalk"
-                ],
                 "files": [
                     "src/Illuminate/Support/helpers.php"
                 ],
@@ -280,7 +278,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-03-26 21:24:38"
+            "time": "2013-03-26 21:49:09"
         },
         {
             "name": "monolog/monolog",

@@ -4,12 +4,9 @@ define([
     'underscore',
     'backbone',
     'views/store/assortment/ControlBaseView',
-    'text!templates/store/assortment/articles/ControlTemplate.html'
-    ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
+    ], function ($, _, Backbone, ControlBaseView) {
 
 	var ControlView = ControlBaseView.extend({
-
-		template: ControlTemplate,
 
 		events: {
 			'click .bReset': '_resetAllPrices',

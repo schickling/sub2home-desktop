@@ -12,6 +12,7 @@ define([
 		className: 'ingredient',
 
 		events: {
+			'click .bEye': '_toggleIsActive',
 			'focusout input': '_updateCustomPrice',
 			'click .bReset': '_resetCustomPrice'
 		},
@@ -36,6 +37,31 @@ define([
 
 			this.$el.html(this.template(json));
 
+		},
+
+		_toggleIsActive: function () {
+			var ingredientModel = this.model,
+				$eye = this.$('.bEye'),
+				$el = this.$el,
+				isActive = !this.model.get('isActive');
+
+			ingredientModel.set('isActive', isActive);
+			ingredientModel.save({}, {
+				success: function () {
+					$eye.toggleClass('open', isActive);
+					$el.toggleClass('inactive', !isActive);
+
+					if (isActive) {
+						notificationcenter.notify('views.store.assortment.ingredients.success.isActive');
+					} else {
+						notificationcenter.notify('views.store.assortment.ingredients.success.isNotActive');
+					}
+				},
+				error: function () {
+					notificationcenter.notify('views.store.assortment.ingredients.error');
+					ingredientModel.set('isActive', !isActive);
+				}
+			});
 		},
 
 		_updateCustomPrice: function () {

@@ -19,7 +19,8 @@ class UpdateController extends StoreRelatedApiController
 		// check input
 		$input = Input::json();
 		$rules = array(
-			'customPrice' => 'numeric|required|min:0'
+			'customPrice'	=> 'numeric|required|min:0',
+			'isActive'		=> 'boolean|required'
 			);
 
 		$this->validateInput($rules);
@@ -34,6 +35,7 @@ class UpdateController extends StoreRelatedApiController
 		$customIngredientModel = $ingredientModel->returnCustomModel($this->storeModel->id);
 
 		// update
+		$customIngredientModel->isActive = $input['isActive'];
 		$customIngredientModel->price = $input['customPrice'];
 		$customIngredientModel->save();
 

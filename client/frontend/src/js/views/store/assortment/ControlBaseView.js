@@ -2,12 +2,13 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-    ], function ($, _, Backbone) {
+    'backbone',
+    'text!templates/store/assortment/ControlTemplate.html'
+    ], function ($, _, Backbone, ControlTemplate) {
 
 	var ControlBaseView = Backbone.View.extend({
 
-		template: null,
+		template: ControlTemplate,
 
 		numberOfCurrentRequests: 0,
 		numberOfItems: 0,

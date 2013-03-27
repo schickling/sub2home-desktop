@@ -20,8 +20,8 @@ class UpdateController extends StoreRelatedApiController
 		// check input
 		$input = Input::json();
 		$rules = array(
-			'customPrice'		=> 'numeric|required|min:0',
-			'isActive'			=> 'boolean|required'
+			'customPrice'	=> 'numeric|required|min:0',
+			'isActive'		=> 'boolean|required'
 			);
 
 		$this->validateInput($rules);

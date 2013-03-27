@@ -3,16 +3,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/store/assortment/ControlBaseView',
-    'text!templates/store/assortment/ingredients/ControlTemplate.html'
-    ], function ($, _, Backbone, ControlBaseView, ControlTemplate) {
+    'views/store/assortment/ControlBaseView'
+    ], function ($, _, Backbone, ControlBaseView) {
 
 	var ControlView = ControlBaseView.extend({
 
-		template: ControlTemplate,
-
 		events: {
-			'click .bReset': '_resetAllPrices'
+			'click .bReset': '_resetAllPrices',
+			'click .showAll': '_showAllIngredients'
 		},
 
 		_countItems: function () {
@@ -35,6 +33,26 @@ define([
 					if (ingredient.get('price') !== ingredient.get('customPrice')) {
 						this._updateModel(ingredient, {
 							customPrice: ingredient.get('price')
+						});
+					}
+
+				}, this);
+			}, this);
+
+			this._updateLoadBar();
+
+		},
+
+		_showAllIngredients: function () {
+			_.each(this.collection.models, function (ingredientCategoryModel) {
+				var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
+
+				_.each(ingredientsCollection.models, function (ingredientModel) {
+
+					// check if activation needed
+					if (!ingredientModel.get('isActive')) {
+						this._updateModel(ingredientModel, {
+							isActive: true
 						});
 					}
 

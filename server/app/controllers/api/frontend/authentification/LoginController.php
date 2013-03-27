@@ -24,7 +24,7 @@ class LoginController extends ApiController
     public function route()
     {   
         // validate input
-        $input = Input::json();
+        $input = Input::all();
 
     	$rules = array(
     		'number'	=> 'numeric|between:1000,9999|required',
