@@ -77,6 +77,9 @@ define([
 			// initialize listeners
 			this._initializeListeners();
 
+			// show no upgrade view if is first slide
+			this._slideNoUpgradeView();
+
 		},
 
 		_chacheDOM: function () {

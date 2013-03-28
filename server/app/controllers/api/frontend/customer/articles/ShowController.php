@@ -43,7 +43,7 @@ class ShowController extends ApiController
 		$articleModel->price = $customArticleModel->price;
 
 		// get menu upgrades price and sort out inactive articles
-		$this->prepareMenuUpgradesCollection($articleModel);
+		$this->prepareMenuUpgradesCollection($articleModel->menuUpgradesCollection);
 
 		// load custom ingredients
 		$customArticleModel->loadCustomIngredientPrices();
@@ -56,10 +56,10 @@ class ShowController extends ApiController
 	}
 
 
-	private function prepareMenuUpgradesCollection($articleModel)
+	private function prepareMenuUpgradesCollection($menuUpgradesCollection)
 	{
 
-		foreach ($articleModel->menuUpgradesCollection as $index => $menuUpgradeModel) {
+		foreach ($menuUpgradesCollection as $index => $menuUpgradeModel) {
 
 			$customMenuModel = $menuUpgradeModel->returnCustomModel($this->storeModel->id);
 			$preparedMenuComponentBlocksCollection = $this->getPreparedMenuComponentBlocksCollection($menuUpgradeModel->menuComponentBlocksCollection);
@@ -67,14 +67,14 @@ class ShowController extends ApiController
 			$menuUpgradeModel->price = $customMenuModel->price;
 
 			if ( ! $customMenuModel->isActive or $preparedMenuComponentBlocksCollection->isEmpty()) {
-				$articleModel->menuUpgradesCollection->offsetUnset($index);
+				$menuUpgradesCollection->offsetUnset($index);
 			}
 
 		}
 
 		// check if collection is empty
-		if ($articleModel->menuUpgradesCollection->isEmpty()) {
-			unset($articleModel->menuUpgradesCollection);
+		if ($menuUpgradesCollection->isEmpty()) {
+			unset($menuUpgradesCollection);
 		}
 
 	}

@@ -62,6 +62,13 @@ define([
 
 			articleModel.fetch({
 				success: function () {
+
+					// check if has ingredients or menu upgrades
+					if (!articleModel.get('ingredientCategoriesCollection') && !articleModel.get('menuUpgradesCollection')) {
+						self.pageNotFound();
+						return;
+					}
+
 					// create new ordered article
 					var orderedArticleModel = new OrderedArticleModel();
 
