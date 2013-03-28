@@ -89,9 +89,9 @@ class ShowController extends ApiController
 		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
 
 			// filter ingredients
-			$filteredIngredientModels = array_values(array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
+			$filteredIngredientModels = array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
 				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
-			}));
+			});
 
 			// set custom price and sort out inactive ingredients
 			$preparedIngredientModels = $this->getPreparedIngredientModels($filteredIngredientModels);
@@ -112,6 +112,10 @@ class ShowController extends ApiController
 
 		// check if collection is empty
 		if ( ! $ingredientCategoriesCollection->isEmpty()) {
+
+			// reindex collection
+			$ingredientCategoriesCollection->values();
+
 			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
 		}
 
