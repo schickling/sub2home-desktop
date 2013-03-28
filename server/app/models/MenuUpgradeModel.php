@@ -6,7 +6,7 @@
 class MenuUpgradeModel extends MenuModel
 {
 	
-	protected $hidden = array('buyed', 'created_at', 'updated_at', 'isPublished');
+	protected $hidden = array('buyed', 'created_at', 'updated_at', 'isPublished', 'pivot');
 
 	protected $fillable = array('title', 'description', 'price', 'isPublished');
 

@@ -16,7 +16,8 @@ class IngredientModel extends ItemModel
 		'buyed',
 		'isPublished',
 		'created_at',
-		'updated_at'
+		'updated_at',
+		'pivot'
 		);
 
 	protected $fillable = array(

@@ -15,7 +15,9 @@ class ArticleModel extends ItemModel
 		'created_at',
 		'updated_at',
 		'isPublished',
-		'order'
+		'order',
+		'isOnlyAllowedByMenus',
+		'pivot'
 		);
 
 	protected $fillable = array(
