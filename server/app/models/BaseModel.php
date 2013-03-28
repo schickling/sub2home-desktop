@@ -26,7 +26,7 @@ class BaseModel extends Eloquent
 	 * 
 	 * @return boolean
 	 */
-	final public function save()
+	final public function save(array $options = array())
 	{
 		$modelExists = $this->exists;
 

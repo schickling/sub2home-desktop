@@ -33,18 +33,16 @@ class ShowController extends ApiController
 
 		$this->checkModelFound($articleModel);
 
-		
 		$customArticleModel = $articleModel->returnCustomModel($this->storeModel->id);
 
-		if (!$customArticleModel->isActive) {
+		if ( ! $customArticleModel->isActive) {
 			$this->throwException(404);
 		}
-
 
 		// get article price
 		$articleModel->price = $customArticleModel->price;
 
-		// get menu upgrades price
+		// get menu upgrades price and sort out inactive articles
 		$this->prepareMenuUpgradesCollection($articleModel);
 
 		// load custom ingredients
@@ -60,22 +58,25 @@ class ShowController extends ApiController
 
 	private function prepareMenuUpgradesCollection($articleModel)
 	{
-		$store_model_id = $this->storeModel->id;
 
-		foreach ($articleModel->menuUpgradesCollection as $key => $menuUpgradeModel) {
-			$customMenuModel = $menuUpgradeModel->returnCustomModel($store_model_id);
+		foreach ($articleModel->menuUpgradesCollection as $index => $menuUpgradeModel) {
 
-			if ($customMenuModel->isActive) {
-				$menuUpgradeModel->price = $customMenuModel->price;				
-			} else {
-				$articleModel->menuUpgradesCollection->offsetUnset($key);
+			$customMenuModel = $menuUpgradeModel->returnCustomModel($this->storeModel->id);
+			$preparedMenuComponentBlocksCollection = $this->getPreparedMenuComponentBlocksCollection($menuUpgradeModel->menuComponentBlocksCollection);
+
+			$menuUpgradeModel->price = $customMenuModel->price;
+
+			if ( ! $customMenuModel->isActive or $preparedMenuComponentBlocksCollection->isEmpty()) {
+				$articleModel->menuUpgradesCollection->offsetUnset($index);
 			}
 
 		}
 
+		// check if collection is empty
 		if ($articleModel->menuUpgradesCollection->isEmpty()) {
 			unset($articleModel->menuUpgradesCollection);
 		}
+
 	}
 
 	private function wrapIngredientsInCategories($articleModel)
@@ -86,27 +87,96 @@ class ShowController extends ApiController
 
 		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
 
-			// filter and reindex ingredients
-			$filteredIngredients = array_values(array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
+			// filter ingredients
+			$filteredIngredientModels = array_values(array_filter($ingredientsCollectionOfArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
 				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
 			}));
 
-			if (count($filteredIngredients) > 0) {
-				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredients);
+			// set custom price and sort out inactive ingredients
+			$preparedIngredientModels = $this->getPreparedIngredientModels($filteredIngredientModels);
+
+			if (count($preparedIngredientModels) > 0) {
+				$ingredientsCollection = $ingredientCategoryModel->newCollection($preparedIngredientModels);
+
+				// reindex collection
+				$ingredientsCollection->values();
+
 				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
 			} else {
 				// TODO: check this, might not work
 				$ingredientCategoriesCollection->offsetUnset($index);
 			}
 
-
 		}
 
-		if (!$ingredientCategoriesCollection->isEmpty()) {
+		// check if collection is empty
+		if ( ! $ingredientCategoriesCollection->isEmpty()) {
 			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
 		}
 
 		unset($articleModel->ingredientsCollection);
+
+	}
+
+	private function getPreparedIngredientModels($ingredientModels)
+	{
+		foreach ($ingredientModels as $index => $ingredientModel) {
+			$customIngredientModel = $ingredientModel->returnCustomModel($this->storeModel->id);
+
+			if ( ! $customIngredientModel->isActive) {
+				unset($ingredientModels[$index]);
+			}
+
+			$ingredientModel->price = $customIngredientModel->price;
+
+		}
+
+		return $ingredientModels;
+	}
+
+	private function getPreparedMenuComponentBlocksCollection($menuComponentBlocksCollection)
+	{
+
+		foreach ($menuComponentBlocksCollection as $menuComponentBlockIndex => $menuComponentBlockModel) {
+
+			// cache menuComponentOptionsCollection
+			$menuComponentOptionsCollection = $menuComponentBlockModel->menuComponentOptionsCollection;
+
+			foreach ($menuComponentOptionsCollection as $menuComponentOptionIndex => $menuComponentOptionModel) {
+
+				// cache menuComponentOptionArticlesCollection
+				$menuComponentOptionArticlesCollection = $menuComponentOptionModel->menuComponentOptionArticlesCollection;
+
+				foreach ($menuComponentOptionArticlesCollection as $menuComponentOptionArticleIndex => $menuComponentOptionArticleModel) {
+
+					if (! $menuComponentOptionArticleModel->isActive($this->storeModel->id)) {
+						$menuComponentOptionArticlesCollection->offsetUnset($menuComponentOptionArticleIndex);
+					}
+
+				}
+
+				// reindex collection
+				$menuComponentOptionArticlesCollection->values();
+
+				if ($menuComponentOptionArticlesCollection->isEmpty()) {
+					$menuComponentOptionsCollection->offsetUnset($menuComponentOptionIndex);
+				}
+
+			}
+
+			// reindex collection
+			$menuComponentOptionsCollection->values();
+
+			if ($menuComponentOptionsCollection->isEmpty()) {
+				$menuComponentBlocksCollection->offsetUnset($menuComponentBlockIndex);
+			}
+
+		}
+
+		// reindex collection
+		$menuComponentBlocksCollection->values();
+
+		return $menuComponentBlocksCollection;
 	}
 
 }

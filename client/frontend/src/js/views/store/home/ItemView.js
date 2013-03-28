@@ -64,6 +64,7 @@ define([
 					} else { // just go to selection
 
 						router.navigate('store/theke/artikel/' + this.model.get('id'), true);
+						return;
 
 					}
 
