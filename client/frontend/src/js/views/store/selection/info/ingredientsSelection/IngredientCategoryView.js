@@ -14,10 +14,10 @@ define([
 		template: _.template(IngredientCategoryTemplate),
 
 		initialize: function () {
-			this.render();
+			this._render();
 		},
 
-		render: function () {
+		_render: function () {
 			var json = {
 				title: this.model.get('title')
 			};

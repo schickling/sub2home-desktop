@@ -30,11 +30,11 @@ define([
 			this.$el.html('');
 
 			// filter active ingredients
-			var activeIngredients = this.collection.filter(function (ingredientModel) {
+			var activeIngredientModels = this.collection.filter(function (ingredientModel) {
 				return ingredientModel.get('isSelected');
 			});
 
-			_.each(activeIngredients, function (ingredientModel) {
+			_.each(activeIngredientModels, function (ingredientModel) {
 				this._renderIngredient(ingredientModel);
 			}, this);
 
@@ -42,6 +42,10 @@ define([
 			if (this.collection.length > 1) {
 				this.$('.ingredient:last').prev().addClass('penultimate');
 			}
+
+			// mark category as "unused"
+			this.$el.parent().toggleClass('unused', activeIngredientModels.length === 0);
+
 		},
 
 		_renderIngredient: function (ingredientModel) {
