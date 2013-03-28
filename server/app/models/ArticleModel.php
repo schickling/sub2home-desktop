@@ -77,7 +77,7 @@ class ArticleModel extends ItemModel
 	 */
 	public function ingredientsCollection()
 	{
-		return $this->belongsToMany('App\\Models\\IngredientModel');
+		return $this->belongsToMany('App\\Models\\IngredientModel')->withPivot('isPreset');
 	}
 
 	/**

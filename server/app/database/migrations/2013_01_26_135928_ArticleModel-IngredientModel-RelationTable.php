@@ -15,6 +15,7 @@ class ArticleModelIngredientModelRelationTable extends Migration {
 			$table->increments('id');
 			$table->integer('article_model_id')->unsigned();
 			$table->integer('ingredient_model_id')->unsigned();
+			$table->boolean('isPreset')->default(false);
 		});
 	}
 

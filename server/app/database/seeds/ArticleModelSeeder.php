@@ -22,8 +22,8 @@ class ArticleModelSeeder extends Seeder {
 			$articleModel = new ArticleModel($article);
 			$articleModel->save();
 
-			foreach ($ingredient_model_ids as $ingredient_model_id) {
-				$articleModel->ingredientsCollection()->attach($ingredient_model_id);
+			foreach ($ingredient_model_ids as $ingredient_model_id => $isPreset) {
+				$articleModel->ingredientsCollection()->attach($ingredient_model_id, array('isPreset' => $isPreset));
 			}
 
 		}
@@ -54,7 +54,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -72,7 +72,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -90,7 +90,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -108,7 +108,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -126,7 +126,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -144,7 +144,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -162,7 +162,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -180,7 +180,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -198,7 +198,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -216,7 +216,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -234,7 +234,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -252,7 +252,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -270,7 +270,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -288,7 +288,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -306,7 +306,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -324,7 +324,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -342,7 +342,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -360,7 +360,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -378,7 +378,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -396,7 +396,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -414,7 +414,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -432,7 +432,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -450,7 +450,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -468,7 +468,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -486,7 +486,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -504,7 +504,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -522,7 +522,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -540,7 +540,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 
@@ -559,7 +559,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 
@@ -578,7 +578,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 
@@ -600,7 +600,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -618,7 +618,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -636,7 +636,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -654,7 +654,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -672,7 +672,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 // WRAPS -----------------------
@@ -694,7 +694,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -712,7 +712,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -730,7 +730,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -748,7 +748,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -766,7 +766,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -784,7 +784,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -802,7 +802,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -820,7 +820,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -838,7 +838,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -856,7 +856,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -874,7 +874,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -892,7 +892,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -910,7 +910,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -928,7 +928,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -946,7 +946,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 
@@ -969,7 +969,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -987,7 +987,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1005,7 +1005,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1023,7 +1023,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1041,7 +1041,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1059,7 +1059,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1077,7 +1077,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1095,7 +1095,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1113,7 +1113,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1131,7 +1131,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -1149,7 +1149,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),	
 
 			array (
@@ -1167,7 +1167,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1185,7 +1185,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1203,7 +1203,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 			array (
@@ -1221,7 +1221,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41)
+				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
 				),
 
 

@@ -70,7 +70,7 @@ class IngredientModel extends ItemModel
 	 */
 	public function articlesCollection()
 	{
-		return $this->belongsToMany('App\\Models\\ArticleModel');
+		return $this->belongsToMany('App\\Models\\ArticleModel')->withPivot('isPreset');
 	}
 
 	/**
