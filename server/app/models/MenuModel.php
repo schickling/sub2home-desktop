@@ -29,7 +29,7 @@ abstract class MenuModel extends ItemModel
 	 */
 	public function menuComponentBlocksCollection()
 	{
-		return $this->hasMany('App\\Models\\MenuComponentBlockModel');
+		return $this->morphMany('App\\Models\\MenuComponentBlockModel', 'menuModel');
 	}
 
 	/**

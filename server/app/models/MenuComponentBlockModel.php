@@ -7,9 +7,9 @@ class MenuComponentBlockModel extends BaseModel
 {
 	public $timestamps = false;
 
-	protected $hidden = array('menu_bundle_model_id', 'menu_upgrade_model_id');
+	protected $hidden = array('menuModel_id', 'menuModel_type');
 
-	protected $fillable = array('menu_bundle_model_id', 'menu_upgrade_model_id', 'icon', 'smallImage', 'largeImage', 'placeholder');
+	protected $fillable = array('menuModel_id', 'menuModel_type', 'icon', 'smallImage', 'largeImage', 'placeholder');
 
 	protected $table = 'menu_component_block_models';
 
@@ -38,24 +38,9 @@ class MenuComponentBlockModel extends BaseModel
 		return $this->hasMany('App\\Models\\MenuComponentOptionModel');
 	}
 
-	/**
-	 * Returns the menu upgrade
-	 * 
-	 * @return object
-	 */
-	public function menuUpgradeModel()
+	public function menuModel()
 	{
-		return $this->belongsTo('App\\Models\\MenuUpgradeModel');
-	}
-	
-	/**
-	 * Returns the menu bundle
-	 * 
-	 * @return object
-	 */
-	public function menuBundleModel()
-	{
-		return $this->belongsTo('App\\Models\\MenuBundleModel');
+		return $this->morphTo('menuModel');
 	}
 
 

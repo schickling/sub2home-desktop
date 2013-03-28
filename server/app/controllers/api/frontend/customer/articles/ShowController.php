@@ -25,8 +25,8 @@ class ShowController extends ApiController
 											'ingredientsCollection',
 											'menuUpgradesCollection',
 											'menuUpgradesCollection.menuComponentBlocksCollection',
-											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
-											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
+											// 'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
+											// 'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
 											))
 										->where('isPublished', true)
 										->find($id);
@@ -43,7 +43,7 @@ class ShowController extends ApiController
 		$articleModel->price = $customArticleModel->price;
 
 		// get menu upgrades price and sort out inactive articles
-		$this->prepareMenuUpgradesCollection($articleModel->menuUpgradesCollection);
+		// $this->prepareMenuUpgradesCollection($articleModel->menuUpgradesCollection);
 
 		// load custom ingredients
 		$customArticleModel->loadCustomIngredientPrices();

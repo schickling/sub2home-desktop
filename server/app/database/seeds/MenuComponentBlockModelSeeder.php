@@ -31,8 +31,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 1,
-				'menu_bundle_model_id'		=> 0,
-				'menu_upgrade_model_id'		=> 1,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuUpgradeModel',
 				'icon'						=> 'iBeverage',
 				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
 				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
@@ -41,8 +41,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 2,
-				'menu_bundle_model_id'		=> 0,
-				'menu_upgrade_model_id'		=> 1,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuUpgradeModel',
 				'icon'						=> 'iSnacks',
 				'smallImage'				=> '../../../img/static/categories/smallimages/snacks.png',
 				'largeImage'				=> '../../../img/static/categories/largeimages/snacks.png',
@@ -54,8 +54,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array ( // sub
 				// 'id' 					=> 3,
-				'menu_bundle_model_id'		=> 1,
-				'menu_upgrade_model_id'		=> 0,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
 				'icon'						=> 'ikidspakSub',
 				'smallImage'				=> '../../../img/static/categories/smallimages/kidspaksub.png',
 				'largeImage'				=> '',
@@ -64,8 +64,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array ( // drink
 				// 'id' 					=> 4,
-				'menu_bundle_model_id'		=> 1,
-				'menu_upgrade_model_id'		=> 0,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
 				'icon'						=> 'iDrink',
 				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
 				'largeImage'				=> '',
@@ -74,8 +74,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array ( // cookie
 				// 'id' 					=> 5,
-				'menu_bundle_model_id'		=> 1,
-				'menu_upgrade_model_id'		=> 0,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
 				'icon'						=> 'iCookie',
 				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
 				'largeImage'				=> '',
@@ -84,8 +84,8 @@ class MenuComponentBlockModelSeeder extends Seeder {
 
 			array ( // cookie
 				// 'id' 					=> 6,
-				'menu_bundle_model_id'		=> 1,
-				'menu_upgrade_model_id'		=> 0,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
 				'icon'						=> 'iToy',
 				'smallImage'				=> '../../../img/static/categories/smallimages/toy.png',
 				'largeImage'				=> '',
