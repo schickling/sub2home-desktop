@@ -52,9 +52,6 @@ class StoreModel extends BaseModel
 			'email' => $this->clientModel->addressModel->email
 			));
 
-		// TODO MERGE
-		$copiedAddressModel->setRelation('ownerModel', $this);
-
 		$this->addressModel()->save($copiedAddressModel);
 
 		// Create default delivery times

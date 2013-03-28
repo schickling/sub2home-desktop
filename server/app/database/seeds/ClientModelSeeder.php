@@ -59,9 +59,6 @@ class ClientModelSeeder extends Seeder {
 
 		$storeModel = new StoreModel($storeData);
 
-		// TODO MERGE
-		$storeModel->setRelation('clientModel', $clientModel);
-
 		$clientModel->storesCollection()->save($storeModel);
 
 
