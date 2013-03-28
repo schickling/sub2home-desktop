@@ -83,7 +83,8 @@ define([
 		},
 
 		_validatePhone: function (phone) {
-			return true;
+			var re = /^(\d)+(\d|\s)*$/;
+			return re.test(phone);
 		}
 
 	});

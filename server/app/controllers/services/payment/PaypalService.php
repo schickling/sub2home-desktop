@@ -40,7 +40,7 @@ class PaypalService implements PaymentInterface
 			'callback'						=> $callbackUrl
 			);
 
-		$response = static::callApiWithoutAuthHeader($params, $url);
+		$response = static::callApi($params, $url);
 		$token = $response['token'];
 
 		// Cache token with store id
@@ -63,7 +63,7 @@ class PaypalService implements PaymentInterface
 			'token'		=> $token,
 			'verifier'	=> $verifier
 			);
-		$response = static::callApiWithoutAuthHeader($params, $url);
+		$response = static::callApi($params, $url);
 
 		$token = $response['token'];
 		$tokenSecret = $response['tokenSecret'];
@@ -115,49 +115,37 @@ class PaypalService implements PaymentInterface
 		return static::getFrontendUrl() . 'cmd=_express-checkout&token=' . $token;
 	}
 
-
-	
-	private static function callApiWithoutAuthHeader($params, $url)
-	{
-		$header = array(
-			'X-PAYPAL-SECURITY-USERID: ' . Config::get('payment.paypal.apiUsername'),
-			'X-PAYPAL-SECURITY-PASSWORD: ' . Config::get('payment.paypal.apiPassword'),
-			'X-PAYPAL-SECURITY-SIGNATURE: '. Config::get('payment.paypal.apiSignature'),
-			'X-PAYPAL-REQUEST-DATA-FORMAT: NV',
-			'X-PAYPAL-RESPONSE-DATA-FORMAT:	NV'
-			);
-
-		return static::callApi($params, $header, $url);
-	}
-
-
 	private static function callApiWithAuthHeader($params, $authHeader)
 	{
 		$header = array(
-			'X-PAYPAL-AUTHORIZATION: ' . $authHeader,
-			'X-PAYPAL-REQUEST-DATA-FORMAT:NV',
-			'X-PAYPAL-RESPONSE-DATA-FORMAT:NV'
+			'X-PP-AUTHORIZATION: ' . $authHeader
 			);
+
 		$url = static::getApiUrl();
 
-		return static::callApi($params, $header, $url);
+		return static::callApi($params, $url, $header);
 	}
 
 	/**
 	 * Makes a POST request to the paypal api and returns the result
 	 * 
 	 * @param  array  $params		all post parameters
-	 * @param  array  $header		get parameters
 	 * @param  string $url			url
+	 * @param  array  $header		get parameters
 	 * @return object         		response object
 	 */
-	private static function callApi($params, $header, $url)
+	private static function callApi($params, $url, $header = array())
 	{
 		// var_dump($url);
 
 		// add header fields
 		$standardHeader = array(
-			'X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T'
+			'X-PAYPAL-APPLICATION-ID: ' . Config::get('payment.paypal.applicationId'),
+			'X-PAYPAL-SECURITY-USERID: ' . Config::get('payment.paypal.apiUsername'),
+			'X-PAYPAL-SECURITY-PASSWORD: ' . Config::get('payment.paypal.apiPassword'),
+			'X-PAYPAL-SECURITY-SIGNATURE: '. Config::get('payment.paypal.apiSignature'),
+			'X-PAYPAL-REQUEST-DATA-FORMAT: NV',
+			'X-PAYPAL-RESPONSE-DATA-FORMAT: NV'
 			);
 
 		$header = array_merge($header, $standardHeader);

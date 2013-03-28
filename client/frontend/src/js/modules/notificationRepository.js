@@ -322,8 +322,8 @@ define([
 			},
 
 			'views.store.config.paymentMethods.error.paypal': {
-				title: 'Paypal-Fehler',
-				description: 'PayPal konnte nicht aktiviert werden. Wenden Sie sich bitte an unseren Support',
+				title: 'PayPal-Fehler',
+				description: 'PayPal konnte nicht aktiviert werden. Bitte konfiguieren Sie ihren PayPal Zugang.',
 				className: 'error'
 			},
 
