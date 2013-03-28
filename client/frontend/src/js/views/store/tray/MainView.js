@@ -92,7 +92,11 @@ define([
 				new NoDeliveryView({
 					el: this.$('#checkoutControls')
 				});
-				
+
+				this.$('#trayNote').css({
+					top: 0
+				});
+
 			}
 
 			this.append();

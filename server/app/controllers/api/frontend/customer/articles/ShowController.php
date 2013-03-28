@@ -22,11 +22,17 @@ class ShowController extends ApiController
 
 		$id = Request::segment(6);
 		$articleModel = ArticleModel::with(array(
-											'ingredientsCollection',
+											'ingredientsCollection' => function($query)
+											{
+												$query->where('isPublished', true);
+											},
 											'menuUpgradesCollection',
 											'menuUpgradesCollection.menuComponentBlocksCollection',
 											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
-											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
+											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection' => function($query)
+											{
+												$query->where('isPublished', true);
+											}
 											))
 										->where('isPublished', true)
 										->where('isOnlyAllowedByMenus', false)
@@ -158,10 +164,8 @@ class ShowController extends ApiController
 
 				foreach ($menuComponentOptionArticlesCollection as $menuComponentOptionArticleIndex => $menuComponentOptionArticleModel) {
 
-					if (! $menuComponentOptionArticleModel->isActive($this->storeModel->id)) {
+					if ( ! $menuComponentOptionArticleModel->isActive($this->storeModel->id)) {
 						$menuComponentOptionArticlesCollection->offsetUnset($menuComponentOptionArticleIndex);
-					} else {
-						// var_dump($menuComponentOptionModel->id);
 					}
 
 				}

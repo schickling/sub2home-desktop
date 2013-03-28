@@ -34,7 +34,7 @@ define([
 		},
 
 		_updateView: function () {
-			this.$el.toggleClass('selected', this.model.get('isSelected'));
+			this.$el.toggleClass('selected', !!this.model.get('isSelected'));
 		},
 
 		_toggleSelected: function () {

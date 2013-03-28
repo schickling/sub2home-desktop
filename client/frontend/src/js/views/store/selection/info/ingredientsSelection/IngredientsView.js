@@ -1,11 +1,11 @@
 // Filename: src/js/views/store/selection/info/IngredientsView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'collections/IngredientsCollection',
-	'views/store/selection/info/ingredientsSelection/IngredientView'
-	], function ($, _, Backbone, IngredientsCollection, IngredientView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'collections/IngredientsCollection',
+    'views/store/selection/info/ingredientsSelection/IngredientView'
+    ], function ($, _, Backbone, IngredientsCollection, IngredientView) {
 
 	var IngredientsView = Backbone.View.extend({
 
@@ -30,8 +30,8 @@ define([
 			this.$el.html('');
 
 			// filter active ingredients
-			var activeIngredients = this.collection.where({
-				isSelected: true
+			var activeIngredients = this.collection.filter(function (ingredientModel) {
+				return ingredientModel.get('isSelected');
 			});
 
 			_.each(activeIngredients, function (ingredientModel) {
