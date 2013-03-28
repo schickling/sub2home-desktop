@@ -28,7 +28,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 1,
-				'order' 				=> 1,
+				'order' 				=> 0,
 				'title' 				=> 'Aktionen',
 				'smallImage'			=> 'img/static/categories/smallimages/aktionen.png',
 				'icon'					=> 'iPromotion'
@@ -36,7 +36,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 2,
-				'order' 				=> 2,
+				'order' 				=> 1,
 				'title' 				=> 'Subs',
 				'smallImage'			=> 'img/static/categories/smallimages/sub.png',
 				'icon'					=> 'iSub'
@@ -44,7 +44,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 3,
-				'order' 				=> 3,
+				'order' 				=> 2,
 				'title' 				=> 'Wraps',
 				'smallImage'			=> 'img/static/categories/smallimages/wrap.png',
 				'icon'					=> 'iWrap'
@@ -52,7 +52,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 4,
-				'order' 				=> 4,
+				'order' 				=> 3,
 				'title' 				=> 'Salate',
 				'smallImage'			=> 'img/static/categories/smallimages/salat.png',
 				'icon'					=> 'iSalad'
@@ -60,7 +60,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 5,
-				'order' 				=> 5,
+				'order' 				=> 4,
 				'title' 				=> 'Snacks',
 				'smallImage'			=> 'img/static/categories/smallimages/snacks.png',
 				'icon'					=> 'iSnacks'
@@ -68,7 +68,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 6,
-				'order' 				=> 6,
+				'order' 				=> 5,
 				'title' 				=> 'Getränke',
 				'smallImage'			=> 'img/static/categories/smallimages/getraenk.png',
 				'icon'					=> 'iBeverage'
@@ -76,7 +76,7 @@ class CategoryModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 7,
-				'order' 				=> 7,
+				'order' 				=> 6,
 				'title' 				=> 'Catering',
 				'smallImage'			=> 'img/static/categories/smallimages/catering.png',
 				'icon'					=> 'iCatering'

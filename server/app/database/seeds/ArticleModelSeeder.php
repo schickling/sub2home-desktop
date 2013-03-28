@@ -40,9 +40,10 @@ class ArticleModelSeeder extends Seeder {
 // -----------------------------
 
 			array (
-				// 'id' 					=> 1,
+				// 'id' 				=> 1,
 				'category_model_id'		=> 1,
 				'title' 				=> 'BBQ Rib',
+				'order'					=> 0,
 				'info'					=> '6inch',
 				'description'			=> 'BBQ Rib-Hacksteak mit rauchiger BBQ Sauce, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/bbqrib-st.png',
@@ -54,13 +55,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 2,
+				// 'id' 				=> 2,
 				'category_model_id'		=> 1,
 				'title' 				=> 'BBQ Rib',
+				'order'					=> 1,
 				'info'					=> 'footlong',
 				'description'			=> 'BBQ Rib-Hacksteak mit rauchiger BBQ Sauce, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/bbqribFtlng-ft.png',
@@ -72,13 +74,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 3,
+				// 'id' 				=> 3,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Chicken Fajita',
+				'order'					=> 2,
 				'info'					=> '6inch',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckfajita-st.png',
@@ -90,13 +93,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 4,
+				// 'id' 				=> 4,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Chicken Fajita',
+				'order'					=> 3,
 				'info'					=> 'footlong',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckfajitaFtlng-ft.png',
@@ -108,13 +112,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 5,
+				// 'id' 				=> 5,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Chicken Teriyaki',
+				'order'					=> 4,
 				'info'					=> '6inch',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckteriyaki-st.png',
@@ -125,14 +130,15 @@ class ArticleModelSeeder extends Seeder {
 				'allowsDeposit'			=> false,
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
-				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'isPublished'			=> true,		
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 6,
+				// 'id' 				=> 6,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Chicken Teriyaki',
+				'order'					=> 5,
 				'info'					=> 'footlong',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ckteriyakiFtlng-ft.png',
@@ -144,13 +150,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 7,
+				// 'id' 				=> 7,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Ham',
+				'order'					=> 6,
 				'info'					=> '6inch',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/ham-sml.png',
@@ -162,13 +169,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 8,
+				// 'id' 				=> 8,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Ham',
+				'order'					=> 7,
 				'info'					=> 'footlong',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/hamFtlng-ft.png',
@@ -180,13 +188,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 9,
+				// 'id' 				=> 9,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Italian B.M.T.',
+				'order'					=> 8,
 				'info'					=> '6inch',
 				'description'			=> 'mit leckerem Hinterschinken, Salami, Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/bmt-smt.png',
@@ -198,13 +207,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 10,
+				// 'id' 				=> 10,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Italian B.M.T.',
+				'order'					=> 9,
 				'info'					=> 'footlong',
 				'description'			=> 'mit leckerem Hinterschinken, Salami, Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/bmtFtlng-ft.png',
@@ -216,13 +226,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 11,
+				// 'id' 				=> 11,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Roasted Chicken Breast',
+				'order'					=> 10,
 				'info'					=> '6inch',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreast-sm.png',
@@ -234,13 +245,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 12,
+				// 'id' 				=> 12,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Roasted Chicken Breast',
+				'order'					=> 11,
 				'info'					=> 'footlong',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreastFtlng-ft.png',
@@ -252,13 +264,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 13,
+				// 'id' 				=> 13,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Salami',
+				'order'					=> 12,
 				'info'					=> '6inch',
 				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/salami-sml.png',
@@ -270,13 +283,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 14,
+				// 'id' 				=> 14,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Salami',
+				'order'					=> 13,
 				'info'					=> 'footlong',
 				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/salamiFtlng-ft.png',
@@ -288,13 +302,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 15,
+				// 'id' 				=> 15,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Spicy Italian',
+				'order'					=> 14,
 				'info'					=> '6inch',
 				'description'			=> 'mit Salami und Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/spicyitalian-sm.png',
@@ -306,13 +321,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 16,
+				// 'id' 				=> 16,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Spicy Italian',
+				'order'					=> 15,
 				'info'					=> 'footlong',
 				'description'			=> 'mit Salami und Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/spicyitalianFtlng-ft.png',
@@ -324,13 +340,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 17,
+				// 'id' 				=> 17,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Steak & Cheese',
+				'order'					=> 16,
 				'info'					=> '6inch',
 				'description'			=> 'mit zartem Steakfleisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/steakcheese-smt.png',
@@ -342,13 +359,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 18,
+				// 'id' 				=> 18,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Steak & Cheese',
+				'order'					=> 17,
 				'info'					=> 'footlong',
 				'description'			=> 'mit zartem Steakfleisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/steakcheeseFtlng-ft.png',
@@ -360,13 +378,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 19,
+				// 'id' 				=> 19,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Tuna',
+				'order'					=> 18,
 				'info'					=> '6inch',
 				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/tuna-smt.png',
@@ -378,13 +397,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 20,
+				// 'id' 				=> 20,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Tuna',
+				'order'					=> 19,
 				'info'					=> 'footlong',
 				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/tunaFtlng-ft.png',
@@ -396,13 +416,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 21,
+				// 'id' 				=> 21,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey',
+				'order'					=> 20,
 				'info'					=> '6inch',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkey-smt.png',
@@ -414,13 +435,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 22,
+				// 'id' 				=> 22,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey',
+				'order'					=> 21,
 				'info'					=> 'footlong',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyFtlng-ft.png',
@@ -432,13 +454,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 23,
+				// 'id' 				=> 23,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey & Ham',
+				'order'					=> 22,
 				'info'					=> '6inch',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyham-sm.png',
@@ -450,13 +473,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 24,
+				// 'id' 				=> 24,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey & Ham',
+				'order'					=> 23,
 				'info'					=> 'footlong',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyhamFtlng-ft.png',
@@ -468,13 +492,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 25,
+				// 'id' 				=> 25,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
+				'order'					=> 24,
 				'info'					=> '6inch',
 				'description'			=> 'mit Truthahnbrust, Hinterschinken und knusprigem Bacon, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyhambaconmelt-smt.png',
@@ -486,13 +511,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 26,
+				// 'id' 				=> 26,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
+				'order'					=> 25,
 				'info'					=> 'footlong',
 				'description'			=> 'mit Truthahnbrust, Hinterschinken und knusprigem Bacon, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/turkeyhambaconmeltFtlng-ft.png',
@@ -504,13 +530,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 27,
+				// 'id' 				=> 27,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Veggie Delite',
+				'order'					=> 26,
 				'info'					=> '6inch',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedelite-sl.png',
@@ -522,13 +549,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 28,
+				// 'id' 				=> 28,
 				'category_model_id' 	=> 1,
 				'title' 				=> 'Veggie Delite',
+				'order'					=> 27,
 				'info'					=> 'footlong',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedeliteFtlng-ft.png',
@@ -540,14 +568,15 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 
 			array (
-				// 'id' 					=> 29,
+				// 'id' 				=> 29,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Veggie Patty',
+				'order'					=> 28,
 				'info'					=> '6inch',
 				'description'			=> 'mit einem Gemüsebratling - 100% vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiepatty-sm.png',
@@ -559,14 +588,15 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 
 			array (
-				// 'id' 					=> 30,
+				// 'id' 				=> 30,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Veggie Patty',
+				'order'					=> 29,
 				'info'					=> 'footlong',
 				'description'			=> 'mit einem Gemüsebratling - 100% vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiepattyFtlng-ft.png',
@@ -578,7 +608,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 19 => false, 21 => false, 24 => false, 27 => false, 30 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 
@@ -586,9 +616,10 @@ class ArticleModelSeeder extends Seeder {
 // Kids-Pak Subs ---------------
 
 			array (
-				// 'id' 					=> 31,
+				// 'id' 				=> 31,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Ham',
+				'order'					=> 30,
 				'info'					=> 'Mini',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/hamMini.png',
@@ -600,13 +631,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 32,
+				// 'id' 				=> 32,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Salami',
+				'order'					=> 31,
 				'info'					=> 'Mini',
 				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/salamiMini.png',
@@ -618,13 +650,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 33,
+				// 'id' 				=> 33,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Tuna',
+				'order'					=> 32,
 				'info'					=> 'Mini',
 				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/tunaMini.png',
@@ -636,13 +669,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 34,
+				// 'id' 				=> 34,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Veggie Delite',
+				'order'					=> 33,
 				'info'					=> 'Mini',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/veggiedeliteMini.png',
@@ -654,13 +688,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 35,
+				// 'id' 				=> 35,
 				'category_model_id'		=> 1,
 				'title' 				=> 'Roasted Chicken Breast',
+				'order'					=> 34,
 				'info'					=> 'Mini',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/subs/roastedchickenbreastMini.png',
@@ -672,7 +707,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 // WRAPS -----------------------
@@ -680,9 +715,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 36,
+				// 'id' 				=> 36,
 				'category_model_id'		=> 2,
 				'title' 				=> 'BBQ Rib',
+				'order'					=> 0,
 				'info'					=> '',
 				'description'			=> 'BBQ Rib-Hacksteak mit rauchiger BBQ Sauce, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -694,13 +730,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 37,
+				// 'id' 				=> 37,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Fajita',
+				'order'					=> 1,
 				'info'					=> '',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -712,13 +749,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 38,
+				// 'id' 				=> 38,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Teriyaki',
+				'order'					=> 2,
 				'info'					=> '',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -729,14 +767,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsDeposit'			=> false,
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
-				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 39,
+				// 'id' 				=> 39,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Ham',
+				'order'					=> 3,
 				'info'					=> '',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -748,13 +786,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 40,
+				// 'id' 				=> 40,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Italian B.M.T.',
+				'order'					=> 4,
 				'info'					=> '',
 				'description'			=> 'mit leckerem Hinterschinken, Salami, Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -766,13 +805,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 41,
+				// 'id' 				=> 41,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Roasted Chicken Breast',
+				'order'					=> 5,
 				'info'					=> '',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -784,13 +824,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 42,
+				// 'id' 				=> 42,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Salami',
+				'order'					=> 6,
 				'info'					=> '',
 				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -802,13 +843,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 43,
+				// 'id' 				=> 43,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Spicy Italian',
+				'order'					=> 7,
 				'info'					=> '',
 				'description'			=> 'mit Salami und Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -820,13 +862,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 44,
+				// 'id' 				=> 44,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Steak & Cheese',
+				'order'					=> 8,
 				'info'					=> '',
 				'description'			=> 'mit zartem Steakfleisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -838,13 +881,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 45,
+				// 'id' 				=> 45,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Tuna',
+				'order'					=> 9,
 				'info'					=> '',
 				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -856,13 +900,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 46,
+				// 'id' 				=> 46,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey',
+				'order'					=> 10,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -874,13 +919,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 47,
+				// 'id' 				=> 47,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey & Ham',
+				'order'					=> 11,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -892,13 +938,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 48,
+				// 'id' 				=> 48,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
+				'order'					=> 12,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust, Hinterschinken und knusprigem Bacon, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -910,13 +957,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 49,
+				// 'id' 				=> 49,
 				'category_model_id' 	=> 2,
 				'title' 				=> 'Veggie Delite',
+				'order'					=> 13,
 				'info'					=> '',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -928,13 +976,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 50,
+				// 'id' 				=> 50,
 				'category_model_id'		=> 2,
 				'title' 				=> 'Veggie Patty',
+				'order'					=> 14,
 				'info'					=> '',
 				'description'			=> 'mit einem Gemüsebratling - 100% vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/wraps/wrap.png',
@@ -946,7 +995,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 
@@ -955,9 +1004,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 51,
+				// 'id' 				=> 51,
 				'category_model_id'		=> 3,
 				'title' 				=> 'BBQ Rib',
+				'order'					=> 0,
 				'info'					=> '',
 				'description'			=> 'BBQ Rib-Hacksteak mit rauchiger BBQ Sauce, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -969,13 +1019,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 52,
+				// 'id' 				=> 52,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Fajita',
+				'order'					=> 1,
 				'info'					=> '',
 				'description'			=> 'mit würzigen Hähnchenbruststreifen, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -987,13 +1038,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 53,
+				// 'id' 				=> 53,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Teriyaki',
+				'order'					=> 2,
 				'info'					=> '',
 				'description'			=> 'mit süß-sauren Hähnchenbruststreifen in einer Teriyaki-Marinade, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1003,15 +1055,16 @@ class ArticleModelSeeder extends Seeder {
 				'allowsIngredients'		=> true,
 				'allowsDeposit'			=> false,
 				'allowsMenuUpgrades'	=> true,
-				'isOnlyAllowedByMenus'	=> false,
+				'isOnlyAllowedByMenus'	=> false,	
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 54,
+				// 'id' 				=> 54,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Ham',
+				'order'					=> 3,
 				'info'					=> '',
 				'description'			=> 'mit leckerem Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1023,13 +1076,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 55,
+				// 'id' 				=> 55,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Italian B.M.T.',
+				'order'					=> 4,
 				'info'					=> '',
 				'description'			=> 'mit leckerem Hinterschinken, Salami, Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1041,13 +1095,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 56,
+				// 'id' 				=> 56,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Roasted Chicken Breast',
+				'order'					=> 5,
 				'info'					=> '',
 				'description'			=> 'mit geröstetem Hähnchenbrustfilet, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1059,13 +1114,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 57,
+				// 'id' 				=> 57,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Salami',
+				'order'					=> 6,
 				'info'					=> '',
 				'description'			=> 'mit Salami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1077,13 +1133,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 58,
+				// 'id' 				=> 58,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Spicy Italian',
+				'order'					=> 7,
 				'info'					=> '',
 				'description'			=> 'mit Salami und Peperonisalami, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1095,13 +1152,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 59,
+				// 'id' 				=> 59,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Steak & Cheese',
+				'order'					=> 8,
 				'info'					=> '',
 				'description'			=> 'mit zartem Steakfleisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1113,13 +1171,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 60,
+				// 'id' 				=> 60,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Tuna',
+				'order'					=> 9,
 				'info'					=> '',
 				'description'			=> 'Thunfischcreme mit Lite-Mayonnaise, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1131,13 +1190,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 61,
+				// 'id' 				=> 61,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey',
+				'order'					=> 10,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1149,13 +1209,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
-				),	
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
+				),
 
 			array (
-				// 'id' 					=> 62,
+				// 'id' 				=> 62,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey & Ham',
+				'order'					=> 11,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust und Hinterschinken, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1167,13 +1228,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 63,
+				// 'id' 				=> 63,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
+				'order'					=> 12,
 				'info'					=> '',
 				'description'			=> 'mit Truthahnbrust, Hinterschinken und knusprigem Bacon, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1185,13 +1247,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 64,
+				// 'id' 				=> 64,
 				'category_model_id' 	=> 3,
 				'title' 				=> 'Veggie Delite',
+				'order'					=> 13,
 				'info'					=> '',
 				'description'			=> 'rein vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1203,13 +1266,14 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 			array (
-				// 'id' 					=> 65,
+				// 'id' 				=> 65,
 				'category_model_id'		=> 3,
 				'title' 				=> 'Veggie Patty',
+				'order'					=> 14,
 				'info'					=> '',
 				'description'			=> 'mit einem Gemüsebratling - 100% vegetarisch, Gemüse und Käse nach Wahl',
 				'smallImage'			=> 'img/static/articles/smallimages/salads/salat.png',
@@ -1221,7 +1285,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> true,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(6 => true, 7 => true, 8 => true, 9 => true, 10 => true, 11 => true, 12 => true, 13 => true, 14 => true, 15 => true, 16 => true, 17 => true, 18 => true, 20 => true, 22 => true, 24 => true, 26 => true, 28 => true, 29 => true, 30 => true, 31 => true, 32 => true, 33 => true, 34 => true, 35 => true, 36 => true, 37 => true, 38 => true, 39 => true, 40 => true, 41 => true)
+				'ingredient_model_ids'	=> array(6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 18 => false, 20 => false, 23 => false, 26 => false, 29 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false, 38 => false, 39 => false, 40 => false, 41 => false, 42 => false, 43 => false, 44 => false, 45 => false)
 				),
 
 
@@ -1230,9 +1294,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 66,
+				// 'id' 				=> 66,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Chocolate Chip',
+				'order'					=> 0,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit Vollmilchschokostücken',
 				'smallImage'			=> 'img/static/articles/smallimages/cookies/chocolatechip.png',
@@ -1248,9 +1313,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 67,
+				// 'id' 				=> 67,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Chocolate Chip Rainbow Candy',
+				'order'					=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit Vollmilchschokostücken und Smarties',
 				'smallImage'			=> 'img/static/articles/smallimages/cookies/rainbowcandy.png',
@@ -1266,9 +1332,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 68,
+				// 'id' 				=> 68,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Double Chocolate Chip',
+				'order'					=> 2,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Schokoladenstücken',
 				'smallImage'			=> 'img/static/articles/smallimages/cookies/doublechocolatechip.png',
@@ -1284,9 +1351,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 69,
+				// 'id' 				=> 69,
 				'category_model_id'		=> 4,
 				'title' 				=> 'White Chip Macadamia Nut',
+				'order'					=> 3,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Macadamia Nüssen',
 				'smallImage'			=> 'img/static/articles/smallimages/cookies/macadamianut.png',
@@ -1302,9 +1370,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 70,
+				// 'id' 				=> 70,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Peanut Butter',
+				'order'					=> 4,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Macadamia Nüssen',
 				'smallImage'			=> 'img/static/articles/smallimages/cookies/peanutbutter.png',
@@ -1325,9 +1394,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 71,
+				// 'id' 				=> 71,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Milka Schoko-Muffin',
+				'order'					=> 5,
 				'info'					=> '',
 				'description'			=> 'leckerer Schoko-Muffin mit Milka-Alpenmilchschokolade',
 				'smallImage'			=> 'img/static/articles/smallimages/muffins/milkamuffin.png',
@@ -1343,9 +1413,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 72,
+				// 'id' 				=> 72,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Deep Blueberry',
+				'order'					=> 6,
 				'info'					=> '',
 				'description'			=> 'Muffin mit Blaubeeren',
 				'smallImage'			=> 'img/static/articles/smallimages/muffins/milkamuffin.png',
@@ -1361,9 +1432,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 73,
+				// 'id' 				=> 73,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Rich Chocolate Muffin',
+				'order'					=> 7,
 				'info'					=> '',
 				'description'			=> 'Schokoladenmuffin',
 				'smallImage'			=> 'img/static/articles/smallimages/muffins/milkamuffin.png',
@@ -1384,9 +1456,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 74,
+				// 'id' 				=> 74,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Milka Schoko-Donut',
+				'order'					=> 8,
 				'info'					=> '',
 				'description'			=> 'leckerer Schoko-Donut mit Milka-Alpenmilchschokolade',
 				'smallImage'			=> 'img/static/articles/smallimages/donuts/milkadonut.png',
@@ -1407,9 +1480,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 75,
+				// 'id' 				=> 75,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Paprika',
+				'order'					=> 9,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Paprika. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
@@ -1425,9 +1499,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 76,
+				// 'id' 				=> 76,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Salt & Vinegar',
+				'order'					=> 10,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Salt & Vinegar. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/layssaltvinegar.png',
@@ -1443,9 +1518,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 77,
+				// 'id' 				=> 77,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Cheese & Onion',
+				'order'					=> 11,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Cheese & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
@@ -1461,9 +1537,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 78,
+				// 'id' 				=> 78,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Salted',
+				'order'					=> 12,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Gesalzen. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
@@ -1479,9 +1556,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 79,
+				// 'id' 				=> 79,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Barbecue',
+				'order'					=> 13,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Barbecue. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/laysbarbecue.png',
@@ -1497,9 +1575,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 80,
+				// 'id' 				=> 80,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Lays Chips Sourcream & Onion',
+				'order'					=> 14,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Sourcream & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/layssourcreamonion.png',
@@ -1516,9 +1595,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 81,
+				// 'id' 				=> 81,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Doritos Nacho Cheese',
+				'order'					=> 15,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Doritos Nacho Cheese. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/doritosnachocheese.png',
@@ -1534,9 +1614,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 82,
+				// 'id' 				=> 82,
 				'category_model_id'		=> 4,
 				'title' 				=> 'Doritos Sweet Chili Pepper',
+				'order'					=> 16,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Doritos Sweet Chili Pepper. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
 				'smallImage'			=> 'img/static/articles/smallimages/chips/doritosnachocheese.png',
@@ -1557,9 +1638,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 83,
+				// 'id' 				=> 83,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Coca Cola',
+				'order'					=> 0,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/coke.png',
@@ -1575,9 +1657,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 84,
+				// 'id' 				=> 84,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Coca Cola Light',
+				'order'					=> 1,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/cokelight.png',
@@ -1593,9 +1676,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 85,
+				// 'id' 				=> 85,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Fanta',
+				'order'					=> 2,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/fanta.png',
@@ -1611,9 +1695,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 86,
+				// 'id' 				=> 86,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Sprite',
+				'order'					=> 3,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/sprite.png',
@@ -1630,9 +1715,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 87,
+				// 'id' 				=> 87,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apfelschorle',
+				'order'					=> 4,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/apfelschorle.png',
@@ -1648,9 +1734,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 88,
+				// 'id' 				=> 88,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Nestea Pfirsich',
+				'order'					=> 5,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/nesteapfirsich.png',
@@ -1667,9 +1754,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 					=> 89,
+				// 'id' 				=> 89,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Nestea Zitrone',
+				'order'					=> 6,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/nesteazitrone.png',
@@ -1685,9 +1773,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 90,
+				// 'id' 				=> 90,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apollinaris Classic',
+				'order'					=> 7,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/apoclassic.png',
@@ -1703,9 +1792,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 91,
+				// 'id' 				=> 91,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Apollinaris Medium',
+				'order'					=> 8,
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/apomedium.png',
@@ -1721,9 +1811,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 92,
+				// 'id' 				=> 92,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Vio Mineralwasser',
+				'order'					=> 9, 
 				'info'					=> '0.5l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/vio05.png',
@@ -1737,10 +1828,12 @@ class ArticleModelSeeder extends Seeder {
 				'isPublished'			=> true,
 				'ingredient_model_ids'	=> array()
 				),
+
 			array (
-				// 'id' 					=> 93,
+				// 'id' 				=> 93,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Vio Mineralwasser',
+				'order'					=> 10,
 				'info'					=> '0.75l',
 				'description'			=> '',
 				'smallImage'			=> 'img/static/articles/smallimages/beverages/vio075.png',
@@ -1753,12 +1846,87 @@ class ArticleModelSeeder extends Seeder {
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
 				'ingredient_model_ids'	=> array()
-				)
+				),
 
 			// CATERING --------------------
 			// -----------------------------
 
 
+			array (
+				// 'id' 				=> 94,
+				'category_model_id'		=> 6,
+				'title' 				=> 'Die Genußvolle',
+				'order'					=> 3,
+				'info'					=> '16 Mini-Subs',
+				'description'			=> 'Für 4 bis 7 Personen: 16 Mini-Subs, frisch hergestellt aus vier 30 cm-Sandwiches mit Itialian B.M.T. , Chicken Fajita, Roasted Chicken Breast, Ham',
+				'smallImage'			=> 'img/static/articles/smallimages/catering/subplatteMeatfeast.png',
+				'largeImage'			=> 'img/static/articles/largeimages/catering/subplatteMeatfeast-ctr.png',
+				'price'					=> 24.99,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				),
+
+			array (
+				// 'id' 				=> 95,
+				'category_model_id'		=> 6,
+				'title' 				=> 'Die Klassische',
+				'order'					=> 4,
+				'info'					=> '16 Mini-Subs',
+				'description'			=> 'Für 4 bis 7 Personen: 16 Mini-Subs, frisch hergestellt aus vier 30 cm-Sandwiches mit Tuna, Spicy Italian, Roasted Chicken Breast und Veggie delite',
+				'smallImage'			=> 'img/static/articles/smallimages/catering/subplatteClassic.png',
+				'largeImage'			=> 'img/static/articles/largeimages/catering/subplatteClassic-ctr.png',
+				'price'					=> 24.99,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				),
+
+			array (
+				// 'id' 				=> 96,
+				'category_model_id'		=> 6,
+				'title' 				=> 'Die Leichte',
+				'order'					=> 5,
+				'info'					=> '16 Mini-Subs',
+				'description'			=> 'Für 4 bis 7 Personen: 16 Mini-Subs, frisch hergestellt aus vier 30 cm-Sandwiches mit Ham, Veggie delite, Turkey Breast, Roasted Chicken Breast',
+				'smallImage'			=> 'img/static/articles/smallimages/catering/subplatteLite.png',
+				'largeImage'			=> 'img/static/articles/largeimages/catering/subplatteLite-ctr.png',
+				'price'					=> 24.99,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				),
+
+			array (
+				// 'id' 				=> 97,
+				'category_model_id'		=> 6,
+				'title' 				=> 'Die Vegetarische',
+				'order'					=> 6,
+				'info'					=> '16 Mini-Subs',
+				'description'			=> 'Für 4 bis 7 Personen: 16 Mini-Subs, frisch hergestellt aus vier 30 cm-Sandwiches mit 2x Veggie delite und 2x Veggie Patty',
+				'smallImage'			=> 'img/static/articles/smallimages/catering/subplatteVeggie.png',
+				'largeImage'			=> 'img/static/articles/largeimages/catering/subplatteVeggie-ctr.png',
+				'price'					=> 24.99,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> true,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				)
 			);
 }
 

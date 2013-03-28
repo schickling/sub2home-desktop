@@ -30,7 +30,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 			// -----------------------------
 
 			array (
-				// 'id' 						=> 1,
+				// 'id' 					=> 1,
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iBeverage',
@@ -40,7 +40,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 						=> 2,
+				// 'id' 					=> 2,
 				'menu_bundle_model_id'		=> 0,
 				'menu_upgrade_model_id'		=> 1,
 				'icon'						=> 'iSnacks',
@@ -53,33 +53,43 @@ class MenuComponentBlockModelSeeder extends Seeder {
 			// -----------------------------
 
 			array ( // sub
-				// 'id' 						=> 3,
+				// 'id' 					=> 3,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
-				'icon'						=> 'iStuff',
-				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
-				'placeholder'				=> 'pBeverage'
+				'icon'						=> 'ikidspakSub',
+				'smallImage'				=> '../../../img/static/categories/smallimages/kidspaksub.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
 				),
 
 			array ( // drink
-				// 'id' 						=> 4,
+				// 'id' 					=> 4,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
-				'icon'						=> 'iStuff',
+				'icon'						=> 'iDrink',
 				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
-				'placeholder'				=> 'pBeverage'
+				'largeImage'				=> '',
+				'placeholder'				=> ''
 				),
 
 			array ( // cookie
-				// 'id' 						=> 5,
+				// 'id' 					=> 5,
 				'menu_bundle_model_id'		=> 1,
 				'menu_upgrade_model_id'		=> 0,
-				'icon'						=> 'iStuff',
-				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
-				'largeImage'				=> '../../../img/static/categories/largeimages/getraenk.png',
-				'placeholder'				=> 'pBeverage'
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie
+				// 'id' 					=> 6,
+				'menu_bundle_model_id'		=> 1,
+				'menu_upgrade_model_id'		=> 0,
+				'icon'						=> 'iToy',
+				'smallImage'				=> '../../../img/static/categories/smallimages/toy.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
 				)
 
 	);
