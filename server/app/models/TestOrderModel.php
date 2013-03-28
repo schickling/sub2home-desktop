@@ -63,8 +63,6 @@ class TestOrderModel extends OrderModel
 			$balanceOrderModel->created_at = $createdAtDateTime;
 			$balanceOrderModel->due_at = $createdAtDateTime;
 			$balanceOrderModel->save();
-
-			$balanceOrderModel->confirm();
 		}
 	}
 

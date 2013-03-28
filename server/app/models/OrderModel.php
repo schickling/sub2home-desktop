@@ -132,14 +132,14 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
-		if (!$this->isValid()) {
+		if (!$this->isValid() or $this->isBalance()) {
 			$this->throwException();
 		}
 
 		$jobData = array('order_model_id' => $this->id);
 
 		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrderJob', $jobData);
-		// Queue::push('App\\Controllers\\Jobs\\Mail\\SendCustomerOrderConfirmMailJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendCustomerOrderConfirmMailJob', $jobData);
 		Queue::push('App\\Controllers\\Jobs\\Mail\\SendStoreOrderNotificationMailJob', $jobData);
 
 	}

@@ -1,43 +1,36 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
-use App\Controllers\Jobs\BaseJob;
-use Exception;
-use Mail;
-
 use App\Models\OrderModel;
 
-class SendCustomerOrderConfirmMailJob extends BaseJob {
+class SendCustomerOrderConfirmMailJob extends BaseMailJob {
 
 	private $orderModel;
 
-	protected function run()
+	protected function prepareData()
 	{
+		// fetch order model
 		$order_model_id = $this->data['order_model_id'];
 		$this->orderModel = OrderModel::find($order_model_id);
 
 		if ($this->orderModel == null) {
-			throw new Exception('Invalid order to process');
+			$this->throwExecption('Invalid order to process');
 		}
 
-		$this->sendMail();
-		
+		$customerAddressModel = $this->orderModel->addressModel;
+
+		// set properties
+		$this->senderMail = 'bestellung@sub2home.com';
+		$this->senderName = 'sub2home';
+		$this->receiverMail = $customerAddressModel->email;
+		$this->receiverName = $customerAddressModel->firstName . ' ' . $customerAddressModel->lastName;
+		$this->subject = 'sub2home sagt Danke';
+		$this->viewName = 'emails.customer.order';
+		$this->viewData = $this->getDataForMail();
 	}
 
-	private function sendMail()
+	private function getDataForMail()
 	{
-		$storeModel = $this->orderModel->storeModel;
-		$addressModel = $storeModel->addressModel;
-		$emailAddress = $addressModel->email;
-		$name = $addressModel->title;
-
-		$data = array();
-
-		Mail::send('emails.client.order', $data, function($mail) use ($emailAddress, $name)
-		{
-			$mail->from('bestellung@sub2home.com', 'sub2home');
-			$mail->to($emailAddress, $name);
-			$mail->subject('Neue Bestellung');
-		});
+		return array();
 	}
 
 

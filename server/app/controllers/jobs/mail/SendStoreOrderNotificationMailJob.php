@@ -1,46 +1,33 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
-use App\Controllers\Jobs\BaseJob;
-use Exception;
-use Mail;
-
 use App\Models\OrderModel;
 use App\Models\IngredientCategoryModel;
 
-class SendStoreOrderNotificationMailJob extends BaseJob {
+class SendStoreOrderNotificationMailJob extends BaseMailJob {
 
 	private $orderModel;
 
-	protected function run()
+	protected function prepareData()
 	{
+		// fetch order model
 		$order_model_id = $this->data['order_model_id'];
 		$this->orderModel = OrderModel::find($order_model_id);
 
 		if ($this->orderModel == null) {
-			throw new Exception('Invalid order to process');
+			$this->throwExecption('Invalid order to process');
 		}
 
-		$this->sendMail();
-		
-	}
-
-	private function sendMail()
-	{
 		$storeModel = $this->orderModel->storeModel;
-		$emailAddress = $storeModel->orderEmail;
-		$addressModel = $storeModel->addressModel;
-		$name = $addressModel->firstName . ' ' . $addressModel->lastName;
-		$subject = sprintf('Neue Bestellung #%s', str_pad($this->orderModel->id, 8, '0', STR_PAD_LEFT));
+		$storeAddressModel = $storeModel->addressModel;
 
-		$data = $this->getDataForMail();
-
-		Mail::send('emails.client.order.order', $data, function($mail) use ($emailAddress, $name, $subject)
-		{
-			$mail->from('bestellung@sub2home.com', 'sub2home');
-			$mail->to($emailAddress, $name);
-			$mail->subject($subject);
-		});
-
+		// set properties
+		$this->senderMail = 'bestellung@sub2home.com';
+		$this->senderName = 'sub2home';
+		$this->receiverMail = $storeModel->orderEmail;
+		$this->receiverName = $storeAddressModel->firstName . ' ' . $storeAddressModel->lastName;
+		$this->subject = sprintf('Neue Bestellung #%s', str_pad($this->orderModel->id, 8, '0', STR_PAD_LEFT));
+		$this->viewName = 'emails.client.order.order';
+		$this->viewData = $this->getDataForMail();
 	}
 
 	private function getDataForMail()

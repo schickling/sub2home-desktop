@@ -1,42 +1,36 @@
 <?php namespace App\Controllers\Jobs\Mail;
 
-use App\Controllers\Jobs\BaseJob;
-use Exception;
-use Mail;
-
 use App\Models\ClientModel;
 
-class SendClientCreatedMailJob extends BaseJob {
+class SendClientCreatedMailJob extends BaseMailJob {
 
 	private $clientModel;
 
-	protected function run()
+	protected function prepareData()
 	{
+		// fetch invoice model
 		$client_model_id = $this->data['client_model_id'];
 		$this->clientModel = ClientModel::find($client_model_id);
 
 		if ($this->clientModel == null) {
-			throw new Exception('No such client found');
+			$this->throwExecption('No such client found');
 		}
 
-		$this->sendMail();
+		$clientAddressModel = $this->clientModel->addressModel;
 
+		// set properties
+		$this->senderMail = 'hallo@sub2home.com';
+		$this->senderName = 'sub2home';
+		$this->receiverMail = $clientAddressModel->email;
+		$this->receiverName = $clientAddressModel->firstName . ' ' . $clientAddressModel->lastName;
+		$this->subject = 'Herzlich Willkommen';
+		$this->viewName = 'emails.client.created';
+		$this->viewData = $this->getDataForMail();
 	}
 
-	private function sendMail()
+	private function getDataForMail()
 	{
-		$addressModel = $this->clientModel->addressModel;
-		$emailAddress = $addressModel->email;
-		$name = $addressModel->title;
-
-		$data = array();
-
-		Mail::send('emails.client.created', $data, function($mail) use ($emailAddress, $name)
-		{
-			$mail->from('hallo@sub2home.de', 'sub2home');
-			$mail->to($emailAddress, $name);
-			$mail->subject('Herzlich Willkommen');
-		});
+		return array();
 	}
 
 
