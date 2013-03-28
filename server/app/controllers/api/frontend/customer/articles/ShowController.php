@@ -129,6 +129,9 @@ class ShowController extends ApiController
 
 			$ingredientModel->price = $customIngredientModel->price;
 
+			// use preset
+			$ingredientModel->isSelected = $ingredientModel->pivot->isPreset;
+
 		}
 
 		return $ingredientModels;
