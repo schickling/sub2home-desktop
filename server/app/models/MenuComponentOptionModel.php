@@ -13,14 +13,6 @@ class MenuComponentOptionModel extends BaseModel
 
 	protected $table = 'menu_component_option_models';
 
-	protected function afterFirstSave()
-	{
-		// copy all articles from category on initialize
-		foreach ($this->availableArticlesCollection as $articleModel) {
-			$this->menuComponentOptionArticlesCollection()->attach($articleModel->id);
-		}
-	}
-
 	/**
 	 * Hook delete
 	 * 
@@ -72,6 +64,13 @@ class MenuComponentOptionModel extends BaseModel
 	public function getAvailableArticlesCollectionAttribute()
 	{
 		return $this->categoryModel->articlesCollection;
+	}
+
+	public function copyAvailableArticlesCollection()
+	{
+		foreach ($this->availableArticlesCollection as $articleModel) {
+			$this->menuComponentOptionArticlesCollection()->attach($articleModel->id);
+		}
 	}
 
 }

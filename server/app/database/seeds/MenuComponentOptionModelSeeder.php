@@ -61,7 +61,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id'							=> 3,
+				// 'id'							=> 4,
 				'menu_component_block_model_id'	=> 2,
 				'category_model_id'				=> 4,
 				'title'							=> 'Donuts',
@@ -69,7 +69,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id'							=> 3,
+				// 'id'							=> 5,
 				'menu_component_block_model_id'	=> 2,
 				'category_model_id'				=> 4,
 				'title'							=> 'Chips',
@@ -81,7 +81,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 
 
 			array (
-				// 'id'							=> 4,
+				// 'id'							=> 6,
 				'menu_component_block_model_id'	=> 3,
 				'category_model_id'				=> 1,
 				'title'							=> 'Sub',
@@ -89,7 +89,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id'							=> 5,
+				// 'id'							=> 7,
 				'menu_component_block_model_id'	=> 4,
 				'category_model_id'				=> 5,
 				'title'							=> 'Getränk',

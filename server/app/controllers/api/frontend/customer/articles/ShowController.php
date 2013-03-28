@@ -25,8 +25,8 @@ class ShowController extends ApiController
 											'ingredientsCollection',
 											'menuUpgradesCollection',
 											'menuUpgradesCollection.menuComponentBlocksCollection',
-											// 'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
-											// 'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
+											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection',
+											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
 											))
 										->where('isPublished', true)
 										->find($id);
@@ -43,7 +43,7 @@ class ShowController extends ApiController
 		$articleModel->price = $customArticleModel->price;
 
 		// get menu upgrades price and sort out inactive articles
-		// $this->prepareMenuUpgradesCollection($articleModel->menuUpgradesCollection);
+		$this->prepareMenuUpgradesCollection($articleModel);
 
 		// load custom ingredients
 		$customArticleModel->loadCustomIngredientPrices();
@@ -56,8 +56,9 @@ class ShowController extends ApiController
 	}
 
 
-	private function prepareMenuUpgradesCollection($menuUpgradesCollection)
+	private function prepareMenuUpgradesCollection($articleModel)
 	{
+		$menuUpgradesCollection = $articleModel->menuUpgradesCollection;
 
 		foreach ($menuUpgradesCollection as $index => $menuUpgradeModel) {
 
@@ -74,7 +75,7 @@ class ShowController extends ApiController
 
 		// check if collection is empty
 		if ($menuUpgradesCollection->isEmpty()) {
-			unset($menuUpgradesCollection);
+			unset($articleModel->menuUpgradesCollection);
 		}
 
 	}
@@ -154,6 +155,8 @@ class ShowController extends ApiController
 
 					if (! $menuComponentOptionArticleModel->isActive($this->storeModel->id)) {
 						$menuComponentOptionArticlesCollection->offsetUnset($menuComponentOptionArticleIndex);
+					} else {
+						// var_dump($menuComponentOptionModel->id);
 					}
 
 				}

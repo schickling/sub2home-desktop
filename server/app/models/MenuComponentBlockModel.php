@@ -7,7 +7,7 @@ class MenuComponentBlockModel extends BaseModel
 {
 	public $timestamps = false;
 
-	protected $hidden = array('menuModel_id', 'menuModel_type');
+	protected $hidden = array('menuModel_id', 'menuModel_type', 'menuModel');
 
 	protected $fillable = array('menuModel_id', 'menuModel_type', 'icon', 'smallImage', 'largeImage', 'placeholder');
 
