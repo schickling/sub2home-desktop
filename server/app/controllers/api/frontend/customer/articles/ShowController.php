@@ -29,6 +29,7 @@ class ShowController extends ApiController
 											'menuUpgradesCollection.menuComponentBlocksCollection.menuComponentOptionsCollection.menuComponentOptionArticlesCollection'
 											))
 										->where('isPublished', true)
+										->where('isOnlyAllowedByMenus', false)
 										->find($id);
 
 		$this->checkModelFound($articleModel);

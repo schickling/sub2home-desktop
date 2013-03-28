@@ -14,8 +14,15 @@ class IndexController extends ApiController
 	public function route()
 	{
 		$categoriesCollection = CategoryModel::with(array(
-												'articlesCollection',
-												'menuBundlesCollection'
+												'articlesCollection' => function($query)
+												{
+													$query->where('isPublished', true);
+													$query->where('isOnlyAllowedByMenus', false);
+												},
+												'menuBundlesCollection' => function($query)
+												{
+													$query->where('isPublished', true);
+												}
 												))
 												->orderBy('order')
 												->get();
@@ -38,9 +45,12 @@ class IndexController extends ApiController
 
 			// get correct prices
 			foreach ($sortedItemsCollection as $itemModel) {
-				if ($itemModel->isPublished and $itemModel->isActive($storeModelId)) {
 
-					$itemModel->price = $itemModel->returnCustomPrice($storeModelId);
+				$customItemModel = $itemModel->returnCustomModel($storeModelId);
+
+				if ($customItemModel->isActive) {
+
+					$itemModel->price = $customItemModel->price;
 
 					// discard unused attributes
 					unset($itemModel->allowsDeposit);
@@ -48,7 +58,9 @@ class IndexController extends ApiController
 					unset($itemModel->smallImage);
 
 					$itemsCollection->add($itemModel);
+
 				}
+
 			}
 
 			if (!$itemsCollection->isEmpty()) {
