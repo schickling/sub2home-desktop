@@ -41,7 +41,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 1,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'BBQ Rib',
 				'order'					=> 0,
 				'info'					=> '6inch',
@@ -60,7 +60,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 2,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'BBQ Rib',
 				'order'					=> 1,
 				'info'					=> 'footlong',
@@ -79,7 +79,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 3,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Fajita',
 				'order'					=> 2,
 				'info'					=> '6inch',
@@ -98,7 +98,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 4,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Fajita',
 				'order'					=> 3,
 				'info'					=> 'footlong',
@@ -117,7 +117,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 5,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Teriyaki',
 				'order'					=> 4,
 				'info'					=> '6inch',
@@ -136,7 +136,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 6,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Chicken Teriyaki',
 				'order'					=> 5,
 				'info'					=> 'footlong',
@@ -155,7 +155,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 7,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Ham',
 				'order'					=> 6,
 				'info'					=> '6inch',
@@ -174,7 +174,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 8,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Ham',
 				'order'					=> 7,
 				'info'					=> 'footlong',
@@ -193,7 +193,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 9,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Italian B.M.T.',
 				'order'					=> 8,
 				'info'					=> '6inch',
@@ -212,7 +212,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 10,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Italian B.M.T.',
 				'order'					=> 9,
 				'info'					=> 'footlong',
@@ -231,7 +231,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 11,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Roasted Chicken Breast',
 				'order'					=> 10,
 				'info'					=> '6inch',
@@ -250,7 +250,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 12,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Roasted Chicken Breast',
 				'order'					=> 11,
 				'info'					=> 'footlong',
@@ -269,7 +269,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 13,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Salami',
 				'order'					=> 12,
 				'info'					=> '6inch',
@@ -288,7 +288,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 14,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Salami',
 				'order'					=> 13,
 				'info'					=> 'footlong',
@@ -307,7 +307,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 15,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Spicy Italian',
 				'order'					=> 14,
 				'info'					=> '6inch',
@@ -326,7 +326,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 16,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Spicy Italian',
 				'order'					=> 15,
 				'info'					=> 'footlong',
@@ -345,7 +345,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 17,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Steak & Cheese',
 				'order'					=> 16,
 				'info'					=> '6inch',
@@ -364,7 +364,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 18,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Steak & Cheese',
 				'order'					=> 17,
 				'info'					=> 'footlong',
@@ -383,7 +383,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 19,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Tuna',
 				'order'					=> 18,
 				'info'					=> '6inch',
@@ -402,7 +402,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 20,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Tuna',
 				'order'					=> 19,
 				'info'					=> 'footlong',
@@ -421,7 +421,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 21,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey',
 				'order'					=> 20,
 				'info'					=> '6inch',
@@ -440,7 +440,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 22,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey',
 				'order'					=> 21,
 				'info'					=> 'footlong',
@@ -459,7 +459,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 23,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey & Ham',
 				'order'					=> 22,
 				'info'					=> '6inch',
@@ -478,7 +478,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 24,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey & Ham',
 				'order'					=> 23,
 				'info'					=> 'footlong',
@@ -497,7 +497,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 25,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'order'					=> 24,
 				'info'					=> '6inch',
@@ -516,7 +516,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 26,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'order'					=> 25,
 				'info'					=> 'footlong',
@@ -535,7 +535,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 27,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Veggie Delite',
 				'order'					=> 26,
 				'info'					=> '6inch',
@@ -554,7 +554,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 28,
-				'category_model_id' 	=> 1,
+				'category_model_id' 	=> 2,
 				'title' 				=> 'Veggie Delite',
 				'order'					=> 27,
 				'info'					=> 'footlong',
@@ -574,7 +574,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 29,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Veggie Patty',
 				'order'					=> 28,
 				'info'					=> '6inch',
@@ -594,7 +594,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 30,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Veggie Patty',
 				'order'					=> 29,
 				'info'					=> 'footlong',
@@ -617,7 +617,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 31,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Ham',
 				'order'					=> 30,
 				'info'					=> 'Mini',
@@ -636,7 +636,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 32,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Salami',
 				'order'					=> 31,
 				'info'					=> 'Mini',
@@ -655,7 +655,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 33,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Tuna',
 				'order'					=> 32,
 				'info'					=> 'Mini',
@@ -674,7 +674,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 34,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Veggie Delite',
 				'order'					=> 33,
 				'info'					=> 'Mini',
@@ -693,7 +693,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 35,
-				'category_model_id'		=> 1,
+				'category_model_id'		=> 2,
 				'title' 				=> 'Roasted Chicken Breast',
 				'order'					=> 34,
 				'info'					=> 'Mini',
@@ -716,7 +716,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 36,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'BBQ Rib',
 				'order'					=> 0,
 				'info'					=> '',
@@ -735,7 +735,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 37,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Fajita',
 				'order'					=> 1,
 				'info'					=> '',
@@ -754,7 +754,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 38,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'Chicken Teriyaki',
 				'order'					=> 2,
 				'info'					=> '',
@@ -772,7 +772,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 39,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Ham',
 				'order'					=> 3,
 				'info'					=> '',
@@ -791,7 +791,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 40,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'Italian B.M.T.',
 				'order'					=> 4,
 				'info'					=> '',
@@ -810,7 +810,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 41,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'Roasted Chicken Breast',
 				'order'					=> 5,
 				'info'					=> '',
@@ -829,7 +829,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 42,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Salami',
 				'order'					=> 6,
 				'info'					=> '',
@@ -848,7 +848,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 43,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Spicy Italian',
 				'order'					=> 7,
 				'info'					=> '',
@@ -867,7 +867,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 44,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Steak & Cheese',
 				'order'					=> 8,
 				'info'					=> '',
@@ -886,7 +886,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 45,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Tuna',
 				'order'					=> 9,
 				'info'					=> '',
@@ -905,7 +905,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 46,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey',
 				'order'					=> 10,
 				'info'					=> '',
@@ -924,7 +924,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 47,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey & Ham',
 				'order'					=> 11,
 				'info'					=> '',
@@ -943,7 +943,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 48,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'order'					=> 12,
 				'info'					=> '',
@@ -962,7 +962,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 49,
-				'category_model_id' 	=> 2,
+				'category_model_id' 	=> 3,
 				'title' 				=> 'Veggie Delite',
 				'order'					=> 13,
 				'info'					=> '',
@@ -981,7 +981,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 50,
-				'category_model_id'		=> 2,
+				'category_model_id'		=> 3,
 				'title' 				=> 'Veggie Patty',
 				'order'					=> 14,
 				'info'					=> '',
@@ -1005,7 +1005,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 51,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'BBQ Rib',
 				'order'					=> 0,
 				'info'					=> '',
@@ -1024,7 +1024,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 52,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'Chicken Fajita',
 				'order'					=> 1,
 				'info'					=> '',
@@ -1043,7 +1043,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 53,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'Chicken Teriyaki',
 				'order'					=> 2,
 				'info'					=> '',
@@ -1062,7 +1062,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 54,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Ham',
 				'order'					=> 3,
 				'info'					=> '',
@@ -1081,7 +1081,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 55,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'Italian B.M.T.',
 				'order'					=> 4,
 				'info'					=> '',
@@ -1100,7 +1100,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 56,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'Roasted Chicken Breast',
 				'order'					=> 5,
 				'info'					=> '',
@@ -1119,7 +1119,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 57,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Salami',
 				'order'					=> 6,
 				'info'					=> '',
@@ -1138,7 +1138,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 58,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Spicy Italian',
 				'order'					=> 7,
 				'info'					=> '',
@@ -1157,7 +1157,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 59,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Steak & Cheese',
 				'order'					=> 8,
 				'info'					=> '',
@@ -1176,7 +1176,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 60,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Tuna',
 				'order'					=> 9,
 				'info'					=> '',
@@ -1195,7 +1195,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 61,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Turkey',
 				'order'					=> 10,
 				'info'					=> '',
@@ -1214,7 +1214,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 62,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Turkey & Ham',
 				'order'					=> 11,
 				'info'					=> '',
@@ -1233,7 +1233,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 63,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Turkey, Ham & Bacon Melt',
 				'order'					=> 12,
 				'info'					=> '',
@@ -1252,7 +1252,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 64,
-				'category_model_id' 	=> 3,
+				'category_model_id' 	=> 4,
 				'title' 				=> 'Veggie Delite',
 				'order'					=> 13,
 				'info'					=> '',
@@ -1271,7 +1271,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 65,
-				'category_model_id'		=> 3,
+				'category_model_id'		=> 4,
 				'title' 				=> 'Veggie Patty',
 				'order'					=> 14,
 				'info'					=> '',
@@ -1295,7 +1295,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 66,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Chocolate Chip',
 				'order'					=> 0,
 				'info'					=> '',
@@ -1314,7 +1314,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 67,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Chocolate Chip Rainbow Candy',
 				'order'					=> 1,
 				'info'					=> '',
@@ -1333,7 +1333,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 68,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Double Chocolate Chip',
 				'order'					=> 2,
 				'info'					=> '',
@@ -1352,7 +1352,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 69,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'White Chip Macadamia Nut',
 				'order'					=> 3,
 				'info'					=> '',
@@ -1371,7 +1371,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 70,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Peanut Butter',
 				'order'					=> 4,
 				'info'					=> '',
@@ -1395,7 +1395,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 71,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Milka Schoko-Muffin',
 				'order'					=> 5,
 				'info'					=> '',
@@ -1414,7 +1414,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 72,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Deep Blueberry',
 				'order'					=> 6,
 				'info'					=> '',
@@ -1433,7 +1433,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 73,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Rich Chocolate Muffin',
 				'order'					=> 7,
 				'info'					=> '',
@@ -1457,7 +1457,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 74,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Milka Schoko-Donut',
 				'order'					=> 8,
 				'info'					=> '',
@@ -1481,7 +1481,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 75,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Paprika',
 				'order'					=> 9,
 				'info'					=> '',
@@ -1500,7 +1500,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 76,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Salt & Vinegar',
 				'order'					=> 10,
 				'info'					=> '',
@@ -1519,7 +1519,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 77,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Cheese & Onion',
 				'order'					=> 11,
 				'info'					=> '',
@@ -1538,7 +1538,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 78,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Salted',
 				'order'					=> 12,
 				'info'					=> '',
@@ -1557,7 +1557,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 79,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Barbecue',
 				'order'					=> 13,
 				'info'					=> '',
@@ -1576,7 +1576,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 80,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Sourcream & Onion',
 				'order'					=> 14,
 				'info'					=> '',
@@ -1596,7 +1596,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 81,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Nacho Cheese',
 				'order'					=> 15,
 				'info'					=> '',
@@ -1615,7 +1615,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 82,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Sweet Chili Pepper',
 				'order'					=> 16,
 				'info'					=> '',
@@ -1639,7 +1639,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 83,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola',
 				'order'					=> 0,
 				'info'					=> '0.5l',
@@ -1658,7 +1658,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 84,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola Light',
 				'order'					=> 1,
 				'info'					=> '0.5l',
@@ -1677,7 +1677,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 85,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Fanta',
 				'order'					=> 2,
 				'info'					=> '0.5l',
@@ -1696,7 +1696,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 86,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Sprite',
 				'order'					=> 3,
 				'info'					=> '0.5l',
@@ -1716,7 +1716,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 87,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Apfelschorle',
 				'order'					=> 4,
 				'info'					=> '0.5l',
@@ -1735,7 +1735,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 88,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Pfirsich',
 				'order'					=> 5,
 				'info'					=> '0.5l',
@@ -1755,7 +1755,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 89,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Zitrone',
 				'order'					=> 6,
 				'info'					=> '0.5l',
@@ -1774,7 +1774,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 90,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Classic',
 				'order'					=> 7,
 				'info'					=> '0.5l',
@@ -1793,7 +1793,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 91,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Medium',
 				'order'					=> 8,
 				'info'					=> '0.5l',
@@ -1812,7 +1812,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 92,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 9, 
 				'info'					=> '0.5l',
@@ -1831,7 +1831,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 93,
-				'category_model_id'		=> 5,
+				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 10,
 				'info'					=> '0.75l',
@@ -1854,7 +1854,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 94,
-				'category_model_id'		=> 6,
+				'category_model_id'		=> 7,
 				'title' 				=> 'Die Genußvolle',
 				'order'					=> 3,
 				'info'					=> '16 Mini-Subs',
@@ -1873,7 +1873,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 95,
-				'category_model_id'		=> 6,
+				'category_model_id'		=> 7,
 				'title' 				=> 'Die Klassische',
 				'order'					=> 4,
 				'info'					=> '16 Mini-Subs',
@@ -1892,7 +1892,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 96,
-				'category_model_id'		=> 6,
+				'category_model_id'		=> 7,
 				'title' 				=> 'Die Leichte',
 				'order'					=> 5,
 				'info'					=> '16 Mini-Subs',
@@ -1911,7 +1911,7 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 97,
-				'category_model_id'		=> 6,
+				'category_model_id'		=> 7,
 				'title' 				=> 'Die Vegetarische',
 				'order'					=> 6,
 				'info'					=> '16 Mini-Subs',

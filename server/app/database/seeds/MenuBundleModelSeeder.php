@@ -39,7 +39,7 @@ class MenuBundleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 1,
+				// 'id' 					=> 2,
 				'category_model_id'		=> 7,
 				'order'					=> 0,
 				'title' 				=> '24er Cookie-Platte',
@@ -51,7 +51,7 @@ class MenuBundleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 1,
+				// 'id' 					=> 3,
 				'category_model_id'		=> 7,
 				'order'					=> 1,
 				'title' 				=> '36er Cookie-Platte',
@@ -63,7 +63,7 @@ class MenuBundleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 					=> 1,
+				// 'id' 					=> 4,
 				'category_model_id'		=> 7,
 				'order'					=> 2,
 				'title' 				=> '48er Cookie-Platte',

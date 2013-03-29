@@ -102,8 +102,126 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'category_model_id'				=> 4,
 				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
-				)
+				),
 
+			array (
+				// 'id'							=> 7,
+				'menu_component_block_model_id'	=> 6,
+				'category_model_id'				=> 4,
+				'title'							=> 'Toy',
+				'article_model_ids'				=> array()
+				),
+
+
+			// 24er Cookie Platte ----------
+			// -----------------------------
+
+
+			array (
+				// 'id'							=> 8,
+				'menu_component_block_model_id'	=> 7,
+				'category_model_id'				=> 4,
+				'title'							=> 'Sub',
+				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				),
+
+			array (
+				// 'id'							=> 9,
+				'menu_component_block_model_id'	=> 8,
+				'category_model_id'				=> 4,
+				'title'							=> 'Getränk',
+				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				),
+
+			array (
+				// 'id'							=> 10,
+				'menu_component_block_model_id'	=> 9,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+			array (
+				// 'id'							=> 11,
+				'menu_component_block_model_id'	=> 10,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+
+			// 36er Cookie Platte ----------
+			// -----------------------------
+
+
+			array (
+				// 'id'							=> 12,
+				'menu_component_block_model_id'	=> 11,
+				'category_model_id'				=> 4,
+				'title'							=> 'Sub',
+				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				),
+
+			array (
+				// 'id'							=> 13,
+				'menu_component_block_model_id'	=> 12,
+				'category_model_id'				=> 4,
+				'title'							=> 'Getränk',
+				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				),
+
+			array (
+				// 'id'							=> 14,
+				'menu_component_block_model_id'	=> 13,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+			array (
+				// 'id'							=> 15,
+				'menu_component_block_model_id'	=> 14,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+
+			// 48er Cookie Platte ----------
+			// -----------------------------
+
+
+			array (
+				// 'id'							=> 16,
+				'menu_component_block_model_id'	=> 15,
+				'category_model_id'				=> 4,
+				'title'							=> 'Sub',
+				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				),
+
+			array (
+				// 'id'							=> 17,
+				'menu_component_block_model_id'	=> 16,
+				'category_model_id'				=> 4,
+				'title'							=> 'Getränk',
+				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				),
+
+			array (
+				// 'id'							=> 18,
+				'menu_component_block_model_id'	=> 17,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+			array (
+				// 'id'							=> 19,
+				'menu_component_block_model_id'	=> 18,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				)
 			);
 }
 

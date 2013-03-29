@@ -90,6 +90,137 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'smallImage'				=> '../../../img/static/categories/smallimages/toy.png',
 				'largeImage'				=> '',
 				'placeholder'				=> ''
+				),
+
+
+			// 24er Cookie Platte ----------
+			// -----------------------------
+
+			array ( // cookie 1
+				// 'id' 					=> 7,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 2 
+				// 'id' 					=> 8,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 3
+				// 'id' 					=> 9,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 4
+				// 'id' 					=> 10,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			// 36er Cookie Platte ----------
+			// -----------------------------
+
+			array ( // cookie 1
+				// 'id' 					=> 11,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 2 
+				// 'id' 					=> 12,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 3
+				// 'id' 					=> 13,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 4
+				// 'id' 					=> 14,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+
+			// 48er Cookie Platte ----------
+			// -----------------------------
+
+			array ( // cookie 1
+				// 'id' 					=> 15,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 2 
+				// 'id' 					=> 16,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 3
+				// 'id' 					=> 17,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 4
+				// 'id' 					=> 18,
+				'menuModel_id'				=> 1,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
 				)
 
 	);
