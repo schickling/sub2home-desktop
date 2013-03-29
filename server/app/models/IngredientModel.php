@@ -107,6 +107,7 @@ class IngredientModel extends ItemModel
 		// lazy initialize
 		if ($customIngredientModel == null) {
 			$customIngredientModel = new CustomIngredientModel(array(
+				'isActive' => true,
 				'store_model_id' => $store_model_id,
 				'price' => $this->price
 				));

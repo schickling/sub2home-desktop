@@ -22,7 +22,6 @@ class ArticleModel extends ItemModel
 
 	protected $fillable = array(
 		'category_model_id',
-		'order',
 		'title',
 		'info',
 		'description',
@@ -41,10 +40,14 @@ class ArticleModel extends ItemModel
 
 	protected function beforeFirstSave()
 	{
-		// Calculate new order concerning a category
-		$numberOfArticles = ArticleModel::where('category_model_id', $this->category_model_id)->count();
-		$numberOfMenuBundles = MenuBundleModel::where('category_model_id', $this->category_model_id)->count();
-		$this->order = $numberOfArticles + $numberOfMenuBundles;
+		if ( ! static::$unguarded) {
+
+			// Calculate new order concerning a category
+			$numberOfArticles = ArticleModel::where('category_model_id', $this->category_model_id)->count();
+			$numberOfMenuBundles = MenuBundleModel::where('category_model_id', $this->category_model_id)->count();
+			$this->order = $numberOfArticles + $numberOfMenuBundles;
+
+		}
 	}
 	
 	/**
