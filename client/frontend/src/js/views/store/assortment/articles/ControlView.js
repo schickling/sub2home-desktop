@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/store/assortment/ControlBaseView',
+    'views/store/assortment/ControlBaseView'
     ], function ($, _, Backbone, ControlBaseView) {
 
 	var ControlView = ControlBaseView.extend({

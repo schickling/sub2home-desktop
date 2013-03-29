@@ -155,7 +155,7 @@ define([
 					});
 				}); // end deffered
 			} else {
-				self._focusSearch();
+				this._focusSearch();
 			}
 		},
 
