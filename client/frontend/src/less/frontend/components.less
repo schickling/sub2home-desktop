@@ -4842,7 +4842,7 @@ div#payment {
       border: none;
       width: 86px;
       height: 40px;
-      color: @greenLight;
+      color: @onDarkNoteColor;
     }
     label {
       text-align: left;
@@ -4855,6 +4855,11 @@ div#payment {
       margin-top: 4px;
       cursor: pointer;
     }
+    
+    .hasCode {
+      color: @greenLight;
+    }
+
   }
   #subcardOption {
     .positioned;
@@ -4981,11 +4986,11 @@ div#payment {
   #iCart {
     color: @onNoteColor20;
     right: -150px;
-    .transition(e('color .1s linear, right .3s ease-in-out'));
+    // .transition(e('color .1s linear, right .3s ease-in-out'));
     cursor: default;
     &:hover {
-      color: @onNoteColor30;
-      right: -140px;
+    color: @onNoteColor30;
+    //   right: -140px;
     }
     &.clickable {
       color: rgba(156,200,62,0.4);
