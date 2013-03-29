@@ -401,13 +401,18 @@ define([
 				// save ordered item in cart
 				cartModel.addOrderedItemModel(this.model);
 
-			}
+				// back to store.home
+				router.navigate('store', {
+					trigger: true,
+					replace: true
+				});
 
-			// back to store.home
-			router.navigate('store', {
-				trigger: true,
-				replace: true
-			});
+			} else {
+
+				// back to store.tray
+				router.navigate('store/tablett', true);
+
+			}
 		},
 
 		destroy: function () {
