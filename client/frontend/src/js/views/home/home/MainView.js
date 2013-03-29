@@ -19,9 +19,6 @@ define([
 
 		initialize: function () {
 			this._render();
-
-			// focus search input
-			this.$('#locationSelectionInput').focus();
 		},
 
 		_render: function () {

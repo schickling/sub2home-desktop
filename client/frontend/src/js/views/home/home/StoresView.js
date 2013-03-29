@@ -135,10 +135,13 @@ define([
 									// write postal back to search field
 									self.$search.val(postal);
 
+									self._unfocusSearch();
+
 									self._lookUpStoresForPostal(postal, false);
 
 								} else {
 									notificationcenter.notify('views.home.home.lookupFailed');
+									self._focusSearch();
 								}
 
 							}
@@ -146,11 +149,22 @@ define([
 					}, function () {
 						notificationcenter.notify('views.home.home.lookupFailed');
 						self._stopRotateLocation();
+						self._focusSearch();
 					}, {
 						timeout: 10000
 					});
 				}); // end deffered
+			} else {
+				self._focusSearch();
 			}
+		},
+
+		_focusSearch: function () {
+			this.$search.focus();
+		},
+
+		_unfocusSearch: function () {
+			this.$search.blur();
 		},
 
 		_checkInputKeyUp: function (e) {
