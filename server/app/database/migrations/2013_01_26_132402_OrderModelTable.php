@@ -24,6 +24,7 @@ class OrderModelTable extends Migration {
 			$table->text('comment')->default('');
 			$table->string('ip', 128);
 			$table->string('subcardCode', 128);
+			$table->string('couponCode', 128);
 			$table->timestamp('due_at')->default(date("Y-m-d H:i:s"));
 			$table->timestamps();
 		});

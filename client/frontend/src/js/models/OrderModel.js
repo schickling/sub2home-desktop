@@ -22,6 +22,9 @@ define([
 			// decoded subcard code
 			subcardCode: '',
 
+			// coupon code
+			couponCode: '',
+
 			// comment
 			comment: '',
 

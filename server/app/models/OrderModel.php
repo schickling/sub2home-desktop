@@ -13,6 +13,17 @@ class OrderModel extends BaseModel
 
 	protected $hidden = array('store_model_id', 'updated_at', 'commissionRate');
 
+	protected $fillable = array(
+		'isDelivered',
+		'credit',
+		'commissionRate',
+		'comment',
+		'ip',
+		'subcardCode',
+		'couponCode',
+		'due_at'
+		);
+
 	protected $table = 'order_models';
 
 	protected function beforeFirstSave()
