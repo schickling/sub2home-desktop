@@ -44,7 +44,7 @@ class MenuBundleModelSeeder extends Seeder {
 				'order'					=> 0,
 				'title' 				=> '24er Cookie-Platte',
 				'description'			=> '24 Cookies deiner Wahl',
-				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte.png',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
 				'smallImage'			=> 'img/static/menubundles/smallimages/cookieplatte.png',
 				'price'					=> 16.99,
 				'isPublished'			=> true
@@ -56,7 +56,7 @@ class MenuBundleModelSeeder extends Seeder {
 				'order'					=> 1,
 				'title' 				=> '36er Cookie-Platte',
 				'description'			=> '36 Cookies deiner Wahl',
-				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte.png',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
 				'smallImage'			=> 'img/static/menubundles/smallimages/cookieplatte.png',
 				'price'					=> 19.99,
 				'isPublished'			=> true
@@ -68,7 +68,7 @@ class MenuBundleModelSeeder extends Seeder {
 				'order'					=> 2,
 				'title' 				=> '48er Cookie-Platte',
 				'description'			=> '48 Cookies deiner Wahl',
-				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte.png',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
 				'smallImage'			=> 'img/static/menubundles/smallimages/cookieplatte.png',
 				'price'					=> 24.99,
 				'isPublished'			=> true
