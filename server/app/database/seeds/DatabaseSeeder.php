@@ -9,6 +9,8 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		Eloquent::unguard();
+		
 		$this->call('IngredientCategoryModelSeeder');
 		$this->call('IngredientModelSeeder');
 		$this->call('CategoryModelSeeder');

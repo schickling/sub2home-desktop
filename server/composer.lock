@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "004db920189f6bd0cd15e2283678e17b4b901f1a"
+                "reference": "805cef94a789d909ceadfb4f70495d7b8a94bc86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/004db920189f6bd0cd15e2283678e17b4b901f1a",
-                "reference": "004db920189f6bd0cd15e2283678e17b4b901f1a",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/805cef94a789d909ceadfb4f70495d7b8a94bc86",
+                "reference": "805cef94a789d909ceadfb4f70495d7b8a94bc86",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "silex-provider",
                 "whoops"
             ],
-            "time": "2013-03-23 13:43:02"
+            "time": "2013-03-29 09:04:26"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -187,12 +187,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "26b54e2b0614a71e8a1beb3a0b086f8c25a5a5f1"
+                "reference": "8d6310851b53e176f748d6e3750408cb148df5f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/26b54e2b0614a71e8a1beb3a0b086f8c25a5a5f1",
-                "reference": "26b54e2b0614a71e8a1beb3a0b086f8c25a5a5f1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/8d6310851b53e176f748d6e3750408cb148df5f6",
+                "reference": "8d6310851b53e176f748d6e3750408cb148df5f6",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-03-28 19:49:46"
+            "time": "2013-03-29 02:03:03"
         },
         {
             "name": "monolog/monolog",
@@ -1520,12 +1520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6df0e3dd27eab9d9a69d7d88deb9a6c9b325d16f"
+                "reference": "a7a118b85b008fd851781d23333211b2bc98f4ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6df0e3dd27eab9d9a69d7d88deb9a6c9b325d16f",
-                "reference": "6df0e3dd27eab9d9a69d7d88deb9a6c9b325d16f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a7a118b85b008fd851781d23333211b2bc98f4ae",
+                "reference": "a7a118b85b008fd851781d23333211b2bc98f4ae",
                 "shasum": ""
             },
             "require": {
@@ -1589,7 +1589,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-03-19 10:54:32"
+            "time": "2013-03-29 09:17:56"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
