@@ -8,7 +8,7 @@ class MenuBundleModel extends MenuModel
 
 	protected $hidden = array('category_model_id', 'buyed', 'created_at', 'updated_at', 'isPublished', 'order');
 
-	protected $fillable = array('category_model_id', 'title', 'description', 'largeImage', 'smallImage', 'price', 'isPublished');
+	protected $fillable = array('category_model_id', 'order', 'title', 'description', 'largeImage', 'smallImage', 'price', 'isPublished');
 
 	protected $table = 'menu_bundle_models';
 
