@@ -122,7 +122,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 7,
 				'category_model_id'				=> 4,
 				'title'							=> 'Sub',
-				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -130,7 +130,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 8,
 				'category_model_id'				=> 4,
 				'title'							=> 'Getränk',
-				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -159,7 +159,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 11,
 				'category_model_id'				=> 4,
 				'title'							=> 'Sub',
-				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -167,7 +167,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 12,
 				'category_model_id'				=> 4,
 				'title'							=> 'Getränk',
-				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -196,7 +196,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 15,
 				'category_model_id'				=> 4,
 				'title'							=> 'Sub',
-				'article_model_ids'				=> array(31, 32, 33, 34, 35)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
@@ -204,7 +204,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 16,
 				'category_model_id'				=> 4,
 				'title'							=> 'Getränk',
-				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
 			array (
