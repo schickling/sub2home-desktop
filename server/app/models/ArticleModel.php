@@ -22,6 +22,7 @@ class ArticleModel extends ItemModel
 
 	protected $fillable = array(
 		'category_model_id',
+		'order',
 		'title',
 		'info',
 		'description',
