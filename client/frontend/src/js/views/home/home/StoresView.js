@@ -256,13 +256,13 @@ define([
 			this.storeViews = [];
 		},
 
-		_renderDeliveryAreas: function (deliveryAreas) {
+		_renderDeliveryAreas: function (deliveryAreaModels) {
 			var self = this,
 				district, districtToMark,
 				renderedDistricts = [];
 
 			// render new areas
-			_.each(deliveryAreas, function (deliveryAreaModel) {
+			_.each(deliveryAreaModels, function (deliveryAreaModel) {
 				district = deliveryAreaModel.get('district') || deliveryAreaModel.get('city');
 
 				if (!_.contains(renderedDistricts, district)) {
@@ -276,11 +276,13 @@ define([
 					// bind dom click handler
 					$deliveryArea.on('click', function () {
 
+						district = $deliveryArea.text();
+
 						// mark dom visited
 						$deliveryArea.addClass('selected').siblings().removeClass('selected');
 
 						// mark delivery areas
-						_.each(deliveryAreas, function (deliveryAreaModelToMark) {
+						_.each(deliveryAreaModels, function (deliveryAreaModelToMark) {
 							districtToMark = deliveryAreaModelToMark.get('district') || deliveryAreaModelToMark.get('city');
 							deliveryAreaModelToMark.set('isSelected', districtToMark === district);
 						});

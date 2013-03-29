@@ -58,11 +58,15 @@ define([
 
 		_renderDeliveryAreas: function () {
 			var storeModel = stateModel.get('storeModel'),
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
 				deliveryAreasCollection = storeModel.get('deliveryAreasCollection'),
+				matchingDeliveryAreaModels = deliveryAreasCollection.where({
+					postal: selectedDeliveryAreaModel.get('postal')
+				}),
 				$deliveryAreas = this.$('#deliveryAreas'),
 				$deliveryArea;
 
-			_.each(deliveryAreasCollection.models, function (deliveryAreaModel) {
+			_.each(matchingDeliveryAreaModels, function (deliveryAreaModel) {
 				$deliveryArea = $('<span>').text(deliveryAreaModel.get('district'));
 
 				if (deliveryAreaModel.get('isSelected')) {
