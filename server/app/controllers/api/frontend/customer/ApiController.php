@@ -9,7 +9,7 @@ use App\Models\StoreModel;
 /**
 * 
 */
-class ApiController extends BaseApiController
+abstract class ApiController extends BaseApiController
 {
 	protected $storeModel;
 

@@ -25,10 +25,11 @@ define([
 		_render: function () {
 			var orderModel = this.model,
 				addressModel = orderModel.get('addressModel'),
-				dueDate = orderModel.get('createdDate'),
+				dueDate = orderModel.get('dueDate'),
 				createdDate = orderModel.get('createdDate'),
 				createdMoment = moment(createdDate),
-				dueTime = createdMoment.format('HH:mm'),
+				dueMoment = moment(dueDate),
+				dueTime = dueMoment.format('HH:mm'),
 				dateOrTime = this._getDateOrTime();
 
 			var json = {
@@ -37,7 +38,8 @@ define([
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),
 				dueTime: dueTime,
-				dateOrTime: dateOrTime
+				dateOrTime: dateOrTime,
+				isDelivered: orderModel.get('isDelivered')
 			};
 
 			this.$el.html(this.template(json));

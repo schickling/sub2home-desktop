@@ -60,5 +60,7 @@ abstract class BaseApiController extends Controller
 		throw new ApiException($statusCode);
 	}
 
+	abstract public function route();
+
 }
 

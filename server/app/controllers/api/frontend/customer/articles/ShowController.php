@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api\Frontend\Customer\Articles;
 
-use App\Controllers\Api\Frontend\Customer\ApiController;
+use App\Controllers\Api\Frontend\Customer\ItemApiController;
 use Request;
 
 use App\Models\ArticleModel;
@@ -11,7 +11,7 @@ use App\Models\IngredientCategoryModel;
  * including menuuprades, menucomponentblocks, menucomponentoptions and their articles
  * and the allowed ingredients
  */
-class ShowController extends ApiController
+class ShowController extends ItemApiController
 {
 
 	/**
@@ -35,7 +35,6 @@ class ShowController extends ApiController
 											}
 											))
 										->where('isPublished', true)
-										->where('isOnlyAllowedByMenus', false)
 										->find($id);
 
 		$this->checkModelFound($articleModel);
@@ -69,12 +68,15 @@ class ShowController extends ApiController
 
 		foreach ($menuUpgradesCollection as $index => $menuUpgradeModel) {
 
+			// set custom price
 			$customMenuModel = $menuUpgradeModel->returnCustomModel($this->storeModel->id);
-			$preparedMenuComponentBlocksCollection = $this->getPreparedMenuComponentBlocksCollection($menuUpgradeModel->menuComponentBlocksCollection);
-
 			$menuUpgradeModel->price = $customMenuModel->price;
 
-			if ( ! $customMenuModel->isActive or $preparedMenuComponentBlocksCollection->isEmpty()) {
+			// prepare menu components
+			$menuComponentBlocksCollection = $menuUpgradeModel->menuComponentBlocksCollection;
+			$this->sortOutInactiveArticles($menuComponentBlocksCollection);
+
+			if ( ! $customMenuModel->isActive or $menuComponentBlocksCollection->isEmpty()) {
 				$menuUpgradesCollection->offsetUnset($index);
 			}
 
@@ -147,51 +149,6 @@ class ShowController extends ApiController
 		}
 
 		return $ingredientModels;
-	}
-
-	private function getPreparedMenuComponentBlocksCollection($menuComponentBlocksCollection)
-	{
-
-		foreach ($menuComponentBlocksCollection as $menuComponentBlockIndex => $menuComponentBlockModel) {
-
-			// cache menuComponentOptionsCollection
-			$menuComponentOptionsCollection = $menuComponentBlockModel->menuComponentOptionsCollection;
-
-			foreach ($menuComponentOptionsCollection as $menuComponentOptionIndex => $menuComponentOptionModel) {
-
-				// cache menuComponentOptionArticlesCollection
-				$menuComponentOptionArticlesCollection = $menuComponentOptionModel->menuComponentOptionArticlesCollection;
-
-				foreach ($menuComponentOptionArticlesCollection as $menuComponentOptionArticleIndex => $menuComponentOptionArticleModel) {
-
-					if ( ! $menuComponentOptionArticleModel->isActive($this->storeModel->id)) {
-						$menuComponentOptionArticlesCollection->offsetUnset($menuComponentOptionArticleIndex);
-					}
-
-				}
-
-				// reindex collection
-				$menuComponentOptionArticlesCollection->values();
-
-				if ($menuComponentOptionArticlesCollection->isEmpty()) {
-					$menuComponentOptionsCollection->offsetUnset($menuComponentOptionIndex);
-				}
-
-			}
-
-			// reindex collection
-			$menuComponentOptionsCollection->values();
-
-			if ($menuComponentOptionsCollection->isEmpty()) {
-				$menuComponentBlocksCollection->offsetUnset($menuComponentBlockIndex);
-			}
-
-		}
-
-		// reindex collection
-		$menuComponentBlocksCollection->values();
-
-		return $menuComponentBlocksCollection;
 	}
 
 }

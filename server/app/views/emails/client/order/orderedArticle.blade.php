@@ -38,10 +38,6 @@
           </td>
         </tr>
         @endif
-
-        <tr>
-          <td>Kommentar</td>
-        </tr>
   
         <!-- / Ingredients -->
       </tbody>

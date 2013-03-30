@@ -9,9 +9,8 @@ define([
     'models/ArticleModel',
     'models/OrderedItemModel',
     'views/store/home/ArticleDetailsView',
-    'views/store/home/MenuBundleDetailsView',
     'text!templates/store/home/ItemTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, router, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, MenuBundleDetailsView, ItemTemplate) {
+    ], function ($, _, Backbone, notificationcenter, router, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, ItemTemplate) {
 
 	var ItemView = Backbone.View.extend({
 
@@ -49,7 +48,6 @@ define([
 		},
 
 		_showDetails: function () {
-			var detailsView;
 
 			if (this.model.has('allowsIngredients')) { // article model
 
@@ -57,33 +55,31 @@ define([
 
 					if (this.model.get('attachedItemsCollection')) { // article has related article
 
-						detailsView = new ArticleDetailsView({
+						var articleDetailsView = new ArticleDetailsView({
 							model: this.model
 						});
+
+						// TODO check if item is too close to border
+
+						this.$el.append(articleDetailsView.el);
+
 
 					} else { // just go to selection
 
 						router.navigate('store/theke/artikel/' + this.model.get('id'), true);
-						return;
 
 					}
 
 				} else {
 					this._putArticleInCart();
-					return;
 				}
 
 			} else { // menu bundle model
 
-				detailsView = new MenuBundleDetailsView({
-					model: this.model
-				});
+				router.navigate('store/theke/menu/' + this.model.get('id'), true);
 
 			}
 
-			this.$el.append(detailsView.el);
-
-			// TODO check if item is too close to border
 		},
 
 		_putArticleInCart: function () {
