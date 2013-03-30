@@ -187,17 +187,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8d6310851b53e176f748d6e3750408cb148df5f6"
+                "reference": "7689c6d460a5b65ad18b95267227bd57fdd569a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8d6310851b53e176f748d6e3750408cb148df5f6",
-                "reference": "8d6310851b53e176f748d6e3750408cb148df5f6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7689c6d460a5b65ad18b95267227bd57fdd569a0",
+                "reference": "7689c6d460a5b65ad18b95267227bd57fdd569a0",
                 "shasum": ""
             },
             "require": {
                 "classpreloader/classpreloader": "1.0.*",
-                "ext-mcrypt": "*",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "1.4.*",
                 "patchwork/utf8": "1.0.*",
@@ -247,7 +246,8 @@
                 "aws/aws-sdk-php": "2.2.*",
                 "iron-io/iron_mq": "1.4.4",
                 "mockery/mockery": "0.7.2",
-                "pda/pheanstalk": "2.0.*"
+                "pda/pheanstalk": "2.0.*",
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "extra": {
@@ -278,7 +278,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-03-29 02:03:03"
+            "time": "2013-03-30 13:48:08"
         },
         {
             "name": "monolog/monolog",
@@ -1283,12 +1283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "329adfd039d6d0b07c80a64680d9940dea412e4d"
+                "reference": "38d0ec43e3c553b73f7282db92906d786096ae07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/329adfd039d6d0b07c80a64680d9940dea412e4d",
-                "reference": "329adfd039d6d0b07c80a64680d9940dea412e4d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/38d0ec43e3c553b73f7282db92906d786096ae07",
+                "reference": "38d0ec43e3c553b73f7282db92906d786096ae07",
                 "shasum": ""
             },
             "require": {
@@ -1334,7 +1334,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-02-26 18:38:58"
+            "time": "2013-03-30 06:12:22"
         },
         {
             "name": "phpunit/php-file-iterator",
