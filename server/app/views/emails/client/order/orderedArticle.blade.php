@@ -5,7 +5,7 @@
         <!-- Item Head -->
         <tr>
           <!-- Title -->
-          <td style="font-size: 20px; padding: 15px; font-weight: bold" rowspan="2">{{ $orderedArticleModel->articleModel->categoryModel->title }}: {{ $orderedArticleModel->articleModel->number }} {{ $orderedArticleModel->articleModel->info }}</td>
+          <td style="font-size: 20px; padding: 15px; font-weight: bold" rowspan="2">{{ $orderedArticleModel->articleModel->categoryModel->title }}: {{ $orderedArticleModel->articleModel->number }} - {{ $orderedArticleModel->articleModel->title }} ({{ $orderedArticleModel->articleModel->info }})</td>
           <!-- / Title -->
         </tr>
         <!-- Ingredients -->

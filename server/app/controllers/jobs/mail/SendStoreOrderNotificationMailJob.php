@@ -53,7 +53,7 @@ class SendStoreOrderNotificationMailJob extends BaseMailJob {
 			'orderNumber'				=> str_pad($orderModel->id, 8, '0', STR_PAD_LEFT),
 			'orderedItemsCollection'	=> $orderModel->orderedItemsCollection,
 			'comment'					=> $orderModel->comment,
-			'dueTime'					=> $orderModel->getDateTimeFor('due_at')->format('HH:mm')
+			'dueTime'					=> $orderModel->getDateTimeFor('due_at')->format('H:m')
 			);
 
 		return $data;

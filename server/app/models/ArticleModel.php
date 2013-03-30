@@ -12,6 +12,7 @@ class ArticleModel extends ItemModel
 	protected $hidden = array(
 		'category_model_id',
 		'buyed',
+		'number',
 		'created_at',
 		'updated_at',
 		'isPublished',
@@ -23,6 +24,7 @@ class ArticleModel extends ItemModel
 	protected $fillable = array(
 		'category_model_id',
 		'title',
+		'number',
 		'info',
 		'description',
 		'smallImage',

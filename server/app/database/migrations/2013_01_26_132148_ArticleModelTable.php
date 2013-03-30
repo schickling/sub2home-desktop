@@ -21,6 +21,7 @@ class ArticleModelTable extends Migration {
 			$table->integer('category_model_id');
 			$table->integer('buyed')->unsigned()->default(0);
 			$table->integer('order')->unsigned();
+			$table->integer('number')->unsigned()->default(0);
 			$table->decimal('price', 5, 2)->default(0);
 			$table->decimal('deposit', 5, 2)->default(0);
 			$table->boolean('allowsIngredients')->default(false);
