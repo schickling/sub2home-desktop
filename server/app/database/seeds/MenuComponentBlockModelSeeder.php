@@ -66,7 +66,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				// 'id' 					=> 4,
 				'menuModel_id'				=> 1,
 				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
-				'icon'						=> 'iDrink',
+				'icon'						=> 'iBeverage',
 				'smallImage'				=> '../../../img/static/categories/smallimages/getraenk.png',
 				'largeImage'				=> '',
 				'placeholder'				=> ''
