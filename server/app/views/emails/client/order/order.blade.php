@@ -21,7 +21,7 @@
 
       <!-- Address & sub2home-Info Row -->
       <tr>
-        <td colspan="2" style="font-size: 24px;">Bis 15:30Uhr</td>
+        <td colspan="2" style="font-size: 24px;">Bis {{ $dueTime }}Uhr</td>
       </tr>
       <tr>
         <td colspan="2" style="width: 317px; line-height: 1.5; padding-left: 20px;">
