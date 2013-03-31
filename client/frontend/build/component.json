@@ -15,7 +15,7 @@
     "underscore-amd": null,
     "backbone-amd": null,
     "backbone.localStorage": null,
-    "backbone.analytics": null,
+    "backbone.analytics": "git://github.com/schickling/backbone.analytics.git",
     "jasmine": null,
     "sinon": null
   }

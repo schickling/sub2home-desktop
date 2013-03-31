@@ -25,15 +25,6 @@ require.config({
 		gmaps: 'modules/gmaps',
 		router: 'modules/router',
 		global: 'modules/global'
-	},
-
-	shim: {
-
-		backboneAnalytics: {
-			deps: ['backbone'],
-			exports: 'backboneAnalytics'
-		}
-
 	}
 
 });
