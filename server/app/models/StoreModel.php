@@ -54,6 +54,9 @@ class StoreModel extends BaseModel
 
 		$this->addressModel()->save($copiedAddressModel);
 
+		// TODO poly
+			$copiedAddressModel->setRelation('ownerModel', $storeModel);
+
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
 			$noon = new DeliveryTimeModel(array(

@@ -10,18 +10,6 @@ class BaseModel extends Eloquent
 	public static $snakeAttributes = false;
 
 	/**
-	 * Unset an attribute on the model.
-	 *
-	 * @param  string  $key
-	 * @return void
-	 */
-	final public function __unset($key)
-	{
-		unset($this->attributes[$key]);
-		unset($this->relations[$key]);
-	}
-
-	/**
 	 * Hook save
 	 * 
 	 * @return boolean

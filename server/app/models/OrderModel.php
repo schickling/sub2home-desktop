@@ -28,7 +28,6 @@ class OrderModel extends BaseModel
 
 	protected function beforeFirstSave()
 	{
-		// TODO check
 		$requestIp = Request::getClientIp();
 		$ip = (is_null($requestIp)) ? '127.0.0.1' : $requestIp;
 		$this->ip = $ip;

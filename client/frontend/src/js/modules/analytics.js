@@ -1,44 +1,47 @@
 define([], function () {
 
-	// Google Analytics data
-	var urchinId = 'UA-39743634-1',
-		loadInterval = 100,
-		ready = false;
-
 	// GOOGLE ANALYTICS HELPER ENGINE
 	var Analytics = {
 
+		// Google Analytics data
+		urchinId: 'UA-39743634-1',
+		loadInterval: 100,
+		isReady: false,
+		tracker: null,
+
 		_load: function () {
-			var gaHost = ('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.';
-			var s = document.createElement('script');
+			var gaHost = ('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.',
+				s = document.createElement('script');
+
 			s.src = gaHost + 'google-analytics.com/ga.js';
 			document.getElementsByTagName('head')[0].appendChild(s);
+
 			var checker = this._wrap(this, this._check);
-			setTimeout(checker, loadInterval);
+			setTimeout(checker, this.loadInterval);
 		},
 
 		_check: function () {
-			if (window._gat) {
-				gaTracker = _gat._getTracker(urchinId);
+			var gat = window._gat;
 
-				gaTracker._initData();
+			if (gat) {
+				this.tracker = gat._getTracker(this.urchinId);
 
-				ready = true;
-				pageTracker = gaTracker;
+				this.tracker._initData();
+				this.isReady = true;
 			} else {
 				var checker = this._wrap(this, this._check);
-				setTimeout(checker, loadInterval);
+				setTimeout(checker, this.loadInterval);
 			}
 		},
 
 		trackPageview: function (page) {
-			if (ready) {
-				gaTracker._trackPageview(page);
+			if (this.isReady) {
+				this.tracker._trackPageview(page);
 			} else {
 				var tpv = this._wrap(this, this.trackPageview);
 				setTimeout(function () {
 					tpv(page);
-				}, loadInterval);
+				}, this.loadInterval);
 			}
 		},
 
