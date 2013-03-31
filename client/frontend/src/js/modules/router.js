@@ -4,11 +4,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'backboneAnalytics',
     'notificationcenter',
-    'analytics',
     'models/stateModel',
     'models/authentificationModel'
-    ], function (require, $, _, Backbone, notificationcenter, analytics, stateModel, authentificationModel) {
+    ], function (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
 
 	var Router = Backbone.Router.extend({
 
@@ -58,8 +58,6 @@ define([
 				pushState: true,
 				root: '/'
 			});
-
-			this._trackPageView();
 		},
 
 		navigate: function (fragment, options) {
@@ -76,13 +74,7 @@ define([
 
 			Backbone.history.navigate(fragment, options);
 
-			this._trackPageView();
-
 			return this;
-		},
-
-		_trackPageView: function () {
-			analytics.trackPageview(Backbone.history.fragment);
 		},
 
 		_showHomeHome: function () {

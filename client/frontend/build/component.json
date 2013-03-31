@@ -12,9 +12,10 @@
     "jquery-color": null,
     "jquery-overscroll": null,
     "moment": null,
-    "underscore": null,
-    "backbone": null,
+    "underscore-amd": null,
+    "backbone-amd": null,
     "backbone.localStorage": null,
+    "backbone.analytics": null,
     "jasmine": null,
     "sinon": null
   }

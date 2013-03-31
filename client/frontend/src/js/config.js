@@ -11,9 +11,10 @@ require.config({
 		jqueryColor: 'vendor/jquery-color/jquery.color',
 		jqueryOverscroll: 'vendor/jquery-overscroll/jquery.overscroll',
 		jqueryBrowserSelector: 'vendor/jquery-browser-selector/jquery.browser.selector',
-		underscore: 'vendor/underscore/underscore',
-		backbone: 'vendor/backbone/backbone',
+		underscore: 'vendor/underscore-amd/underscore',
+		backbone: 'vendor/backbone-amd/backbone',
 		backboneLocalStorage: 'vendor/backbone.localStorage/backbone.localStorage',
+		backboneAnalytics: 'vendor/backbone.analytics/backbone.analytics',
 		moment: 'vendor/moment/moment',
 		// templates
 		templates: '../templates',
@@ -21,20 +22,16 @@ require.config({
 		notificationRepository: 'modules/notificationRepository',
 		tooltipRepository: 'modules/tooltipRepository',
 		notificationcenter: 'modules/notificationcenter',
-		analytics: 'modules/analytics',
 		gmaps: 'modules/gmaps',
 		router: 'modules/router',
 		global: 'modules/global'
 	},
 
 	shim: {
-		backbone: {
-			deps: ['underscore', 'jquery'],
-			exports: 'Backbone'
-		},
 
-		underscore: {
-			exports: '_'
+		backboneAnalytics: {
+			deps: ['backbone'],
+			exports: 'backboneAnalytics'
 		}
 
 	}
