@@ -5,6 +5,7 @@ define([], function () {
 
 		// Google Analytics data
 		urchinId: 'UA-39743634-1',
+		domainName: 'sub2home.com',
 		loadInterval: 100,
 		isReady: false,
 		tracker: null,
@@ -26,6 +27,7 @@ define([], function () {
 			if (gat) {
 				this.tracker = gat._getTracker(this.urchinId);
 
+				this.tracker._setDomainName(this.domainName);
 				this.tracker._initData();
 				this.isReady = true;
 			} else {
