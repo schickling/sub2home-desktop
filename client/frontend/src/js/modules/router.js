@@ -58,6 +58,8 @@ define([
 				pushState: true,
 				root: '/'
 			});
+
+			this._trackPageView();
 		},
 
 		navigate: function (fragment, options) {
@@ -74,9 +76,13 @@ define([
 
 			Backbone.history.navigate(fragment, options);
 
-			analytics.trackPageview(fragment);
+			this._trackPageView();
 
 			return this;
+		},
+
+		_trackPageView: function () {
+			analytics.trackPageview(Backbone.history.fragment);
 		},
 
 		_showHomeHome: function () {
