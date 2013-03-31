@@ -1,11 +1,7 @@
 define([], function () {
 
 	// Google Analytics data
-	var urchinId = false,
-		devId = 'UA-3172639-5',
-		page = null,
-		trackingLabel = false,
-		domainName = '.defencejobs.gov.au',
+	var urchinId = 'UA-39743634-1',
 		loadInterval = 100,
 		ready = false;
 
@@ -24,10 +20,6 @@ define([], function () {
 		_check: function () {
 			if (window._gat) {
 				gaTracker = _gat._getTracker(urchinId);
-
-				if (urchinId != devId) {
-					gaTracker._setDomainName(domainName);
-				}
 
 				gaTracker._initData();
 

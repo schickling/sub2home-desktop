@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Jobs;
 
 use Log;
+use Exception;
 use App\Exceptions\JobException;
 
 abstract class BaseJob {
@@ -15,7 +16,7 @@ abstract class BaseJob {
 
 		try {
 			$this->run();
-		} catch (JobException $e) {
+		} catch (Exception $e) { // catch all
 			Log::error($e);
 		}
 
