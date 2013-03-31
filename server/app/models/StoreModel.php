@@ -52,10 +52,10 @@ class StoreModel extends BaseModel
 			'email' => $this->clientModel->addressModel->email
 			));
 
-		$this->addressModel()->save($copiedAddressModel);
-
 		// TODO poly
 		$copiedAddressModel->setRelation('ownerModel', $this);
+
+		$this->addressModel()->save($copiedAddressModel);
 
 		// Create default delivery times
 		for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
