@@ -41,7 +41,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 2,
 				'category_model_id'		=> 1,
-				'order'					=> 0,
+				'order'					=> 1,
 				'title' 				=> '24er Cookie-Platte',
 				'description'			=> '24 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
@@ -53,7 +53,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 3,
 				'category_model_id'		=> 1,
-				'order'					=> 1,
+				'order'					=> 2,
 				'title' 				=> '36er Cookie-Platte',
 				'description'			=> '36 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
@@ -65,14 +65,27 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 4,
 				'category_model_id'		=> 1,
-				'order'					=> 2,
+				'order'					=> 3,
 				'title' 				=> '48er Cookie-Platte',
 				'description'			=> '48 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
 				'smallImage'			=> 'img/static/menubundles/smallimages/cookieplatte.png',
 				'price'					=> 24.99,
 				'isPublished'			=> true
+				),
+
+			array (
+				// 'id' 					=> 5,
+				'category_model_id'		=> 1,
+				'order'					=> 4,
+				'title' 				=> '3er Cookie-Box',
+				'description'			=> '3 Cookies deiner Wahl',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookies3er.png',
+				'smallImage'			=> 'img/static/menubundles/smallimages/cookies3er.png',
+				'price'					=> 2.19,
+				'isPublished'			=> true
 				)
+
 
 			);
 	}

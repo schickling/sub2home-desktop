@@ -221,7 +221,37 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'category_model_id'				=> 4,
 				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
-				)
+				),
+
+
+
+			// 48er Cookie Platte ----------
+			// -----------------------------
+
+
+			array (
+				// 'id'							=> 20,
+				'menu_component_block_model_id'	=> 19,
+				'category_model_id'				=> 4,
+				'title'							=> 'Sub',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+			array (
+				// 'id'							=> 21,
+				'menu_component_block_model_id'	=> 20,
+				'category_model_id'				=> 4,
+				'title'							=> 'Getränk',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
+
+			array (
+				// 'id'							=> 22,
+				'menu_component_block_model_id'	=> 21,
+				'category_model_id'				=> 4,
+				'title'							=> 'Cookie',
+				'article_model_ids'				=> array(66, 67, 68, 69, 70)
+				),
 			);
 }
 
