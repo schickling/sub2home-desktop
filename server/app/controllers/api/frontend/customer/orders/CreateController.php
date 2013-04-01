@@ -123,6 +123,7 @@ class CreateController extends ApiController
 		$this->orderModel->credit = $this->input['credit'];
 		$this->orderModel->comment = $this->input['comment'];
 		$this->orderModel->subcardCode = $this->input['subcardCode'];
+		$this->orderModel->couponCode = $this->input['couponCode'];
 
 		$this->orderModel->due_at = new DateTime();
 		$this->orderModel->due_at->setTimestamp($this->input['due_at'] / 1000);
@@ -185,6 +186,7 @@ class CreateController extends ApiController
 			'due_at',
 			'paymentMethod',
 			'subcardCode',
+			'couponCode',
 			'total',
 			'addressModel' => array(
 				'city',
