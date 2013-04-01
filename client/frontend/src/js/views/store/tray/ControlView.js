@@ -113,7 +113,7 @@ define([
 		},
 
 		_ringBell: function () {
-			var sound = new Audio('../../audio/bell.mp3'); // buffers automatically when created
+			var sound = new Audio('../../audio/bell.ogg'); // buffers automatically when created
 			sound.play();
 		},
 
