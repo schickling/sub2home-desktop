@@ -16,13 +16,13 @@ class SendCustomerOrderConfirmMailJob extends BaseMailJob {
 			$this->throwExecption('Invalid order to process');
 		}
 
-		$customerAddressModel = $this->orderModel->addressModel;
+		$addressModelOfCustomer = $this->orderModel->addressModel;
 
 		// set properties
 		$this->senderMail = 'bestellung@sub2home.com';
 		$this->senderName = 'sub2home';
-		$this->receiverMail = $customerAddressModel->email;
-		$this->receiverName = $customerAddressModel->firstName . ' ' . $customerAddressModel->lastName;
+		$this->receiverMail = $addressModelOfCustomer->email;
+		$this->receiverName = $addressModelOfCustomer->firstName . ' ' . $addressModelOfCustomer->lastName;
 		$this->subject = 'sub2home sagt Danke';
 		$this->viewName = 'emails.customer.order';
 		$this->viewData = $this->getDataForMail();
@@ -32,11 +32,11 @@ class SendCustomerOrderConfirmMailJob extends BaseMailJob {
 	{
 		$orderModel = $this->orderModel;
 		$storeModel = $orderModel->storeModel;
-		$customerAddressModel = $orderModel->addressModel;
-		$storeAddressModel = $storeModel->addressModel;
+		$addressModelOfCustomer = $orderModel->addressModel;
+		$addressModelOfStore = $storeModel->addressModel;
 
 		$data = array(
-			'customerFirstName'	=> $customerAddressModel->firstName,
+			'customerFirstName'	=> $addressModelOfCustomer->firstName,
 			'storeStreet'		=> $addressModelOfStore->street,
 			'storePostal'		=> $addressModelOfStore->postal,
 			'storeCity'			=> $addressModelOfStore->city,
