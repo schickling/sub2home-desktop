@@ -221,6 +221,39 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
 				'largeImage'				=> '',
 				'placeholder'				=> ''
+				),
+
+			// 3er Cookie Box ----------
+			// -----------------------------
+
+			array ( // cookie 1
+				// 'id' 					=> 19,
+				'menuModel_id'				=> 5,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 2 
+				// 'id' 					=> 20,
+				'menuModel_id'				=> 5,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
+				),
+
+			array ( // cookie 3
+				// 'id' 					=> 21,
+				'menuModel_id'				=> 5,
+				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
+				'icon'						=> 'iCookie',
+				'smallImage'				=> '../../../img/static/categories/smallimages/cookie.png',
+				'largeImage'				=> '',
+				'placeholder'				=> ''
 				)
 
 	);
