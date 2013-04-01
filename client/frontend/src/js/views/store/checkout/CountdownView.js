@@ -35,13 +35,10 @@ define([
 				dueMoment = moment(dueDate),
 				currentMoment = moment(),
 				hours = dueMoment.diff(currentMoment, 'hours'),
-				minutes = dueMoment.diff(currentMoment, 'minutes'),
+				minutes = dueMoment.diff(currentMoment, 'minutes') % 60,
 				storeModel = stateModel.get('storeModel'),
 				storeAddressModel = storeModel.get('addressModel'),
 				customerAddressModel = cartModel.getCustomerAddressModel();
-
-			console.log(stateModel);
-			console.log(storeAddressModel);
 
 			var json = {
 				dueTime: dueMoment.format('HH:mm'),
