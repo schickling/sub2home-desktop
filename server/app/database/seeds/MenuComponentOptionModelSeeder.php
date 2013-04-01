@@ -52,21 +52,21 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
-			array (
-				// 'id'							=> 3,
-				'menu_component_block_model_id'	=> 2,
-				'category_model_id'				=> 4,
-				'title'							=> 'Muffins',
-				'article_model_ids'				=> array(71, 72, 73)
-				),
+			// array (
+			// 	// 'id'							=> 3,
+			// 	'menu_component_block_model_id'	=> 2,
+			// 	'category_model_id'				=> 4,
+			// 	'title'							=> 'Muffins',
+			// 	'article_model_ids'				=> array(71, 72, 73)
+			// 	),
 
-			array (
-				// 'id'							=> 4,
-				'menu_component_block_model_id'	=> 2,
-				'category_model_id'				=> 4,
-				'title'							=> 'Donuts',
-				'article_model_ids'				=> array(74)
-				),
+			// array (
+			// 	// 'id'							=> 4,
+			// 	'menu_component_block_model_id'	=> 2,
+			// 	'category_model_id'				=> 4,
+			// 	'title'							=> 'Donuts',
+			// 	'article_model_ids'				=> array(74)
+			// 	),
 
 			array (
 				// 'id'							=> 5,
