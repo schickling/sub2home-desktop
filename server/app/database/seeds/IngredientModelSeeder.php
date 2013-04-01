@@ -295,8 +295,8 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'BE',
 				'shortTitle'					=> 'Extra Belag',
-				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
-				'smallImage'					=> 'img/static/ingredients/smallimages/extras/extrafleisch.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrabelag.png',
+				'smallImage'					=> 'img/static/ingredients/smallimages/extras/extrabelag.png',
 				'price'							=> 1.00
 				),
 
@@ -311,8 +311,8 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'BE',
 				'shortTitle'					=> 'Extra Belag',
-				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrafleisch.png',
-				'smallImage'					=> 'img/static/ingredients/smallimages/extras/extrafleisch.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/extras/extrabelag.png',
+				'smallImage'					=> 'img/static/ingredients/smallimages/extras/extrabelag.png',
 				'price'							=> 2.00
 				),
 
@@ -375,7 +375,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'CC',
 				'shortTitle'					=> 'Extra Cheddar',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/cheddar.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/cheddar.png',
 				'price'							=> 0.30
 				),
@@ -391,7 +391,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'CC',
 				'shortTitle'					=> 'Extra Cheddar',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/cheddar.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/cheddar.png',
 				'price'							=> 0.60
 				),
@@ -407,7 +407,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'CC',
 				'shortTitle'					=> 'Extra Cheddar',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/cheddar.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/cheddar.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/cheddar.png',
 				'price'							=> 2.40
 				),
@@ -423,7 +423,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'SC',
 				'shortTitle'					=> 'Extra Scheibenkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/scheibenkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/scheibenkaese.png',
 				'price'							=> 0.30
 				),
@@ -439,7 +439,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'SC',
 				'shortTitle'					=> 'Extra Scheibenkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/scheibenkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/scheibenkaese.png',
 				'price'							=> 0.60
 				),
@@ -455,7 +455,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'SC',
 				'shortTitle'					=> 'Extra Scheibenkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/scheibenkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/scheibenkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/scheibenkaese.png',
 				'price'							=> 2.40
 				),
@@ -471,7 +471,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'ST',
 				'shortTitle'					=> 'Extra Streichkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/streichkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/streichkaese.png',
 				'price'							=> 0.30
 				),
@@ -487,7 +487,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'ST',
 				'shortTitle'					=> 'Extra Streichkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/streichkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/streichkaese.png',
 				'price'							=> 0.60
 				),
@@ -503,7 +503,7 @@ class IngredientModelSeeder extends Seeder {
 				'isPublished'					=> true,
 				'shortcut'						=> 'ST',
 				'shortTitle'					=> 'Extra Streichkäse',
-				'largeImage'					=> 'img/static/ingredients/largeimages/sauces/streichkaese.png',
+				'largeImage'					=> 'img/static/ingredients/largeimages/cheese/streichkaese.png',
 				'smallImage'					=> 'img/static/ingredients/smallimages/cheese/streichkaese.png',
 				'price'							=> 2.40
 				),
