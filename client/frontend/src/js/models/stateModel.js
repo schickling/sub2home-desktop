@@ -218,7 +218,5 @@ define([
 
 	});
 
-	var s = window.sta = new StateModel();
-
-	return s;
+	return new StateModel();
 });

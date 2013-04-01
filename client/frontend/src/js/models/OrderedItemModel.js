@@ -203,7 +203,7 @@ define([
 					var menuUpgradeOrderedArticleModels = orderedArticlesCollection.without(baseOrderedArticleModel),
 						menuUpgradeModel = baseOrderedArticleModel.get('menuUpgradeModel');
 
-					total += menuUpgradeModel.get('price') + baseArticleModel.get('ingredientsTotal') + baseArticleModel.get('deposit');
+					total += menuUpgradeModel.get('price');
 
 					_.each(menuUpgradeOrderedArticleModels, function (menuUpgradeOrderedArticleModel) {
 						var menuUpgradeArticleModel = menuUpgradeOrderedArticleModel.get('articleModel');
