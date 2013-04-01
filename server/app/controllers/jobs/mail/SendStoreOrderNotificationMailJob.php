@@ -18,14 +18,16 @@ class SendStoreOrderNotificationMailJob extends BaseMailJob {
 		}
 
 		$storeModel = $this->orderModel->storeModel;
-		$storeAddressModel = $storeModel->addressModel;
+		$addressModelOfStore = $storeModel->addressModel;
+		$addressModelOfCustomer = $this->orderModel->addressModel;
 
 		// set properties
 		$this->senderMail = 'bestellung@sub2home.com';
 		$this->senderName = 'sub2home';
 		$this->receiverMail = $storeModel->orderEmail;
-		$this->receiverName = $storeAddressModel->firstName . ' ' . $storeAddressModel->lastName;
-		$this->subject = sprintf('Neue Bestellung #%s', str_pad($this->orderModel->id, 8, '0', STR_PAD_LEFT));
+		$this->receiverName = $addressModelOfStore->firstName . ' ' . $addressModelOfStore->lastName;
+		// $this->subject = sprintf('Neue Bestellung #%s', str_pad($this->orderModel->id, 8, '0', STR_PAD_LEFT));
+		$this->subject = sprintf('Lieferservice nach %s', $addressModelOfCustomer->city);
 		$this->viewName = 'emails.client.order.order';
 		$this->viewData = $this->getDataForMail();
 	}
