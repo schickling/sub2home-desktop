@@ -333,14 +333,7 @@ define([
 
 			// adjust store alias without notifying
 			// (stateModel gets saved through storeModel change)
-			stateModel.set({
-				storeAlias: storeModel.get('alias')
-			}, {
-				silent: true
-			});
-
-			// set store model
-			stateModel.set('storeModel', storeModel);
+			stateModel.set('storeAlias', storeModel.get('alias'));
 
 			router.navigate(storeModel.get('alias'), true);
 
