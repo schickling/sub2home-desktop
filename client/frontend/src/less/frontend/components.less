@@ -3906,6 +3906,15 @@ div#payment {
         }
       }
     }
+
+    .ingredientDescription {
+      .opacity(0);
+      .transition(opacity .1s linear);
+      position: relative;
+      top: -65px;
+      font-size: 14px;
+      font-family: @handFontFamily;
+    }
     
     .accentIngredient {
       position: absolute;
@@ -3934,7 +3943,7 @@ div#payment {
         .opacity(100);
         color: @greenLighter20;
       }
-      .smallNote {
+      .smallNote, .ingredientDescription {
         .opacity(100);
       }
     }
