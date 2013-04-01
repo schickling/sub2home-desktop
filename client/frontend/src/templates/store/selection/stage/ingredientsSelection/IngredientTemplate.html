@@ -5,4 +5,7 @@
 	<% if (price > 0) { %>
 	<div class="pricetag"><span>+ <%= price.toFixed(2) %> €</span></div>
 	<% } %>
+	<% if (description) { %>
+	<div><span><%= description %></span></div>
+	<% } %>
 </div>

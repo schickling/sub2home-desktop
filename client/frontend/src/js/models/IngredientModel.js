@@ -10,6 +10,7 @@ define([
 			title: '',
 			shortTitle: '',
 			shortcut: '',
+			description: '',
 			largeImage: 'default',
 			icon: '',
 			isSelected: false,
