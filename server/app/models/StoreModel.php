@@ -77,7 +77,7 @@ class StoreModel extends BaseModel
 		// Create default delivery area
 		$deliveryAreaModel = new DeliveryAreaModel(array(
 			'postal'			=> $this->clientModel->addressModel->postal,
-			'minimumValue'		=> 5.00,
+			'minimumValue'		=> 8.00,
 			'minimumDuration'	=> 20,
 			'city'				=> $this->addressModel->city,
 			'district'			=> 'Innenstadt'
