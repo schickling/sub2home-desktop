@@ -32,7 +32,7 @@ define([
 						var timelineItemModel = new TimelineItemModel({
 							image: '../../../' + ingredientCategoryModel.get('smallImage'),
 							icon: ingredientCategoryModel.get('icon'),
-							phrase: 'Waehle deine Zutaten'
+							phrase: 'Wähle deine Zutaten'
 						});
 
 						this.timelineItemsCollection.add(timelineItemModel);

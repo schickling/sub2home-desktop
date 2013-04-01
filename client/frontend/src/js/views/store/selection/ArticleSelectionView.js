@@ -38,7 +38,7 @@ define([
 					isLocked: articleModel === null,
 					icon: menuComponentBlockModel.get('icon'),
 					image: menuComponentBlockModel.get('smallImage'),
-					phrase: 'Waehle deinen Artikel'
+					phrase: this._getTitle()
 				});
 
 				this._listenForArticleSelection();
@@ -83,6 +83,34 @@ define([
 
 				}, this);
 			}, this);
+		},
+
+		_getTitle: function () {
+			var menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
+				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
+				menuComponentOptionTitle, title;
+
+			if (menuComponentOptionsCollection.length === 1) {
+				title = 'Wähle dein ';
+			} else {
+				title = 'Wähle zwischen ';
+			}
+
+			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel, index) {
+
+				menuComponentOptionTitle = menuComponentOptionModel.get('title');
+
+				if (index === 0) {
+					title += menuComponentOptionTitle;
+				} else if (index === (menuComponentOptionsCollection.length - 1)) {
+					title += ' oder ' + menuComponentOptionTitle;
+				} else {
+					title += ', ' + menuComponentOptionTitle;
+				}
+
+			});
+
+			return title;
 		}
 
 	});
