@@ -30,7 +30,23 @@ class SendCustomerOrderConfirmMailJob extends BaseMailJob {
 
 	private function getDataForMail()
 	{
-		return array();
+		$orderModel = $this->orderModel;
+		$storeModel = $orderModel->storeModel;
+		$customerAddressModel = $orderModel->addressModel;
+		$storeAddressModel = $storeModel->addressModel;
+
+		$data = array(
+			'customerFirstName'	=> $customerAddressModel->firstName,
+			'storeStreet'		=> $addressModelOfStore->street,
+			'storePostal'		=> $addressModelOfStore->postal,
+			'storeCity'			=> $addressModelOfStore->city,
+			'storePhone'		=> $addressModelOfStore->city,
+			'storeNumber'		=> $addressModelOfStore->city,
+			'storeTitle'		=> $storeModel->title,
+			'dueTime'			=> $orderModel->getDateTimeFor('due_at')->format('H:m')
+			);
+
+		return $data;
 	}
 
 

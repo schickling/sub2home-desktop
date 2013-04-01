@@ -11,16 +11,16 @@
 						<img src="http://sub2home.com/img/static/common/store_icon.png">
 					</td>
 					<td valign="middle" style="">
-						<h3 style="margin: 0;">SUBWAY Memmingen</h3>
-						<p style="margin: 7px 0 0">Store-Nr. 9283092</p>
+						<h3 style="margin: 0;">SUBWAY {{ $storeTitle }}</h3>
+						<p style="margin: 7px 0 0">Store-Nr. {{ $storeNumber }}</p>
 					</td>
 					<td valign="top" style="text-align: right; padding: 20px">
 						<img src="http://sub2home.com/img/static/common/subway_logo.png">
 						<p style="font-size: 13px; padding-right: 32px; color: #d1ba82; text-decoration: none">
-							Store Memmingen<br>
-							Maximilianstr. 15<br>
-							23892 Memmingen<br><br>
-							Tel. 023 230 239 23 23<br>
+							Store {{ $storeTitle }}<br>
+							{{ $storeStreet }}<br>
+							{{ $storePostal }} {{ $storeCity }}<br><br>
+							Tel. {{ $storePhone }}<br>
 						</p>
 					</td>
 			</tr>
@@ -33,9 +33,10 @@
 				</tr>
 			</tbody>
 		</table>
-		<h2 style="text-align: center; padding: 0 20%; margin-top: 60px; color: #57a827">Danke für deine Bestellung, Johannes.</h2>
+		<h2 style="text-align: center; padding: 0 20%; margin-top: 60px; color: #57a827">Danke für deine Bestellung, {{ $customerFirstName }}.</h2>
+		<!-- Da du schon online bezahlt hast, musst du nur noch deine Bestellung entgegennehmen.  -->
 		<p style="font-size: 20px; padding: 0 10% 20px; text-align: center; color: #9cc83e">
-			Da du schon online bezahlt hast, musst du nur noch deine Bestellung entgegennehmen. Unser Lieferbote kommt <span style="color: #57a827; white-space: nowrap;">ca. 18:15 Uhr</span>, bereite deinen Appetit schonmal vor.
+			Unser Lieferbote kommt <span style="color: #57a827; white-space: nowrap;">ca. {{ $dueTime }} Uhr</span>, bereite deinen Appetit schonmal vor.
 		</p>
 		<p style="font-size: 13px; padding: 0 10% 20px; text-align: center; color: #aaa">
 			Gib Feedback und erhalte einen Gratiscookie. Schnell und einfach. Wirklich.<br>
