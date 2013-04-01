@@ -41,7 +41,7 @@ class SendCustomerOrderConfirmMailJob extends BaseMailJob {
 			'storePostal'		=> $addressModelOfStore->postal,
 			'storeCity'			=> $addressModelOfStore->city,
 			'storePhone'		=> $addressModelOfStore->city,
-			'storeNumber'		=> $addressModelOfStore->city,
+			'storeNumber'		=> $addressModelOfStore->phone,
 			'storeTitle'		=> $storeModel->title,
 			'dueTime'			=> $orderModel->getDateTimeFor('due_at')->format('H:m')
 			);

@@ -40,7 +40,7 @@ define([
 
 		events: {
 			// buttons
-			'click #bNext': '_forward',
+			'click #bNext, .menuUpgrade': '_forward',
 			'click #bPrev': '_backward',
 			'click #bCart': '_finish',
 
