@@ -103,8 +103,9 @@ class CreateController extends ApiController
 
 	private function validateTotal()
 	{
+		$devation = abs($this->orderModel->total - $this->input['total']);
 		// compare totals (relation to store needed for custom prices)
-		if ($this->orderModel->total != $this->input['total']) {
+		if ($devation > 0.01) {
 			var_dump('total: ' . $this->orderModel->total);
 			$this->throwException(400);
 		}

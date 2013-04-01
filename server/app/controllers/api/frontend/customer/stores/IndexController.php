@@ -18,7 +18,8 @@ class IndexController extends ApiController
 	{
 		$storesCollection = StoreModel::with(array(
 			'deliveryAreasCollection',
-			'deliveryTimesCollection'
+			'deliveryTimesCollection',
+			'addressModel'
 			))
 		->where('isOpen', true)
 		->where('isActive', true)

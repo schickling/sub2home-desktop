@@ -35,7 +35,7 @@ class ClientModelSeeder extends Seeder {
 			));
 
 		$clientData = array(
-			'hashedPassword' => Hash::make('password'),
+			'hashedPassword' => Hash::make('G3Tazubr'),
 			'number' => 1000
 			);
 
