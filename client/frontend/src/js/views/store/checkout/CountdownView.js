@@ -40,6 +40,9 @@ define([
 				storeAddressModel = storeModel.get('addressModel'),
 				customerAddressModel = cartModel.getCustomerAddressModel();
 
+			console.log(stateModel);
+			console.log(storeAddressModel);
+
 			var json = {
 				dueTime: dueMoment.format('HH:mm'),
 				hours: this._padNumber(hours),

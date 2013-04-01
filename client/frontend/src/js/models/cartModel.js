@@ -53,8 +53,8 @@ define([
 			});
 
 			this.on('change', function () {
-				console.log('cart saved');
-				console.log(this.changedAttributes());
+				// console.log('cart saved');
+				// console.log(this.changedAttributes());
 				this.save({}, {
 					silent: true
 				});
@@ -303,7 +303,9 @@ define([
 			orderModel.set({
 				total: 0,
 				credit: 0,
-				comment: ''
+				comment: '',
+				couponCode: '',
+				subcardCode: ''
 			});
 
 			this.set('termsAccepted', false);

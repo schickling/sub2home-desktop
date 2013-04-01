@@ -46,8 +46,8 @@ define([
 
 			// save on change
 			this.on('change', function () {
-				console.log('state saved:');
-				console.log(this.changedAttributes());
+				// console.log('state saved:');
+				// console.log(this.changedAttributes());
 				this.save({}, {
 					silent: true
 				});
@@ -131,7 +131,7 @@ define([
 
 		_fetchStoreModelFromServer: function () {
 
-			console.log('fetched');
+			// console.log('fetched');
 
 			var errorOccured = false,
 				storeModel = new StoreModel({
