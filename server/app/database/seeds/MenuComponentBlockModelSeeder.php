@@ -56,7 +56,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				// 'id' 					=> 3,
 				'menuModel_id'				=> 1,
 				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
-				'icon'						=> 'ikidspakSub',
+				'icon'						=> 'iMiniSub',
 				'smallImage'				=> '../../../img/static/categories/smallimages/kidspaksub.png',
 				'largeImage'				=> '',
 				'placeholder'				=> ''

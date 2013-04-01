@@ -451,6 +451,18 @@ define([
 				className: 'error'
 			},
 
+			'views.store.tray.coupon.invalid': {
+				title: 'Falscher Code',
+				description: 'Der Code, den du eingegeben hast, passt zu keinem Gratis-Cookie. Vielleicht ein Tippfehler?',
+				className: 'warning'
+			},
+
+			'views.store.tray.coupon.valid': {
+				title: 'Gratiscookie erhalten',
+				description: 'Freu dich auf deinen Gratiscookie, du findest ihn in dieser Bestellung.',
+				className: 'success'
+			},
+
 
 			// store.dashboard
 
