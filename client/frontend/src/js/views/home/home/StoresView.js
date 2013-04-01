@@ -292,6 +292,11 @@ define([
 							storeView.updateView();
 						});
 
+						// TODO rewrite
+						if (self.storeViews.length === 1) {
+							self.storeViews[0].selectStore();
+						}
+
 					});
 
 					self.$deliveryAreaSelection.fadeIn(150);
