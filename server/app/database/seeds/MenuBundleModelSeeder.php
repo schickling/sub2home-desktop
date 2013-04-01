@@ -80,8 +80,8 @@ class MenuBundleModelSeeder extends Seeder {
 				'order'					=> 4,
 				'title' 				=> '3er Cookie-Box',
 				'description'			=> '3 Cookies deiner Wahl',
-				'largeImage'			=> 'img/static/menubundles/largeimages/cookies3er.png',
-				'smallImage'			=> 'img/static/menubundles/smallimages/cookies3er.png',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookies3er-cdm.png',
+				'smallImage'			=> 'img/static/menubundles/smallimages/cookies3er-cdm.png',
 				'price'					=> 2.19,
 				'isPublished'			=> true
 				)

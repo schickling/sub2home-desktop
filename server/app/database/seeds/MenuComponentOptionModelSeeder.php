@@ -41,7 +41,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 1,
 				'category_model_id'				=> 5,
 				'title'							=> 'Getränk',
-				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				'article_model_ids'				=> array(84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94)
 				),
 
 			array (
@@ -73,7 +73,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 2,
 				'category_model_id'				=> 4,
 				'title'							=> 'Chips',
-				'article_model_ids'				=> array(75, 76, 77, 78, 79, 80, 81, 82)
+				'article_model_ids'				=> array(76, 77, 78, 79, 80, 81, 82, 83)
 				),
 
 			// Kids Pak --------------------
@@ -93,7 +93,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				'menu_component_block_model_id'	=> 4,
 				'category_model_id'				=> 5,
 				'title'							=> 'Getränk',
-				'article_model_ids'				=> array(83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93)
+				'article_model_ids'				=> array(84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94)
 				),
 
 			array (
@@ -121,7 +121,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 8,
 				'menu_component_block_model_id'	=> 7,
 				'category_model_id'				=> 4,
-				'title'							=> 'Sub',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -129,7 +129,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 9,
 				'menu_component_block_model_id'	=> 8,
 				'category_model_id'				=> 4,
-				'title'							=> 'Getränk',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -158,7 +158,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 12,
 				'menu_component_block_model_id'	=> 11,
 				'category_model_id'				=> 4,
-				'title'							=> 'Sub',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -166,7 +166,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 13,
 				'menu_component_block_model_id'	=> 12,
 				'category_model_id'				=> 4,
-				'title'							=> 'Getränk',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -195,7 +195,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 16,
 				'menu_component_block_model_id'	=> 15,
 				'category_model_id'				=> 4,
-				'title'							=> 'Sub',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -203,7 +203,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 17,
 				'menu_component_block_model_id'	=> 16,
 				'category_model_id'				=> 4,
-				'title'							=> 'Getränk',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -225,7 +225,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 
 
 
-			// 48er Cookie Platte ----------
+			// 3er Cookie Box --------------
 			// -----------------------------
 
 
@@ -233,7 +233,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 20,
 				'menu_component_block_model_id'	=> 19,
 				'category_model_id'				=> 4,
-				'title'							=> 'Sub',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 
@@ -241,7 +241,7 @@ class MenuComponentOptionModelSeeder extends Seeder {
 				// 'id'							=> 21,
 				'menu_component_block_model_id'	=> 20,
 				'category_model_id'				=> 4,
-				'title'							=> 'Getränk',
+				'title'							=> 'Cookie',
 				'article_model_ids'				=> array(66, 67, 68, 69, 70)
 				),
 

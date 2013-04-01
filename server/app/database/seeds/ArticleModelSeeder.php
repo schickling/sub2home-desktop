@@ -1491,8 +1491,8 @@ class ArticleModelSeeder extends Seeder {
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Muffin mit Blaubeeren',
-				'smallImage'			=> 'img/static/articles/smallimages/muffins/milkamuffin.png',
-				'largeImage'			=> 'img/static/articles/largeimages/muffins/milkamuffin-cdm.png',
+				'smallImage'			=> 'img/static/articles/smallimages/muffins/deepblueberry.png',
+				'largeImage'			=> 'img/static/articles/largeimages/muffins/deepblueberry-cdm.png',
 				'price'					=> 1.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1506,13 +1506,13 @@ class ArticleModelSeeder extends Seeder {
 			array (
 				// 'id' 				=> 73,
 				'category_model_id'		=> 5,
-				'title' 				=> 'Rich Chocolate Muffin',
+				'title' 				=> 'Chocolate Muffin',
 				'order'					=> 7,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Schokoladenmuffin',
-				'smallImage'			=> 'img/static/articles/smallimages/muffins/milkamuffin.png',
-				'largeImage'			=> 'img/static/articles/largeimages/muffins/milkamuffin-cdm.png',
+				'smallImage'			=> 'img/static/articles/smallimages/muffins/chocolatemuffin.png',
+				'largeImage'			=> 'img/static/articles/largeimages/muffins/chocolatemuffin-cdm.png',
 				'price'					=> 1.49,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1530,6 +1530,26 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 74,
+				'category_model_id'		=> 5,
+				'title' 				=> 'Crispy Caramel Donut',
+				'order'					=> 8,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> 'leckerer Crispy Caramel Donut',
+				'smallImage'			=> 'img/static/articles/smallimages/donuts/crispycaramel.png',
+				'largeImage'			=> 'img/static/articles/largeimages/donuts/crispycaramel-cdm.png',
+				'price'					=> 1.49,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 75,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Milka Schoko-Donut',
 				'order'					=> 8,
@@ -1554,15 +1574,15 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 75,
+				// 'id' 				=> 76,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Paprika',
 				'order'					=> 9,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Paprika. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
-				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
-				'largeImage'			=> 'img/static/articles/largeimages/chips/laysclassic-c.png',
+				'smallImage'			=> 'img/static/articles/smallimages/chips/layspaprika.png',
+				'largeImage'			=> 'img/static/articles/largeimages/chips/layspaprika-c.png',
 				'price'					=> 0.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1574,7 +1594,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 76,
+				// 'id' 				=> 77,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Salt & Vinegar',
 				'order'					=> 10,
@@ -1594,35 +1614,15 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 77,
+				// 'id' 				=> 78,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Cheese & Onion',
 				'order'					=> 11,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Cheese & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
-				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
-				'largeImage'			=> 'img/static/articles/largeimages/chips/laysclassic-c.png',
-				'price'					=> 0.99,
-				'deposit'				=> 0.00,
-				'allowsIngredients'		=> false,
-				'allowsDeposit'			=> false,
-				'allowsMenuUpgrades'	=> true,
-				'isOnlyAllowedByMenus'	=> false,
-				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array()
-				),
-
-			array (
-				// 'id' 				=> 78,
-				'category_model_id'		=> 5,
-				'title' 				=> 'Lays Chips Salted',
-				'order'					=> 12,
-				'number'				=> 1,
-				'info'					=> '',
-				'description'			=> 'Geschmacksrichtung: Gesalzen. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
-				'smallImage'			=> 'img/static/articles/smallimages/chips/laysclassic.png',
-				'largeImage'			=> 'img/static/articles/largeimages/chips/laysclassic-c.png',
+				'smallImage'			=> 'img/static/articles/smallimages/chips/layscheeseonion.png',
+				'largeImage'			=> 'img/static/articles/largeimages/chips/layscheeseonion-c.png',
 				'price'					=> 0.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1635,6 +1635,26 @@ class ArticleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 				=> 79,
+				'category_model_id'		=> 5,
+				'title' 				=> 'Lays Chips Salted',
+				'order'					=> 12,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> 'Geschmacksrichtung: Gesalzen. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
+				'smallImage'			=> 'img/static/articles/smallimages/chips/layssalted.png',
+				'largeImage'			=> 'img/static/articles/largeimages/chips/layssalted-c.png',
+				'price'					=> 0.99,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> false,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 80,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Barbecue',
 				'order'					=> 13,
@@ -1654,15 +1674,15 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 80,
+				// 'id' 				=> 81,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Sourcream & Onion',
 				'order'					=> 14,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Sourcream & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
-				'smallImage'			=> 'img/static/articles/smallimages/chips/layssourcreamonion.png',
-				'largeImage'			=> 'img/static/articles/largeimages/chips/layssourcreamonion-c.png',
+				'smallImage'			=> 'img/static/articles/smallimages/chips/layssourcremeonion.png',
+				'largeImage'			=> 'img/static/articles/largeimages/chips/layssourcremeonion-c.png',
 				'price'					=> 0.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1675,7 +1695,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 81,
+				// 'id' 				=> 82,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Nacho Cheese',
 				'order'					=> 15,
@@ -1695,15 +1715,15 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 82,
+				// 'id' 				=> 83,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Sweet Chili Pepper',
 				'order'					=> 16,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Doritos Sweet Chili Pepper. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
-				'smallImage'			=> 'img/static/articles/smallimages/chips/doritosnachocheese.png',
-				'largeImage'			=> 'img/static/articles/largeimages/chips/doritosnachocheese-c.png',
+				'smallImage'			=> 'img/static/articles/smallimages/chips/doritossweetchilipepper.png',
+				'largeImage'			=> 'img/static/articles/largeimages/chips/doritossweetchilipepper-c.png',
 				'price'					=> 0.99,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -1720,7 +1740,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 83,
+				// 'id' 				=> 84,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola',
 				'order'					=> 0,
@@ -1740,7 +1760,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 84,
+				// 'id' 				=> 85,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola Light',
 				'order'					=> 1,
@@ -1760,7 +1780,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 85,
+				// 'id' 				=> 86,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Fanta',
 				'order'					=> 2,
@@ -1780,7 +1800,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 86,
+				// 'id' 				=> 87,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Sprite',
 				'order'					=> 3,
@@ -1801,7 +1821,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 87,
+				// 'id' 				=> 88,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apfelschorle',
 				'order'					=> 4,
@@ -1821,7 +1841,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 88,
+				// 'id' 				=> 89,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Pfirsich',
 				'order'					=> 5,
@@ -1842,7 +1862,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 89,
+				// 'id' 				=> 90,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Zitrone',
 				'order'					=> 6,
@@ -1862,7 +1882,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 90,
+				// 'id' 				=> 91,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Classic',
 				'order'					=> 7,
@@ -1882,7 +1902,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 91,
+				// 'id' 				=> 92,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Medium',
 				'order'					=> 8,
@@ -1902,7 +1922,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 92,
+				// 'id' 				=> 93,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 9, 
@@ -1922,7 +1942,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 93,
+				// 'id' 				=> 94,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 10,
@@ -1946,7 +1966,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 94,
+				// 'id' 				=> 95,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Genußvolle',
 				'order'					=> 3,
@@ -1966,7 +1986,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 95,
+				// 'id' 				=> 96,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Klassische',
 				'order'					=> 4,
@@ -1986,7 +2006,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 96,
+				// 'id' 				=> 97,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Leichte',
 				'order'					=> 5,
@@ -2006,7 +2026,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 97,
+				// 'id' 				=> 98,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Vegetarische',
 				'order'					=> 6,
