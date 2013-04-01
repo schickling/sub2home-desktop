@@ -33,9 +33,7 @@ class SendStoreOrderNotificationMailJob extends BaseMailJob {
 	private function getDataForMail()
 	{
 		$orderModel = $this->orderModel;
-		$storeModel = $this->orderModel->storeModel;
 		$addressModelOfCustomer = $orderModel->addressModel;
-		$addressModelOfStore = $storeModel->addressModel;
 
 		$this->prepareIngredientCategories();
 

@@ -21,7 +21,7 @@ define([
 		template: _.template(ArticleDetailsTemplate),
 
 		events: {
-			'click .bFood': '_goToSelection',
+			'click .bFood, img': '_goToSelection',
 			'click .footlongOption': '_makeFootlong',
 			'click .uncheckFootlong': '_make6Inch',
 			'mouseleave': '_hide',
@@ -50,11 +50,7 @@ define([
 		},
 
 		_goToSelection: function () {
-			if (this.selectedItemModel.get('allowsIngredients')) {
-				router.navigate('store/theke/artikel/' + this.selectedItemModel.get('id'), true);
-			} else {
-				alert('Warenkorb yo!');
-			}
+			router.navigate('store/theke/artikel/' + this.selectedItemModel.get('id'), true);
 		},
 
 		_makeFootlong: function () {
