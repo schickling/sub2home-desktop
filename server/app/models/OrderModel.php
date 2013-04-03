@@ -72,7 +72,7 @@ class OrderModel extends BaseModel
 	 */
 	public function creditModel()
 	{
-		return $this->hasOne('App\\Models\\TipModel');
+		return $this->hasOne('App\\Models\\CreditModel');
 	}
 
 	/**

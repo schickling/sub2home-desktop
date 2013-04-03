@@ -6,8 +6,9 @@ define([
     'global',
     'notificationcenter',
     'models/AddressModel',
+    'models/CreditModel',
     'collections/OrderedItemsCollection'
-    ], function ($, _, Backbone, global, notificationcenter, AddressModel, OrderedItemsCollection) {
+    ], function ($, _, Backbone, global, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -117,6 +118,10 @@ define([
 					response.addressModel = new AddressModel(response.addressModel);
 				}
 
+				if (response.hasOwnProperty('creditModel')) {
+					response.creditModel = new CreditModel(response.creditModel);
+				}
+
 				if (response.hasOwnProperty('orderedItemsCollection')) {
 					response.orderedItemsCollection = new OrderedItemsCollection(response.orderedItemsCollection, {
 						parse: true
@@ -146,6 +151,10 @@ define([
 
 			if (this.get('addressModel')) {
 				attributes.addressModel = attributes.addressModel.toJSON();
+			}
+
+			if (this.get('creditModel')) {
+				attributes.creditModel = attributes.creditModel.toJSON();
 			}
 
 			if (this.get('dueDate')) {
