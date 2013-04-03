@@ -1,11 +1,17 @@
-<?php namespace App\Models;
+<?php namespace App\Controllers\Services\Order;
 
 use DateTime;
+use App\Models\OrderModel;
+use App\Models\StoreModel;
+use App\Models\OrderedArticleModel;
+use App\Models\OrderedItemModel;
+use App\Models\AddressModel;
+use App\Models\CreditModel;
 
-class TestOrderModel extends OrderModel
+class TestOrderService
 {
 
-	public static function generateTestOrderForStore($store_model_id, $isBalanced = false, $createdAtDateTime = null)
+	public static function generateForStore($store_model_id, $isBalanced = false, $createdAtDateTime = null)
 	{
 		if (!$createdAtDateTime) {
 			$createdAtDateTime = new DateTime();
@@ -47,22 +53,13 @@ class TestOrderModel extends OrderModel
 
 		// create balance order
 		if ($isBalanced) {
-			$balanceOrderModel = new OrderModel();
-			$balanceOrderModel->store_model_id = $store_model_id;
-			$balanceOrderModel->commissionRate = $storeModel->commissionRate;
-			$balanceOrderModel->isDelivered = true;
-			$balanceOrderModel->comment = 'Testbestellung Ausgleich';
-			$balanceOrderModel->order_model_id = $orderModel->id; // set reference to belonging order model
-			$balanceOrderModel->setRelation('balanceOrderModel', $orderModel);
-			$balanceOrderModel->setBalance(-$orderModel->total);
+			$creditModel = new CreditModel();
+			$creditModel->total = $orderModel->total;
+			$creditModel->isAccepted = true;
+			$creditModel->description = 'Testbestellung';
 
-			$balanceOrderModel->save();
-			$balanceOrderModel->addressModel()->save(static::getTestAddressModelForStore($storeModel));
+			$orderModel->creditModel()->save($creditModel);
 
-			// set timestamps after first save
-			$balanceOrderModel->created_at = $createdAtDateTime;
-			$balanceOrderModel->due_at = $createdAtDateTime;
-			$balanceOrderModel->save();
 		}
 	}
 

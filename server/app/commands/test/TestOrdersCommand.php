@@ -6,7 +6,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 use DateTime;
 
-use App\Models\TestOrderModel;
+use App\Controllers\Services\Order\TestOrderService;
 
 
 class TestOrdersCommand extends Command {
@@ -31,7 +31,7 @@ class TestOrdersCommand extends Command {
         $dateTime->setDate($year, $month, $day);
 
 		for ($i = 0; $i < $numberOfTestOrders; $i++) { 
-			TestOrderModel::generateTestOrderForStore($store_model_id, $isBalanced, $dateTime);
+			TestOrderService::generateForStore($store_model_id, $isBalanced, $dateTime);
 		}
 
 		if ($isBalanced) {
