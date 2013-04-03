@@ -1358,11 +1358,13 @@ class ArticleModelSeeder extends Seeder {
 			// -----------------------------
 
 
+			// Chocolate Chip
+
 			array (
 				// 'id' 				=> 66,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Chocolate Chip',
-				'order'					=> 0,
+				'order'					=> 2,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit Vollmilchschokostücken',
@@ -1381,8 +1383,51 @@ class ArticleModelSeeder extends Seeder {
 			array (
 				// 'id' 				=> 67,
 				'category_model_id'		=> 5,
+				'title' 				=> '2x Chocolate Chip',
+				'order'					=> 3,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '2 Subway Cookies mit Vollmilchschokostücken',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/2chocolatechip.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/2chocolatechip-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 68,
+				'category_model_id'		=> 5,
+				'title' 				=> '3x Chocolate Chip',
+				'order'					=> 4,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '3 Subway Cookies mit Vollmilchschokostücken',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/3chocolatechip.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/3chocolatechip-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+
+			// Rainbow Candy
+
+			array (
+				// 'id' 				=> 69,
+				'category_model_id'		=> 5,
 				'title' 				=> 'Chocolate Chip Rainbow Candy',
-				'order'					=> 1,
+				'order'					=> 5,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit Vollmilchschokostücken und Smarties',
@@ -1399,10 +1444,53 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 68,
+				// 'id' 				=> 70,
+				'category_model_id'		=> 5,
+				'title' 				=> '2x Chocolate Chip Rainbow Candy',
+				'order'					=> 6,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '2 Subway Cookies mit Vollmilchschokostücken und Smarties',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/2rainbowcandy.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/2rainbowcandy-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 71,
+				'category_model_id'		=> 5,
+				'title' 				=> '3x Chocolate Chip Rainbow Candy',
+				'order'					=> 7,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '3 Subway Cookies mit Vollmilchschokostücken und Smarties',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/3rainbowcandy.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/3rainbowcandy-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+
+			// Double Chocolate Chip
+
+			array (
+				// 'id' 				=> 72,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Double Chocolate Chip',
-				'order'					=> 2,
+				'order'					=> 8,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Schokoladenstücken',
@@ -1419,10 +1507,53 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 69,
+				// 'id' 				=> 73,
+				'category_model_id'		=> 5,
+				'title' 				=> '2x Double Chocolate Chip',
+				'order'					=> 9,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '2 Subway Cookies mit weißen Schokoladenstücken',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/2doublechocolatechip.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/2doublechocolatechip-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 74,
+				'category_model_id'		=> 5,
+				'title' 				=> '3x Double Chocolate Chip',
+				'order'					=> 10,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '3 Subway Cookies mit weißen Schokoladenstücken',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/3doublechocolatechip.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/3doublechocolatechip-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+
+			// Macadamia Nut
+
+			array (
+				// 'id' 				=> 75,
 				'category_model_id'		=> 5,
 				'title' 				=> 'White Chip Macadamia Nut',
-				'order'					=> 3,
+				'order'					=> 11,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Macadamia Nüssen',
@@ -1439,10 +1570,53 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 70,
+				// 'id' 				=> 76,
+				'category_model_id'		=> 5,
+				'title' 				=> '2x White Chip Macadamia Nut',
+				'order'					=> 12,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '2 Subway Cookies mit weißen Macadamia Nüssen',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/2macadamianut.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/2macadamianut-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 77,
+				'category_model_id'		=> 5,
+				'title' 				=> '3x White Chip Macadamia Nut',
+				'order'					=> 13,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '3 Subway Cookies mit weißen Macadamia Nüssen',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/3macadamianut.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/3macadamianut-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+
+			// Peanut Butter
+
+			array (
+				// 'id' 				=> 78,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Peanut Butter',
-				'order'					=> 4,
+				'order'					=> 14,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Subway Cookie mit weißen Macadamia Nüssen',
@@ -1458,16 +1632,56 @@ class ArticleModelSeeder extends Seeder {
 				'ingredient_model_ids'	=> array()
 				),
 
+			array (
+				// 'id' 				=> 79,
+				'category_model_id'		=> 5,
+				'title' 				=> '2x Peanut Butter',
+				'order'					=> 15,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '2 Subway Cookies mit weißen Macadamia Nüssen',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/2peanutbutter.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/2peanutbutter-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 80,
+				'category_model_id'		=> 5,
+				'title' 				=> '3x Peanut Butter',
+				'order'					=> 16,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '3 Subway Cookies mit weißen Macadamia Nüssen',
+				'smallImage'			=> 'img/static/articles/smallimages/cookies/3peanutbutter.png',
+				'largeImage'			=> 'img/static/articles/largeimages/cookies/3peanutbutter-cdm.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> true,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
 
 			// MUFFINS ---------------------
 			// -----------------------------
 
 
 			array (
-				// 'id' 				=> 71,
+				// 'id' 				=> 81,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Milka Schoko-Muffin',
-				'order'					=> 5,
+				'order'					=> 17,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'leckerer Schoko-Muffin mit Milka-Alpenmilchschokolade',
@@ -1484,10 +1698,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 72,
+				// 'id' 				=> 82,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Deep Blueberry',
-				'order'					=> 6,
+				'order'					=> 18,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Muffin mit Blaubeeren',
@@ -1504,10 +1718,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 73,
+				// 'id' 				=> 83,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Chocolate Muffin',
-				'order'					=> 7,
+				'order'					=> 19,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Schokoladenmuffin',
@@ -1529,10 +1743,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 74,
+				// 'id' 				=> 84,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Crispy Caramel Donut',
-				'order'					=> 8,
+				'order'					=> 20,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'leckerer Crispy Caramel Donut',
@@ -1549,10 +1763,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 75,
+				// 'id' 				=> 85,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Milka Schoko-Donut',
-				'order'					=> 8,
+				'order'					=> 21,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'leckerer Schoko-Donut mit Milka-Alpenmilchschokolade',
@@ -1574,10 +1788,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 76,
+				// 'id' 				=> 86,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Paprika',
-				'order'					=> 9,
+				'order'					=> 22,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Paprika. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1594,10 +1808,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 77,
+				// 'id' 				=> 87,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Salt & Vinegar',
-				'order'					=> 10,
+				'order'					=> 23,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Salt & Vinegar. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1614,10 +1828,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 78,
+				// 'id' 				=> 88,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Cheese & Onion',
-				'order'					=> 11,
+				'order'					=> 24,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Cheese & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1634,10 +1848,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 79,
+				// 'id' 				=> 89,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Salted',
-				'order'					=> 12,
+				'order'					=> 25,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Gesalzen. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1654,10 +1868,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 80,
+				// 'id' 				=> 90,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Barbecue',
-				'order'					=> 13,
+				'order'					=> 26,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Barbecue. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1674,10 +1888,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 81,
+				// 'id' 				=> 91,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Lays Chips Sourcream & Onion',
-				'order'					=> 14,
+				'order'					=> 27,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Sourcream & Onion. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1695,10 +1909,10 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 82,
+				// 'id' 				=> 92,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Nacho Cheese',
-				'order'					=> 15,
+				'order'					=> 28,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Doritos Nacho Cheese. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1715,10 +1929,10 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 83,
+				// 'id' 				=> 93,
 				'category_model_id'		=> 5,
 				'title' 				=> 'Doritos Sweet Chili Pepper',
-				'order'					=> 16,
+				'order'					=> 29,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> 'Geschmacksrichtung: Doritos Sweet Chili Pepper. Die legendären Chips aus Texas USA: Lays * Food for the fun of it *.',
@@ -1740,7 +1954,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 84,
+				// 'id' 				=> 94,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola',
 				'order'					=> 0,
@@ -1760,7 +1974,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 85,
+				// 'id' 				=> 95,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Coca Cola Light',
 				'order'					=> 1,
@@ -1780,7 +1994,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 86,
+				// 'id' 				=> 96,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Fanta',
 				'order'					=> 2,
@@ -1800,7 +2014,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 87,
+				// 'id' 				=> 97,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Sprite',
 				'order'					=> 3,
@@ -1821,7 +2035,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 88,
+				// 'id' 				=> 98,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apfelschorle',
 				'order'					=> 4,
@@ -1841,7 +2055,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 89,
+				// 'id' 				=> 99,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Pfirsich',
 				'order'					=> 5,
@@ -1862,7 +2076,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 90,
+				// 'id' 				=> 100,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Nestea Zitrone',
 				'order'					=> 6,
@@ -1882,7 +2096,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 91,
+				// 'id' 				=> 101,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Classic',
 				'order'					=> 7,
@@ -1902,7 +2116,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 92,
+				// 'id' 				=> 102,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Apollinaris Medium',
 				'order'					=> 8,
@@ -1922,7 +2136,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 93,
+				// 'id' 				=> 103,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 9, 
@@ -1942,7 +2156,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 94,
+				// 'id' 				=> 104,
 				'category_model_id'		=> 6,
 				'title' 				=> 'Vio Mineralwasser',
 				'order'					=> 10,
@@ -1966,7 +2180,7 @@ class ArticleModelSeeder extends Seeder {
 
 
 			array (
-				// 'id' 				=> 95,
+				// 'id' 				=> 105,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Genußvolle',
 				'order'					=> 3,
@@ -1986,7 +2200,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 96,
+				// 'id' 				=> 106,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Klassische',
 				'order'					=> 4,
@@ -2006,7 +2220,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 97,
+				// 'id' 				=> 107,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Leichte',
 				'order'					=> 5,
@@ -2026,7 +2240,7 @@ class ArticleModelSeeder extends Seeder {
 				),
 
 			array (
-				// 'id' 				=> 98,
+				// 'id' 				=> 108,
 				'category_model_id'		=> 7,
 				'title' 				=> 'Die Vegetarische',
 				'order'					=> 6,

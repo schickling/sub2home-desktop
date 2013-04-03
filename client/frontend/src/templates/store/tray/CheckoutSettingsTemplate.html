@@ -47,7 +47,7 @@
 		</div>
 
 	</div>
-	<button id="save" class="btn btnSuccess">Fertig</button>
+	<button id="save" class="btn btnSuccess">Weiter</button>
 </div>
 <div id="paymentSettings">
 	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" id="bar" <% if (selectedPaymentMethod === 'cash') { %>class="selected"<% } %>>Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" id="ecCard" <% if (selectedPaymentMethod === 'ec') { %>class="selected"<% } %>>mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" id="paypal" <% if (selectedPaymentMethod === 'paypal') { %>class="selected"<% } %>>via PayPal</span><% } %>

@@ -29,7 +29,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 1,
 				'category_model_id'		=> 1,
-				'order'					=> 0,
+				'order'					=> 2,
 				'title' 				=> 'Kids Pak',
 				'description'			=> 'Kids Pak',
 				'largeImage'			=> 'img/static/menubundles/largeimages/kidspak.png',
@@ -41,7 +41,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 2,
 				'category_model_id'		=> 1,
-				'order'					=> 1,
+				'order'					=> 3,
 				'title' 				=> '24er Cookie-Platte',
 				'description'			=> '24 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
@@ -53,7 +53,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 3,
 				'category_model_id'		=> 1,
-				'order'					=> 2,
+				'order'					=> 4,
 				'title' 				=> '36er Cookie-Platte',
 				'description'			=> '36 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
@@ -65,7 +65,7 @@ class MenuBundleModelSeeder extends Seeder {
 			array (
 				// 'id' 					=> 4,
 				'category_model_id'		=> 1,
-				'order'					=> 3,
+				'order'					=> 5,
 				'title' 				=> '48er Cookie-Platte',
 				'description'			=> '48 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookieplatte-ctr.png',
@@ -76,17 +76,51 @@ class MenuBundleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 5,
-				'category_model_id'		=> 1,
-				'order'					=> 4,
+				'category_model_id'		=> 4,
+				'order'					=> 0,
 				'title' 				=> '3er Cookie-Box',
 				'description'			=> '3 Cookies deiner Wahl',
 				'largeImage'			=> 'img/static/menubundles/largeimages/cookies3er-cdm.png',
 				'smallImage'			=> 'img/static/menubundles/smallimages/cookies3er-cdm.png',
 				'price'					=> 2.19,
 				'isPublished'			=> true
+				),
+
+			array (
+				// 'id' 					=> 6,
+				'category_model_id'		=> 4,
+				'order'					=> 1,
+				'title' 				=> '12er Cookie-Box',
+				'description'			=> '12 Cookies deiner Wahl',
+				'largeImage'			=> 'img/static/menubundles/largeimages/cookiebox-cdm.png',
+				'smallImage'			=> 'img/static/menubundles/smallimages/cookiebox-cdm.png',
+				'price'					=> 5.19,
+				'isPublished'			=> true
+				),
+
+			array (
+				// 'id' 					=> 7,
+				'category_model_id'		=> 1,
+				'order'					=> 0,
+				'title' 				=> 'Kleines Eröffnungsangebot',
+				'description'			=> '2 Footlong-Sandwiches & 2 Cookies deiner Wahl',
+				'largeImage'			=> 'img/static/menubundles/largeimages/eroeffnungKl.png',
+				'smallImage'			=> 'img/static/menubundles/smallimages/eroeffnungKl.png',
+				'price'					=> 12.00,
+				'isPublished'			=> true
+				),
+
+			array (
+				// 'id' 					=> 8,
+				'category_model_id'		=> 1,
+				'order'					=> 1,
+				'title' 				=> 'Großes Eröffnungsangebot',
+				'description'			=> '3 Footlong-Sandwiches & 6 Cookies deiner Wahl',
+				'largeImage'			=> 'img/static/menubundles/largeimages/eroeffnungGr.png',
+				'smallImage'			=> 'img/static/menubundles/smallimages/eroeffnungGr.png',
+				'price'					=> 19.00,
+				'isPublished'			=> true
 				)
-
-
 			);
 	}
 }
