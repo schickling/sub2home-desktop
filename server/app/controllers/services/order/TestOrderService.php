@@ -53,12 +53,15 @@ class TestOrderService
 
 		// create balance order
 		if ($isBalanced) {
+			
 			$creditModel = new CreditModel();
 			$creditModel->total = $orderModel->total;
 			$creditModel->isAccepted = true;
 			$creditModel->description = 'Testbestellung';
 
 			$orderModel->creditModel()->save($creditModel);
+
+			$creditModel->confirm();
 
 		}
 	}

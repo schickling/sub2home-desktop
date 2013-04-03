@@ -1,8 +1,10 @@
-<?php namespace App\Controllers\Jobs;
+<?php namespace App\Controllers\Jobs\Order;
+
+use App\Controllers\Jobs\BaseJob;
 
 use App\Models\OrderModel;
 
-class ProcessNewOrderJob extends BaseJob {
+class ProcessOrderJob extends BaseJob {
 
 	private $orderModel;
 
@@ -16,6 +18,7 @@ class ProcessNewOrderJob extends BaseJob {
 		}
 
 		$this->updateHowOftenAnItemWasBuyed();
+		$this->assignToInvoiceOfMatchingMonth();
 		$this->updateInvoiceOfMatchingMonth();
 
 	}
@@ -52,7 +55,7 @@ class ProcessNewOrderJob extends BaseJob {
 		}
 	}
 
-	private function updateInvoiceOfMatchingMonth()
+	private function assignToInvoiceOfMatchingMonth()
 	{
 		$orderModel = $this->orderModel;
 		$storeModel = $orderModel->storeModel;
@@ -69,10 +72,15 @@ class ProcessNewOrderJob extends BaseJob {
 			$this->throwExecption('No invoice found for current order');
 		}
 
-		// TODO check attach
-		$orderModel->invoice_model_id = $invoiceModel->id;
-		$orderModel->save();
+		$invoiceModel->ordersCollection()->save($orderModel);
 
+	}
+
+	private function updateInvoiceOfMatchingMonth()
+	{
+		$orderModel = $this->orderModel;
+		$invoiceModel = $orderModel->invoiceModel;
+		
 		$invoiceModel->total += $orderModel->total;
 		$invoiceModel->save();
 
@@ -87,6 +95,5 @@ class ProcessNewOrderJob extends BaseJob {
 		$customItemModel->increaseBuyedCounter($toAdd);
 		$customItemModel->save();
 	}
-
 
 }

@@ -118,7 +118,7 @@ define([
 					response.addressModel = new AddressModel(response.addressModel);
 				}
 
-				if (response.hasOwnProperty('creditModel')) {
+				if (response.hasOwnProperty('creditModel') && response.creditModel) {
 					response.creditModel = new CreditModel(response.creditModel);
 				}
 
@@ -234,6 +234,10 @@ define([
 			var number = '00000' + this.get('id');
 
 			return number.substr(number.length - 6);
+		},
+
+		hasCredit: function () {
+			return this.get('creditModel') !== null;
 		}
 
 	});

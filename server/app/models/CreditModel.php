@@ -1,5 +1,7 @@
 <?php namespace App\Models;
 
+use Queue;
+
 /**
  * Credit class
  */
@@ -14,6 +16,23 @@ class CreditModel extends BaseModel
 	public function orderModel()
 	{
 		return $this->belongsTo('App\\Models\\OrderModel');
+	}
+
+	/**
+	 * Confirms the credit
+	 * 
+	 * @return void
+	 */
+	public function confirm()
+	{
+		if ( ! $this->isAccepted) {
+			$this->throwException();
+		}
+
+		$jobData = array('credit_model_id' => $this->id);
+
+		Queue::push('App\\Controllers\\Jobs\\Order\\ProcessCreditJob', $jobData);
+
 	}
 
 }

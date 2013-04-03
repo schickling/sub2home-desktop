@@ -47,8 +47,8 @@ define([
 				isReady = addressModel.get('firstName') && addressModel.get('lastName') && addressModel.get('street'),
 				json = {
 					isReady: isReady,
-					total: cartModel.getTotal() + cartModel.getCredit(),
-					hasCredit: cartModel.getCredit() > 0,
+					total: cartModel.getTotal() + cartModel.getTip(),
+					hasTip: cartModel.getTip() > 0,
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
@@ -119,7 +119,7 @@ define([
 
 
 		/*
-		 * Credit methods
+		 * Tip methods
 		 */
 
 		_showTip: function () {
@@ -136,12 +136,12 @@ define([
 			});
 		},
 
-		_hideCredit: function () {
+		_hideTip: function () {
 			var $credit = this.$('#credit'),
 				$notice = $credit.find('.notice'),
 				orderModel = cartModel.get('orderModel');
 
-			$credit.addClass('hasNoCredit');
+			$credit.addClass('hasNoTip');
 
 			$credit.animate({
 				width: 45
@@ -162,7 +162,7 @@ define([
 			var orderModel = cartModel.get('orderModel');
 
 			if (orderModel.get('tip') <= 0.50) {
-				this._hideCredit();
+				this._hideTip();
 			} else {
 				orderModel.decreaseTip();
 			}

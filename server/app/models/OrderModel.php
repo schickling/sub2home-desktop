@@ -144,7 +144,7 @@ class OrderModel extends BaseModel
 
 		$jobData = array('order_model_id' => $this->id);
 
-		Queue::push('App\\Controllers\\Jobs\\ProcessNewOrderJob', $jobData);
+		Queue::push('App\\Controllers\\Jobs\\Order\\ProcessOrderJob', $jobData);
 		Queue::push('App\\Controllers\\Jobs\\Mail\\SendCustomerOrderConfirmMailJob', $jobData);
 		Queue::push('App\\Controllers\\Jobs\\Mail\\SendStoreOrderNotificationMailJob', $jobData);
 
