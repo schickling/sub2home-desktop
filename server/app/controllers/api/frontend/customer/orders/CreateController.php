@@ -33,6 +33,7 @@ class CreateController extends ApiController
 		$this->input = Input::all();
 
 		$this->checkInput();
+		$this->checkIfPaymentMethodIsAllowed();
 		$this->prepareOrderModel();
 		$this->checkModelIds();
 		$this->prepareRelationships();
@@ -52,7 +53,7 @@ class CreateController extends ApiController
 	private function checkInput()
 	{
 		$rules = array(
-			'paymentMethod'				=> 'alpha|required',
+			'paymentMethod'				=> 'alpha|required|in:cash,ec,paypal',
 			'total'						=> 'min:0|required',
 			'tip'						=> 'min:0|required',
 			'subcardCode'				=> 'alpha_dash',
@@ -62,6 +63,38 @@ class CreateController extends ApiController
 		$this->validateInput($rules);
 
 		$this->validateInputArrayStructure();
+	}
+
+
+	private function checkIfPaymentMethodIsAllowed()
+	{
+		$storeModel = $this->storeModel;
+
+		switch ($this->input['paymentMethod']) {
+
+			case 'cash':
+				if ( ! $storeModel->allowsPaymentCash) {
+					$this->throwException(400);
+				}
+				break;
+
+			case 'ec':
+				if ( ! $storeModel->allowsPaymentEc) {
+					$this->throwException(400);
+				}
+				break;
+
+			case 'paypal':
+				if ( ! $storeModel->allowsPaymentPaypal) {
+					$this->throwException(400);
+				}
+				break;
+			
+			default:
+				$this->throwException(400);
+				break;
+
+		}
 	}
 
 

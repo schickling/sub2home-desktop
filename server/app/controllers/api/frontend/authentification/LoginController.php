@@ -64,7 +64,7 @@ class LoginController extends ApiController
     		$numberOfFailedAttempts++;
     		Cache::put($cacheKey, $numberOfFailedAttempts, 1);
 
-    		$this->throwException();
+    		$this->throwException(401);
     	}
 
 
