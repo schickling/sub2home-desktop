@@ -17,7 +17,7 @@ class OrderModelTable extends Migration {
 			$table->boolean('isDelivered')->default(false);
 			$table->integer('store_model_id')->unsigned()->default(0);
 			$table->integer('invoice_model_id')->unsigned();
-			$table->decimal('credit', 7, 2)->default(0);
+			$table->decimal('tip', 7, 2)->default(0);
 			$table->decimal('total', 7, 2)->default(0);
 			$table->decimal('commissionRate', 2, 2)->default(0);
 			$table->text('comment')->default('');

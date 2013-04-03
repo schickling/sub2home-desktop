@@ -8,9 +8,8 @@ define([
     'notificationcenter',
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
-    'views/store/dashboard/BalanceOrderView',
     'text!templates/store/dashboard/NoOrdersTemplate.html'
-    ], function ($, jqueryRotate, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, BalanceOrderView, NoOrdersTemplate) {
+    ], function ($, jqueryRotate, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
 
 	var OrdersView = Backbone.View.extend({
 
@@ -152,17 +151,10 @@ define([
 		},
 
 		_renderOrder: function (orderModel) {
-			var orderView;
 
-			if (orderModel.isBalanceOrderModel()) {
-				orderView = new BalanceOrderView({
-					model: orderModel
-				});
-			} else {
-				orderView = new OrderView({
-					model: orderModel
-				});
-			}
+			var orderView = new OrderView({
+				model: orderModel
+			});
 
 			if (orderModel.wasCreatedToday()) {
 				this.$ordersToday.append(orderView.el);

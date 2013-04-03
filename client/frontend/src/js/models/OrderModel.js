@@ -30,7 +30,7 @@ define([
 
 			// prices
 			total: 0,
-			credit: 0,
+			tip: 0,
 
 			// customer address
 			addressModel: null,
@@ -44,7 +44,8 @@ define([
 			isDelivered: false,
 			created_at: '',
 			createdDate: null,
-			order_model_id: 0 // id of the balanced order model
+
+			creditModel: null
 		},
 
 		urlRoot: function () {
@@ -169,71 +170,61 @@ define([
 				return 'Kommentar ist zu lang';
 			}
 
-			if (attributes.total < 0 || attributes.credit < 0) {
+			if (attributes.total < 0 || attributes.tip < 0) {
 				return 'Kein erlaubter Wert';
 			}
 		},
 
-		increaseCredit: function () {
-			var credit = this.get('credit'),
+		increaseTip: function () {
+			var tip = this.get('tip'),
 				total = this.get('total'),
-				totalWithCredit = total + credit,
+				totalWithTip = total + tip,
 				step = 0.50,
-				isRound = (totalWithCredit % step) === 0;
+				isRound = (totalWithTip % step) === 0;
 
 			if (isRound) {
-				credit += step;
+				tip += step;
 			} else {
 
 				var benefit = Math.ceil(total) - total;
 
 				if (benefit > step) {
-					credit = benefit - step;
+					tip = benefit - step;
 				} else {
-					credit = benefit;
+					tip = benefit;
 				}
 
 			}
 
 			this.set({
-				credit: credit
+				tip: tip
 			}, {
 				validate: true
 			});
 
 		},
 
-		decreaseCredit: function () {
-			var credit = this.get('credit'),
+		decreaseTip: function () {
+			var tip = this.get('tip'),
 				step = 0.50;
 
-			if (credit >= step) {
-				credit -= step;
+			if (tip >= step) {
+				tip -= step;
 			} else {
-				credit = 0;
+				tip = 0;
 			}
 
 			this.set({
-				credit: credit
+				tip: tip
 			}, {
 				validate: true
 			});
 		},
 
-		isBalanceOrderModel: function () {
-			return this.get('order_model_id') !== 0;
-		},
+		getNumber: function () {
+			var number = '00000' + this.get('id');
 
-		getBalanceOrderNumber: function () {
-			var orderNumber = '00000' + this.get('order_model_id');
-
-			return orderNumber.substr(orderNumber.length - 6);
-		},
-
-		getOrderNumber: function () {
-			var orderNumber = '00000' + this.get('id');
-
-			return orderNumber.substr(orderNumber.length - 6);
+			return number.substr(number.length - 6);
 		}
 
 	});

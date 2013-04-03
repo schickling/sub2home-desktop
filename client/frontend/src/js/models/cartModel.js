@@ -202,10 +202,10 @@ define([
 			return orderModel.get('total');
 		},
 
-		getCredit: function () {
+		getTip: function () {
 			var orderModel = this.get('orderModel');
 
-			return orderModel.get('credit');
+			return orderModel.get('tip');
 		},
 
 		getNumberOfOrderedItems: function () {
@@ -302,7 +302,7 @@ define([
 			orderModel.get('orderedItemsCollection').reset();
 			orderModel.set({
 				total: 0,
-				credit: 0,
+				tip: 0,
 				comment: '',
 				couponCode: '',
 				subcardCode: ''

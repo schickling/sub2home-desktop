@@ -54,7 +54,7 @@ class CreateController extends ApiController
 		$rules = array(
 			'paymentMethod'				=> 'alpha|required',
 			'total'						=> 'min:0|required',
-			'credit'					=> 'min:0|required',
+			'tip'						=> 'min:0|required',
 			'subcardCode'				=> 'alpha_dash',
 			'due_at'					=> 'required'
 			);
@@ -120,7 +120,7 @@ class CreateController extends ApiController
 		// set other order data
 		$this->orderModel->paymentMethod = $this->input['paymentMethod'];
 		$this->orderModel->isDelivered = false;
-		$this->orderModel->credit = $this->input['credit'];
+		$this->orderModel->tip = $this->input['tip'];
 		$this->orderModel->comment = $this->input['comment'];
 		$this->orderModel->subcardCode = $this->input['subcardCode'];
 		$this->orderModel->couponCode = $this->input['couponCode'];
@@ -182,7 +182,7 @@ class CreateController extends ApiController
 	{
 		$arrayStructure = array(
 			'comment',
-			'credit',
+			'tip',
 			'due_at',
 			'paymentMethod',
 			'subcardCode',

@@ -11,11 +11,18 @@ use Request;
 class OrderModel extends BaseModel
 {
 
-	protected $hidden = array('store_model_id', 'updated_at', 'commissionRate');
+	protected $hidden = array(
+		'store_model_id',
+		'updated_at',
+		'commissionRate',
+		'invoice_model_id',
+		'couponCode',
+		'subcardCode'
+		);
 
 	protected $fillable = array(
 		'isDelivered',
-		'credit',
+		'tip',
 		'commissionRate',
 		'comment',
 		'ip',
@@ -65,7 +72,7 @@ class OrderModel extends BaseModel
 	 */
 	public function creditModel()
 	{
-		return $this->hasOne('App\\Models\\CreditModel');
+		return $this->hasOne('App\\Models\\TipModel');
 	}
 
 	/**
@@ -116,7 +123,7 @@ class OrderModel extends BaseModel
 
 		$isValid = $isValid and $this->verifyStore();
 		$isValid = $isValid and $this->verifyMinimumValue();
-		$isValid = $isValid and $this->verifyCredit();
+		$isValid = $isValid and $this->verifyTip();
 		$isValid = $isValid and $this->verifyMenus();
 		$isValid = $isValid and $this->verifyOrderedArticles();
 		$isValid = $isValid and $this->verifyDueDate();
@@ -174,9 +181,9 @@ class OrderModel extends BaseModel
 		return $this->total >= $matchingDeliveryAreaModel->minimumValue;
 	}
 
-	private function verifyCredit()
+	private function verifyTip()
 	{
-		return $this->credit >= 0;
+		return $this->tip >= 0;
 	}
 
 	private function verifyMenus()

@@ -17,9 +17,9 @@ define([
 		events: {
 			'click .orderNow': '_checkout',
 			'click #iAGB': '_acceptAGB',
-			'click #credit.hasNoCredit': '_showCredit',
-			'click #credit .bAdd': '_increaseCredit',
-			'click #credit .bRemove': '_decreaseCredit'
+			'click #credit.hasNoCredit': '_showTip',
+			'click #credit .bAdd': '_increaseTip',
+			'click #credit .bRemove': '_decreaseTip'
 		},
 
 		initialize: function () {
@@ -122,7 +122,7 @@ define([
 		 * Credit methods
 		 */
 
-		_showCredit: function () {
+		_showTip: function () {
 			var $credit = this.$('#credit'),
 				$notice = $credit.find('.notice'),
 				self = this;
@@ -131,7 +131,7 @@ define([
 				$credit.animate({
 					width: 100
 				}, 300, function () {
-					self._increaseCredit();
+					self._increaseTip();
 				});
 			});
 		},
@@ -147,24 +147,24 @@ define([
 				width: 45
 			}, 300, function () {
 				$notice.fadeIn(100, function () {
-					orderModel.decreaseCredit();
+					orderModel.decreaseTip();
 				});
 			});
 		},
 
-		_increaseCredit: function () {
+		_increaseTip: function () {
 			var orderModel = cartModel.get('orderModel');
 
-			orderModel.increaseCredit();
+			orderModel.increaseTip();
 		},
 
-		_decreaseCredit: function () {
+		_decreaseTip: function () {
 			var orderModel = cartModel.get('orderModel');
 
-			if (orderModel.get('credit') <= 0.50) {
+			if (orderModel.get('tip') <= 0.50) {
 				this._hideCredit();
 			} else {
-				orderModel.decreaseCredit();
+				orderModel.decreaseTip();
 			}
 
 		},

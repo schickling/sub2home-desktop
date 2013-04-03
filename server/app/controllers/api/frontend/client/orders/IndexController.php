@@ -24,6 +24,7 @@ class IndexController extends StoreRelatedApiController
 
 			$ordersCollection = $this->storeModel->ordersCollection()
 													->with('addressModel')
+													->with('creditModel')
 													->orderBy('id', 'desc')
 													->orderBy('created_at', 'desc')
 													->skip($offset)
@@ -34,6 +35,7 @@ class IndexController extends StoreRelatedApiController
 			
 			$matchingOrdersCollectionById = $this->storeModel->ordersCollection()
 																->with('addressModel')
+																->with('creditModel')
 																->where('id', $search)
 																->get();
 
