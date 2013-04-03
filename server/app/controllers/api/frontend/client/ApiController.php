@@ -46,8 +46,8 @@ abstract class ApiController extends BaseApiController
 			return $this->clientModelId;
 		}
 
-		$token = $this->getToken();
-		$clientModelId = Cache::get($token);
+		$cacheKey = sprintf('session_%s', $this->getToken());
+		$clientModelId = Cache::get($cacheKey);
 
 		if (!$clientModelId) {
 			$this->throwException(401);

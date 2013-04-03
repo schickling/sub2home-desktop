@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Services;
+<?php namespace App\Controllers\Api\Services\Payment\Paypal;
 
 use App\Controllers\Api\Common\BaseApiController;
 use Input;
@@ -11,10 +11,10 @@ use App\Models\StoreModel;
 /**
 * 
 */
-class PaypalController extends BaseApiController
+class SaveTokenController extends BaseApiController
 {
 
-	public function saveToken()
+	public function route()
 	{
 		// validate input
 		$input = Input::all();
@@ -30,15 +30,16 @@ class PaypalController extends BaseApiController
 
 
 		// check if token still valid
-		$store_model_id = Cache::get($token);
+		$cacheKey = sprintf('paypal_request_permission_%s', $token);
+		$storeModelId = Cache::get($cacheKey);
 
-		if (!$store_model_id) {
+		if (!$storeModelId) {
 			$this->throwException(400);
 		}
 
 
 		// write data to store model
-		$storeModel = StoreModel::find($store_model_id);
+		$storeModel = StoreModel::find($storeModelId);
 		$this->checkModelFound($storeModel);
 
 		// create auth header
@@ -53,16 +54,6 @@ class PaypalController extends BaseApiController
 		$storeModel->save();
 
 		return Redirect::to($storeModel->alias . '/einstellungen');
-	}
-
-	public function confirmOrder()
-	{
-		
-	}
-
-	public function notify()
-	{
-		
 	}
 
 }

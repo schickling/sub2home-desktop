@@ -44,7 +44,8 @@ class PaypalService implements PaymentInterface
 		$token = $response['token'];
 
 		// Cache token with store id
-		Cache::put($token, $store_model_id, 50);
+		$cacheKey = sprintf('paypal_request_permission_%s', $token);
+		Cache::put($cacheKey, $store_model_id, 50);
 
 		return static::getFrontendUrl() . 'cmd=_grant-permission&request_token=' . $token;
 	}

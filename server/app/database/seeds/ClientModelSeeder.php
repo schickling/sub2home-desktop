@@ -49,7 +49,7 @@ class ClientModelSeeder extends Seeder {
 
 		$storeData = array(
 			'title' => 'Memmingen',
-			'orderEmail' => 'office@my-sub.de',
+			'orderEmail' => 'lieferservice@my-sub.de',
 			'number' => 1000,
 			'commissionRate' => 0.05,
 			'isActive' => true,

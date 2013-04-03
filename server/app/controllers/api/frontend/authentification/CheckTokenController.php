@@ -1,9 +1,8 @@
 <?php namespace App\Controllers\Api\Frontend\Authentification;
 
 use Cache;
-use App\Models\ClientModel;
 
-class CheckTokenController extends ApiController
+class CheckTokenController extends AuthentificationController
 {
 
     /**
@@ -13,10 +12,11 @@ class CheckTokenController extends ApiController
      */
     public function route()
     {
-    	$token = $this->getToken();
-    	$tokenIsCached = Cache::has($token);
 
-        if (!$tokenIsCached) {
+        $cacheKey = sprintf('session_%s', $this->getToken());
+        $cacheHasKey = Cache::has($cacheKey);
+
+        if ( ! $cacheHasKey) {
             $this->throwException(401);
         }
 

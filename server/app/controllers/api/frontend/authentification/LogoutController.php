@@ -1,20 +1,20 @@
 <?php namespace App\Controllers\Api\Frontend\Authentification;
 
 use Cache;
-use App\Models\ClientModel;
 
-class LogoutController extends ApiController
+class LogoutController extends AuthentificationController
 {
 
     public function route()
     {
     	$token = $this->getToken();
 
-    	if (!$token) {
-    		$this->throwException();
+    	if ( ! $token) {
+    		$this->throwException(400);
     	}
 
-		Cache::forget($token);
+    	$cacheKey = sprintf('session_%s', $token);
+		Cache::forget($cacheKey);
 
         return $this->respond(204);
     }

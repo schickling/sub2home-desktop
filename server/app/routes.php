@@ -117,9 +117,9 @@ Route::post('api/services/decode',										'App\Controllers\Api\Services\Decode
 Route::group(array('https'), function()
 {
 	// paypal
-	Route::get('api/services/paypal/savetoken',							'App\Controllers\Api\Services\PaypalController@saveToken');
-	Route::get('api/services/paypal/confirmorder',						'App\Controllers\Api\Services\PaypalController@confirmOrder');
-	Route::get('api/services/paypal/notify',							'App\Controllers\Api\Services\PaypalController@notify');
+	Route::get('api/services/paypal/savetoken',							'App\Controllers\Api\Services\Payment\Paypal\SaveTokenController@route');
+	Route::get('api/services/paypal/confirmorder',						'App\Controllers\Api\Services\Payment\Paypal\Controller@confirmOrder');
+	Route::get('api/services/paypal/notify',							'App\Controllers\Api\Services\Payment\Paypal\Controller@notify');
 });
 
 

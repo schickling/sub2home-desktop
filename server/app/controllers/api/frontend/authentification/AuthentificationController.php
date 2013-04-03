@@ -6,7 +6,7 @@ use App\Controllers\Api\Common\BaseApiController;
 /**
 * 
 */
-abstract class ApiController extends BaseApiController
+abstract class AuthentificationController extends BaseApiController
 {
 
 }

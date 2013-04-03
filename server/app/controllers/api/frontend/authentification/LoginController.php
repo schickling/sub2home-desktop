@@ -7,82 +7,121 @@ use Cache;
 use App\Models\ClientModel;
 
 
-class LoginController extends ApiController
+class LoginController extends AuthentificationController
 {
 
-    // number of how many failed attempts are allowed
+	// number of how many failed attempts are allowed
 	private $limitOfFailedAttempts = 5;
 
-    // periode how long a token is valid
-    private $periodOfValidity = 4320; // 3 days
+	// periode how long a token is valid
+	private $periodOfValidity = 4320; // 3 days
 
-    /**
-     * Logs in a user and stores the generated token in the cache
-     * 
-     * @return Response
-     */
-    public function route()
-    {   
-        // validate input
-        $input = Input::all();
+	private $clientModel;
 
-    	$rules = array(
-    		'number'	=> 'numeric|between:1000,9999|required',
-    		'password'	=> 'min:8|required'
-    		);
+	private $token;
 
-    	$this->validateInput($rules);
-        
-        $number = $input['number'];
-        $password = $input['password'];
+	/**
+	 * Logs in a user and stores the generated token in the cache
+	 * 
+	 * @return Response
+	 */
+	public function route()
+	{
 
+		$this->checkInput();
+		$this->checkForPreviousFailedAttempts();
+		$this->findClientModel();
+		$this->checkPassword();
+		$this->createToken();
 
-        // check for failed attempts
-    	$ip = Request::getClientIp();
-    	$cacheKey = 'attempt_' . $number . '_from_' . $ip;
-    	$numberOfFailedAttempts = Cache::get($cacheKey, 0);
+		$json = json_encode(array(
+			'token' => $this->token
+			));
 
-    	if ($numberOfFailedAttempts >= $this->limitOfFailedAttempts) {
+		return $this->respond(200, $json);
 
-    		$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
-    		Cache::put($cacheKey, $numberOfFailedAttempts, $exponentialWaitingTime);
+	}
 
-    		$this->throwException(429);
-    	}
+	private function checkInput()
+	{
+		$rules = array(
+			'number'	=> 'numeric|between:1000,9999|required',
+			'password'	=> 'min:8|required'
+			);
 
+		$this->validateInput($rules);
+	}
 
-        // search client
-    	$clientModel = ClientModel::where('number', $number)->first();
+	private function checkForPreviousFailedAttempts()
+	{
+		$numberOfFailedAttempts = $this->getNumberOfFailedAttempts();
 
-        $this->checkModelFound($clientModel);
+		if ($numberOfFailedAttempts >= $this->limitOfFailedAttempts) {
 
-        // check password
-    	$passwordMatched = Hash::check($password, $clientModel->hashedPassword);
+			$exponentialWaitingTime = (int) pow(1.5, $numberOfFailedAttempts);
+			$this->increaseNumberOfFailedAttempts($exponentialWaitingTime);
 
-    	if (!$passwordMatched) {
-            // cache failed attempt to prevent brute forcing
-    		$numberOfFailedAttempts++;
-    		Cache::put($cacheKey, $numberOfFailedAttempts, 1);
+			$this->throwException(429);
+		}
 
-    		$this->throwException(401);
-    	}
+	}
 
+	private function findClientModel()
+	{
+		$number = Input::get('number');
 
-        // create, cache and return token
-        $token = md5(uniqid($clientModel->id, true)); // token is unique
+		$this->clientModel = ClientModel::where('number', $number)->first();
+		$this->checkModelFound($this->clientModel);
+	}
 
-        // use token as key and client model id as value
-        Cache::put($token, $clientModel->id, $this->periodOfValidity);
+	private function checkPassword()
+	{
+		$password = Input::get('password');
+		$passwordMatched = Hash::check($password, $this->clientModel->hashedPassword);
 
+		if ( ! $passwordMatched) {
 
-        $json = json_encode(array(
-            'token' => $token
-            ));
+			// cache failed attempt to prevent brute forcing
+			$this->increaseNumberOfFailedAttempts();
 
+			$this->throwException(401);
+		}
+	}
 
-        return $this->respond(200, $json);
+	private function createToken()
+	{
+		$clientModelId = $this->clientModel->id;
+		$this->token = md5(uniqid($clientModelId, true)); // token is unique
 
-    }
+		// use token as key and client model id as value
+		Cache::put($this->getCacheKeyForSession(), $clientModelId, $this->periodOfValidity);
 
+	}
+
+	private function getNumberOfFailedAttempts()
+	{
+		return Cache::get($this->getCacheKeyForFailedAttempt(), 0);
+	}
+
+	private function increaseNumberOfFailedAttempts($expirationTime = 1)
+	{
+		$cacheKey = $this->getCacheKeyForFailedAttempt();
+		$numberOfFailedAttempts = $this->getNumberOfFailedAttempts();
+
+		Cache::put($cacheKey, $numberOfFailedAttempts + 1, $expirationTime);
+	}
+
+	private function getCacheKeyForFailedAttempt()
+	{
+		$number = Input::get('number');
+		$ip = Request::getClientIp();
+
+		return sprintf('failed_login_attempt_%s_from_%s', $number, $ip);
+	}
+
+	private function getCacheKeyForSession()
+	{	
+		return sprintf('session_%s', $this->token);
+	}
 
 }
