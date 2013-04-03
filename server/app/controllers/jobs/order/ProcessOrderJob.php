@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Jobs\Order;
 
 use App\Controllers\Jobs\BaseJob;
-
 use App\Models\OrderModel;
 
 class ProcessOrderJob extends BaseJob {
