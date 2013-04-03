@@ -59,13 +59,13 @@ class OrderModel extends BaseModel
 	}
 
 	/**
-	 * Returns the balance order model (if exists)
+	 * Returns the credit model (if exists)
 	 * 
 	 * @return object
 	 */
-	public function balanceOrderModel()
+	public function creditModel()
 	{
-		return $this->hasOne('App\\Models\\OrderModel');
+		return $this->hasOne('App\\Models\\CreditModel');
 	}
 
 	/**
@@ -93,13 +93,6 @@ class OrderModel extends BaseModel
 		$this->throwException('Total has to be calculated');
 	}
 
-	public function setBalance($total)
-	{
-		if ($this->isBalance()) {
-			$this->attributes['total'] = $total;
-		}
-	}
-
 	public function calculateTotal()
 	{
 		$total = 0;
@@ -119,10 +112,6 @@ class OrderModel extends BaseModel
 	 */
 	public function isValid()
 	{
-		if ($this->isBalance()) {
-			return true;
-		}
-
 		$isValid = true;
 
 		$isValid = $isValid and $this->verifyStore();
@@ -142,7 +131,7 @@ class OrderModel extends BaseModel
 	 */
 	public function confirm()
 	{
-		if (!$this->isValid() or $this->isBalance()) {
+		if ( ! $this->isValid()) {
 			$this->throwException();
 		}
 
@@ -247,11 +236,6 @@ class OrderModel extends BaseModel
 		}
 
 		return $isInFuture and $matchesDeliveryTimes;
-	}
-
-	public function isBalance()
-	{
-		return $this->balanceOrderModel != null;
 	}
 
 }

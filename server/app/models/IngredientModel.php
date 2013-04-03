@@ -28,7 +28,6 @@ class IngredientModel extends ItemModel
 		'shortcut',
 		'smallImage',
 		'largeImage',
-		'icon',
 		'price',
 		'isPublished',
 		'ingredient_category_model_id'
