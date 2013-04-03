@@ -76,7 +76,7 @@ class MenuBundleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 5,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'order'					=> 0,
 				'title' 				=> '3er Cookie-Box',
 				'description'			=> '3 Cookies deiner Wahl',
@@ -88,7 +88,7 @@ class MenuBundleModelSeeder extends Seeder {
 
 			array (
 				// 'id' 					=> 6,
-				'category_model_id'		=> 4,
+				'category_model_id'		=> 5,
 				'order'					=> 1,
 				'title' 				=> '12er Cookie-Box',
 				'description'			=> '12 Cookies deiner Wahl',

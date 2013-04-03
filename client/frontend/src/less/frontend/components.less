@@ -593,9 +593,9 @@ img.cookie    { margin: 0 -10px;}
       top: 1px;
       white-space: nowrap;
       margin: 0;
-      img {
-        left: -2px;
-      }
+      // img {
+      //   left: -2px;
+      // }
     }
 
     .itemsTimeline {
@@ -4321,16 +4321,16 @@ div#payment {
 }
 
 #timelineNote #stageTimeline .itemsTimeline:first-child .itemTimeline:first-child {
-  width: auto;
-  cursor: default;
-  img {
-    top: 15px;
-    position: absolute;
-    height: 43px;
-    width: auto;
-    left: auto;
-    right: 0;
-  }
+  // width: auto;
+  // cursor: default;
+  // img {
+  //   top: 15px;
+  //   position: absolute;
+  //   height: 43px;
+  //   width: auto;
+  //   left: auto;
+  //   right: 0;
+  // }
 }
 
 // TIMELINE CONTENT
@@ -4385,15 +4385,15 @@ div#payment {
   padding: 100px 8% 50px;
   .positioned;
   background: @noteBackground;
-  &:before {
-    content: " ";
-    height: 7px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -7px;
-    background: @noteTop;
-  }
+  // &:before {
+  //   content: " ";
+  //   height: 7px;
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   top: -7px;
+  //   background: @noteTop;
+  // }
 
   &:after {
     content: " ";
@@ -4654,6 +4654,7 @@ div#payment {
   padding: 50px 0;
   width: 100%;
   overflow: hidden;
+  background: @darkNote;
   #noDeliveriesToday {
     font-family: @headingsFontFamily;
     font-size: 60px;
@@ -4951,7 +4952,7 @@ div#payment {
         right: 10px;
         color: @onDarkNoteColor;
         top: auto;
-        bottom: 4px;
+        bottom: -1px;
         .opacity(0);
         .transition(opacity .1s linear);
         z-index: 10;
@@ -5128,10 +5129,24 @@ div#payment {
 
 #checkoutSettings {
   background: @darkBackground;
+  .positioned;
+  overflow: hidden;
+
   h1 {
     color: @white;
     padding-top: 50px;
   }
+  
+  &:before {
+    content: " ";
+    height: 7px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: @darkNoteBottom;
+  }
+
 }
 // INPUTS
 #deliveryAddressSettings {
