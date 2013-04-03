@@ -23,8 +23,10 @@ class IndexController extends StoreRelatedApiController
 		if ($search == '') {
 
 			$ordersCollection = $this->storeModel->ordersCollection()
-													->with('addressModel')
-													->with('creditModel')
+													->with(array(
+														'addressModel',
+														'creditModel'
+														))
 													->orderBy('id', 'desc')
 													->orderBy('created_at', 'desc')
 													->skip($offset)
@@ -34,8 +36,10 @@ class IndexController extends StoreRelatedApiController
 		} else {
 			
 			$matchingOrdersCollectionById = $this->storeModel->ordersCollection()
-																->with('addressModel')
-																->with('creditModel')
+																->with(array(
+																	'addressModel',
+																	'creditModel'
+																	))
 																->where('id', $search)
 																->get();
 
