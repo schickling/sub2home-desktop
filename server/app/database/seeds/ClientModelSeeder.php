@@ -74,6 +74,13 @@ class ClientModelSeeder extends Seeder {
 			array(
 				'postal'			=> 87700,
 				'city'				=> 'Memmingen',
+				'district'			=> 'Steinheim',
+				'minimumDuration'	=> 30,
+				'minimumValue'		=> 16.00
+				),
+			array(
+				'postal'			=> 87700,
+				'city'				=> 'Memmingen',
 				'district'			=> 'Ind. Geb. Nord',
 				'minimumDuration'	=> 30,
 				'minimumValue'		=> 12.00
