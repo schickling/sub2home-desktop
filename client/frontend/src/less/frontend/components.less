@@ -2750,9 +2750,6 @@ input[type="text"]#locationSelectionInput {
 
          }
       }
-      // &:first-child {
-      //   margin-left: 50px;
-      // }
     }
 
     .turnoverYear:first-child {
@@ -2903,11 +2900,11 @@ input[type="text"]#locationSelectionInput {
 
           // RIGHT ALIGNED CONTENT
 
-          &.orderTimeLimit, &.bPrint, &.orderPaymentMethod, &.orderValue {
+          &.orderTimeLimit, &.bMail, &.orderPaymentMethod, &.orderValue {
             float: right;
           }
 
-          &.bPrint {
+          &.bMail {
             margin-right: 20px;
             color: @grayLighter;
             .transition(color .1s linear);
@@ -2957,7 +2954,7 @@ input[type="text"]#locationSelectionInput {
           padding-right: 40px;
         }
 
-        .printOrder {
+        .mailOrder {
           .border-box;
           position: absolute;
           overflow: hidden;
@@ -2973,7 +2970,7 @@ input[type="text"]#locationSelectionInput {
           .transition(e('background .1s linear, border-color .1s linear'));
 
           &:after {
-            content: "\e06e";
+            content: "\e06b";
             font-family: "Homicons";
             font-size: 150px;
             position: absolute;
