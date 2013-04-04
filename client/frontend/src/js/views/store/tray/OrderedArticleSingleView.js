@@ -73,7 +73,7 @@ define([
 					ingredientModels = ingredientCategoriesCollection.getAllSelectedIngredientModels();
 
 				for (var i = 0; i < ingredientModels.length; i++) {
-					var ingredientTitle = ingredientModels[i].get('title');
+					var ingredientTitle = ingredientModels[i].get('shortTitle');
 
 					if (i > 0) {
 						// if penulitmate ingredient
