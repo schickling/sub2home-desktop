@@ -15,7 +15,8 @@ define([
 		className: 'order',
 
 		events: {
-			'click .orderHeader': '_toggleDetailsView'
+			'click .orderHeader': '_toggleDetailsView',
+			'click .orderStatus': '_toggleIsDelivered'
 		},
 
 		initialize: function () {
@@ -39,7 +40,8 @@ define([
 				city: addressModel.get('city'),
 				dueTime: dueTime,
 				dateOrTime: dateOrTime,
-				isDelivered: orderModel.get('isDelivered')
+				isDelivered: orderModel.get('isDelivered'),
+				hasCredit: orderModel.hasCredit()
 			};
 
 			this.$el.html(this.template(json));
@@ -75,6 +77,22 @@ define([
 			} else {
 				return createdMoment.format('DD.MM.YYYY');
 			}
+		},
+
+		_toggleIsDelivered: function () {
+			var isDelivered = !this.model.get('isDelivered'),
+				self = this;
+
+			this.model.save({
+				isDelivered: isDelivered
+			}, {
+				success: function () {
+					self._render();
+				}
+			});
+
+			// prevent detail to toggle
+			return false;
 		}
 
 	});

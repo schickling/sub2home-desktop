@@ -1,7 +1,7 @@
 <div class="orderHeader">
-	<div class="orderStatus delivered iBtn <% if (isDelivered) { %>bCheck<% } %>"></div>
+	<div class="orderStatus <% if (isDelivered) { %>delivered<% } %> iBtn bCheck"></div>
 	<div class="orderNumber"><%= number %></div>
-	<div class="alertOrder iBtn bBell"></div>
+	<div class="alertOrder iBtn bBell <% if (hasCredit) { %>claimed<% } %>"></div>
 	<div class="orderTime"><%= dateOrTime %></div>
 	<div class="orderDestination"><%= postal %> <%= city %></div>
 
