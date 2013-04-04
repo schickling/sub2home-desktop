@@ -4890,13 +4890,14 @@ div#payment {
     display: inline-block;
     text-align: right;
     width: 400px;
+    padding: 25px 20px 15px 20px;
     input {
       font-size: 40px;
       line-height: 1;
       border: none;
       width: 86px;
       height: 40px;
-      color: @onDarkNoteColor;
+      color: darken(@onDarkNoteColor, 10%);
     }
     label {
       text-align: left;
@@ -4904,9 +4905,9 @@ div#payment {
       bottom: auto;
       left: auto;
       text-transform: none;
-      color: @onNoteColor;
+      color: darken(@onNoteColor, 7%);
       font-family: @headingsFontFamily;
-      margin-top: 4px;
+      //margin-top: 4px;
       cursor: pointer;
     }
     
