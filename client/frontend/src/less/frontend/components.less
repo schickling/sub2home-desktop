@@ -483,8 +483,13 @@ img.cookie    { margin: 0 -10px;}
       &:first-child {
         margin-left: 0;
       }
-      .icn:before {
-        top: 1px;
+      .icn {
+        &:before {
+          top: 1px;
+        }
+        &.iCatering:before {
+          top: 8px;
+        }
       }
       .iSnacks {
         .positioned;
@@ -1554,12 +1559,14 @@ input[type="text"]#locationSelectionInput {
       .border-radius(3px);
       border: none;
       #gradient > .vertical(#f4d68d,#e6ba4e);
+      //.buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundCenter, 50%, @btnSuccessBackgroundHighlight, @btnSuccessColor, @btnMoreTextShadow);
       .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
       text-align: center;
       &:before {
         top: 13px;
         font-size: 50px;
         color: #ae7f0f;
+        //color: @greenLight;
         text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(#ae7f0f, 15%);
         .transition(top .1s linear);
       }
