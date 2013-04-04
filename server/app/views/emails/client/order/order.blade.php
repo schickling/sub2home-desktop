@@ -13,29 +13,31 @@
       <!-- Logo Row -->
 
       <tr>
-        <td style="padding-left: 20px">
+        <td colspan="2" style="padding-left: 20px">
           <h2 style="font-size: 24px">Bestellung #{{ $orderNumber }}</h2>
         </td>
-        <td style="text-align: right; padding-right: 30px; padding-bottom: 24px;"><img src="http://sub2home.com/img/static/common/subway_logo.png"></td>
+        <td style="text-align: right; padding-right: 30px; padding-bottom: 24px; width: 200px;"><img src="http://sub2home.com/img/static/common/subway_logo.png"></td>
       </tr>
-
-      <!-- Address & sub2home-Info Row -->
+      <!-- Address -->
       <tr>
-        <td colspan="2" style="font-size: 24px;">Bis {{ $dueTime }}Uhr</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="width: 317px; line-height: 1.5; padding-left: 20px;">
-          An<br>
-          <b>{{ $customerFirstName }} {{ $customerLastName }}</b><br>
-          {{ $customerStreet }}<br>
-          {{ $customerPostal }} {{ $customerCity }}<br>
-          {{ $customerEmail }} {{ $customerPhone }}
+        <td colspan="3" style="line-height: 1.2; padding-left: 23px;">
+          An&nbsp;<b>{{ $customerFirstName }} {{ $customerLastName }}</b><br><br>
         </td>
       </tr>
       <tr>
-        <td colspan="2">Kommentar</td>
+        <td style="line-height: 1.2; width: 200px; padding-left: 23px; padding-bottom: 20px;">
+          {{ $customerStreet }}<br>
+          {{ $customerPostal }} {{ $customerCity }}
+        </td>
+        <td colspan="2" style="line-height: 1.2; padding-left: 23px; padding-bottom: 20px; text-decoration: none; color: #000;">
+          {{ $customerEmail }}<br>
+          {{ $customerPhone }}
+        </td>
       </tr>
-        <td colspan="2">{{ $comment }}</td>
+      <tr>
+        <td colspan="3" style="font-size: 24px; padding-left: 20px; padding-bottom: 10px">Bis {{ $dueTime }} Uhr</td>
+      </tr>
+        <td colspan="3" style="padding-left: 20px;" colspan="2">{{ $comment }}</td>
       </tr>
     </tbody>
   </table>
