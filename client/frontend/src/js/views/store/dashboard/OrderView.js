@@ -37,6 +37,7 @@ define([
 
 			var json = {
 				number: orderModel.getNumber(),
+				paymentMethodClass: this._getPaymentMethodClass(),
 				total: orderModel.get('total'),
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),
@@ -81,6 +82,25 @@ define([
 			}
 		},
 
+		_getPaymentMethodClass: function () {
+			var paymentMethod = this.model.get('paymentMethod'),
+				paymentMethodClass;
+
+			switch (paymentMethod) {
+				case 'paypal':
+					paymentMethodClass = 'bPaypal';
+					break;
+				case 'cash':
+					paymentMethodClass = 'bCash';
+					break;
+				case 'ec':
+					paymentMethodClass = 'bEC';
+					break;
+			}
+
+			return paymentMethodClass;
+		},
+
 		_toggleIsDelivered: function () {
 			var isDelivered = !this.model.get('isDelivered'),
 				$isDelivered = this.$('.orderStatus');
@@ -106,7 +126,7 @@ define([
 				success: function () {
 					notificationcenter.notify('views.store.dashboard.resendMail.success');
 				},
-				error: function() {
+				error: function () {
 					notificationcenter.notify('views.store.dashboard.resendMail.error');
 				}
 			});
