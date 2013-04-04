@@ -104,7 +104,6 @@ class OrderedItemModel extends BaseModel
 		$store_model_id = $this->orderModel->storeModel->id;
 		$orderedArticlesCollection = $this->orderedArticlesCollection;
 		$total = (float) $this->baseArticleModel->returnCustomPrice($store_model_id);
-		$total += (float) $this->baseArticleModel->deposit;
 
 		if ($this->isMenu) {
 			if ($this->menuModel instanceof MenuBundleModel) {
@@ -114,11 +113,14 @@ class OrderedItemModel extends BaseModel
 			}
 		}
 
-		// sum up ingredients
 		foreach ($orderedArticlesCollection as $orderedArticleModel) {
+
+			// sum up ingredients
 			foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel) {
 				$total += (float) $ingredientModel->returnCustomPrice($store_model_id);
 			}
+
+			// add deposit
 			$total += (float) $orderedArticleModel->articleModel->deposit;
 		}
 
