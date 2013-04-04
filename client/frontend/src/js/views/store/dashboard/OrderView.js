@@ -18,7 +18,9 @@ define([
 		events: {
 			'click .orderHeader': '_toggleDetailsView',
 			'click .orderStatus': '_toggleIsDelivered',
-			'click .resendmail': '_resendMail'
+			'click .resendmail': '_resendMail',
+			'mouseenter .bMail': '_showResendMailTooltip',
+			'mouseleave .bMail': '_dismissTooltip'
 		},
 
 		initialize: function () {
@@ -134,6 +136,17 @@ define([
 
 			// prevent detail to toggle
 			return false;
+		},
+
+		_showResendMailTooltip: function (e) {
+			var $button = $(e.target),
+				offset = $button.offset();
+
+			notificationcenter.tooltip('views.store.dashboard.resendMail', offset.top + 23, offset.left + 15);
+		},
+
+		_dismissTooltip: function () {
+			notificationcenter.hideTooltip();
 		}
 
 	});
