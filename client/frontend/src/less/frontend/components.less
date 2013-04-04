@@ -2862,9 +2862,14 @@ input[type="text"]#locationSelectionInput {
               color: inherit;
             }
 
-            &:hover, &.delivered {
+            &:hover, &.delivered:hover {
+              color: @greenLighter70;
+            }
+            
+            &.delivered, &:active {
               color: @greenLighter;
             }
+            
           }
 
           &.orderNumber {
