@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\Api\Frontend\Client\Orders;
 
 use App\Controllers\Api\Frontend\Client\ApiController;
-use Input;
+use Queue;
 use Request;
 
 use App\Models\OrderModel;
@@ -9,30 +9,21 @@ use App\Models\OrderModel;
 /**
 * 
 */
-class UpdateController extends ApiController
+class ResendMailController extends ApiController
 {
 	
 	/**
-	 * @PUT('api/frontend/orders/{id}')
+	 * @POST('api/frontend/orders/{id}/resendmail')
 	 */
 	public function route()
 	{
 
-		// check input
-		$input = Input::all();
-		$rules = array(
-			'isDelivered' => 'required|boolean',
-			);
-
-		$this->validateInput($rules);
-
 		// fetch orderModel
 		$orderModel = $this->getResourceModel();
 
-		// update
-		$orderModel->isDelivered = $input['isDelivered'];
+		$jobData = array('order_model_id' => $orderModel->id);
 
-		$orderModel->save();
+		Queue::push('App\\Controllers\\Jobs\\Mail\\SendStoreOrderNotificationMailJob', $jobData);
 
 		return $this->respond(204);
 	}

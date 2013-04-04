@@ -70,6 +70,7 @@ Route::group(array('https'), function()
 	Route::get('api/frontend/stores/{alias}/orders', 					'App\Controllers\Api\Frontend\Client\Orders\IndexController@route');
 	Route::get('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\Client\Orders\ShowController@route');
 	Route::put('api/frontend/orders/{id}', 								'App\Controllers\Api\Frontend\Client\Orders\UpdateController@route');
+	Route::post('api/frontend/orders/{id}/resendmail', 					'App\Controllers\Api\Frontend\Client\Orders\ResendMailController@route');
 	Route::post('api/frontend/stores/{alias}/testorder', 				'App\Controllers\Api\Frontend\Client\Orders\TestOrderController@route');
 
 	// addresses

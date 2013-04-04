@@ -4,9 +4,10 @@ define([
     'underscore',
     'backbone',
     'moment',
+    'notificationcenter',
     'views/store/dashboard/details/OrderDetailsView',
     'text!templates/store/dashboard/OrderTemplate.html'
-    ], function ($, _, Backbone, moment, OrderDetailsView, OrderTemplate) {
+    ], function ($, _, Backbone, moment, notificationcenter, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({
 
@@ -16,7 +17,8 @@ define([
 
 		events: {
 			'click .orderHeader': '_toggleDetailsView',
-			'click .orderStatus': '_toggleIsDelivered'
+			'click .orderStatus': '_toggleIsDelivered',
+			'click .resendmail': '_resendMail'
 		},
 
 		initialize: function () {
@@ -90,6 +92,25 @@ define([
 					$isDelivered.toggleClass('delivered', isDelivered);
 				}
 			});
+
+			// prevent detail to toggle
+			return false;
+		},
+
+		_resendMail: function () {
+			var url = this.model.url() + '/resendmail';
+
+			$.ajax({
+				url: url,
+				type: 'post',
+				success: function () {
+					notificationcenter.notify('views.store.dashboard.resendMail.success');
+				},
+				error: function() {
+					notificationcenter.notify('views.store.dashboard.resendMail.error');
+				}
+			});
+
 
 			// prevent detail to toggle
 			return false;
