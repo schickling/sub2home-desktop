@@ -81,13 +81,13 @@ define([
 
 		_toggleIsDelivered: function () {
 			var isDelivered = !this.model.get('isDelivered'),
-				self = this;
+				$isDelivered = this.$('.orderStatus');
 
 			this.model.save({
 				isDelivered: isDelivered
 			}, {
 				success: function () {
-					self._render();
+					$isDelivered.toggleClass('delivered', isDelivered);
 				}
 			});
 

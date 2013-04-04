@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-	'text!templates/store/dashboard/details/OrderedArticleTemplate.html'
-    ], function ($, _, Backbone, OrderedArticleTemplate) {
+    'views/store/dashboard/details/IngredientCategoriesView',
+    'text!templates/store/dashboard/details/OrderedArticleTemplate.html'
+    ], function ($, _, Backbone, IngredientCategoriesView, OrderedArticleTemplate) {
 
 	var OrderedArticleView = Backbone.View.extend({
 
@@ -17,11 +18,28 @@ define([
 		},
 
 		_render: function () {
-			var json = {
+			var orderedArticleModel = this.model,
+				articleModel = orderedArticleModel.get('articleModel');
 
+			var json = {
+				title: articleModel.get('title')
 			};
 
 			this.$el.html(this.template(json));
+
+			if (articleModel.hasIngredients()) {
+				this._renderIngredientCategories();
+			}
+		},
+
+		_renderIngredientCategories: function () {
+			var articleModel = this.model.get('articleModel'),
+				ingredientCategoriesCollection = articleModel.get('ingredientCategoriesCollection');
+
+			new IngredientCategoriesView({
+				el: this.$('.articleIngredients'),
+				collection: ingredientCategoriesCollection
+			});
 		}
 
 	});

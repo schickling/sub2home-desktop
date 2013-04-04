@@ -18,11 +18,13 @@ define([
 		},
 
 		_render: function () {
-			var json = {
-				amount: this.model.get('amount'),
-				isMenu: false,
-				menuTitle: 'Spar Menu'
-			};
+			var amount = this.model.get('amount'),
+				json = {
+					amount: amount,
+					total: this.model.get('total') / amount,
+					isMenu: false,
+					menuTitle: 'Spar Menu'
+				};
 
 			this.$el.html(this.template(json));
 

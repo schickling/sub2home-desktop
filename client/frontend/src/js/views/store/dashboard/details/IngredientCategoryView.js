@@ -1,31 +1,33 @@
-// Filename: src/js/views/store/dashboard/details/OrderedArticleView.js
+// Filename: src/js/views/store/dashboard/details/IngredientCategoryView.js
 define([
     'jquery',
     'underscore',
-    'backbone',
-	'text!templates/store/dashboard/details/OrderedArticleTemplate.html'
-    ], function ($, _, Backbone, OrderedArticleTemplate) {
+    'backbone'
+    ], function ($, _, Backbone) {
 
-	var OrderedArticleView = Backbone.View.extend({
+	var IngredientCategoryView = Backbone.View.extend({
 
-		className: 'orderedArticle',
-
-		template: _.template(OrderedArticleTemplate),
+		className: 'ingredientCategory',
 
 		initialize: function () {
 			this._render();
 		},
 
 		_render: function () {
-			var json = {
 
-			};
+			this.$el.html('test');
 
-			this.$el.html(this.template(json));
+			// this.$el.addClass();
+
+			this._renderIngredients();
+		},
+
+		_renderIngredients: function () {
+			var ingredientsCollection = null;
 		}
 
 	});
 
-	return OrderedArticleView;
+	return IngredientCategoryView;
 
 });
