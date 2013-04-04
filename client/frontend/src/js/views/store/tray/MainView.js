@@ -34,6 +34,7 @@ define([
 		},
 
 		// cached dom
+		$checkoutSettings: null,
 		$trayNote: null,
 
 		initialize: function () {
@@ -84,17 +85,13 @@ define([
 				});
 
 				new CheckoutSettingsView({
-					el: this.$('#checkoutSettings')
+					el: this.$checkoutSettings
 				});
 
 			} else {
 
 				new NoDeliveryView({
 					el: this.$('#checkoutControls')
-				});
-
-				this.$('#trayNote').css({
-					top: 0
 				});
 
 			}
@@ -104,20 +101,41 @@ define([
 		},
 
 		_cacheDom: function () {
+			this.$checkoutSettings = this.$('#checkoutSettings');
 			this.$trayNote = this.$('#trayNote');
 		},
 
 		_showCheckoutSettings: function () {
-			this.$trayNote.animate({
-				top: 0,
-				scrollTop: 0
+
+			var $checkoutSettings = this.$checkoutSettings,
+				$trayNote = this.$trayNote;
+
+			$checkoutSettings.css({
+				height: 'auto'
 			});
+
+			var scrollTop = $trayNote.scrollTop() + $checkoutSettings.height();
+
+			$trayNote.animate({
+				scrollTop: scrollTop
+			});
+
 		},
 
 		_hideCheckoutSettings: function () {
-			this.$trayNote.animate({
-				top: -535
+
+			var $checkoutSettings = this.$checkoutSettings,
+				$trayNote = this.$trayNote,
+				scrollTop = $trayNote.scrollTop() - $checkoutSettings.height();
+
+			$trayNote.animate({
+				scrollTop: scrollTop
+			}, function () {
+				$checkoutSettings.css({
+					height: 0
+				});
 			});
+
 		},
 
 		_storeIsDelivering: function () {
