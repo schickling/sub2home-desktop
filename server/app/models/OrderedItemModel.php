@@ -12,6 +12,12 @@ class OrderedItemModel extends BaseModel
 
 	protected $table = 'ordered_item_models';
 
+	protected $hidden = array(
+		'menu_bundle_model_id',
+		'menu_upgrade_model_id',
+		'order_model_id'
+		);
+
 	public function __construct(array $attributes = array())
 	{
 		parent::__construct();

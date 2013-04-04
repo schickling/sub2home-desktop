@@ -4,6 +4,7 @@ use App\Controllers\Api\Frontend\Client\ApiController;
 use Request;
 
 use App\Models\OrderModel;
+use App\Models\IngredientCategoryModel;
 
 /**
 * 
@@ -21,10 +22,7 @@ class ShowController extends ApiController
 
 		foreach ($orderModel->orderedItemsCollection as $orderedItemModel) {
 			foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel) {
-				$ingredientsCollection = $orderedArticleModel->ingredientsCollection;
-				$articleModel = $orderedArticleModel->articleModel;
-				$articleModel->setRelation('ingredientsCollection', $ingredientsCollection);
-				unset($orderedArticleModel->ingredientsCollection);
+				$this->wrapIngredientsInCategories($orderedArticleModel);
 			}
 		}
 
@@ -45,13 +43,55 @@ class ShowController extends ApiController
 		$id = Request::segment(4);
 
 		return OrderModel::with(array(
-			'orderedItemsCollection',
-			'orderedItemsCollection.orderedArticlesCollection',
-			'orderedItemsCollection.orderedArticlesCollection.articleModel',
-			'orderedItemsCollection.orderedArticlesCollection.ingredientsCollection',
-			'addressModel'
-			))
-		->find($id);
+								'orderedItemsCollection',
+								'orderedItemsCollection.orderedArticlesCollection',
+								'orderedItemsCollection.orderedArticlesCollection.articleModel',
+								'orderedItemsCollection.orderedArticlesCollection.ingredientsCollection',
+								'addressModel'
+								))
+							->find($id);
+	}
+
+	private function wrapIngredientsInCategories($orderedArticleModel)
+	{
+		$articleModel = $orderedArticleModel->articleModel;
+		$selectedIngredientsCollectionOfOrderedArticle = $orderedArticleModel->ingredientsCollection;
+
+		$ingredientCategoriesCollection = IngredientCategoryModel::orderBy('order')->get();
+
+		foreach ($ingredientCategoriesCollection as $index => $ingredientCategoryModel) {
+
+			// filter ingredients
+			$filteredIngredientModels = array_filter($selectedIngredientsCollectionOfOrderedArticle->all(), function($ingredientModel) use ($ingredientCategoryModel) {
+				return $ingredientModel->ingredient_category_model_id == $ingredientCategoryModel->id;
+			});
+
+			if (count($filteredIngredientModels) > 0) {
+				$ingredientsCollection = $ingredientCategoryModel->newCollection($filteredIngredientModels);
+
+				// reindex collection
+				$ingredientsCollection->values();
+
+				$ingredientCategoryModel->setRelation('ingredientsCollection', $ingredientsCollection);
+			} else {
+				// TODO: check this, might not work
+				$ingredientCategoriesCollection->offsetUnset($index);
+			}
+
+		}
+
+		// check if collection is empty
+		if ( ! $ingredientCategoriesCollection->isEmpty()) {
+
+			// reindex collection
+			$ingredientCategoriesCollection->values();
+
+			$articleModel->setRelation('ingredientCategoriesCollection', $ingredientCategoriesCollection);
+		}
+
+		unset($articleModel->ingredientsCollection);
+		unset($orderedArticleModel->ingredientsCollection);
+
 	}
 
 

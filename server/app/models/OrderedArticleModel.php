@@ -12,6 +12,11 @@ class OrderedArticleModel extends BaseModel
 
 	protected $table = 'ordered_article_models';
 
+	protected $hidden = array(
+		'article_model_id',
+		'ordered_item_model_id'
+		);
+
 	public function delete()
 	{
 		$this->throwException('Can not delete an ordered article');

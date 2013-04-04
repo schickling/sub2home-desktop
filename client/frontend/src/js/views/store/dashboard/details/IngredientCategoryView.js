@@ -2,12 +2,15 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-    ], function ($, _, Backbone) {
+    'backbone',
+    'text!templates/store/dashboard/details/IngredientCategoryTemplate.html'
+    ], function ($, _, Backbone, IngredientCategoryTemplate) {
 
 	var IngredientCategoryView = Backbone.View.extend({
 
 		className: 'ingredientCategory',
+
+		template: _.template(IngredientCategoryTemplate),
 
 		initialize: function () {
 			this._render();
@@ -15,15 +18,22 @@ define([
 
 		_render: function () {
 
-			this.$el.html('test');
+			var json = {
+				title: this.model.get('title')
+			};
 
-			// this.$el.addClass();
+			this.$el.html(this.template(json));
 
 			this._renderIngredients();
 		},
 
 		_renderIngredients: function () {
-			var ingredientsCollection = null;
+			var ingredientsCollection = this.model.get('ingredientsCollection'),
+				$ingredients = this.$('.ingredients');
+
+			_.each(ingredientsCollection.models, function (ingredientModel) {
+				$ingredients.append('<span>' + ingredientModel.get('shortcut') + '</span>');
+			});
 		}
 
 	});

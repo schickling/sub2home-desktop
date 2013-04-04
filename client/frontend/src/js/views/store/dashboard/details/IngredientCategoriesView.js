@@ -1,10 +1,10 @@
 // Filename: src/js/views/store/dashboard/details/IngredientCategoriesView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/dashboard/details/IngredientCategoryView'
-	], function ($, _, Backbone, IngredientCategoryView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'views/store/dashboard/details/IngredientCategoryView'
+    ], function ($, _, Backbone, IngredientCategoryView) {
 
 	var IngredientCategoriesView = Backbone.View.extend({
 
