@@ -8,8 +8,6 @@ define([
 
 	var IngredientCategoriesView = Backbone.View.extend({
 
-		className: 'slideContainer',
-
 		initialize: function () {
 			var articleModel = this.model.get('articleModel');
 
@@ -17,18 +15,18 @@ define([
 
 				this.collection = articleModel.get('ingredientCategoriesCollection');
 
-				this.render();
+				this._render();
 
 			}
 		},
 
-		render: function () {
+		_render: function () {
 			_.each(this.collection.models, function (ingredientCategoryModel) {
-				this.renderIngredientCategory(ingredientCategoryModel);
+				this._renderIngredientCategory(ingredientCategoryModel);
 			}, this);
 		},
 
-		renderIngredientCategory: function (ingredientCategoryModel) {
+		_renderIngredientCategory: function (ingredientCategoryModel) {
 
 			var ingredientCategoryView = new IngredientCategoryView({
 				model: ingredientCategoryModel,

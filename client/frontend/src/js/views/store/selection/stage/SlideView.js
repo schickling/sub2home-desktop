@@ -1,9 +1,9 @@
 // Filename: src/js/views/store/selection/stage/SlideView.js
 define([
-	'jquery',
-	'underscore',
-	'backbone'
-	], function ($, _, Backbone) {
+    'jquery',
+    'underscore',
+    'backbone'
+    ], function ($, _, Backbone) {
 
 	var SlideView = Backbone.View.extend({
 
@@ -24,24 +24,32 @@ define([
 		},
 
 		_alignView: function () {
-			// center vertical
-			var $slideContainer = this.$el.parent(),
-				wrappedHeight = $slideContainer.height(),
-				totalHeight = this.$el[0].scrollHeight;
-
-			if (totalHeight < wrappedHeight) {
-				this.$el.css({
-					paddingTop: (wrappedHeight - totalHeight) / 2
-				});
-			} else {
-				// enable scrolling
-				$slideContainer.css({
-					overflowY: 'auto'
-				});
-			}
 
 			// adjust width
 			this.adjustWidth();
+
+			// center vertical
+			var $slideContainer = this.$el.parent(),
+				wrappedHeight = $slideContainer.height(),
+				totalHeight = this.el.scrollHeight,
+				newHeight, marginTop, overflowY;
+
+			if (totalHeight < wrappedHeight) {
+				newHeight = totalHeight;
+				overflowY = 'hidden';
+				marginTop = (wrappedHeight - totalHeight) / 2;
+			} else {
+				newHeight = wrappedHeight;
+				overflowY = 'auto';
+				marginTop = 0;
+			}
+
+			this.$el.css({
+				height: newHeight,
+				overflowY: overflowY,
+				marginTop: marginTop
+			});
+			
 		},
 
 		adjustWidth: function () {
@@ -56,6 +64,7 @@ define([
 			// wrap this.$el
 			var $el = $('<div>').addClass(this.className).appendTo(this.$el);
 			this.$el = $el;
+			this.el = $el.get(0);
 
 			// adjust width
 			this.adjustWidth();

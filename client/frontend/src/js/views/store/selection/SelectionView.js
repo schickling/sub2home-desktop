@@ -113,6 +113,8 @@ define([
 
 		_render: function () {
 
+			this._renderTimelineView();
+
 			if (this.active) {
 
 				this._renderInfoView();
@@ -127,8 +129,6 @@ define([
 				});
 
 			}
-
-			this._renderTimelineView();
 
 		},
 
@@ -170,15 +170,14 @@ define([
 		},
 
 		_compensateSize: function () {
-			var mainHeight = this.$el.height(),
+
+			var mainHeight = this.el.offsetHeight,
 				timelineHeight = 90,
 				infoHeight = this.infoView.$el.hiddenHeight(),
 				slideContainerHeight = mainHeight - infoHeight - timelineHeight;
 
 			this.$slideContainer.css({
 				marginTop: infoHeight,
-
-				// add 50 because of timeline bottom height
 				height: slideContainerHeight
 			});
 
