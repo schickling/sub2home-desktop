@@ -80,6 +80,14 @@ class CategoryModelSeeder extends Seeder {
 				'title' 				=> 'Catering',
 				'smallImage'			=> 'img/static/categories/smallimages/catering.png',
 				'icon'					=> 'iCatering'
+				),
+
+			array (
+				// 'id' 					=> 8,
+				'order' 				=> 7,
+				'title' 				=> 'Toys',
+				'smallImage'			=> 'img/static/categories/smallimages/toy.png',
+				'icon'					=> 'iToy'
 				)
 		);
 	}

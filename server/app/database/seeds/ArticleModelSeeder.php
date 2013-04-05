@@ -2196,7 +2196,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> false,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => true, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
 				),
 
 			array (
@@ -2216,7 +2216,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> false,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => true, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
 				),
 
 			array (
@@ -2236,7 +2236,7 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> false,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => true, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
 				),
 
 			array (
@@ -2256,7 +2256,111 @@ class ArticleModelSeeder extends Seeder {
 				'allowsMenuUpgrades'	=> false,
 				'isOnlyAllowedByMenus'	=> false,
 				'isPublished'			=> true,
-				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => true, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				'ingredient_model_ids'	=> array(1 => false, 2 => false, 3 => false, 4 => false, 5 => false, 6 => false, 7 => false, 8 => false, 9 => true, 10 => true, 11 => true, 12 => false, 13 => false, 14 => false, 15 => false, 16 => false, 17 => false, 22 => false, 25 => false, 28 => false, 31 => false, 32 => false, 33 => false, 34 => false, 35 => false, 36 => false, 37 => false)
+				),
+
+			// TOYS ------------------------
+			// -----------------------------
+
+
+			array (
+				// 'id' 				=> 109,
+				'category_model_id'		=> 8,
+				'title' 				=> 'SubWayne als Taucher',
+				'order'					=> 0,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneTaucher.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneTaucher.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 110,
+				'category_model_id'		=> 8,
+				'title' 				=> 'SubWayne als Astronaut',
+				'order'					=> 1,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAstronaut.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAstronaut.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 111,
+				'category_model_id'		=> 8,
+				'title' 				=> 'SubWayne als Rapper',
+				'order'					=> 2,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneRapper.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneRapper.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 112,
+				'category_model_id'		=> 8,
+				'title' 				=> 'SubWayne als Aloah',
+				'order'					=> 3,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAloah.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAloah.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
+				),
+
+			array (
+				// 'id' 				=> 113,
+				'category_model_id'		=> 8,
+				'title' 				=> 'SubWayne als Cowboy',
+				'order'					=> 4,
+				'number'				=> 1,
+				'info'					=> '',
+				'description'			=> '',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneCowboy.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneCowboy.png',
+				'price'					=> 0.00,
+				'deposit'				=> 0.00,
+				'allowsIngredients'		=> false,
+				'allowsDeposit'			=> false,
+				'allowsMenuUpgrades'	=> false,
+				'isOnlyAllowedByMenus'	=> true,
+				'isPublished'			=> true,
+				'ingredient_model_ids'	=> array()
 				)
 			);
 }

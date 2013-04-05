@@ -91,9 +91,9 @@ class MenuComponentOptionModelSeeder extends Seeder {
 			array (
 				// 'id'							=> 7,
 				'menu_component_block_model_id'	=> 6,
-				'category_model_id'				=> 4,
+				'category_model_id'				=> 8,
 				'title'							=> 'Toys',
-				'article_model_ids'				=> array()
+				'article_model_ids'				=> array(109, 110, 111, 112, 113)
 				),
 
 

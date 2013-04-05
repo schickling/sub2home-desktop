@@ -82,7 +82,7 @@ class MenuComponentBlockModelSeeder extends Seeder {
 				'placeholder'				=> ''
 				),
 
-			array ( // cookie
+			array ( // toy
 				// 'id' 					=> 6,
 				'menuModel_id'				=> 1,
 				'menuModel_type'			=> 'App\\Models\\MenuBundleModel',
