@@ -1,2 +1,2 @@
-Wir liefern <span>in <span id="minimumDuration"><%= minimumDuration %></span> min</span> nach <span id="currentDeliveryArea"><span><%= area %></span><i class="iBtn bEdit"></i></span>
+Wir liefern <% if (isDelivering) { %><span>in <span id="minimumDuration"><%= minimumDuration %></span> min</span><% } else { %>wieder ab <%= nextDeliveryTime %> Uhr <% } %> nach <span id="currentDeliveryArea"><span><%= area %></span><i class="iBtn bEdit"></i></span>
 <div id="deliveryAreas"></div>

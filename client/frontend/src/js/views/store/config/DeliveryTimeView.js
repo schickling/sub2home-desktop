@@ -25,8 +25,8 @@ define([
 
 		_render: function () {
 			var json = {
-				startTime: this._renderTime(this.model.get('startMinutes')),
-				endTime: this._renderTime(this.model.get('endMinutes'))
+				startTime: this.model.getStartTime(),
+				endTime: this.model.getEndTime()
 			};
 
 			this.$el.html(this.template(json));
@@ -91,17 +91,6 @@ define([
 				notificationcenter.notify('views.store.config.deliveryTime.wrongTimeFormat');
 				return false;
 			}
-		},
-
-		_renderTime: function (total_minutes) {
-			var hours = parseInt(total_minutes / 60, 10),
-				minutes = total_minutes % 60;
-
-			if (minutes < 10) {
-				minutes = '0' + minutes;
-			}
-
-			return hours + ':' + minutes;
 		},
 
 		_parseTime: function (time) {
