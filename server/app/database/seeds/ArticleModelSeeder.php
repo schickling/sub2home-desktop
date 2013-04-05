@@ -2283,16 +2283,16 @@ class ArticleModelSeeder extends Seeder {
 				'ingredient_model_ids'	=> array()
 				),
 
-			array (
+							array (
 				// 'id' 				=> 110,
 				'category_model_id'		=> 8,
-				'title' 				=> 'SubWayne als Astronaut',
+				'title' 				=> 'SubWayne "Aloah"',
 				'order'					=> 1,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> '',
-				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAstronaut.png',
-				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAstronaut.png',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAloah.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAloah.png',
 				'price'					=> 0.00,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
@@ -2302,6 +2302,8 @@ class ArticleModelSeeder extends Seeder {
 				'isPublished'			=> true,
 				'ingredient_model_ids'	=> array()
 				),
+
+			
 
 			array (
 				// 'id' 				=> 111,
@@ -2326,13 +2328,13 @@ class ArticleModelSeeder extends Seeder {
 			array (
 				// 'id' 				=> 112,
 				'category_model_id'		=> 8,
-				'title' 				=> 'SubWayne als Aloah',
+				'title' 				=> 'SubWayne als Astronaut',
 				'order'					=> 3,
 				'number'				=> 1,
 				'info'					=> '',
 				'description'			=> '',
-				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAloah.png',
-				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAloah.png',
+				'smallImage'			=> 'img/static/articles/smallimages/toys/subWayneAstronaut.png',
+				'largeImage'			=> 'img/static/articles/largeimages/toys/subWayneAstronaut.png',
 				'price'					=> 0.00,
 				'deposit'				=> 0.00,
 				'allowsIngredients'		=> false,
