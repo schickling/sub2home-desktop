@@ -5,16 +5,17 @@ define([
     'backbone',
     'models/stateModel',
     'views/PageView',
+    'views/store/info/DeliveryTimesView',
     'text!templates/store/info/MainTemplate.html'
-    ], function ($, _, Backbone, stateModel, PageView, MainTemplate) {
+    ], function ($, _, Backbone, stateModel, PageView, DeliveryTimesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
 		initialize: function () {
 
 			// set page title
-			var storeModel = stateModel.get('storeModel');
-			this.pageTitle = 'Infotheke ' + storeModel.get('title') + ' - sub2home';
+			this.model = stateModel.get('storeModel');
+			this.pageTitle = 'Infotheke ' + this.model.get('title') + ' - sub2home';
 
 			this._render();
 		},
@@ -22,7 +23,17 @@ define([
 		_render: function () {
 			this.$el.html(MainTemplate);
 
+			this._renderDeliveryTimes();
+
 			this.append();
+
+		},
+
+		_renderDeliveryTimes: function () {
+			new DeliveryTimesView({
+				el: this.$('#storeInfoPlaceholder'),
+				collection: this.model.get('deliveryTimesCollection')
+			});
 		}
 
 	});

@@ -73,6 +73,25 @@ define([
 				return "endMinutes must be less then startMinutes";
 			}
 
+		},
+
+		_renderTime: function (totalMinutes) {
+			var hours = parseInt(totalMinutes / 60, 10),
+				minutes = totalMinutes % 60;
+
+			if (minutes < 10) {
+				minutes = '0' + minutes;
+			}
+
+			return hours + ':' + minutes;
+		},
+
+		getStartTime: function() {
+			return this._renderTime(this.get('startMinutes'));
+		},
+
+		getEndTime: function() {
+			return this._renderTime(this.get('endMinutes'));
 		}
 
 	});
