@@ -4,10 +4,10 @@
 		<div class="centerContent">
 			<h4><%= title %></h4>
 			<div class="deliveryStatus">
-				<% if (true) { %>
-				<span class="deliveryIndicator delivering"></span>liefert in <span class="deliveryTime">1 min</span>
+				<% if (isDelivering) { %>
+				<span class="deliveryIndicator delivering"></span>Liefert gerade</span>
 				<% } else { %>
-				<span class="deliveryIndicator notDelivering"></span>oeffnet wieder <span class="notDeliveryTime">Morgen</span>
+				<span class="deliveryIndicator notDelivering"></span>Liefert erst wieder später</span>
 				<% } %>
 			</div>
 		</div>

@@ -24,7 +24,8 @@ define([
 
 			// render template
 			var json = {
-				title: this.model.get('title')
+				title: this.model.get('title'),
+				isDelivering: this.model.isDelivering()
 			};
 			this.$el = $(this.template(json));
 
