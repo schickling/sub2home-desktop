@@ -6,8 +6,9 @@ define([
     'models/stateModel',
     'views/PageView',
     'views/store/info/DeliveryTimesView',
+    'views/store/info/NavigationView',
     'text!templates/store/info/MainTemplate.html'
-    ], function ($, _, Backbone, stateModel, PageView, DeliveryTimesView, MainTemplate) {
+    ], function ($, _, Backbone, stateModel, PageView, DeliveryTimesView, NavigationView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -23,6 +24,7 @@ define([
 		},
 
 		_render: function () {
+
 			var json = {
 				title: this.model.get('title')
 			};
@@ -30,6 +32,7 @@ define([
 			this.$el.html(this.template(json));
 
 			this._renderDeliveryTimes();
+			this._renderNavigation();
 
 			this.append();
 
@@ -39,6 +42,12 @@ define([
 			new DeliveryTimesView({
 				el: this.$('#storeInfoPlaceholder'),
 				collection: this.model.get('deliveryTimesCollection')
+			});
+		},
+
+		_renderNavigation: function () {
+			new NavigationView({
+				el: this.$el
 			});
 		}
 

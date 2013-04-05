@@ -151,7 +151,6 @@ define([
 				this.pageTitle = 'Nochmal ändern - sub2home';
 
 				this._render();
-				this._unlockTimelineItemsOnEdit();
 			} else {
 				this.pageNotFound();
 			}
@@ -229,10 +228,6 @@ define([
 			this.$overlay.stop().animate({
 				marginTop: -38
 			}, 300);
-		},
-
-		_unlockTimelineItemsOnEdit: function () {
-
 		}
 
 
