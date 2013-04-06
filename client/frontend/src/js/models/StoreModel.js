@@ -117,19 +117,22 @@ define([
 
 		},
 
-
 		isDelivering: function () {
-			var isDelivering = false,
+			return this._getCurrentDeliveryTimeModel() !== null;
+		},
+
+		_getCurrentDeliveryTimeModel: function () {
+			var currentDeliveryModel = null,
 				deliveryTimesCollection = this.get('deliveryTimesCollection');
 
 			_.each(deliveryTimesCollection.models, function (deliveryTimeModel) {
 				if (deliveryTimeModel.checkIfNow()) {
-					isDelivering = true;
+					currentDeliveryModel = deliveryTimeModel;
 					return;
 				}
 			});
 
-			return isDelivering;
+			return currentDeliveryModel;
 		},
 
 		getNextDeliveryTimeModel: function () {
@@ -167,6 +170,7 @@ define([
 		},
 
 		getValidDueDate: function (options) {
+
 			var now = new Date();
 
 			// prepare options
@@ -176,15 +180,16 @@ define([
 			var checkOnly = options.minutesToAdd !== undefined,
 				dateWasGiven = options.dueDate !== undefined,
 				minutesToAdd = options.minutesToAdd || 0,
-				dueDate = options.dueDate || now;
+				dueDate = options.dueDate || now,
+				isDelivering = this.isDelivering();
 
 			// add minutes
 			dueDate = this._addMinutesToDate(dueDate, minutesToAdd);
 
-			// check if due date respects minimum duration
 			var spareMinutes = Math.ceil((dueDate - now) / 60000) - 1,
 				minimumDuration = this.getMinimumDuration();
 
+			// check if due date respects minimum duration
 			if (spareMinutes < minimumDuration) {
 				if (checkOnly) {
 					return null;
@@ -203,17 +208,26 @@ define([
 			// find delivery time model with smallest start minutes
 			var nextDeliveryTimeModel;
 
-			_.each(contemporaryDeliveryTimeModels, function (deliveryTimeModel) {
-				if (!nextDeliveryTimeModel || nextDeliveryTimeModel.get('startMinutes') > deliveryTimeModel.get('startMinutes')) {
-					nextDeliveryTimeModel = deliveryTimeModel;
-				}
-			});
+			// check if is currently delivering
+			if (isDelivering && !checkOnly) {
+
+				nextDeliveryTimeModel = this._getCurrentDeliveryTimeModel();
+
+			} else {
+
+				_.each(contemporaryDeliveryTimeModels, function (deliveryTimeModel) {
+					if (!nextDeliveryTimeModel || nextDeliveryTimeModel.get('startMinutes') > deliveryTimeModel.get('startMinutes')) {
+						nextDeliveryTimeModel = deliveryTimeModel;
+					}
+				});
+
+			}
 
 
 			if (nextDeliveryTimeModel) {
 
 				// check if due date still matches delivery time model
-				if (nextDeliveryTimeModel.get('endMinutes') < totalMinutesOfDueDate) {
+				if (nextDeliveryTimeModel.get('endMinutes') < totalMinutesOfDueDate && !isDelivering) {
 					// try again and reset given duedate
 					return this.getValidDueDate();
 				}

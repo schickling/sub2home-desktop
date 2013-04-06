@@ -2,6 +2,7 @@
 
 use Queue;
 use Request;
+use DateTime;
 
 /**
  * Order class
@@ -121,12 +122,13 @@ class OrderModel extends BaseModel
 	{
 		$isValid = true;
 
-		$isValid = $isValid and $this->verifyStore();
-		$isValid = $isValid and $this->verifyMinimumValue();
-		$isValid = $isValid and $this->verifyTip();
-		$isValid = $isValid and $this->verifyMenus();
-		$isValid = $isValid and $this->verifyOrderedArticles();
-		$isValid = $isValid and $this->verifyDueDate();
+		// brackets needed for evaluation
+		$isValid = ($isValid and $this->verifyStore());
+		$isValid = ($isValid and $this->verifyMinimumValue());
+		$isValid = ($isValid and $this->verifyTip());
+		$isValid = ($isValid and $this->verifyMenus());
+		$isValid = ($isValid and $this->verifyOrderedArticles());
+		$isValid = ($isValid and $this->verifyDueDate());
 
 		return $isValid;
 	}
@@ -228,17 +230,20 @@ class OrderModel extends BaseModel
 
 	private function verifyDueDate()
 	{
+		
 		// check if is due in future
 		$isInFuture = ($this->due_at >= $this->created_at);
 
 		// check delivery times
 		$deliveryTimesCollection = $this->storeModel->deliveryTimesCollection;
 		$matchesDeliveryTimes = false;
-		$dateTime = $this->getDateTimeFor('due_at');
+		$dueDateTime = $this->getDateTimeFor('due_at');
+		$nowDateTime = new DateTime();
 
 		foreach ($deliveryTimesCollection as $deliveryTimeModel) {
-			if ($deliveryTimeModel->checkDateTime($dateTime)) {
+			if ($deliveryTimeModel->checkDateTime($dueDateTime) or $deliveryTimeModel->checkDateTime($nowDateTime)) {
 				$matchesDeliveryTimes = true;
+				break;
 			}
 		}
 

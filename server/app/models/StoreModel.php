@@ -304,4 +304,20 @@ class StoreModel extends BaseModel
 
 	}
 
+	/**
+     * Returns whether the store is delivering at the moment
+     * 
+     * @return boolean
+     */
+	public function isDelivering()
+	{
+		foreach ($this->deliveryTimesCollection as $deliveryTimeModel) {
+			if ($deliveryTimeModel->check()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
 }
