@@ -28,7 +28,6 @@ class IndexController extends StoreRelatedApiController
 														'creditModel'
 														))
 													->orderBy('id', 'desc')
-													->orderBy('created_at', 'desc')
 													->skip($offset)
 													->take($pageSize)
 													->get();
