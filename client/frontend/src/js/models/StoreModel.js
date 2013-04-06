@@ -132,36 +132,9 @@ define([
 		},
 
 		getNextDeliveryTimeModel: function () {
-			var now = new Date(),
-				dayOfWeek = now.getDay(),
-				totalMinutesOfNow = now.getMinutes() + now.getHours() * 60,
-				deliveryTimesCollection = this.get('deliveryTimesCollection'),
-				filteredDeliveryTimeModels;
+			var deliveryTimesCollection = this.get('deliveryTimesCollection');
 
-			for (var i = 0; i < 7; i++) {
-
-				filteredDeliveryTimeModels = deliveryTimesCollection.filter(function (deliveryTimeModel) {
-
-					if (i === 0) { // today
-						return deliveryTimeModel.get('dayOfWeek') === dayOfWeek && deliveryTimeModel.get('startMinutes') > totalMinutesOfNow;
-					} else {
-						return deliveryTimeModel.get('dayOfWeek') === dayOfWeek;
-					}
-
-				});
-
-				filteredDeliveryTimeModels = _.sortBy(filteredDeliveryTimeModels, function (deliveryTimeModel) {
-					deliveryTimeModel.get('startMinutes');
-				});
-
-				if (filteredDeliveryTimeModels.length > 0) {
-					return filteredDeliveryTimeModels[0];
-				}
-
-				dayOfWeek = (dayOfWeek + 1) % 7;
-			}
-
-			return null;
+			return deliveryTimesCollection.getNextDeliveryTimeModel();
 		},
 
 		getMinimumValue: function () {
