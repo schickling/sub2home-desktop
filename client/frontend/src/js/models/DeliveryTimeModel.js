@@ -35,7 +35,7 @@ define([
 		checkIfNow: function () {
 			var date = new Date(),
 				dayOfWeek = date.getDay(),
-				currentMinutes = date.getMinutes() * 60 + date.getHours();
+				currentMinutes = date.getMinutes() + date.getHours() * 60;
 
 			if (dayOfWeek !== this.get('dayOfWeek') || currentMinutes < this.get('startMinutes') || currentMinutes > this.get('endMinutes')) {
 				return false;
@@ -86,11 +86,11 @@ define([
 			return hours + ':' + minutes;
 		},
 
-		getStartTime: function() {
+		getStartTime: function () {
 			return this._renderTime(this.get('startMinutes'));
 		},
 
-		getEndTime: function() {
+		getEndTime: function () {
 			return this._renderTime(this.get('endMinutes'));
 		}
 

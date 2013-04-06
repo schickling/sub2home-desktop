@@ -119,9 +119,10 @@ define([
 
 
 		isDelivering: function () {
-			var isDelivering = false;
+			var isDelivering = false,
+				deliveryTimesCollection = this.get('deliveryTimesCollection');
 
-			this.get('deliveryTimesCollection').each(function (deliveryTimeModel) {
+			_.each(deliveryTimesCollection.models, function (deliveryTimeModel) {
 				if (deliveryTimeModel.checkIfNow()) {
 					isDelivering = true;
 					return;
