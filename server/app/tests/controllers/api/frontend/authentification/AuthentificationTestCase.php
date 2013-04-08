@@ -10,17 +10,17 @@ abstract class AuthentificationTestCase extends ApiTestCase {
 	protected $loadMigrations = true;
 
 	// test data
-	protected $correctPassword = 'superSecure';
-	protected $wrongPassword = 'supersecure';
-	protected $tooShortPassword = 'short';
-	protected $correctNumber = 7777;
-	protected $wrongNumber = 7776;
+	const CORRECT_PASSWORD = 'superSecure';
+	const WRONG_PASSWORD = 'supersecure';
+	const TOO_SHORT_PASSWORD = 'short';
+	const CORRECT_NUMBER = 7777;
+	const WRONG_NUMBER = 7776;
 
 	protected function seedDatabase()
 	{
 		$clientModel = new ClientModel(array(
-			'number' => $this->correctNumber,
-			'hashedPassword' => Hash::make($this->correctPassword)
+			'number' => self::CORRECT_NUMBER,
+			'hashedPassword' => Hash::make(self::CORRECT_PASSWORD)
 			));
 		$clientModel->save();
 
@@ -33,21 +33,18 @@ abstract class AuthentificationTestCase extends ApiTestCase {
 	protected function getTokenOfSuccessfulLogin()
 	{
 		$loginFormData = array(
-			'number' => $this->correctNumber,
-			'password' => $this->correctPassword
+			'number' => self::CORRECT_NUMBER,
+			'password' => self::CORRECT_PASSWORD
 			);
 
-		$response = $this->call('POST', $this->getUrl(), $loginFormData);
+		$this->setFormData($loginFormData);
+		$this->callAction();
+
 		$this->assertResponseOk();
 
-		$decodedResponse = json_decode($response->getContent());
+		$decodedResponse = $this->getDecodedContent();
 
 		return $decodedResponse->token;
-	}
-
-	private function getUrl()
-	{
-		return 'https://sub2home.dev/api/frontend/login';
 	}
 
 }

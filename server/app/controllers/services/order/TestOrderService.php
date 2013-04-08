@@ -86,7 +86,7 @@ class TestOrderService
 		$addressData = array(
 			'firstName'			=> 'Max',
 			'lastName'			=> 'Mustermann',
-			'street'			=> 'Bahnhofstr. 4',
+			'street'			=> 'Teststr. 4',
 			'streetAdditional'	=> 'Zweiter Stock',
 			'postal'			=> $validPostal,
 			'city'				=> $validCity,

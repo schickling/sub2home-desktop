@@ -27,7 +27,7 @@
 		"post-update-cmd": "php artisan optimize"
 	},
 	"config": {
-		"process-timeout": 600
+		"process-timeout": 800
 	},
 	"minimum-stability": "dev"
 }

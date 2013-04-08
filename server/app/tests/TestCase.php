@@ -4,70 +4,96 @@ use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Artisan;
 use Mail;
 
-class TestCase extends BaseTestCase {
+abstract class TestCase extends BaseTestCase {
 
-    protected $loadMigrations = false;
-    protected $loadSeeds = false;
+	protected $loadMigrations = false;
+	protected $loadSeeds = false;
+	protected $loadInstance = true;
 
-    public function setUp()
-    {
-        parent::setUp();
+	protected $instance;
 
-        $this->prepareForTests();
-    }
+	public function setUp()
+	{
+		parent::setUp();
 
-    /**
-     * Creates the application.
-     *
-     * @return Symfony\Component\HttpKernel\HttpKernelInterface
-     */
-    public function createApplication()
-    {
-    	$unitTesting = true;
+		$this->prepareForTests();
+	}
 
-        $testEnvironment = 'testing';
+	/**
+	 * Creates the application.
+	 *
+	 * @return Symfony\Component\HttpKernel\HttpKernelInterface
+	 */
+	public function createApplication()
+	{
+		$unitTesting = true;
 
-        return require __DIR__.'/../../bootstrap/start.php';
-    }
+		$testEnvironment = 'testing';
 
-    /**
-     * Migrates the database and set the mailer to 'pretend'.
-     * This will cause the tests to run quickly.
-     */
-    private function prepareForTests()
-    {
-        $this->prepareDatabase();
+		return require __DIR__.'/../../bootstrap/start.php';
+	}
 
-        Mail::pretend(true);
-    }
+	/**
+	 * Migrates the database and set the mailer to 'pretend'.
+	 * This will cause the tests to run quickly.
+	 */
+	private function prepareForTests()
+	{
+		$this->prepareDatabase();
+		$this->prepareResourceInstance();
 
-    private function prepareDatabase()
-    {
-        if ($this->loadMigrations) {
+		Mail::pretend(true);
+	}
 
-            Artisan::call('migrate');
+	private function prepareDatabase()
+	{
+		if ($this->loadMigrations) {
 
-            $this->seedDatabase();
+			Artisan::call('migrate');
 
-            if ($this->loadSeeds) {
-                Artisan::call('db:seed');
-            }
+			$this->seedDatabase();
 
-        }
-    }
+			if ($this->loadSeeds) {
+				Artisan::call('db:seed');
+			}
 
-    protected function seedDatabase() {}
+		}
+	}
 
-    /*
-     * content helper methods 
-     */
+	private function prepareResourceInstance() {
+		if ($this->loadInstance) {
+			$resourceClass = $this->getResourceClass();
+			$this->instance = new $resourceClass();
+		}
+	}
 
-    protected function createTestStore()
-    {
-        // article models needed so load seeds
-        $this->loadSeeds = true;
+	protected function seedDatabase() {}
 
-        // use store model from seeds, so nothing more to do
-    }
+	/*
+	 * content helper methods 
+	 */
+
+	protected function createTestStore()
+	{
+		// article models needed so load seeds
+		$this->loadSeeds = true;
+
+		// use store model from seeds, so nothing more to do
+	}
+
+
+
+	protected function getResourceClass()
+	{
+		$testClassName = get_called_class();
+
+		// remove "Tests\" from namespace
+		$resourceClassName = str_replace('Tests\\', '', $testClassName);
+
+		// remove "Test" from class name
+		$resourceClassName = substr($resourceClassName, 0, -4);
+
+		return $resourceClassName;
+	}
 
 }

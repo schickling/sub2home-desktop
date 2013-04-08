@@ -1,4 +1,4 @@
-<?php namespace App\Tests\Controllers\Api\Frontend;
+<?php namespace App\Tests\Controllers\Api\Frontend\Client\Addresses;
 
 use App\Tests\TestCase;
 
@@ -8,7 +8,7 @@ use App\Models\ClientModel;
 use App\Models\StoreModel;
 
 
-class AddressesControllerTest extends TestCase {
+class UpdateControllerTest extends TestCase {
 
     protected $loadMigrations = true;
 
@@ -49,7 +49,7 @@ class AddressesControllerTest extends TestCase {
 
 	protected function seedDatabase()
 	{
-		$this->createTestStore();
+		// $this->createTestStore();
 	}
 
 }
