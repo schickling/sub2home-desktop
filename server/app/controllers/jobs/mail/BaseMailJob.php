@@ -30,6 +30,7 @@ abstract class BaseMailJob extends BaseJob {
 			$mail->from($this->senderMail, $this->senderName);
 			$mail->to($this->receiverMail, $this->receiverName);
 			$mail->subject($this->subject);
+			$mail->setCharset('UTF-8');
 		});		
 	}
 
