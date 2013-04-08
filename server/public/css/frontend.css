@@ -2241,6 +2241,12 @@ a.iBtn:hover {
 .bSubcard:before {
   content: "\e088";
 }
+.iEdenred:before {
+  content: "\e08a";
+}
+.iSodexo:before {
+  content: "\e08b";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -8455,6 +8461,21 @@ aside.infoNavigation ul li.active {
 }
 .content.info .container article .twoColumn header h3 {
   margin: 0 0 36px 0;
+}
+.content.info .container article .iEdenred,
+.content.info .container article .iSodexo {
+  font-size: 130px;
+  height: 30px;
+  margin: 10px 0 0 -15px;
+  vertical-align: top;
+}
+.content.info .container article .iEdenred:before,
+.content.info .container article .iSodexo:before {
+  line-height: 0;
+}
+.content.info .container article .iEdenred {
+  font-size: 160px;
+  margin-top: 16px;
 }
 .content.info .container article#howItWorks div {
   margin-right: 30px;
