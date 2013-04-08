@@ -141,7 +141,7 @@ class OrderModel extends BaseModel
 	public function confirm()
 	{
 		if ( ! $this->isValid()) {
-			$this->throwException();
+			$this->throwException('Can not confirm an invalid order.');
 		}
 
 		$jobData = array('order_model_id' => $this->id);

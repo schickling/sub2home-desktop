@@ -76,7 +76,12 @@ class TestOrderService
 		}
 
 		$validPostal = $deliveryArea->postal;
-		$validCity = $deliveryArea->city;
+
+		if ($deliveryArea->district) {
+			$validCity = sprintf('%s (%s)', $deliveryArea->city, $deliveryArea->district);
+		} else {
+			$validCity = $deliveryArea->city;
+		}
 
 		$addressData = array(
 			'firstName'			=> 'Max',
