@@ -2247,6 +2247,14 @@ a.iBtn:hover {
 .iSodexo:before {
   content: "\e08b";
 }
+.iNutritionfacts:before,
+.bNutritionfacts:before {
+  content: "\e08c";
+}
+.iAdditives:before,
+.bAdditives:before {
+  content: "\e08d";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -8498,7 +8506,7 @@ aside.infoNavigation ul li.active {
 .content.info .container article#nutritionInfo p {
   width: 460px;
 }
-.content.info .container article#nutritionInfo .bDocument {
+.content.info .container article#nutritionInfo .iBtn {
   color: #ffffff;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -8509,11 +8517,14 @@ aside.infoNavigation ul li.active {
   -o-transition: text-shadow 0.1s linear;
   transition: text-shadow 0.1s linear;
 }
-.content.info .container article#nutritionInfo .bDocument:before {
+.content.info .container article#nutritionInfo .iBtn:before {
   font-size: 170px;
 }
-.content.info .container article#nutritionInfo .bDocument:hover {
+.content.info .container article#nutritionInfo .iBtn:hover {
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.7);
+}
+.content.info .container article#nutritionInfo .iBtn.bAdditives {
+  left: 600px;
 }
 .content.info .container .weekday {
   position: relative;
