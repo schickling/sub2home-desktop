@@ -21,6 +21,8 @@ module.exports = function (grunt) {
         'views/store/config/MainView'
     ];
 
+    var relativeServerDir = '../../../server/laravel/';
+
 	// config
 	grunt.initConfig({
 
@@ -52,7 +54,7 @@ module.exports = function (grunt) {
 					mainConfigFile: '../src/js/config.js',
 					preserveLicenseComments: false,
 					include: include,
-					out: '../../../server/public/js/main.js'
+					out: relativeServerDir + 'public/js/main.js'
 				}
 			},
 			production: {
@@ -62,33 +64,33 @@ module.exports = function (grunt) {
 					mainConfigFile: '../src/js/config.js',
 					preserveLicenseComments: false,
 					include: include,
-					out: '../../../server/public/js/main.js'
+					out: relativeServerDir + 'public/js/main.js'
 				}
 			}
 		},
 
 		exec: {
 			linkSrcJS: {
-				command: 'ln -s $(pwd)/../src/js/ $(pwd)/../../../server/public/js'
+				command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + relativeServerDir + 'public/js'
 			},
 			linkSrcTemplates: {
-				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/../../../server/public/templates'
+				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + relativeServerDir + 'public/templates'
 			},
 			resetServer: {
-				command: 'rm -Rf $(pwd)/../../../server/public/templates $(pwd)/../../../server/public/js'
+				command: 'rm -Rf $(pwd)/' + relativeServerDir + 'public/templates $(pwd)/' + relativeServerDir + 'public/js'
 			},
 			createRequireJsDir: {
-				command: 'mkdir -p $(pwd)/../../../server/public/js/vendor/requirejs'
+				command: 'mkdir -p $(pwd)/' + relativeServerDir + 'public/js/vendor/requirejs'
 			},
 			copyRequireJs: {
-				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/../../../server/public/js/vendor/requirejs/'
+				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + relativeServerDir + 'public/js/vendor/requirejs/'
 			}
 		},
 
 		less: {
 			development: {
 				files: {
-					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less'
+					'../../../server/laravel/public/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			},
 			production: {
@@ -96,7 +98,7 @@ module.exports = function (grunt) {
 					yuicompress: true
 				},
 				files: {
-					'../../../server/public/css/frontend.css': '../src/less/frontend/frontend.less'
+					'../../../server/laravel/public/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			}
 		}
