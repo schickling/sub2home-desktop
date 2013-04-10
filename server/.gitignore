@@ -1,9 +1,0 @@
-/vendor
-/coverage
-composer.phar
-.DS_Store
-
-bootstrap/compiled.php
-
-public/js
-public/templates
