@@ -8,6 +8,8 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "dev-master",
+		"phpunit/php-code-coverage": "dev-master",
+		"mockery/mockery": "dev-master",
 		"d11wtq/boris": "dev-master"
 	},
 	"autoload": {

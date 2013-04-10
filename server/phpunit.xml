@@ -10,9 +10,16 @@
          stopOnFailure="false"
          syntaxCheck="true"
 >
-    <testsuites>
-        <testsuite name="Unit Tests">
-            <directory>./app/tests/</directory>
-        </testsuite>
-    </testsuites>
+    
+	<testsuites>
+		<testsuite name="unit">
+			<directory>./app/tests/</directory>
+		</testsuite>
+		<testsuite name="integration">
+			<directory>./app/tests/</directory>
+			<logging>
+				<log type="coverage-html" target="./coverage" charset="UTF-8" />
+			</logging>
+		</testsuite>
+	</testsuites>
 </phpunit>

@@ -1,0 +1,14 @@
+#! /bin/sh
+
+cd `dirname $0`
+
+phpunit="./vendor/bin/phpunit"
+
+if [[ $1 == "unit" ]] || [[ ! $1 ]]; then
+	$phpunit --testsuite unit
+fi
+
+if [[ $1 == "integration" ]]; then
+	$phpunit --testsuite integration --coverage-html "./coverage"
+	open -a "Google Chrome" "./coverage/index.html"
+fi
