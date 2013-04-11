@@ -39,7 +39,7 @@ define([
 
 		},
 
-		_cacheDom: function() {
+		_cacheDom: function () {
 			this.$back = this.$('#back');
 		},
 
@@ -51,17 +51,17 @@ define([
 
 		},
 
-		_listenToCurrentRoute: function() {
+		_listenToCurrentRoute: function () {
 			this.listenTo(stateModel, 'change:currentRoute', this._checkBackButton);
 		},
 
-		_currentRouteIsStoreHome: function() {
+		_currentRouteIsStoreHome: function () {
 			var currentRoute = stateModel.get('currentRoute');
 
 			return currentRoute === 'store.home';
 		},
 
-		_checkBackButton: function() {
+		_checkBackButton: function () {
 
 			if (this._currentRouteIsStoreHome()) {
 				this._hideBackButton();
@@ -70,11 +70,11 @@ define([
 			}
 		},
 
-		_hideBackButton: function() {
+		_hideBackButton: function () {
 			this.$back.fadeOut(300);
 		},
 
-		_showBackButton: function() {
+		_showBackButton: function () {
 			this.$back.fadeIn(300);
 		},
 

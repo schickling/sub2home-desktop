@@ -1,27 +1,27 @@
 module.exports = function (grunt) {
 
 	var include = [
-		'main',
-		'models/clientModel',
-        'views/header/HeaderView',
-        'views/header/ClientView',
-        'views/home/home/MainView',
-        'views/home/info/MainView',
-        'views/home/404/MainView',
-        'views/client/login/MainView',
-        'views/client/dashboard/MainView',
-        'views/client/config/MainView',
-        'views/store/home/MainView',
-        'views/store/info/MainView',
-        'views/store/selection/MainView',
-        'views/store/tray/MainView',
-        'views/store/checkout/MainView',
-        'views/store/dashboard/MainView',
-        'views/store/assortment/MainView',
-        'views/store/config/MainView'
+    'main',
+    'models/clientModel',
+    'views/header/HeaderView',
+    'views/header/ClientView',
+    'views/home/home/MainView',
+    'views/home/info/MainView',
+    'views/home/404/MainView',
+    'views/client/login/MainView',
+    'views/client/dashboard/MainView',
+    'views/client/config/MainView',
+    'views/store/home/MainView',
+    'views/store/info/MainView',
+    'views/store/selection/MainView',
+    'views/store/tray/MainView',
+    'views/store/checkout/MainView',
+    'views/store/dashboard/MainView',
+    'views/store/assortment/MainView',
+    'views/store/config/MainView'
     ];
 
-    var relativeServerDir = '../../../server/laravel/';
+	var relativeServerDir = '../../../server/laravel/';
 
 	// config
 	grunt.initConfig({
@@ -30,15 +30,15 @@ module.exports = function (grunt) {
 
 		jshint: {
 			all: [
-                'Gruntfile.js',
-                '../src/js/main.js',
-                '../src/js/config.js',
-                '../src/js/modules/*.js',
-                '../src/js/models/*.js',
-                '../src/js/collections/*.js',
-                '../src/js/views/**/*.js',
-                'test/spec/**/*.js'
-                ]
+            'Gruntfile.js',
+            '../src/js/main.js',
+            '../src/js/config.js',
+            '../src/js/modules/*.js',
+            '../src/js/models/*.js',
+            '../src/js/collections/*.js',
+            '../src/js/views/**/*.js',
+            'test/spec/**/*.js'
+            ]
 		},
 
 		// kick off jasmine, showing results at the cli
@@ -76,9 +76,6 @@ module.exports = function (grunt) {
 			linkSrcTemplates: {
 				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + relativeServerDir + 'public/templates'
 			},
-			resetServer: {
-				command: 'rm -Rf $(pwd)/' + relativeServerDir + 'public/templates $(pwd)/' + relativeServerDir + 'public/js'
-			},
 			createRequireJsDir: {
 				command: 'mkdir -p $(pwd)/' + relativeServerDir + 'public/js/vendor/requirejs'
 			},
@@ -113,12 +110,32 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// register tasks
-	grunt.registerTask('default', ['test']);
-	grunt.registerTask('reset', ['exec:resetServer']);
-	grunt.registerTask('prepareRequireJs', ['exec:createRequireJsDir', 'exec:copyRequireJs']);
-	grunt.registerTask('dev', ['reset', 'exec:linkSrcJS', 'exec:linkSrcTemplates']);
-	grunt.registerTask('test', ['jshint']);
-	grunt.registerTask('build:dev', ['reset', 'test', 'requirejs:development', 'less:development', 'prepareRequireJs']);
-	grunt.registerTask('build:prod', ['reset', 'test', 'requirejs:production', 'less:production', 'prepareRequireJs']);
+	grunt.registerTask('prepareRequireJs', [
+        'exec:createRequireJsDir',
+        'exec:copyRequireJs'
+    ]);
+
+	grunt.registerTask('dev', [
+        'exec:linkSrcJS',
+        'exec:linkSrcTemplates'
+    ]);
+
+	grunt.registerTask('test', [
+        'jshint'
+    ]);
+
+	grunt.registerTask('build:dev', [
+        'test',
+        'requirejs:development',
+        'less:development',
+        'prepareRequireJs'
+    ]);
+
+	grunt.registerTask('build:prod', [
+        'test',
+        'requirejs:production',
+        'less:production',
+        'prepareRequireJs'
+    ]);
 
 };
