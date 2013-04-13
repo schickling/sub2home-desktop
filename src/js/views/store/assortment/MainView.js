@@ -4,7 +4,6 @@ define([
     'underscore',
     'backbone',
     'router',
-    'global',
     'models/stateModel',
     'views/PageView',
     'views/store/assortment/SectionsNavigationView',
@@ -13,7 +12,7 @@ define([
     'views/store/assortment/menuBundles/MenuBundlesView',
     'views/store/assortment/ingredients/IngredientCategoriesView',
     'text!templates/store/assortment/MainTemplate.html'
-    ], function ($, _, Backbone, router, global, stateModel, PageView, SectionsNavigationView, CategoriesView, MenuUpgradesView, MenuBundlesView, IngredientCategoriesView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, PageView, SectionsNavigationView, CategoriesView, MenuUpgradesView, MenuBundlesView, IngredientCategoriesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -29,7 +28,7 @@ define([
 			// for authentification reload the store model
 			this.model = stateModel.get('storeModel');
 			this.model.fetch({
-				url: '/api/frontend/stores/' + global.getStoreAlias() + '/auth', // use custom route
+				url: 'stores/storeAlias/auth', // use custom route
 				async: false
 			});
 

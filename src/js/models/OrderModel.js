@@ -3,12 +3,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'global',
     'notificationcenter',
     'models/AddressModel',
     'models/CreditModel',
     'collections/OrderedItemsCollection'
-    ], function ($, _, Backbone, global, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
+    ], function ($, _, Backbone, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -51,9 +50,9 @@ define([
 
 		urlRoot: function () {
 			if (this.isNew()) {
-				return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+				return 'stores/storeAlias/orders';
 			} else {
-				return '/api/frontend/orders';
+				return 'orders';
 			}
 		},
 

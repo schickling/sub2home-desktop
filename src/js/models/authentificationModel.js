@@ -23,7 +23,7 @@ define([
 				self = this;
 
 			$.ajax({
-				url: '/api/frontend/checktoken',
+				url: 'checktoken',
 				type: 'post',
 				async: false,
 				dataType: 'text', // needed because response is empty
@@ -91,7 +91,7 @@ define([
 				self = this;
 
 			$.ajax({
-				url: '/api/frontend/login',
+				url: 'login',
 				data: JSON.stringify({
 					number: number,
 					password: password
@@ -137,7 +137,7 @@ define([
 				self = this;
 
 			$.ajax({
-				url: '/api/frontend/logout',
+				url: 'logout',
 				type: 'post',
 				async: false,
 				dataType: 'text', // needed because response is empty

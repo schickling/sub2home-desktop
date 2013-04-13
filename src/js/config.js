@@ -22,6 +22,7 @@ require.config({
 		notificationRepository: 'modules/notificationRepository',
 		tooltipRepository: 'modules/tooltipRepository',
 		notificationcenter: 'modules/notificationcenter',
+		server: 'modules/server',
 		gmaps: 'modules/gmaps',
 		router: 'modules/router',
 		global: 'modules/global'

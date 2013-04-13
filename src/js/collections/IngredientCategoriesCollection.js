@@ -2,10 +2,9 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'models/IngredientCategoryModel',
     'collections/IngredientsCollection'
-    ], function (_, Backbone, global, IngredientCategoryModel, IngredientsCollection) {
+    ], function (_, Backbone, IngredientCategoryModel, IngredientsCollection) {
 
 	var IngredientCategoriesCollection = Backbone.Collection.extend({
 
@@ -27,7 +26,7 @@ define([
 		},
 
 		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/ingredientcategories';
+			return 'stores/storeAlias/ingredientcategories';
 		}
 
 	});

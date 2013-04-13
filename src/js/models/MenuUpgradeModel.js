@@ -2,9 +2,8 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'models/MenuModel'
-    ], function (_, Backbone, global, MenuModel) {
+    ], function (_, Backbone, MenuModel) {
 
 	var MenuUpgradeModel = MenuModel.extend({
 
@@ -21,7 +20,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/menuupgrades';
+			return 'stores/storeAlias/menuupgrades';
 		}
 
 	});

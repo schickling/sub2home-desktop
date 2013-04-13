@@ -24,7 +24,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/frontend/bankaccounts';
+			return 'bankaccounts';
 		},
 
 		validate: function (attributes) {

@@ -17,7 +17,7 @@ define([
 			postal: 0
 		},
 
-		urlRoot: '/api/frontend/addresses',
+		urlRoot: 'addresses',
 
 		initialize: function () {
 			// throw errors

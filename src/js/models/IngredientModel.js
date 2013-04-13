@@ -1,8 +1,7 @@
 define([
     'underscore',
-    'backbone',
-    'global'
-    ], function (_, Backbone, global) {
+    'backbone'
+    ], function (_, Backbone) {
 
 	var IngredientModel = Backbone.Model.extend({
 
@@ -23,7 +22,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/ingredients/';
+			return 'stores/storeAlias/ingredients/';
 		}
 
 	});

@@ -4,12 +4,11 @@ define([
     'jqueryRotate',
     'underscore',
     'backbone',
-    'global',
     'notificationcenter',
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
     'text!templates/store/dashboard/NoOrdersTemplate.html'
-    ], function ($, jqueryRotate, _, Backbone, global, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
+    ], function ($, jqueryRotate, _, Backbone, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
 
 	var OrdersView = Backbone.View.extend({
 
@@ -249,7 +248,7 @@ define([
 			var self = this;
 
 			$.ajax({
-				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
+				url: 'stores/storeAlias/testorder',
 				type: 'post',
 				success: function () {
 					notificationcenter.notify('views.store.dashboard.testOrder.success');

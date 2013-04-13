@@ -96,7 +96,7 @@ define([
 					self = this;
 
 				$.ajax({
-					url: '/api/frontend/clients/changepassword',
+					url: 'clients/changepassword',
 					type: 'post',
 					contentType: 'application/json; charset=utf-8',
 					dataType: 'json',

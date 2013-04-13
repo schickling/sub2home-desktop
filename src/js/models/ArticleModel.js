@@ -4,9 +4,8 @@ define([
     'backbone',
     'collections/MenuUpgradesCollection',
     'collections/IngredientCategoriesCollection',
-    'notificationcenter',
-    'global'
-    ], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter, global) {
+    'notificationcenter'
+    ], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
 
 	var ArticleModel = Backbone.Model.extend({
 
@@ -60,7 +59,7 @@ define([
 		},
 
 		urlRoot: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/articles/';
+			return 'stores/storeAlias/articles/';
 		},
 
 		toJSON: function () {

@@ -4,13 +4,12 @@ define([
     'underscore',
     'backbone',
     'router',
-    'global',
     'models/stateModel',
     'views/PageView',
     'views/store/dashboard/OrdersView',
     'views/store/dashboard/revenues/RevenuesView',
     'text!templates/store/dashboard/MainTemplate.html'
-    ], function ($, _, Backbone, router, global, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -19,7 +18,7 @@ define([
 			// for authentification reload the store model
 			this.model = stateModel.get('storeModel');
 			this.model.fetch({
-				url: '/api/frontend/stores/' + global.getStoreAlias() + '/auth', // use custom route
+				url: 'stores/storeAlias/auth', // use custom route
 				async: false
 			});
 

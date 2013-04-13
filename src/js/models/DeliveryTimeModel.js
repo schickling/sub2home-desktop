@@ -1,9 +1,8 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'notificationcenter'
-    ], function (_, Backbone, global, notificationcenter) {
+    ], function (_, Backbone, notificationcenter) {
 
 	var DeliveryTimeModel = Backbone.Model.extend({
 
@@ -15,9 +14,9 @@ define([
 
 		urlRoot: function () {
 			if (this.isNew()) {
-				return '/api/frontend/stores/' + global.getStoreAlias() + '/deliverytimes';
+				return 'stores/storeAlias/deliverytimes';
 			} else {
-				return '/api/frontend/deliverytimes';
+				return 'deliverytimes';
 			}
 		},
 

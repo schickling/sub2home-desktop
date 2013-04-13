@@ -9,7 +9,7 @@ define([
 
 		model: StoreModel,
 
-		url: '/api/frontend/stores',
+		url: 'stores',
 
 		filterByDeliveryPostal: function (postal) {
 			var storesInRange = this.filter(function (storeModel) {

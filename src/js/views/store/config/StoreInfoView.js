@@ -3,11 +3,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'global',
     'notificationcenter',
     'views/store/config/AddressView',
     'text!templates/store/config/StoreInfoTemplate.html'
-    ], function ($, _, Backbone, global, notificationcenter, AddressView, StoreInfoTemplate) {
+    ], function ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) {
 
 	var StoreInfoView = Backbone.View.extend({
 
@@ -62,7 +61,7 @@ define([
 
 		_sendTestOrder: function () {
 			$.ajax({
-				url: '/api/frontend/stores/' + global.getStoreAlias() + '/testorder',
+				url: 'stores/storeAlias/testorder',
 				type: 'post',
 				success: function () {
 					notificationcenter.notify('views.store.config.testOrder.success');

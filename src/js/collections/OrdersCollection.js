@@ -2,16 +2,15 @@
 define([
 	'underscore',
 	'backbone',
-	'global',
 	'models/OrderModel'
-	], function (_, Backbone, global, OrderModel) {
+	], function (_, Backbone, OrderModel) {
 
 	var OrderCollection = Backbone.Collection.extend({
 
 		model: OrderModel,
 
 		url: function () {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/orders';
+			return 'stores/storeAlias/orders';
 		}
 
 	});

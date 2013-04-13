@@ -4,8 +4,8 @@ define([
     'backbone',
     'backboneLocalStorage',
     'models/StoreModel',
-    'global'
-    ], function (_, Backbone, backboneLocalStorage, StoreModel, global) {
+    'server'
+    ], function (_, Backbone, backboneLocalStorage, StoreModel, server) {
 
 	var StateModel = Backbone.Model.extend({
 
@@ -52,7 +52,7 @@ define([
 					silent: true
 				});
 
-				this._setGlobalStoreAlias();
+				this._setStoreAliasForServer();
 			}, this);
 
 
@@ -86,7 +86,7 @@ define([
 			}, this);
 
 
-			this._setGlobalStoreAlias();
+			this._setStoreAliasForServer();
 
 
 			window.state = this;
@@ -124,9 +124,9 @@ define([
 			return response;
 		},
 
-		_setGlobalStoreAlias: function () {
-			// mirror changes in store alias to global
-			global.setStoreAlias(this.get('storeAlias'));
+		_setStoreAliasForServer: function () {
+			// mirror changes in store alias to ajax config
+			server.setStoreAlias(this.get('storeAlias'));
 		},
 
 		_fetchStoreModelFromServer: function () {

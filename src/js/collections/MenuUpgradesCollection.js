@@ -2,16 +2,15 @@
 define([
     'underscore',
     'backbone',
-    'global',
     'models/MenuUpgradeModel'
-    ], function (_, Backbone, global, MenuUpgradeModel) {
+    ], function (_, Backbone, MenuUpgradeModel) {
 
 	var MenuUpgradesCollection = Backbone.Collection.extend({
 
 		model: MenuUpgradeModel,
 
 		url: function() {
-			return '/api/frontend/stores/' + global.getStoreAlias() + '/menuupgrades';
+			return 'stores/storeAlias/menuupgrades';
 		}
 
 	});

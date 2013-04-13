@@ -4,7 +4,6 @@ define([
     'underscore',
     'backbone',
     'router',
-    'global',
     'models/stateModel',
     'views/PageView',
     'views/store/config/MapView',
@@ -12,7 +11,7 @@ define([
     'views/store/config/DeliveryAreasView',
     'views/store/config/DeliveryTimesView',
     'text!templates/store/config/MainTemplate.html'
-    ], function ($, _, Backbone, router, global, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) {
+    ], function ($, _, Backbone, router, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -26,7 +25,7 @@ define([
 			// for authentification reload the store model
 			this.model = stateModel.get('storeModel');
 			this.model.fetch({
-				url: '/api/frontend/stores/' + global.getStoreAlias() + '/auth', // use custom route
+				url: 'stores/storeAlias/auth', // use custom route
 				async: false
 			});
 

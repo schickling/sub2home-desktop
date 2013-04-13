@@ -16,7 +16,7 @@ define([
 			number: 0
 		},
 
-		urlRoot: '/api/frontend/clients',
+		urlRoot: 'clients',
 
 		parse: function (response) {
 
