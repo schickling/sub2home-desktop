@@ -1,5 +1,5 @@
 <%= firstName %> <%= lastName %><br>
-<%= street %> <%= streetAdditional %><br>
-<%= postal %> <%= city %><br>
+<%= street %> <%= streetNumber %> <%= streetAdditional %><br>
+<%= postal %> <%= city %><% if (district) { %> (<%= district %>)<% } %><br>
 <%= phone %><br>
 <%= email %>

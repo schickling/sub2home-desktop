@@ -43,6 +43,7 @@ define([
 				total: orderModel.get('total'),
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),
+				district: addressModel.get('district'),
 				dueTime: dueTime,
 				dateOrTime: dateOrTime,
 				isDelivered: orderModel.get('isDelivered'),

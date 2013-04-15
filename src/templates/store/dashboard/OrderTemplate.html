@@ -3,7 +3,7 @@
 	<div class="orderNumber"><%= number %></div>
 	<div class="alertOrder iBtn bBell <% if (hasCredit) { %>claimed<% } %>"></div>
 	<div class="orderTime"><%= dateOrTime %></div>
-	<div class="orderDestination"><%= postal %> <%= city %></div>
+	<div class="orderDestination"><%= postal %> <%= city %><% if (district) { %> (<%= district %>)<% } %></div>
 
 
 	<div class="iBtn bMail resendmail"></div>
