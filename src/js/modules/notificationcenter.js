@@ -4,15 +4,18 @@ define([
     'tooltipRepository',
     'models/NotificationModel',
     'models/TooltipModel',
-    'views/notifications/NotificationcenterView'
-    ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationcenterView) {
+    'views/notifications/NotificationsView',
+    'views/notifications/ToolTipsView'
+    ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, ToolTipsView) {
 
 	var Notificationcenter = {
 
-		view: null,
+		notificationsView: null,
+		tooltipsView: null,
 
 		init: function () {
-			this.view = new NotificationcenterView();
+			this.notificationsView = new NotificationsView();
+			this.tooltipsView = new ToolTipsView();
 		},
 
 		notify: function (alias, data) {
@@ -21,7 +24,7 @@ define([
 
 			var notificationModel = notificationRepository.getNotificationModel(alias, data);
 
-			this.view.renderNotification(notificationModel);
+			this.notificationsView.renderNotification(notificationModel);
 
 		},
 
@@ -29,16 +32,16 @@ define([
 
 			var tooltipModel = tooltipRepository.getTooltipModel(alias);
 
-			this.view.renderTooltip(tooltipModel, top, left);
+			this.tooltipsView.renderTooltip(tooltipModel, top, left);
 
 		},
 
 		hideTooltip: function () {
-			this.view.hideTooltip();
+			this.tooltipsView.hideTooltip();
 		},
 
 		destroyAllNotifications: function () {
-			this.view.destroyAllNotificationViews();
+			this.notificationsView.destroyAllNotificationViews();
 		}
 
 	};
