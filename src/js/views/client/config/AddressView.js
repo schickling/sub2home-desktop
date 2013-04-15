@@ -24,8 +24,10 @@ define([
 				firstName: this.model.get('firstName'),
 				lastName: this.model.get('lastName'),
 				street: this.model.get('street'),
+				streetNumber: this.model.get('streetNumber'),
 				streetAdditional: this.model.get('streetAdditional'),
 				city: this.model.get('city'),
+				district: this.model.get('district'),
 				phone: this.model.get('phone'),
 				email: this.model.get('email'),
 				postal: this.model.get('postal')

@@ -137,17 +137,12 @@ define([
 			var storeModel = stateModel.get('storeModel'),
 				orderModel = this.get('orderModel'),
 				addressModel = orderModel.get('addressModel'),
-				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
-				city = selectedDeliveryAreaModel.get('city'),
-				district = selectedDeliveryAreaModel.get('district');
-
-			if (district) {
-				city = city + ' (' + district + ')';
-			}
+				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();
 
 			addressModel.set({
 				postal: selectedDeliveryAreaModel.get('postal'),
-				city: city
+				city: selectedDeliveryAreaModel.get('city'),
+				district: selectedDeliveryAreaModel.get('district')
 			});
 		},
 

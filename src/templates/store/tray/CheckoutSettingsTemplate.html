@@ -30,6 +30,10 @@
 			<label for="customerStreetInput">Strasse</label>
 			<input data-attribute="street" id="customerStreetInput" value="<%= street %>">
 		</div>
+		<div id="customerStreetNumber">
+			<label for="customerStreetNumberInput">Hausnummer</label>
+			<input data-attribute="streetNumber" id="customerStreetNumberInput" value="<%= streetNumber %>">
+		</div>
 		<div id="customerAddressAdditional">
 			<label for="customerAddressAdditionalInput">Zusatz</label>
 			<input data-attribute="streetAdditional" id="customerAddressAdditionalInput" value="<%= streetAdditional %>">
@@ -43,7 +47,7 @@
 		</div>
 		<div id="customerCity">
 			<label for="customerCityInput">Stadt</label>
-			<span id="customerCityInput"><%= city %></span>
+			<span id="customerCityInput"><%= city %> <% if (district) { %>(<%= district %>)<% } %> </span>
 		</div>
 
 	</div>

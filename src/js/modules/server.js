@@ -26,8 +26,6 @@ define([
 
 			url = '/api/frontend/' + url;
 
-			console.log(url);
-
 			return url;
 		},
 

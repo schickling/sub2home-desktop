@@ -10,8 +10,10 @@ define([
 			firstName: '',
 			lastName: '',
 			street: '',
+			streetNumber: '',
 			streetAdditional: '',
 			city: '',
+			district: '',
 			phone: '',
 			email: '',
 			postal: 0

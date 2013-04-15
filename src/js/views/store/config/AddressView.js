@@ -25,8 +25,10 @@ define([
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
+					streetNumber: addressModel.get('streetNumber'),
 					streetAdditional: addressModel.get('streetAdditional'),
 					city: addressModel.get('city'),
+					district: addressModel.get('district'),
 					phone: addressModel.get('phone'),
 					email: addressModel.get('email'),
 					postal: addressModel.get('postal')
