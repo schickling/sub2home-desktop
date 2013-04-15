@@ -8256,15 +8256,15 @@ div#payment > div.disabled .btn.active {
 #deliveryAddressSettings > div#customerAddress > div#customerStreet input {
   padding-left: 70px;
 }
-#deliveryAddressSettings > div#customerAddress > div#customerHouseNr {
+#deliveryAddressSettings > div#customerAddress > div#customerStreetNumber {
   width: 85px;
   margin-right: 20px;
 }
-#deliveryAddressSettings > div#customerAddress > div#customerHouseNr input {
+#deliveryAddressSettings > div#customerAddress > div#customerStreetNumber input {
   padding-left: 33px;
 }
 #deliveryAddressSettings > div#customerAddress > div#customerAddressAdditional {
-  width: 262px;
+  width: 157px;
 }
 #deliveryAddressSettings > div#customerAddress > div#customerAddressAdditional input {
   padding-left: 58px;
