@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     'views/store/config/MainView'
     ];
 
-	var relativeServerDir = '../../../server/laravel/';
+	var distFolder = '../dist/';
 
 	// config
 	grunt.initConfig({
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
 					mainConfigFile: '../src/js/config.js',
 					preserveLicenseComments: false,
 					include: include,
-					out: relativeServerDir + 'public/js/main.js'
+					out: distFolder + 'js/main.js'
 				}
 			},
 			production: {
@@ -64,30 +64,51 @@ module.exports = function (grunt) {
 					mainConfigFile: '../src/js/config.js',
 					preserveLicenseComments: false,
 					include: include,
-					out: relativeServerDir + 'public/js/main.js'
+					out: distFolder + 'js/main.js'
 				}
 			}
 		},
 
 		exec: {
 			linkSrcJS: {
-				command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + relativeServerDir + 'public/js'
+				command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + distFolder + 'js'
 			},
 			linkSrcTemplates: {
-				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + relativeServerDir + 'public/templates'
+				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + distFolder + 'public/templates'
 			},
 			createRequireJsDir: {
-				command: 'mkdir -p $(pwd)/' + relativeServerDir + 'public/js/vendor/requirejs'
+				command: 'mkdir -p $(pwd)/' + distFolder + 'js/vendor/requirejs'
 			},
 			copyRequireJs: {
-				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + relativeServerDir + 'public/js/vendor/requirejs/'
+				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + distFolder + 'js/vendor/requirejs/'
+			},
+			copyIndexHtml: {
+				command: 'cp $(pwd)/../src/index.html $(pwd)/' + distFolder + 'index.html'
+			},
+			copyHtaccess: {
+				command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + distFolder + '.htaccess'
+			},
+			copyImages: {
+				command: 'cp -r $(pwd)/../src/img $(pwd)/' + distFolder + 'img'
+			},
+			copyFonts: {
+				command: 'cp -r $(pwd)/../src/fonts $(pwd)/' + distFolder + 'fonts'
+			},
+			copyAudio: {
+				command: 'cp -r $(pwd)/../src/audio $(pwd)/' + distFolder + 'audio'
+			},
+			copyFiles: {
+				command: 'cp -r $(pwd)/../src/files $(pwd)/' + distFolder + 'files'
+			},
+			makeDistFolder: {
+				command: 'mkdir -p $(pwd)/' + distFolder
 			}
 		},
 
 		less: {
 			development: {
 				files: {
-					'../../../server/laravel/public/css/frontend.css': '../src/less/frontend/frontend.less'
+					'../dist/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			},
 			production: {
@@ -95,7 +116,7 @@ module.exports = function (grunt) {
 					yuicompress: true
 				},
 				files: {
-					'../../../server/laravel/public/css/frontend.css': '../src/less/frontend/frontend.less'
+					'../dist/css/frontend.css': '../src/less/frontend/frontend.less'
 				}
 			}
 		}
@@ -111,6 +132,13 @@ module.exports = function (grunt) {
 
 	// register tasks
 	grunt.registerTask('prepareRequireJs', [
+		'exec:makeDistFolder',
+		'exec:copyHtaccess',
+		'exec:copyIndexHtml',
+		'exec:copyImages',
+		'exec:copyFonts',
+		'exec:copyAudio',
+		'exec:copyFiles',
         'exec:createRequireJsDir',
         'exec:copyRequireJs'
     ]);
@@ -133,9 +161,9 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build:prod', [
         'test',
+        'prepareRequireJs',
         'requirejs:production',
-        'less:production',
-        'prepareRequireJs'
+        'less:production'
     ]);
 
 };
