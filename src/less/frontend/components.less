@@ -12,12 +12,16 @@ img.cookie    { margin: 0 -10px;}
 // -------------------
 
 
-#notificationcenter {
+#notifications, #tooltips {
   position: fixed;
-  z-index: 8999;
+  z-index: 7999;
   right: 30px;
   top: 104px;
   width: 300px;
+}
+
+#tooltips {
+  z-index: 9999;
 }
 
 .notification {
@@ -2443,21 +2447,53 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
+      // #clientStreetBasic {
+      //   width: 69%;
+      //   input {
+      //     padding-left: 72px;
+      //   }
+      // }
+
+      // #clientStreetAdditional {
+      //   width: 28%;
+      //   float: right;
+      //   input {
+      //     padding-left: 57px;
+      //   }
+      // }
+
       #clientStreetBasic {
-        width: 69%;
+        width: 40%;
         input {
           padding-left: 72px;
-        }
+        }  
+      }
+
+      #clientStreetNumber {
+        width: 85px;
+        left: 40%;
+        margin-left: 20px;
+        input {
+          padding-left: 33px;
+        }  
       }
 
       #clientStreetAdditional {
-        width: 28%;
-        float: right;
+        left: 40%;
+        margin-left: 105px;
+        //padding-left: 20px;
+        right: 0;
+        label { left: 31px; }
         input {
+          margin-left: 20px;
           padding-left: 57px;
         }
       }
     }
+    
+    
+
+
 
     &#clientPostalCity {
       overflow: hidden;
@@ -3342,23 +3378,42 @@ header h2 {
 
               &#storeCity {
                 left: 113px;
-                right: 0;
+                right: 220px;
                 input {
                   padding-left: 52px;
                 }
               }
+
+              &#storeDistrict {
+                width: 200px;
+                right: 0px;
+                input {
+                  padding-left: 72px;
+                }
+              }
+
               &#storeStreetBasic {
-                width: 60%;
+                width: 40%;
                 input {
                   padding-left: 72px;
                 }  
               }
 
+              &#storeStreetNumber {
+                width: 85px;
+                left: 40%;
+                margin-left: 20px;
+                input {
+                  padding-left: 33px;
+                }  
+              }
+
               &#storeStreetAdditional {
-                width: 40%;
-                padding-left: 20px;
+                left: 40%;
+                margin-left: 105px;
+                //padding-left: 20px;
                 right: 0;
-                label { left: 50px; }
+                label { left: 31px; }
                 input {
                   margin-left: 20px;
                   padding-left: 57px;
