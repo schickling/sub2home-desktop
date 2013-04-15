@@ -5,8 +5,8 @@ define([
     'models/NotificationModel',
     'models/TooltipModel',
     'views/notifications/NotificationsView',
-    'views/notifications/ToolTipsView'
-    ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, ToolTipsView) {
+    'views/notifications/TooltipsView'
+    ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) {
 
 	var Notificationcenter = {
 
@@ -15,7 +15,7 @@ define([
 
 		init: function () {
 			this.notificationsView = new NotificationsView();
-			this.tooltipsView = new ToolTipsView();
+			this.tooltipsView = new TooltipsView();
 		},
 
 		notify: function (alias, data) {
