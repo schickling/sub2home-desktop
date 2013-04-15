@@ -8,6 +8,8 @@ module.exports = function (grunt) {
     'views/home/home/MainView',
     'views/home/info/MainView',
     'views/home/404/MainView',
+    'views/home/mobile/MainView',
+    'views/home/browser/MainView',
     'views/client/login/MainView',
     'views/client/dashboard/MainView',
     'views/client/config/MainView',
