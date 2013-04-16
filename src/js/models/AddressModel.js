@@ -85,7 +85,7 @@ define([
 		},
 
 		_validatePhone: function (phone) {
-			var re = /^(\d)+(\d|\s)*$/;
+			var re = /^0(\d){2,}(\s|-|\/)?(\d){3,}$/;
 			return re.test(phone);
 		}
 
