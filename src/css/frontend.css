@@ -349,7 +349,6 @@ aside#header .iInfo {
   height: 35%;
   text-align: center;
   padding-bottom: 80px;
-  z-index: 50;
 }
 .note#homeNote .container {
   position: relative;
@@ -523,7 +522,7 @@ aside#header .iInfo {
   overflow: none;
   top: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 50;
 }
 .content.home .container {
   position: absolute;
@@ -3910,7 +3909,7 @@ input[type="text"]#locationSelectionInput {
 }
 #map {
   height: 100%;
-  z-index: 6;
+  z-index: 50;
 }
 .smallNote {
   height: 63px;
@@ -6916,10 +6915,11 @@ div#payment > div.disabled .btn.active {
 #overlay .iBtn {
   display: none;
   position: absolute;
-  height: 76px;
-  width: 37px;
-  margin: -38px 0 0 0;
-  color: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height: 86px;
+  width: 43px;
+  margin: -43px 0 0 0;
+  color: rgba(0, 0, 0, 0.15);
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -6928,11 +6928,11 @@ div#payment > div.disabled .btn.active {
 #overlay .iBtn:before {
   font-size: 100px;
   position: absolute;
-  left: -30px;
-  top: 30px;
+  left: -27px;
+  top: -6px;
 }
 #overlay .iBtn:hover {
-  color: rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.35);
 }
 #overlay .iBtn.bPrev {
   left: 20px;
@@ -6944,10 +6944,10 @@ div#payment > div.disabled .btn.active {
   color: rgba(156, 200, 62, 0.2);
   right: 100px;
   right: 20px;
-  width: 80px;
+  width: 90px;
 }
 #overlay .iBtn.bCart:before {
-  left: -15px;
+  left: -5px;
 }
 #overlay .iBtn.bCart:hover {
   color: #9cc83e;
@@ -7071,7 +7071,7 @@ div#payment > div.disabled .btn.active {
   display: block;
   font-size: 215px;
   top: -2px;
-  left: -5px;
+  left: -4px;
 }
 .slide .item .accentIngredient.accented:hover {
   opacity: 1;
@@ -8690,6 +8690,9 @@ aside.infoNavigation ul li.active {
 .location-fixing img {
   max-width: none;
 }
+.onlyOnLarge {
+  color: inherit !important;
+}
 .smallSelectionNote {
   opacity: 0;
   filter: alpha(opacity=0);
@@ -8755,7 +8758,7 @@ aside#header {
 }
 @media (max-width: 1360px) {
   aside#header {
-    width: 55%;
+    width: 52%;
   }
   aside#header #currentInfo {
     max-width: 30%;
@@ -8763,10 +8766,18 @@ aside#header {
   aside#header #currentInfo span {
     max-width: 80%;
   }
+  #categoriesNavigation {
+    width: 48%;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .onlyOnLarge {
+    display: none;
+  }
 }
 @media (max-width: 1235px) {
   aside#header {
-    width: 58%;
+    width: 51%;
   }
   aside#header #currentInfo {
     max-width: 30%;
@@ -8791,8 +8802,22 @@ aside#header {
     padding: 24px 12px 0;
     margin: 0;
   }
+  #categoriesNavigation {
+    width: 49%;
+  }
+}
+@media (max-width: 1200px) {
+  #categoriesNavigation {
+    display: none;
+  }
+  aside#header {
+    width: 65%;
+  }
 }
 @media (max-width: 1186px) {
+  aside#header {
+    width: 63%;
+  }
   aside#header #currentInfo span {
     max-width: 53%;
   }
@@ -8807,15 +8832,9 @@ aside#header {
     padding: 0 7px;
   }
 }
-@media (max-width: 1304px) {
-  #categoriesNavigation {
-    width: 45%;
-  }
-}
-@media (max-width: 1113px) {
-  #categoriesNavigation {
-    width: 40%;
-    padding-left: 15px;
+@media (max-width: 1015px) {
+  aside#header {
+    width: 60px;
   }
 }
 @media (max-width: 1425px) {
@@ -8947,6 +8966,9 @@ aside#header {
 .firefox .flagFront h5 {
   top: 0;
 }
+.firefox .slide .item .accentIngredient:before {
+  left: -3px;
+}
 .firefox #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
   margin-top: -2px;
 }
@@ -8955,4 +8977,8 @@ aside#header {
 }
 .firefox #checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
   top: 41px;
+}
+.win .slide .item.ingredient .smallNote .pricetag:before,
+.win .slide .item.ingredient .smallNote .pricetag:after {
+  font-size: 99px;
 }

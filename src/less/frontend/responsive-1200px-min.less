@@ -76,14 +76,13 @@ aside#header {
 
 
 
-
 // Header & store.home
 // ------
 
 @media (max-width: 1360px) {
 
   aside#header {
-    width: 55%;
+    width: 52%;
     #currentInfo {
       max-width: 30%;
       span {
@@ -91,15 +90,25 @@ aside#header {
       }
     }
   }
+
+  #categoriesNavigation {
+    width: 48%;
+  }
 }
 
+@media (min-width: 1200px) and (max-width: 1300px) {
+
+  .onlyOnLarge {
+    display: none;
+  }
+}
 
 
 
 @media (max-width: 1235px) {
 
   aside#header {
-    width: 58%;
+    width: 51%;
     
     #currentInfo {
       max-width: 30%;
@@ -119,11 +128,28 @@ aside#header {
       #bClientDashboard, #bSignout { padding: 24px 12px 0; margin: 0;}
     }
   }
+
+  #categoriesNavigation {
+    width: 49%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #categoriesNavigation {
+    display: none;
+  }
+  
+  aside#header {
+    width: 65%;
+  }
+
 }
 
 @media (max-width: 1186px) {
 
   aside#header {
+
+    width: 63%;
     
     #currentInfo {
       span {
@@ -146,24 +172,30 @@ aside#header {
   }
 }
 
+@media (max-width: 1015px) {
+  aside#header {
+    width: 60px;
+  }
+}
+
 // store.home  -------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
 
 
 
-@media (max-width: 1304px) {
-  #categoriesNavigation {
-    width: 45%;
-  }
-}
+// @media (max-width: 1304px) {
+//   #categoriesNavigation {
+//     width: 46%;
+//   }
+// }
 
-@media (max-width: 1113px) {
-  #categoriesNavigation {
-    width: 40%;
-    padding-left: 15px;
-  }
-}
+// @media (max-width: 1113px) {
+//   #categoriesNavigation {
+//     width: 45%;
+//     padding-left: 15px;
+//   }
+// }
 
 // store.selection  --------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------

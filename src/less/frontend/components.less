@@ -1121,7 +1121,7 @@ input[type="text"]#locationSelectionInput {
 
 #map {
   height: 100%;
-  z-index: 6;
+  z-index: 50;
 }
 
 
@@ -1311,8 +1311,6 @@ input[type="text"]#locationSelectionInput {
     display: none;
   }
 }
-
-
 
 
 #currentDeliveryArea {
@@ -3916,23 +3914,23 @@ div#payment {
   .iBtn {
     display: none;
     position: absolute;
-    
-    height: 76px;
-    width: 37px;
-    margin: -38px 0 0 0;
+    overflow: hidden;
+    height: 86px;
+    width: 43px;
+    margin: -43px 0 0 0;
 
-    color: rgba(0,0,0,0.08);
+    color: rgba(0,0,0,0.15);
     .transition(color .1s linear);
 
     &:before {
       font-size: 100px;
       position: absolute;
-      left: -30px;
-      top: 30px;
+      left: -27px;
+      top: -6px;
      } 
 
     &:hover {
-      color: rgba(0,0,0,0.25);
+      color: rgba(0,0,0,0.35);
      }
     &.bPrev {
       left: 20px;
@@ -3946,9 +3944,9 @@ div#payment {
       color: @greenLighter20;
       right: 100px;
       right: 20px;
-      width: 80px;
+      width: 90px;
       &:before {
-        left: -15px;
+        left: -5px;
       }
       &:hover {
         color: @greenLighter;
@@ -4058,7 +4056,7 @@ div#payment {
         display: block;
         font-size: 215px;
         top: -2px;
-        left: -5px;
+        left: -4px;
       }
 
       &.accented:hover {
