@@ -8775,9 +8775,9 @@ aside#header {
     display: none;
   }
 }
-@media (max-width: 1235px) {
+@media (max-width: 1277px) {
   aside#header {
-    width: 51%;
+    width: 52%;
   }
   aside#header #currentInfo {
     max-width: 30%;
@@ -8811,12 +8811,12 @@ aside#header {
     display: none;
   }
   aside#header {
-    width: 65%;
+    width: 58%;
   }
 }
 @media (max-width: 1186px) {
   aside#header {
-    width: 63%;
+    width: 58%;
   }
   aside#header #currentInfo span {
     max-width: 53%;
@@ -8938,6 +8938,12 @@ aside#header {
   .deliveryAreaCity,
   .deliveryAreaDistrict {
     width: 18%;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+  html,
+  body {
+    width: 1000px !important;
   }
 }
 .safari .pricetag {
