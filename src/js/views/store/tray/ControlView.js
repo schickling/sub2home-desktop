@@ -60,6 +60,8 @@ define([
 
 			this.$el.toggleClass('accepted', cartModel.get('termsAccepted'));
 
+			this.delegateEvents();
+
 		},
 
 		_listenForDataChanges: function () {
@@ -90,6 +92,11 @@ define([
 
 			if (!cartModel.isMinimumReached()) {
 				notificationcenter.notify('views.store.tray.minimumNotReached');
+				return;
+			}
+
+			if (!cartModel.get('termsAccepted')) {
+				notificationcenter.notify('views.store.tray.termsNotAccepted');
 				return;
 			}
 

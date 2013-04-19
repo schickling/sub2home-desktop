@@ -62,12 +62,13 @@ define([
 			var orderModel = cartModel.get('orderModel');
 
 			$.ajax({
-				url: '/api/services/decode',
+				url: 'services/decode',
 				data: JSON.stringify({
 					image: baseUrl
 				}),
 				type: 'post',
 				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
 				success: function (response) {
 					orderModel.set('subcardCode', response.info);
 					notificationcenter.notify('views.store.tray.subcard.success');
