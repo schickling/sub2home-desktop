@@ -398,6 +398,7 @@ aside#header .iInfo {
   padding: 0;
 }
 .note#trayNote .container {
+  background: rgba(224, 166, 54, 0.2);
   padding: 0;
   min-height: 100%;
 }
@@ -7698,7 +7699,6 @@ div#payment > div.disabled .btn.active {
   padding: 50px 0;
   width: 100%;
   overflow: hidden;
-  background: rgba(224, 166, 54, 0.2);
 }
 #checkoutControls #noDeliveriesToday {
   font-family: "VAGRoundedStd-Thin";
