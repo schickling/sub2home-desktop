@@ -27,6 +27,8 @@ define([
 			this._listenForDataChanges();
 		},
 
+		orderIsLocked: false,
+
 		_render: function () {
 
 			var paymentMethod = '';
@@ -87,6 +89,10 @@ define([
 
 		_checkout: function () {
 
+			if (this.orderIsLocked) {
+				return;
+			}
+
 			var orderModel = cartModel.get('orderModel'),
 				self = this;
 
@@ -99,6 +105,9 @@ define([
 				notificationcenter.notify('views.store.tray.termsNotAccepted');
 				return;
 			}
+
+			this.orderIsLocked = true;
+			var self = this;
 
 			orderModel.save({}, {
 				success: function () {
@@ -115,6 +124,7 @@ define([
 				},
 				error: function () {
 					notificationcenter.notify('views.store.tray.orderFailed');
+					self.orderIsLocked = false;
 				}
 			});
 		},
