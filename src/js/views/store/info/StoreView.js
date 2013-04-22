@@ -24,6 +24,7 @@ define([
 			this.$el.html(this.template(json));
 
 			this._renderDeliveryTimes();
+			this._markPaymentMethods();
 
 		},
 
@@ -32,6 +33,24 @@ define([
 				el: this.$('#storeInfoPlaceholder'),
 				collection: this.model.get('deliveryTimesCollection')
 			});
+		},
+
+		_markPaymentMethods: function () {
+
+			var paymentMethods = ['cash', 'ec', 'paypal'],
+				$paymentMethods = this.$('#paymentMethods').find('.threeColumn');
+
+			_.each(paymentMethods, function (paymentMethod) {
+				
+				var capitalizedPaymentMethod = paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1),
+					storeAllowsPaymentMethod = this.model.get('allowsPayment' + capitalizedPaymentMethod);
+
+				if (storeAllowsPaymentMethod) {
+					$paymentMethods.filter('.' + paymentMethod).addClass('active');
+				}
+
+			}, this);
+			
 		}
 
 	});
