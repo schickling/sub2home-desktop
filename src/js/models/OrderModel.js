@@ -164,7 +164,7 @@ define([
 		},
 
 		wasCreatedToday: function () {
-			return (now.getDay() === this.get('createdDate').getDay());
+			return now.toDateString() === this.get('createdDate').toDateString();
 		},
 
 		validate: function (attributes) {
