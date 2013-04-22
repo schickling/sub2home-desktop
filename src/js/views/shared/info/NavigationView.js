@@ -1,4 +1,4 @@
-// Filename: src/js/views/store/info/NavigationView.js
+// Filename: src/js/views/shared/info/NavigationView.js
 define([
     'jquery',
     'underscore',
@@ -22,6 +22,7 @@ define([
 
 		initialize: function () {
 			this._cacheDom();
+			this._render();
 
 			this._listenToScroll();
 		},
@@ -30,6 +31,21 @@ define([
 			this.$content = this.$('.content');
 			this.$articles = this.$content.find('article');
 			this.$navigation = this.$('.infoNavigation');
+		},
+
+		_render: function () {
+			var $navigationList = this.$navigation.find('ul'),
+				$articleHeader,
+				$newListItem;
+
+			this.$articles.each(function () {
+				$articleHeader = $(this).find('header h1');
+				$newListItem = $('<li>' + $articleHeader.text() + '</li>');
+
+				$navigationList.append($newListItem);
+			});
+
+			$navigationList.find('li').first().addClass('active');
 		},
 
 		_listenToScroll: function () {

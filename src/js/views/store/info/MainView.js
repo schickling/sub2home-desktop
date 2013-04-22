@@ -5,10 +5,11 @@ define([
     'backbone',
     'models/stateModel',
     'views/PageView',
-    'views/store/info/DeliveryTimesView',
-    'views/store/info/NavigationView',
+    'views/shared/info/HomeView',
+    'views/store/info/StoreView',
+    'views/shared/info/NavigationView',
     'text!templates/store/info/MainTemplate.html'
-    ], function ($, _, Backbone, stateModel, PageView, DeliveryTimesView, NavigationView, MainTemplate) {
+    ], function ($, _, Backbone, stateModel, PageView, HomeView, StoreView, NavigationView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -25,23 +26,27 @@ define([
 
 		_render: function () {
 
-			var json = {
-				title: this.model.get('title')
-			};
+			this.$el.html(MainTemplate);
 
-			this.$el.html(this.template(json));
+			this._renderStore();
+			this._renderHome();
 
-			this._renderDeliveryTimes();
 			this._renderNavigation();
 
 			this.append();
 
 		},
 
-		_renderDeliveryTimes: function () {
-			new DeliveryTimesView({
-				el: this.$('#storeInfoPlaceholder'),
-				collection: this.model.get('deliveryTimesCollection')
+		_renderStore: function () {
+			new StoreView({
+				el: this.$('#storeInfo'),
+				model: this.model
+			});
+		},
+
+		_renderHome: function () {
+			new HomeView({
+				el: this.$('#homeInfo')
 			});
 		},
 
