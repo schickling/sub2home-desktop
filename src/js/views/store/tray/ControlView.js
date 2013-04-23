@@ -107,7 +107,6 @@ define([
 			}
 
 			this.orderIsLocked = true;
-			var self = this;
 
 			orderModel.save({}, {
 				success: function () {
