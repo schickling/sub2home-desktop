@@ -9,9 +9,8 @@ define([
 
 		defaults: {
 			name: '',
-			bankName: '',
-			bankCodeNumber: 0,
-			accountNumber: 0
+			bic: '',
+			iban: ''
 		},
 
 		initialize: function () {
@@ -33,16 +32,12 @@ define([
 				return 'name';
 			}
 
-			if (attributes.bankName === '') {
-				return 'bankName';
+			if (attributes.bic === '') {
+				return 'bic';
 			}
 
-			if (attributes.bankCodeNumber < 0) {
-				return 'bankCodeNumber';
-			}
-
-			if (attributes.accountNumber < 0) {
-				return 'accountNumber';
+			if (attributes.iban === '') {
+				return 'iban';
 			}
 
 		}
