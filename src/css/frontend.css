@@ -5406,58 +5406,33 @@ input[type="text"]#locationSelectionInput {
   font-size: 40px;
   color: #cab06f;
 }
-#clientAddress > div {
-  position: relative;
-  height: 27px;
-  margin-top: 20px;
-}
-#clientAddress > div#clientName,
-#clientAddress > div#clientStreet {
+#clientName {
   *zoom: 1;
 }
-#clientAddress > div#clientName:before,
-#clientAddress > div#clientStreet:before,
-#clientAddress > div#clientName:after,
-#clientAddress > div#clientStreet:after {
+#clientName:before,
+#clientName:after {
   display: table;
   content: "";
   line-height: 0;
 }
-#clientAddress > div#clientName:after,
-#clientAddress > div#clientStreet:after {
+#clientName:after {
   clear: both;
 }
-#clientAddress > div#clientName > div,
-#clientAddress > div#clientStreet > div {
-  overflow: hidden;
-  position: relative;
+#clientFirstname {
   width: 39%;
   float: left;
+  position: relative;
 }
-#clientAddress > div#clientName > div input,
-#clientAddress > div#clientStreet > div input {
-  width: 100%;
-  height: 27px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-#clientAddress > div#clientName #clientFirstname input,
-#clientAddress > div#clientStreet #clientFirstname input {
+#clientFirstname input {
   padding-left: 69px;
 }
-#clientAddress > div#clientName #clientLastname,
-#clientAddress > div#clientStreet #clientLastname {
+#clientLastname {
   width: 58%;
   float: right;
+  position: relative;
 }
-#clientAddress > div#clientName #clientLastname input,
-#clientAddress > div#clientStreet #clientLastname input {
+#clientLastname input {
   padding-left: 75px;
-}
-#clientAddress > div#clientName #clientStreetAdditional,
-#clientAddress > div#clientStreet #clientStreetAdditional {
-  width: auto;
 }
 #storeAddress,
 #clientAddress {
@@ -6860,134 +6835,6 @@ header h2 {
   position: absolute;
   left: 50%;
   margin-left: 20px;
-}
-#storeBasics > div#storeInfo #storeAddress {
-  padding: 10px 0 0 0;
-  position: relative;
-}
-#storeBasics > div#storeInfo #storeAddress > div {
-  position: relative;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact {
-  margin-top: 10px;
-  overflow: hidden;
-  height: 27px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div {
-  position: absolute;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storePostal,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storePostal,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storePostal,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storePostal {
-  width: 93px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storePostal input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storePostal input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storePostal input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storePostal input {
-  padding-left: 38px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeCity,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeCity,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeCity,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeCity {
-  left: 113px;
-  right: 220px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeCity input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeCity input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeCity input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeCity input {
-  padding-left: 52px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeDistrict,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeDistrict,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeDistrict,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeDistrict {
-  width: 200px;
-  right: 0px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeDistrict input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeDistrict input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeDistrict input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeDistrict input {
-  padding-left: 72px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetBasic,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetBasic,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetBasic,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetBasic {
-  width: 40%;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetBasic input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetBasic input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetBasic input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetBasic input {
-  padding-left: 72px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetNumber,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetNumber,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetNumber,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetNumber {
-  width: 85px;
-  left: 40%;
-  margin-left: 20px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetNumber input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetNumber input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetNumber input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetNumber input {
-  padding-left: 33px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional {
-  left: 40%;
-  margin-left: 105px;
-  right: 0;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional label,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional label,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional label,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional label {
-  left: 31px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet > div#storeStreetAdditional input,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity > div#storeStreetAdditional input,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact > div#storeStreetAdditional input,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact > div#storeStreetAdditional input {
-  margin-left: 20px;
-  padding-left: 57px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeStreet#storeStreet,
-#storeBasics > div#storeInfo #storeAddress > div#storePostalCity#storeStreet,
-#storeBasics > div#storeInfo #storeAddress > div#storeContact#storeStreet,
-#storeBasics > div#storeInfo #storeAddress > div#storeOrderingContact#storeStreet {
-  margin-top: 20px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeContact {
-  margin-top: 10px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeContact #storePhone {
-  width: 210px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeContact #storePhone input {
-  padding-left: 38px;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeContact #storeEmail {
-  left: 230px;
-  right: 0;
-}
-#storeBasics > div#storeInfo #storeAddress > div#storeContact #storeEmail input {
-  padding-left: 50px;
 }
 #storeOrderingContact {
   margin: 30px 0 90px;

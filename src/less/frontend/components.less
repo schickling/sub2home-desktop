@@ -2421,141 +2421,24 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-#clientAddress {
+#clientName {
+  .clearfix;
+}
 
-  >div {
-    .positioned;
-    height: 27px;
-    margin-top: 20px;
-
-    &#clientName, &#clientStreet {
-      .clearfix;
-      >div {
-        overflow: hidden;
-        .positioned;
-        width: 39%;
-        float: left;
-        input {
-          width: 100%;
-          height: 27px;
-          .border-box;
-        }
-      }
-      #clientFirstname {
-        input {
-          padding-left: 69px;
-        }
-      }
-      #clientLastname {
-        width: 58%;
-        float: right;
-        input {
-          padding-left: 75px;
-        }
-      }
-
-      #clientStreetAdditional {
-        width: auto;
-      }
-
-//       // #clientStreetBasic {
-//       //   width: 69%;
-//       //   input {
-//       //     padding-left: 72px;
-//       //   }
-//       // }
-
-//       // #clientStreetAdditional {
-//       //   width: 28%;
-//       //   float: right;
-//       //   input {
-//       //     padding-left: 57px;
-//       //   }
-//       // }
-
-//       #clientStreetBasic {
-//         width: 40%;
-//         input {
-//           padding-left: 72px;
-//         }  
-//       }
-
-//       #clientStreetNumber {
-//         width: 85px;
-//         left: 40%;
-//         margin-left: 20px;
-//         input {
-//           padding-left: 33px;
-//         }  
-//       }
-
-//       #clientStreetAdditional {
-//         left: 40%;
-//         margin-left: 105px;
-//         //padding-left: 20px;
-//         right: 0;
-//         label { left: 31px; }
-//         input {
-//           margin-left: 20px;
-//           padding-left: 57px;
-//         }
-//       }
-//     }
-    
-    
-
-
-
-//     &#clientPostalCity {
-//       overflow: hidden;
-//       .positioned;
-//       #clientPostal {
-//         width: 88px;
-//         input {
-//           padding-left: 38px;
-//           width: 50px;
-//         }
-//       }
-
-//       #clientCity {
-//         position: absolute;
-//         left: 88px;
-//         margin-left: 3%;
-//         right: 0;
-//         top: 0;
-//         input {
-//           height: 27px;
-//           width: 100%;
-//           padding-left: 51px;
-//           .border-box;
-//         }
-//       }
-//     }
-
-
-
-//     &#clientContact {
-//       #clientPhone {
-//         width: 210px;
-//         input {
-//           padding-left: 38px;
-//           width: 166px;
-//         }
-//       }
-//       #clientEmail {
-//         position: absolute;
-//         top: 0;
-//         left: 210px;
-//         margin-left: 3%;
-//         right: 0;
-//         input {
-//           padding-left: 50px;
-//           .border-box;
-//           width: 100%;
-//           height: 27px;
-//         }
-//       }
-    }
+#clientFirstname {
+  width: 39%;
+  float: left;
+  .positioned;
+  input {
+    padding-left: 69px;
+  }
+}
+#clientLastname {
+  width: 58%;
+  float: right;
+  .positioned;
+  input {
+    padding-left: 75px;
   }
 }
 
@@ -2573,11 +2456,6 @@ input[type="text"]#locationSelectionInput {
   >div {
     position: relative;
 
-    // &.storeStreetAdditional {
-    //   input {
-    //     padding-left: 72px;
-    //   }
-    // }
     &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeOrderingContact, &#storeOrderingContact {
       margin-top: 10px;
       overflow: hidden;
@@ -3440,11 +3318,6 @@ header h2 {
           color: @onNoteColor;
         }
       }
-      // .sBOpen {
-      //   position: absolute;
-      //   top: -7px;
-      //   left: 0;
-      // }
 
       #storeClient {
         .positioned;
@@ -3463,105 +3336,6 @@ header h2 {
           }
         }
       }
-
-
-      #storeAddress {
-          
-        padding: 10px 0 0 0;
-        position: relative;
-
-        >div {
-          position: relative;
-
-          // &.storeStreetAdditional {
-          //   input {
-          //     padding-left: 72px;
-          //   }
-          // }
-          &#storeStreet, &#storePostalCity, &#storeContact, &#storeOrderingContact {
-            margin-top: 10px;
-            overflow: hidden;
-            height: 27px;
-            >div {
-              position: absolute;
-              &#storePostal {
-                width: 93px;
-                input {
-                  padding-left: 38px;
-                }
-              }
-
-              &#storeCity {
-                left: 113px;
-                right: 220px;
-                input {
-                  padding-left: 52px;
-                }
-              }
-
-              &#storeDistrict {
-                width: 200px;
-                right: 0px;
-                input {
-                  padding-left: 72px;
-                }
-              }
-
-              &#storeStreetBasic {
-                width: 40%;
-                input {
-                  padding-left: 72px;
-                }  
-              }
-
-              &#storeStreetNumber {
-                width: 85px;
-                left: 40%;
-                margin-left: 20px;
-                input {
-                  padding-left: 33px;
-                }  
-              }
-
-              &#storeStreetAdditional {
-                left: 40%;
-                margin-left: 105px;
-                //padding-left: 20px;
-                right: 0;
-                label { left: 31px; }
-                input {
-                  margin-left: 20px;
-                  padding-left: 57px;
-                }
-              }
-            }
-
-            &#storeStreet {
-              margin-top: 20px;
-            }
-
-
-
-          }
-          &#storeContact {
-            margin-top: 10px;
-            #storePhone {
-              width: 210px;
-              input {
-                padding-left: 38px;
-              }
-            }
-            #storeEmail {
-              left: 230px;
-              right: 0;
-              input {
-                padding-left: 50px;
-              }
-
-            }
-          }
-        }
-      } 
     }
   }
 }
