@@ -307,12 +307,20 @@ img.cookie    { margin: 0 -10px;}
     left: 50%;
     top: -43px;
   }
-  // &.leftHandBelow {
-  //   right: 67px;
-  //   top: 74px;
-  // }
 }
 
+// OrderedItem Amount Notice
+
+.orderedArticle .notice {
+  right: 143px;
+  display: none;
+}
+
+.orderedMenu .notice {
+    right: 136px;
+    top: -50px;
+    display: none;
+}
 
 
 // Category- / Menu-Flags
@@ -4537,6 +4545,9 @@ div#payment {
     top: 50%;
     margin-top: -5px;
   }
+  &:first-child .notice {
+    display: block;
+  }
 }
 
 
@@ -4586,6 +4597,13 @@ div#payment {
     .backface-visibility(hidden);
     i {
       margin-left: 15px;
+    }
+  }
+  
+  &:first-child {
+    margin-top: 40px;
+    .notice {
+      display: block;
     }
   }
 }
