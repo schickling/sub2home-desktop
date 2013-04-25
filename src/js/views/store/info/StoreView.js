@@ -45,8 +45,8 @@ define([
 				var capitalizedPaymentMethod = paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1),
 					storeAllowsPaymentMethod = this.model.get('allowsPayment' + capitalizedPaymentMethod);
 
-				if (storeAllowsPaymentMethod) {
-					$paymentMethods.filter('.' + paymentMethod).addClass('active');
+				if (!storeAllowsPaymentMethod) {
+					$paymentMethods.filter('.' + paymentMethod).addClass('inactive');
 				}
 
 			}, this);
