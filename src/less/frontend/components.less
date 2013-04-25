@@ -3759,7 +3759,7 @@ div#payment {
     .articlePreview {
       width: 450px;
     }
-    div.articleBasics {
+    .articleBasics {
       width: 430px;
       padding: 0 0 0 10px;
     }
@@ -3782,6 +3782,15 @@ div#payment {
       width: 180px;
       .pricetag {
         display: none;
+      }
+    }
+  }
+
+  &.ctr {
+    .articleBasics {
+      padding-top: 30px;
+      h3 span {
+        white-space: nowrap;
       }
     }
   }
@@ -5564,14 +5573,13 @@ aside.infoNavigation {
           color: @onInfoColor;
           text-shadow: 0 1px 0 rgba(255,255,255,0.15);
           margin: 0 0 70px 0;
-
-          span {
-            font-size: 24px;
-            color: @white;
-            text-shadow: 0 2px 2px rgba(0,0,0,0.7);
-            margin: 0 0 0 20px;
-          }
-
+          display: inline-block;
+        }
+        span {
+          font-size: 24px;
+          color: @white;
+          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+          margin: 0 0 0 20px;
         }
       }
 
@@ -5598,6 +5606,11 @@ aside.infoNavigation {
           text-shadow: 0 2px 2px rgba(0,0,0,0.7);
           margin: 0 0 15px 0;
         }
+      }
+
+
+      .threeColumn {
+
       }
 
       .twoColumn {

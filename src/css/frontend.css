@@ -6787,7 +6787,7 @@ div#payment > div.disabled .btn.active {
 .articleInfo.ft .articlePreview {
   width: 450px;
 }
-.articleInfo.ft div.articleBasics {
+.articleInfo.ft .articleBasics {
   width: 430px;
   padding: 0 0 0 10px;
 }
@@ -6802,6 +6802,12 @@ div#payment > div.disabled .btn.active {
 }
 .articleInfo.mi .articlePreview .pricetag {
   display: none;
+}
+.articleInfo.ctr .articleBasics {
+  padding-top: 30px;
+}
+.articleInfo.ctr .articleBasics h3 span {
+  white-space: nowrap;
 }
 .sizeTag {
   position: relative;
@@ -8478,8 +8484,9 @@ aside.infoNavigation ul li.active {
   color: #0c0c0c;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
   margin: 0 0 70px 0;
+  display: inline-block;
 }
-.content.info .container article header h1 span {
+.content.info .container article header span {
   font-size: 24px;
   color: #ffffff;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
@@ -8846,6 +8853,9 @@ aside#header {
     width: 430px;
     padding: 0 0 0 10px;
   }
+  #selectionNote .info > div.articleInfo.ctr .articleBasics {
+    padding: 0;
+  }
 }
 @media (max-width: 1304px) {
   #selectionNote .info > div.articleInfo {
@@ -8855,6 +8865,9 @@ aside#header {
   #selectionNote .info > div.articleInfo .articleBasics {
     padding: 0 0 0 10px;
     width: 250px;
+  }
+  #selectionNote .info > div.articleInfo .articleDescription {
+    display: none;
   }
   #selectionNote .info > div.articleInfo.ft .wrapper {
     width: 100%;
@@ -8868,6 +8881,12 @@ aside#header {
   }
   #selectionNote .info > div.articleInfo.ft .articleBasics {
     width: 100%;
+  }
+  #selectionNote .info > div.articleInfo.ctr .articleBasics {
+    width: 280px;
+  }
+  #selectionNote .info > div.articleInfo.ctr .articleBasics h3 {
+    padding-left: 0;
   }
   .ingredientInfo {
     width: 58%;
