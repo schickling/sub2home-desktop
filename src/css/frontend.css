@@ -8518,6 +8518,10 @@ aside.infoNavigation ul li.active {
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   margin: 0 0 15px 0;
 }
+.content.info .container article .threeColumn.inactive {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
 .content.info .container article .twoColumn {
   width: 49%;
 }
