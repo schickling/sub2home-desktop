@@ -192,11 +192,19 @@ define([
 
 			// store.assortment
 
-			'views.store.assortment.articles.success.isActive': {
+			'views.store.assortment.items.success.isActive': {
 				title: 'Artikel aktiviert',
 				description: 'Die gewählten Artikel sind jetzt im Store verfügbar.',
 				className: 'success'
 			},
+
+			'views.store.assortment.items.success.isNotActive': {
+				title: 'Artikel deaktiviert',
+				description: 'Die gewählten Artikel wurden aus Ihrem Sortiment entfernt.',
+				className: 'success'
+			},
+
+			// da ist doch was doppelt oder ?
 
 			'views.store.assortment.articles.success.isNotActive': {
 				title: 'Artikel deaktiviert',
@@ -463,6 +471,15 @@ define([
 				className: 'success'
 			},
 
+			'views.store.tray.termsNotAccepted': {
+				title: 'Zuerst die AGB',
+				description: 'Du musst unsere AGB akzeptieren, bevor du bestellen kannst.',
+				className: 'warning'
+			},
+
+
+
+
 
 			// store.dashboard
 
@@ -476,7 +493,22 @@ define([
 				title: 'Testbestellung nicht gesendet',
 				description: 'Es konnte keine Testbestellung versendet werden. Wenden Sie sich bitte an unseren Support.',
 				className: 'error'
+			},
+
+			'views.store.dashboard.resendMail.success': {
+				title: 'Bestellung erneut versendet',
+				description: 'Die Bestellung wurde erneut an die hinterlegte EMail-Adresse versandt.',
+				className: 'success'
+			},
+
+			'views.store.dashboard.resendMail.error': {
+				title: 'Bestellung nicht versendet',
+				description: 'Die Bestellung konnte nicht erneut versandt werden. Bitte wenden Sie sich an unseren Support.',
+				className: 'error'
 			}
+			
+
+			
 		},
 
 		getNotificationModel: function (alias, data) {

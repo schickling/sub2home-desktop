@@ -2945,6 +2945,14 @@ img.cookie {
   text-transform: none;
   z-index: 9001;
 }
+.tooltip.left {
+  margin: 11px -23px 0 0;
+}
+.tooltip.left:before,
+.tooltip.left:after {
+  left: auto;
+  right: 15px;
+}
 .tooltip.error {
   color: #9d261d;
 }
@@ -5447,86 +5455,594 @@ input[type="text"]#locationSelectionInput {
 #clientAddress > div#clientStreet #clientLastname input {
   padding-left: 75px;
 }
-#clientAddress > div#clientName #clientStreetBasic,
-#clientAddress > div#clientStreet #clientStreetBasic {
-  width: 40%;
+#clientAddress > div#clientName #clientStreetAdditional,
+#clientAddress > div#clientStreet #clientStreetAdditional {
+  width: auto;
 }
-#clientAddress > div#clientName #clientStreetBasic input,
-#clientAddress > div#clientStreet #clientStreetBasic input {
+#storeAddress,
+#clientAddress {
+  padding: 10px 0 0 0;
+  position: relative;
+}
+#storeAddress input,
+#clientAddress input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 27px;
+  width: 100%;
+}
+#storeAddress > div,
+#clientAddress > div {
+  position: relative;
+}
+#storeAddress > div#storeStreet,
+#clientAddress > div#storeStreet,
+#storeAddress > div#clientStreet,
+#clientAddress > div#clientStreet,
+#storeAddress > div#storePostalCity,
+#clientAddress > div#storePostalCity,
+#storeAddress > div#clientPostalCity,
+#clientAddress > div#clientPostalCity,
+#storeAddress > div#storeContact,
+#clientAddress > div#storeContact,
+#storeAddress > div#clientContact,
+#clientAddress > div#clientContact,
+#storeAddress > div#storeOrderingContact,
+#clientAddress > div#storeOrderingContact,
+#storeAddress > div#storeOrderingContact,
+#clientAddress > div#storeOrderingContact {
+  margin-top: 10px;
+  overflow: hidden;
+  height: 27px;
+}
+#storeAddress > div#storeStreet > div,
+#clientAddress > div#storeStreet > div,
+#storeAddress > div#clientStreet > div,
+#clientAddress > div#clientStreet > div,
+#storeAddress > div#storePostalCity > div,
+#clientAddress > div#storePostalCity > div,
+#storeAddress > div#clientPostalCity > div,
+#clientAddress > div#clientPostalCity > div,
+#storeAddress > div#storeContact > div,
+#clientAddress > div#storeContact > div,
+#storeAddress > div#clientContact > div,
+#clientAddress > div#clientContact > div,
+#storeAddress > div#storeOrderingContact > div,
+#clientAddress > div#storeOrderingContact > div,
+#storeAddress > div#storeOrderingContact > div,
+#clientAddress > div#storeOrderingContact > div {
+  position: absolute;
+}
+#storeAddress > div#storeStreet > div#storePostal,
+#clientAddress > div#storeStreet > div#storePostal,
+#storeAddress > div#clientStreet > div#storePostal,
+#clientAddress > div#clientStreet > div#storePostal,
+#storeAddress > div#storePostalCity > div#storePostal,
+#clientAddress > div#storePostalCity > div#storePostal,
+#storeAddress > div#clientPostalCity > div#storePostal,
+#clientAddress > div#clientPostalCity > div#storePostal,
+#storeAddress > div#storeContact > div#storePostal,
+#clientAddress > div#storeContact > div#storePostal,
+#storeAddress > div#clientContact > div#storePostal,
+#clientAddress > div#clientContact > div#storePostal,
+#storeAddress > div#storeOrderingContact > div#storePostal,
+#clientAddress > div#storeOrderingContact > div#storePostal,
+#storeAddress > div#storeOrderingContact > div#storePostal,
+#clientAddress > div#storeOrderingContact > div#storePostal,
+#storeAddress > div#storeStreet > div#clientPostal,
+#clientAddress > div#storeStreet > div#clientPostal,
+#storeAddress > div#clientStreet > div#clientPostal,
+#clientAddress > div#clientStreet > div#clientPostal,
+#storeAddress > div#storePostalCity > div#clientPostal,
+#clientAddress > div#storePostalCity > div#clientPostal,
+#storeAddress > div#clientPostalCity > div#clientPostal,
+#clientAddress > div#clientPostalCity > div#clientPostal,
+#storeAddress > div#storeContact > div#clientPostal,
+#clientAddress > div#storeContact > div#clientPostal,
+#storeAddress > div#clientContact > div#clientPostal,
+#clientAddress > div#clientContact > div#clientPostal,
+#storeAddress > div#storeOrderingContact > div#clientPostal,
+#clientAddress > div#storeOrderingContact > div#clientPostal,
+#storeAddress > div#storeOrderingContact > div#clientPostal,
+#clientAddress > div#storeOrderingContact > div#clientPostal {
+  width: 93px;
+}
+#storeAddress > div#storeStreet > div#storePostal input,
+#clientAddress > div#storeStreet > div#storePostal input,
+#storeAddress > div#clientStreet > div#storePostal input,
+#clientAddress > div#clientStreet > div#storePostal input,
+#storeAddress > div#storePostalCity > div#storePostal input,
+#clientAddress > div#storePostalCity > div#storePostal input,
+#storeAddress > div#clientPostalCity > div#storePostal input,
+#clientAddress > div#clientPostalCity > div#storePostal input,
+#storeAddress > div#storeContact > div#storePostal input,
+#clientAddress > div#storeContact > div#storePostal input,
+#storeAddress > div#clientContact > div#storePostal input,
+#clientAddress > div#clientContact > div#storePostal input,
+#storeAddress > div#storeOrderingContact > div#storePostal input,
+#clientAddress > div#storeOrderingContact > div#storePostal input,
+#storeAddress > div#storeOrderingContact > div#storePostal input,
+#clientAddress > div#storeOrderingContact > div#storePostal input,
+#storeAddress > div#storeStreet > div#clientPostal input,
+#clientAddress > div#storeStreet > div#clientPostal input,
+#storeAddress > div#clientStreet > div#clientPostal input,
+#clientAddress > div#clientStreet > div#clientPostal input,
+#storeAddress > div#storePostalCity > div#clientPostal input,
+#clientAddress > div#storePostalCity > div#clientPostal input,
+#storeAddress > div#clientPostalCity > div#clientPostal input,
+#clientAddress > div#clientPostalCity > div#clientPostal input,
+#storeAddress > div#storeContact > div#clientPostal input,
+#clientAddress > div#storeContact > div#clientPostal input,
+#storeAddress > div#clientContact > div#clientPostal input,
+#clientAddress > div#clientContact > div#clientPostal input,
+#storeAddress > div#storeOrderingContact > div#clientPostal input,
+#clientAddress > div#storeOrderingContact > div#clientPostal input,
+#storeAddress > div#storeOrderingContact > div#clientPostal input,
+#clientAddress > div#storeOrderingContact > div#clientPostal input {
+  padding-left: 38px;
+}
+#storeAddress > div#storeStreet > div#storeCity,
+#clientAddress > div#storeStreet > div#storeCity,
+#storeAddress > div#clientStreet > div#storeCity,
+#clientAddress > div#clientStreet > div#storeCity,
+#storeAddress > div#storePostalCity > div#storeCity,
+#clientAddress > div#storePostalCity > div#storeCity,
+#storeAddress > div#clientPostalCity > div#storeCity,
+#clientAddress > div#clientPostalCity > div#storeCity,
+#storeAddress > div#storeContact > div#storeCity,
+#clientAddress > div#storeContact > div#storeCity,
+#storeAddress > div#clientContact > div#storeCity,
+#clientAddress > div#clientContact > div#storeCity,
+#storeAddress > div#storeOrderingContact > div#storeCity,
+#clientAddress > div#storeOrderingContact > div#storeCity,
+#storeAddress > div#storeOrderingContact > div#storeCity,
+#clientAddress > div#storeOrderingContact > div#storeCity,
+#storeAddress > div#storeStreet > div#clientCity,
+#clientAddress > div#storeStreet > div#clientCity,
+#storeAddress > div#clientStreet > div#clientCity,
+#clientAddress > div#clientStreet > div#clientCity,
+#storeAddress > div#storePostalCity > div#clientCity,
+#clientAddress > div#storePostalCity > div#clientCity,
+#storeAddress > div#clientPostalCity > div#clientCity,
+#clientAddress > div#clientPostalCity > div#clientCity,
+#storeAddress > div#storeContact > div#clientCity,
+#clientAddress > div#storeContact > div#clientCity,
+#storeAddress > div#clientContact > div#clientCity,
+#clientAddress > div#clientContact > div#clientCity,
+#storeAddress > div#storeOrderingContact > div#clientCity,
+#clientAddress > div#storeOrderingContact > div#clientCity,
+#storeAddress > div#storeOrderingContact > div#clientCity,
+#clientAddress > div#storeOrderingContact > div#clientCity {
+  left: 113px;
+  right: 220px;
+}
+#storeAddress > div#storeStreet > div#storeCity input,
+#clientAddress > div#storeStreet > div#storeCity input,
+#storeAddress > div#clientStreet > div#storeCity input,
+#clientAddress > div#clientStreet > div#storeCity input,
+#storeAddress > div#storePostalCity > div#storeCity input,
+#clientAddress > div#storePostalCity > div#storeCity input,
+#storeAddress > div#clientPostalCity > div#storeCity input,
+#clientAddress > div#clientPostalCity > div#storeCity input,
+#storeAddress > div#storeContact > div#storeCity input,
+#clientAddress > div#storeContact > div#storeCity input,
+#storeAddress > div#clientContact > div#storeCity input,
+#clientAddress > div#clientContact > div#storeCity input,
+#storeAddress > div#storeOrderingContact > div#storeCity input,
+#clientAddress > div#storeOrderingContact > div#storeCity input,
+#storeAddress > div#storeOrderingContact > div#storeCity input,
+#clientAddress > div#storeOrderingContact > div#storeCity input,
+#storeAddress > div#storeStreet > div#clientCity input,
+#clientAddress > div#storeStreet > div#clientCity input,
+#storeAddress > div#clientStreet > div#clientCity input,
+#clientAddress > div#clientStreet > div#clientCity input,
+#storeAddress > div#storePostalCity > div#clientCity input,
+#clientAddress > div#storePostalCity > div#clientCity input,
+#storeAddress > div#clientPostalCity > div#clientCity input,
+#clientAddress > div#clientPostalCity > div#clientCity input,
+#storeAddress > div#storeContact > div#clientCity input,
+#clientAddress > div#storeContact > div#clientCity input,
+#storeAddress > div#clientContact > div#clientCity input,
+#clientAddress > div#clientContact > div#clientCity input,
+#storeAddress > div#storeOrderingContact > div#clientCity input,
+#clientAddress > div#storeOrderingContact > div#clientCity input,
+#storeAddress > div#storeOrderingContact > div#clientCity input,
+#clientAddress > div#storeOrderingContact > div#clientCity input {
+  padding-left: 52px;
+}
+#storeAddress > div#storeStreet > div#storeDistrict,
+#clientAddress > div#storeStreet > div#storeDistrict,
+#storeAddress > div#clientStreet > div#storeDistrict,
+#clientAddress > div#clientStreet > div#storeDistrict,
+#storeAddress > div#storePostalCity > div#storeDistrict,
+#clientAddress > div#storePostalCity > div#storeDistrict,
+#storeAddress > div#clientPostalCity > div#storeDistrict,
+#clientAddress > div#clientPostalCity > div#storeDistrict,
+#storeAddress > div#storeContact > div#storeDistrict,
+#clientAddress > div#storeContact > div#storeDistrict,
+#storeAddress > div#clientContact > div#storeDistrict,
+#clientAddress > div#clientContact > div#storeDistrict,
+#storeAddress > div#storeOrderingContact > div#storeDistrict,
+#clientAddress > div#storeOrderingContact > div#storeDistrict,
+#storeAddress > div#storeOrderingContact > div#storeDistrict,
+#clientAddress > div#storeOrderingContact > div#storeDistrict,
+#storeAddress > div#storeStreet > div#clientDistrict,
+#clientAddress > div#storeStreet > div#clientDistrict,
+#storeAddress > div#clientStreet > div#clientDistrict,
+#clientAddress > div#clientStreet > div#clientDistrict,
+#storeAddress > div#storePostalCity > div#clientDistrict,
+#clientAddress > div#storePostalCity > div#clientDistrict,
+#storeAddress > div#clientPostalCity > div#clientDistrict,
+#clientAddress > div#clientPostalCity > div#clientDistrict,
+#storeAddress > div#storeContact > div#clientDistrict,
+#clientAddress > div#storeContact > div#clientDistrict,
+#storeAddress > div#clientContact > div#clientDistrict,
+#clientAddress > div#clientContact > div#clientDistrict,
+#storeAddress > div#storeOrderingContact > div#clientDistrict,
+#clientAddress > div#storeOrderingContact > div#clientDistrict,
+#storeAddress > div#storeOrderingContact > div#clientDistrict,
+#clientAddress > div#storeOrderingContact > div#clientDistrict {
+  width: 200px;
+  right: 0px;
+}
+#storeAddress > div#storeStreet > div#storeDistrict input,
+#clientAddress > div#storeStreet > div#storeDistrict input,
+#storeAddress > div#clientStreet > div#storeDistrict input,
+#clientAddress > div#clientStreet > div#storeDistrict input,
+#storeAddress > div#storePostalCity > div#storeDistrict input,
+#clientAddress > div#storePostalCity > div#storeDistrict input,
+#storeAddress > div#clientPostalCity > div#storeDistrict input,
+#clientAddress > div#clientPostalCity > div#storeDistrict input,
+#storeAddress > div#storeContact > div#storeDistrict input,
+#clientAddress > div#storeContact > div#storeDistrict input,
+#storeAddress > div#clientContact > div#storeDistrict input,
+#clientAddress > div#clientContact > div#storeDistrict input,
+#storeAddress > div#storeOrderingContact > div#storeDistrict input,
+#clientAddress > div#storeOrderingContact > div#storeDistrict input,
+#storeAddress > div#storeOrderingContact > div#storeDistrict input,
+#clientAddress > div#storeOrderingContact > div#storeDistrict input,
+#storeAddress > div#storeStreet > div#clientDistrict input,
+#clientAddress > div#storeStreet > div#clientDistrict input,
+#storeAddress > div#clientStreet > div#clientDistrict input,
+#clientAddress > div#clientStreet > div#clientDistrict input,
+#storeAddress > div#storePostalCity > div#clientDistrict input,
+#clientAddress > div#storePostalCity > div#clientDistrict input,
+#storeAddress > div#clientPostalCity > div#clientDistrict input,
+#clientAddress > div#clientPostalCity > div#clientDistrict input,
+#storeAddress > div#storeContact > div#clientDistrict input,
+#clientAddress > div#storeContact > div#clientDistrict input,
+#storeAddress > div#clientContact > div#clientDistrict input,
+#clientAddress > div#clientContact > div#clientDistrict input,
+#storeAddress > div#storeOrderingContact > div#clientDistrict input,
+#clientAddress > div#storeOrderingContact > div#clientDistrict input,
+#storeAddress > div#storeOrderingContact > div#clientDistrict input,
+#clientAddress > div#storeOrderingContact > div#clientDistrict input {
   padding-left: 72px;
 }
-#clientAddress > div#clientName #clientStreetNumber,
-#clientAddress > div#clientStreet #clientStreetNumber {
+#storeAddress > div#storeStreet > div#storeStreetBasic,
+#clientAddress > div#storeStreet > div#storeStreetBasic,
+#storeAddress > div#clientStreet > div#storeStreetBasic,
+#clientAddress > div#clientStreet > div#storeStreetBasic,
+#storeAddress > div#storePostalCity > div#storeStreetBasic,
+#clientAddress > div#storePostalCity > div#storeStreetBasic,
+#storeAddress > div#clientPostalCity > div#storeStreetBasic,
+#clientAddress > div#clientPostalCity > div#storeStreetBasic,
+#storeAddress > div#storeContact > div#storeStreetBasic,
+#clientAddress > div#storeContact > div#storeStreetBasic,
+#storeAddress > div#clientContact > div#storeStreetBasic,
+#clientAddress > div#clientContact > div#storeStreetBasic,
+#storeAddress > div#storeOrderingContact > div#storeStreetBasic,
+#clientAddress > div#storeOrderingContact > div#storeStreetBasic,
+#storeAddress > div#storeOrderingContact > div#storeStreetBasic,
+#clientAddress > div#storeOrderingContact > div#storeStreetBasic,
+#storeAddress > div#storeStreet > div#clientStreetBasic,
+#clientAddress > div#storeStreet > div#clientStreetBasic,
+#storeAddress > div#clientStreet > div#clientStreetBasic,
+#clientAddress > div#clientStreet > div#clientStreetBasic,
+#storeAddress > div#storePostalCity > div#clientStreetBasic,
+#clientAddress > div#storePostalCity > div#clientStreetBasic,
+#storeAddress > div#clientPostalCity > div#clientStreetBasic,
+#clientAddress > div#clientPostalCity > div#clientStreetBasic,
+#storeAddress > div#storeContact > div#clientStreetBasic,
+#clientAddress > div#storeContact > div#clientStreetBasic,
+#storeAddress > div#clientContact > div#clientStreetBasic,
+#clientAddress > div#clientContact > div#clientStreetBasic,
+#storeAddress > div#storeOrderingContact > div#clientStreetBasic,
+#clientAddress > div#storeOrderingContact > div#clientStreetBasic,
+#storeAddress > div#storeOrderingContact > div#clientStreetBasic,
+#clientAddress > div#storeOrderingContact > div#clientStreetBasic {
+  width: 40%;
+}
+#storeAddress > div#storeStreet > div#storeStreetBasic input,
+#clientAddress > div#storeStreet > div#storeStreetBasic input,
+#storeAddress > div#clientStreet > div#storeStreetBasic input,
+#clientAddress > div#clientStreet > div#storeStreetBasic input,
+#storeAddress > div#storePostalCity > div#storeStreetBasic input,
+#clientAddress > div#storePostalCity > div#storeStreetBasic input,
+#storeAddress > div#clientPostalCity > div#storeStreetBasic input,
+#clientAddress > div#clientPostalCity > div#storeStreetBasic input,
+#storeAddress > div#storeContact > div#storeStreetBasic input,
+#clientAddress > div#storeContact > div#storeStreetBasic input,
+#storeAddress > div#clientContact > div#storeStreetBasic input,
+#clientAddress > div#clientContact > div#storeStreetBasic input,
+#storeAddress > div#storeOrderingContact > div#storeStreetBasic input,
+#clientAddress > div#storeOrderingContact > div#storeStreetBasic input,
+#storeAddress > div#storeOrderingContact > div#storeStreetBasic input,
+#clientAddress > div#storeOrderingContact > div#storeStreetBasic input,
+#storeAddress > div#storeStreet > div#clientStreetBasic input,
+#clientAddress > div#storeStreet > div#clientStreetBasic input,
+#storeAddress > div#clientStreet > div#clientStreetBasic input,
+#clientAddress > div#clientStreet > div#clientStreetBasic input,
+#storeAddress > div#storePostalCity > div#clientStreetBasic input,
+#clientAddress > div#storePostalCity > div#clientStreetBasic input,
+#storeAddress > div#clientPostalCity > div#clientStreetBasic input,
+#clientAddress > div#clientPostalCity > div#clientStreetBasic input,
+#storeAddress > div#storeContact > div#clientStreetBasic input,
+#clientAddress > div#storeContact > div#clientStreetBasic input,
+#storeAddress > div#clientContact > div#clientStreetBasic input,
+#clientAddress > div#clientContact > div#clientStreetBasic input,
+#storeAddress > div#storeOrderingContact > div#clientStreetBasic input,
+#clientAddress > div#storeOrderingContact > div#clientStreetBasic input,
+#storeAddress > div#storeOrderingContact > div#clientStreetBasic input,
+#clientAddress > div#storeOrderingContact > div#clientStreetBasic input {
+  padding-left: 72px;
+}
+#storeAddress > div#storeStreet > div#storeStreetNumber,
+#clientAddress > div#storeStreet > div#storeStreetNumber,
+#storeAddress > div#clientStreet > div#storeStreetNumber,
+#clientAddress > div#clientStreet > div#storeStreetNumber,
+#storeAddress > div#storePostalCity > div#storeStreetNumber,
+#clientAddress > div#storePostalCity > div#storeStreetNumber,
+#storeAddress > div#clientPostalCity > div#storeStreetNumber,
+#clientAddress > div#clientPostalCity > div#storeStreetNumber,
+#storeAddress > div#storeContact > div#storeStreetNumber,
+#clientAddress > div#storeContact > div#storeStreetNumber,
+#storeAddress > div#clientContact > div#storeStreetNumber,
+#clientAddress > div#clientContact > div#storeStreetNumber,
+#storeAddress > div#storeOrderingContact > div#storeStreetNumber,
+#clientAddress > div#storeOrderingContact > div#storeStreetNumber,
+#storeAddress > div#storeOrderingContact > div#storeStreetNumber,
+#clientAddress > div#storeOrderingContact > div#storeStreetNumber,
+#storeAddress > div#storeStreet > div#clientStreetNumber,
+#clientAddress > div#storeStreet > div#clientStreetNumber,
+#storeAddress > div#clientStreet > div#clientStreetNumber,
+#clientAddress > div#clientStreet > div#clientStreetNumber,
+#storeAddress > div#storePostalCity > div#clientStreetNumber,
+#clientAddress > div#storePostalCity > div#clientStreetNumber,
+#storeAddress > div#clientPostalCity > div#clientStreetNumber,
+#clientAddress > div#clientPostalCity > div#clientStreetNumber,
+#storeAddress > div#storeContact > div#clientStreetNumber,
+#clientAddress > div#storeContact > div#clientStreetNumber,
+#storeAddress > div#clientContact > div#clientStreetNumber,
+#clientAddress > div#clientContact > div#clientStreetNumber,
+#storeAddress > div#storeOrderingContact > div#clientStreetNumber,
+#clientAddress > div#storeOrderingContact > div#clientStreetNumber,
+#storeAddress > div#storeOrderingContact > div#clientStreetNumber,
+#clientAddress > div#storeOrderingContact > div#clientStreetNumber {
   width: 85px;
   left: 40%;
   margin-left: 20px;
 }
-#clientAddress > div#clientName #clientStreetNumber input,
-#clientAddress > div#clientStreet #clientStreetNumber input {
+#storeAddress > div#storeStreet > div#storeStreetNumber input,
+#clientAddress > div#storeStreet > div#storeStreetNumber input,
+#storeAddress > div#clientStreet > div#storeStreetNumber input,
+#clientAddress > div#clientStreet > div#storeStreetNumber input,
+#storeAddress > div#storePostalCity > div#storeStreetNumber input,
+#clientAddress > div#storePostalCity > div#storeStreetNumber input,
+#storeAddress > div#clientPostalCity > div#storeStreetNumber input,
+#clientAddress > div#clientPostalCity > div#storeStreetNumber input,
+#storeAddress > div#storeContact > div#storeStreetNumber input,
+#clientAddress > div#storeContact > div#storeStreetNumber input,
+#storeAddress > div#clientContact > div#storeStreetNumber input,
+#clientAddress > div#clientContact > div#storeStreetNumber input,
+#storeAddress > div#storeOrderingContact > div#storeStreetNumber input,
+#clientAddress > div#storeOrderingContact > div#storeStreetNumber input,
+#storeAddress > div#storeOrderingContact > div#storeStreetNumber input,
+#clientAddress > div#storeOrderingContact > div#storeStreetNumber input,
+#storeAddress > div#storeStreet > div#clientStreetNumber input,
+#clientAddress > div#storeStreet > div#clientStreetNumber input,
+#storeAddress > div#clientStreet > div#clientStreetNumber input,
+#clientAddress > div#clientStreet > div#clientStreetNumber input,
+#storeAddress > div#storePostalCity > div#clientStreetNumber input,
+#clientAddress > div#storePostalCity > div#clientStreetNumber input,
+#storeAddress > div#clientPostalCity > div#clientStreetNumber input,
+#clientAddress > div#clientPostalCity > div#clientStreetNumber input,
+#storeAddress > div#storeContact > div#clientStreetNumber input,
+#clientAddress > div#storeContact > div#clientStreetNumber input,
+#storeAddress > div#clientContact > div#clientStreetNumber input,
+#clientAddress > div#clientContact > div#clientStreetNumber input,
+#storeAddress > div#storeOrderingContact > div#clientStreetNumber input,
+#clientAddress > div#storeOrderingContact > div#clientStreetNumber input,
+#storeAddress > div#storeOrderingContact > div#clientStreetNumber input,
+#clientAddress > div#storeOrderingContact > div#clientStreetNumber input {
   padding-left: 33px;
 }
-#clientAddress > div#clientName #clientStreetAdditional,
-#clientAddress > div#clientStreet #clientStreetAdditional {
+#storeAddress > div#storeStreet > div#storeStreetAdditional,
+#clientAddress > div#storeStreet > div#storeStreetAdditional,
+#storeAddress > div#clientStreet > div#storeStreetAdditional,
+#clientAddress > div#clientStreet > div#storeStreetAdditional,
+#storeAddress > div#storePostalCity > div#storeStreetAdditional,
+#clientAddress > div#storePostalCity > div#storeStreetAdditional,
+#storeAddress > div#clientPostalCity > div#storeStreetAdditional,
+#clientAddress > div#clientPostalCity > div#storeStreetAdditional,
+#storeAddress > div#storeContact > div#storeStreetAdditional,
+#clientAddress > div#storeContact > div#storeStreetAdditional,
+#storeAddress > div#clientContact > div#storeStreetAdditional,
+#clientAddress > div#clientContact > div#storeStreetAdditional,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional,
+#storeAddress > div#storeStreet > div#clientStreetAdditional,
+#clientAddress > div#storeStreet > div#clientStreetAdditional,
+#storeAddress > div#clientStreet > div#clientStreetAdditional,
+#clientAddress > div#clientStreet > div#clientStreetAdditional,
+#storeAddress > div#storePostalCity > div#clientStreetAdditional,
+#clientAddress > div#storePostalCity > div#clientStreetAdditional,
+#storeAddress > div#clientPostalCity > div#clientStreetAdditional,
+#clientAddress > div#clientPostalCity > div#clientStreetAdditional,
+#storeAddress > div#storeContact > div#clientStreetAdditional,
+#clientAddress > div#storeContact > div#clientStreetAdditional,
+#storeAddress > div#clientContact > div#clientStreetAdditional,
+#clientAddress > div#clientContact > div#clientStreetAdditional,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional {
   left: 40%;
   margin-left: 105px;
   right: 0;
 }
-#clientAddress > div#clientName #clientStreetAdditional label,
-#clientAddress > div#clientStreet #clientStreetAdditional label {
+#storeAddress > div#storeStreet > div#storeStreetAdditional label,
+#clientAddress > div#storeStreet > div#storeStreetAdditional label,
+#storeAddress > div#clientStreet > div#storeStreetAdditional label,
+#clientAddress > div#clientStreet > div#storeStreetAdditional label,
+#storeAddress > div#storePostalCity > div#storeStreetAdditional label,
+#clientAddress > div#storePostalCity > div#storeStreetAdditional label,
+#storeAddress > div#clientPostalCity > div#storeStreetAdditional label,
+#clientAddress > div#clientPostalCity > div#storeStreetAdditional label,
+#storeAddress > div#storeContact > div#storeStreetAdditional label,
+#clientAddress > div#storeContact > div#storeStreetAdditional label,
+#storeAddress > div#clientContact > div#storeStreetAdditional label,
+#clientAddress > div#clientContact > div#storeStreetAdditional label,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional label,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional label,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional label,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional label,
+#storeAddress > div#storeStreet > div#clientStreetAdditional label,
+#clientAddress > div#storeStreet > div#clientStreetAdditional label,
+#storeAddress > div#clientStreet > div#clientStreetAdditional label,
+#clientAddress > div#clientStreet > div#clientStreetAdditional label,
+#storeAddress > div#storePostalCity > div#clientStreetAdditional label,
+#clientAddress > div#storePostalCity > div#clientStreetAdditional label,
+#storeAddress > div#clientPostalCity > div#clientStreetAdditional label,
+#clientAddress > div#clientPostalCity > div#clientStreetAdditional label,
+#storeAddress > div#storeContact > div#clientStreetAdditional label,
+#clientAddress > div#storeContact > div#clientStreetAdditional label,
+#storeAddress > div#clientContact > div#clientStreetAdditional label,
+#clientAddress > div#clientContact > div#clientStreetAdditional label,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional label,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional label,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional label,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional label {
   left: 31px;
 }
-#clientAddress > div#clientName #clientStreetAdditional input,
-#clientAddress > div#clientStreet #clientStreetAdditional input {
+#storeAddress > div#storeStreet > div#storeStreetAdditional input,
+#clientAddress > div#storeStreet > div#storeStreetAdditional input,
+#storeAddress > div#clientStreet > div#storeStreetAdditional input,
+#clientAddress > div#clientStreet > div#storeStreetAdditional input,
+#storeAddress > div#storePostalCity > div#storeStreetAdditional input,
+#clientAddress > div#storePostalCity > div#storeStreetAdditional input,
+#storeAddress > div#clientPostalCity > div#storeStreetAdditional input,
+#clientAddress > div#clientPostalCity > div#storeStreetAdditional input,
+#storeAddress > div#storeContact > div#storeStreetAdditional input,
+#clientAddress > div#storeContact > div#storeStreetAdditional input,
+#storeAddress > div#clientContact > div#storeStreetAdditional input,
+#clientAddress > div#clientContact > div#storeStreetAdditional input,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional input,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional input,
+#storeAddress > div#storeOrderingContact > div#storeStreetAdditional input,
+#clientAddress > div#storeOrderingContact > div#storeStreetAdditional input,
+#storeAddress > div#storeStreet > div#clientStreetAdditional input,
+#clientAddress > div#storeStreet > div#clientStreetAdditional input,
+#storeAddress > div#clientStreet > div#clientStreetAdditional input,
+#clientAddress > div#clientStreet > div#clientStreetAdditional input,
+#storeAddress > div#storePostalCity > div#clientStreetAdditional input,
+#clientAddress > div#storePostalCity > div#clientStreetAdditional input,
+#storeAddress > div#clientPostalCity > div#clientStreetAdditional input,
+#clientAddress > div#clientPostalCity > div#clientStreetAdditional input,
+#storeAddress > div#storeContact > div#clientStreetAdditional input,
+#clientAddress > div#storeContact > div#clientStreetAdditional input,
+#storeAddress > div#clientContact > div#clientStreetAdditional input,
+#clientAddress > div#clientContact > div#clientStreetAdditional input,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional input,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional input,
+#storeAddress > div#storeOrderingContact > div#clientStreetAdditional input,
+#clientAddress > div#storeOrderingContact > div#clientStreetAdditional input {
   margin-left: 20px;
   padding-left: 57px;
 }
-#clientAddress > div#clientPostalCity {
-  overflow: hidden;
-  position: relative;
+#storeAddress > div#storeStreet#storeStreet,
+#clientAddress > div#storeStreet#storeStreet,
+#storeAddress > div#clientStreet#storeStreet,
+#clientAddress > div#clientStreet#storeStreet,
+#storeAddress > div#storePostalCity#storeStreet,
+#clientAddress > div#storePostalCity#storeStreet,
+#storeAddress > div#clientPostalCity#storeStreet,
+#clientAddress > div#clientPostalCity#storeStreet,
+#storeAddress > div#storeContact#storeStreet,
+#clientAddress > div#storeContact#storeStreet,
+#storeAddress > div#clientContact#storeStreet,
+#clientAddress > div#clientContact#storeStreet,
+#storeAddress > div#storeOrderingContact#storeStreet,
+#clientAddress > div#storeOrderingContact#storeStreet,
+#storeAddress > div#storeOrderingContact#storeStreet,
+#clientAddress > div#storeOrderingContact#storeStreet,
+#storeAddress > div#storeStreet#clientStreet,
+#clientAddress > div#storeStreet#clientStreet,
+#storeAddress > div#clientStreet#clientStreet,
+#clientAddress > div#clientStreet#clientStreet,
+#storeAddress > div#storePostalCity#clientStreet,
+#clientAddress > div#storePostalCity#clientStreet,
+#storeAddress > div#clientPostalCity#clientStreet,
+#clientAddress > div#clientPostalCity#clientStreet,
+#storeAddress > div#storeContact#clientStreet,
+#clientAddress > div#storeContact#clientStreet,
+#storeAddress > div#clientContact#clientStreet,
+#clientAddress > div#clientContact#clientStreet,
+#storeAddress > div#storeOrderingContact#clientStreet,
+#clientAddress > div#storeOrderingContact#clientStreet,
+#storeAddress > div#storeOrderingContact#clientStreet,
+#clientAddress > div#storeOrderingContact#clientStreet {
+  margin-top: 20px;
 }
-#clientAddress > div#clientPostalCity #clientPostal {
-  width: 88px;
+#storeAddress > div#storeContact,
+#clientAddress > div#storeContact,
+#storeAddress > div#clientContact,
+#clientAddress > div#clientContact {
+  margin-top: 10px;
 }
-#clientAddress > div#clientPostalCity #clientPostal input {
-  padding-left: 38px;
-  width: 50px;
-}
-#clientAddress > div#clientPostalCity #clientCity {
-  position: absolute;
-  left: 88px;
-  margin-left: 3%;
-  right: 0;
-  top: 0;
-}
-#clientAddress > div#clientPostalCity #clientCity input {
-  height: 27px;
-  width: 100%;
-  padding-left: 51px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+#storeAddress > div#storeContact #storePhone,
+#clientAddress > div#storeContact #storePhone,
+#storeAddress > div#clientContact #storePhone,
+#clientAddress > div#clientContact #storePhone,
+#storeAddress > div#storeContact #clientPhone,
+#clientAddress > div#storeContact #clientPhone,
+#storeAddress > div#clientContact #clientPhone,
 #clientAddress > div#clientContact #clientPhone {
   width: 210px;
 }
+#storeAddress > div#storeContact #storePhone input,
+#clientAddress > div#storeContact #storePhone input,
+#storeAddress > div#clientContact #storePhone input,
+#clientAddress > div#clientContact #storePhone input,
+#storeAddress > div#storeContact #clientPhone input,
+#clientAddress > div#storeContact #clientPhone input,
+#storeAddress > div#clientContact #clientPhone input,
 #clientAddress > div#clientContact #clientPhone input {
   padding-left: 38px;
-  width: 166px;
 }
+#storeAddress > div#storeContact #storeEmail,
+#clientAddress > div#storeContact #storeEmail,
+#storeAddress > div#clientContact #storeEmail,
+#clientAddress > div#clientContact #storeEmail,
+#storeAddress > div#storeContact #clientEmail,
+#clientAddress > div#storeContact #clientEmail,
+#storeAddress > div#clientContact #clientEmail,
 #clientAddress > div#clientContact #clientEmail {
-  position: absolute;
-  top: 0;
-  left: 210px;
-  margin-left: 3%;
+  left: 230px;
   right: 0;
 }
+#storeAddress > div#storeContact #storeEmail input,
+#clientAddress > div#storeContact #storeEmail input,
+#storeAddress > div#clientContact #storeEmail input,
+#clientAddress > div#clientContact #storeEmail input,
+#storeAddress > div#storeContact #clientEmail input,
+#clientAddress > div#storeContact #clientEmail input,
+#storeAddress > div#clientContact #clientEmail input,
 #clientAddress > div#clientContact #clientEmail input {
   padding-left: 50px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 27px;
 }
 #clientBankData > div {
   position: relative;
@@ -8474,6 +8990,20 @@ aside.infoNavigation ul li.active {
   margin-left: 310px;
   padding: 50px 50px 80px 80px;
   width: auto;
+}
+.content.info .container#storeInfo {
+  padding-bottom: 50px;
+  position: relative;
+}
+.content.info .container#storeInfo:after {
+  content: " ";
+  background: rgba(255, 255, 255, 0.1);
+  height: 1px;
+  border-top: 1px solid #000000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .content.info .container article {
   margin-top: 100px;

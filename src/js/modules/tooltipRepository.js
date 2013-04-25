@@ -50,6 +50,11 @@ define([
 			'views.header.logout': {
 				text: 'Logout',
 				className: 'info'
+			},
+
+			'views.store.dashboard.resendMail': {
+				text: 'Erneut senden',
+				className: 'info left'
 			}
 			
 		},
