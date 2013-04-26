@@ -8827,6 +8827,15 @@ aside.infoNavigation ul li.active {
   margin: 0 0 70px 0;
   display: inline-block;
 }
+.content.info .container article header h3 {
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+  margin: 0 0 15px 0;
+}
+.content.info .container article header h3 a {
+  color: inherit;
+  text-decoration: none;
+}
 .content.info .container article header span {
   font-size: 24px;
   color: #ffffff;
@@ -8839,6 +8848,7 @@ aside.infoNavigation ul li.active {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
   font-family: "VAGRoundedStd-Thin";
   line-height: 32px;
+  margin-bottom: 15px;
 }
 .content.info .container article > p {
   margin-left: 20px;
@@ -8852,12 +8862,6 @@ aside.infoNavigation ul li.active {
   box-sizing: border-box;
   padding: 0 20px;
   vertical-align: top;
-}
-.content.info .container article .threeColumn header h3,
-.content.info .container article .twoColumn header h3 {
-  color: #ffffff;
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
-  margin: 0 0 15px 0;
 }
 .content.info .container article .threeColumn.inactive {
   opacity: 0.3;
