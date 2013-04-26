@@ -5470,7 +5470,7 @@ aside.infoNavigation {
     article {
       margin-top: 100px;
       text-align: left;
-
+      
       header {
         
         h1 {
@@ -5481,21 +5481,23 @@ aside.infoNavigation {
           display: inline-block;
         }
 
-        h3 {
-          color: @white;
-          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
-          margin: 0 0 15px 0;
-          a {
-            color: inherit;
-            text-decoration: none;
-          }
-        }
+
 
         span {
           font-size: 24px;
           color: @white;
           text-shadow: 0 2px 2px rgba(0,0,0,0.7);
           margin: 0 0 0 20px;
+        }
+      }
+      
+      h3 {
+        color: @white;
+        text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+        margin: 0 0 15px 0;
+        a {
+          color: inherit;
+          text-decoration: none;
         }
       }
 
@@ -5554,6 +5556,10 @@ aside.infoNavigation {
           margin-right: 30px;
           text-align: center;
         }
+      }
+
+      &#impressum {
+        .opacity(50);
       }
 
       &#storeInfoPlaceholder {
