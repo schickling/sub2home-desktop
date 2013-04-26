@@ -2452,7 +2452,7 @@ input[type="text"]#locationSelectionInput {
 
 #storeAddress, #clientAddress {
     
-  padding: 10px 0 0 0;
+  padding-top: 10px;
   position: relative;
   
   input {
@@ -2465,7 +2465,7 @@ input[type="text"]#locationSelectionInput {
     position: relative;
 
     &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeOrderingContact, &#storeOrderingContact {
-      margin-top: 10px;
+      margin-top: 20px;
       overflow: hidden;
       height: 27px;
       >div {
@@ -2522,15 +2522,11 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
-      &#storeStreet, &#clientStreet {
-        margin-top: 20px;
-      }
-
 
 
     }
     &#storeContact, &#clientContact {
-      margin-top: 10px;
+      
       #storePhone, #clientPhone {
         width: 210px;
         input {
@@ -2552,14 +2548,19 @@ input[type="text"]#locationSelectionInput {
 
 #clientBankData {
 
+  padding-top: 10px;
+  position: relative;
+  
+  input {
+    .border-box;
+    height: 27px;
+    width: 100%;
+  }
+
   >div {
     .positioned;
-    height: 27px;
     margin-top: 20px;
     overflow: hidden;
-    input {
-      width: 100%;
-    }
   }
 
   #bankaccountOwner {
@@ -2568,35 +2569,14 @@ input[type="text"]#locationSelectionInput {
     }
   }
 
-  #bankaccountNr {
+  #bankaccountIBAN {
     input {
       padding-left: 41px;
     }
   }
-
-  #bankId {
-    .positioned;
-
-    #bankCodeNr {
-      width: 116px;
-
-      input {
-        padding-left: 41px;
-        width: 75px;
-      }
-    }
-
-    #bankName {
-      position: absolute;
-      left: 116px;
-      margin-left: 3%;
-      right: 0;
-      top: 0;
-      input {
-        padding-left: 48px;
-        .border-box;
-        height: 27px;
-      }
+  #bankaccountBIC {
+    input {
+      padding-left: 41px;
     }
   }
 }

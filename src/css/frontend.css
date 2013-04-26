@@ -5445,7 +5445,7 @@ input[type="text"]#locationSelectionInput {
 }
 #storeAddress,
 #clientAddress {
-  padding: 10px 0 0 0;
+  padding-top: 10px;
   position: relative;
 }
 #storeAddress input,
@@ -5476,7 +5476,7 @@ input[type="text"]#locationSelectionInput {
 #clientAddress > div#storeOrderingContact,
 #storeAddress > div#storeOrderingContact,
 #clientAddress > div#storeOrderingContact {
-  margin-top: 10px;
+  margin-top: 20px;
   overflow: hidden;
   height: 27px;
 }
@@ -5947,46 +5947,6 @@ input[type="text"]#locationSelectionInput {
   margin-left: 20px;
   padding-left: 57px;
 }
-#storeAddress > div#storeStreet#storeStreet,
-#clientAddress > div#storeStreet#storeStreet,
-#storeAddress > div#clientStreet#storeStreet,
-#clientAddress > div#clientStreet#storeStreet,
-#storeAddress > div#storePostalCity#storeStreet,
-#clientAddress > div#storePostalCity#storeStreet,
-#storeAddress > div#clientPostalCity#storeStreet,
-#clientAddress > div#clientPostalCity#storeStreet,
-#storeAddress > div#storeContact#storeStreet,
-#clientAddress > div#storeContact#storeStreet,
-#storeAddress > div#clientContact#storeStreet,
-#clientAddress > div#clientContact#storeStreet,
-#storeAddress > div#storeOrderingContact#storeStreet,
-#clientAddress > div#storeOrderingContact#storeStreet,
-#storeAddress > div#storeOrderingContact#storeStreet,
-#clientAddress > div#storeOrderingContact#storeStreet,
-#storeAddress > div#storeStreet#clientStreet,
-#clientAddress > div#storeStreet#clientStreet,
-#storeAddress > div#clientStreet#clientStreet,
-#clientAddress > div#clientStreet#clientStreet,
-#storeAddress > div#storePostalCity#clientStreet,
-#clientAddress > div#storePostalCity#clientStreet,
-#storeAddress > div#clientPostalCity#clientStreet,
-#clientAddress > div#clientPostalCity#clientStreet,
-#storeAddress > div#storeContact#clientStreet,
-#clientAddress > div#storeContact#clientStreet,
-#storeAddress > div#clientContact#clientStreet,
-#clientAddress > div#clientContact#clientStreet,
-#storeAddress > div#storeOrderingContact#clientStreet,
-#clientAddress > div#storeOrderingContact#clientStreet,
-#storeAddress > div#storeOrderingContact#clientStreet,
-#clientAddress > div#storeOrderingContact#clientStreet {
-  margin-top: 20px;
-}
-#storeAddress > div#storeContact,
-#clientAddress > div#storeContact,
-#storeAddress > div#clientContact,
-#clientAddress > div#clientContact {
-  margin-top: 10px;
-}
 #storeAddress > div#storeContact #storePhone,
 #clientAddress > div#storeContact #storePhone,
 #storeAddress > div#clientContact #storePhone,
@@ -6028,44 +5988,30 @@ input[type="text"]#locationSelectionInput {
 #clientAddress > div#clientContact #clientEmail input {
   padding-left: 50px;
 }
-#clientBankData > div {
-  position: relative;
-  height: 27px;
-  margin-top: 20px;
-  overflow: hidden;
-}
-#clientBankData > div input {
-  width: 100%;
-}
-#clientBankData #bankaccountOwner input {
-  padding-left: 98px;
-}
-#clientBankData #bankaccountNr input {
-  padding-left: 41px;
-}
-#clientBankData #bankId {
+#clientBankData {
+  padding-top: 10px;
   position: relative;
 }
-#clientBankData #bankId #bankCodeNr {
-  width: 116px;
-}
-#clientBankData #bankId #bankCodeNr input {
-  padding-left: 41px;
-  width: 75px;
-}
-#clientBankData #bankId #bankName {
-  position: absolute;
-  left: 116px;
-  margin-left: 3%;
-  right: 0;
-  top: 0;
-}
-#clientBankData #bankId #bankName input {
-  padding-left: 48px;
+#clientBankData input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 27px;
+  width: 100%;
+}
+#clientBankData > div {
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+}
+#clientBankData #bankaccountOwner input {
+  padding-left: 98px;
+}
+#clientBankData #bankaccountIBAN input {
+  padding-left: 41px;
+}
+#clientBankData #bankaccountBIC input {
+  padding-left: 41px;
 }
 #revenuesNote {
   min-height: 150px;
