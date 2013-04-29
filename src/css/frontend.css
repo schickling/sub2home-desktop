@@ -7991,6 +7991,15 @@ div#payment > div.disabled .btn.active {
 #orderedItems .menuItem.cdm {
   width: 200px;
 }
+#orderedItems .menuItem.mi {
+  width: 200px;
+}
+#orderedItems .menuItem.mi img {
+  margin-left: -90px;
+}
+#orderedItems .menuItem.t {
+  width: 160px;
+}
 #orderedItems .menuItem .itemDescription {
   margin-top: 180px;
 }
@@ -9317,6 +9326,9 @@ aside#header {
   body {
     width: 1000px !important;
   }
+}
+.chrome .slide .item .accentIngredient {
+  left: -1px;
 }
 .safari .pricetag {
   padding-top: 20px;
