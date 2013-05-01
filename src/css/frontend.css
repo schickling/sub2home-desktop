@@ -3980,7 +3980,7 @@ input[type="text"]#locationSelectionInput {
 }
 .smallNote .deliveryStatus {
   text-align: left;
-  color: #949494;
+  color: #be9e4f;
 }
 .smallNote .deliveryStatus .deliveryIndicator {
   behavior: url(../css/border-radius.htc);
