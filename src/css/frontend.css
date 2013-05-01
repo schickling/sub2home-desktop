@@ -2056,6 +2056,9 @@ a.iBtn:hover {
 .iNoticeArrowLb:after {
   content: "\e049";
 }
+.iSlimArrowDown:before {
+  content: "\e04a";
+}
 .iCircle:before {
   content: "\e053";
 }
@@ -2254,6 +2257,10 @@ a.iBtn:hover {
 .iAdditives:before,
 .bAdditives:before {
   content: "\e08d";
+}
+.iDot:before,
+.bDot:before {
+  content: "\e08e";
 }
 #toTheInfo:before {
   content: "\e068";
@@ -6317,6 +6324,7 @@ input[type="text"]#locationSelectionInput {
   transition: color 0.1s linear;
 }
 .content.orders #orderListing .order .orderHeader > div.orderStatus:before {
+  content: "\e08e";
   color: inherit;
 }
 .content.orders #orderListing .order .orderHeader > div.orderStatus:hover,
@@ -6326,6 +6334,9 @@ input[type="text"]#locationSelectionInput {
 .content.orders #orderListing .order .orderHeader > div.orderStatus.delivered,
 .content.orders #orderListing .order .orderHeader > div.orderStatus:active {
   color: #9cc83e;
+}
+.content.orders #orderListing .order .orderHeader > div.orderStatus.delivered:before {
+  content: "\e074";
 }
 .content.orders #orderListing .order .orderHeader > div.orderNumber {
   width: 65px;
@@ -7304,14 +7315,13 @@ div#payment > div.disabled .btn.active {
 }
 .slide {
   text-align: center;
+  padding: 0 80px;
   vertical-align: top;
   display: inline-block;
   white-space: normal;
-  padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 50px;
   overflow-y: hidden;
   overflow-x: hidden;
   position: relative;

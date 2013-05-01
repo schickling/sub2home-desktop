@@ -2879,6 +2879,7 @@ input[type="text"]#locationSelectionInput {
             color: @grayLightest;
             .transition(color .1s linear);
             &:before {
+              content: "\e08e";
               color: inherit;
             }
 
@@ -2888,6 +2889,12 @@ input[type="text"]#locationSelectionInput {
             
             &.delivered, &:active {
               color: @greenLighter;
+            }
+
+            &.delivered {
+              &:before {
+                content:"\e074";
+              }
             }
             
           }
@@ -3867,17 +3874,14 @@ div#payment {
 
 .slide {
   text-align: center;
-  padding: 0 50px;
+  padding: 0 80px;
   vertical-align: top;
   display: inline-block;
   white-space: normal;
   &:last-child {
     .positioned;
   }
-  
-  padding: 0;
   .border-box;
-  padding: 0 50px;
   overflow-y: hidden;
   overflow-x: hidden;
   .positioned;
