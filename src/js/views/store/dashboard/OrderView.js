@@ -143,7 +143,7 @@ define([
 			var $button = $(e.target),
 				offset = $button.offset();
 
-			notificationcenter.tooltip('views.store.dashboard.resendMail', offset.top + 23, offset.left + 15);
+			notificationcenter.tooltip('views.store.dashboard.resendMail', offset.top + 23, offset.left - 84);
 		},
 
 		_dismissTooltip: function () {
