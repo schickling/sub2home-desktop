@@ -54,7 +54,7 @@ define([
 
 		adjustWidth: function () {
 			// -100 because of padding
-			this.$el.width(window.innerWidth - 100);
+			this.$el.width(window.innerWidth - 160);
 		},
 
 		afterInitialize: function () {},
