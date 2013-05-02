@@ -89,7 +89,9 @@ define([
 			if (response) {
 
 				if (response.hasOwnProperty('addressModel')) {
-					response.addressModel = new AddressModel(response.addressModel);
+					response.addressModel = new AddressModel(response.addressModel, {
+						parse: true
+					});
 				}
 
 				if (response.hasOwnProperty('deliveryAreasCollection')) {

@@ -30,22 +30,25 @@ define([
 			});
 		},
 
-		get: function (attr) {
+		parse: function (response) {
 
-			// this custom getter is needed since phone numbers get saved as integers
-			if (attr === 'phone') {
-				var phone = this.attributes[attr],
-					firstNumber = parseInt(String(phone).charAt(0), 10);
+			if (response) {
 
+				if (response.hasOwnProperty('phone')) {
 
-				if (firstNumber > 0 && firstNumber <= 9) {
-					phone = '0' + phone;
+					var phone = response.phone,
+						firstDigit = parseInt(String(phone).charAt(0), 10);
+
+					if (firstDigit > 0 && firstDigit <= 9) {
+						response.phone = '0' + phone;
+					}
+
 				}
 
-				return phone;
-			}
+				return response;
 
-			return this.attributes[attr];
+			}
+			
 		},
 
 		validate: function (attributes) {
@@ -70,6 +73,7 @@ define([
 				return 'city';
 			}
 
+			console.log(attributes.phone);
 			if (!this._validatePhone(attributes.phone)) {
 				return 'phone';
 			}
