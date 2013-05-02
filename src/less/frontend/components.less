@@ -3850,6 +3850,27 @@ div#payment {
   }
 }
 
+#showAll {
+  .iSlimArrowDown;
+  display: none;
+  &:before {
+    font-family: "Homicons";
+    font-size: 30px;
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+  }
+  position: absolute;
+  font-family: @handFontFamily;
+  color: @gray;
+  right: 20px;
+  top: -107px;
+  cursor: pointer;
+  &:hover {
+    color: @greenLighter;
+  }
+}
+
 // SELECTION STAGE
 
 #stage {

@@ -7288,6 +7288,28 @@ div#payment > div.disabled .btn.active {
 #overlay .iBtn.bCart:hover {
   color: #9cc83e;
 }
+#showAll {
+  display: none;
+  position: absolute;
+  font-family: "Handlee", Helvetica, Arial, sans-serif;
+  color: #949494;
+  right: 20px;
+  top: -107px;
+  cursor: pointer;
+}
+#showAll:before {
+  content: "\e04a";
+}
+#showAll:before {
+  font-family: "Homicons";
+  font-size: 30px;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+#showAll:hover {
+  color: #9cc83e;
+}
 #stage {
   position: absolute;
   width: 40000px;
