@@ -6,9 +6,10 @@ define([
     'backbone',
     'backboneAnalytics',
     'notificationcenter',
+    'modules/browserSwitch',
     'models/stateModel',
     'models/authentificationModel'
-    ], function (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
+    ], function (require, $, _, Backbone, backboneAnalytics, notificationcenter, browserSwitch, stateModel, authentificationModel) {
 
 	var Router = Backbone.Router.extend({
 
@@ -18,6 +19,10 @@ define([
 
 			// info
 			'info': '_showHomeInfo',
+
+			// support
+			'mobil': '_showHomeMobile',
+			'browser': '_showHomeBrowser',
 
 			// client
 			'login': '_showClientLogin',
@@ -46,6 +51,9 @@ define([
 		_pageView: null,
 
 		init: function () {
+
+			browserSwitch.init();
+			
 			// init header
 			require(['views/header/HeaderView'], function (HeaderView) {
 				new HeaderView();
@@ -295,6 +303,26 @@ define([
 			});
 
 			this._loadMainView('views/home/404/MainView');
+
+		},
+
+		_showHomeMobile: function () {
+
+			stateModel.set({
+				currentRoute: 'home.mobile'
+			});
+
+			this._loadMainView('views/home/mobile/MainView');
+
+		},
+
+		_showHomeBrowser: function () {
+
+			stateModel.set({
+				currentRoute: 'home.browser'
+			});
+
+			this._loadMainView('views/home/browser/MainView');
 
 		},
 
