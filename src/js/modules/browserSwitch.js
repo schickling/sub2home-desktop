@@ -17,7 +17,7 @@ define([
 		},
 
 		_isMobileClient: function () {
-			return window.innerWidth <= 1000 || window.innerHeight <= 500;
+			return (window.innerWidth <= 1000 || window.innerHeight <= 500) && window.orientation !== undefined;
 		},
 
 		_isUnsupportedBrowser: function () {
