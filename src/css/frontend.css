@@ -2262,6 +2262,18 @@ a.iBtn:hover {
 .bDot:before {
   content: "\e08e";
 }
+.iFirefox:before,
+.bFirefox:before {
+  content: "\e08f";
+}
+.iChrome:before,
+.bChrome:before {
+  content: "\e090";
+}
+.iExplorer:before,
+.bExplorer:before {
+  content: "\e091";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -9003,7 +9015,8 @@ aside.infoNavigation ul li.active {
   margin-right: 7px;
   width: 58px;
 }
-#error404 {
+#error404,
+#noSupport {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -9011,13 +9024,15 @@ aside.infoNavigation ul li.active {
   margin: -160px 0 0 -425px;
   text-align: center;
 }
-#error404 h1 {
+#error404 h1,
+#noSupport h1 {
   font-size: 70px;
   color: #57a827;
   text-align: center;
   line-height: 1;
 }
-#error404 p {
+#error404 p,
+#noSupport p {
   margin-top: 30px;
   font-size: 50px;
   color: #9cc83e;
@@ -9026,7 +9041,8 @@ aside.infoNavigation ul li.active {
   width: 100%;
   text-align: center;
 }
-#error404 .bigBack {
+#error404 .bigBack,
+#noSupport .bigBack {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -9040,7 +9056,8 @@ aside.infoNavigation ul li.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#error404 .bigBack:before {
+#error404 .bigBack:before,
+#noSupport .bigBack:before {
   content: "\e03e";
   font-family: "Homicons";
   display: block;
@@ -9050,8 +9067,25 @@ aside.infoNavigation ul li.active {
   left: 0;
   line-height: 0.5;
 }
-#error404 .bigBack:hover {
+#error404 .bigBack:hover,
+#noSupport .bigBack:hover {
   color: #949494;
+}
+#noSupport p {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+#noSupport a.iBtn {
+  font-size: 50px;
+  margin: 0 15px;
+  color: #57a827;
+}
+#noSupport a.iBtn:first-child {
+  margin-left: 0;
+}
+#noSupport a.iBtn:hover {
+  color: #4c9322;
 }
 .positioned {
   position: relative;
