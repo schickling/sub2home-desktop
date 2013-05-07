@@ -1052,18 +1052,34 @@ div#roleSwitch {
     left: 50%;
     margin-left: -174px - 55px;
   }
-
-  .iCompass {
+  
+  #locationLoader {
     position: absolute;
     left: 50%;
     margin-left: -60px;
     bottom: 16px;
-    font-size: 49px;
-    height: 49px;
-    width: 49px;
+    font-size: 61px;
+    height: 50px;
+    width: 50px;
     color: @onNoteColor70;
+    font-family: "Homicons";
     &:before {
-      top: 0;
+      content: "\e092";
+      position: absolute;
+      left: -5px;
+      top: 18px;
+    }
+  }
+  #location {
+    font-size: inherit;
+    width: 50px;
+    height: 50px;
+    //display: block !important;
+    &:before {
+      content: "\e093";
+      position: absolute;
+      left: -5px;
+      top: 17px;
     }
   }
 }
@@ -5725,7 +5741,7 @@ aside.infoNavigation {
   }
 }
 
-#noSupport {
+#noSupport { 
   p {
     font-size: 30px;
     line-height: 1.2;
