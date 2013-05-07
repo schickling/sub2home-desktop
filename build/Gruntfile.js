@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 			},
 			production: {
 				options: {
-					optimize: 'uglify',
+					optimize: 'hybrid', // minify output with uglify & closure-compiler, checking which version is the smallest
 					baseUrl: '../src/js',
 					mainConfigFile: '../src/js/config.js',
 					preserveLicenseComments: false,
