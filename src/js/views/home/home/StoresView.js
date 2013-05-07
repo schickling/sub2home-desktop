@@ -37,6 +37,7 @@ define([
 		// cached dom
 		$search: null,
 		$deliveryAreaSelection: null,
+		$locationLoader: null,
 		$location: null,
 		$map: null,
 		$locationNotice: null,
@@ -56,7 +57,8 @@ define([
 		_cacheDom: function () {
 			this.$search = this.$('#locationSelectionInput');
 			this.$deliveryAreaSelection = this.$('#deliveryAreaSelection');
-			this.$location = this.$('#location');
+			this.$locationLoader = this.$('#locationLoader');
+			this.$location = this.$locationLoader.find('#location');
 			this.$map = this.$('#map');
 			this.$locationNotice = this.$('#locationNotice');
 			this.$locationLabel = this.$('#locationLabel');
@@ -117,7 +119,7 @@ define([
 							if (!self.userInteractionTookPlace) {
 
 								// stop location rotation
-								self._stopRotateLocation();
+								self._stopAndHideRotateLocation();
 
 								if (status == gmaps.GeocoderStatus.OK) {
 									var postal = 0;
@@ -148,7 +150,7 @@ define([
 						});
 					}, function () {
 						notificationcenter.notify('views.home.home.lookupFailed');
-						self._stopRotateLocation();
+						self._stopAndHideRotateLocation();
 						self._focusSearch();
 					}, {
 						timeout: 10000
@@ -206,7 +208,7 @@ define([
 
 		_stopLocationDetermination: function () {
 			if (!this.userInteractionTookPlace) {
-				this._stopRotateLocation();
+				this._stopAndHideRotateLocation();
 				this.userInteractionTookPlace = true;
 			}
 		},
@@ -405,11 +407,11 @@ define([
 			}, 20);
 		},
 
-		_stopRotateLocation: function () {
+		_stopAndHideRotateLocation: function () {
 
 			clearInterval(this.rotateInterval);
 
-			this.$location.fadeOut(150);
+			this.$locationLoader.fadeOut(150);
 			this.$locationNotice.fadeOut(150);
 
 			this.$locationLabel.delay(140).animate({
