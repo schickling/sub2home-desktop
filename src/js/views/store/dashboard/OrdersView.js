@@ -26,6 +26,7 @@ define([
 		// search value for fetching
 		search: '',
 
+		autoRefreshInterval: null,
 		rotateInterval: null,
 		rotationDeg: 0,
 
@@ -40,7 +41,8 @@ define([
 			'keyup #search': '_delayedSearch',
 			'click #refresh': '_refresh',
 			'click #loadMore': '_loadMore',
-			'click #bMail': '_sendTestOrder'
+			'click #bMail': '_sendTestOrder',
+			'mousemove': '_resetAutoRefresh'
 		},
 
 		initialize: function () {
@@ -71,10 +73,17 @@ define([
 
 			var self = this;
 
-			setInterval(function() {
+			this.autoRefreshInterval = setInterval(function() {
 				self._fetchCollection(true);
 			}, 20000);
-			
+
+		},
+
+		_resetAutoRefresh: function() {
+
+			clearInterval(this.autoRefreshInterval);
+			this._startAutoRefresh();
+
 		},
 
 		_fetchCollection: function (viewShouldBeResetted) {
