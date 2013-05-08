@@ -1479,7 +1479,7 @@ input[type="text"]#locationSelectionInput {
     overflow: hidden;
     background: @noteBackground;
     .border-radius(3px);
-    border: 1px solid @onNoteColor;
+    border: 1px solid @noteBorderColor;
     .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
     .backface-visibility(hidden);
     z-index: 5;
@@ -1739,7 +1739,7 @@ input[type="text"]#locationSelectionInput {
   &.selected {
     background: @noteBackground;
     .border-radius(3px);
-    border: 1px solid @onNoteColor;
+    border: 1px solid @noteBorderColor;
     .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
     .backface-visibility(hidden);
   }
@@ -1777,7 +1777,7 @@ input[type="text"]#locationSelectionInput {
   overflow: hidden;
   background: @noteBackground;
   .border-radius(3px);
-  border: 1px solid @onNoteColor;
+  border: 1px solid @noteBorderColor;
   .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
   .backface-visibility(hidden);
   z-index: 5;
@@ -3237,6 +3237,123 @@ input[type="text"]#locationSelectionInput {
     }
   }
 }
+
+#balanceOrder {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255, 0.9);
+  #balanceOrderContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 690px;
+    //height: 400px;
+    margin: -185px 0 0 -345px;
+    background: @noteBackground;
+    .border-radius(3px);
+    border: 1px solid @noteBorderColor;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+    header {
+      height: 61px;
+      border-bottom: 1px solid @noteBorderColor;
+      padding-top: 19px;
+      h3 {
+        color: @onNoteColor;
+        span {
+          color: @orange;
+        }
+      }
+    }
+    #message {
+      border-top: 1px solid rgba(255,255,255,0.9);
+      border-bottom: 1px solid @noteBorderColor;
+      padding: 20px 40px 0;
+      .positioned;
+      div {
+        width: 100%;
+        height: 40px;
+        border-top: 1px solid @onNoteColor30;
+        border-bottom: 1px solid @onNoteColor30;
+        margin-top: 40px;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      textarea {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        .border-box;
+        width: 100%;
+        background: none;
+        font-family: @headingsFontFamily;
+        line-height: 41px;
+        color: @onDarkNoteColor;
+        border: none;
+        padding: 20px 50px 0;
+        font-size: 24px;
+        resize: none;
+      }
+    }
+    #balanceOrderSettings {
+      border-top: 1px solid rgba(255,255,255,0.9);
+      padding: 30px 40px;
+      .clearfix;
+      #balanceOrderValue {
+        .pull-left;
+        .positioned;
+        text-align: left;
+        label {
+          position: absolute;
+          bottom: 3px;
+          color: @onNoteColor;
+          font-size: 14px;
+        }
+        input {
+          border-color: @onNoteColor50;
+          font-size: 37px;
+          color: @orange;
+          height: 40px;
+          padding: 0 10px 0 185px;
+          width: 140px;
+          text-align: right;
+          .transition(border-color .1s linear);
+          &:focus {
+            border-color: @greenLighter;
+          }
+        }
+      }
+      #balanceOrderControls {
+        .pull-right;
+        div {
+          .btn;
+          height: 20px;
+          margin-left: 20px;
+        }
+        #cancelBalanceOrder {
+          .btnWarning;
+          .iClose;
+          &:before {
+            font-family: "Homicons";
+            position: relative;
+            top: 2px;
+            color: darken(@orange, 20%);
+            text-shadow: 0 1px 0px rgba(255,255,255,0.5);
+          }
+        }
+        #submitBalanceOrder {
+          .btnSuccess;
+          padding: 12px 14px 8px;
+        }
+      }
+    }
+  }
+}
+
 
 #noOrders {
   position: absolute;

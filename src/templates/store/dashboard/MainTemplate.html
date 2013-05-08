@@ -17,10 +17,33 @@
 </div>
 
 <div class="content orders">
+
 	<div id="noOrders"></div>
 	<div id="orderListing">
 		<div id="ordersToday"></div>
 		<div id="olderOrders"></div>
 		<div id="loadMore">Ältere Bestellungen</div>
+	</div>
+	<div id="balanceOrder">
+		<div id="balanceOrderContainer">
+			<header>
+				<h3>Aus welchem Grund möchten Sie <span>Best. 100039</span> reklamieren?</h3>
+			</header>
+			<div id="message">
+				<textarea name="" id="balanceOrderMessage" placeholder="Reklamation der Bestellung, weil ..." cols="30" rows="3"></textarea>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="balanceOrderSettings">
+				<div id="balanceOrderValue">
+					<label for="balanceOrderValueInput">Reklamationsbetrag</label>
+					<input type="text" id="balanceOrderValueInput" value="15,99 €">
+				</div>
+				<div id="balanceOrderControls">
+					<div id="cancelBalanceOrder"></div>
+					<div id="submitBalanceOrder">Absenden</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
