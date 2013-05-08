@@ -48,7 +48,8 @@ define([
 			this.collection = new OrdersCollection();
 
 			this._cacheDom();
-			this._fetchCollection();
+			this._fetchCollection(true);
+			this._startAutoRefresh();
 
 		},
 
@@ -64,6 +65,16 @@ define([
 
 		_listenToCollection: function () {
 			this.listenTo(this.collection, 'add remove', this._render);
+		},
+
+		_startAutoRefresh: function() {
+
+			var self = this;
+
+			setInterval(function() {
+				self._fetchCollection(true);
+			}, 20000);
+			
 		},
 
 		_fetchCollection: function (viewShouldBeResetted) {
