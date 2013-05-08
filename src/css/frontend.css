@@ -1638,6 +1638,9 @@ label {
   z-index: 10;
   left: 10px;
 }
+.note label {
+  color: #cab06f;
+}
 textarea.firstHidden,
 input[type="text"].firstHidden {
   display: none;
