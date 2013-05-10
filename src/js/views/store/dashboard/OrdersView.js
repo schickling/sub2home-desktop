@@ -278,6 +278,10 @@ define([
 					notificationcenter.notify('views.store.dashboard.testOrder.error');
 				}
 			});
+		},
+
+		destroy: function() {
+			clearInterval(this.autoRefreshInterval);
 		}
 
 	});

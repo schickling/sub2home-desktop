@@ -13,6 +13,10 @@ define([
 
 	var MainView = PageView.extend({
 
+		subViews: {
+			ordersView: null
+		},
+
 		initialize: function () {
 
 			// for authentification reload the store model
@@ -52,7 +56,7 @@ define([
 		},
 
 		_renderOrders: function () {
-			new OrdersView({
+			this.subViews.ordersView = new OrdersView({
 				el: this.$el
 			});
 		},
