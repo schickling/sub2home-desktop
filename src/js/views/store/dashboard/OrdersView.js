@@ -7,8 +7,9 @@ define([
     'notificationcenter',
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
+    'views/store/dashboard/CreditView',
     'text!templates/store/dashboard/NoOrdersTemplate.html'
-    ], function ($, jqueryRotate, _, Backbone, notificationcenter, OrdersCollection, OrderView, NoOrdersTemplate) {
+    ], function ($, jqueryRotate, _, Backbone, notificationcenter, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) {
 
 	var OrdersView = Backbone.View.extend({
 
@@ -37,6 +38,8 @@ define([
 		// needed to indicate when to load noOrders view
 		hasOrders: false,
 
+		creditView: null,
+
 		events: {
 			'keyup #search': '_delayedSearch',
 			'click #refresh': '_refresh',
@@ -47,12 +50,20 @@ define([
 
 		initialize: function () {
 
+			this._createCreditView();
+
 			this.collection = new OrdersCollection();
 
 			this._cacheDom();
-			this._fetchCollection(true);
+			this._fetchCollectionAndRender(true);
 			this._startAutoRefresh();
 
+		},
+
+		_createCreditView: function () {
+			this.creditView = new CreditView({
+				el: this.$('#balanceOrder')
+			});
 		},
 
 		_cacheDom: function () {
@@ -69,24 +80,24 @@ define([
 			this.listenTo(this.collection, 'add remove', this._render);
 		},
 
-		_startAutoRefresh: function() {
+		_startAutoRefresh: function () {
 
 			var self = this;
 
-			this.autoRefreshInterval = setInterval(function() {
-				self._fetchCollection(true);
+			this.autoRefreshInterval = setInterval(function () {
+				self._fetchCollectionAndRender(true);
 			}, 20000);
 
 		},
 
-		_resetAutoRefresh: function() {
+		_resetAutoRefresh: function () {
 
 			clearInterval(this.autoRefreshInterval);
 			this._startAutoRefresh();
 
 		},
 
-		_fetchCollection: function (viewShouldBeResetted) {
+		_fetchCollectionAndRender: function (viewShouldBeResetted) {
 
 			var self = this;
 
@@ -172,7 +183,8 @@ define([
 		_renderOrder: function (orderModel) {
 
 			var orderView = new OrderView({
-				model: orderModel
+				model: orderModel,
+				creditView: this.creditView
 			});
 
 			if (orderModel.wasCreatedToday()) {
@@ -204,18 +216,18 @@ define([
 			}
 
 			this._hideLoadMore();
-			this._fetchCollection(true);
+			this._fetchCollectionAndRender(true);
 		},
 
 		_refresh: function () {
 			this._clearSearch();
-			this._fetchCollection(true);
+			this._fetchCollectionAndRender(true);
 		},
 
 		_loadMore: function () {
 			this.pageOffset++;
 			this._clearSearch();
-			this._fetchCollection(false);
+			this._fetchCollectionAndRender(false);
 		},
 
 		_startRotateRefresh: function () {
@@ -272,7 +284,7 @@ define([
 				type: 'post',
 				success: function () {
 					notificationcenter.notify('views.store.dashboard.testOrder.success');
-					self._fetchCollection();
+					self._fetchCollectionAndRender();
 				},
 				error: function () {
 					notificationcenter.notify('views.store.dashboard.testOrder.error');
@@ -280,7 +292,7 @@ define([
 			});
 		},
 
-		destroy: function() {
+		destroy: function () {
 			clearInterval(this.autoRefreshInterval);
 		}
 

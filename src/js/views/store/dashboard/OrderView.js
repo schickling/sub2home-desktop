@@ -19,11 +19,16 @@ define([
 			'click .orderHeader': '_toggleDetailsView',
 			'click .orderStatus': '_toggleIsDelivered',
 			'click .resendmail': '_resendMail',
+			'click .alertOrder': '_addCredit',
 			'mouseenter .bMail': '_showResendMailTooltip',
 			'mouseleave .bMail': '_dismissTooltip'
 		},
 
+		creditView: null,
+
 		initialize: function () {
+			this.creditView = this.options.creditView;
+
 			this._render();
 		},
 
@@ -148,6 +153,18 @@ define([
 
 		_dismissTooltip: function () {
 			notificationcenter.hideTooltip();
+		},
+
+		_addCredit: function () {
+
+			if (!this.model.get('creditModel')) {
+
+				this.creditView.createForOrder(this.model);
+
+				// prevent detail to toggle
+				return false;
+			}
+
 		}
 
 	});
