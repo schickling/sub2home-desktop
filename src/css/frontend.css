@@ -346,16 +346,14 @@ aside#header .iInfo {
   overflow: visible !important;
 }
 .note#homeNote {
-  height: 35%;
+  height: 240px;
   text-align: center;
-  padding-bottom: 80px;
 }
 .note#homeNote .container {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 80px 0;
   height: 100%;
 }
 .note#storeNote {
@@ -527,7 +525,7 @@ aside#header .iInfo {
 }
 .content.home .container {
   position: absolute;
-  height: 65%;
+  top: 240px;
   bottom: 0;
   background: #f4f4f4;
 }
@@ -3874,7 +3872,7 @@ div#roleSwitch #handle:before {
 }
 #locationSelection {
   position: absolute;
-  top: 50%;
+  top: 110px;
   text-align: center;
   width: 60%;
   height: 83px;
@@ -4066,7 +4064,7 @@ input[type="text"]#locationSelectionInput {
   position: relative;
   display: inline-block;
   cursor: inherit;
-  left: 11px;
+  left: 23px;
 }
 .storePreview.unavailable {
   cursor: default;
