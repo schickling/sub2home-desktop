@@ -3870,6 +3870,16 @@ div#roleSwitch #handle:before {
 #content {
   padding: 0;
 }
+input[type="text"]#locationSelectionInput {
+  font-size: 65px;
+  height: 73px;
+  padding-left: 50%;
+  color: #13493b;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
 #locationSelection {
   position: absolute;
   top: 110px;
@@ -3878,7 +3888,9 @@ div#roleSwitch #handle:before {
   height: 83px;
   margin: 0 20% 0 ;
 }
-#locationSelection label {
+#locationSelection #locationLabel,
+#locationSelection #deliveryAreaLabel {
+  display: none;
   font-size: 20px;
   line-height: 16px;
   font-family: "VAGRoundedStd-Thin";
@@ -3887,6 +3899,13 @@ div#roleSwitch #handle:before {
   color: #cab06f;
   left: 50%;
   margin-left: -229px;
+}
+#locationSelection #deliveryAreaLabel {
+  display: block;
+  position: absolute;
+  text-transform: uppercase;
+  margin-left: -287px;
+  color: #57a827;
 }
 #locationSelection #locationLoader {
   position: absolute;
@@ -3916,21 +3935,20 @@ div#roleSwitch #handle:before {
   left: -5px;
   top: 17px;
 }
+#locationSelection.hasDeliveryAreaSelection label {
+  color: #57a827;
+}
+#locationSelection.hasDeliveryAreaSelection #locationSelectionInput {
+  color: rgba(202, 176, 111, 0.3);
+}
+#locationSelection.hasDeliveryAreaSelection #locationSelectionInput:focus {
+  color: #13493b;
+}
 #homeNote .notice {
   width: 300px;
   left: 50%;
   bottom: -65px;
   margin-left: 30px;
-}
-input[type="text"]#locationSelectionInput {
-  font-size: 65px;
-  height: 73px;
-  padding-left: 50%;
-  color: #13493b;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
 }
 #deliveryAreaSelection {
   margin-top: 20px;

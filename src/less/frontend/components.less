@@ -1034,6 +1034,15 @@ div#roleSwitch {
   padding: 0;
 }
 
+input[type="text"]#locationSelectionInput {
+  font-size: 65px;
+  height: 73px;
+  padding-left: 50%;
+  color: @greenDark;
+  .border-box;
+  width: 100%;
+}
+
 #locationSelection {
   position: absolute;
   top: 110px;
@@ -1042,7 +1051,8 @@ div#roleSwitch {
   height: 83px;
   margin: 0 20% 0 ;
 
-  label {
+  #locationLabel, #deliveryAreaLabel {
+    display: none;
     font-size: 20px;
     line-height: 16px;
     font-family: @headingsFontFamily;
@@ -1051,6 +1061,14 @@ div#roleSwitch {
     color: @onNoteColor;
     left: 50%;
     margin-left: -174px - 55px;
+  }
+
+  #deliveryAreaLabel {
+    display: block;
+    position: absolute;
+    text-transform: uppercase;
+    margin-left: -287px;
+    color: @greenLight;
   }
   
   #locationLoader {
@@ -1082,6 +1100,17 @@ div#roleSwitch {
       top: 17px;
     }
   }
+  &.hasDeliveryAreaSelection {
+    label {
+      color: @greenLight;
+    }
+    #locationSelectionInput {
+      color: @onNoteColor30;
+      &:focus {
+        color: @greenDark;
+      }
+    }
+  }
 }
 
 #homeNote .notice {
@@ -1093,14 +1122,7 @@ div#roleSwitch {
 
 
 
-input[type="text"]#locationSelectionInput {
-  font-size: 65px;
-  height: 73px;
-  padding-left: 50%;
-  color: @greenDark;
-  .border-box;
-  width: 100%;
-}
+
 
 
 // Delivery Area Selection
