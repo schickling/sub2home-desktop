@@ -5594,7 +5594,13 @@ div#payment {
 .content.checkout {
   top: 0;
   bottom: 310px;
-  background: @checkoutImage;
+  overflow: hidden;
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 
 

@@ -9132,7 +9132,13 @@ div#payment > div.disabled .btn.active {
 .content.checkout {
   top: 0;
   bottom: 310px;
-  background: url("../img/static/common/checkout_image.jpg") no-repeat bottom center;
+  overflow: hidden;
+}
+.content.checkout img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 aside.infoNavigation {
   position: absolute;
