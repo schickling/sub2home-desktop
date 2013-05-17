@@ -35,13 +35,15 @@ define([
 		},
 
 		// cached dom
+		$homeNote: null,
 		$search: null,
 		$deliveryAreaSelection: null,
 		$locationLoader: null,
 		$location: null,
-		$map: null,
 		$locationNotice: null,
 		$locationLabel: null,
+		$deliveryAreaLabel: null,
+		$map: null,
 
 		initialize: function () {
 
@@ -55,13 +57,15 @@ define([
 		},
 
 		_cacheDom: function () {
-			this.$search = this.$('#locationSelectionInput');
-			this.$deliveryAreaSelection = this.$('#deliveryAreaSelection');
-			this.$locationLoader = this.$('#locationLoader');
+			this.$homeNote = this.$('#homeNote');
+			this.$search = this.$homeNote.find('#locationSelectionInput');
+			this.$deliveryAreaSelection = this.$homeNote.find('#deliveryAreaSelection');
+			this.$locationLoader = this.$homeNote.find('#locationLoader');
 			this.$location = this.$locationLoader.find('#location');
+			this.$locationNotice = this.$homeNote.find('#locationNotice'); // ?
+			this.$locationLabel = this.$homeNote.find('#locationLabel');
+			this.$deliveryAreaLabel = this.$homeNote.find('#deliveryAreaLabel');
 			this.$map = this.$('#map');
-			this.$locationNotice = this.$('#locationNotice');
-			this.$locationLabel = this.$('#locationLabel');
 		},
 
 		_loadStores: function () {
@@ -180,6 +184,8 @@ define([
 
 		_checkInputKeyDown: function (e) {
 
+			this._showLocationLabel();
+
 			// stop location automation on user interaction
 			this._stopLocationDetermination();
 
@@ -236,6 +242,8 @@ define([
 				var matchingDeliveryAreas = this._getMatchingDeliveryAreas(storesInRange);
 				if (matchingDeliveryAreas.length > 1) {
 					this._renderDeliveryAreas(matchingDeliveryAreas);
+					this._showDeliveryAreaLabel();
+					this._expandHomeNote();
 				} else {
 					matchingDeliveryAreas[0].set('isSelected', true);
 					this.storeViews[0].markAvailable();
@@ -258,7 +266,18 @@ define([
 			this.storeViews = [];
 		},
 
+		_showDeliveryAreaLabel: function () {
+			this.$locationLabel.stop().fadeOut(100);
+			this.$deliveryAreaLabel.stop().delay(100).fadeIn(150);
+		},
+
+		_showLocationLabel: function () {
+			this.$deliveryAreaLabel.stop().fadeOut(100);
+			this.$locationLabel.stop().delay(100).fadeIn(150);
+		},
+
 		_renderDeliveryAreas: function (deliveryAreaModels) {
+
 			var self = this,
 				district, districtToMark,
 				renderedDistricts = [];
@@ -301,11 +320,21 @@ define([
 
 					});
 
-					self.$deliveryAreaSelection.fadeIn(150);
 
 				}
 			});
 
+			this._expandHomeNote();
+			this.$deliveryAreaSelection.delay(200).fadeIn(200);
+
+		},
+
+		_expandHomeNote: function() {
+			var paddingBottom = this.$deliveryAreaSelection.height() - 20;
+
+			this.$homeNote.stop().animate({
+				paddingBottom: paddingBottom
+			}, 200);
 		},
 
 		_renderStores: function (stores) {
