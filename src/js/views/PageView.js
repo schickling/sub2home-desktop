@@ -100,7 +100,8 @@ define([
 
 			// load new note
 			$currentNote.delay(300).animate({
-				height: 150
+				height: 150,
+				paddingBottom: 0
 			}, this._animationTime, function () {
 
 				$currentNoteContainer.remove();

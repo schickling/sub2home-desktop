@@ -44,6 +44,7 @@ define([
 		$locationLabel: null,
 		$deliveryAreaLabel: null,
 		$storeSelectionLabel: null,
+		$mapContainer: null,
 		$map: null,
 
 		initialize: function () {
@@ -67,7 +68,8 @@ define([
 			this.$locationLabel = this.$homeNote.find('#locationLabel');
 			this.$deliveryAreaLabel = this.$homeNote.find('#deliveryAreaLabel');
 			this.$storeSelectionLabel = this.$homeNote.find('#storeSelectionLabel');
-			this.$map = this.$('#map');
+			this.$mapContainer = this.$('#mapContainer');
+			this.$map = this.$mapContainer.find('#map');
 		},
 
 		_loadStores: function () {
@@ -245,7 +247,6 @@ define([
 				if (matchingDeliveryAreas.length > 1) {
 					this._renderDeliveryAreas(matchingDeliveryAreas);
 					this._showDeliveryAreaLabel();
-					this._expandHomeNote();
 				} else {
 					this._showStoreSelectionLabel();
 					matchingDeliveryAreas[0].set('isSelected', true);
@@ -337,17 +338,22 @@ define([
 				}
 			});
 
-			this._expandHomeNote();
+			this._adjustProportions();
 			this.$deliveryAreaSelection.delay(200).fadeIn(200);
 
 		},
 
-		_expandHomeNote: function () {
-			var paddingBottom = this.$deliveryAreaSelection.height() - 20;
+		_adjustProportions: function () {
+			var notePaddingBottom = this.$deliveryAreaSelection.height() - 20,
+				containerTop = 240 + notePaddingBottom;
 
 			this.$homeNote.stop().animate({
-				paddingBottom: paddingBottom
+				paddingBottom: notePaddingBottom
 			}, 200);
+
+			this.$mapContainer.stop().animate({
+				top: containerTop
+			});
 		},
 
 		_renderStores: function (stores) {
