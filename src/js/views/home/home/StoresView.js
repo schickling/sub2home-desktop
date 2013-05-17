@@ -232,6 +232,7 @@ define([
 				numberOfStores = storesInRange.length;
 
 			this._cleanPreviousResults();
+			this._adjustProportions();
 
 			if (numberOfStores > 0) {
 
