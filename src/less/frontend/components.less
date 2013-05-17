@@ -1041,6 +1041,9 @@ input[type="text"]#locationSelectionInput {
   color: @greenDark;
   .border-box;
   width: 100%;
+  &:focus {
+    color: @greenDark;
+  }
 }
 
 #locationSelection {
@@ -1100,17 +1103,17 @@ input[type="text"]#locationSelectionInput {
       top: 17px;
     }
   }
-  &.hasDeliveryAreaSelection {
-    label {
-      color: @greenLight;
-    }
-    #locationSelectionInput {
-      color: @onNoteColor30;
-      &:focus {
-        color: @greenDark;
-      }
-    }
-  }
+  // &.hasDeliveryAreaSelection {
+  //   label {
+  //     color: @greenLight;
+  //   }
+  //   #locationSelectionInput {
+  //     color: @onNoteColor30;
+  //     &:focus {
+  //       color: @greenDark;
+  //     }
+  //   }
+  // }
 }
 
 #homeNote .notice {
