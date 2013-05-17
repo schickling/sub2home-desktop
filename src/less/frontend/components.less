@@ -1038,7 +1038,7 @@ input[type="text"]#locationSelectionInput {
   font-size: 65px;
   height: 73px;
   padding-left: 50%;
-  color: @greenDark;
+  color: @onNoteColor30;
   .border-box;
   width: 100%;
   &:focus {
@@ -1054,8 +1054,8 @@ input[type="text"]#locationSelectionInput {
   height: 83px;
   margin: 0 20% 0 ;
 
-  #locationLabel, #deliveryAreaLabel {
-    display: block;
+  #locationLabel, #deliveryAreaLabel, #storeSelectionLabel {
+    //display: block;
     font-size: 20px;
     line-height: 16px;
     font-family: @headingsFontFamily;
@@ -1066,12 +1066,17 @@ input[type="text"]#locationSelectionInput {
     margin-left: -174px - 55px;
   }
 
-  #deliveryAreaLabel {
+  #deliveryAreaLabel, #storeSelectionLabel {
     display: none;
     position: absolute;
     text-transform: uppercase;
     margin-left: -287px;
     color: @greenLight;
+  }
+
+  #storeSelectionLabel {
+    margin-left: -238px;
+    display: none;
   }
   
   #locationLoader {

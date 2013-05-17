@@ -3874,7 +3874,7 @@ input[type="text"]#locationSelectionInput {
   font-size: 65px;
   height: 73px;
   padding-left: 50%;
-  color: #13493b;
+  color: rgba(202, 176, 111, 0.3);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3892,8 +3892,8 @@ input[type="text"]#locationSelectionInput:focus {
   margin: 0 20% 0 ;
 }
 #locationSelection #locationLabel,
-#locationSelection #deliveryAreaLabel {
-  display: block;
+#locationSelection #deliveryAreaLabel,
+#locationSelection #storeSelectionLabel {
   font-size: 20px;
   line-height: 16px;
   font-family: "VAGRoundedStd-Thin";
@@ -3903,12 +3903,17 @@ input[type="text"]#locationSelectionInput:focus {
   left: 50%;
   margin-left: -229px;
 }
-#locationSelection #deliveryAreaLabel {
+#locationSelection #deliveryAreaLabel,
+#locationSelection #storeSelectionLabel {
   display: none;
   position: absolute;
   text-transform: uppercase;
   margin-left: -287px;
   color: #57a827;
+}
+#locationSelection #storeSelectionLabel {
+  margin-left: -238px;
+  display: none;
 }
 #locationSelection #locationLoader {
   position: absolute;
