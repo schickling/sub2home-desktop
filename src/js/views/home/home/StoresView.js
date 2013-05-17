@@ -354,7 +354,7 @@ define([
 
 			this.$mapContainer.stop().animate({
 				top: containerTop
-			});
+			}, 200);
 		},
 
 		_renderStores: function (stores) {
