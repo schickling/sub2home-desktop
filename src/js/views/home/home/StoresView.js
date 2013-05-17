@@ -43,6 +43,7 @@ define([
 		$locationNotice: null,
 		$locationLabel: null,
 		$deliveryAreaLabel: null,
+		$storeSelectionLabel: null,
 		$map: null,
 
 		initialize: function () {
@@ -65,6 +66,7 @@ define([
 			this.$locationNotice = this.$homeNote.find('#locationNotice'); // ?
 			this.$locationLabel = this.$homeNote.find('#locationLabel');
 			this.$deliveryAreaLabel = this.$homeNote.find('#deliveryAreaLabel');
+			this.$storeSelectionLabel = this.$homeNote.find('#storeSelectionLabel');
 			this.$map = this.$('#map');
 		},
 
@@ -245,9 +247,12 @@ define([
 					this._showDeliveryAreaLabel();
 					this._expandHomeNote();
 				} else {
+					this._showStoreSelectionLabel();
 					matchingDeliveryAreas[0].set('isSelected', true);
 					this.storeViews[0].markAvailable();
 				}
+
+				this._unfocusSearch();
 
 			} else {
 				this._noStoresFound();
@@ -268,12 +273,20 @@ define([
 
 		_showDeliveryAreaLabel: function () {
 			this.$locationLabel.stop().fadeOut(100);
+			this.$storeSelectionLabel.stop().fadeOut(100);
 			this.$deliveryAreaLabel.stop().delay(100).fadeIn(150);
 		},
 
 		_showLocationLabel: function () {
 			this.$deliveryAreaLabel.stop().fadeOut(100);
+			this.$storeSelectionLabel.stop().fadeOut(100);
 			this.$locationLabel.stop().delay(100).fadeIn(150);
+		},
+
+		_showStoreSelectionLabel: function () {
+			this.$deliveryAreaLabel.stop().fadeOut(100);
+			this.$locationLabel.stop().fadeOut(100);
+			this.$storeSelectionLabel.stop().delay(100).fadeIn(150);
 		},
 
 		_renderDeliveryAreas: function (deliveryAreaModels) {
@@ -329,7 +342,7 @@ define([
 
 		},
 
-		_expandHomeNote: function() {
+		_expandHomeNote: function () {
 			var paddingBottom = this.$deliveryAreaSelection.height() - 20;
 
 			this.$homeNote.stop().animate({
@@ -356,6 +369,7 @@ define([
 				postal: this.postal
 			});
 
+			this._focusSearch();
 			this._centerMapToNotFoundPostal();
 		},
 
