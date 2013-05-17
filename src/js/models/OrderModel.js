@@ -37,12 +37,12 @@ define([
 			orderedItemsCollection: null,
 
 			// due date
-			due_at: '',
+			dueAt: '',
 			dueDate: null,
 
 			// only needed for store.dashboard
 			isDelivered: false,
-			created_at: '',
+			createdAt: '',
 			createdDate: null,
 
 			creditModel: null
@@ -129,12 +129,12 @@ define([
 					});
 				}
 
-				if (response.hasOwnProperty('created_at')) {
-					response.createdDate = new Date(response.created_at);
+				if (response.hasOwnProperty('createdAt')) {
+					response.createdDate = new Date(response.createdAt);
 				}
 
-				if (response.hasOwnProperty('due_at') && response.due_at) {
-					response.dueDate = new Date(response.due_at);
+				if (response.hasOwnProperty('dueAt') && response.dueAt) {
+					response.dueDate = new Date(response.dueAt);
 				}
 
 				return response;
@@ -159,7 +159,7 @@ define([
 			}
 
 			if (this.get('dueDate')) {
-				attributes.due_at = attributes.dueDate.getTime();
+				attributes.dueAt = attributes.dueDate.getTime();
 			}
 
 			return attributes;
