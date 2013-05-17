@@ -59,9 +59,6 @@ define([
 				el: this.$('#orderedItems')
 			});
 
-			// check if store is delivering
-			cartModel.validateDueDate();
-
 			if (this._storeIsDelivering()) {
 
 				this.subViews.controlView = new ControlView({

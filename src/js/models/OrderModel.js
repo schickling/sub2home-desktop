@@ -3,11 +3,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'moment',
     'notificationcenter',
     'models/AddressModel',
     'models/CreditModel',
     'collections/OrderedItemsCollection'
-    ], function ($, _, Backbone, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
+    ], function ($, _, Backbone, moment, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
 
 	// made global for performance reasons
 	var now = new Date();
@@ -159,7 +160,8 @@ define([
 			}
 
 			if (this.get('dueDate')) {
-				attributes.dueAt = attributes.dueDate.getTime();
+				var dueMoment = moment(attributes.dueDate);
+				attributes.dueAt = dueMoment.format('YYYY-MM-DD HH:mm:ss');
 			}
 
 			return attributes;
