@@ -1,22 +1,24 @@
 {
-  "name": "sub2home",
-  "version": "0.1.0",
-  "dependencies": {
-    "requirejs": null,
-    "requirejs-text": null,
-    "requirejs-plugins": null,
-    "jquery": "1.9.1",
-    "jquery-rotate": null,
-    "jquery-easing": null,
-    "jquery-browser-selector": null,
-    "jquery-color": null,
-    "jquery-overscroll": null,
-    "moment": null,
-    "underscore-amd": null,
-    "backbone-amd": null,
-    "backbone.localStorage": null,
-    "backbone.analytics": "git://github.com/schickling/backbone.analytics.git",
-    "jasmine": null,
-    "sinon": null
-  }
+    "name": "sub2home",
+    "version": "0.1.0",
+    "dependencies": {
+        "requirejs": null,
+        "requirejs-text": null,
+        "requirejs-plugins": null,
+        "jquery": "1.9.1",
+        "jquery-rotate": null,
+        "jquery-easing": null,
+        "jquery-browser-selector": null,
+        "jquery-color": null,
+        "jquery-overscroll": null,
+        "moment": null,
+        "underscore-amd": null,
+        "backbone-amd": null,
+        "backbone.localStorage": null,
+        "backbone.analytics": "git://github.com/schickling/backbone.analytics.git"
+    },
+    "devDependencies": {
+        "jasmine": null,
+        "sinon": null
+    }
 }
