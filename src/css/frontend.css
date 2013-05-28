@@ -4946,7 +4946,6 @@ input[type="text"]#locationSelectionInput:focus {
 .note.full.split .horizontalSeparator {
   width: 1px;
   height: 100%;
-  background: ;
   position: absolute;
   left: 50%;
   top: 0;
@@ -9118,7 +9117,6 @@ div#payment > div.disabled .btn.active {
   text-align: center;
   margin: 0 auto;
   cursor: default;
-  height: ;
 }
 #checkoutNote #countdown span {
   position: relative;
