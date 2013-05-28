@@ -48,7 +48,7 @@ define([
 				return response;
 
 			}
-			
+
 		},
 
 		validate: function (attributes) {
@@ -73,7 +73,6 @@ define([
 				return 'city';
 			}
 
-			console.log(attributes.phone);
 			if (!this._validatePhone(attributes.phone)) {
 				return 'phone';
 			}
