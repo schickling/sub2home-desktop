@@ -9,7 +9,7 @@ require.config({
 		jqueryRotate: 'vendor/jquery-rotate/jquery.rotate',
 		jqueryEasing: 'vendor/jquery-easing/jquery.easing',
 		jqueryColor: 'vendor/jquery-color/jquery.color',
-		jqueryOverscroll: 'vendor/jquery-overscroll/jquery.overscroll',
+		jqueryOverscroll: 'vendor/jquery-overscroll/src/jquery.overscroll',
 		jqueryBrowserSelector: 'vendor/jquery-browser-selector/jquery.browser.selector',
 		underscore: 'vendor/underscore-amd/underscore',
 		backbone: 'vendor/backbone-amd/backbone',
