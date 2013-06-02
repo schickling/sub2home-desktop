@@ -5,37 +5,45 @@ define([
 	'gmaps',
 	'notificationcenter',
 	'text!templates/home/home/StoreTemplate.html'
-	], function ($, _, gmaps, notificationcenter, StoreTemplate) {
+], function ($, _, gmaps, notificationcenter, StoreTemplate) {
 
 	var StoreView = function (model, parentView) {
 
-			// link to HomeView
-			this.parentView = parentView;
+		// link to HomeView
+		this.parentView = parentView;
 
-			this.model = model;
+		this.model = model;
 
-			// needed in StoresView.js
-			this.position = new gmaps.LatLng(model.get('latitude'), model.get('longitude'));
+		// needed in StoresView.js
+		this.position = new gmaps.LatLng(model.get('latitude'), model.get('longitude'));
 
-			// set map
-			this.setValues({
-				map: parentView.map
-			});
+		// set map
+		this.setValues({
+			map: parentView.map
+		});
 
-			// render template
-			var json = {
+		// render template
+		var isDelivering = this.model.isDelivering(),
+			json = {
 				title: this.model.get('title'),
-				isDelivering: this.model.isDelivering()
+				isDelivering: isDelivering
 			};
-			this.$el = $(this.template(json));
 
-			// cache note
-			this.$note = this.$el.find('.smallNote');
+		if (!isDelivering) {
+			var nextDeliveryTimeModel = storeModel.getNextDeliveryTimeModel();
 
-			// set state
-			this.state = 'initialized';
+			json.nextDeliveryTime = nextDeliveryTimeModel.getStartTime();
+		}
 
-		};
+		this.$el = $(this.template(json));
+
+		// cache note
+		this.$note = this.$el.find('.smallNote');
+
+		// set state
+		this.state = 'initialized';
+
+	};
 
 	StoreView.prototype = new gmaps.OverlayView();
 
