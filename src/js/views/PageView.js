@@ -54,10 +54,17 @@ define([
 		},
 
 		_finalizeLoad: function () {
-			// check if browser supports placeholder
+
+			// check if browser supports placeholder for inputs
 			if (!('placeholder' in document.createElement('input'))) {
 				this.$el.find('input').placeholder();
 			}
+
+			// check if browser supports placeholder for textareas
+			if (!('placeholder' in document.createElement('textarea'))) {
+				this.$el.find('textarea').placeholder();
+			}
+
 		},
 
 		_transition: function () {
