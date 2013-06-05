@@ -1589,7 +1589,8 @@ input[type="text"]#locationSelectionInput {
     top: 40px;
     z-index: 50;
     cursor: pointer;
-    #gradient > .vertical( #f65a1c, #9e2d00 );
+    //#gradient > .vertical( #f65a1c, #9e2d00 );
+    background: mix(#f65a1c, #9e2d00, 50%);
     border: 1px solid darken(#9e2d00, 3%);
     color: #651d00;
     text-shadow: 0 1px 0 #da8665, 0 -1px 0 rgba(100, 100, 100, 0.05);
@@ -5668,6 +5669,7 @@ aside.infoNavigation {
 
     &#storeInfo {
       padding-bottom: 50px;
+      overflow: hidden;
       .positioned;
       &:after {
         content: " ";
@@ -5783,6 +5785,7 @@ aside.infoNavigation {
         text-shadow: 0 1px 0 rgba(255,255,255,0.15);
         margin: 70px 0;
         line-height: 1.2;
+        overflow: hidden;
       }
 
 
