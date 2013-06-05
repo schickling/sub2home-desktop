@@ -2,13 +2,14 @@ define([
     'jquery',
     'jqueryEasing',
     'jqueryBrowserSelector',
+    'jqueryPlaceholder',
     'underscore',
     'backbone',
     'router',
     'notificationcenter',
     'models/stateModel',
     'views/assets/transitions'
-    ], function ($, jqueryEasing, jqueryBrowserSelector, _, Backbone, router, notificationcenter, stateModel, transitions) {
+], function ($, jqueryEasing, jqueryBrowserSelector, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) {
 
 	// "static" variable needed here
 	var pageWasInitialized = false;
@@ -46,9 +47,17 @@ define([
 			});
 		},
 
-		_initializePage: function() {
+		_initializePage: function () {
 			this.$el.appendTo($('body'));
 			pageWasInitialized = true;
+			this._finalizeLoad();
+		},
+
+		_finalizeLoad: function () {
+			// check if browser supports placeholder
+			if (!('placeholder' in document.createElement('input'))) {
+				this.$el.find('input').placeholder();
+			}
 		},
 
 		_transition: function () {
@@ -63,24 +72,24 @@ define([
 			if (currentTransition) {
 				switch (currentTransition.type) {
 
-					case 'a.forward':
-						this._transitionAFoward();
-						break;
-					case 'a.backward':
-						this._transitionABackward();
-						break;
-					case 'b.forward':
-						this._transitionBFoward();
-						break;
-					case 'b.backward':
-						this._transitionBBackward();
-						break;
-					case 'c.forward':
-						this._transitionCFoward();
-						break;
-					case 'c.backward':
-						this._transitionCBackward();
-						break;
+				case 'a.forward':
+					this._transitionAFoward();
+					break;
+				case 'a.backward':
+					this._transitionABackward();
+					break;
+				case 'b.forward':
+					this._transitionBFoward();
+					break;
+				case 'b.backward':
+					this._transitionBBackward();
+					break;
+				case 'c.forward':
+					this._transitionCFoward();
+					break;
+				case 'c.backward':
+					this._transitionCBackward();
+					break;
 				}
 			} else {
 				this._transitionDefault();
@@ -127,6 +136,8 @@ define([
 				// reassign $el for events
 				self.$el = $current;
 				self.delegateEvents();
+
+				self._finalizeLoad();
 			});
 
 		},
@@ -167,6 +178,8 @@ define([
 				// reassign $el for events
 				self.$el = $current;
 				self.delegateEvents();
+
+				self._finalizeLoad();
 			});
 
 		},
@@ -178,7 +191,8 @@ define([
 		 */
 		_transitionBFoward: function () {
 			var $new = this.$el,
-				$current = $('.main');
+				$current = $('.main'),
+				self = this;
 
 			$new.addClass('bFwd').appendTo($('body'));
 
@@ -192,6 +206,8 @@ define([
 				top: '100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
+
+				self._finalizeLoad();
 			});
 		},
 
@@ -203,7 +219,8 @@ define([
 		 */
 		_transitionBBackward: function () {
 			var $new = this.$el,
-				$current = $('.main');
+				$current = $('.main'),
+				self = this;
 
 			$new.addClass('bBwd').appendTo($('body'));
 
@@ -217,6 +234,8 @@ define([
 				top: '-100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
+
+				self._finalizeLoad();
 			});
 
 		},
@@ -229,7 +248,8 @@ define([
 		 */
 		_transitionCFoward: function () {
 			var $new = this.$el,
-				$current = $('.main');
+				$current = $('.main'),
+				self = this;
 
 			$new.addClass('cFwd').appendTo($('body'));
 
@@ -243,6 +263,8 @@ define([
 				left: '-100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
+
+				self._finalizeLoad();
 			});
 		},
 
@@ -254,7 +276,8 @@ define([
 		 */
 		_transitionCBackward: function () {
 			var $new = this.$el,
-				$current = $('.main');
+				$current = $('.main'),
+				self = this;
 
 			$new.addClass('cBwd').appendTo($('body'));
 
@@ -268,6 +291,8 @@ define([
 				left: '100%'
 			}, this._animationTime, 'easeInOutQuad', function () {
 				$current.remove();
+
+				self._finalizeLoad();
 			});
 
 		},
@@ -275,7 +300,8 @@ define([
 		_transitionDefault: function () {
 
 			var $new = this.$el,
-				$current = $('.main');
+				$current = $('.main'),
+				self = this;
 
 			$new.css({
 				opacity: 0
@@ -286,6 +312,8 @@ define([
 				opacity: 1
 			}, this._animationTime, function () {
 				$current.remove();
+
+				self._finalizeLoad();
 			});
 
 		},

@@ -11,6 +11,7 @@ require.config({
 		jqueryColor: 'vendor/jquery-color/jquery.color',
 		jqueryOverscroll: 'vendor/jquery-overscroll/src/jquery.overscroll',
 		jqueryBrowserSelector: 'vendor/jquery-browser-selector/jquery.browser.selector',
+		jqueryPlaceholder: 'vendor/jquery-placeholder/jquery.placeholder',
 		underscore: 'vendor/underscore-amd/underscore',
 		backbone: 'vendor/backbone-amd/backbone',
 		backboneLocalStorage: 'vendor/backbone.localStorage/backbone.localStorage',

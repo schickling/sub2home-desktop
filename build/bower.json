@@ -11,6 +11,7 @@
         "jquery-browser-selector": "1.2.0",
         "jquery-color": "2.1.x",
         "jquery-overscroll": "1.7.x",
+        "jquery-placeholder": "git@github.com:mathiasbynens/jquery-placeholder.git",
         "moment": "2.0.x",
         "underscore-amd": "1.4.x",
         "backbone-amd": "1.0.x",
