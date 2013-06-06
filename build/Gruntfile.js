@@ -85,11 +85,11 @@ module.exports = function (grunt) {
 			copyIndexHtml: {
 				command: 'cp $(pwd)/../src/index.html $(pwd)/' + distFolder + 'index.html'
 			},
-			copyBrowserHtml: {
-				command: 'cp $(pwd)/../src/browser.html $(pwd)/' + distFolder + 'browser.html'
+			copyBrowserFolder: {
+				command: 'cp -r $(pwd)/../src/browser $(pwd)/' + distFolder + 'browser'
 			},
-			copyMobileHtml: {
-				command: 'cp $(pwd)/../src/mobile.html $(pwd)/' + distFolder + 'mobile.html'
+			copyMobileFolder: {
+				command: 'cp -r $(pwd)/../src/mobile $(pwd)/' + distFolder + 'mobile'
 			},
 			copyHtaccess: {
 				command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + distFolder + '.htaccess'
@@ -141,8 +141,8 @@ module.exports = function (grunt) {
 		'exec:makeDistFolder',
 		'exec:copyHtaccess',
 		'exec:copyIndexHtml',
-		'exec:copyBrowserHtml',
-		'exec:copyMobileHtml',
+		'exec:copyBrowserFolder',
+		'exec:copyMobileFolder',
 		'exec:copyImages',
 		'exec:copyFonts',
 		'exec:copyAudio',
