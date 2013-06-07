@@ -30,7 +30,7 @@ define([
 			};
 
 		if (!isDelivering) {
-			var nextDeliveryTimeModel = storeModel.getNextDeliveryTimeModel();
+			var nextDeliveryTimeModel = this.model.getNextDeliveryTimeModel();
 
 			json.nextDeliveryTime = nextDeliveryTimeModel.getStartTime();
 		}
