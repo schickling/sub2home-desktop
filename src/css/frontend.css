@@ -5105,7 +5105,7 @@ input[type="text"]#locationSelectionInput:focus {
   padding-top: 6px;
   padding-left: 222px;
   font-family: "VAGRoundedStd-Thin";
-  height: 190px;
+  height: 230px;
 }
 #clientBasics:before {
   content: " ";
@@ -9798,6 +9798,47 @@ aside#header {
   height: 28px;
   padding-top: 10px;
 }
+.win.firefox label {
+  bottom: 0px;
+}
+.win.firefox #locationSelection #location {
+  position: relative;
+  top: 0px;
+}
+.win.firefox #locationSelection #location:before {
+  left: -5px;
+  top: 18px;
+}
+.win.firefox #locationSelection #locationLabel,
+.win.firefox #locationSelection #deliveryAreaLabel,
+.win.firefox #locationSelection #storeSelectionLabel {
+  bottom: 22px;
+}
+.win.firefox .flagFront:before,
+.win.firefox .flagFront:after {
+  top: 5px;
+}
+.win.firefox .flagFront h5 {
+  height: 24px;
+  padding-top: 4px;
+}
+.win.firefox .item .uncheckFootlong:before,
+.win.firefox .article .uncheckFootlong:before {
+  top: 9px;
+}
+.win.firefox .slide .item .accentIngredient:before {
+  left: -2px;
+}
+.win.firefox .amountOrderedItem .amount {
+  height: 28px;
+  padding-top: 10px;
+}
+.win.firefox #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile span {
+  top: -28px;
+}
+.win.firefox #checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
+  top: 33px;
+}
 .ie #locationSelection #location {
   position: relative;
   top: -2px;
@@ -9824,7 +9865,8 @@ aside#header {
   height: 27px;
 }
 .ie .flagFront h5 {
-  height: 22px;
+  height: 24px;
+  padding-top: 4px;
 }
 .ie .pricetag.small span {
   top: -2px;
