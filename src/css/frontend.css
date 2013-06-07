@@ -4345,13 +4345,19 @@ input[type="text"]#locationSelectionInput:focus {
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-  background: #9d261d;
   position: absolute;
   right: 31px;
   top: 40px;
   z-index: 50;
   cursor: pointer;
-  background: #ca440e;
+  background-color: #d34811;
+  background-image: -moz-linear-gradient(top, #f65a1c, #9e2d00);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f65a1c), to(#9e2d00));
+  background-image: -webkit-linear-gradient(top, #f65a1c, #9e2d00);
+  background-image: -o-linear-gradient(top, #f65a1c, #9e2d00);
+  background-image: linear-gradient(to bottom, #f65a1c, #9e2d00);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff65a1c', endColorstr='#ff9e2d00', GradientType=0);
   border: 1px solid #8f2900;
   color: #651d00;
   text-shadow: 0 1px 0 #da8665, 0 -1px 0 rgba(100, 100, 100, 0.05);
@@ -9792,27 +9798,77 @@ aside#header {
   height: 28px;
   padding-top: 10px;
 }
-.ie-9 #locationSelection #location {
+.ie #locationSelection #location {
   position: relative;
   top: -2px;
 }
-.ie-9 #locationSelection #location:before {
+.ie #locationSelection #location:before {
   top: 20px;
   left: -5px;
 }
-.ie-9 .item .footlongOption:before,
-.ie-9 .article .footlongOption:before {
+.ie .item .footlongOption:before,
+.ie .article .footlongOption:before {
   top: 87px;
 }
-.ie-9 .pricetag {
+.ie .pricetag {
   padding-top: 13px;
 }
-.ie-9 .flagBack:before {
+.ie .flagBack:before {
   top: 8px;
 }
-.ie-9 .flagFront:before,
-.ie-9 .flagFront:after {
+.ie .flagFront:before,
+.ie .flagFront:after {
   top: 10px;
+}
+.ie .flagFront {
+  height: 27px;
+}
+.ie .flagFront h5 {
+  height: 22px;
+}
+.ie .pricetag.small span {
+  top: -2px;
+}
+.ie aside#header #headerCustomerContent #trayPreview .iCart span {
+  top: -6px;
+}
+.ie .amountOrderedItem .amount {
+  height: 28px;
+  padding-top: 10px;
+}
+.ie #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
+  margin-top: -3px;
+}
+.ie #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile span {
+  top: -28px;
+}
+.ie #checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
+  top: 33px;
+}
+.ie .slide .item .accentIngredient:before {
+  top: 7px;
+  left: -3px;
+}
+.ie #overlay .iBtn:before {
+  top: 0;
+}
+.ie label {
+  bottom: -1px;
+}
+.ie input[type="text"]#locationSelectionInput {
+  line-height: 1;
+}
+.ie #locationSelection #locationLabel,
+.ie #locationSelection #deliveryAreaLabel,
+.ie #locationSelection #storeSelectionLabel {
+  bottom: 20px;
+}
+.ie #login input {
+  line-height: 1;
+}
+.ie-9 .item .uncheckFootlong,
+.ie-9 .article .uncheckFootlong {
+  background: #ca440e;
 }
 .ie-9 .flagFront {
   height: 22px;
@@ -9821,35 +9877,4 @@ aside#header {
 .ie-9 .flagFront h5 {
   height: 24px;
   padding-top: 4px;
-}
-.ie-9 .pricetag.small span {
-  top: -2px;
-}
-.ie-9 aside#header #headerCustomerContent #trayPreview .iCart span {
-  top: -6px;
-}
-.ie-9 .amountOrderedItem .amount {
-  height: 28px;
-  padding-top: 10px;
-}
-.ie-9 #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
-  margin-top: -3px;
-}
-.ie-9 .slide .item .accentIngredient:before {
-  top: 7px;
-  left: -3px;
-}
-.ie-9 #overlay .iBtn:before {
-  top: 0;
-}
-.ie-9 label {
-  bottom: -1px;
-}
-.ie-9 input[type="text"]#locationSelectionInput {
-  line-height: 1;
-}
-.ie-9 #locationSelection #locationLabel,
-.ie-9 #locationSelection #deliveryAreaLabel,
-.ie-9 #locationSelection #storeSelectionLabel {
-  bottom: 20px;
 }
