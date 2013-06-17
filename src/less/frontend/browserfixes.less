@@ -131,22 +131,84 @@
 	}
 }
 
-.ie-9 {
-	#locationSelection #location {
-		.positioned;
-		top: -2px;	
-		&:before {
-			top: 20px;
-			left: -5px;
+.win.firefox {
+	
+	label {
+		bottom: 0px;
+	}
+
+	#locationSelection {
+		#location {
+			.positioned;
+			top: 0px;	
+			&:before {
+				left: -5px;
+	     		top: 18px;
+			}
+		}
+
+		#locationLabel, #deliveryAreaLabel, #storeSelectionLabel {
+			bottom: 22px;
 		}
 	}
+
+	.flagFront {
+		&:before, &:after {
+			top: 5px;
+		}
+		h5 {
+		 	height: 24px;
+		 	padding-top: 4px;
+		}
+	}
+
+	.item, .article {
+		.uncheckFootlong:before {
+			top: 9px;
+		}
+	}
+
+	.slide .item .accentIngredient:before {
+		left: -2px;
+	}
+
+	.amountOrderedItem .amount {
+		height: 28px;
+		padding-top: 10px;
+	}
+
+	#checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
+		// margin-top: -3px;
+		span {
+			top: -28px;
+		}
+	}
+
+	#checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
+		top: 33px;
+	}
+
+}
+
+.ie {
+	#locationSelection {
+		#location {
+			.positioned;
+			top: -2px;	
+			&:before {
+				top: 20px;
+				left: -5px;
+			}
+		}
+	}
+
 
 	.item .footlongOption, .article .footlongOption {
 		&:before {
 			top: 87px;
 		}	
 	}
-	
+
 	.pricetag {
 		padding-top: 13px;
 		// filter: Shadow(Color=#999999, Direction=180, Strength=5);
@@ -162,14 +224,16 @@
 	.flagFront:before, .flagFront:after {
 		top: 10px;
 	}
+
 	.flagFront {
-		height: 22px;
-		box-shadow: none;
-		h5 {
-			height: 24px;
-			padding-top: 4px;
-		}
+		height: 27px;
+		// box-shadow: none;
+		 h5 {
+		 	height: 24px;
+		 	padding-top: 4px;
+		 }
 	}
+	
 	.pricetag.small span {
 		top: -2px;
 	}
@@ -185,6 +249,13 @@
 
 	#checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
 		margin-top: -3px;
+		span {
+			top: -28px;
+		}
+	}
+
+	#checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
+		top: 33px;
 	}
 
 	.slide .item .accentIngredient:before {
@@ -207,6 +278,26 @@
 		#locationLabel, #deliveryAreaLabel, #storeSelectionLabel {
 			bottom: 20px;
 		//	text-transform: none;
+		}
+	}
+
+	#login input {
+		line-height: 1;
+	}
+}
+
+.ie-9 {
+	.item, .article {
+		.uncheckFootlong {
+			background: mix(#f65a1c, #9e2d00, 50%);
+		}
+	}
+	.flagFront {
+		height: 22px;
+		box-shadow: none;
+		h5 {
+			height: 24px;
+			padding-top: 4px;
 		}
 	}
 }
