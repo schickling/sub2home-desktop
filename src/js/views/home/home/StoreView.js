@@ -15,7 +15,8 @@ define([
 		this.model = model;
 
 		// needed in StoresView.js
-		this.position = new gmaps.LatLng(model.get('latitude'), model.get('longitude'));
+		var addressModel = this.model.get('addressModel');
+		this.position = new gmaps.LatLng(addressModel.get('latitude'), addressModel.get('longitude'));
 
 		// set map
 		this.setValues({
