@@ -30,7 +30,7 @@ define([
 					_.each(ingredientCategoriesCollection.models, function (ingredientCategoryModel) {
 
 						var timelineItemModel = new TimelineItemModel({
-							image: '../../../' + ingredientCategoryModel.get('smallImage'),
+							image: ingredientCategoryModel.get('smallImage'),
 							icon: ingredientCategoryModel.get('icon'),
 							phrase: 'Wähle deine Zutaten'
 						});

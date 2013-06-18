@@ -50,7 +50,7 @@ define([
 				timelineItemModel.set({
 					isDisabled: true,
 					wasVisited: true,
-					image: '../../../' + articleModel.get('smallImage')
+					image: articleModel.get('smallImage')
 				});
 			}
 
