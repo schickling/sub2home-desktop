@@ -42,16 +42,16 @@ define([
 		_prepareTimelineItems: function () {
 
 			var timelineItems = [{
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/categories/smallimages/sub.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/categories/smallimages/sub.png',
 				icon: 'iSub'
 			}, {
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/common/menu_upgrade.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menu_upgrade.png',
 				icon: 'iMenuUpgrade'
 			}, {
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/common/menu_bundle.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menu_bundle.png',
 				icon: 'iMenuBundle'
 			}, {
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/ingredientcategories/smallimages/vegetables.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/ingredientcategories/smallimages/vegetables.png',
 				icon: 'iVegetables'
 			}];
 

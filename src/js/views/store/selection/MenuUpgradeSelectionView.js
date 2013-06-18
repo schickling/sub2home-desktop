@@ -31,7 +31,7 @@ define([
 						phrase: 'Mach\'s zum Menü',
 						menuUpgradeSelection: true,
 						icon: 'iMenuUpgrade',
-						image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/ingredients/largeimages/bread/cheeseoregano.png/static/common/menu_upgrade.png'
+						image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/ingredients/largeimages/bread/cheeseoregano.png/static/common/menu_upgrade.png'
 					});
 
 

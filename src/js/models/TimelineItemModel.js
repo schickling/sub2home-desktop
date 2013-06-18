@@ -8,7 +8,7 @@ define([
 
 		defaults: {
 			// api data
-			image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/static/categories/smallimages/getraenk.png/static/sub_small.png',
+			image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/categories/smallimages/getraenk.png/static/sub_small.png',
 			icon: '',
 			phrase: '',
 
