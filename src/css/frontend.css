@@ -116,42 +116,24 @@ textarea {
  * 
  * © 2013 MyFonts Inc
 */
-/* @import must be at top of file, otherwise CSS will not work */
 @font-face {
   font-family: 'VAGRoundedStd-Thin';
-  src: url('../fonts/2654AB_0_0.eot');
-  src: url('../fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2654AB_0_0.woff') format('woff'), url('../fonts/2654AB_0_0.ttf') format('truetype');
+  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.woff') format('woff'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.ttf') format('truetype');
 }
 @font-face {
   font-family: "Handlee";
-  src: url("../fonts/handlee.eot");
-  src: url("../fonts/handlee.eot?#iefix") format("embedded-opentype"), url("../fonts/handlee.woff") format("woff"), url("../fonts/handlee.ttf") format("truetype"), url("../fonts/handlee.svg#Handlee") format("svg");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.svg#Handlee") format("svg");
   font-weight: normal;
   font-style: normal;
 }
-/* @license
- * MyFonts Webfont Build ID 2512043, 2013-03-22T12:25:39-0400
- * 
- * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
- * explicitly restricted from using the Licensed Webfonts(s).
- * 
- * You may obtain a valid license at the URLs below.
- * 
- * Webfont: VAG Rounded Thin by Linotype
- * URL: http://www.myfonts.com/fonts/linotype/vag-rounded/thin/
- * Copyright: Copyright &#x00A9; 1989, 1995, 2001 Adobe Systems Incorporated.  All Rights Reserved.
- * 
- * 
- * License: http://www.myfonts.com/viewlicense?type=web&buildid=2512043
- * 
- * © 2013 MyFonts Inc
-*/
-/* @import must be at top of file, otherwise CSS will not work */
 @font-face {
-  font-family: 'VAGRoundedStd-Thin';
-  src: url('../fonts/2654AB_0_0.eot');
-  src: url('../fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2654AB_0_0.woff') format('woff'), url('../fonts/2654AB_0_0.ttf') format('truetype');
+  font-family: "Homicons";
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.svg#Homicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 .clearfix {
   *zoom: 1;
@@ -276,7 +258,7 @@ a:hover {
   text-decoration: underline;
 }
 aside#header {
-  background: url("../img/static/common/h_center.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/hcenter.png") repeat-x;
   height: 81px;
   position: fixed;
   top: 0;
@@ -288,7 +270,7 @@ aside#header:before {
   content: " ";
   position: absolute;
   left: -74px;
-  background: url("../img/static/common/h_left.png") no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/hleft.png") no-repeat;
   height: 81px;
   width: 74px;
   top: 0;
@@ -342,7 +324,7 @@ aside#header .iInfo {
   left: 0;
   right: 0;
   z-index: 100;
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
   overflow: visible !important;
 }
 .note#homeNote {
@@ -385,7 +367,7 @@ aside#header .iInfo {
 }
 .note.full .container,
 .note#trayNote .container {
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
 }
 .note.full > .container,
 .note#trayNote > .container {
@@ -432,7 +414,7 @@ aside#header .iInfo {
   left: 0;
   right: 0;
   top: -7px;
-  background: url("../img/static/common/note_top.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notetop.png") repeat-x;
 }
 .note#homeNote:after,
 .note#storeNote:after,
@@ -445,7 +427,7 @@ aside#header .iInfo {
   left: 0;
   right: 0;
   bottom: -7px;
-  background: url("../img/static/common/note_bottom.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebottom.png") repeat-x;
 }
 .note#assortmentNote {
   height: 150px;
@@ -461,7 +443,7 @@ aside#header .iInfo {
   left: 0;
   right: 0;
   top: -7px;
-  background: url("../img/static/common/note_top.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notetop.png") repeat-x;
 }
 .note#selectionNote {
   width: 100%;
@@ -539,7 +521,7 @@ aside#header .iInfo {
   bottom: 0;
 }
 .content.info .container {
-  background: url("../img/static/common/dark_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
   overflow-x: hidden;
 }
 /*
@@ -784,7 +766,7 @@ address {
   line-height: 18px;
 }
 .darkback {
-  background: url("../img/static/common/dark_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
 }
 .darkback h1,
 .darkback h2,
@@ -1826,13 +1808,6 @@ textarea:-ms-input-placeholder {
 input[type="text"].money {
   padding-right: 20px;
 }
-@font-face {
-  font-family: "Homicons";
-  src: url("../fonts/Homicons.eot");
-  src: url("../fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("../fonts/Homicons.ttf") format("truetype"), url("../fonts/Homicons.svg#Homicons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 /* global styles */
 .icn,
 .iBtn,
@@ -2337,7 +2312,7 @@ a.iBtn:hover {
   left: 0;
   width: 61px;
   height: 61px;
-  background: url('../img/static/common/icons.png') no-repeat;
+  background: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/icons.png') no-repeat;
   background-position: -61px 0;
 }
 #storeOpen.isOpen {
@@ -2356,10 +2331,10 @@ a.iBtn:hover {
   background-position: center;
 }
 .imgIcn.storeIcon {
-  background: url('../img/static/common/store_icon.png') no-repeat;
+  background: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/storeicon.png') no-repeat;
 }
 .imgIcn.clientIcon {
-  background: url('../img/static/common/client_icon.png') no-repeat;
+  background: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/storeicon.png') no-repeat;
 }
 .btn {
   display: inline-block;
@@ -3215,7 +3190,7 @@ img.cookie {
   color: #1e715c;
 }
 #magnifier {
-  background: url("../img/static/common/magnifier.png") no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/magnifier.png") no-repeat;
   height: 90px;
   width: 90px;
   top: 0;
@@ -3349,7 +3324,7 @@ img.cookie {
   position: relative;
   margin-left: 10px;
   margin-top: 10px;
-  background: url("../img/static/common/note_background.jpg") repeat rgba(202, 176, 111, 0.5);
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat rgba(202, 176, 111, 0.5);
   -webkit-backface-visibility: auto;
   -moz-backface-visibility: auto;
   backface-visibility: auto;
@@ -3999,7 +3974,7 @@ input[type="text"]#locationSelectionInput:focus {
   min-width: 3px;
   cursor: pointer;
   text-align: center;
-  background: url("../img/static/common/small_note_center.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnotecenter.png") repeat-x;
   -webkit-transition: opacity linear 0.1s;
   -moz-transition: opacity linear 0.1s;
   -o-transition: opacity linear 0.1s;
@@ -4007,7 +3982,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .smallNote:before {
   content: " ";
-  background: url("../img/static/common/small_note.png") 0 0 no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnote.png") 0 0 no-repeat;
   position: absolute;
   width: 83px;
   height: 63px;
@@ -4016,7 +3991,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .smallNote:after {
   content: " ";
-  background: url("../img/static/common/small_note.png") -94px 0 no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnote.png") -94px 0 no-repeat;
   position: absolute;
   width: 61px;
   height: 63px;
@@ -4262,7 +4237,7 @@ input[type="text"]#locationSelectionInput:focus {
   left: -99px;
   text-align: left;
   overflow: hidden;
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -4523,7 +4498,7 @@ input[type="text"]#locationSelectionInput:focus {
   backface-visibility: hidden;
 }
 .article.selected {
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -4555,7 +4530,7 @@ input[type="text"]#locationSelectionInput:focus {
   top: 0;
   left: -43px;
   overflow: hidden;
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -5109,7 +5084,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #clientBasics:before {
   content: " ";
-  background: url("../img/static/common/client_avtr.png") center no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/clientavtr.png") center no-repeat;
   width: 124px;
   height: 161px;
   position: absolute;
@@ -6761,7 +6736,7 @@ input[type="text"]#locationSelectionInput:focus {
   left: 50%;
   width: 690px;
   margin: -185px 0 0 -345px;
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -8010,13 +7985,13 @@ div#payment > div.disabled .btn.active {
   filter: alpha(opacity=100);
 }
 .menuUpgrade.selected .smallNote {
-  background: url("../img/static/common/small_note_center.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnotecenter.png") repeat-x;
 }
 .menuUpgrade.selected .smallNote:before {
-  background: url("../img/static/common/small_note.png") 0 0 no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnote.png") 0 0 no-repeat;
 }
 .menuUpgrade.selected .smallNote:after {
-  background: url("../img/static/common/small_note.png") -94px 0 no-repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/smallnote.png") -94px 0 no-repeat;
 }
 .menuUpgrade.selected .smallNote h3 i {
   visibility: visible;
@@ -8109,7 +8084,7 @@ div#payment > div.disabled .btn.active {
   margin: 0;
   padding: 100px 8% 50px;
   position: relative;
-  background: url("../img/static/common/note_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
 }
 #orderedItems:after {
   content: " ";
@@ -8118,7 +8093,7 @@ div#payment > div.disabled .btn.active {
   left: 0;
   right: 0;
   bottom: -7px;
-  background: url("../img/static/common/note_bottom.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebottom.png") repeat-x;
 }
 #orderedItems .itemDescription p {
   font-family: "Handlee", Helvetica, Arial, sans-serif;
@@ -8909,7 +8884,7 @@ div#payment > div.disabled .btn.active {
   color: inherit;
 }
 #checkoutSettings {
-  background: url("../img/static/common/dark_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
   position: relative;
   overflow: hidden;
   height: 0;
@@ -8925,7 +8900,7 @@ div#payment > div.disabled .btn.active {
   left: 0;
   right: 0;
   top: 0;
-  background: url("../img/static/common/darknote_bottom.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darknotebottom.png") repeat-x;
 }
 #deliveryAddressSettings {
   position: relative;
@@ -9142,7 +9117,7 @@ aside.infoNavigation {
   top: 0;
   bottom: 0;
   width: 260px;
-  background: url("../img/static/common/dark_background.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
   padding: 10% 0 0 50px;
 }
 aside.infoNavigation:after {
