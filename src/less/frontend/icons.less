@@ -3,13 +3,6 @@
 
 // GENERAL
 
-@font-face {
-  font-family: "Homicons";
-  src: url("../fonts/Homicons.eot");
-  src: url("../fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("../fonts/Homicons.ttf") format("truetype"), url("../fonts/Homicons.svg#Homicons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* global styles */
 .icn, .iBtn, .menuComponentBlock {
@@ -553,7 +546,7 @@ a.iBtn, a.iBtn:hover {
   left: 0;
   width: 61px;
   height: 61px;
-  background: url('../img/static/common/icons.png') no-repeat;
+  background: @iconSpriteSrc;
   background-position: -61px 0;
   &.isOpen {
     background-position: 0 0;
@@ -575,10 +568,10 @@ a.iBtn, a.iBtn:hover {
   background-size: 90%;
   background-position: center;
   &.storeIcon {
-    background: url('../img/static/common/store_icon.png') no-repeat;
+    background: @storeIconSrc;
   }
   &.clientIcon {
-    background: url('../img/static/common/client_icon.png') no-repeat;
+    background: @storeIconSrc;
   }
 }
 
