@@ -12,8 +12,6 @@ define([
 			title: '',
 			description: '',
 			info: '',
-			image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/categories/smallimages/getraenk.png/articles/subs/bbq_rib.png',
-
 			isSelected: false
 		}
 
