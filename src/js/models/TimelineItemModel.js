@@ -2,13 +2,14 @@
 define([
 	'underscore',
 	'backbone'
-	], function (_, Backbone) {
+], function (_, Backbone) {
 
 	var TimelineItemModel = Backbone.Model.extend({
 
 		defaults: {
 			// api data
 			icon: '',
+			image: '',
 			phrase: '',
 
 			// logic data
