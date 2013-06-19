@@ -94,18 +94,6 @@ module.exports = function (grunt) {
 			copyHtaccess: {
 				command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + distFolder + '.htaccess'
 			},
-			copyImages: {
-				command: 'cp -r $(pwd)/../src/img $(pwd)/' + distFolder + 'img'
-			},
-			copyFonts: {
-				command: 'cp -r $(pwd)/../src/fonts $(pwd)/' + distFolder + 'fonts'
-			},
-			copyAudio: {
-				command: 'cp -r $(pwd)/../src/audio $(pwd)/' + distFolder + 'audio'
-			},
-			copyFiles: {
-				command: 'cp -r $(pwd)/../src/files $(pwd)/' + distFolder + 'files'
-			},
 			makeDistFolder: {
 				command: 'mkdir -p $(pwd)/' + distFolder
 			}
@@ -143,10 +131,6 @@ module.exports = function (grunt) {
 		'exec:copyIndexHtml',
 		'exec:copyBrowserFolder',
 		'exec:copyMobileFolder',
-		'exec:copyImages',
-		'exec:copyFonts',
-		'exec:copyAudio',
-		'exec:copyFiles',
         'exec:createRequireJsDir',
         'exec:copyRequireJs'
     ]);
