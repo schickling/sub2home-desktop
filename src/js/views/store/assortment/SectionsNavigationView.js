@@ -45,10 +45,10 @@ define([
 				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/categories/smallimages/sub.png',
 				icon: 'iSub'
 			}, {
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menu_upgrade.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menuupgrade.png',
 				icon: 'iMenuUpgrade'
 			}, {
-				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menu_bundle.png',
+				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menubundle.png',
 				icon: 'iMenuBundle'
 			}, {
 				image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/ingredientcategories/smallimages/vegetables.png',
