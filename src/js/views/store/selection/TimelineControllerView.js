@@ -6,7 +6,7 @@ define([
     'router',
     'notificationcenter',
     'models/cartModel'
-    ], function ($, _, Backbone, router, notificationcenter, cartModel) {
+], function ($, _, Backbone, router, notificationcenter, cartModel) {
 
 	var TimelineControllerView = Backbone.View.extend({
 
@@ -26,6 +26,8 @@ define([
 
 		animationTime: 400,
 
+		delayTimeout: 0,
+
 		// cached dom
 		$buttonNext: null,
 		$buttonPrev: null,
@@ -40,7 +42,8 @@ define([
 
 		events: {
 			// buttons
-			'click #bNext, .menuUpgrade': '_forward',
+			'click #bNext': '_forward',
+			'click #menuUpgrade, .article': '_delayedForward',
 			'click #bPrev': '_backward',
 			'click #bCart': '_finish',
 
@@ -274,7 +277,16 @@ define([
 			}
 		},
 
+		_delayedForward: function () {
+			var self = this;
+			this.delayTimeout = setTimeout(function () {
+				self._forward();
+			}, 400);
+		},
+
 		_navigate: function () {
+			clearTimeout(this.delayTimeout);
+
 			this._slideStage();
 			this._slideTimeline();
 			this._changeInfo();

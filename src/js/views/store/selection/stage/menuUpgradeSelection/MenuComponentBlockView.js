@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/store/selection/stage/menuUpgradeSelection/MenuComponentBlockTemplate.html'
-    ], function ($, _, Backbone, MenuComponentBlockTemplate) {
+], function ($, _, Backbone, MenuComponentBlockTemplate) {
 
 	var MenuComponentBlockView = Backbone.View.extend({
 
@@ -35,7 +35,7 @@ define([
 
 			for (var i = 0; i < menuComponentOptionsCollection.length; i++) {
 				menuComponentOptionTitle = menuComponentOptionsCollection.models[i].get('title');
-				
+
 				if (i === menuComponentOptionsCollection.length - 1) { // if last
 					composedTitle += menuComponentOptionTitle;
 				} else if (i === menuComponentOptionsCollection.length - 2) { // if penultimate

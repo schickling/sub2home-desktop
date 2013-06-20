@@ -5,7 +5,7 @@ define([
 	'backbone',
 	'models/ArticleModel',
 	'text!templates/store/selection/stage/articleSelection/MenuComponentOptionArticleTemplate.html'
-	], function ($, _, Backbone, ArticleModel, MenuComponentOptionArticleTemplate) {
+], function ($, _, Backbone, ArticleModel, MenuComponentOptionArticleTemplate) {
 
 	var MenuComponentOptionArticleView = Backbone.View.extend({
 
@@ -41,7 +41,7 @@ define([
 			};
 
 			this.$el.html(this.template(json));
-			
+
 			this.$el.addClass(this._getImageClass());
 
 		},
@@ -53,7 +53,7 @@ define([
 			return imageWithoutFileExtension.split('-').pop() || '';
 		},
 
-		_update: function() {
+		_update: function () {
 			this.$el.toggleClass('selected', this.model.get('isSelected'));
 		},
 
