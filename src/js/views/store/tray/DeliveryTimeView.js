@@ -7,17 +7,17 @@ define([
     'notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/DeliveryTimeTemplate.html'
-    ], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate) {
+], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate) {
 
 	var DeliveryTimeView = Backbone.View.extend({
 
 		template: _.template(DeliveryTimeTemplate),
 
 		events: {
-			'click #hours .iArrowUp.active': '_addHour',
-			'click #hours .iArrowDown.active': '_substractHour',
-			'click #minutes .iArrowUp.active': '_addMinute',
-			'click #minutes .iArrowDown.active': '_substractMinute'
+			'click #hours .iArrowUp.active, #hours .topTile': '_addHour',
+			'click #hours .iArrowDown.active, #hours .bottomTile': '_substractHour',
+			'click #minutes .iArrowUp.active, #minutes .topTile': '_addFiveMinutes',
+			'click #minutes .iArrowDown.active, #minutes .bottomTile': '_substractFiveMinutes'
 		},
 
 		intervalTimer: null,
@@ -36,9 +36,9 @@ define([
 				dueMoment = moment(dueDate),
 				json = {
 					hoursAreMinimum: !this._isValidDueDateChange(-60),
-					minutesAreMinimum: !this._isValidDueDateChange(-1),
+					minutesAreMinimum: !this._isValidDueDateChange(-5),
 					hoursAreMaximum: !this._isValidDueDateChange(60),
-					minutesAreMaximum: !this._isValidDueDateChange(1),
+					minutesAreMaximum: !this._isValidDueDateChange(5),
 					dueHours: dueMoment.format('HH'),
 					dueMinutes: dueMoment.format('mm'),
 					minimumDuration: cartModel.getMinimumDuration()
@@ -66,12 +66,12 @@ define([
 			this._addMinutesToDueDate(-60);
 		},
 
-		_addMinute: function () {
-			this._addMinutesToDueDate(1);
+		_addFiveMinutes: function () {
+			this._addMinutesToDueDate(5);
 		},
 
-		_substractMinute: function () {
-			this._addMinutesToDueDate(-1);
+		_substractFiveMinutes: function () {
+			this._addMinutesToDueDate(-5);
 		},
 
 		_isValidDueDateChange: function (minutesToAdd) {
@@ -79,8 +79,10 @@ define([
 		},
 
 		_addMinutesToDueDate: function (minutesToAdd) {
-			cartModel.changeDueDate(minutesToAdd);
-			this._render();
+			if (this._isValidDueDateChange(minutesToAdd)) {
+				cartModel.changeDueDate(minutesToAdd);
+				this._render();
+			}
 		},
 
 		destroy: function () {
