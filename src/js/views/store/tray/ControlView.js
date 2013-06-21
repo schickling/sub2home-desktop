@@ -54,6 +54,7 @@ define([
 					firstName: addressModel.get('firstName'),
 					lastName: addressModel.get('lastName'),
 					street: addressModel.get('street'),
+					streetNumber: addressModel.get('streetNumber'),
 					paymentMethod: paymentMethod,
 					comment: cartModel.getComment()
 				};
