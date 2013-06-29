@@ -241,6 +241,14 @@ define([
 
 		hasCredit: function () {
 			return this.get('creditModel') !== null;
+		},
+
+		// 10-41786-0-0329-0609
+		isCouponCodeValid: function () {
+			var regex = /^(\d){2}-(\d){5}-(\d)-(\d){4}-(\d){4}$/,
+				code = this.get('couponCode');
+
+			return regex.test(code);
 		}
 
 	});

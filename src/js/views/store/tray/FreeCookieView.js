@@ -6,7 +6,7 @@ define([
     'notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/FreeCookieTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, cartModel, FreeCookieTemplate) {
+], function ($, _, Backbone, notificationcenter, cartModel, FreeCookieTemplate) {
 
 	var FreeCookieView = Backbone.View.extend({
 
@@ -32,11 +32,17 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+			this._markHasCode();
+		},
 
-			if (couponCode) {
-				this.$el.addClass('hasCode');
-			}
+		_markHasCode: function() {
+			var orderModel = cartModel.get('orderModel');
 
+			this.$el.toggleClass('hasCode', orderModel.get('couponCode') != '');
+		},
+
+		_markIsValid: function() {
+			this.$el.toggleClass('valid', cartModel.isCouponCodeValid());
 		},
 
 		_cacheDom: function () {
@@ -53,6 +59,11 @@ define([
 		},
 
 		_checkCollapseInput: function () {
+			
+			this._saveCode();
+			this._markHasCode();
+			this._markIsValid();
+
 			if (!this.$input.val()) {
 				this._collapseInput();
 			} else {
@@ -68,15 +79,9 @@ define([
 			}, 150);
 		},
 
-		// 10-41786-0-0329-0609
 		_checkCode: function () {
-			var code = this.$input.val(),
-				regex = /^(\d){2}-(\d){5}-(\d)-(\d){4}-(\d){4}$/,
-				codeIsValid = regex.test(code);
-
-			if (codeIsValid) {
+			if (cartModel.isCouponCodeValid()) {
 				notificationcenter.notify('views.store.tray.coupon.valid');
-				this._saveCode();
 			} else {
 				notificationcenter.notify('views.store.tray.coupon.invalid');
 			}

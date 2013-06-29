@@ -5,7 +5,7 @@ define([
     'backboneLocalStorage',
     'models/stateModel',
     'models/OrderModel'
-    ], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
+], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
 
 	var CartModel = Backbone.Model.extend({
 
@@ -304,7 +304,10 @@ define([
 			});
 
 			this.set('termsAccepted', false);
+		},
 
+		isCouponCodeValid: function () {
+			return this.get('orderModel').isCouponCodeValid();
 		}
 
 	});
