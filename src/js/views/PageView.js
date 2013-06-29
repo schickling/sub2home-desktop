@@ -49,11 +49,15 @@ define([
 
 		_initializePage: function () {
 			this.$el.appendTo($('body'));
-			pageWasInitialized = true;
 			this._finalizeLoad();
+			pageWasInitialized = true;
 		},
 
 		_finalizeLoad: function () {
+
+			if (pageWasInitialized) {
+				this.options.currentPageView.destroy();
+			}
 
 			// check if browser supports placeholder for inputs
 			if (!('placeholder' in document.createElement('input'))) {
