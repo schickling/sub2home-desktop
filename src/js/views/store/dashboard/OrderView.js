@@ -30,9 +30,12 @@ define([
 			this.creditView = this.options.creditView;
 
 			this._render();
+
+			this.listenTo(this.model, 'change', this._render);
 		},
 
 		_render: function () {
+
 			var orderModel = this.model,
 				addressModel = orderModel.get('addressModel'),
 				dueDate = orderModel.get('dueDate'),

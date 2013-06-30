@@ -3,16 +3,18 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'notificationcenter',
     'models/CreditModel',
     'text!templates/store/dashboard/CreditTemplate.html'
-    ], function ($, _, Backbone, CreditModel, CreditTemplate) {
+], function ($, _, Backbone, notificationcenter, CreditModel, CreditTemplate) {
 
 	var CreditView = Backbone.View.extend({
 
 		template: _.template(CreditTemplate),
 
 		events: {
-			'click #cancelBalanceOrder': '_close'
+			'click #cancelBalanceOrder': '_close',
+			'click #submitBalanceOrder': '_create'
 		},
 
 		orderModel: null,
@@ -22,8 +24,6 @@ define([
 			this.model = new CreditModel({
 				total: orderModel.get('total')
 			});
-
-			this.orderModel.set('creditModel', this.model);
 
 			this._render();
 			this._show();
@@ -46,6 +46,37 @@ define([
 
 		_close: function () {
 			this.$el.fadeOut();
+		},
+
+		_create: function () {
+			var self = this,
+				total = this.$('#balanceOrderValueInput').val(),
+				description = this.$('#balanceOrderMessage').val();
+
+			if (!description) {
+				notificationcenter.notify('views.store.dashboard.credit.noDescription');
+				return;
+			}
+
+			if (total > this.orderModel.get('total')) {
+				notificationcenter.notify('views.store.dashboard.credit.tooMuchTotal');
+				return;
+			}
+
+			this.model.save({
+				total: total,
+				description: description
+			}, {
+				url: 'orders/' + self.orderModel.get('id') + '/credits',
+				success: function () {
+					notificationcenter.notify('views.store.dashboard.credit.success');
+					self.orderModel.set('creditModel', self.model);
+					self._close();
+				},
+				error: function () {
+					notificationcenter.notify('views.store.dashboard.credit.error');
+				}
+			});
 		}
 
 	});
