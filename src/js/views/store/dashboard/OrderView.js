@@ -7,7 +7,7 @@ define([
     'notificationcenter',
     'views/store/dashboard/details/OrderDetailsView',
     'text!templates/store/dashboard/OrderTemplate.html'
-    ], function ($, _, Backbone, moment, notificationcenter, OrderDetailsView, OrderTemplate) {
+], function ($, _, Backbone, moment, notificationcenter, OrderDetailsView, OrderTemplate) {
 
 	var OrderView = Backbone.View.extend({
 
@@ -46,6 +46,7 @@ define([
 				number: orderModel.getNumber(),
 				paymentMethodClass: this._getPaymentMethodClass(),
 				total: orderModel.get('total'),
+				totalWithCredit: this._getTotalWithCredit(),
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),
 				district: addressModel.get('district'),
@@ -95,15 +96,15 @@ define([
 				paymentMethodClass;
 
 			switch (paymentMethod) {
-				case 'paypal':
-					paymentMethodClass = 'bPaypal';
-					break;
-				case 'cash':
-					paymentMethodClass = 'bCash';
-					break;
-				case 'ec':
-					paymentMethodClass = 'bEC';
-					break;
+			case 'paypal':
+				paymentMethodClass = 'bPaypal';
+				break;
+			case 'cash':
+				paymentMethodClass = 'bCash';
+				break;
+			case 'ec':
+				paymentMethodClass = 'bEC';
+				break;
 			}
 
 			return paymentMethodClass;
@@ -165,6 +166,17 @@ define([
 				return false;
 			}
 
+		},
+
+		_getTotalWithCredit: function () {
+			var totalWithCredit = this.model.get('total'),
+				creditModel = this.model.get('creditModel');
+
+			if (creditModel && creditModel.get('isAccepted')) {
+				totalWithCredit -= creditModel.get('total');
+			}
+
+			return totalWithCredit;
 		}
 
 	});
