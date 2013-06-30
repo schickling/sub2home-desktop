@@ -38,7 +38,7 @@ define([
 		_markHasCode: function() {
 			var orderModel = cartModel.get('orderModel');
 
-			this.$el.toggleClass('hasCode', orderModel.get('couponCode') != '');
+			this.$el.toggleClass('hasCode', orderModel.get('couponCode') !== '');
 		},
 
 		_markIsValid: function() {
