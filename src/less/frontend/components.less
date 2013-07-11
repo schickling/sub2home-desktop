@@ -4921,7 +4921,7 @@ div#payment {
 // ---------------------------
 
 #checkoutControls {
-  padding: 50px 0;
+  padding: 0 0 50px;
   width: 100%;
   overflow: hidden;
   //background: @darkNote;
@@ -4939,11 +4939,15 @@ div#payment {
 // Checkout-Additional-Options
 // ---------------------------
 
+#minimumOrderValue {
+
+}
+
 
 #checkoutDeliveryRegulation {
 
   .positioned;
-  padding: 0 8% 00px;
+  padding: 50px 8% 0;
 
   >div {
     display: inline-block;
@@ -5095,7 +5099,7 @@ div#payment {
 }
 
 
-#checkoutBonusOptions {
+#checkoutBonusOptions, #minimumOrderValue{
   .positioned;
   padding: 30px 8% 50px;
   height: 100px;
@@ -5109,72 +5113,124 @@ div#payment {
     height: 1px;
     background: rgba(255,255,255,0.5);
   }
+}
 
-
-  #gratisCookieOption {
+#minimumOrderValue {
+  // display: none;
+  padding-top: 50px;
+  height: auto;
+  font-family: @headingsFontFamily;
+  .positioned;
+  font-size: 16px;
+  vertical-align: top;
+  cursor: pointer;
+  background: @slightlyDarkNote;
+  >span {
+    color: darken(@onDarkNoteColor, 10%);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+    padding-top: 20px;
     vertical-align: top;
-    .positioned;
     display: inline-block;
-    text-align: right;
-    width: 400px;
-    padding: 25px 20px 15px 20px;
+    span {
+      color: @orange;
+      .transition(color .1s linear);
+    }
+    .transition(e('color .1s linear, text-shadow .1s linear'));
+    &#bigBackToStore {
+      padding-top: 0;
+      margin-right: 50px;
+      text-align: center;
+      width: 84px;
+      .transition(e('color .1s linear, text-shadow .1s linear'));
+      .positioned;
+      padding-top: 30px;
+      font-size: 20px;
+      .bBack;
+      &:before {
+        position: absolute;
+        font-family: "Homicons";
+        font-size: 90px;
+        left: -2px;
+        top: 0;
+      }
+    }
+  }
+  .transition(background .1s linear);
+  &:hover {
+    background: @rlyDarkNote;
+    >span {
+      color: darken(@onDarkNoteColor, 20%);
+      span {
+        color: darken(@orange, 10%);
+      }
+    }
+  }
+}
+
+
+#gratisCookieOption {
+  vertical-align: top;
+  .positioned;
+  display: inline-block;
+  text-align: right;
+  width: 400px;
+  padding: 25px 20px 15px 20px;
+  input {
+    font-size: 40px;
+    line-height: 1;
+    border: none;
+    width: 86px;
+    height: 40px;
+    color: darken(@onDarkNoteColor, 10%);
+  }
+  label {
+    text-align: left;
+    font-size: 17px;
+    bottom: auto;
+    left: auto;
+    text-transform: none;
+    color: darken(@onNoteColor, 7%);
+    font-family: @headingsFontFamily;
+    //margin-top: 4px;
+    cursor: pointer;
+  }
+  
+  &.hasCode {
     input {
-      font-size: 40px;
-      line-height: 1;
-      border: none;
-      width: 86px;
-      height: 40px;
-      color: darken(@onDarkNoteColor, 10%);
+      color: @greenLight;
+      width: 390px;
     }
     label {
-      text-align: left;
-      font-size: 17px;
-      bottom: auto;
-      left: auto;
-      text-transform: none;
-      color: darken(@onNoteColor, 7%);
-      font-family: @headingsFontFamily;
-      //margin-top: 4px;
-      cursor: pointer;
+      display: none;
     }
-    
-    &.hasCode {
-      input {
-        color: @greenLight;
-        width: 390px;
-      }
-      label {
-        display: none;
-      }
-    }
+  }
+
+}
+#subcardOption {
+  .positioned;
+  overflow: hidden;
+  font-family: @headingsFontFamily;
+  font-size: 17px;
+  color: @onNoteColor;
+  display: inline-block;
+  margin: 13px 0 0 8%;
+  width: 450px;
+  .iBtn {
+    font-size: 80px;
+    .transition(color .1s linear);
 
   }
-  #subcardOption {
-    .positioned;
-    overflow: hidden;
-    font-family: @headingsFontFamily;
-    font-size: 17px;
-    color: @onNoteColor;
+
+  #uploadImage {
+    position: absolute;
+    bottom: -50px;
+  }
+
+  span {
+    width: 340px;
     display: inline-block;
-    margin: 13px 0 0 8%;
-    width: 450px;
-    .iBtn {
-      font-size: 80px;
-      .transition(color .1s linear);
-
-    }
-
-    #uploadImage {
-      position: absolute;
-      bottom: -50px;
-    }
-
-    span {
-      width: 340px;
-      display: inline-block;
-      vertical-align: top;
-      margin: 16px 0 0 8px;
-    }
+    vertical-align: top;
+    margin: 16px 0 0 8px;
   }
 }
 

@@ -8381,7 +8381,7 @@ div#payment > div.disabled .btn.active {
   margin-left: 0;
 }
 #checkoutControls {
-  padding: 50px 0;
+  padding: 0 0 50px;
   width: 100%;
   overflow: hidden;
 }
@@ -8394,7 +8394,7 @@ div#payment > div.disabled .btn.active {
 }
 #checkoutDeliveryRegulation {
   position: relative;
-  padding: 0 8% 00px;
+  padding: 50px 8% 0;
 }
 #checkoutDeliveryRegulation > div {
   display: inline-block;
@@ -8574,12 +8574,14 @@ div#payment > div.disabled .btn.active {
 #checkoutDeliveryRegulation > div#deliveryTimeDisplay #deliveryTimeClock #minutes .iBtn.active:hover {
   color: #bf9f52;
 }
-#checkoutBonusOptions {
+#checkoutBonusOptions,
+#minimumOrderValue {
   position: relative;
   padding: 30px 8% 50px;
   height: 100px;
 }
-#checkoutBonusOptions:after {
+#checkoutBonusOptions:after,
+#minimumOrderValue:after {
   content: " ";
   border-top: 1px solid #cab06f;
   position: absolute;
@@ -8589,7 +8591,71 @@ div#payment > div.disabled .btn.active {
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
 }
-#checkoutBonusOptions #gratisCookieOption {
+#minimumOrderValue {
+  padding-top: 50px;
+  height: auto;
+  font-family: "VAGRoundedStd-Thin";
+  position: relative;
+  font-size: 16px;
+  vertical-align: top;
+  cursor: pointer;
+  background: rgba(224, 166, 54, 0.1);
+  -webkit-transition: background 0.1s linear;
+  -moz-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+}
+#minimumOrderValue > span {
+  color: #a0823b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  padding-top: 20px;
+  vertical-align: top;
+  display: inline-block;
+  -webkit-transition: color .1s linear, text-shadow .1s linear;
+  -moz-transition: color .1s linear, text-shadow .1s linear;
+  -o-transition: color .1s linear, text-shadow .1s linear;
+  transition: color .1s linear, text-shadow .1s linear;
+}
+#minimumOrderValue > span span {
+  color: #dc952b;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+#minimumOrderValue > span#bigBackToStore {
+  padding-top: 0;
+  margin-right: 50px;
+  text-align: center;
+  width: 84px;
+  -webkit-transition: color .1s linear, text-shadow .1s linear;
+  -moz-transition: color .1s linear, text-shadow .1s linear;
+  -o-transition: color .1s linear, text-shadow .1s linear;
+  transition: color .1s linear, text-shadow .1s linear;
+  position: relative;
+  padding-top: 30px;
+  font-size: 20px;
+}
+#minimumOrderValue > span#bigBackToStore:before {
+  content: "\e03e";
+}
+#minimumOrderValue > span#bigBackToStore:before {
+  position: absolute;
+  font-family: "Homicons";
+  font-size: 90px;
+  left: -2px;
+  top: 0;
+}
+#minimumOrderValue:hover {
+  background: rgba(224, 166, 54, 0.3);
+}
+#minimumOrderValue:hover > span {
+  color: #7a642d;
+}
+#minimumOrderValue:hover > span span {
+  color: #b6791e;
+}
+#gratisCookieOption {
   vertical-align: top;
   position: relative;
   display: inline-block;
@@ -8597,7 +8663,7 @@ div#payment > div.disabled .btn.active {
   width: 400px;
   padding: 25px 20px 15px 20px;
 }
-#checkoutBonusOptions #gratisCookieOption input {
+#gratisCookieOption input {
   font-size: 40px;
   line-height: 1;
   border: none;
@@ -8605,7 +8671,7 @@ div#payment > div.disabled .btn.active {
   height: 40px;
   color: #a0823b;
 }
-#checkoutBonusOptions #gratisCookieOption label {
+#gratisCookieOption label {
   text-align: left;
   font-size: 17px;
   bottom: auto;
@@ -8615,14 +8681,14 @@ div#payment > div.disabled .btn.active {
   font-family: "VAGRoundedStd-Thin";
   cursor: pointer;
 }
-#checkoutBonusOptions #gratisCookieOption.hasCode input {
+#gratisCookieOption.hasCode input {
   color: #57a827;
   width: 390px;
 }
-#checkoutBonusOptions #gratisCookieOption.hasCode label {
+#gratisCookieOption.hasCode label {
   display: none;
 }
-#checkoutBonusOptions #subcardOption {
+#subcardOption {
   position: relative;
   overflow: hidden;
   font-family: "VAGRoundedStd-Thin";
@@ -8632,18 +8698,18 @@ div#payment > div.disabled .btn.active {
   margin: 13px 0 0 8%;
   width: 450px;
 }
-#checkoutBonusOptions #subcardOption .iBtn {
+#subcardOption .iBtn {
   font-size: 80px;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#checkoutBonusOptions #subcardOption #uploadImage {
+#subcardOption #uploadImage {
   position: absolute;
   bottom: -50px;
 }
-#checkoutBonusOptions #subcardOption span {
+#subcardOption span {
   width: 340px;
   display: inline-block;
   vertical-align: top;
