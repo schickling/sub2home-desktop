@@ -520,18 +520,40 @@ define([
 			},
 
 			'views.store.dashboard.resendMail.success': {
-				title: 'Bestellung erneut versendet',
+				title: 'Bestellung erneut gesendet',
 				description: 'Die Bestellung wurde erneut an die hinterlegte EMail-Adresse versandt.',
 				className: 'success'
 			},
 
 			'views.store.dashboard.resendMail.error': {
-				title: 'Bestellung nicht versendet',
+				title: 'Bestellung nicht versandt',
 				description: 'Die Bestellung konnte nicht erneut versandt werden. Bitte wenden Sie sich an unseren Support.',
 				className: 'error'
-			}
-			
+			},
 
+			'views.store.dashboard.credit.noDescription': {
+				title: 'Begründung der Reklamation',
+				description: 'Bitte beschreiben Sie kurz, wieso Sie die Bestellung reklamieren möchten.',
+				className: 'warning'
+			},
+
+			'views.store.dashboard.credit.error': {
+				title: 'Reklamation nicht versandt',
+				description: 'Die Reklamation konnte nicht versandt werden. Bitte wenden Sie sich an unseren Support.',
+				className: 'error'
+			},
+
+			'views.store.dashboard.credit.success': {
+				title: 'Reklamation wurde versandt. ',
+				description: 'Die Reklamation wurde versandt. Wir prüfen Sie umgehend. Eine bewilligte Reklamation erscheint als Korrektur neben dem Bestellbetrag.',
+				className: 'success'
+			},
+
+			'views.store.dashboard.credit.tooMuchTotal': {
+				title: 'Zu hoher Reklamationsbetrag',
+				description: 'Der Reklamationsbetrag darf den Bestellbetrag nicht übersteigen.',
+				className: 'warning'
+			}
 			
 		},
 
