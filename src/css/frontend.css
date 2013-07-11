@@ -6685,6 +6685,9 @@ input[type="text"]#locationSelectionInput:focus {
 .content.orders #orderListing .order.balanced .orderHeader > div.orderTimeLimit {
   display: none;
 }
+.content.orders #orderListing .order.balanced .orderHeader > div.alertOrder {
+  color: #9cc83e;
+}
 .content.orders #orderListing .order.balanced .orderHeader > div.orderStatus:before {
   content: "\e08e";
   color: #dc952b;
