@@ -43,13 +43,15 @@ define([
 				createdMoment = moment(createdDate),
 				dueMoment = moment(dueDate),
 				dueTime = dueMoment.format('HH:mm'),
-				dateOrTime = this._getDateOrTime();
+				dateOrTime = this._getDateOrTime(),
+				total = orderModel.get('total'),
+				totalWithCredit = this._getTotalWithCredit();
 
 			var json = {
 				number: orderModel.getNumber(),
 				paymentMethodClass: this._getPaymentMethodClass(),
-				total: orderModel.get('total'),
-				totalWithCredit: this._getTotalWithCredit(),
+				total: total,
+				totalWithCredit: totalWithCredit,
 				postal: addressModel.get('postal'),
 				city: addressModel.get('city'),
 				district: addressModel.get('district'),
@@ -60,6 +62,11 @@ define([
 			};
 
 			this.$el.html(this.template(json));
+
+			if (total < totalWithCredit) {
+				this.$el.addClass('balanced');
+			}
+			
 		},
 
 		_toggleDetailsView: function () {
