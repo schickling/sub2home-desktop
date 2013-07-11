@@ -6397,7 +6397,7 @@ input[type="text"]#locationSelectionInput:focus {
 .content.orders #orderListing .order .orderHeader > div.orderTimeLimit,
 .content.orders #orderListing .order .orderHeader > div.bMail,
 .content.orders #orderListing .order .orderHeader > div.orderPaymentMethod,
-.content.orders #orderListing .order .orderHeader > div.orderValue {
+.content.orders #orderListing .order .orderHeader > div.orderValueContainer {
   float: right;
 }
 .content.orders #orderListing .order .orderHeader > div.bMail {
@@ -6414,7 +6414,7 @@ input[type="text"]#locationSelectionInput:focus {
 .content.orders #orderListing .order .orderHeader > div.bMail:hover {
   color: #555555;
 }
-.content.orders #orderListing .order .orderHeader > div.orderValue {
+.content.orders #orderListing .order .orderHeader > div.orderValueContainer {
   margin: 0 20px;
   width: 85px;
   text-align: right;
@@ -6672,18 +6672,19 @@ input[type="text"]#locationSelectionInput:focus {
   border-right: 1px solid #e4e4e4;
   font-weight: bold;
 }
-.content.orders #orderListing .order.balanced .orderHeader > div.orderValue {
+.content.orders #orderListing .order.balanced .orderHeader > div {
+  padding-top: 10px;
+}
+.content.orders #orderListing .order.balanced .orderHeader > div.orderValueContainer {
+  padding-top: 0;
+}
+.content.orders #orderListing .order.balanced .orderHeader > div .orderValue {
   text-decoration: line-through;
-  width: auto;
-  margin: 0 20px 0 10px;
+  font-size: 16px;
 }
-.content.orders #orderListing .order.balanced .orderHeader > div.orderValueWithCredit {
+.content.orders #orderListing .order.balanced .orderHeader > div .orderValueWithCredit {
   color: #dc952b;
-  float: right;
-  margin: 0 0 0 20px;
-}
-.content.orders #orderListing .order.balanced .orderHeader > div.orderTimeLimit {
-  display: none;
+  margin: 5px 0 15px;
 }
 .content.orders #orderListing .order.balanced .orderHeader > div.alertOrder {
   color: #9cc83e;

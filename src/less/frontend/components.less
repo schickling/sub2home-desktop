@@ -2978,7 +2978,7 @@ input[type="text"]#locationSelectionInput {
 
           // RIGHT ALIGNED CONTENT
 
-          &.orderTimeLimit, &.bMail, &.orderPaymentMethod, &.orderValue {
+          &.orderTimeLimit, &.bMail, &.orderPaymentMethod, &.orderValueContainer {
             float: right;
           }
 
@@ -2995,7 +2995,7 @@ input[type="text"]#locationSelectionInput {
             }
           }
 
-          &.orderValue {
+          &.orderValueContainer {
             margin: 0 20px;
             width: 85px;
             text-align: right;
@@ -3230,20 +3230,22 @@ input[type="text"]#locationSelectionInput {
       // }
       &.balanced {
         .orderHeader >div {
-          &.orderValue {
+          padding-top: 10px;
+          &.orderValueContainer {
+            padding-top: 0;
+          }
+          .orderValue {
             text-decoration: line-through;
-            width: auto;
-            margin: 0 20px 0 10px;
+            font-size: 16px;
           }
 
-          &.orderValueWithCredit {
+          .orderValueWithCredit {
             color: @orange;
-            float: right; 
-            margin: 0 0 0 20px;
+            margin: 5px 0 15px;
           }
-          &.orderTimeLimit {
-            display: none;
-          }
+          // &.orderTimeLimit {
+          //   display: none;
+          // }
 
           &.alertOrder {
             color: @greenLighter;

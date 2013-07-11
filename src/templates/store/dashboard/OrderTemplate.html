@@ -7,8 +7,10 @@
 
 
 	<div class="iBtn bMail resendmail"></div>
-	<div class="orderValue"><%= total.toFixed(2) %>€</div>
-	<% if (totalWithCredit < total) { %><div class="orderValueWithCredit"><%= totalWithCredit.toFixed(2) %>€</div><% } %>
+	<div class="orderValueContainer">
+		<div class="orderValue"><%= total.toFixed(2) %>€</div>
+		<% if (totalWithCredit < total) { %><div class="orderValueWithCredit"><%= totalWithCredit.toFixed(2) %>€</div><% } %>
+	</div>
 	<div class="orderPaymentMethod iBtn <%= paymentMethodClass %>"></div>
 	<div class="orderTimeLimit"><%= dueTime %></div>
 </div>
