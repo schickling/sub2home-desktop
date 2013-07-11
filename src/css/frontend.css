@@ -6332,9 +6332,10 @@ input[type="text"]#locationSelectionInput:focus {
   border-bottom: none;
 }
 .content.orders #orderListing .order .orderHeader {
+  line-height: 1;
   cursor: pointer;
   height: 38px;
-  padding-top: 22px;
+  padding-top: 20px;
 }
 .content.orders #orderListing .order .orderHeader > div {
   float: left;
@@ -6366,10 +6367,10 @@ input[type="text"]#locationSelectionInput:focus {
   content: "\e074";
 }
 .content.orders #orderListing .order .orderHeader > div.orderNumber {
-  width: 65px;
+  width: 80px;
 }
 .content.orders #orderListing .order .orderHeader > div.alertOrder {
-  margin: 0 20px;
+  margin: 0 15px;
   color: #f4f4f4;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
@@ -6417,6 +6418,10 @@ input[type="text"]#locationSelectionInput:focus {
   margin: 0 20px;
   width: 85px;
   text-align: right;
+}
+.content.orders #orderListing .order .orderHeader > div.orderValueWithCredit {
+  color: #dc952b;
+  float: right;
 }
 .content.orders #orderListing .order .orderHeader > div.orderPaymentMethod:before {
   color: inherit;
@@ -6667,23 +6672,22 @@ input[type="text"]#locationSelectionInput:focus {
   border-right: 1px solid #e4e4e4;
   font-weight: bold;
 }
-.content.orders #orderListing .order.balance {
+.content.orders #orderListing .order.balanced .orderHeader > div.orderValue {
+  text-decoration: line-through;
+  width: auto;
+  margin: 0 20px 0 10px;
+}
+.content.orders #orderListing .order.balanced .orderHeader > div.orderValueWithCredit {
   color: #dc952b;
+  float: right;
+  margin: 0 0 0 20px;
 }
-.content.orders #orderListing .order.balance .orderHeader > div.orderStatus {
-  color: inherit;
+.content.orders #orderListing .order.balanced .orderHeader > div.orderTimeLimit {
+  display: none;
 }
-.content.orders #orderListing .order.balance .orderHeader > div.orderStatus:before {
-  content: "\e06f";
-  position: relative;
-  top: -7px;
-}
-.content.orders #orderListing .order.balance .orderHeader > div.orderTitle {
-  margin-left: 20px;
-}
-.content.orders #orderListing .order.balance .orderHeader > div.orderValue {
-  color: inherit;
-  margin: 0 70px;
+.content.orders #orderListing .order.balanced .orderHeader > div.orderStatus:before {
+  content: "\e08e";
+  color: #dc952b;
 }
 .content.orders #orderListing #ordersToday {
   border-bottom: 1px solid #e4e4e4;
@@ -9315,8 +9319,7 @@ aside.infoNavigation ul li.active {
   margin-right: 7px;
   width: 58px;
 }
-#error404,
-#noSupport {
+#error404 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -9324,15 +9327,13 @@ aside.infoNavigation ul li.active {
   margin: -160px 0 0 -425px;
   text-align: center;
 }
-#error404 h1,
-#noSupport h1 {
+#error404 h1 {
   font-size: 70px;
   color: #57a827;
   text-align: center;
   line-height: 1;
 }
-#error404 p,
-#noSupport p {
+#error404 p {
   margin-top: 30px;
   font-size: 50px;
   color: #9cc83e;
@@ -9341,8 +9342,7 @@ aside.infoNavigation ul li.active {
   width: 100%;
   text-align: center;
 }
-#error404 .bigBack,
-#noSupport .bigBack {
+#error404 .bigBack {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -9356,8 +9356,7 @@ aside.infoNavigation ul li.active {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#error404 .bigBack:before,
-#noSupport .bigBack:before {
+#error404 .bigBack:before {
   content: "\e03e";
   font-family: "Homicons";
   display: block;
@@ -9367,25 +9366,8 @@ aside.infoNavigation ul li.active {
   left: 0;
   line-height: 0.5;
 }
-#error404 .bigBack:hover,
-#noSupport .bigBack:hover {
+#error404 .bigBack:hover {
   color: #949494;
-}
-#noSupport p {
-  font-size: 30px;
-  line-height: 1.2;
-  margin-bottom: 40px;
-}
-#noSupport a.iBtn {
-  font-size: 50px;
-  margin: 0 15px;
-  color: #57a827;
-}
-#noSupport a.iBtn:first-child {
-  margin-left: 0;
-}
-#noSupport a.iBtn:hover {
-  color: #4c9322;
 }
 .positioned {
   position: relative;

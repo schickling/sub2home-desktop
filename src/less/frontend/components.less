@@ -2908,9 +2908,10 @@ input[type="text"]#locationSelectionInput {
       }
 
       .orderHeader {
+        line-height: 1;
         cursor: pointer;
         height: 38px;
-        padding-top: 22px;
+        padding-top: 20px;
         >div {
           float: left;
           &:before {
@@ -2945,11 +2946,11 @@ input[type="text"]#locationSelectionInput {
           }
 
           &.orderNumber {
-            width: 65px;
+            width: 80px;
           }
 
           &.alertOrder {
-            margin: 0 20px;
+            margin: 0 15px;
             color: @grayLightest;
             .transition(color .1s linear);
             &:before {
@@ -3003,6 +3004,12 @@ input[type="text"]#locationSelectionInput {
             //   color: inherit;
             // }
           }
+
+          &.orderValueWithCredit {
+            color: @orange;
+            float: right; 
+          }
+
           &.orderPaymentMethod {
             &:before {
               color: inherit;
@@ -3014,6 +3021,7 @@ input[type="text"]#locationSelectionInput {
             color: @orange;
             
           }
+
         }
       }
 
@@ -3196,30 +3204,57 @@ input[type="text"]#locationSelectionInput {
 
         }
       }
-      &.balance {
-        color: @orange;
+      // &.balance {
+      //   color: @orange;
         
-        .orderHeader > div {
+      //   .orderHeader > div {
             
-          &.orderStatus {
-            color: inherit;
-            &:before {
-              content: "\e06f";
-              position: relative;
-              top: -7px;
-            }
+      //     &.orderStatus {
+      //       color: inherit;
+      //       &:before {
+      //         content: "\e06f";
+      //         position: relative;
+      //         top: -7px;
+      //       }
+      //     }
+
+      //     &.orderTitle {
+      //       margin-left: 20px;
+      //     }
+      
+      //     &.orderValue {
+      //       color: inherit;
+      //       margin: 0 70px;
+      //     }
+      //   }
+      // }
+      &.balanced {
+        .orderHeader >div {
+          &.orderValue {
+            text-decoration: line-through;
+            width: auto;
+            margin: 0 20px 0 10px;
           }
 
-          &.orderTitle {
-            margin-left: 20px;
+          &.orderValueWithCredit {
+            color: @orange;
+            float: right; 
+            margin: 0 0 0 20px;
           }
-      
-          &.orderValue {
-            color: inherit;
-            margin: 0 70px;
+          &.orderTimeLimit {
+            display: none;
+          }
+
+          &.orderStatus {
+             &:before {
+              content: "\e08e";
+              color: @orange;
+            }
           }
         }
+
       }
+
     }
 
     #ordersToday {
