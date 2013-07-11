@@ -63,7 +63,7 @@ define([
 
 			this.$el.html(this.template(json));
 
-			if (total < totalWithCredit) {
+			if (totalWithCredit < total) {
 				this.$el.addClass('balanced');
 			}
 			
