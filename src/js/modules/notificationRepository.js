@@ -483,29 +483,6 @@ define([
 
 			// store.dashboard
 
-			'views.store.dashboard.credit.noDescription': {
-				title: 'Keine Beschreibung :(',
-				description: 'Keine Beschreibung :(',
-				className: 'success'
-			},
-
-			'views.store.dashboard.credit.tooMuchTotal': {
-				title: 'Maesige dich!',
-				description: 'Maesige dich!',
-				className: 'success'
-			},
-
-			'views.store.dashboard.credit.success': {
-				title: 'Kam an. Wir schaltens frei',
-				description: 'Kam an. Wir schaltens frei',
-				className: 'success'
-			},
-
-			'views.store.dashboard.credit.error': {
-				title: 'Ging nicht',
-				description: 'Ging nicht',
-				className: 'success'
-			},
 
 			'views.store.dashboard.testOrder.success': {
 				title: 'Testbestellung gesendet',
