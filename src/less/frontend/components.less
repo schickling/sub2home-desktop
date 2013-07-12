@@ -2909,7 +2909,7 @@ input[type="text"]#locationSelectionInput {
 
       .orderHeader {
         line-height: 1;
-        cursor: pointer;
+        // cursor: pointer;
         height: 38px;
         padding-top: 20px;
         >div {
@@ -3249,9 +3249,11 @@ input[type="text"]#locationSelectionInput {
 
           &.alertOrder {
             color: @greenLighter;
+            cursor: default;
           }
 
           &.orderStatus {
+            cursor: default;
              &:before {
               content: "\e08e";
               color: @orange;

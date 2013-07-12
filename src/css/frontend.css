@@ -6333,7 +6333,6 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .content.orders #orderListing .order .orderHeader {
   line-height: 1;
-  cursor: pointer;
   height: 38px;
   padding-top: 20px;
 }
@@ -6688,6 +6687,10 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .content.orders #orderListing .order.balanced .orderHeader > div.alertOrder {
   color: #9cc83e;
+  cursor: default;
+}
+.content.orders #orderListing .order.balanced .orderHeader > div.orderStatus {
+  cursor: default;
 }
 .content.orders #orderListing .order.balanced .orderHeader > div.orderStatus:before {
   content: "\e08e";
