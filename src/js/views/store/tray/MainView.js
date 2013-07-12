@@ -10,12 +10,13 @@ define([
     'views/store/tray/DeliveryTimeView',
     'views/store/tray/CommentView',
     'views/store/tray/SubcardView',
+    'views/store/tray/MinimumValueView',
     'views/store/tray/FreeCookieView',
     'views/store/tray/ControlView',
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, MinimumValueView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	var MainView = PageView.extend({
 
@@ -30,7 +31,8 @@ define([
 		// referenced sub views
 		subViews: {
 			controlView: null,
-			deliveryTimeView: null
+			deliveryTimeView: null,
+			minimumValueView: null
 		},
 
 		// cached dom
@@ -67,6 +69,10 @@ define([
 
 				this.subViews.deliveryTimeView = new DeliveryTimeView({
 					el: this.$('#deliveryTimeDisplay')
+				});
+
+				this.subViews.minimumValueView = new MinimumValueView({
+					el: this.$('#minimumOrderValue')
 				});
 
 				new CommentView({

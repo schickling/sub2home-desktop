@@ -530,6 +530,12 @@ define([
 				title: 'Zu hoher Reklamationsbetrag',
 				description: 'Der Reklamationsbetrag darf den Bestellbetrag nicht übersteigen.',
 				className: 'warning'
+			},
+
+			'views.store.dashboard.credit.tooLessTotal': {
+				title: 'Zu niedriger Reklamationsbetrag',
+				description: 'Der Reklamationsbetrag ist zu niedrig.',
+				className: 'warning'
 			}
 			
 		},

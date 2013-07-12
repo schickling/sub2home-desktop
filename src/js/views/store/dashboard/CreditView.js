@@ -63,6 +63,11 @@ define([
 				return;
 			}
 
+			if (total <= 0) {
+				notificationcenter.notify('views.store.dashboard.credit.tooLessTotal');
+				return;
+			}
+
 			this.model.save({
 				total: total,
 				description: description

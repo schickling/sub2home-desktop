@@ -277,6 +277,11 @@ define([
 			orderModel.set('dueDate', this._getValidDueDate(options));
 		},
 
+		getMinimumValue: function () {
+			var storeModel = stateModel.get('storeModel');
+
+			return storeModel.getMinimumValue();
+		},
 
 		getMinimumDuration: function () {
 			var storeModel = stateModel.get('storeModel');
