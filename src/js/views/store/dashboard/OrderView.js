@@ -16,7 +16,7 @@ define([
 		className: 'order',
 
 		events: {
-			'click .orderHeader': '_toggleDetailsView',
+			// 'click .orderHeader': '_toggleDetailsView',
 			'click .orderStatus': '_toggleIsDelivered',
 			'click .resendmail': '_resendMail',
 			'click .alertOrder': '_addCredit',
