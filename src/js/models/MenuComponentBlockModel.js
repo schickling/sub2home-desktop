@@ -5,6 +5,8 @@ define([
 	'collections/MenuComponentOptionsCollection'
 	], function (_, Backbone, MenuComponentOptionsCollection) {
 
+	"use strict";
+
 	var MenuComponentBlockModel = Backbone.Model.extend({
 
 		defaults: {

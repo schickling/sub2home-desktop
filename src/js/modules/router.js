@@ -10,6 +10,8 @@ define([
     'models/authentificationModel'
 ], function (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
 
+	"use strict";
+
 	var Router = Backbone.Router.extend({
 
 		routes: {

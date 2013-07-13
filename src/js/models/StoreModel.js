@@ -9,6 +9,8 @@ define([
     'collections/InvoicesCollection'
     ], function (_, Backbone, notificationcenter, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) {
 
+	"use strict";
+
 	var StoreModel = Backbone.Model.extend({
 
 		defaults: {

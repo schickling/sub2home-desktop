@@ -4,6 +4,8 @@ define([
     'models/NotificationModel'
     ], function (_, NotificationModel) {
 
+	"use strict";
+
 	var NotificationRepository = {
 
 		_items: {

@@ -8,6 +8,8 @@ define([
     'views/notifications/TooltipsView'
     ], function (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) {
 
+	"use strict";
+
 	var Notificationcenter = {
 
 		notificationsView: null,

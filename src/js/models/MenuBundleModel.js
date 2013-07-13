@@ -5,6 +5,8 @@ define([
     'models/MenuModel'
     ], function (_, Backbone, MenuModel) {
 
+	"use strict";
+
 	var MenuBundleModel = MenuModel.extend({
 
 		defaults: {

@@ -4,6 +4,8 @@ define([
 	'backbone'
 	], function (_, Backbone) {
 
+	"use strict";
+
 	var NotificationModel = Backbone.Model.extend({
 
 		defaults: {

@@ -4,6 +4,8 @@ define([
     'collections/IngredientsCollection'
     ], function (_, Backbone, IngredientsCollection) {
 
+	"use strict";
+
 	var IngredientCategoryModel = Backbone.Model.extend({
 
 		defaults: {

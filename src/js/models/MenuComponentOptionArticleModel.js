@@ -4,6 +4,8 @@ define([
 	'backbone'
 	], function (_, Backbone) {
 
+	"use strict";
+
 	// needed because of cyclic dependencies
 
 	var MenuComponentOptionArticleModel = Backbone.Model.extend({

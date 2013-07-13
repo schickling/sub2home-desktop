@@ -7,6 +7,8 @@ define([
     'collections/StoresCollection'
     ], function (_, Backbone, AddressModel, BankaccountModel, StoresCollection) {
 
+	"use strict";
+
 	var ClientModel = Backbone.Model.extend({
 
 		defaults: {

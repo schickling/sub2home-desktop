@@ -7,6 +7,8 @@ define([
     'collections/OrderedArticlesCollection'
     ], function (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) {
 
+	"use strict";
+
 	var OrderedItemModel = Backbone.Model.extend({
 
 		defaults: {

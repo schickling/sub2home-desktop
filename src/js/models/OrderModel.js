@@ -10,6 +10,8 @@ define([
     'collections/OrderedItemsCollection'
     ], function ($, _, Backbone, moment, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
 
+	"use strict";
+
 	// made global for performance reasons
 	var now = new Date();
 

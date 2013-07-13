@@ -5,6 +5,8 @@ define([
 	'notificationcenter'
 	], function (_, Backbone, notificationcenter) {
 
+	"use strict";
+
 	var BankaccountModel = Backbone.Model.extend({
 
 		defaults: {

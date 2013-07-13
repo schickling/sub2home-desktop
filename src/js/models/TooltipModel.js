@@ -4,6 +4,8 @@ define([
 	'backbone'
 	], function (_, Backbone) {
 
+	"use strict";
+
 	var TooltipModel = Backbone.Model.extend({
 
 		defaults: {

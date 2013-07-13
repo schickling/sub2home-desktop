@@ -7,6 +7,8 @@ define([
     'models/OrderModel'
 ], function (_, Backbone, backboneLocalStorage, stateModel, OrderModel) {
 
+	"use strict";
+
 	var CartModel = Backbone.Model.extend({
 
 		localStorage: new Backbone.LocalStorage('CartModel'),

@@ -5,6 +5,8 @@ define([
     'models/MenuModel'
     ], function (_, Backbone, MenuModel) {
 
+	"use strict";
+
 	var MenuUpgradeModel = MenuModel.extend({
 
 		defaults: {

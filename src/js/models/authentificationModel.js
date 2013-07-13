@@ -6,6 +6,8 @@ define([
     'notificationcenter'
     ], function ($, _, Backbone, notificationcenter) {
 
+	"use strict";
+
 	var AuthentificationModel = Backbone.Model.extend({
 
 		defaults: {

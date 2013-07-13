@@ -8,6 +8,8 @@ define([
 	'collections/IngredientCategoriesCollection'
 	], function (_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel, IngredientCategoriesCollection) {
 
+	"use strict";
+
 	var OrderedArticleModel = Backbone.Model.extend({
 
 		defaults: {

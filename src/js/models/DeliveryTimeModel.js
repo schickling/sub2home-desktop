@@ -4,6 +4,8 @@ define([
     'notificationcenter'
     ], function (_, Backbone, notificationcenter) {
 
+	"use strict";
+
 	var DeliveryTimeModel = Backbone.Model.extend({
 
 		defaults: {

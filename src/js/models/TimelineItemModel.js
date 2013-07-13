@@ -4,6 +4,8 @@ define([
 	'backbone'
 ], function (_, Backbone) {
 
+	"use strict";
+
 	var TimelineItemModel = Backbone.Model.extend({
 
 		defaults: {

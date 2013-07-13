@@ -3,6 +3,8 @@ define([
     'backbone'
     ], function (_, Backbone) {
 
+	"use strict";
+
 	var IngredientModel = Backbone.Model.extend({
 
 		defaults: {

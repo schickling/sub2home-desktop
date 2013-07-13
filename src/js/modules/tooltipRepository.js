@@ -4,6 +4,8 @@ define([
     'models/TooltipModel'
     ], function (_, TooltipModel) {
 
+	"use strict";
+
 	var TooltipRepository = {
 
 		_items: {

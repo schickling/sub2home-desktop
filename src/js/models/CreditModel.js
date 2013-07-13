@@ -5,6 +5,8 @@ define([
     'backbone'
     ], function ($, _, Backbone) {
 
+	"use strict";
+
 	var CreditModel = Backbone.Model.extend({
 
 		defaults: {

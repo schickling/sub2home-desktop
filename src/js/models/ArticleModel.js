@@ -7,6 +7,8 @@ define([
     'notificationcenter'
     ], function (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
 
+	"use strict";
+
 	var ArticleModel = Backbone.Model.extend({
 
 		defaults: {
