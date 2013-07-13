@@ -97,7 +97,7 @@ define([
 
 				$.ajax({
 					url: 'clients/changepassword',
-					type: 'post',
+					type: 'put',
 					contentType: 'application/json; charset=utf-8',
 					dataType: 'json',
 					data: JSON.stringify({
