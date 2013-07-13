@@ -9626,6 +9626,9 @@ aside#header {
     width: 60px;
   }
 }
+.articleInfo.ft .articleDescription {
+  display: none;
+}
 @media (max-width: 1425px) {
   #selectionNote .info > div.articleInfo .articleBasics {
     padding: 40px 0 0 0;
