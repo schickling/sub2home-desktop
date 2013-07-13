@@ -5,6 +5,8 @@ define([
 	'models/MenuComponentOptionArticleModel'
 	], function (_, Backbone, MenuComponentOptionArticleModel) {
 
+	"use strict";
+
 	var MenuComponentOptionArticlesCollection = Backbone.Collection.extend({
 		model: MenuComponentOptionArticleModel
 	});

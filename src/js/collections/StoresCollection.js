@@ -5,6 +5,8 @@ define([
 	'models/StoreModel'
 	], function (_, Backbone, StoreModel) {
 
+	"use strict";
+
 	var StoresCollection = Backbone.Collection.extend({
 
 		model: StoreModel,

@@ -4,6 +4,8 @@ define([
     'models/DeliveryTimeModel'
     ], function (_, Backbone, DeliveryTimeModel) {
 
+	"use strict";
+
 	var DeliveryTimesCollection = Backbone.Collection.extend({
 
 		model: DeliveryTimeModel,

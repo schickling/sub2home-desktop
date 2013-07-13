@@ -7,6 +7,8 @@ define([
     'server'
     ], function (_, Backbone, backboneLocalStorage, StoreModel, server) {
 
+	"use strict";
+
 	var StateModel = Backbone.Model.extend({
 
 		localStorage: new Backbone.LocalStorage('StateModel'),
@@ -162,7 +164,7 @@ define([
 		},
 
 		_listenForStoreInternalChanges: function () {
-			storeModel = this.get('storeModel');
+			var storeModel = this.get('storeModel');
 
 			storeModel.on('change', function () {
 				this.trigger('change');

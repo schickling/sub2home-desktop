@@ -6,6 +6,8 @@ define([
 	'collections/ItemsCollection'
 	], function (_, Backbone, ItemModel) {
 
+	"use strict";
+
 	var ItemsCollection = Backbone.Collection.extend({
 
 		model: ItemModel,

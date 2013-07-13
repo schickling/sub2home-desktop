@@ -5,6 +5,8 @@ define([
 	'models/ArticleModel'
 	], function (_, Backbone, ArticleModel) {
 
+	"use strict";
+
 	var ArticlesCollection = Backbone.Collection.extend({
 
 		model: ArticleModel

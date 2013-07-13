@@ -5,6 +5,8 @@ define([
     'models/TimelineItemModel'
     ], function (_, Backbone, TimelineItemModel) {
 
+	"use strict";
+
 	var TimelineItemsCollection = Backbone.Collection.extend({
 		model: TimelineItemModel
 	});

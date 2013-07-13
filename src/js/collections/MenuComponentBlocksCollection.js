@@ -5,6 +5,8 @@ define([
 	'models/MenuComponentBlockModel'
 	], function (_, Backbone, MenuComponentBlockModel) {
 
+	"use strict";
+
 	var MenuComponentBlocksCollection = Backbone.Collection.extend({
 		model: MenuComponentBlockModel
 	});

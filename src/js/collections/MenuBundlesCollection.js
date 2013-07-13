@@ -5,6 +5,8 @@ define([
     'models/MenuBundleModel'
     ], function (_, Backbone, MenuBundleModel) {
 
+	"use strict";
+
 	var MenuBundlesCollection = Backbone.Collection.extend({
 
 		model: MenuBundleModel,

@@ -5,6 +5,8 @@ define([
 	'models/CategoryModel'
 	], function (_, Backbone, CategoryModel) {
 
+	"use strict";
+
 	var CategoriesCollection = Backbone.Collection.extend({
 
 		model: CategoryModel,

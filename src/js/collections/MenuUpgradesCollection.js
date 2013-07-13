@@ -5,6 +5,8 @@ define([
     'models/MenuUpgradeModel'
     ], function (_, Backbone, MenuUpgradeModel) {
 
+	"use strict";
+
 	var MenuUpgradesCollection = Backbone.Collection.extend({
 
 		model: MenuUpgradeModel,

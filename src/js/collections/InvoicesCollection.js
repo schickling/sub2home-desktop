@@ -5,6 +5,8 @@ define([
     'models/InvoiceModel'
     ], function (_, Backbone, InvoiceModel) {
 
+	"use strict";
+
 	var InvoicesCollection = Backbone.Collection.extend({
 
 		model: InvoiceModel,

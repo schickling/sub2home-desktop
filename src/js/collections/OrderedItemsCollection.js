@@ -5,6 +5,8 @@ define([
 	'models/OrderedItemModel'
 	], function (_, Backbone, OrderedItemModel) {
 
+	"use strict";
+
 
 	var OrderedItemsCollection = Backbone.Collection.extend({
 
