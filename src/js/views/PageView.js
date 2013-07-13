@@ -11,6 +11,8 @@ define([
     'views/assets/transitions'
 ], function ($, jqueryEasing, jqueryBrowserSelector, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) {
 
+	"use strict";
+
 	// "static" variable needed here
 	var pageWasInitialized = false;
 

@@ -6,6 +6,8 @@ define([
 	'views/client/dashboard/StoreView'
 	], function ($, _, Backbone, StoreView) {
 
+	"use strict";
+
 	var StoresView = Backbone.View.extend({
 
 		initialize: function () {

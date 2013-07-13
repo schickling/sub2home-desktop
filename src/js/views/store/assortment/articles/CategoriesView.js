@@ -9,6 +9,8 @@ define([
     'views/store/assortment/articles/ControlView'
     ], function ($, _, Backbone, CategoriesCollection, SectionBaseView, CategoryView, ControlView) {
 
+	"use strict";
+
 	var CategoriesView = SectionBaseView.extend({
 
 		controlViewClass: ControlView,

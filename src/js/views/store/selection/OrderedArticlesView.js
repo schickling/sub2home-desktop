@@ -6,6 +6,8 @@ define([
     'views/store/selection/OrderedArticleView'
     ], function ($, _, Backbone, OrderedArticleView) {
 
+	"use strict";
+
 	var OrderedArticlesView = Backbone.View.extend({
 
 		initialize: function () {

@@ -10,6 +10,8 @@ define([
 	'text!templates/header/CartTemplate.html'
 	], function ($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
 
+	"use strict";
+
 	var CartView = Backbone.View.extend({
 
 		template: _.template(CartTemplate),

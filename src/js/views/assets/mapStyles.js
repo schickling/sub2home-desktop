@@ -2,6 +2,8 @@
 define([
     ], function () {
 
+	"use strict";
+
 	var mapStyles = [
         {
 		"featureType": "landscape.man_made",

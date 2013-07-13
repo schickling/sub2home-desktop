@@ -8,6 +8,8 @@ define([
     'text!templates/store/tray/SubcardTemplate.html'
     ], function ($, _, Backbone, notificationcenter, cartModel, SubcardTemplate) {
 
+	"use strict";
+
 	var SubcardView = Backbone.View.extend({
 
 		template: _.template(SubcardTemplate),

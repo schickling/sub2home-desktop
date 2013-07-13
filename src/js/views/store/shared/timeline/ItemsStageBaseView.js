@@ -7,6 +7,8 @@ define([
 	'views/store/shared/timeline/ItemStageBaseView'
 	], function ($, _, Backbone, ItemsBaseView, ItemStageBaseView) {
 
+	"use strict";
+
 	var ItemsStageBaseView = ItemsBaseView.extend({
 
 		renderItem: function (modelItem) {

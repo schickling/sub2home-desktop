@@ -7,6 +7,8 @@ define([
 	'text!templates/store/selection/stage/articleSelection/MenuComponentOptionTemplate.html'
 	], function ($, _, Backbone, MenuComponentOptionArticlesView, MenuComponentOptionTemplate) {
 
+	"use strict";
+
 	var MenuComponentOptionView = Backbone.View.extend({
 
 		className: 'menuComponentOption',

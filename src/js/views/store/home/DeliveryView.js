@@ -8,6 +8,8 @@ define([
     'text!templates/store/home/DeliveryTemplate.html'
     ], function ($, _, Backbone, moment, stateModel, DeliveryTemplate) {
 
+	"use strict";
+
 	var AddressView = Backbone.View.extend({
 
 		template: _.template(DeliveryTemplate),

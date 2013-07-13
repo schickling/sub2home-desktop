@@ -9,6 +9,8 @@ define([
     'text!templates/home/info/MainTemplate.html'
     ], function ($, _, Backbone, PageView, HomeView, NavigationView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		template: _.template(MainTemplate),

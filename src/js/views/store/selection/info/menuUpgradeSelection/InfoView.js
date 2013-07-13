@@ -7,6 +7,8 @@ define([
 	'text!templates/store/selection/info/menuUpgradeSelection/InfoTemplate.html'
 	], function ($, _, Backbone, InfoBaseView, InfoTemplate) {
 
+	"use strict";
+
 	var InfoView = InfoBaseView.extend({
 		
 		template: _.template(InfoTemplate)

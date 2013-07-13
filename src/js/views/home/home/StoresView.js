@@ -13,6 +13,8 @@ define([
     'collections/StoresCollection'
     ], function ($, jqueryRotate, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
 
+	"use strict";
+
 	var StoresView = Backbone.View.extend({
 
 		postal: 0,

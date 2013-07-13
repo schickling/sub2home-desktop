@@ -8,6 +8,8 @@ define([
     'views/store/config/DeliveryTimeView'
     ], function ($, _, Backbone, notificationcenter, DeliveryTimeModel, DeliveryTimesCollection, DeliveryTimeView) {
 
+	"use strict";
+
 	var DeliveryTimesView = Backbone.View.extend({
 		events: {
 			'click .bAdd': '_addDeliveryTime'

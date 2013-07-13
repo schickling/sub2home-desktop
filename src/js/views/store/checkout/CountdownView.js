@@ -9,6 +9,8 @@ define([
     'text!templates/store/checkout/CountdownTemplate.html'
     ], function ($, _, Backbone, moment, stateModel, cartModel, CountdownTemplate) {
 
+	"use strict";
+
 	var CountdownView = Backbone.View.extend({
 
 		template: _.template(CountdownTemplate),

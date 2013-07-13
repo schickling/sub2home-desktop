@@ -8,6 +8,8 @@ define([
     'text!templates/store/tray/FreeCookieTemplate.html'
 ], function ($, _, Backbone, notificationcenter, cartModel, FreeCookieTemplate) {
 
+	"use strict";
+
 	var FreeCookieView = Backbone.View.extend({
 
 		template: _.template(FreeCookieTemplate),

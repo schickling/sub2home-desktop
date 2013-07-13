@@ -7,6 +7,8 @@ define([
     'views/store/dashboard/revenues/RevenuesYearView'
     ], function ($, jqueryOverscroll, _, Backbone, RevenuesYearView) {
 
+	"use strict";
+
 	var RevenuesView = Backbone.View.extend({
 
 		wasRendered: false,

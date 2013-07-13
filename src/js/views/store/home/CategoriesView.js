@@ -7,6 +7,7 @@ define([
     'views/store/home/CategoryView'
     ], function ($, _, Backbone, CategoriesCollection, CategoryView) {
 
+	"use strict";
 
 	var CategoriesView = Backbone.View.extend({
 

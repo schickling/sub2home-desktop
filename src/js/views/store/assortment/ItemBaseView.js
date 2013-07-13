@@ -6,6 +6,8 @@ define([
     'notificationcenter'
     ], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
 
+	"use strict";
+
 	var ItemBaseView = Backbone.View.extend({
 
 		className: '',

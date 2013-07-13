@@ -6,6 +6,8 @@ define([
     'views/notifications/NotificationView'
     ], function ($, _, Backbone, NotificationView) {
 
+	"use strict";
+
 	var NotificationsView = Backbone.View.extend({
 
 		el: $('#notifications'),

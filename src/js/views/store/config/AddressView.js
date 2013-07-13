@@ -7,6 +7,8 @@ define([
     'text!templates/store/config/AddressTemplate.html'
     ], function ($, _, Backbone, notificationcenter, AddressTemplate) {
 
+	"use strict";
+
 	var AddressView = Backbone.View.extend({
 
 		events: {

@@ -7,6 +7,8 @@ define([
     'views/store/config/DeliveryAreaView'
     ], function ($, _, Backbone, notificationcenter, DeliveryAreaModel, DeliveryAreaView) {
 
+	"use strict";
+
 	var DeliveryAreasView = Backbone.View.extend({
 
 		events: {

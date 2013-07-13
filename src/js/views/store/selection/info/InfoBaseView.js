@@ -5,6 +5,8 @@ define([
 	'backbone'
 	], function ($, _, Backbone) {
 
+	"use strict";
+
 	var InfoBaseView = Backbone.View.extend({
 
 		className: 'info',

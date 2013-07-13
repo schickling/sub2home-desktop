@@ -7,6 +7,8 @@ define([
 	'views/store/selection/timeline/ItemStageView'
 	], function ($, _, Backbone, ItemsStageBaseView, ItemStageView) {
 
+	"use strict";
+
 	var ItemsStageView = ItemsStageBaseView.extend({
 
 		render: function () {

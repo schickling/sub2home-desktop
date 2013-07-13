@@ -7,6 +7,8 @@ define([
     'text!templates/store/dashboard/details/OrderedArticleTemplate.html'
     ], function ($, _, Backbone, IngredientCategoriesView, OrderedArticleTemplate) {
 
+	"use strict";
+
 	var OrderedArticleView = Backbone.View.extend({
 
 		className: 'orderedArticle',

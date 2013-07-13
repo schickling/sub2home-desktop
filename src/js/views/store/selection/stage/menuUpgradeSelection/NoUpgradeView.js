@@ -6,6 +6,8 @@ define([
 	'text!templates/store/selection/stage/menuUpgradeSelection/NoUpgradeTemplate.html'
 	], function ($, _, Backbone, NoUpgradeTemplate) {
 
+	"use strict";
+
 	var NoUpgradeView = Backbone.View.extend({
 
 		/*

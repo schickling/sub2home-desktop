@@ -8,6 +8,8 @@ define([
     'text!templates/client/dashboard/StoreTemplate.html'
     ], function ($, _, Backbone, moment, router, StoreTemplate) {
 
+	"use strict";
+
 	var StoreView = Backbone.View.extend({
 
 		template: _.template(StoreTemplate),

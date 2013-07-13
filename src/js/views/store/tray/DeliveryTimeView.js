@@ -9,6 +9,8 @@ define([
     'text!templates/store/tray/DeliveryTimeTemplate.html'
 ], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate) {
 
+	"use strict";
+
 	var DeliveryTimeView = Backbone.View.extend({
 
 		template: _.template(DeliveryTimeTemplate),

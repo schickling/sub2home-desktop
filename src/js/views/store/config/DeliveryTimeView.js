@@ -6,6 +6,8 @@ define([
     'text!templates/store/config/DeliveryTimeTemplate.html'
     ], function ($, _, Backbone, notificationcenter, DeliveryTimeTemplate) {
 
+	"use strict";
+
 	var DeliveryTimeView = Backbone.View.extend({
 
 		className: 'deliveryTime',

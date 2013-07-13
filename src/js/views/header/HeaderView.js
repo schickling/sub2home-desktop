@@ -12,6 +12,8 @@ define([
     'text!templates/header/RoleSwitchTemplate.html'
     ], function ($, jqueryEasing, _, Backbone, router, authentificationModel, stateModel, StoreView, HeaderTemplate, RoleSwitchTemplate) {
 
+	"use strict";
+
 	var HeaderView = Backbone.View.extend({
 
 		el: $('#header'),
@@ -90,7 +92,7 @@ define([
 			require(['views/header/ClientView'], function (ClientView) {
 
 				new ClientView({
-					el: this.$('#headerClientContent')
+					el: self.$('#headerClientContent')
 				});
 
 			});

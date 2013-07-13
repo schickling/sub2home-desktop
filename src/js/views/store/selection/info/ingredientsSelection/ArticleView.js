@@ -6,6 +6,8 @@ define([
     'text!templates/store/selection/info/ingredientsSelection/ArticleTemplate.html'
     ], function ($, _, Backbone, ArticleTemplate) {
 
+	"use strict";
+
 	var ArticleView = Backbone.View.extend({
 
 		template: _.template(ArticleTemplate),

@@ -8,6 +8,8 @@ define([
     'models/cartModel'
 ], function ($, _, Backbone, router, notificationcenter, cartModel) {
 
+	"use strict";
+
 	var TimelineControllerView = Backbone.View.extend({
 
 		/*

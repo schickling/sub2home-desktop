@@ -8,6 +8,8 @@ define([
     'text!templates/store/tray/CheckoutSettingsTemplate.html'
     ], function ($, _, Backbone, stateModel, cartModel, CheckoutSettingsTemplate) {
 
+	"use strict";
+
 	var CheckoutSettingsView = Backbone.View.extend({
 
 		isLocked: false,

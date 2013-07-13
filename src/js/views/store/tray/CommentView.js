@@ -7,6 +7,8 @@ define([
     'text!templates/store/tray/CommentTemplate.html'
     ], function ($, _, Backbone, cartModel, CommentTemplate) {
 
+	"use strict";
+
 	var CommentView = Backbone.View.extend({
 
 		template: _.template(CommentTemplate),

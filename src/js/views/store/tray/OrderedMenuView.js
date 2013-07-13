@@ -7,6 +7,8 @@ define([
     'text!templates/store/tray/OrderedMenuTemplate.html'
     ], function ($, _, Backbone, OrderedArticleMenuView, OrderedMenuTemplate) {
 
+	"use strict";
+
 	var OrderedMenuView = Backbone.View.extend({
 
 		/*

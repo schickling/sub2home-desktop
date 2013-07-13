@@ -7,6 +7,8 @@ define([
     'views/assets/mapStyles'
     ], function ($, _, Backbone, gmaps, mapStyles) {
 
+	"use strict";
+
 	var MapView = Backbone.View.extend({
 
 		map: null,

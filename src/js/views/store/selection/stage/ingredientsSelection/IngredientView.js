@@ -7,6 +7,8 @@ define([
     'text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html'
     ], function ($, jqueryRotate, _, Backbone, IngredientTemplate) {
 
+	"use strict";
+
 	var IngredientView = Backbone.View.extend({
 
 		className: 'item ingredient',

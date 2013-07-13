@@ -7,6 +7,8 @@ define([
     'text!templates/store/info/StoreTemplate.html'
     ], function ($, _, Backbone, DeliveryTimesView, StoreTemplate) {
 
+	"use strict";
+
 	var StoreView = Backbone.View.extend({
 
 		template: _.template(StoreTemplate),

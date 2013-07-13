@@ -6,6 +6,8 @@ define([
 	'text!templates/store/shared/timeline/ItemStageTemplate.html'
 	], function ($, _, Backbone, ItemStageTemplate) {
 
+	"use strict";
+
 	var ItemStageBaseView = Backbone.View.extend({
 
 		className: 'itemTimeline',

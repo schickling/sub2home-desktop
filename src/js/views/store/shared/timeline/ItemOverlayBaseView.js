@@ -6,6 +6,8 @@ define([
 	'text!templates/store/shared/timeline/ItemOverlayTemplate.html'
 	], function ($, _, Backbone, ItemOverlayTemplate) {
 
+	"use strict";
+
 	var ItemOverlayBaseView = Backbone.View.extend({
 
 		className: 'itemTimeline',

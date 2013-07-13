@@ -7,6 +7,8 @@ define([
     'views/store/selection/timeline/TimelineView'
     ], function ($, _, Backbone, TimelineItemsCollection, TimelineView) {
 
+	"use strict";
+
 	// little hack to get height of hidden dom element
 	$.fn.hiddenHeight = function () {
 		var $this = $(this),

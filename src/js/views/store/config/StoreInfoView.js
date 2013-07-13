@@ -8,6 +8,8 @@ define([
     'text!templates/store/config/StoreInfoTemplate.html'
     ], function ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) {
 
+	"use strict";
+
 	var StoreInfoView = Backbone.View.extend({
 
 		events: {

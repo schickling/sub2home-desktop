@@ -11,6 +11,8 @@ define([
     'text!templates/client/login/MainTemplate.html'
     ], function ($, _, Backbone, router, notificationcenter, authentificationModel, stateModel, PageView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		pageTitle: 'Einloggen - sub2home',

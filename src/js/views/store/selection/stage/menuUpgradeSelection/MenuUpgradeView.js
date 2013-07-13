@@ -7,6 +7,8 @@ define([
     'text!templates/store/selection/stage/menuUpgradeSelection/MenuUpgradeTemplate.html'
     ], function ($, _, Backbone, MenuComponentBlockView, MenuUpgradeTemplate) {
 
+	"use strict";
+
 	var MenuUpgradeView = Backbone.View.extend({
 
 		$menuComponentBlocks: null,

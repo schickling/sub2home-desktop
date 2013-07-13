@@ -10,6 +10,8 @@ define([
     'text!templates/store/tray/ControlTemplate.html'
     ], function ($, jqueryColor, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {
 
+	"use strict";
+
 	var ControlView = Backbone.View.extend({
 
 		template: _.template(ControlTemplate),

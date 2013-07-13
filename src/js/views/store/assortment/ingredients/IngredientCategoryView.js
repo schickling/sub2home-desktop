@@ -7,6 +7,8 @@ define([
 	'text!templates/store/assortment/ingredients/IngredientCategoryTemplate.html'
 	], function ($, _, Backbone, IngredientsView, IngredientCategoryTemplate) {
 
+	"use strict";
+
 	var IngredientCategoryView = Backbone.View.extend({
 
 		className: 'category',

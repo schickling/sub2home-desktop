@@ -8,6 +8,8 @@ define([
 	'views/store/selection/stage/menuUpgradeSelection/NoUpgradeView'
 	], function ($, _, Backbone, SlideView, MenuUpgradeView, NoUpgradeView) {
 
+	"use strict";
+
 	var MenuUpgradesView = SlideView.extend({
 
 		/*

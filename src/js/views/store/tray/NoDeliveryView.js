@@ -6,6 +6,8 @@ define([
     'text!templates/store/tray/NoDeliveryTemplate.html'
     ], function ($, _, Backbone, NoDeliveryTemplate) {
 
+	"use strict";
+
 	var NoDeliveryView = Backbone.View.extend({
 
 		initialize: function () {

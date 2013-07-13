@@ -7,6 +7,8 @@ define([
 	'views/store/shared/timeline/ItemOverlayBaseView'
 	], function ($, _, Backbone, ItemsBaseView, ItemOverlayBaseView) {
 
+	"use strict";
+
 	var ItemsOverlayBaseView = ItemsBaseView.extend({
 
 		renderItem: function (modelItem) {

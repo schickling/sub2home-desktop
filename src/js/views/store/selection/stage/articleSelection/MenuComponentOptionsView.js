@@ -7,6 +7,8 @@ define([
     'views/store/selection/stage/articleSelection/MenuComponentOptionView'
     ], function ($, _, Backbone, SlideView, MenuComponentOptionView) {
 
+	"use strict";
+
 	var MenuComponentOptionsView = SlideView.extend({
 
 		afterInitialize: function () {

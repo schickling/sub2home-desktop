@@ -6,6 +6,8 @@ define([
     'text!templates/notifications/TooltipTemplate.html'
     ], function ($, _, Backbone, TooltipTemplate) {
 
+	"use strict";
+
 	var TooltipView = Backbone.View.extend({
 
 		className: 'tooltip',

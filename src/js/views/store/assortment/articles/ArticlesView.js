@@ -6,6 +6,8 @@ define([
 	'views/store/assortment/articles/ArticleView'
 	], function ($, _, Backbone, ArticleView) {
 
+	"use strict";
+
 	var ArticlesView = Backbone.View.extend({
 
 		initialize: function () {

@@ -8,6 +8,8 @@ define([
     'views/store/selection/stage/menuUpgradeSelection/MenuUpgradesView'
     ], function ($, _, Backbone, InfoView, SelectionView, MenuUpgradesView) {
 
+	"use strict";
+
 	var MenuUpgradeSelectionView = SelectionView.extend({
 
 		stageViewClass: MenuUpgradesView,

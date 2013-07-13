@@ -7,6 +7,8 @@ define([
     'text!templates/store/assortment/menuBundles/MenuBundleTemplate.html'
     ], function ($, _, Backbone, ItemBaseView, MenuBundleTemplate) {
 
+    "use strict";
+
 	var MenuBundleView = ItemBaseView.extend({
 
 		template: _.template(MenuBundleTemplate),

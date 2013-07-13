@@ -6,6 +6,8 @@ define([
     'views/store/assortment/ControlBaseView'
     ], function ($, _, Backbone, ControlBaseView) {
 
+	"use strict";
+
 	var ControlView = ControlBaseView.extend({
 
 		events: {

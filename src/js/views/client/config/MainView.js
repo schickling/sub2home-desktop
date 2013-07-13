@@ -11,6 +11,8 @@ define([
     'text!templates/client/config/MainTemplate.html'
     ], function ($, _, Backbone, clientModel, PageView, ProfileView, AddressView, BankaccountView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		// referenced sub views

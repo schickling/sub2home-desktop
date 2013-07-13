@@ -5,6 +5,8 @@ define([
     'backbone'
     ], function ($, _, Backbone) {
 
+	"use strict";
+
 	var SectionBaseView = Backbone.View.extend({
 
 		// dom

@@ -17,6 +17,8 @@ define([
     'text!templates/store/selection/MainTemplate.html'
     ], function ($, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		orderedItemModel: null,

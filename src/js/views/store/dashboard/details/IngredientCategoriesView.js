@@ -6,6 +6,8 @@ define([
     'views/store/dashboard/details/IngredientCategoryView'
     ], function ($, _, Backbone, IngredientCategoryView) {
 
+	"use strict";
+
 	var IngredientCategoriesView = Backbone.View.extend({
 
 		initialize: function () {

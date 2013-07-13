@@ -6,6 +6,8 @@ define([
     'text!templates/store/tray/OrderedArticleSingleTemplate.html'
     ], function ($, _, Backbone, OrderedArticleSingleTemplate) {
 
+	"use strict";
+
 	var OrderedArticleSingleView = Backbone.View.extend({
 
 		template: _.template(OrderedArticleSingleTemplate),

@@ -6,6 +6,8 @@ define([
     'text!templates/store/dashboard/details/InfoTemplate.html'
     ], function ($, _, Backbone, InfoTemplate) {
 
+	"use strict";
+
 	var InfoView = Backbone.View.extend({
 
 		template: _.template(InfoTemplate),

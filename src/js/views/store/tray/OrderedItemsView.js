@@ -7,6 +7,8 @@ define([
     'views/store/tray/OrderedItemView'
     ], function ($, _, Backbone, cartModel, OrderedItemView) {
 
+	"use strict";
+
 	var OrderedItemsView = Backbone.View.extend({
 
 		initialize: function () {

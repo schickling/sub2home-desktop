@@ -7,6 +7,8 @@ define([
     'views/store/selection/info/ingredientsSelection/IngredientView'
     ], function ($, _, Backbone, IngredientsCollection, IngredientView) {
 
+	"use strict";
+
 	var IngredientsView = Backbone.View.extend({
 
 		initialize: function () {

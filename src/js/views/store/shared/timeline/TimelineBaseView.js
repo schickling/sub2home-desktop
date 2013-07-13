@@ -7,6 +7,8 @@ define([
 	'views/store/shared/timeline/ItemsOverlayBaseView'
 	], function ($, _, Backbone, ItemsStageBaseView, ItemsOverlayBaseView) {
 
+	"use strict";
+
 	var TimelineBaseView = Backbone.View.extend({
 
 		itemsStageView: null,

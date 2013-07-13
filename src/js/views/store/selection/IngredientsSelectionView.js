@@ -9,6 +9,8 @@ define([
     'views/store/selection/stage/ingredientsSelection/IngredientCategoriesView'
     ], function ($, _, Backbone, InfoView, TimelineItemModel, SelectionView, IngredientCategoriesView) {
 
+	"use strict";
+
 	var IngredientsSelectionView = SelectionView.extend({
 
 		stageViewClass: IngredientCategoriesView,

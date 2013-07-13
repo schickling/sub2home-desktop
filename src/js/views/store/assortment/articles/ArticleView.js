@@ -8,6 +8,8 @@ define([
     'text!templates/store/assortment/articles/ArticleTemplate.html'
     ], function ($, _, Backbone, notificationcenter, ItemBaseView, ArticleTemplate) {
 
+	"use strict";
+
 	var ArticleView = ItemBaseView.extend({
 
 		template: _.template(ArticleTemplate),

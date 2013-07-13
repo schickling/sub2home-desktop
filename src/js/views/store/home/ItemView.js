@@ -12,6 +12,8 @@ define([
     'text!templates/store/home/ItemTemplate.html'
     ], function ($, _, Backbone, notificationcenter, router, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, ItemTemplate) {
 
+	"use strict";
+
 	var ItemView = Backbone.View.extend({
 
 		template: _.template(ItemTemplate),

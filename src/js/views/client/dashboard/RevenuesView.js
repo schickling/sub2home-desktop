@@ -9,6 +9,8 @@ define([
     'text!templates/client/dashboard/RevenuesTemplate.html'
     ], function ($, _, Backbone, moment, InvoiceModel, RevenueView, RevenuesTemplate) {
 
+	"use strict";
+
 	var RevenuesView = Backbone.View.extend({
 
 		template: _.template(RevenuesTemplate),

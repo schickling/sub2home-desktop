@@ -8,6 +8,8 @@ define([
     'views/store/selection/MenuUpgradeSelectionView'
     ], function ($, _, Backbone, ArticleSelectionView, IngredientsSelectionView, MenuUpgradeSelectionView) {
 
+	"use strict";
+
 	var OrderedArticleView = Backbone.View.extend({
 
 		/*

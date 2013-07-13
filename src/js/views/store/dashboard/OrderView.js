@@ -9,6 +9,8 @@ define([
     'text!templates/store/dashboard/OrderTemplate.html'
 ], function ($, _, Backbone, moment, notificationcenter, OrderDetailsView, OrderTemplate) {
 
+	"use strict";
+
 	var OrderView = Backbone.View.extend({
 
 		template: _.template(OrderTemplate),
@@ -66,7 +68,7 @@ define([
 			if (totalWithCredit < total) {
 				this.$el.addClass('balanced');
 			}
-			
+
 		},
 
 		_toggleDetailsView: function () {

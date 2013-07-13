@@ -9,6 +9,8 @@ define([
     'views/store/selection/stage/articleSelection/MenuComponentOptionsView'
     ], function ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) {
 
+	"use strict";
+
 	var ArticleSelectionView = SelectionView.extend({
 
 		/*

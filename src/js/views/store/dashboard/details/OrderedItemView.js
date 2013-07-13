@@ -7,6 +7,8 @@ define([
     'text!templates/store/dashboard/details/OrderedItemTemplate.html'
     ], function ($, _, Backbone, OrderedArticlesView, OrderedItemTemplate) {
 
+	"use strict";
+
 	var OrderedItemView = Backbone.View.extend({
 
 		className: 'orderedItem',

@@ -11,6 +11,8 @@ define([
     'text!templates/store/dashboard/MainTemplate.html'
     ], function ($, _, Backbone, router, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		subViews: {

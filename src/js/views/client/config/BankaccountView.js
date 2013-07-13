@@ -7,6 +7,8 @@ define([
     'text!templates/client/config/BankaccountTemplate.html'
     ], function ($, _, Backbone, notificationcenter, BankaccountTemplate) {
 
+	"use strict";
+
 	var BankaccountView = Backbone.View.extend({
 
 		template: _.template(BankaccountTemplate),

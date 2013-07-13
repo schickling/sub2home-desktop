@@ -7,6 +7,8 @@ define([
     'text!templates/store/dashboard/revenues/RevenuesYearTemplate.html'
     ], function ($, _, Backbone, RevenueView, RevenuesYearTemplate) {
 
+	"use strict";
+
 	var RevenuesYearView = Backbone.View.extend({
 
 		template: _.template(RevenuesYearTemplate),

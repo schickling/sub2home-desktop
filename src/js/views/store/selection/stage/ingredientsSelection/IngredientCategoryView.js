@@ -7,6 +7,8 @@ define([
 	'views/store/selection/stage/ingredientsSelection/IngredientsView'
 	], function ($, _, Backbone, SlideView, IngredientsView) {
 
+	"use strict";
+
 	var IngredientCategoryView = SlideView.extend({
 
 		afterInitialize: function () {

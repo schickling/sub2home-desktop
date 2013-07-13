@@ -14,6 +14,8 @@ define([
     'text!templates/store/assortment/MainTemplate.html'
     ], function ($, _, Backbone, router, stateModel, PageView, SectionsNavigationView, CategoriesView, MenuUpgradesView, MenuBundlesView, IngredientCategoriesView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		subViews: {

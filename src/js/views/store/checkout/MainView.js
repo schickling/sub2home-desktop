@@ -10,6 +10,8 @@ define([
     'text!templates/store/checkout/MainTemplate.html'
     ], function ($, _, Backbone, router, cartModel, PageView, CountdownView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		pageTitle: 'Danke für Deine Bestellung - sub2home',

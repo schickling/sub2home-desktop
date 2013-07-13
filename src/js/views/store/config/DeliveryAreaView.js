@@ -6,6 +6,8 @@ define([
     'text!templates/store/config/DeliveryAreaTemplate.html'
     ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 
+	"use strict";
+
 	var DeliveryAreaView = Backbone.View.extend({
 
 		events: {

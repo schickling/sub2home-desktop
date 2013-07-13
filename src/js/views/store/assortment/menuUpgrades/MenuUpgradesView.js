@@ -9,6 +9,8 @@ define([
     'views/store/assortment/menuUpgrades/ControlView'
     ], function ($, _, Backbone, MenuUpgradesCollection, SectionBaseView, MenuUpgradeView, ControlView) {
 
+	"use strict";
+
 	var MenuUpgradesView = SectionBaseView.extend({
 
 		controlViewClass: ControlView,

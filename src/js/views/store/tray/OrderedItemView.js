@@ -9,6 +9,8 @@ define([
     'views/store/tray/OrderedMenuView'
     ], function ($, _, Backbone, router, notificationcenter, OrderedArticleSingleView, OrderedMenuView) {
 
+	"use strict";
+
 	var OrderedItemView = Backbone.View.extend({
 
 		className: 'orderedItem',

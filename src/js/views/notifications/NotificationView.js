@@ -6,6 +6,8 @@ define([
 	'text!templates/notifications/NotificationTemplate.html'
 	], function ($, _, Backbone, NotificationTemplate) {
 
+	"use strict";
+
 	var NotificationView = Backbone.View.extend({
 
 		className: 'notification',

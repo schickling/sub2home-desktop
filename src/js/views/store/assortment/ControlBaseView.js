@@ -6,6 +6,8 @@ define([
     'text!templates/store/assortment/ControlTemplate.html'
     ], function ($, _, Backbone, ControlTemplate) {
 
+	"use strict";
+
 	var ControlBaseView = Backbone.View.extend({
 
 		template: ControlTemplate,

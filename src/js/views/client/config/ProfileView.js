@@ -7,6 +7,8 @@ define([
     'text!templates/client/config/ProfileTemplate.html'
     ], function ($, _, Backbone, notificationcenter, ProfileTemplate) {
 
+	"use strict";
+
 	var ProfileView = Backbone.View.extend({
 
 		template: _.template(ProfileTemplate),

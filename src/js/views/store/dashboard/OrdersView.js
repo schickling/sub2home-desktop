@@ -11,6 +11,8 @@ define([
     'text!templates/store/dashboard/NoOrdersTemplate.html'
     ], function ($, jqueryRotate, _, Backbone, notificationcenter, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) {
 
+	"use strict";
+
 	var OrdersView = Backbone.View.extend({
 
 		$orderListing: null,

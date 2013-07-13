@@ -7,6 +7,8 @@ define([
 	'text!templates/home/home/StoreTemplate.html'
 ], function ($, _, gmaps, notificationcenter, StoreTemplate) {
 
+	"use strict";
+
 	var StoreView = function (model, parentView) {
 
 		// link to HomeView

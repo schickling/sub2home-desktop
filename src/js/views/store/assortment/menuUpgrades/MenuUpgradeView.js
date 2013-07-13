@@ -7,6 +7,8 @@ define([
     'text!templates/store/assortment/menuUpgrades/MenuUpgradeTemplate.html'
     ], function ($, _, Backbone, ItemBaseView, MenuUpgradeTemplate) {
 
+    "use strict";
+
 	var MenuUpgradeView = ItemBaseView.extend({
 
 		template: _.template(MenuUpgradeTemplate),

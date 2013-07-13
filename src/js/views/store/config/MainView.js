@@ -13,6 +13,8 @@ define([
     'text!templates/store/config/MainTemplate.html'
     ], function ($, _, Backbone, router, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		// referenced sub views

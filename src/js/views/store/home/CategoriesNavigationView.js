@@ -7,7 +7,7 @@ define([
 	'views/store/shared/timeline/TimelineBaseView'
 	], function ($, _, Backbone, TimelineItemsCollection, TimelineBaseView) {
 
-
+	"use strict";
 
 	var CategoriesNavigationView = Backbone.View.extend({
 

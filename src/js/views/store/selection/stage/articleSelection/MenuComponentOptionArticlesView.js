@@ -6,6 +6,8 @@ define([
 	'views/store/selection/stage/articleSelection/MenuComponentOptionArticleView'
 	], function ($, _, Backbone, MenuComponentOptionArticleView) {
 
+	"use strict";
+
 	var MenuComponentOptionArticlesView = Backbone.View.extend({
 
 		orderedArticleModel: null,

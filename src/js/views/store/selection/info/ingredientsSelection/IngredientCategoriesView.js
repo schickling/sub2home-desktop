@@ -6,6 +6,8 @@ define([
 	'views/store/selection/info/ingredientsSelection/IngredientCategoryView'
 	], function ($, _, Backbone, IngredientCategoryView) {
 
+	"use strict";
+
 	var IngredientCategoriesView = Backbone.View.extend({
 
 		$firstColumn: null,

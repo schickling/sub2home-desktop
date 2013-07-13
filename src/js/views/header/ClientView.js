@@ -11,6 +11,8 @@ define([
     'text!templates/header/ClientTemplate.html'
     ], function ($, _, Backbone, router, notificationcenter, stateModel, clientModel, authentificationModel, ClientTemplate) {
 
+	"use strict";
+
 	$.objectOfArray = function (a) {
 		var c = jQuery();
 		for (var x in a) {

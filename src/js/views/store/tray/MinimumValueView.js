@@ -8,6 +8,8 @@ define([
     'text!templates/store/tray/MinimumValueTemplate.html'
 ], function ($, _, Backbone, router, cartModel, MinimumValueTemplate) {
 
+	"use strict";
+
 	var MinimumValueView = Backbone.View.extend({
 
 		template: _.template(MinimumValueTemplate),

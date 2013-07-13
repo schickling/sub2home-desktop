@@ -10,6 +10,8 @@ define([
     'text!templates/header/StoreTemplate.html'
     ], function ($, _, Backbone, router, notificationcenter, stateModel, CartView, StoreTemplate) {
 
+	"use strict";
+
 	var StoreView = Backbone.View.extend({
 
 		template: _.template(StoreTemplate),

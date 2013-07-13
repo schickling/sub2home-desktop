@@ -13,6 +13,8 @@ define([
     'text!templates/client/dashboard/MainTemplate.html'
     ], function ($, _, Backbone, router, moment, stateModel, clientModel, PageView, StoresView, RevenuesView, MainTemplate) {
 
+	"use strict";
+
 	// set global moment language
 	moment.lang('de', {
 		months: "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_"),

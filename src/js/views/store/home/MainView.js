@@ -11,6 +11,7 @@ define([
     'text!templates/store/home/MainTemplate.html'
     ], function ($, _, Backbone, stateModel, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
+	"use strict";
 
 	$.fn.lazyload = function () {
 

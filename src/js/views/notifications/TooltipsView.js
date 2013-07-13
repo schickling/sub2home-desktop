@@ -6,6 +6,8 @@ define([
     'views/notifications/TooltipView'
     ], function ($, _, Backbone, TooltipView) {
 
+	"use strict";
+
 	var TooltipsView = Backbone.View.extend({
 
 		el: $('#tooltips'),

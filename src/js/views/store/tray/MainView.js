@@ -18,6 +18,8 @@ define([
     'text!templates/store/tray/MainTemplate.html'
     ], function ($, _, Backbone, router, cartModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, MinimumValueView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		events: {

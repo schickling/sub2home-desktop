@@ -9,6 +9,8 @@ define([
     'text!templates/store/dashboard/details/OrderDetailsTemplate.html'
     ], function ($, _, Backbone, AddressView, OrderedItemsView, InfoView, OrderDetailsTemplate) {
 
+	"use strict";
+
 	var OrderDetailsView = Backbone.View.extend({
 
 		initialize: function () {

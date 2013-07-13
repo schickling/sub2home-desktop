@@ -7,6 +7,8 @@ define([
     'text!templates/store/assortment/ingredients/IngredientTemplate.html'
     ], function ($, _, Backbone, ItemBaseView, IngredientTemplate) {
 
+    "use strict";
+
 	var IngredientView = ItemBaseView.extend({
 
 		template: _.template(IngredientTemplate),

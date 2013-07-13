@@ -8,6 +8,8 @@ define([
     'text!templates/store/dashboard/CreditTemplate.html'
 ], function ($, _, Backbone, notificationcenter, CreditModel, CreditTemplate) {
 
+	"use strict";
+
 	var CreditView = Backbone.View.extend({
 
 		template: _.template(CreditTemplate),

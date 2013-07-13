@@ -8,6 +8,8 @@ define([
     'text!templates/home/404/MainTemplate.html'
     ], function ($, _, Backbone, router, PageView, MainTemplate) {
 
+	"use strict";
+
 	var MainView = PageView.extend({
 
 		pageTitle: 'Seite nicht gefunden - sub2home',

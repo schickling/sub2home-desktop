@@ -8,6 +8,8 @@ define([
     'text!templates/store/home/ArticleDetailsTemplate.html'
     ], function ($, _, Backbone, router, stateModel, ArticleDetailsTemplate) {
 
+	"use strict";
+
 	var ArticleDetailsView = Backbone.View.extend({
 
 		className: 'detailsArticle',
