@@ -85,12 +85,7 @@ define([
 
 			}, this);
 
-
 			this._setStoreAliasForServer();
-
-
-			window.state = this;
-
 
 		},
 
