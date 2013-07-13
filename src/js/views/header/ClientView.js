@@ -14,7 +14,7 @@ define([
 	"use strict";
 
 	$.objectOfArray = function (a) {
-		var c = jQuery();
+		var c = $();
 		for (var x in a) {
 			c = c.add(a[x]);
 		}

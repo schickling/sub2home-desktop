@@ -135,8 +135,8 @@ define([
 									var postal = 0;
 
 									// parse results for postal
-									for (i = 0; i < results[0].address_components.length; i++) {
-										for (j = 0; j < results[0].address_components[i].types.length; j++) {
+									for (var i = 0; i < results[0].address_components.length; i++) {
+										for (var j = 0; j < results[0].address_components[i].types.length; j++) {
 											if (results[0].address_components[i].types[j] == "postal_code") {
 												postal = results[0].address_components[i].long_name;
 												break;

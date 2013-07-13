@@ -38,7 +38,18 @@ module.exports = function (grunt) {
             '../src/js/collections/*.js',
             '../src/js/views/**/*.js',
             'test/spec/**/*.js'
-            ]
+            ],
+			options: {
+				// options here to override JSHint defaults
+				globals: {
+					window: true,
+					console: true,
+					module: true,
+					document: true,
+					require: true
+				},
+				browser: true
+			}
 		},
 
 		// kick off jasmine, showing results at the cli
