@@ -42,10 +42,6 @@ module.exports = function (grunt) {
 			options: {
 				// options here to override JSHint defaults
 				globals: {
-					window: true,
-					console: true,
-					module: true,
-					document: true,
 					require: true
 				},
 				browser: true
