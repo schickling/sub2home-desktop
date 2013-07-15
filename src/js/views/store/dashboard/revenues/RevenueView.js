@@ -41,7 +41,7 @@ define([
 					month: invoiceMoment.format('MMM'),
 					year: invoiceMoment.format('YYYY'),
 					invoiceUrl: documentsPath + this.model.get('invoiceDocumentName'),
-					attachmentUrl: documentsPath + this.model.get('attachmentDocumentName'),
+					attachmentUrl: documentsPath + this.model.get('attachmentDocumentName')
 				};
 
 			this.$el.html(this.template(json));
