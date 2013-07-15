@@ -246,32 +246,32 @@ define([
 
 		_tooltipLogout: function () {
 			var offset = this.$buttonLogout.offset();
-			notificationcenter.tooltip('views.header.logout', offset.top + 54, offset.left + 14);
+			notificationcenter.tooltip('views.header.logout', offset.top + 64, offset.left + 34);
 		},
 
 		_tooltipForStoreConfig: function () {
 			var offset = this.$buttonStoreConfig.offset();
-			notificationcenter.tooltip('views.header.store.config', offset.top + 24, offset.left + 14);
+			notificationcenter.tooltip('views.header.store.config', offset.top + 64, offset.left + 24);
 		},
 
 		_tooltipForStoreAssortment: function () {
 			var offset = this.$buttonStoreAssortment.offset();
-			notificationcenter.tooltip('views.header.store.assortment', offset.top + 24, offset.left + 14);
+			notificationcenter.tooltip('views.header.store.assortment', offset.top + 64, offset.left + 24);
 		},
 
 		_tooltipForStoreDashboard: function () {
 			var offset = this.$buttonStoreDashboard.offset();
-			notificationcenter.tooltip('views.header.store.dashboard', offset.top + 24, offset.left + 14);
+			notificationcenter.tooltip('views.header.store.dashboard', offset.top + 64, offset.left + 23);
 		},
 
 		_tooltipForClientDashboard: function () {
 			var offset = this.$buttonClientDashboard.offset();
-			notificationcenter.tooltip('views.header.client.dashboard', offset.top + 64, offset.left + 26);
+			notificationcenter.tooltip('views.header.client.dashboard', offset.top + 64, offset.left + 34);
 		},
 
 		_tooltipForClientConfig: function () {
 			var offset = this.$buttonClientConfig.offset();
-			notificationcenter.tooltip('views.header.client.config', offset.top + 40, offset.left + 16);
+			notificationcenter.tooltip('views.header.client.config', offset.top + 64, offset.left + 34);
 		},
 
 		_dismissTooltip: function () {
