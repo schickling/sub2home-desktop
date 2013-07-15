@@ -57,6 +57,11 @@ define([
 			'views.store.dashboard.resendMail': {
 				text: 'Erneut senden',
 				className: 'info left'
+			},
+
+			'views.store.dashboard.invoice.download': {
+				text: 'Rechnung als PDF',
+				className: 'info left'
 			}
 			
 		},

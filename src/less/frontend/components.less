@@ -900,7 +900,7 @@ aside#header {
     .iBtn {
       float: left;
       display: none;
-      margin: 24px 9px 0;
+      padding: 24px 9px 0;
       height: 43px;
       .transition(color .1s linear);
       &:hover {
@@ -910,8 +910,8 @@ aside#header {
         color: darken(@onHeaderColor, 20%);
       }
     }
-    #bStoreConfig { margin-left: 19px;}
-    #bClientConfig { margin: 24px 19px 0;}
+    #bStoreConfig { margin-left: 10px;}
+    #bClientConfig { padding: 24px 19px 0;}
     #bClientDashboard, #bSignout {
       margin: 0;
       padding: 24px 19px 0;
@@ -936,7 +936,7 @@ aside#header {
 }
 
 #bStoreDashboard {
-  margin-right: 19px;
+  margin-right: 10px;
   position: relative;
   span {
     display: none;
@@ -5693,6 +5693,9 @@ div#payment {
         color: @onNoteColor50;
         top: 0;
       }
+    }
+    div {
+      font-size: 70px;
     }
   }
 }

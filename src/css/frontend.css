@@ -3685,7 +3685,7 @@ aside#header div#clientAreaNavigation:after {
 aside#header div#clientAreaNavigation .iBtn {
   float: left;
   display: none;
-  margin: 24px 9px 0;
+  padding: 24px 9px 0;
   height: 43px;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
@@ -3699,10 +3699,10 @@ aside#header div#clientAreaNavigation .iBtn.active {
   color: #5f4e26;
 }
 aside#header div#clientAreaNavigation #bStoreConfig {
-  margin-left: 19px;
+  margin-left: 10px;
 }
 aside#header div#clientAreaNavigation #bClientConfig {
-  margin: 24px 19px 0;
+  padding: 24px 19px 0;
 }
 aside#header div#clientAreaNavigation #bClientDashboard,
 aside#header div#clientAreaNavigation #bSignout {
@@ -3738,7 +3738,7 @@ aside#header.isLoggedIn #headerCustomerContent #currentInfo {
   box-shadow: none;
 }
 #bStoreDashboard {
-  margin-right: 19px;
+  margin-right: 10px;
   position: relative;
 }
 #bStoreDashboard span {
@@ -9177,6 +9177,9 @@ div#payment > div.disabled .btn.active {
   color: rgba(202, 176, 111, 0.5);
   top: 0;
 }
+#checkoutNote #countdown div {
+  font-size: 70px;
+}
 .content.checkout {
   top: 0;
   bottom: 310px;
@@ -9578,13 +9581,13 @@ aside#header {
     margin-right: 0;
   }
   aside#header div#clientAreaNavigation .iBtn {
-    margin: 24px 5px 0;
+    padding: 24px 5px 0;
   }
   aside#header div#clientAreaNavigation #bStoreConfig {
-    margin-left: 12px;
+    padding-left: 12px;
   }
   aside#header div#clientAreaNavigation #bStoreDashboard {
-    margin-right: 12px;
+    padding-right: 12px;
   }
   aside#header div#clientAreaNavigation #bClientDashboard,
   aside#header div#clientAreaNavigation #bSignout {

@@ -468,8 +468,8 @@ define([
 			},
 
 			'views.store.tray.coupon.valid': {
-				title: 'Gratiscookie erhalten',
-				description: 'Freu dich auf deinen Gratiscookie, du findest ihn in dieser Bestellung.',
+				title: 'Welcher Gratiscookie ?',
+				description: 'Schreibe in das Kommentarfeld, welchen Cookie du möchtest. Du findest deinen Gratiscookie dann in deiner Bestellung.',
 				className: 'success'
 			},
 
@@ -478,6 +478,7 @@ define([
 				description: 'Du musst unsere AGB akzeptieren, bevor du bestellen kannst.',
 				className: 'warning'
 			},
+
 
 
 
@@ -539,7 +540,7 @@ define([
 				description: 'Der Reklamationsbetrag ist zu niedrig.',
 				className: 'warning'
 			}
-			
+
 		},
 
 		getNotificationModel: function (alias, data) {

@@ -3,18 +3,13 @@
 	<% if (minutes > 5) { %>
 		<%= hours %><span>:</span><span class="emphasized"><%= minutes %></span>
 	<% } else if (minutes > 0) { %>
-		00<span>:</span><span class="emphasized">05</span>
+		<div>Weniger als 5 Minuten</div>
 	<% } else { %>
-		00<span>:</span><span class="emphasized">00</span>
+		<div>Wir sind jeden Augenblick da.</div>
 	<% } %>
 </div>
 <div id="thxText">
-	<% if (minutes > 5) { %>
+	
 	<span>Danke für deine Bestellung, <%= firstName %>. Wir sind ca. <span class="emphasized"><%= dueTime %> Uhr</span> bei dir in der <%= street %>.</span>
-	<% } else if (minutes > 0) { %>
-	<span>Weniger als 5 Minuten.</span>
-	<% } else { %>
-	<span>Wir sind jeden Augenblick da.</span>
-	<% } %>
 	<div class="notice">Wenn du noch Fragen hast, wähle <%= storePhone %>.</div>
 </div>
