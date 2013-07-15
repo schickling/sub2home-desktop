@@ -3374,23 +3374,31 @@ input[type="text"]#locationSelectionInput {
       border-top: 1px solid rgba(255,255,255,0.9);
       padding: 30px 40px;
       .clearfix;
+
       #balanceOrderValue {
         .pull-left;
         .positioned;
+        top: 3px;
         text-align: left;
+        font-size: 37px;
+        color: @orange;
+
         label {
           position: absolute;
-          bottom: 3px;
+          bottom: 6px;
           color: @onNoteColor;
           font-size: 14px;
         }
         input {
+          .positioned;
+          top: -3px;
           border-color: @onNoteColor50;
-          font-size: 37px;
-          color: @orange;
+          font-size: inherit;
+          color: inherit;
           height: 40px;
-          padding: 0 10px 0 185px;
+          padding: 0 40px 0 185px;
           width: 140px;
+          margin-right: -33px;
           text-align: right;
           .transition(border-color .1s linear);
           &:focus {

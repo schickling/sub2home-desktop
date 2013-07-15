@@ -6818,21 +6818,27 @@ input[type="text"]#locationSelectionInput:focus {
 #balanceOrder #balanceOrderContainer #balanceOrderSettings #balanceOrderValue {
   float: left;
   position: relative;
+  top: 3px;
   text-align: left;
+  font-size: 37px;
+  color: #dc952b;
 }
 #balanceOrder #balanceOrderContainer #balanceOrderSettings #balanceOrderValue label {
   position: absolute;
-  bottom: 3px;
+  bottom: 6px;
   color: #cab06f;
   font-size: 14px;
 }
 #balanceOrder #balanceOrderContainer #balanceOrderSettings #balanceOrderValue input {
+  position: relative;
+  top: -3px;
   border-color: rgba(202, 176, 111, 0.5);
-  font-size: 37px;
-  color: #dc952b;
+  font-size: inherit;
+  color: inherit;
   height: 40px;
-  padding: 0 10px 0 185px;
+  padding: 0 40px 0 185px;
   width: 140px;
+  margin-right: -33px;
   text-align: right;
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;

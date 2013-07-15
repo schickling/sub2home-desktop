@@ -61,7 +61,7 @@ define([
 
 			'views.store.dashboard.invoice.download': {
 				text: 'Rechnung als PDF',
-				className: 'info left'
+				className: 'info'
 			}
 			
 		},
