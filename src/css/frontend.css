@@ -1844,32 +1844,39 @@ input[type="text"].money {
 .smallNote .icn {
   color: #cab06f;
 }
-.note .iBtn,
-.smallNote .iBtn,
-.note .menuComponentBlock,
-.smallNote .menuComponentBlock {
-  color: rgba(202, 176, 111, 0.5);
-  -webkit-transition: color 0.05s linear;
-  -moz-transition: color 0.05s linear;
-  -o-transition: color 0.05s linear;
-  transition: color 0.05s linear;
-}
-.note .iBtn:hover,
-.smallNote .iBtn:hover,
-.note .menuComponentBlock:hover,
-.smallNote .menuComponentBlock:hover,
-.note .iBtn:active,
-.smallNote .iBtn:active,
-.note .menuComponentBlock:active,
-.smallNote .menuComponentBlock:active {
-  color: #cab06f;
-}
 .iBtn {
   cursor: pointer;
 }
 a.iBtn,
 a.iBtn:hover {
   text-decoration: none;
+  color: inherit;
+}
+.note .iBtn,
+.smallNote .iBtn,
+.note a.iBtn,
+.smallNote a.iBtn,
+.note .menuComponentBlock,
+.smallNote .menuComponentBlock {
+  color: rgba(202, 176, 111, 0.5);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+.note .iBtn:hover,
+.smallNote .iBtn:hover,
+.note a.iBtn:hover,
+.smallNote a.iBtn:hover,
+.note .menuComponentBlock:hover,
+.smallNote .menuComponentBlock:hover,
+.note .iBtn:active,
+.smallNote .iBtn:active,
+.note a.iBtn:active,
+.smallNote a.iBtn:active,
+.note .menuComponentBlock:active,
+.smallNote .menuComponentBlock:active {
+  color: #cab06f;
 }
 .menuComponentBlock:before,
 .menuComponentBlock:after {

@@ -37,19 +37,6 @@
   }
 }
 
-.note, .smallNote {
-  .iBtn, .menuComponentBlock {
-    color: @onNoteColor50;
-    .transition(color .05s linear);
-    &:hover, &:active {
-      color: @onNoteColor;
-    }
-  }
-}
-
-
-
-// ----------------------------------------------------  Icons -------------------------------------------------------
 
 .iBtn {
   cursor: pointer;
@@ -57,6 +44,17 @@
 
 a.iBtn, a.iBtn:hover {
   text-decoration: none;
+  color: inherit;
+}
+
+.note, .smallNote {
+  .iBtn, a.iBtn, .menuComponentBlock {
+    color: @onNoteColor50;
+    .transition(color .1s linear);
+    &:hover, &:active {
+      color: @onNoteColor;
+    }
+  }
 }
 
 .menuComponentBlock {
@@ -68,6 +66,9 @@ a.iBtn, a.iBtn:hover {
     color: @grayLighter;
   }
 }
+
+// ----------------------------------------------------  Icons -------------------------------------------------------
+
 
 // Articles ---------------------------
 // ------------------------------------
