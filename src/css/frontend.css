@@ -6257,7 +6257,7 @@ input[type="text"]#locationSelectionInput:focus {
   color: #9cc83e;
   margin-bottom: 40px;
 }
-#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth i {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth .bDocument {
   display: none;
 }
 #orderControls {
