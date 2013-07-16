@@ -92,6 +92,9 @@ module.exports = function (grunt) {
 			copyIndexHtml: {
 				command: 'cp $(pwd)/../src/index.html $(pwd)/' + distFolder + 'index.html'
 			},
+			copyFavicon: {
+				command: 'cp $(pwd)/../src/favicon.ico $(pwd)/' + distFolder + 'favicon.ico'
+			},
 			copyBrowserFolder: {
 				command: 'cp -r $(pwd)/../src/browser $(pwd)/' + distFolder + 'browser'
 			},
@@ -136,6 +139,7 @@ module.exports = function (grunt) {
 		'exec:makeDistFolder',
 		'exec:copyHtaccess',
 		'exec:copyIndexHtml',
+		'exec:copyFavicon',
 		'exec:copyBrowserFolder',
 		'exec:copyMobileFolder',
         'exec:createRequireJsDir',
