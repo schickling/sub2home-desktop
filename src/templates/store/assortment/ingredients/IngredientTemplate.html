@@ -1,6 +1,6 @@
 <div class="iBtn bEye <% if (isActive) { %>open<% } %>"></div>
 <img class="itemPreview" src="<%= image %>" alt="" >
-<h3><%= title %><span>(<%= buyed %>x gekauft)</span><%= info %></h3>
+<h3><%= title %><% if (info) { %><span class="sizeLabel"><%= info %></span><% } %><span>(<%= buyed %>x gekauft)</span></h3>
 
 <% if (priceDiffers) {  %>
 <div class="iBtn bReset"></div>
