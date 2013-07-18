@@ -39,7 +39,7 @@ define([
 
 		_markPaymentMethods: function () {
 
-			var paymentMethods = ['cash', 'ec', 'paypal'],
+			var paymentMethods = ['cash', 'ec'],
 				$paymentMethods = this.$('#paymentMethods').find('.threeColumn');
 
 			_.each(paymentMethods, function (paymentMethod) {
