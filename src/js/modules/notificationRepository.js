@@ -427,7 +427,7 @@ define([
 
 			'views.store.tray.orderFailed': {
 				title: 'Das ging leider schief',
-				description: 'Es tut uns leid, wir konnten deine Bestellung nicht abschicken. Dir bleibt aber immer noch die Möglichkeit, anzurufen. Ohne Schnickschnack, von Mensch zu Mensch. 08331 83 38 433',
+				description: 'Es tut uns leid, wir konnten deine Bestellung nicht abschicken. Dir bleibt aber immer noch die Möglichkeit, anzurufen. Die Nummer findest Du im Info-Bereich.',
 				className: 'error'
 			},
 
