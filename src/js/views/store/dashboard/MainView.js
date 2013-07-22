@@ -19,6 +19,8 @@ define([
 			ordersView: null
 		},
 
+		template: _.template(MainTemplate),
+
 		initialize: function () {
 
 			// for authentification reload the store model
@@ -45,7 +47,11 @@ define([
 
 		_render: function () {
 
-			this.$el.html(MainTemplate);
+			var json = {
+				title: this.model.get('title')
+			};
+
+			this.$el.html(this.template(json));
 
 			this._renderOrders();
 
