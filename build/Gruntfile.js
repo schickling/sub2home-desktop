@@ -147,26 +147,29 @@ module.exports = function (grunt) {
     ]);
 
 	grunt.registerTask('dev', [
-        'exec:linkSrcJS',
-        'exec:linkSrcTemplates'
-    ]);
+		'exec:linkSrcJS',
+		'exec:linkSrcTemplates'
+		]);
 
 	grunt.registerTask('test', [
-        'jshint'
-    ]);
+		'jshint'
+		]);
 
 	grunt.registerTask('build:dev', [
-        'test',
-        'requirejs:development',
-        'less:development',
-        'prepareRequireJs'
-    ]);
+		'test',
+		'requirejs:development',
+		'less:development',
+		'prepareRequireJs'
+		]);
 
 	grunt.registerTask('build:prod', [
-        'test',
-        'prepareRequireJs',
-        'requirejs:production',
-        'less:production'
-    ]);
+		'test',
+		'prepareRequireJs',
+		'requirejs:production',
+		'less:production'
+		]);
 
+	grunt.registerTask('default', [
+		'build:prod'
+		]);
 };
