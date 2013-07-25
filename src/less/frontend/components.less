@@ -2265,6 +2265,16 @@ input[type="text"]#locationSelectionInput {
     .positioned;
     cursor: pointer;
     padding: 45px;
+
+    .notice {
+      top: auto;
+      bottom: -50px;
+      left: 160px;
+      right: auto;
+      width: 250px;
+      color: @onNoteColor50;
+      .transition(color .1s linear)
+    }
     
     &:after {
       content: " ";
@@ -2282,6 +2292,11 @@ input[type="text"]#locationSelectionInput {
       background: none;
       border: none;
 
+    }
+    
+    header {
+      position: relative;
+      .transition(left .3s ease);
     }
 
     img {
@@ -2315,11 +2330,18 @@ input[type="text"]#locationSelectionInput {
         }
       }
     }
-     
+    // .transition(background .1s linear);
     &:hover {
       .storeOverview>div {
         color: @onNoteColor;
       }
+      .notice {
+        color: @onNoteColor;
+      }
+      header {
+        left: -10px;
+      }
+
     }
   }
 }

@@ -5029,6 +5029,18 @@ input[type="text"]#locationSelectionInput:focus {
   cursor: pointer;
   padding: 45px;
 }
+#clientStores .clientStore .notice {
+  top: auto;
+  bottom: -50px;
+  left: 160px;
+  right: auto;
+  width: 250px;
+  color: rgba(202, 176, 111, 0.5);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
 #clientStores .clientStore:after {
   content: " ";
   height: 1px;
@@ -5043,6 +5055,13 @@ input[type="text"]#locationSelectionInput:focus {
   height: 0;
   background: none;
   border: none;
+}
+#clientStores .clientStore header {
+  position: relative;
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 #clientStores .clientStore img {
   height: 46px;
@@ -5079,6 +5098,12 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #clientStores .clientStore:hover .storeOverview > div {
   color: #cab06f;
+}
+#clientStores .clientStore:hover .notice {
+  color: #cab06f;
+}
+#clientStores .clientStore:hover header {
+  left: -10px;
 }
 #clientBasics {
   overflow: hidden;
@@ -9796,12 +9821,14 @@ aside#header {
   left: -30px;
   top: -2px;
 }
-.firefox #locationSelection .iCompass {
+.firefox #locationSelection #locationLoader {
   height: 50px;
-  bottom: 27px;
+  bottom: 28px;
 }
-.firefox #locationSelection label {
-  bottom: 26px;
+.firefox #locationSelection #locationLabel,
+.firefox #locationSelection #deliveryAreaLabel,
+.firefox #locationSelection #storeSelectionLabel {
+  bottom: 28px;
 }
 .firefox .flagFront h5 {
   top: 0;
