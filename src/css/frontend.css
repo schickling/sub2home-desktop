@@ -4203,6 +4203,7 @@ input[type="text"]#locationSelectionInput:focus {
   position: relative;
   display: inline-block;
   width: 265px;
+  height: 160px;
   margin: 22px;
   padding: 26px 25px;
   vertical-align: top;
@@ -7753,7 +7754,9 @@ div#payment > div.disabled .btn.active {
   width: 200px;
   height: 200px;
 }
-.slide .item .accentIngredient:before {
+.slide .item .accentIngredient:before,
+.slide .item .accentIngredient:after {
+  position: absolute;
   display: block;
   font-size: 215px;
   top: -2px;
@@ -7777,6 +7780,15 @@ div#payment > div.disabled .btn.active {
   opacity: 1;
   filter: alpha(opacity=100);
   color: #9cc83e;
+}
+.slide .item.selected .accentIngredient:before {
+  content: "\e052";
+  z-index: 2;
+}
+.slide .item.selected .accentIngredient:after {
+  content: "\e051";
+  color: #ffffff;
+  z-index: 1;
 }
 .slide.menuUpgrades {
   padding: 0 300px 0 0;

@@ -1456,6 +1456,7 @@ input[type="text"]#locationSelectionInput {
 // ---------------
 
 @itemWidth:   265px;
+@itemHeight:  160px;
 
 .items {
   display: inline-block;
@@ -1467,6 +1468,7 @@ input[type="text"]#locationSelectionInput {
   .positioned;
   display: inline-block;
   width: @itemWidth;
+  height: @itemHeight;
   margin: 22px;
   padding: 26px 25px;
   vertical-align: top;
@@ -1480,7 +1482,7 @@ input[type="text"]#locationSelectionInput {
   }
 
   img {
-    height: 160px;
+    height: @itemHeight;
     width: auto;
     cursor: pointer;
   }
@@ -4175,7 +4177,8 @@ div#payment {
       .backface-visibility(hidden);
       width: 200px;
       height: 200px;
-      &:before {
+      &:before, &:after {
+        position: absolute;
         display: block;
         font-size: 215px;
         top: -2px;
@@ -4201,6 +4204,15 @@ div#payment {
       .accentIngredient {
         .opacity(100);
         color: @greenLighter;
+        &:before {
+          content: "\e052";
+          z-index: 2;
+        }
+        &:after {
+          content: "\e051";
+          color: @white;
+          z-index: 1;
+        }
       }
     }
   }
