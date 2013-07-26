@@ -1,7 +1,7 @@
 <% if (isReady) { %>
 <div id="checkoutReadyControls">
-	<span class="orderNow">Bestellen</span> für <span id="price"><%= total.toFixed(2) %> €<span id="credit" class="<% if (hasTip) { %>hasCredit<% } else { %>hasNoCredit<% } %>"><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Zufriedene Gäste geben Trinkgeld.</i></span></span>, <span class="ifspace">bezahlen</span> <span id="paymentMethod" class="settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
-	und liefern <span id="deliveryAddress" class="settings"><span class="ifspace">an <%= firstName %> <%= lastName %> </span>nach <%= street %><% if (streetNumber) { %> <%= streetNumber %><% } %><i class="icn iEdit"></i></span><br>
+	<span class="orderNow">Bestellen</span> für <span id="price"><%= total.toFixed(2) %> €<span id="credit" class="<% if (hasTip) { %>hasCredit<% } else { %>hasNoCredit<% } %>"><i class="iBtn bRemove"></i><i class="iBtn iCredit"></i><i class="iBtn bAdd"></i><i class="notice rightHandAbove">Zufriedene Gäste geben Trinkgeld.</i></span></span>, <span class="ifSpace">bezahlen</span> <span id="paymentMethod" class="settings"><%= paymentMethod %><i class="icn iEdit"></i></span><br/>
+	und liefern <span id="deliveryAddress" class="settings"><span class="ifSpace">an <%= firstName %> <%= lastName %> </span>nach <%= street %><% if (streetNumber) { %> <%= streetNumber %><% } %><i class="icn iEdit"></i></span><br>
 	<div id="acceptAGB" class="notice leftHandBelow">Um zu bestellen, musst du unsere <span><i class="icn iDocument"></i>AGB</span> akzeptieren. Und dann Bestellen.</div>
 </div>
 <div class="icn" id="iAGB"></div>

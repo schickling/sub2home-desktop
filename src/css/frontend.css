@@ -3065,11 +3065,19 @@ img.cookie {
 .orderedArticle .notice {
   right: 143px;
   display: none;
+  height: 50px;
+}
+.orderedArticle .notice:before {
+  margin-top: -39px;
 }
 .orderedMenu .notice {
   right: 136px;
   top: -50px;
   display: none;
+  height: 50px;
+}
+.orderedMenu .notice:before {
+  margin-top: -39px;
 }
 .flag {
   position: relative;
@@ -8809,6 +8817,15 @@ div#payment > div.disabled .btn.active {
   cursor: default;
   white-space: normal;
 }
+#checkoutBasicControls > span.ifSpace,
+#checkoutBasicControls #checkoutReadyControls > span.ifSpace {
+  cursor: inherit;
+  white-space: inherit;
+}
+#checkoutBasicControls > span.ifSpace:hover,
+#checkoutBasicControls #checkoutReadyControls > span.ifSpace:hover {
+  color: inherit;
+}
 #checkoutBasicControls > span#paymentMethod,
 #checkoutBasicControls #checkoutReadyControls > span#paymentMethod,
 #checkoutBasicControls > span#deliveryAddress,
@@ -9550,6 +9567,10 @@ aside.infoNavigation ul li.active {
   -moz-border-radius: 500px;
   border-radius: 500px;
 }
+.ifspace {
+  text-decoration: none;
+  cursor: default;
+}
 .note .well {
   padding: 20px;
   behavior: url(../css/border-radius.htc);
@@ -9752,7 +9773,7 @@ aside#header {
     width: 240px;
     margin-top: 8px;
   }
-  #checkoutReadyControls span.ifspace {
+  #checkoutReadyControls .ifSpace {
     display: none !important;
   }
 }
