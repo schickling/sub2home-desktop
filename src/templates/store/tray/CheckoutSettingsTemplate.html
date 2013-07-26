@@ -55,4 +55,8 @@
 </div>
 <div id="paymentSettings">
 	Du zahlst <% if (allowsPaymentCash) { %><span data-method="cash" id="bar" <% if (selectedPaymentMethod === 'cash') { %>class="selected"<% } %>>Bar</span><% } %><% if (allowsPaymentEc) { %><span data-method="ec" id="ecCard" <% if (selectedPaymentMethod === 'ec') { %>class="selected"<% } %>>mit EC-Karte</span><% } %><% if (allowsPaymentPaypal) { %><span data-method="paypal" id="paypal" <% if (selectedPaymentMethod === 'paypal') { %>class="selected"<% } %>>via PayPal</span><% } %>
+
+	<!-- <div class="notice aboveRight">
+		Gib deine Daten bitte so ein, dass wir Dich schnell finden und im Notfall erreichen können.
+	</div> -->
 </div>

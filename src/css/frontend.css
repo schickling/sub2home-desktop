@@ -5034,7 +5034,6 @@ input[type="text"]#locationSelectionInput:focus {
   bottom: -50px;
   left: 160px;
   right: auto;
-  width: 250px;
   color: rgba(202, 176, 111, 0.5);
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
@@ -5168,6 +5167,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #clientBasics #triggerEditPassword #submitNewPassword {
   float: left;
+  display: inline-block;
   height: 38px;
   *display: inline;
   /* IE7 inline-block hack */
@@ -5226,7 +5226,7 @@ input[type="text"]#locationSelectionInput:focus {
   padding: 10px 24px;
   width: 42px;
   margin-top: 30px;
-  display: inline-block;
+  cursor: default;
   opacity: 0.5;
   filter: alpha(opacity=50);
   display: none;
@@ -5291,6 +5291,7 @@ input[type="text"]#locationSelectionInput:focus {
 #clientBasics #triggerEditPassword #submitNewPassword.valid {
   opacity: 1;
   filter: alpha(opacity=100);
+  cursor: pointer;
 }
 #clientBasics #triggerEditPassword #cancelEditPassword {
   float: left;
@@ -5352,6 +5353,7 @@ input[type="text"]#locationSelectionInput:focus {
   padding: 10px 13px;
   display: inline-block;
   margin: 30px 0 0 10px;
+  display: none;
 }
 #clientBasics #triggerEditPassword #cancelEditPassword:hover,
 #clientBasics #triggerEditPassword #cancelEditPassword:active,
@@ -9749,6 +9751,9 @@ aside#header {
   #checkoutBonusOptions #subcardOption span {
     width: 240px;
     margin-top: 8px;
+  }
+  #checkoutReadyControls span.ifspace {
+    display: none !important;
   }
 }
 @media (max-width: 1018px) {

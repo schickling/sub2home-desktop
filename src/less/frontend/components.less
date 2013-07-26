@@ -309,6 +309,17 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
+// Checkout Settings Notice
+
+// #checkoutSettings .notice {
+//   color: rgba(255,255,255,0.25);
+//   width: 210px;
+//   right: 0;
+//   top: 30px;
+//   // display: none;
+
+// }
+
 // OrderedItem Amount Notice
 
 .orderedArticle .notice {
@@ -321,6 +332,7 @@ img.cookie    { margin: 0 -10px;}
     top: -50px;
     display: none;
 }
+
 
 
 // Category- / Menu-Flags
@@ -2271,7 +2283,6 @@ input[type="text"]#locationSelectionInput {
       bottom: -50px;
       left: 160px;
       right: auto;
-      width: 250px;
       color: @onNoteColor50;
       .transition(color .1s linear)
     }
@@ -2412,11 +2423,12 @@ input[type="text"]#locationSelectionInput {
       padding: 10px 24px;
       width: 42px;
       margin-top: 30px;
-      display: inline-block;
+      cursor: default;
       .opacity(50);
       display: none;
       &.valid {
         .opacity(100);
+        cursor: pointer;
       }
     }
     #cancelEditPassword {
@@ -2427,7 +2439,7 @@ input[type="text"]#locationSelectionInput {
       padding: 10px 13px;
       display: inline-block;
       margin: 30px 0 0 10px;
-      //display: none;
+      display: none;
       .iClose;
       &:before {
         font-family: "Homicons";
