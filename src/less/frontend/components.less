@@ -2850,12 +2850,15 @@ input[type="text"]#locationSelectionInput {
         text-transform: uppercase;
         .positioned;
 
-         .bDocument {
+         .iBtn {
            position: absolute;
            top: 0;
            right: -34px;
            width: 30px;
            height: 30px;
+           &.bInvoiceList {
+            right: -63px;
+           }
 
          }
       }
@@ -2880,7 +2883,7 @@ input[type="text"]#locationSelectionInput {
           color: @greenLighter;
           margin-bottom: 40px;
         }
-        .turnoverMonth .bDocument {
+        .turnoverMonth .iBtn {
           display: none;
         }
       }

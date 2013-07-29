@@ -2266,6 +2266,14 @@ a.iBtn:hover {
 .bExplorer:before {
   content: "\e091";
 }
+.iInvoiceCoin:before,
+.bInvoiceCoin:before {
+  content: "\e092";
+}
+.iInvoiceList:before,
+.bInvoiceList:before {
+  content: "\e093";
+}
 #toTheInfo:before {
   content: "\e068";
 }
@@ -6264,12 +6272,15 @@ input[type="text"]#locationSelectionInput:focus {
   text-transform: uppercase;
   position: relative;
 }
-#revenuesNote #revenues .turnover .turnoverMonth .bDocument {
+#revenuesNote #revenues .turnover .turnoverMonth .iBtn {
   position: absolute;
   top: 0;
   right: -34px;
   width: 30px;
   height: 30px;
+}
+#revenuesNote #revenues .turnover .turnoverMonth .iBtn.bInvoiceList {
+  right: -63px;
 }
 #revenuesNote #revenues .turnoverYear:first-child:before {
   display: none;
@@ -6292,7 +6303,7 @@ input[type="text"]#locationSelectionInput:focus {
   color: #9cc83e;
   margin-bottom: 40px;
 }
-#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth .bDocument {
+#revenuesNote #revenues .turnoverYear:first-child .turnover:first-child .turnoverMonth .iBtn {
   display: none;
 }
 #orderControls {
@@ -9566,10 +9577,6 @@ aside.infoNavigation ul li.active {
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
-}
-.ifspace {
-  text-decoration: none;
-  cursor: default;
 }
 .note .well {
   padding: 20px;
