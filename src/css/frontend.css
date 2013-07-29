@@ -3940,6 +3940,8 @@ input[type="text"]#locationSelectionInput:focus {
   position: absolute;
   left: 0px;
   top: 18px;
+  height: 54px;
+  width: 54px;
 }
 #homeNote .notice {
   width: 300px;
