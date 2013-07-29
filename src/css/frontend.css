@@ -3918,28 +3918,28 @@ input[type="text"]#locationSelectionInput:focus {
   left: 50%;
   margin-left: -60px;
   bottom: 16px;
-  font-size: 61px;
-  height: 50px;
-  width: 50px;
+  font-size: 52px;
+  height: 54px;
+  width: 54px;
   color: rgba(202, 176, 111, 0.7);
   font-family: "Homicons";
 }
 #locationSelection #locationLoader:before {
-  content: "\e092";
+  content: "\e094";
   position: absolute;
-  left: -5px;
+  left: 0;
   top: 18px;
 }
 #locationSelection #location {
   font-size: inherit;
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
 }
 #locationSelection #location:before {
-  content: "\e093";
+  content: "\e095";
   position: absolute;
-  left: -5px;
-  top: 17px;
+  left: 0px;
+  top: 18px;
 }
 #homeNote .notice {
   width: 300px;
