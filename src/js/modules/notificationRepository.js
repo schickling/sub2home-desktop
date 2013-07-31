@@ -180,7 +180,7 @@ define([
 
 			'views.home.home.selectDeliveryArea': {
 				title: 'Noch etwas genauer',
-				description: 'Um dir den richtigen Service bieten zu können, müssen wir noch etwas genauer wissen, wo du dich befindest. Das wars dann aber, versprochen.',
+				description: 'Um dir den richtigen Service bieten zu können, müssen wir noch etwas genauer wissen, wo du dich befindest.',
 				className: 'info'
 			},
 

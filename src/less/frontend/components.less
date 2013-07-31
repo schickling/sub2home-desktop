@@ -5266,13 +5266,18 @@ div#payment {
     cursor: pointer;
   }
   
-  &.hasCode {
+  &.hasCode, &.valid {
     input {
-      color: @greenLight;
+      color: @greenLighter;
       width: 390px;
     }
     label {
       display: none;
+    }
+  }
+  &.valid {
+    input {
+      color: @greenLight;
     }
   }
 
