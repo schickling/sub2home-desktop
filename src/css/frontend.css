@@ -8757,12 +8757,17 @@ div#payment > div.disabled .btn.active {
   font-family: "VAGRoundedStd-Thin";
   cursor: pointer;
 }
-#gratisCookieOption.hasCode input {
-  color: #57a827;
+#gratisCookieOption.hasCode input,
+#gratisCookieOption.valid input {
+  color: #9cc83e;
   width: 390px;
 }
-#gratisCookieOption.hasCode label {
+#gratisCookieOption.hasCode label,
+#gratisCookieOption.valid label {
   display: none;
+}
+#gratisCookieOption.valid input {
+  color: #57a827;
 }
 #subcardOption {
   position: relative;
