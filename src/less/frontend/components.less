@@ -5266,20 +5266,21 @@ div#payment {
     cursor: pointer;
   }
   
-  &.hasCode, &.valid {
+  &.hasCode {
     input {
-      color: @greenLighter;
+      color: @orange;
       width: 390px;
     }
     label {
       display: none;
     }
-  }
-  &.valid {
-    input {
-      color: @greenLight;
+    &.valid {
+      input {
+        color: @greenLight;
+      }
     }
   }
+  
 
 }
 #subcardOption {
