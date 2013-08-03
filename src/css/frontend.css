@@ -4101,8 +4101,8 @@ input[type="text"]#locationSelectionInput:focus {
   height: inherit;
   height: 70px;
   position: relative;
-  top: 50%;
-  margin-top: -42px;
+  top: 0;
+  margin-top: 32px;
 }
 #categoriesNavigation #categoriesNavigationContainer,
 #sectionsNavigation #categoriesNavigationContainer {
@@ -9704,7 +9704,7 @@ aside#header {
     width: 48%;
   }
 }
-@media (min-width: 1200px) and (max-width: 1300px) {
+@media (max-width: 1300px) {
   .onlyOnLarge {
     display: none;
   }
