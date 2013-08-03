@@ -10,8 +10,9 @@ define([
     'models/stateModel',
     'views/assets/mapStyles',
     'views/home/home/StoreView',
+    'views/home/home/PromotionView',
     'collections/StoresCollection'
-    ], function ($, jqueryRotate, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, StoresCollection) {
+    ], function ($, jqueryRotate, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, PromotionView, StoresCollection) {
 
 	"use strict";
 
@@ -36,6 +37,8 @@ define([
 			'keydown #locationSelectionInput': '_checkInputKeyDown'
 		},
 
+		promotionView: null,
+
 		// cached dom
 		$homeNote: null,
 		$search: null,
@@ -52,6 +55,8 @@ define([
 		initialize: function () {
 
 			this._cacheDom();
+
+			this._createPromotionView();
 
 			this._loadStores();
 			this._loadMap();
@@ -72,6 +77,12 @@ define([
 			this.$storeSelectionLabel = this.$homeNote.find('#storeSelectionLabel');
 			this.$mapContainer = this.$('#mapContainer');
 			this.$map = this.$mapContainer.find('#map');
+		},
+
+		_createPromotionView: function () {
+			this.promotionView = new PromotionView({
+				el: this.$('#suggestStore')
+			});
 		},
 
 		_loadStores: function () {
@@ -201,8 +212,8 @@ define([
 			// show tooltip on wrong input
 			if (e.keyCode < 48 || e.keyCode > 57) { // Ensure that it is a number
 				if (e.keyCode == 46 || e.keyCode == 8 || e.keyCode == 13 || // Allow backspace, delete and enter
-				e.keyCode > 95 && e.keyCode < 106 || // allow numblock
-				e.keyCode > 36 && e.keyCode < 41) { // allow arrow keys
+					e.keyCode > 95 && e.keyCode < 106 || // allow numblock
+					e.keyCode > 36 && e.keyCode < 41) { // allow arrow keys
 					notificationcenter.hideTooltip();
 				} else {
 					offset = this.$search.offset();
@@ -257,6 +268,7 @@ define([
 				}
 
 				this._unfocusSearch();
+				this._hidePromotionView();
 
 			} else {
 				this._noStoresFound();
@@ -380,6 +392,7 @@ define([
 
 			this._focusSearch();
 			this._centerMapToNotFoundPostal();
+			this._showPromotionView();
 		},
 
 		_selectStoreNotification: function () {
@@ -470,6 +483,14 @@ define([
 				marginLeft: -174
 			});
 
+		},
+
+		_showPromotionView: function () {
+			this.promotionView.show();
+		},
+
+		_hidePromotionView: function () {
+			this.promotionView.hide();
 		},
 
 		destroy: function () {

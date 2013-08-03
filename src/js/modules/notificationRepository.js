@@ -190,6 +190,18 @@ define([
 				className: 'warning'
 			},
 
+			'views.home.home.promotion.success': {
+				title: 'Dankeeeeee',
+				description: 'Du bist Klasse!.',
+				className: 'success'
+			},
+
+			'views.home.home.promotion.error': {
+				title: 'Damn it',
+				description: 'Du bist trotzdem Klasse!.',
+				className: 'error'
+			},
+
 
 
 			// store.assortment
