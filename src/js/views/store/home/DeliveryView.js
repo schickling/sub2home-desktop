@@ -1,4 +1,4 @@
-// Filename: src/js/views/store/config/AddressView.js
+// Filename: src/js/views/store/config/DeliveryView.js
 define([
     'jquery',
     'underscore',
@@ -10,7 +10,7 @@ define([
 
 	"use strict";
 
-	var AddressView = Backbone.View.extend({
+	var DeliveryView = Backbone.View.extend({
 
 		template: _.template(DeliveryTemplate),
 
@@ -49,14 +49,15 @@ define([
 				nextDeliveryTime += nextDeliveryTimeModel.getStartTime();
 			}
 
-
 			var json = {
 				area: area,
 				postal: selectedDeliveryAreaModel.get('postal'),
 				minimumDuration: selectedDeliveryAreaModel.get('minimumDuration'),
 				isDelivering: storeModel.isDelivering(),
-				nextDeliveryTime: nextDeliveryTime
+				nextDeliveryTime: nextDeliveryTime,
 			};
+
+			this._checkWidth(area);
 
 			this.$el.html(this.template(json));
 
@@ -139,6 +140,8 @@ define([
 				$currentDeliveryAreaInList.removeClass('selected');
 				$newDeliveryArea.addClass('selected');
 
+				this._checkWidth(newDeliveryArea);
+
 			}
 
 			// slide up
@@ -201,10 +204,16 @@ define([
 			$note.animate({
 				height: 150
 			});
+		},
+
+		_checkWidth: function (area) {
+			var areaIsTooLong = area.length > 13;
+
+			this.$el.toggleClass('shrink', areaIsTooLong);
 		}
 
 	});
 
-	return AddressView;
+	return DeliveryView;
 
 });
