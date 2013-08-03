@@ -42,7 +42,7 @@ define([
 
 			this.$articles.each(function () {
 				$articleHeader = $(this).find('header h1');
-				$newListItem = $('<li>' + $articleHeader.text() + '</li>');
+				$newListItem = $('<li>' + $articleHeader.attr('data-nav') + '</li>');
 
 				$navigationList.append($newListItem);
 			});
@@ -69,7 +69,7 @@ define([
 						currentIndex = -1;
 
 						$articles.each(function () {
-							if ($(this).position().top < 90) {
+							if ($(this).offset().top <= 150) {
 								currentIndex++;
 							}
 						});
@@ -104,7 +104,7 @@ define([
 			var $currentNavigationItem = $(e.target),
 				currentIndex = $currentNavigationItem.index(),
 				$currentArticle = this.$articles.eq(currentIndex),
-				scrollTop = $currentArticle.position().top + this.$content.scrollTop() - 50,
+				scrollTop = $currentArticle.offset().top + this.$content.scrollTop() - 100,
 				self = this;
 
 

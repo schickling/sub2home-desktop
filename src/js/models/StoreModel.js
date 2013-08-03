@@ -16,6 +16,7 @@ define([
 		defaults: {
 			title: '',
 			alias: '',
+			facebookUrl: '',
 
 			// payment methods
 			allowsPaymentCash: false,

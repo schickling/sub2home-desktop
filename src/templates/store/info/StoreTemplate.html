@@ -1,31 +1,30 @@
 <article id="infoStoreContact">
 	<header>
-		<h1 id="hotline"><span>Hotline</span>08331 833 57 07</h1>
-		<h3>SUBWAY® <%= title %> <span>(Store-Nr. 41234)</span></h3>
+		<h1 id="hotline" data-nav="Hotline"><span>Hotline</span><%= phone %></h1>
+		<h3>SUBWAY® <%= title %></h3>
 	</header>
 	<div class="threeColumn">
 		<p>
-			Maximilianstr. 7<br>
-			87700 Memmingen
+			<%= street %> <%= streetNumber %><br>
+			<%= postal %> <%= city %>
 		</p>
 	</div>
 	<div class="threeColumn">
 		<p>
-			<i class="icn iPhone"></i> 08331 833 57 07<br>
-			<i class="icn iFax"></i> 08331 833 84 34
+			<i class="icn iPhone"></i> <%= phone %><br>
 		</p>
 	</div>
 	<div class="threeColumn">
 		<p>
-			<a href="mailto:kontakt@my-sub.com"><i class="icn iMail"></i> kontakt@my-sub.com</a><br>
-			<a href="http://facebook.com/subway.memmingen"><i class="icn iFacebook"></i> / subway.memmingen</a>
+			<a href="mailto:<%= email %>"><i class="icn iMail"></i> <%= email %></a><br>
+			<a href="<%= facebookUrl %>"><i class="icn iFacebook"></i> / <%= facebookUrl.replace('https://www.facebook.com/', '') %></a>
 		</p>
 	</div>
 </article>
 
 <article id="storeInfoPlaceholder">
 	<header>
-		<h1>Lieferzeiten</h1><!-- <span>SUBWAY® <%= title %></span> -->
+		<h1 data-nav="Lieferzeiten">Lieferzeiten</h1>
 	</header>
 	<div class="threeColumn">
 		<div class="weekday" data-day="1">
@@ -68,7 +67,7 @@
 
 <article id="infoPaymentMethods">
 	<header>
-		<h1>Zahlungsarten</h1>
+		<h1 data-nav="Zahlungsarten">Zahlungsarten</h1>
 	</header>
 		<div class="threeColumn cash">
 			<header>

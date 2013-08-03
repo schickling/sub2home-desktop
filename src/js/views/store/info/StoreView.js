@@ -19,9 +19,18 @@ define([
 
 		_render: function () {
 
-			var json = {
-				title: this.model.get('title')
-			};
+			var storeModel = this.model,
+				addressModel = storeModel.get('addressModel'),
+				json = {
+					title: storeModel.get('title'),
+					phone: addressModel.get('phone'),
+					street: addressModel.get('street'),
+					streetNumber: addressModel.get('streetNumber'),
+					postal: addressModel.get('postal'),
+					city: addressModel.get('city'),
+					email: addressModel.get('email'),
+					facebookUrl: storeModel.get('facebookUrl'),
+				};
 
 			this.$el.html(this.template(json));
 
@@ -43,7 +52,7 @@ define([
 				$paymentMethods = this.$('#paymentMethods').find('.threeColumn');
 
 			_.each(paymentMethods, function (paymentMethod) {
-				
+
 				var capitalizedPaymentMethod = paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1),
 					storeAllowsPaymentMethod = this.model.get('allowsPayment' + capitalizedPaymentMethod);
 
@@ -52,7 +61,7 @@ define([
 				}
 
 			}, this);
-			
+
 		}
 
 	});
