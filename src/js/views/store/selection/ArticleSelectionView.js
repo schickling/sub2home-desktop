@@ -100,8 +100,6 @@ define([
 
 				menuComponentOptionTitle = menuComponentOptionModel.get('title');
 
-				console.log(menuComponentOptionTitle, index);
-
 				if (index === 0) {
 					title += menuComponentOptionTitle;
 				} else if (index === (menuComponentOptionsCollection.length - 1)) {
