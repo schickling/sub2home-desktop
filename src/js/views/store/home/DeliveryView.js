@@ -188,7 +188,7 @@ define([
 
 		_expandNote: function () {
 			var $note = this.$el.parents('#storeNote'),
-				additionalHeight = this.$deliveryAreas.height() - 33;
+				additionalHeight = this.$deliveryAreas.height() - 39;
 
 			$note.animate({
 				height: 150 + additionalHeight
