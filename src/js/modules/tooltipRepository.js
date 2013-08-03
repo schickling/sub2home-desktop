@@ -33,12 +33,12 @@ define([
 				text: 'Store-Übersicht',
 				className: 'info'
 			},
-			
+
 			'views.header.store.dashboard': {
 				text: 'Bestellungen & Umsätze',
 				className: 'info'
 			},
-			
+
 			'views.header.store.assortment': {
 				text: 'Sortiment-Einstellungen',
 				className: 'info'
@@ -48,7 +48,7 @@ define([
 				text: 'Store-Einstellungen',
 				className: 'info'
 			},
-			
+
 			'views.header.logout': {
 				text: 'Logout',
 				className: 'info'
@@ -62,8 +62,13 @@ define([
 			'views.store.dashboard.invoice.download': {
 				text: 'Rechnung als PDF',
 				className: 'info'
-			}
-			
+			},
+
+			'views.store.config.testOrder': {
+				text: 'Testbestellung',
+				className: 'info'
+			},
+
 		},
 
 		getTooltipModel: function (alias, data) {

@@ -15,6 +15,8 @@ define([
 		events: {
 			'focusout #storeDescriptionInput': '_updateDescription',
 			'focusout #storeOrderingContactInput': '_updateOrderEmail',
+			'mouseenter #bMail': '_tooltipForTestOrder',
+			'mouseleave .iBtn': '_dismissTooltip',
 			'click #bMail': '_sendTestOrder',
 			'click #storeOpen': '_toggleOpen',
 			// payment methods
@@ -153,6 +155,15 @@ define([
 					notificationcenter.notify('views.store.config.info.error');
 				}
 			});
+		},
+
+		_tooltipForTestOrder: function () {
+			var offset = this.$('#bMail').offset();
+			notificationcenter.tooltip('views.store.config.testOrder', offset.top + 24, offset.left + 15);
+		},
+
+		_dismissTooltip: function () {
+			notificationcenter.hideTooltip();
 		}
 
 	});
