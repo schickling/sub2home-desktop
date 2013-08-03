@@ -90,17 +90,17 @@ define([
 		_getTitle: function () {
 			var menuComponentBlockModel = this.model.get('menuComponentBlockModel'),
 				menuComponentOptionsCollection = menuComponentBlockModel.get('menuComponentOptionsCollection'),
-				menuComponentOptionTitle, title;
+				menuComponentOptionTitle, title = '';
 
 			if (menuComponentOptionsCollection.length === 1) {
 				title = 'Wähle dein ';
-			} else {
-				title = 'Wähle zwischen ';
 			}
 
 			_.each(menuComponentOptionsCollection.models, function (menuComponentOptionModel, index) {
 
 				menuComponentOptionTitle = menuComponentOptionModel.get('title');
+
+				console.log(menuComponentOptionTitle, index);
 
 				if (index === 0) {
 					title += menuComponentOptionTitle;
