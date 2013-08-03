@@ -8,5 +8,7 @@
 <div class="icn orderNow" id="iCart"></div>
 
 <% } else { %>
-Nur noch deine <span id="deliveryAddress" class="settings">Lieferadresse angeben<i class="icn iEdit"></i></span><br/>und dann bestellen für <span id="price"><%= total.toFixed(2) %> €
+
+<span id="emphasizeCheckout">Nur noch deine <span id="deliveryAddress" class="settings">Lieferadresse angeben<i class="icn iEdit"></i></span></span><br/>und dann bestellen für <span id="price"><%= total.toFixed(2) %> €
+
 <% } %>

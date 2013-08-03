@@ -83,7 +83,7 @@ define([
 			$iAGB.fadeOut(100);
 
 			$iCart.animate({
-				right: 10,
+				'margin-right': 10,
 				color: $.Color('rgba(156,200,62,0.4)')
 			}, 150, function () {
 				cartModel.set('termsAccepted', true);

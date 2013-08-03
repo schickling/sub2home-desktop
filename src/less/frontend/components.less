@@ -1369,6 +1369,7 @@ input[type="text"]#locationSelectionInput {
 
 #storeDeliveryDetails {
   position: absolute;
+  width: 50%;
   top: 96px;
   right: 20px;
   text-align: right;
@@ -4992,7 +4993,7 @@ div#payment {
 // ---------------------------
 
 #checkoutControls {
-  padding: 0 0 50px;
+  padding: 0;
   width: 100%;
   overflow: hidden;
   //background: @darkNote;
@@ -5182,7 +5183,7 @@ div#payment {
     right: 0;
     bottom: -1px;
     height: 1px;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.7);
   }
 }
 
@@ -5321,17 +5322,28 @@ div#payment {
 
   .positioned;
   text-align: right;
-  margin: 50px 8% 100px;
+  padding: 50px 8% 150px;
   font-size: 40px;
   font-family: @headingsFontFamily;
   color: @onDarkNoteColor50;
   line-height: 1.5;
+  background: @slightlyDarkNote;
+  // .transition(background .1s ease);
+  // &:hover {
+  //   background: @rlyDarkNote;
+  // }
 
   #checkoutReadyControls {
     padding: 25px 185px 0 0;
   }
 
-  >span, #checkoutReadyControls >span {
+  span#price {
+    color: @onDarkNoteColor;
+    cursor: default;
+    white-space: normal;
+  }
+
+  #emphasizeCheckout >span, #checkoutReadyControls >span {
     .transition(color .1s linear);
     white-space: pre-wrap;
     cursor: pointer;
@@ -5343,11 +5355,6 @@ div#payment {
     &#setDeliveryAddress, &.orderNow {
       color: @onDarkNoteColor;
       border-bottom: 2px solid @onDarkNoteColor;
-    }
-    &#price {
-      color: @onDarkNoteColor;
-      cursor: default;
-      white-space: normal;
     }
 
     &.ifSpace {
@@ -5391,10 +5398,26 @@ div#payment {
       }
     }
   }
+
+  #emphasizeCheckout {
+    color: @greenLight;
+    >span#deliveryAddress {
+      border-bottom: 2px solid @greenLight50;
+      &:hover {
+        color: @greenLight;
+        border-bottom-color: @greenLight;
+      }
+      .iEdit {
+        color: @greenLight;
+      }
+    }
+  }
+
   #iCart, #iAGB {
     position: absolute;
-    right: 10px;
-    top: 32px;
+    right: 8%;
+    margin-right: 10px;
+    top: 82px;
     width: 130px;
     height: 123px;
     cursor: pointer;
@@ -5414,7 +5437,7 @@ div#payment {
   
   #iCart {
     color: @onNoteColor20;
-    right: -150px;
+    margin-right: -150px;
     // .transition(e('color .1s linear, right .3s ease-in-out'));
     cursor: default;
     &:hover {
@@ -5512,12 +5535,12 @@ div#payment {
     }
 
     #iCart {
-      right: 10px;
+      margin-right: 10px;
       color: @greenLighter40;
       cursor: pointer;
       &:hover {
         color: @greenLighter !important;
-        right: 10px;
+        margin-right: 10px;
       }
     }
   }
@@ -5525,8 +5548,9 @@ div#payment {
 }
 
 #acceptAGB {
-  right: 180px;
-  top: 180px;
+  right: 8%;
+  margin-right: 180px;
+  top: 230px;
   span {
     cursor: pointer;
     .transition(color .1s linear);
@@ -5893,10 +5917,6 @@ aside.infoNavigation {
         color: @white;
         text-shadow: 0 2px 2px rgba(0,0,0,0.7);
         margin: 0 0 15px 0;
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
       }
 
       p {
@@ -5908,6 +5928,18 @@ aside.infoNavigation {
         margin-bottom: 15px;
       }
       
+      h3, p {
+        a {
+          color: inherit;
+          text-decoration: none;
+          .transition(e('color .1s linear, text-shadow .1s linear'));
+          &:hover {
+            color: @black;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+          }
+        }
+      }
+
       >p {
         margin-left: 20px;
       }
@@ -5947,6 +5979,34 @@ aside.infoNavigation {
       .iEdenred {
         font-size: 160px;
         margin-top: 16px;
+      }
+
+      &#infoStoreContact {
+        #hotline {
+          color: @white;
+          text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+
+          span {
+            font-size: 24px;
+            margin-right: 20px;
+          }
+        }
+        h3 {
+          margin-left: 20px;
+        }
+        
+        .icn {
+          font-size: 24px;
+          margin-right: 5px;
+          &:before {
+            top: 0;
+          }
+          &.iFacebook {
+            margin-right: 0;
+          }
+        }
+
+
       }
 
       &#howItWorks {

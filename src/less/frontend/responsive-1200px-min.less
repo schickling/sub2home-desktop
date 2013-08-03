@@ -79,16 +79,22 @@ aside#header {
 // Header & store.home
 // ------
 
+@headerWidth-1360:   52%;
+
 @media (max-width: 1360px) {
 
   aside#header {
-    width: 52%;
+    width: @headerWidth-1360;
     #currentInfo {
       max-width: 30%;
       span {
         max-width: 80%;
       }
     }
+  }
+
+  #storeDeliveryDetails {
+    width: @headerWidth-1360;
   }
 
   #categoriesNavigation {
@@ -104,17 +110,22 @@ aside#header {
 }
 
 
+@headerWidth-1277:  52%;
 
 @media (max-width: 1277px) {
 
   aside#header {
-    width: 52%;
+    width: @headerWidth-1277;
     
     #currentInfo {
       max-width: 30%;
       span {
         max-width: 80%;
       }
+    }
+
+    #storeDeliveryDetails {
+      width: @headerWidth-1277;
     }
 
     i.imgIcn {
@@ -134,22 +145,27 @@ aside#header {
   }
 }
 
+@headerWidth-1200:  58%;
+
 @media (max-width: 1200px) {
   #categoriesNavigation {
     display: none;
   }
   
-  aside#header {
-    width: 58%;
+  aside#header, #storeDeliveryDetails {
+    width:  @headerWidth-1200;
   }
 
 }
+
+
+@headerWidth-1186:  58%;
 
 @media (max-width: 1186px) {
 
   aside#header {
 
-    width: 58%;
+    width: @headerWidth-1186;
     
     #currentInfo {
       span {
@@ -170,11 +186,18 @@ aside#header {
       }
     }
   }
+
+  #storeDeliveryDetails {
+    width: @headerWidth-1186;
+  }
+
 }
 
+@headerWidth-1015:  60%;
+
 @media (max-width: 1015px) {
-  aside#header {
-    width: 60px;
+  aside#header, #storeDeliveryDetails {
+    width: @headerWidth-1015;
   }
 }
 
