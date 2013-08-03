@@ -17,7 +17,10 @@ define([
 		events: {
 			'click i': '_download',
 			'mouseenter i': '_showTooltip',
-			'mouseleave i': '_hideTooltip'
+			'mouseleave i': '_hideTooltip',
+			'mouseenter .bInvoiceCoin': '_tooltipForInvoice',
+			'mouseenter .bInvoiceList': '_tooltipForAttachment',
+			'mouseleave .iBtn': '_dismissTooltip',
 		},
 
 		className: 'turnover',
@@ -75,6 +78,20 @@ define([
 				notificationcenter.hideTooltip();
 
 			}
+		},
+
+		_tooltipForInvoice: function () {
+			var offset = this.$('.bInvoiceCoin').offset();
+			notificationcenter.tooltip('views.store.dashboard.invoice.invoice', offset.top + 24, offset.left + 15);
+		},
+
+		_tooltipForAttachment: function () {
+			var offset = this.$('.bInvoiceList').offset();
+			notificationcenter.tooltip('views.store.dashboard.invoice.attachment', offset.top + 24, offset.left + 15);
+		},
+
+		_dismissTooltip: function () {
+			notificationcenter.hideTooltip();
 		}
 
 	});

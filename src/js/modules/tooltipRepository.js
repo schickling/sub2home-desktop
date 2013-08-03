@@ -19,11 +19,6 @@ define([
 				className: 'warning'
 			},
 
-			'store.dashboard.invoice.download': {
-				text: 'Rechnung herunterladen',
-				className: 'info'
-			},
-
 			'views.header.client.config': {
 				text: 'Stammdaten',
 				className: 'info'
@@ -59,13 +54,18 @@ define([
 				className: 'info left'
 			},
 
-			'views.store.dashboard.invoice.download': {
-				text: 'Rechnung als PDF',
+			'views.store.config.testOrder': {
+				text: 'Testbestellung',
 				className: 'info'
 			},
 
-			'views.store.config.testOrder': {
-				text: 'Testbestellung',
+			'views.store.dashboard.invoice.invoice': {
+				text: 'Rechnung als PDF herunterladen',
+				className: 'info'
+			},
+
+			'views.store.dashboard.invoice.attachment': {
+				text: 'Anhang als PDF herunterladen',
 				className: 'info'
 			},
 
