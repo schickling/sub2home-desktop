@@ -706,6 +706,70 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.9);
+  
+  #popupContainer {
+    position: absolute;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    width: 690px;
+    margin: -185px 0 0 -345px;
+    background: @noteBackground;
+    .border-radius(3px);
+    border: 1px solid @noteBorderColor;
+    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
+    header {
+      // height: 61px;
+      border-bottom: 1px solid @noteBorderColor;
+      padding: 19px 40px 14px;
+      h3 {
+        text-align: left;
+        color: @onNoteColor;
+        span {
+          color: @orange;
+        }
+      }
+    }
+    #message {
+      border-top: 1px solid rgba(255,255,255,0.9);
+      border-bottom: 1px solid @noteBorderColor;
+      padding: 20px 40px 0;
+      .positioned;
+      div {
+        width: 100%;
+        height: 40px;
+        border-top: 1px solid @onNoteColor30;
+        border-bottom: 1px solid @onNoteColor30;
+        margin-top: 40px;
+      }
+      textarea {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        .border-box;
+        width: 100%;
+        background: none;
+        font-family: @headingsFontFamily;
+        line-height: 41px;
+        color: @onDarkNoteColor;
+        border: none;
+        padding: 20px 50px 0;
+        font-size: 24px;
+        resize: none;
+      }
+    }
+  }
+}
+
+
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
@@ -1314,6 +1378,57 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
+
+#suggestStore {
+  
+  #popupContainer #message {
+    padding-bottom: 40px;
+  }
+
+  #suggestStoreFooter {
+    border-top: 1px solid rgba(255,255,255,0.9);
+    padding: 30px 40px 20px;
+    .clearfix;
+  }
+
+  #suggestStoreDescription {
+    .pull-left;
+    font-family: @headingsFontFamily;
+    font-size: 16px;
+    color: @onNoteColor;
+    text-align: left;
+    .transition(color .1s linear);
+    &:hover {
+      a {
+        color: @onNoteColor70;
+      }
+    }
+    a {
+      font-size: 65px;
+      display: inline-block;
+      color: @onNoteColor50;
+      .transition(color .1s linear);
+      &:hover {
+        color: @onNoteColor;
+      }
+    }
+    span {
+      display: inline-block;
+       margin: 3px 0 0 20px;
+      vertical-align: top;
+      
+    }
+  }
+
+  #submitStoreSuggestion {
+    .pull-right;
+    .btn;
+    .btnSuccess;
+    padding: 12px 14px 8px;
+    height: 20px;
+    margin-top: 6px;
+  }
+}
 
 
 
@@ -3368,66 +3483,11 @@ input[type="text"]#locationSelectionInput {
   }
 }
 
-.popup {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255,255,255,0.9);
-  #popupContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 690px;
-    margin: -185px 0 0 -345px;
-    background: @noteBackground;
-    .border-radius(3px);
-    border: 1px solid @noteBorderColor;
-    .box-shadow(0 0 5px 0 rgba(0,0,0,0.2));
-    header {
-      height: 61px;
-      border-bottom: 1px solid @noteBorderColor;
-      padding-top: 19px;
-      h3 {
-        color: @onNoteColor;
-        span {
-          color: @orange;
-        }
-      }
-    }
-    #message {
-      border-top: 1px solid rgba(255,255,255,0.9);
-      border-bottom: 1px solid @noteBorderColor;
-      padding: 20px 40px 0;
-      .positioned;
-      div {
-        width: 100%;
-        height: 40px;
-        border-top: 1px solid @onNoteColor30;
-        border-bottom: 1px solid @onNoteColor30;
-        margin-top: 40px;
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-      textarea {
-        position: absolute;
-        top: 8px;
-        left: 0;
-        .border-box;
-        width: 100%;
-        background: none;
-        font-family: @headingsFontFamily;
-        line-height: 41px;
-        color: @onDarkNoteColor;
-        border: none;
-        padding: 20px 50px 0;
-        font-size: 24px;
-        resize: none;
-      }
-    }
+
+
+#balanceOrder #message {
+  div:last-child {
+    border-bottom: none;
   }
 }
 
@@ -3491,6 +3551,8 @@ input[type="text"]#locationSelectionInput {
     }
   }
 }
+
+
 
 
 #noOrders {
