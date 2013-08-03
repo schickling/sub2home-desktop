@@ -14,6 +14,8 @@ define([
 
 		template: _.template(DeliveryTemplate),
 
+		$deliveryAreas: null,
+
 		events: {
 			'click #currentDeliveryArea.editable': '_showAllDeliveryAreas',
 			'click #deliveryAreas span': '_selectDeliveryArea'
@@ -21,6 +23,10 @@ define([
 
 		initialize: function () {
 			this._render();
+		},
+
+		_cacheDom: function () {
+			this.$deliveryAreas = this.$('#deliveryAreas');
 		},
 
 		_render: function () {
@@ -54,6 +60,8 @@ define([
 
 			this.$el.html(this.template(json));
 
+			this._cacheDom();
+
 			this._checkIfEditable();
 
 			this._renderDeliveryAreas();
@@ -80,7 +88,7 @@ define([
 				matchingDeliveryAreaModels = deliveryAreasCollection.where({
 					postal: selectedDeliveryAreaModel.get('postal')
 				}),
-				$deliveryAreas = this.$('#deliveryAreas'),
+				$deliveryAreas = this.$deliveryAreas,
 				$deliveryArea;
 
 			_.each(matchingDeliveryAreaModels, function (deliveryAreaModel) {
@@ -147,6 +155,8 @@ define([
 
 			$deliveryAreas.delay(120).fadeIn(150);
 
+			this._expandNote();
+
 		},
 
 		_hideAllDeliveryAreas: function () {
@@ -159,6 +169,7 @@ define([
 				top: 96
 			}, 200);
 
+			this._contractNote();
 		},
 
 		_getWeekDay: function (dayOfWeek) {
@@ -173,6 +184,23 @@ define([
 			};
 
 			return weekdays[dayOfWeek];
+		},
+
+		_expandNote: function () {
+			var $note = this.$el.parents('#storeNote'),
+				additionalHeight = this.$deliveryAreas.height() - 33;
+
+			$note.animate({
+				height: 150 + additionalHeight
+			});
+		},
+
+		_contractNote: function () {
+			var $note = this.$el.parents('#storeNote');
+
+			$note.animate({
+				height: 150
+			});
 		}
 
 	});

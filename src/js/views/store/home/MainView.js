@@ -80,7 +80,6 @@ define([
 				$content = this.$('.content'),
 				$categories = $content.find('#categories');
 
-
 			var categoriesView = new CategoriesView({
 				el: $categories
 			});
