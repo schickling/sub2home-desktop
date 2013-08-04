@@ -133,11 +133,13 @@ define([
 				}
 
 				if (response.hasOwnProperty('createdAt')) {
-					response.createdDate = new Date(response.createdAt);
+					var c = response.createdAt;
+					response.createdDate = new Date(c.substr(0, 4), c.substr(5, 2), c.substr(8, 2), c.substr(11, 2), c.substr(14, 2), c.substr(17, 2));
 				}
 
 				if (response.hasOwnProperty('dueAt') && response.dueAt) {
-					response.dueDate = new Date(response.dueAt);
+					var d = response.dueAt;
+					response.dueDate = new Date(d.substr(0, 4), d.substr(5, 2), d.substr(8, 2), d.substr(11, 2), d.substr(14, 2), d.substr(17, 2));
 				}
 
 				return response;
