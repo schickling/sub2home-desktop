@@ -134,12 +134,12 @@ define([
 
 				if (response.hasOwnProperty('createdAt')) {
 					var c = response.createdAt;
-					response.createdDate = new Date(c.substr(0, 4), c.substr(5, 2), c.substr(8, 2), c.substr(11, 2), c.substr(14, 2), c.substr(17, 2));
+					response.createdDate = new Date(c.substr(0, 4), c.substr(5, 2) - 1, c.substr(8, 2), c.substr(11, 2), c.substr(14, 2), c.substr(17, 2));
 				}
 
 				if (response.hasOwnProperty('dueAt') && response.dueAt) {
 					var d = response.dueAt;
-					response.dueDate = new Date(d.substr(0, 4), d.substr(5, 2), d.substr(8, 2), d.substr(11, 2), d.substr(14, 2), d.substr(17, 2));
+					response.dueDate = new Date(d.substr(0, 4), d.substr(5, 2) - 1, d.substr(8, 2), d.substr(11, 2), d.substr(14, 2), d.substr(17, 2));
 				}
 
 				return response;
