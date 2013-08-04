@@ -191,14 +191,14 @@ define([
 			},
 
 			'views.home.home.promotion.success': {
-				title: 'Dankeeeeee',
-				description: 'Du bist Klasse!.',
+				title: 'Vielen Dank!',
+				description: 'Wir haben deinen Vorschlag erhalten und kümmern uns umgehend darum.',
 				className: 'success'
 			},
 
 			'views.home.home.promotion.error': {
-				title: 'Damn it',
-				description: 'Du bist trotzdem Klasse!.',
+				title: 'Das ging leider schief',
+				description: 'Du kannst uns aber auch gerne eine Mail an storevorschlag@sub2home.com schreiben.',
 				className: 'error'
 			},
 
