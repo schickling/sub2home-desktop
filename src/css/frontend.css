@@ -5323,6 +5323,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #clientStores .clientStore header {
   position: relative;
+  left: 0px;
   -webkit-transition: left 0.3s ease;
   -moz-transition: left 0.3s ease;
   -o-transition: left 0.3s ease;
@@ -10121,6 +10122,9 @@ aside#header {
 }
 .firefox #checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
   top: 41px;
+}
+.firefox div#roleSwitch .icn.iSettings:before {
+  top: -12px;
 }
 .win .slide .item.ingredient .smallNote .pricetag:before,
 .win .slide .item.ingredient .smallNote .pricetag:after {
