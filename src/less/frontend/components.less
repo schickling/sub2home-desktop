@@ -6085,8 +6085,9 @@ aside.infoNavigation {
       }
 
       &#howItWorks {
+        margin-top: 0;
         div {
-          margin-right: 30px;
+          margin: 0 30px 0 0;
           text-align: center;
         }
       }
@@ -6098,9 +6099,9 @@ aside.infoNavigation {
       &#storeInfoPlaceholder {
         font-size: 60px;
         font-family: @headingsFontFamily;
-        color: @onInfoColor70;
+        color: @onInfoColor60;
         text-shadow: 0 1px 0 rgba(255,255,255,0.15);
-        margin: 70px 0;
+        margin: 10% 0 0;
         line-height: 1.2;
         overflow: hidden;
       }
@@ -6164,6 +6165,11 @@ aside.infoNavigation {
             //text-align: right;
           }
         }
+      }
+    }
+    &#homeInfo:first-child {
+      #howItWorks {
+        margin-top: 100px;
       }
     }
   }
