@@ -6601,8 +6601,11 @@ input[type="text"]#locationSelectionInput:focus {
 #orderControls .bRefresh {
   margin: 7px 10px 0 0;
   height: 27px;
+  width: 27px;
 }
 #orderControls .bRefresh:before {
+  width: 27px;
+  height: 27px;
   top: -2px;
 }
 .content.orders {
