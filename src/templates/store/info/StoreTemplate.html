@@ -13,7 +13,9 @@
 		<p>
 			<i class="icn iPhone"></i> <%= phone %><br>
 			<a href="mailto:<%= email %>"><i class="icn iMail"></i> <%= email %></a><br>
+			<% if (facebookUrl) { %>
 			<a href="<%= facebookUrl %>"><i class="icn iFacebook"></i> / <%= facebookUrl.replace('https://www.facebook.com/', '') %></a>
+			<% } %>
 		</p>
 	</div>
 </article>
