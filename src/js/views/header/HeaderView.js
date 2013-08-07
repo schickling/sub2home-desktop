@@ -158,7 +158,7 @@ define([
 			}
 		},
 
-		_goToInfo: function() {
+		_goToInfo: function () {
 			if (stateModel.currentRouteIsStoreRelated()) {
 				router.navigate('store/info', true);
 			} else {
@@ -166,8 +166,14 @@ define([
 			}
 		},
 
-		_startUservoice: function() {
-			showClassicWidget();
+		_startUservoice: function () {
+			var UserVoice = window.UserVoice || [];
+
+			UserVoice.push(['showLightbox', 'classic_widget', {
+				mode: 'support',
+				primary_color: '#cc6d00',
+				link_color: '#007dbf'
+	  		}]);
 		}
 
 	});
