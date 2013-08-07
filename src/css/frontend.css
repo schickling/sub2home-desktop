@@ -274,6 +274,7 @@ aside#header:before {
   height: 81px;
   width: 74px;
   top: 0;
+  z-index: inherit;
 }
 aside#header .separator {
   width: 1px;
@@ -3223,6 +3224,49 @@ img.cookie {
   content: "\e079";
   color: #1e715c;
 }
+#feedbackFlag {
+  position: absolute;
+  height: 52px;
+  width: 78px;
+  background-color: #9cc83e;
+  border: 1px solid #94c037;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  left: -84px;
+  top: 7px;
+  z-index: 8998;
+  cursor: pointer;
+  -webkit-transition: left 0.2s ease;
+  -moz-transition: left 0.2s ease;
+  -o-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+}
+#feedbackFlag:before,
+#feedbackFlag:after {
+  font-family: "Homicons";
+  position: absolute;
+  top: 17px;
+  color: #6f9029;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+#feedbackFlag:before {
+  content: "\e099";
+  font-size: 55px;
+  left: -19px;
+}
+#feedbackFlag:after {
+  content: "\e098";
+  font-size: 42px;
+  left: 22px;
+}
+#feedbackFlag:hover {
+  left: -144px;
+}
 #magnifier {
   background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/magnifier.png") no-repeat;
   height: 90px;
@@ -3567,7 +3611,7 @@ aside#header #logo {
   height: auto;
   margin: 12px 0 0 -50px;
   position: relative;
-  z-index: 2;
+  z-index: 8999;
   float: left;
   cursor: pointer;
 }

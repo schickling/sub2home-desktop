@@ -487,7 +487,47 @@ img.cookie    { margin: 0 -10px;}
 
 
 
+// FEEDBACK-FLAG
 
+@feedbackFlagColor:   @greenLighter;
+
+#feedbackFlag {
+  position: absolute;
+  height: 52px;
+  width: 78px;
+  background-color: @feedbackFlagColor;
+  border: 1px solid darken(@feedbackFlagColor,3%);
+  .border-radius(2px);
+  .box-shadow(0 1px 6px rgba(0,0,0,0.25));
+  left: -84px;
+  top: 7px;
+  z-index: 8998;
+  cursor: pointer;
+  .transition(left .2s ease);
+  &:before, &:after {
+    font-family: "Homicons";
+    position: absolute;
+    top: 17px;
+    color: darken(@feedbackFlagColor,15%);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  &:before {
+    content: "\e099";
+    font-size: 55px;
+    left: -19px;
+  }
+  
+  &:after {
+    content: "\e098";
+    font-size: 42px;
+    left: 22px;
+  }
+
+  &:hover {
+     left: -144px;
+  }  
+}
 
 
 // TIMELINE-LIKE NAVIGATION
@@ -785,7 +825,7 @@ aside#header {
     height: auto;
     margin: 12px 0 0 -50px;
     .positioned;
-    z-index:2;
+    z-index:8999;
     float: left;
     cursor: pointer;
   }
