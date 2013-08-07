@@ -9531,13 +9531,12 @@ aside.infoNavigation {
 }
 aside.infoNavigation:after {
   content: " ";
-  background: rgba(255, 255, 255, 0.1);
+  background: #000000;
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 1px;
-  border-left: 1px solid #000000;
 }
 aside.infoNavigation ul {
   list-style-type: none;
@@ -9558,27 +9557,13 @@ aside.infoNavigation ul li.active {
 }
 .content.info .container {
   margin-left: 310px;
-  padding: 50px 50px 80px 80px;
+  padding: 0;
   width: auto;
 }
-.content.info .container#storeInfo {
-  padding-bottom: 50px;
-  overflow: hidden;
-  position: relative;
-}
-.content.info .container#storeInfo:after {
-  content: " ";
-  background: rgba(255, 255, 255, 0.1);
-  height: 1px;
-  border-top: 1px solid #000000;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 .content.info .container article {
-  margin-top: 100px;
+  padding: 50px 50px 50px 80px;
   text-align: left;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 .content.info .container article header h1 {
   font-size: 60px;
@@ -9690,10 +9675,6 @@ aside.infoNavigation ul li.active {
   margin: 0 30px 0 0;
   text-align: center;
 }
-.content.info .container article#impressum {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
 .content.info .container article#storeInfoPlaceholder header h1 {
   font-size: 60px;
   font-family: "VAGRoundedStd-Thin";
@@ -9733,8 +9714,8 @@ aside.infoNavigation ul li.active {
   color: #ffffff;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   position: absolute;
-  left: 500px;
-  top: -15px;
+  left: 580px;
+  top: 35px;
   -webkit-transition: text-shadow 0.1s linear;
   -moz-transition: text-shadow 0.1s linear;
   -o-transition: text-shadow 0.1s linear;
@@ -9747,7 +9728,11 @@ aside.infoNavigation ul li.active {
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.7);
 }
 .content.info .container article#nutritionInfo .iBtn.bAdditives {
-  left: 660px;
+  left: 740px;
+}
+.content.info .container#storeInfo {
+  overflow: hidden;
+  position: relative;
 }
 .content.info .container .weekday {
   position: relative;
@@ -9782,6 +9767,21 @@ aside.infoNavigation ul li.active {
 .content.info .container#homeInfo:first-child #howItWorks {
   margin-top: 100px;
 }
+#officeContact {
+  background: rgba(0, 0, 0, 0.1);
+  padding-top: 80px;
+  position: relative;
+}
+#officeContact:before {
+  content: " ";
+  background: rgba(255, 255, 255, 0.1);
+  height: 1px;
+  border-top: 1px solid #000000;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: 0;
+}
 #officeContact header {
   margin-bottom: 50px;
 }
@@ -9805,6 +9805,14 @@ aside.infoNavigation ul li.active {
 }
 #officeContact .icn.iFacebook {
   margin-right: 0;
+}
+#impressum {
+  background: rgba(0, 0, 0, 0.1);
+}
+#impressum header,
+#impressum div {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 #error404 {
   position: absolute;
