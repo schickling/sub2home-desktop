@@ -21,7 +21,8 @@ define([
 		events: {
 			'click #logo': '_goToHomeHome',
 			'click #roleSwitch': '_switchContentView',
-			'click #toTheInfo': '_goToInfo'
+			'click #toTheInfo': '_goToInfo',
+			'click #feedbackFlag': '_startUservoice'
 		},
 
 		initialize: function () {
@@ -163,6 +164,10 @@ define([
 			} else {
 				router.navigate('info', true);
 			}
+		},
+
+		_startUservoice: function() {
+			showClassicWidget();
 		}
 
 	});
