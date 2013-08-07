@@ -9694,12 +9694,12 @@ aside.infoNavigation ul li.active {
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
-.content.info .container article#storeInfoPlaceholder {
+.content.info .container article#storeInfoPlaceholder header h1 {
   font-size: 60px;
   font-family: "VAGRoundedStd-Thin";
   color: rgba(0, 0, 0, 0.6);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
-  margin: 10% 0 0;
+  margin: 0;
   line-height: 1.2;
   overflow: hidden;
 }
