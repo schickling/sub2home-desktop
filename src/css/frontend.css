@@ -9580,7 +9580,8 @@ aside.infoNavigation ul li.active {
   margin-left: 20px;
 }
 .content.info .container article .threeColumn,
-.content.info .container article .twoColumn {
+.content.info .container article .twoColumn,
+.content.info .container article .fluidColumn {
   display: inline-block;
   width: 32%;
   -webkit-box-sizing: border-box;
@@ -9588,6 +9589,9 @@ aside.infoNavigation ul li.active {
   box-sizing: border-box;
   padding: 0 20px;
   vertical-align: top;
+}
+.content.info .container article .fluidColumn {
+  width: auto;
 }
 .content.info .container article .threeColumn.inactive {
   opacity: 0.3;
@@ -9654,6 +9658,24 @@ aside.infoNavigation ul li.active {
   margin: 10% 0 0;
   line-height: 1.2;
   overflow: hidden;
+}
+.content.info .container article#infoDeliveryAreas p {
+  font-family: "VAGRoundedStd-Thin";
+  font-size: 24px;
+  display: inline-block;
+}
+.content.info .container article#infoDeliveryAreas h3 {
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  display: inline-block;
+  width: 84px;
+}
+.content.info .container article#infoDeliveryAreas span {
+  font-size: 16px;
+}
+.content.info .container article#infoDeliveryAreas .infoDeliveryArea:first-child h3 {
+  visibility: visible;
 }
 .content.info .container article#nutritionInfo {
   position: relative;

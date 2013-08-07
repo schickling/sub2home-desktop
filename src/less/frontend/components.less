@@ -6019,14 +6019,17 @@ aside.infoNavigation {
         margin-left: 20px;
       }
 
-      .threeColumn, .twoColumn {
+      .threeColumn, .twoColumn, .fluidColumn {
         display: inline-block;
         width: 32%;
         .border-box;
         padding: 0 20px;
         vertical-align: top;
       }
-
+      
+      .fluidColumn {
+        width: auto;
+      }
 
       .threeColumn {
         &.inactive {
@@ -6104,6 +6107,32 @@ aside.infoNavigation {
         margin: 10% 0 0;
         line-height: 1.2;
         overflow: hidden;
+      }
+
+      &#infoDeliveryAreas {
+
+          p {
+            font-family: @headingsFontFamily;
+            font-size: 24px;
+            display: inline-block;
+          }
+
+          h3 {
+            color: @white;
+            text-shadow: 0 2px 2px rgba(0,0,0,0.7);
+            visibility: hidden;
+            display: inline-block;
+            width: 84px;
+          }
+          span {
+            font-size: 16px;
+          }
+
+        .infoDeliveryArea:first-child {
+          h3 {
+            visibility: visible;
+          }
+        }
       }
 
 
