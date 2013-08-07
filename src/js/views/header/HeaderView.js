@@ -173,7 +173,7 @@ define([
 				mode: 'support',
 				primary_color: '#cc6d00',
 				link_color: '#007dbf'
-	  		}]);
+			}]);
 		}
 
 	});

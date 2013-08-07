@@ -25,7 +25,7 @@ define([
 				district: this.model.get('district'),
 				minimumDuration: this.model.get('minimumDuration'),
 				minimumValue: this.model.get('minimumValue'),
-			}
+			};
 
 			this.$el.html(this.template(json));
 		}
