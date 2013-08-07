@@ -9734,6 +9734,9 @@ aside.infoNavigation ul li.active {
   overflow: hidden;
   position: relative;
 }
+.content.info .container#storeInfo article:first-child {
+  padding-top: 150px;
+}
 .content.info .container .weekday {
   position: relative;
   margin-bottom: 40px;
