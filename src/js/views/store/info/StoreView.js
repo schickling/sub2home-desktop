@@ -43,7 +43,7 @@ define([
 
 		_renderDeliveryTimes: function () {
 			new DeliveryTimesView({
-				el: this.$('#storeInfoPlaceholder'),
+				el: this.$('#infoDeliveryTimes'),
 				collection: this.model.get('deliveryTimesCollection')
 			});
 		},
