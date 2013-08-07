@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'views/store/info/DeliveryTimesView',
+    'views/store/info/DeliveryAreasView',
     'text!templates/store/info/StoreTemplate.html'
-    ], function ($, _, Backbone, DeliveryTimesView, StoreTemplate) {
+    ], function ($, _, Backbone, DeliveryTimesView, DeliveryAreasView, StoreTemplate) {
 
 	"use strict";
 
@@ -35,6 +36,7 @@ define([
 			this.$el.html(this.template(json));
 
 			this._renderDeliveryTimes();
+			this._renderDeliveryAreas();
 			this._markPaymentMethods();
 
 		},
@@ -43,6 +45,13 @@ define([
 			new DeliveryTimesView({
 				el: this.$('#storeInfoPlaceholder'),
 				collection: this.model.get('deliveryTimesCollection')
+			});
+		},
+
+		_renderDeliveryAreas: function () {
+			new DeliveryAreasView({
+				el: this.$('#infoDeliveryAreas'),
+				collection: this.model.get('deliveryAreasCollection')
 			});
 		},
 

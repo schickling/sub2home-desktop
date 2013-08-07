@@ -8,7 +8,11 @@ define([
 
 	var DeliveryAreasCollection = Backbone.Collection.extend({
 
-		model: DeliveryAreaModel
+		model: DeliveryAreaModel,
+
+		comparator: function(deliveryAreaModel) {
+			return deliveryAreaModel.get('postal');
+		}
 
 	});
 
