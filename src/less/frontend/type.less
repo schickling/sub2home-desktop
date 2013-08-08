@@ -2,17 +2,49 @@
 // Typography
 // --------------------------------------------------
 
-// Selection Overriding
+// Text-Selection Overriding
 // -------------------------
 
+
+// General Selection-Style
+
 *::selection {
- // background: @greenLighter20;
-  background: rgba(0,0,0,0);
+ background: rgba(0,0,0,0.05);
   }
 *::-moz-selection {
- // background: @greenLighter20;
-  background: rgba(0,0,0,0);
+ background: @greenLighter20;
 }
+
+
+// Selection-Style on Note-backgrounds
+
+.note, .popup, .smallNote, .detailsArticle {
+  *::selection {
+    background: @onNoteColor30;
+  }
+}
+
+.note, .popup, .smallNote, .detailsArticle {
+  *::-moz-selection {
+    background: @onNoteColor30;
+  }
+}
+
+
+// Selection-Style on dark backgrounds
+
+.info, #checkoutSettings {
+  *::selection {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+.info, #checkoutSettings {
+  *::-moz-selection {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
 
 // Body text
 // -------------------------

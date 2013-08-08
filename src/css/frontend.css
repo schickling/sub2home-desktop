@@ -537,10 +537,30 @@ aside#header .iInfo {
 
 */
 *::selection {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.05);
 }
 *::-moz-selection {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(156, 200, 62, 0.2);
+}
+.note *::selection,
+.popup *::selection,
+.smallNote *::selection,
+.detailsArticle *::selection {
+  background: rgba(202, 176, 111, 0.3);
+}
+.note *::-moz-selection,
+.popup *::-moz-selection,
+.smallNote *::-moz-selection,
+.detailsArticle *::-moz-selection {
+  background: rgba(202, 176, 111, 0.3);
+}
+.info *::selection,
+#checkoutSettings *::selection {
+  background: rgba(0, 0, 0, 0.1);
+}
+.info *::-moz-selection,
+#checkoutSettings *::-moz-selection {
+  background: rgba(0, 0, 0, 0.1);
 }
 p {
   margin: 0 0 9px;
