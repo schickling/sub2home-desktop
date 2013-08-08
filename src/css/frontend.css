@@ -10212,6 +10212,9 @@ aside#header {
 .chrome .slide .item .accentIngredient {
   left: -1px;
 }
+.chrome-30 div#roleSwitch .icn.iSettings:before {
+  top: -12px;
+}
 .safari .pricetag {
   padding-top: 20px;
 }
