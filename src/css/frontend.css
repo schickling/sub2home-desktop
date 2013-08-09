@@ -1835,6 +1835,9 @@ textarea:-ms-input-placeholder {
   text-align: center;
   color: #dc952b;
 }
+.invalidInput {
+  border-color: #dc952b !important;
+}
 input[type="text"].money {
   padding-right: 20px;
 }
