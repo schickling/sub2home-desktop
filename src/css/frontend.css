@@ -10049,7 +10049,7 @@ aside#header {
     display: none;
   }
 }
-@media (max-width: 1277px) {
+@media (max-width: 1305px) {
   aside#header {
     width: 52%;
   }
@@ -10067,12 +10067,6 @@ aside#header {
   }
   aside#header div#clientAreaNavigation .iBtn {
     padding: 24px 5px 0;
-  }
-  aside#header div#clientAreaNavigation #bStoreConfig {
-    padding-left: 12px;
-  }
-  aside#header div#clientAreaNavigation #bStoreDashboard {
-    padding-right: 12px;
   }
   aside#header div#clientAreaNavigation #bClientDashboard,
   aside#header div#clientAreaNavigation #bSignout {
@@ -10248,6 +10242,9 @@ aside#header {
 }
 .chrome .slide .item .accentIngredient {
   left: -1px;
+}
+.chrome-30 div#roleSwitch .icn.iSettings:before {
+  top: -12px;
 }
 .safari .pricetag {
   padding-top: 20px;
