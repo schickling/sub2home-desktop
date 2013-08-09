@@ -10246,6 +10246,15 @@ aside#header {
 .chrome-30 div#roleSwitch .icn.iSettings:before {
   top: -12px;
 }
+.chrome-30 #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
+  margin-top: -3px;
+}
+.chrome-30 #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile span {
+  top: -15px;
+}
+.chrome-30 #checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
+  top: 46px;
+}
 .safari .pricetag {
   padding-top: 20px;
 }
