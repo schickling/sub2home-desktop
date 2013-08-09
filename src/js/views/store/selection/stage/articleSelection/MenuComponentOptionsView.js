@@ -19,12 +19,20 @@ define([
 
 			this.collection = menuComponentBlockModel.get('menuComponentOptionsCollection');
 
-			this._renderMenuComponentOptions();
+			this._render();
 
 			this._listenForArticleSelection();
 
 			this._listenForDestory();
 
+		},
+
+		_render: function() {
+			this._renderMenuComponentOptions();
+
+			if (this.collection.length === 1) {
+				this.$el.addClass('noFlag');
+			}
 		},
 
 		_renderMenuComponentOptions: function () {

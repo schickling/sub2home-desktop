@@ -1,38 +1,17 @@
 // Filename: src/js/views/store/selection/SelectionView.js
 define([
     'jquery',
+    'jqueryHiddenHeight',
     'underscore',
     'backbone',
     'collections/TimelineItemsCollection',
     'views/store/selection/timeline/TimelineView'
-    ], function ($, _, Backbone, TimelineItemsCollection, TimelineView) {
+    ], function ($, jqueryHiddenHeight, _, Backbone, TimelineItemsCollection, TimelineView) {
 
 	"use strict";
 
-	// little hack to get height of hidden dom element
-	$.fn.hiddenHeight = function () {
-		var $this = $(this),
-			currentDisplay = $this.css('display'),
-			currentVisibility = $this.css('visibility'),
-			height;
-
-		$this.css({
-			display: 'block',
-			visibility: 'hidden'
-		});
-
-		height = $this.height();
-
-		$this.css({
-			display: currentDisplay,
-			visibility: currentVisibility
-		});
-
-		return height;
-	};
-
 	// global variable needed for info note sliding
-	var indexOfSelectionView = 0;
+	var selectionViewCounter = 0;
 
 
 	var SelectionView = Backbone.View.extend({
@@ -44,6 +23,8 @@ define([
 		 */
 
 		timelineItemsCollection: null,
+		timelineElementInsertIndex: null,
+		timelineItemInsertIndex: null,
 
 		// subviews
 		infoView: null,
@@ -51,6 +32,8 @@ define([
 		timelineView: null,
 
 		// dom
+		$slidesWrapper: null,
+		$infoWrapper: null,
 		$slideContainer: null,
 		$stageOverlay: null,
 
@@ -62,11 +45,16 @@ define([
 
 		initialize: function () {
 
+			this.$slidesWrapper = this.options.$slidesWrapper;
+			this.$infoWrapper = this.options.$infoWrapper;
+			this.timelineElementInsertIndex = this.options.timelineElementInsertIndex;
+			this.timelineItemInsertIndex = this.options.timelineItemInsertIndex;
+
 			// initialize timelineItemsCollection
 			this.timelineItemsCollection = new TimelineItemsCollection();
 
 			// prepare data
-			this.prepare();
+			this._prepare();
 
 			this._cacheDom();
 
@@ -82,17 +70,19 @@ define([
 
 		},
 
-		prepare: function () {},
+		_prepare: function () {},
 
 		_deliverTimelineItems: function () {
 			var orderedItemModel = this.model.get('orderedItemModel'),
 				timelineItemsCollectionOfOrderedItemModel = orderedItemModel.get('timelineItemsCollection');
 
-			timelineItemsCollectionOfOrderedItemModel.add(this.timelineItemsCollection.models);
+			timelineItemsCollectionOfOrderedItemModel.add(this.timelineItemsCollection.models, {
+				at: this.timelineItemInsertIndex
+			});
 
 			// append selection index to all items for info switching
 			_.each(this.timelineItemsCollection.models, function (timelineItemModel) {
-				timelineItemModel.set('selectionIndex', indexOfSelectionView);
+				timelineItemModel.set('selectionIndex', selectionViewCounter);
 			}, this);
 		},
 
@@ -104,12 +94,10 @@ define([
 		},
 
 		_increaseSelectionCounter: function () {
-			if (this.active) {
-				indexOfSelectionView++;
-			}
+			selectionViewCounter++;
 		},
 
-		_cacheDom: function() {
+		_cacheDom: function () {
 			this.$stageOverlay = this.$('#overlay');
 		},
 
@@ -135,21 +123,18 @@ define([
 		},
 
 		_renderInfoView: function () {
-			var $infoContainer = this.$('#infoContainer');
-
 			this.infoView = new this.infoViewClass({
 				model: this.model,
 				// needed to stop listeners
 				selectionView: this,
-				el: $infoContainer
+				el: this.$infoWrapper,
 			});
 		},
 
 		_renderStageView: function () {
-			var $stage = this.$('#stage'),
-				$slideContainer = $('<div class="slideContainer">');
+			var $slideContainer = $('<div class="slideContainer">');
 
-			$slideContainer.appendTo($stage);
+			$slideContainer.appendTo(this.$slidesWrapper);
 
 			this.$slideContainer = $slideContainer;
 
@@ -166,7 +151,8 @@ define([
 
 			this.timelineView = new TimelineView({
 				collection: this.timelineItemsCollection,
-				el: $timeline
+				el: $timeline,
+				insertIndex: this.timelineElementInsertIndex
 			});
 
 		},
@@ -183,10 +169,6 @@ define([
 				height: slideContainerHeight
 			});
 
-			this.$stageOverlay.css({
-				top: infoHeight + slideContainerHeight / 2
-			});
-
 			// realign slides
 			this.$slideContainer.trigger('align');
 		},
@@ -199,9 +181,6 @@ define([
 				this.infoView.remove();
 				this.stageView.remove();
 				this.timelineView.remove();
-
-				// decrease selection counter
-				indexOfSelectionView--;
 
 			}
 

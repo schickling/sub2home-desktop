@@ -1,7 +1,7 @@
 define([
     'jquery',
     'jqueryEasing',
-    'jqueryBrowserSelector',
+    'jqueryBrowserDetection',
     'jqueryPlaceholder',
     'underscore',
     'backbone',
@@ -9,7 +9,7 @@ define([
     'notificationcenter',
     'models/stateModel',
     'views/assets/transitions'
-], function ($, jqueryEasing, jqueryBrowserSelector, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) {
+], function ($, jqueryEasing, jqueryBrowserDetection, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) {
 
 	"use strict";
 
@@ -52,6 +52,9 @@ define([
 		_initializePage: function () {
 			this.$el.appendTo($('body'));
 			this._finalizeLoad();
+			$.browserDetection({
+				addClasses: true
+			});
 			pageWasInitialized = true;
 		},
 

@@ -2,18 +2,6 @@
 // Scaffolding
 // --------------------------------------------------
 
-// Global Variables
-
-@timelineHeight:        90px;
-@timelineSelfHeight:    140px;
-
-@noteStoreHeight:       150px;
-@noteSelectionHeight:   285px;
-
-@noteOrdersHeight:       95px;
-@noteOrdersHeight:       400px;
-
-
 
 // Body reset
 // -------------------------
@@ -196,20 +184,28 @@ aside#header {
   // Timeline
 
   &#timelineNote {
-    position: absolute;
+    position: absolute !important;
     right: 0;
     left: 0;
     z-index: 50;
     height: @timelineSelfHeight;
     bottom: -50px;
     text-align: center;
+    
+    #timelineContainerWrapper {
+      overflow: hidden;
+      position: relative;
+      cursor: -webkit-grab;
+      overflow: hidden;
+    }
 
     .container {
       .positioned;
       display: inline-block;
       .clearfix;
       text-align: center;
-      margin: 0;
+      margin: 0 60px;
+      height: 130px;
     }
 
     &:before{

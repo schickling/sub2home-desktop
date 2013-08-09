@@ -12,29 +12,23 @@ define([
 	var TimelineView = TimelineBaseView.extend({
 
 		render: function () {
-			var $stage = this.$('#stageTimeline'),
-				$stageCart = $stage.find('.itemsTimeline').last(),
+			var insertIndex = this.options.insertIndex || -1,
+				$stage = this.$('#stageTimeline'),
+				$stageInsertElement = $stage.find('.itemsTimeline').eq(insertIndex),
 				$overlay = this.$('#overlayFrameWrapperTimeline'),
-				$overlayCart = $overlay.find('.itemsTimeline').last(),
-				$stageContainer, $overlayContainer;
+				$overlayInsertElement = $overlay.find('.itemsTimeline').eq(insertIndex);
 
-			if ($stageCart.length === 0) { // cart not initalized
-				$stageContainer = $('<div class="itemsTimeline">').appendTo($stage);
-				$overlayContainer = $('<div class="itemsTimeline">').appendTo($overlay);
-			} else {
-				$stageContainer = $('<div class="itemsTimeline">').insertBefore($stageCart);
-				$overlayContainer = $('<div class="itemsTimeline">').insertBefore($overlayCart);
-			}
+			this.$stageContainer = $('<div class="itemsTimeline">').insertBefore($stageInsertElement);
+			this.$overlayContainer = $('<div class="itemsTimeline">').insertBefore($overlayInsertElement);
 
-			this.renderItemsStage($stageContainer);
-
-			this.renderItemsOverlay($overlayContainer);
+			this.renderItemsStage();
+			this.renderItemsOverlay();
 		},
 
-		renderItemsStage: function ($stageContainer) {
+		renderItemsStage: function () {
 			this.itemsStageView = new ItemsStageView({
 				collection: this.collection,
-				el: $stageContainer
+				el: this.$stageContainer
 			});
 		}
 

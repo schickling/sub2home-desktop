@@ -14,6 +14,9 @@ define([
 		itemsStageView: null,
 		itemsOverlayView: null,
 
+		$stageContainer: null,
+		$overlayContainer: null,
+
 		initialize: function () {
 			if (this.collection.length > 0) {
 				this.render();
@@ -22,26 +25,26 @@ define([
 
 		render: function () {
 			var $stage = this.$('#stageTimeline'),
-				$overlay = this.$('#overlayFrameWrapperTimeline'),
-				$stageContainer = $('<div class="itemsTimeline">').appendTo($stage),
-				$overlayContainer = $('<div class="itemsTimeline">').appendTo($overlay);
+				$overlay = this.$('#overlayFrameWrapperTimeline');
 
-			this.renderItemsStage($stageContainer);
+			this.$stageContainer = $('<div class="itemsTimeline">').appendTo($stage),
+			this.$overlayContainer = $('<div class="itemsTimeline">').appendTo($overlay);
 
-			this.renderItemsOverlay($overlayContainer);
+			this.renderItemsStage();
+			this.renderItemsOverlay();
 		},
 
-		renderItemsStage: function ($stageContainer) {
+		renderItemsStage: function () {
 			this.itemsStageView = new ItemsStageBaseView({
 				collection: this.collection,
-				el: $stageContainer
+				el: this.$stageContainer
 			});
 		},
 
-		renderItemsOverlay: function ($overlayContainer) {
+		renderItemsOverlay: function () {
 			this.itemsOverlayView = new ItemsOverlayBaseView({
 				collection: this.collection,
-				el: $overlayContainer
+				el: this.$overlayContainer
 			});
 		},
 

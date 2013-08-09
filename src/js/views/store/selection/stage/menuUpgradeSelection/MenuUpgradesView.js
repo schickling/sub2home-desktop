@@ -15,7 +15,7 @@ define([
 		/*
 		 * this.model: orderedArticleModel
 		 */
-		
+
 		$menuUpgradesContainer: null,
 
 		afterInitialize: function () {
@@ -35,6 +35,7 @@ define([
 		// needs to be overwritten because of no upgrade
 		adjustWidth: function () {
 			this.$el.width(window.innerWidth - 301);
+			this._centerVertically();
 		},
 
 		_renderMenuUpgrades: function () {
@@ -62,6 +63,17 @@ define([
 			});
 
 			this.$el.append(noUpgradeView.el);
+		},
+
+		_centerVertically: function () {
+			var $menuUpgradesContainer = this.$('.menuUpgradesContainer'),
+				slideHeight = this.$el.height(),
+				menuUpgradesHeight = $menuUpgradesContainer.height(),
+				marginTop = (slideHeight - menuUpgradesHeight) / 2;
+
+			$menuUpgradesContainer.css({
+				marginTop: marginTop
+			});
 		}
 
 	});

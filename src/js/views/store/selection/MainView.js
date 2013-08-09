@@ -1,6 +1,7 @@
 // Filename: src/js/views/store/selection/MainView.js
 define([
     'jquery',
+    'jqueryOverscroll',
     'underscore',
     'backbone',
     'models/cartModel',
@@ -13,9 +14,9 @@ define([
     'views/PageView',
     'views/store/selection/TimelineControllerView',
     'views/store/selection/OrderedArticlesView',
-    'views/store/selection/timeline/TimelineView',
+    'views/store/selection/timeline/CartTimelineView',
     'text!templates/store/selection/MainTemplate.html'
-    ], function ($, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, TimelineView, MainTemplate) {
+    ], function ($, jqueryOverscroll, _, Backbone, cartModel, ArticleModel, MenuBundleModel, OrderedItemModel, OrderedArticleModel, OrderedArticlesCollection, TimelineItemsCollection, PageView, TimelineControllerView, OrderedArticlesView, CartTimelineView, MainTemplate) {
 
 	"use strict";
 
@@ -24,8 +25,8 @@ define([
 		orderedItemModel: null,
 
 		events: {
-			'mouseenter #timelineNote': '_slideTimelineUp',
-			'mouseleave #timelineNote': '_slideTimelineDown'
+			'mouseenter #timelineNote .container': '_slideTimelineUp',
+			'mouseleave #timelineNote .container': '_slideTimelineDown'
 		},
 
 		// referenced sub views
@@ -36,6 +37,7 @@ define([
 
 		// cached dom
 		$timelineNote: null,
+		$timelineContainerWrapper: null,
 		$overlay: null,
 
 		initialize: function () {
@@ -178,11 +180,24 @@ define([
 			// initalize TimelineControllerView
 			this._initializeTimelineController();
 
+			this._initOverscroll();
+
 		},
 
 		_cacheDom: function () {
 			this.$timelineNote = this.$('#timelineNote');
+			this.$timelineContainerWrapper = this.$timelineNote.find('#timelineContainerWrapper');
 			this.$overlay = this.$('#overlay');
+		},
+
+		_initOverscroll: function () {
+			// initialize overscroll
+			this.$timelineContainerWrapper.overscroll({
+				showThumbs: false,
+				direction: 'horizontal',
+				wheelDirection: 'horizontal',
+				ignoreSizing: true
+			});
 		},
 
 		_renderCartTimelineItem: function () {
@@ -191,7 +206,7 @@ define([
 				icon: 'iCart'
 			});
 
-			new TimelineView({
+			new CartTimelineView({
 				collection: timelineItemsCollection,
 				el: this.$timelineNote
 			});
@@ -216,19 +231,11 @@ define([
 			this.$timelineNote.stop().animate({
 				bottom: 0
 			}, 300);
-
-			this.$overlay.stop().animate({
-				marginTop: -63
-			}, 300);
 		},
 
 		_slideTimelineDown: function () {
 			this.$timelineNote.stop().animate({
 				bottom: -50
-			}, 300);
-
-			this.$overlay.stop().animate({
-				marginTop: -38
 			}, 300);
 		}
 

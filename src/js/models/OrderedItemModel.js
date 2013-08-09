@@ -237,6 +237,10 @@ define([
 
 			return articleModel.get('allowsIngredients');
 
+		},
+
+		canBeUpgraded: function() {
+			return this.get('orderedArticlesCollection').first().isMenuUpgradeBase();
 		}
 
 	});

@@ -384,7 +384,7 @@ aside#header .iInfo {
   min-height: 100%;
 }
 .note#timelineNote {
-  position: absolute;
+  position: absolute !important;
   right: 0;
   left: 0;
   z-index: 50;
@@ -392,12 +392,18 @@ aside#header .iInfo {
   bottom: -50px;
   text-align: center;
 }
+.note#timelineNote #timelineContainerWrapper {
+  position: relative;
+  cursor: -webkit-grab;
+  overflow: hidden;
+}
 .note#timelineNote .container {
   position: relative;
   display: inline-block;
   *zoom: 1;
   text-align: center;
-  margin: 0;
+  margin: 0 60px;
+  height: 130px;
 }
 .note#timelineNote .container:before,
 .note#timelineNote .container:after {
@@ -3353,6 +3359,11 @@ img.cookie {
 #categoriesNavigation .itemsTimeline:first-child .timelineItem:before,
 #sectionsNavigation .itemsTimeline:first-child .timelineItem:before {
   content: " ";
+}
+#timelineNote .itemsTimeline:last-child,
+#categoriesNavigation .itemsTimeline:last-child,
+#sectionsNavigation .itemsTimeline:last-child {
+  margin-right: 0;
 }
 #timelineNote #stageTimeline,
 #categoriesNavigation #stageTimeline,
@@ -7873,7 +7884,7 @@ div#payment > div.disabled .btn.active {
 #overlay {
   position: absolute;
   width: 100%;
-  margin: -38px 0 0 0;
+  margin: 0;
 }
 #overlay .iBtn {
   display: none;
@@ -7915,27 +7926,48 @@ div#payment > div.disabled .btn.active {
 #overlay .iBtn.bCart:hover {
   color: #9cc83e;
 }
-#showAll {
-  display: none;
-  position: absolute;
-  font-family: "Handlee", Helvetica, Arial, sans-serif;
-  color: #949494;
-  right: 20px;
-  top: -107px;
-  cursor: pointer;
-}
-#showAll:before {
-  content: "\e04a";
-}
-#showAll:before {
+.showAll {
   font-family: "Homicons";
-  font-size: 30px;
+  font-size: 55px;
   position: absolute;
-  bottom: -30px;
-  width: 100%;
+  display: none;
+  cursor: pointer;
+  right: 10px;
+  bottom: 30px;
+  color: rgba(0, 0, 0, 0.14);
+  -webkit-transition: color 0.1s 0.3s linear;
+  -moz-transition: color 0.1s 0.3s linear;
+  -o-transition: color 0.1s 0.3s linear;
+  transition: color 0.1s 0.3s linear;
 }
-#showAll:hover {
-  color: #9cc83e;
+.showAll:before,
+.showAll:after {
+  content: "\e09a";
+  top: 0;
+  left: 0;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.2);
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+.showAll:after {
+  content: "\e09c";
+  color: rgba(0, 0, 0, 0.08);
+  -webkit-transition: color 0.1s 0.6s linear;
+  -moz-transition: color 0.1s 0.6s linear;
+  -o-transition: color 0.1s 0.6s linear;
+  transition: color 0.1s 0.6s linear;
+}
+.showAll:hover {
+  color: rgba(156, 200, 62, 0.4);
+}
+.showAll:hover:before {
+  color: rgba(156, 200, 62, 0.6);
+}
+.showAll:hover:after {
+  color: rgba(156, 200, 62, 0.2);
 }
 #stage {
   position: absolute;
@@ -7968,9 +8000,7 @@ div#payment > div.disabled .btn.active {
   vertical-align: top;
   display: inline-block;
   white-space: normal;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  overflow: hidden;
   overflow-y: hidden;
   overflow-x: hidden;
   position: relative;
@@ -8098,11 +8128,15 @@ div#payment > div.disabled .btn.active {
 .slide.menuComponentOptions {
   margin: 0;
 }
+.slide.noFlag header {
+  visibility: hidden;
+}
 .menuUpgradeInfo {
   margin-left: 30px;
 }
 .menuUpgrade {
   width: 310px;
+  height: 240px;
   margin: 60px 40px;
   position: relative;
   display: inline-block;
@@ -9926,6 +9960,9 @@ aside.infoNavigation ul li.active {
 }
 .onlyOnLarge {
   color: inherit !important;
+}
+.isScrollable {
+  overflow-y: auto;
 }
 .smallSelectionNote {
   opacity: 0;

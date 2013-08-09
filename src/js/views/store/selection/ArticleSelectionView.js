@@ -25,7 +25,7 @@ define([
 
 		infoViewClass: InfoView,
 
-		prepare: function () {
+		_prepare: function () {
 
 			var timelineItemModel = new TimelineItemModel(),
 				menuComponentBlockModel = this.model.get('menuComponentBlockModel'),

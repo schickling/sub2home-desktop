@@ -21,10 +21,9 @@ define([
 		 */
 
 		currentTimelineItemModel: null,
-
 		previousTimelineItemModel: null,
-
 		currentTimelineItemIndex: 0,
+		currentInfoIndex: 0,
 
 		animationTime: 400,
 
@@ -38,9 +37,11 @@ define([
 		$infoContainer: null,
 		$timelineOverlay: null,
 		$timelineOverlayWrapper: null,
+		$timelineContainerWrapper: null,
 		$timelineStage: null,
 		$timelineCart: null,
 		$noUpgrade: null,
+		$stageOverlay: null,
 
 		events: {
 			// buttons
@@ -85,6 +86,9 @@ define([
 			// show no upgrade view if is first slide
 			this._slideNoUpgradeView();
 
+			// compensate content overlay
+			this._adjustStageOverlay();
+
 		},
 
 		_chacheDOM: function () {
@@ -96,12 +100,14 @@ define([
 
 			// stage
 			this.$stage = this.$('#stage');
+			this.$stageOverlay = this.$('#overlay');
 			this.$noUpgrade = this.$stage.find('#noUpgrade');
 
 			// info note
 			this.$infoContainer = this.$('#infoContainer');
 
 			// timeline
+			this.$timelineContainerWrapper = this.$('#timelineContainerWrapper');
 			this.$timelineOverlay = this.$('#overlayTimeline');
 			this.$timelineOverlayWrapper = this.$timelineOverlay.find('#overlayFrameWrapperTimeline');
 			this.$timelineStage = this.$('#stageTimeline');
@@ -119,7 +125,7 @@ define([
 		},
 
 		_initializeInfo: function () {
-			var $currentInfo = this.$infoContainer.children('.info').first();
+			var $currentInfo = this.$infoContainer.find('.info').first();
 
 			$currentInfo.addClass('active').show();
 		},
@@ -176,6 +182,7 @@ define([
 		_listenToTimelineItem: function (timelineItemModel) {
 
 			this.listenTo(timelineItemModel, 'change', function () {
+
 				if (timelineItemModel.hasChanged('isActive') && timelineItemModel.get('isActive')) {
 
 					// deactivate prev timeline item
@@ -232,6 +239,19 @@ define([
 
 		},
 
+		_alignTimeline: function () {
+			var relativeProgress = this.currentTimelineItemIndex / this.collection.length,
+				adjustedRelativeProgress = relativeProgress * relativeProgress,
+				totalWidth = this.$timelineStage.width(),
+				wrapperWidth = this.$timelineContainerWrapper.width(),
+				relativeWidth = totalWidth - wrapperWidth / 2,
+				left = relativeWidth * adjustedRelativeProgress;
+
+			this.$timelineContainerWrapper.stop().animate({
+				scrollLeft: left
+			});
+		},
+
 		_evalKeyboardInput: function (e) {
 			// cache keyCode
 			var keyCode = e.keyCode;
@@ -256,6 +276,7 @@ define([
 					this._forward();
 				} else {
 					this._setCurrentTimelineItem(currentTimelineItemModel);
+					this._transferActiveState();
 					this._navigate();
 				}
 
@@ -273,6 +294,7 @@ define([
 					this._backward();
 				} else {
 					this._setCurrentTimelineItem(currentTimelineItemModel);
+					this._transferActiveState();
 					this._navigate();
 				}
 
@@ -293,6 +315,7 @@ define([
 			this._slideTimeline();
 			this._changeInfo();
 			this._adjustButtons();
+			this._alignTimeline();
 		},
 
 		_slideStage: function () {
@@ -354,13 +377,15 @@ define([
 
 		_changeInfo: function () {
 
-			// compare timeline items
-			if (this.currentTimelineItemModel.get('selectionIndex') !== this.previousTimelineItemModel.get('selectionIndex')) {
+			var newInfoIndex = this._getInfoIndex(),
+				self = this;
 
-				var self = this,
-					selectionIndexOffset = this.collection.first().get('selectionIndex'),
-					currentSelectionIndex = this.currentTimelineItemModel.get('selectionIndex') - selectionIndexOffset,
-					animationTime = this.animationTime,
+			// compare timeline items
+			if (this.currentInfoIndex !== newInfoIndex) {
+
+				this.currentInfoIndex = newInfoIndex;
+
+				var animationTime = this.animationTime,
 					$container = this.$infoContainer;
 
 				// slide up
@@ -370,7 +395,7 @@ define([
 
 					// swap content
 					var $prevInfo = $container.find('.active'),
-						$currentInfo = $container.children().eq(currentSelectionIndex);
+						$currentInfo = $container.find('.info').eq(newInfoIndex);
 
 					$prevInfo.removeClass('active').hide();
 					$currentInfo.addClass('active').show();
@@ -379,13 +404,50 @@ define([
 						marginTop: -($currentInfo.height()) + 35
 					});
 
-
 					// slide down
 					$container.stop().animate({
 						marginTop: 0
 					}, animationTime);
+
+					// compensate content overlay
+					self._adjustStageOverlay();
+
 				});
 			}
+		},
+
+		_getInfoIndex: function () {
+			var infoIndex = this.currentTimelineItemIndex,
+				lastSelectionIndex, currentSelectionIndex;
+
+			_.each(this.collection.models, function (timelineItemModel, index) {
+				if (index <= this.currentTimelineItemIndex) {
+					currentSelectionIndex = timelineItemModel.get('selectionIndex');
+
+					if (currentSelectionIndex == lastSelectionIndex) {
+						infoIndex--;
+					}
+
+					lastSelectionIndex = currentSelectionIndex;
+				}
+			}, this);
+
+			if (this.model.canBeUpgraded()) {
+				infoIndex--;
+			}
+
+			return infoIndex;
+		},
+
+		_adjustStageOverlay: function () {
+			var timelineHeight = 90,
+				$info = this.$infoContainer.find('.active'),
+				infoHeight = $info.height(),
+				slideContainerHeight = window.innerHeight - infoHeight - timelineHeight;
+
+			this.$stageOverlay.animate({
+				top: infoHeight + slideContainerHeight / 2
+			});
 		},
 
 		_finish: function () {
@@ -400,11 +462,10 @@ define([
 
 			} else {
 				_.each(lockedTimelineItems, function (timelineItemModel) {
-					notificationcenter.notify('views.store.selection.notReady', {
-						phrase: timelineItemModel.get('phrase')
-					});
 					timelineItemModel.trigger('highlight');
 				});
+
+				notificationcenter.notify('views.store.selection.notReady');
 			}
 		},
 
@@ -434,8 +495,6 @@ define([
 			this.stopListening();
 		},
 
-
-
 		/*
 		 * helper functions
 		 */
@@ -443,6 +502,19 @@ define([
 		_setCurrentTimelineItem: function (currentTimelineItemModel) {
 			this.previousTimelineItemModel = this.currentTimelineItemModel;
 			this.currentTimelineItemModel = currentTimelineItemModel;
+		},
+
+		_transferActiveState: function () {
+			this.previousTimelineItemModel.set({
+				isActive: false
+			}, {
+				silent: true
+			});
+			this.currentTimelineItemModel.set({
+				isActive: true
+			}, {
+				silent: true
+			});
 		},
 
 		_checkForward: function () {

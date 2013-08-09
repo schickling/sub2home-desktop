@@ -16,7 +16,7 @@ define([
 
 		infoViewClass: InfoView,
 
-		prepare: function () {
+		_prepare: function () {
 
 			var articleModel = this.model.get('articleModel');
 
