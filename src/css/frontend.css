@@ -10201,6 +10201,12 @@ aside#header {
     width: 240px;
   }
 }
+@media (max-width: 970px) {
+  #minimumOrderValue span {
+    padding-top: 10px;
+    width: 470px;
+  }
+}
 @media (max-width: 1404px) {
   #storeConfig > div#deliveryTimes {
     width: 348px;
