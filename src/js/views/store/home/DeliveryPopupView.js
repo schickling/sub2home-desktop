@@ -115,7 +115,7 @@ define([
 
 			_.each(deliveryAreaModels, function (deliveryAreaModel) {
 				isDistirct = deliveryAreaModel.has('district');
-				district = deliveryAreaModel.get('district') || deliveryAreaModel.get('city')
+				district = deliveryAreaModel.get('district') || deliveryAreaModel.get('city');
 				html += '<span data-district="' + isDistirct + '" data-postal="' + deliveryAreaModel.get('postal') + '">' + district + '</span>';
 			});
 
