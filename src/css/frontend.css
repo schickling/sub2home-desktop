@@ -4214,6 +4214,9 @@ input[type="text"]#locationSelectionInput:focus {
   cursor: default;
   color: rgba(202, 176, 111, 0.5);
 }
+#deliveryAreaSelection span:last-child {
+  white-space: pre;
+}
 #map {
   height: 100%;
   z-index: 50;
