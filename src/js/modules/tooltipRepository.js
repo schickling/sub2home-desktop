@@ -49,6 +49,11 @@ define([
 				className: 'info'
 			},
 
+			'views.header.tray': {
+				text: 'Hier gehts zum Tablett',
+				className: 'info'
+			},
+
 			'views.store.dashboard.resendMail': {
 				text: 'Erneut senden',
 				className: 'info left'
@@ -68,6 +73,8 @@ define([
 				text: 'Anhang als PDF herunterladen',
 				className: 'info'
 			},
+
+
 
 		},
 

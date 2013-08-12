@@ -17,7 +17,9 @@ define([
 		template: _.template(CartTemplate),
 
 		events: {
-			'click': '_goToTray'
+			'click': '_goToTray',
+			'mouseenter': '_showTooltip',
+			'mouseleave': '_hideTooltip',
 		},
 
 		initialize: function () {
@@ -30,7 +32,7 @@ define([
 			this.model.on('change', this._render, this);
 		},
 
-		_listenToNewDeliveryArea: function() {
+		_listenToNewDeliveryArea: function () {
 			var storeModel = stateModel.get('storeModel');
 
 			// listen to store model is enough since store models get changed
@@ -60,6 +62,15 @@ define([
 			} else {
 				notificationcenter.notify('views.header.cart.empty');
 			}
+		},
+
+		_showTooltip: function () {
+			var offset = this.$el.offset();
+			notificationcenter.tooltip('views.header.tray', offset.top + 52, offset.left + 36);
+		},
+
+		_hideTooltip: function () {
+			notificationcenter.hideTooltip();
 		}
 
 	});

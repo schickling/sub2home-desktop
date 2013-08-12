@@ -5,11 +5,12 @@ define([
     'backbone',
     'models/stateModel',
     'views/PageView',
+    'views/store/home/DeliveryPopupView',
     'views/store/home/DeliveryView',
     'views/store/home/CategoriesView',
     'views/store/home/CategoriesNavigationView',
     'text!templates/store/home/MainTemplate.html'
-    ], function ($, _, Backbone, stateModel, PageView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
+    ], function ($, _, Backbone, stateModel, PageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) {
 
 	"use strict";
 
@@ -24,7 +25,6 @@ define([
 			this.setAttribute('src', source);
 			this.removeAttribute('data-src');
 		});
-
 
 		function unveil() {
 
@@ -51,8 +51,11 @@ define([
 		return this;
 	};
 
-
 	var MainView = PageView.extend({
+
+		events: {
+			'click #currentDeliveryArea': '_renderDeliveryPopupView'
+		},
 
 		initialize: function () {
 			// set page title
@@ -65,8 +68,19 @@ define([
 		_render: function () {
 			this.$el.html(MainTemplate);
 
+			if (!stateModel.get('storeModel').get('deliveryAreaWasSelected')) {
+				this._renderDeliveryPopupView();
+			}
+
 			this._renderDeliveryView();
 			this._renderCategories();
+		},
+
+		_renderDeliveryPopupView: function () {
+			new DeliveryPopupView({
+				el: this.$('#preSelectDeliveryArea'),
+				model: stateModel.get('storeModel')
+			});
 		},
 
 		_renderDeliveryView: function () {

@@ -1,7 +1,6 @@
 // Filename: src/js/views/home/home/StoresView.js
 define([
     'jquery',
-    'jqueryRotate',
     'underscore',
     'backbone',
     'router',
@@ -9,77 +8,57 @@ define([
     'gmaps', // returns window.google.maps namespace
     'models/stateModel',
     'views/assets/mapStyles',
+    'views/shared/misc/PostalSearchView',
     'views/home/home/StoreView',
     'views/home/home/PromotionView',
     'collections/StoresCollection'
-    ], function ($, jqueryRotate, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, StoreView, PromotionView, StoresCollection) {
+    ], function ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, PostalSearchView, StoreView, PromotionView, StoresCollection) {
 
 	"use strict";
 
 	var StoresView = Backbone.View.extend({
 
-		postal: 0,
-
 		map: null,
+		geocoder: null,
+		postal: null,
 
 		// deffereds
 		mapDeffered: $.Deferred(),
 		collectionDeffered: null,
 
 		storeViews: [],
-
-		rotateInterval: null,
-
-		userInteractionTookPlace: false,
-
-		events: {
-			'keyup #locationSelectionInput': '_checkInputKeyUp',
-			'keydown #locationSelectionInput': '_checkInputKeyDown'
-		},
-
 		promotionView: null,
+		postalSearchView: null,
 
 		// cached dom
 		$homeNote: null,
-		$search: null,
 		$deliveryAreaSelection: null,
-		$locationLoader: null,
-		$location: null,
-		$locationNotice: null,
-		$locationLabel: null,
-		$deliveryAreaLabel: null,
-		$storeSelectionLabel: null,
 		$mapContainer: null,
 		$map: null,
 
 		initialize: function () {
-
 			this._cacheDom();
-
-			this._createPromotionView();
-
+			this._renderPostalSearchView();
+			this._renderPromotionView();
+			this._waitForPostal();
 			this._loadStores();
 			this._loadMap();
-
-			this._checkLocation();
-
 		},
 
 		_cacheDom: function () {
 			this.$homeNote = this.$('#homeNote');
-			this.$search = this.$homeNote.find('#locationSelectionInput');
 			this.$deliveryAreaSelection = this.$homeNote.find('#deliveryAreaSelection');
-			this.$locationLoader = this.$homeNote.find('#locationLoader');
-			this.$location = this.$locationLoader.find('#location');
-			this.$locationNotice = this.$homeNote.find('#locationNotice'); // ?
-			this.$locationLabel = this.$homeNote.find('#locationLabel');
-			this.$deliveryAreaLabel = this.$homeNote.find('#deliveryAreaLabel');
-			this.$storeSelectionLabel = this.$homeNote.find('#storeSelectionLabel');
 			this.$mapContainer = this.$('#mapContainer');
 			this.$map = this.$mapContainer.find('#map');
 		},
 
-		_createPromotionView: function () {
+		_renderPostalSearchView: function () {
+			this.postalSearchView = new PostalSearchView({
+				el: this.$('#locationSelection')
+			});
+		},
+
+		_renderPromotionView: function () {
 			this.promotionView = new PromotionView({
 				el: this.$('#suggestStore')
 			});
@@ -91,7 +70,6 @@ define([
 		},
 
 		_loadMap: function () {
-
 			var mapOptions = {
 				center: new gmaps.LatLng(52.52, 13.4),
 				// Berlin
@@ -107,7 +85,6 @@ define([
 
 			var map = this.map = new gmaps.Map(this.$map.get(0), mapOptions);
 
-			// initialize geocoder
 			this.geocoder = new gmaps.Geocoder();
 
 			// wait unitl map is loaded
@@ -117,130 +94,22 @@ define([
 				self.mapDeffered.resolve();
 				gmaps.event.trigger(map, 'resize');
 			});
-
 		},
 
-		_checkLocation: function () {
-			if (navigator.geolocation) {
-				var self = this;
+		_waitForPostal: function () {
+			var self = this;
 
-				notificationcenter.notify('views.home.home.lookupLocation');
-				this._startRotateLocation();
+			notificationcenter.notify('views.home.home.lookupLocation');
 
-				// wait for collection fetched and maps loaded
-				$.when(this.mapDeffered, this.collectionDeffered).done(function () {
-					navigator.geolocation.getCurrentPosition(function (position) {
-
-						var latlng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
-
-						self.geocoder.geocode({
-							latLng: latlng
-						}, function (results, status) {
-
-							if (!self.userInteractionTookPlace) {
-
-								// stop location rotation
-								self._stopAndHideRotateLocation();
-
-								if (status == gmaps.GeocoderStatus.OK) {
-									var postal = 0;
-
-									// parse results for postal
-									for (var i = 0; i < results[0].address_components.length; i++) {
-										for (var j = 0; j < results[0].address_components[i].types.length; j++) {
-											if (results[0].address_components[i].types[j] == "postal_code") {
-												postal = results[0].address_components[i].long_name;
-												break;
-											}
-										}
-									}
-
-									// write postal back to search field
-									self.$search.val(postal);
-
-									self._unfocusSearch();
-
-									self._lookUpStoresForPostal(postal, false);
-
-								} else {
-									notificationcenter.notify('views.home.home.lookupFailed');
-									self._focusSearch();
-								}
-
-							}
-						});
-					}, function () {
-						notificationcenter.notify('views.home.home.lookupFailed');
-						self._stopAndHideRotateLocation();
-						self._focusSearch();
-					}, {
-						timeout: 10000
-					});
-				}); // end deffered
-			} else {
-				this._focusSearch();
-			}
+			this.listenTo(this.postalSearchView, 'newPostal', function (postal) {
+				$.when(self.mapDeffered, self.collectionDeffered).done(function () {
+					self.postal = postal;
+					self._lookUpStores();
+				});
+			});
 		},
 
-		_focusSearch: function () {
-			this.$search.focus();
-		},
-
-		_unfocusSearch: function () {
-			this.$search.blur();
-		},
-
-		_checkInputKeyUp: function (e) {
-			var input = e.target.value,
-				postal = parseInt(input, 10);
-
-			if (postal > 9999) {
-				this._lookUpStoresForPostal(postal);
-			}
-		},
-
-		_checkInputKeyDown: function (e) {
-
-			this._showLocationLabel();
-
-			// stop location automation on user interaction
-			this._stopLocationDetermination();
-
-			var val = e.target.value,
-				offset, tooltipTop, tooltipLeft;
-
-			// show tooltip on wrong input
-			if (e.keyCode < 48 || e.keyCode > 57) { // Ensure that it is a number
-				if (e.keyCode == 46 || e.keyCode == 8 || e.keyCode == 13 || // Allow backspace, delete and enter
-					e.keyCode > 95 && e.keyCode < 106 || // allow numblock
-					e.keyCode > 36 && e.keyCode < 41) { // allow arrow keys
-					notificationcenter.hideTooltip();
-				} else {
-					offset = this.$search.offset();
-					tooltipTop = offset.top + 72;
-					tooltipLeft = window.innerWidth * 0.5 + val.length * 32; // offset for each letter
-					notificationcenter.tooltip('views.home.home.input', tooltipTop, tooltipLeft);
-					return false;
-				}
-			} else if (val.length > 4) {
-				return false;
-			} else {
-				notificationcenter.hideTooltip();
-			}
-		},
-
-		_stopLocationDetermination: function () {
-			if (!this.userInteractionTookPlace) {
-				this._stopAndHideRotateLocation();
-				this.userInteractionTookPlace = true;
-			}
-		},
-
-		_lookUpStoresForPostal: function (postal) {
-
-			// set postal
-			this.postal = parseInt(postal, 10);
-
+		_lookUpStores: function () {
 			var storesInRange = this.collection.filterByDeliveryPostal(this.postal),
 				numberOfStores = storesInRange.length;
 
@@ -250,7 +119,7 @@ define([
 			if (numberOfStores > 0) {
 
 				if (numberOfStores > 1) {
-					this._selectStoreNotification();
+					notificationcenter.notify('views.home.home.selectStore');
 				}
 
 				// render stores
@@ -260,14 +129,13 @@ define([
 				var matchingDeliveryAreas = this._getMatchingDeliveryAreas(storesInRange);
 				if (matchingDeliveryAreas.length > 1) {
 					this._renderDeliveryAreas(matchingDeliveryAreas);
-					this._showDeliveryAreaLabel();
+					this.postalSearchView.showDeliveryAreaLabel();
 				} else {
-					this._showStoreSelectionLabel();
+					this.postalSearchView.showStoreSelectionLabel();
 					matchingDeliveryAreas[0].set('isSelected', true);
 					this.storeViews[0].markAvailable();
 				}
 
-				this._unfocusSearch();
 				this._hidePromotionView();
 
 			} else {
@@ -276,7 +144,6 @@ define([
 		},
 
 		_cleanPreviousResults: function () {
-
 			// delete old delivery areas
 			this.$deliveryAreaSelection.hide().html('');
 
@@ -287,26 +154,7 @@ define([
 			this.storeViews = [];
 		},
 
-		_showDeliveryAreaLabel: function () {
-			this.$locationLabel.stop().fadeOut(100);
-			this.$storeSelectionLabel.stop().fadeOut(100);
-			this.$deliveryAreaLabel.stop().delay(100).fadeIn(150);
-		},
-
-		_showLocationLabel: function () {
-			this.$deliveryAreaLabel.stop().fadeOut(100);
-			this.$storeSelectionLabel.stop().fadeOut(100);
-			this.$locationLabel.stop().delay(100).fadeIn(150);
-		},
-
-		_showStoreSelectionLabel: function () {
-			this.$deliveryAreaLabel.stop().fadeOut(100);
-			this.$locationLabel.stop().fadeOut(100);
-			this.$storeSelectionLabel.stop().delay(100).fadeIn(150);
-		},
-
 		_renderDeliveryAreas: function (deliveryAreaModels) {
-
 			var self = this,
 				district, districtToMark,
 				renderedDistricts = [];
@@ -349,13 +197,11 @@ define([
 
 					});
 
-
 				}
 			});
 
 			this._adjustProportions();
 			this.$deliveryAreaSelection.delay(200).fadeIn(200);
-
 		},
 
 		_adjustProportions: function () {
@@ -372,7 +218,6 @@ define([
 		},
 
 		_renderStores: function (stores) {
-
 			var latLngBounds = new gmaps.LatLngBounds();
 
 			_.each(stores, function (storeModel) {
@@ -382,7 +227,6 @@ define([
 			}, this);
 
 			this._centerMapToBounds(latLngBounds);
-
 		},
 
 		_noStoresFound: function () {
@@ -390,19 +234,11 @@ define([
 				postal: this.postal
 			});
 
-			this._focusSearch();
 			this._centerMapToNotFoundPostal();
 			this._showPromotionView();
 		},
 
-		_selectStoreNotification: function () {
-
-			notificationcenter.notify('views.home.home.selectStore');
-
-		},
-
 		selectStore: function (storeModel) {
-
 			// adjust store alias without notifying
 			// (stateModel gets saved through storeModel change)
 			stateModel.set({
@@ -418,12 +254,7 @@ define([
 
 			// remove remaining tooltip
 			notificationcenter.hideTooltip();
-
 		},
-
-		/*
-		 * Helper functions
-		 */
 
 		_centerMapToBounds: function (latlngbounds) {
 			this.map.setCenter(latlngbounds.getCenter());
@@ -432,7 +263,6 @@ define([
 
 		_centerMapToNotFoundPostal: function () {
 			var self = this;
-
 
 			this.geocoder.geocode({
 				'address': this.postal + ',Germany'
@@ -461,30 +291,6 @@ define([
 			return matchingDeliveryAreas;
 		},
 
-		_startRotateLocation: function () {
-
-			var $location = this.$location,
-				deg = 0;
-
-			this.rotateInterval = setInterval(function () {
-				deg = (deg + 5) % 180;
-				$location.rotate(deg);
-			}, 20);
-		},
-
-		_stopAndHideRotateLocation: function () {
-
-			clearInterval(this.rotateInterval);
-
-			this.$locationLoader.fadeOut(150);
-			this.$locationNotice.fadeOut(150);
-
-			this.$locationLabel.delay(140).animate({
-				marginLeft: -174
-			});
-
-		},
-
 		_showPromotionView: function () {
 			this.promotionView.show();
 		},
@@ -494,7 +300,7 @@ define([
 		},
 
 		destroy: function () {
-			this._stopLocationDetermination();
+			this.postalSearchView.destroy();
 		}
 
 	});

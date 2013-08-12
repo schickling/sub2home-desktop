@@ -891,23 +891,41 @@ input[type="color"],
   border-bottom: 1px solid #e0e0e0;
 }
 .note select,
+.popup select,
 .note textarea,
+.popup textarea,
 .note input,
+.popup input,
 .note input[type="text"],
+.popup input[type="text"],
 .note input[type="password"],
+.popup input[type="password"],
 .note input[type="datetime"],
+.popup input[type="datetime"],
 .note input[type="datetime-local"],
+.popup input[type="datetime-local"],
 .note input[type="date"],
+.popup input[type="date"],
 .note input[type="month"],
+.popup input[type="month"],
 .note input[type="time"],
+.popup input[type="time"],
 .note input[type="week"],
+.popup input[type="week"],
 .note input[type="number"],
+.popup input[type="number"],
 .note input[type="email"],
+.popup input[type="email"],
 .note input[type="url"],
+.popup input[type="url"],
 .note input[type="search"],
+.popup input[type="search"],
 .note input[type="tel"],
+.popup input[type="tel"],
 .note input[type="color"],
-.note .uneditable-input {
+.popup input[type="color"],
+.note .uneditable-input,
+.popup .uneditable-input {
   border-bottom: 1px solid rgba(202, 176, 111, 0.5);
 }
 textarea {
@@ -1645,7 +1663,8 @@ label {
   z-index: 10;
   left: 10px;
 }
-.note label {
+.note label,
+.popup label {
   color: #cab06f;
 }
 textarea.firstHidden,
@@ -1678,63 +1697,93 @@ textarea:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
   padding-top: 1px;
 }
-.note ::-webkit-input-placeholder {
+.note ::-webkit-input-placeholder,
+.popup ::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.5);
 }
 .note input[type="text"]::-webkit-input-placeholder,
+.popup input[type="text"]::-webkit-input-placeholder,
 .note input[type="password"]::-webkit-input-placeholder,
-.note textarea::-webkit-input-placeholder {
+.popup input[type="password"]::-webkit-input-placeholder,
+.note textarea::-webkit-input-placeholder,
+.popup textarea::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.5) !important;
   padding-top: 1px !important;
 }
 .note input[type="text"]::-moz-placeholder,
+.popup input[type="text"]::-moz-placeholder,
 .note input[type="password"]::-moz-placeholder,
-.note textarea::-moz-placeholder {
+.popup input[type="password"]::-moz-placeholder,
+.note textarea::-moz-placeholder,
+.popup textarea::-moz-placeholder {
   color: rgba(202, 176, 111, 0.5) !important;
 }
 .note input[type="text"]:-ms-input-placeholder,
+.popup input[type="text"]:-ms-input-placeholder,
 .note input[type="password"]:-ms-input-placeholder,
-.note textarea:-ms-input-placeholder {
+.popup input[type="password"]:-ms-input-placeholder,
+.note textarea:-ms-input-placeholder,
+.popup textarea:-ms-input-placeholder {
   color: rgba(202, 176, 111, 0.5) !important;
 }
-.note .well ::-webkit-input-placeholder {
+.note .well ::-webkit-input-placeholder,
+.popup .well ::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.7);
   padding-top: 6px !important;
 }
 .note .well input[type="text"]::-webkit-input-placeholder,
+.popup .well input[type="text"]::-webkit-input-placeholder,
 .note .well input [type="password"]::-webkit-input-placeholder,
-.note .well textarea::-webkit-input-placeholder {
+.popup .well input [type="password"]::-webkit-input-placeholder,
+.note .well textarea::-webkit-input-placeholder,
+.popup .well textarea::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
 }
 .note .well input[type="text"]::-moz-placeholder,
+.popup .well input[type="text"]::-moz-placeholder,
 .note .well input [type="password"]::-moz-placeholder,
-.note .well textarea::-moz-placeholder {
+.popup .well input [type="password"]::-moz-placeholder,
+.note .well textarea::-moz-placeholder,
+.popup .well textarea::-moz-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
   padding-bottom: 0px !important;
 }
 .note .well input[type="text"]:-ms-input-placeholder,
+.popup .well input[type="text"]:-ms-input-placeholder,
 .note .well input [type="password"]:-ms-input-placeholder,
-.note .well textarea:-ms-input-placeholder {
+.popup .well input [type="password"]:-ms-input-placeholder,
+.note .well textarea:-ms-input-placeholder,
+.popup .well textarea:-ms-input-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
 }
-.note #gratisCookieOption ::-webkit-input-placeholder {
+.note #gratisCookieOption ::-webkit-input-placeholder,
+.popup #gratisCookieOption ::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.7);
   padding-top: 5px !important;
 }
 .note #gratisCookieOption input[type="text"]::-webkit-input-placeholder,
+.popup #gratisCookieOption input[type="text"]::-webkit-input-placeholder,
 .note #gratisCookieOption input [type="text"]::-webkit-input-placeholder,
-.note #gratisCookieOption textarea::-webkit-input-placeholder {
+.popup #gratisCookieOption input [type="text"]::-webkit-input-placeholder,
+.note #gratisCookieOption textarea::-webkit-input-placeholder,
+.popup #gratisCookieOption textarea::-webkit-input-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
 }
 .note #gratisCookieOption input[type="text"]::-moz-placeholder,
+.popup #gratisCookieOption input[type="text"]::-moz-placeholder,
 .note #gratisCookieOption input [type="text"]::-moz-placeholder,
-.note #gratisCookieOption textarea::-moz-placeholder {
+.popup #gratisCookieOption input [type="text"]::-moz-placeholder,
+.note #gratisCookieOption textarea::-moz-placeholder,
+.popup #gratisCookieOption textarea::-moz-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
   padding-bottom: 0px !important;
 }
 .note #gratisCookieOption input[type="text"]:-ms-input-placeholder,
+.popup #gratisCookieOption input[type="text"]:-ms-input-placeholder,
 .note #gratisCookieOption input [type="text"]:-ms-input-placeholder,
-.note #gratisCookieOption textarea:-ms-input-placeholder {
+.popup #gratisCookieOption input [type="text"]:-ms-input-placeholder,
+.note #gratisCookieOption textarea:-ms-input-placeholder,
+.popup #gratisCookieOption textarea:-ms-input-placeholder {
   color: rgba(202, 176, 111, 0.7) !important;
 }
 .darkback ::-webkit-input-placeholder {
@@ -2145,6 +2194,16 @@ a.iBtn:hover {
 .bCart.filled:before,
 #iCart.filled:before {
   content: "\e064";
+}
+.iTray:before,
+.bTray:before,
+#iTray:before {
+  content: "\e09d";
+}
+.iTray.filled:before,
+.bTray.filled:before,
+#iTray.filled:before {
+  content: "\e09d";
 }
 .iSearch:before,
 .bSearch:before {
@@ -3561,6 +3620,7 @@ img.cookie {
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.9);
+  z-index: 99;
 }
 .popup #popupContainer {
   position: absolute;
@@ -3775,31 +3835,33 @@ aside#header #headerCustomerContent #trayPreview {
   -o-transition: background .1s linear, color .1s linear, box-shadow .1s linear;
   transition: background .1s linear, color .1s linear, box-shadow .1s linear;
 }
-aside#header #headerCustomerContent #trayPreview .iCart {
+aside#header #headerCustomerContent #trayPreview .iTray {
   margin: 0 10px 0 0;
   position: relative;
   vertical-align: middle;
 }
-aside#header #headerCustomerContent #trayPreview .iCart span {
+aside#header #headerCustomerContent #trayPreview .iTray span {
   display: none;
   font-size: 10px;
   font-family: "VAGRoundedStd-Thin";
   color: #ffffff;
   font-style: normal;
   position: absolute;
-  left: 19px;
-  top: -5px;
+  left: 25px;
+  top: 15px;
   width: 15px;
   text-align: center;
   z-index: 2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-aside#header #headerCustomerContent #trayPreview .iCart:before {
+aside#header #headerCustomerContent #trayPreview .iTray:before {
   color: #a38743;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 #5f4e26;
-  top: 0;
+  top: -2px;
+  font-size: 40px;
+  line-height: 0.8;
 }
-aside#header #headerCustomerContent #trayPreview.filled .iCart:after {
+aside#header #headerCustomerContent #trayPreview.filled .iTray:after {
   content: " ";
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 500px;
@@ -3808,14 +3870,14 @@ aside#header #headerCustomerContent #trayPreview.filled .iCart:after {
   width: 15px;
   height: 15px;
   position: absolute;
-  left: 19px;
-  top: -4px;
+  left: 25px;
+  top: 16px;
   background: #57a827;
   -webkit-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
 }
-aside#header #headerCustomerContent #trayPreview.filled .iCart span {
+aside#header #headerCustomerContent #trayPreview.filled .iTray span {
   display: block;
 }
 aside#header #headerCustomerContent #trayPreview.filled > span {
@@ -4105,39 +4167,49 @@ input[type="text"]#locationSelectionInput:focus {
   bottom: -65px;
   margin-left: 30px;
 }
-#deliveryAreaSelection {
-  margin-top: 20px;
+#deliveryAreaSelection,
+#postalSelection {
+  top: 203px;
+  margin: 0 20% 0;
+  position: absolute;
   font-size: 40px;
   font-family: "VAGRoundedStd-Thin";
   color: #cab06f;
   line-height: 1.2;
 }
-#deliveryAreaSelection span {
+#deliveryAreaSelection span,
+#postalSelection span {
   cursor: pointer;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#deliveryAreaSelection span.selected {
+#deliveryAreaSelection span.selected,
+#postalSelection span.selected {
   color: #46a546;
 }
-#deliveryAreaSelection span:hover {
+#deliveryAreaSelection span:hover,
+#postalSelection span:hover {
   color: #bc9b4a;
   color: #9cc83e;
 }
-#deliveryAreaSelection span:before {
+#deliveryAreaSelection span:before,
+#postalSelection span:before {
   content: ", ";
   cursor: default;
   color: rgba(202, 176, 111, 0.5);
 }
-#deliveryAreaSelection span:first-child:before {
+#deliveryAreaSelection span:first-child:before,
+#postalSelection span:first-child:before {
   content: " ";
 }
-#deliveryAreaSelection span:last-child:before {
+#deliveryAreaSelection span:last-child:before,
+#postalSelection span:last-child:before {
   content: " oder ";
 }
-#deliveryAreaSelection span:last-child:after {
+#deliveryAreaSelection span:last-child:after,
+#postalSelection span:last-child:after {
   content: " ?";
   cursor: default;
   color: rgba(202, 176, 111, 0.5);
@@ -4408,6 +4480,98 @@ input[type="text"]#locationSelectionInput:focus {
 #suggestStore #submitStoreSuggestion.active {
   background-color: #7fa42f \9;
 }
+#preSelectDeliveryArea {
+  position: fixed;
+  z-index: 101;
+  background: rgba(255, 255, 255, 0.75);
+}
+#preSelectDeliveryArea #popupContainer {
+  margin-top: -108px;
+  width: 710px;
+  margin-left: -355px;
+}
+#preSelectDeliveryArea #locationSelection {
+  position: relative;
+  top: 0;
+  padding: 40px 40px 0;
+  margin: 0;
+  width: auto;
+}
+#preSelectDeliveryArea #locationLabel {
+  bottom: 19px;
+}
+#preSelectDeliveryArea #locationLoader {
+  bottom: 16px;
+}
+#preSelectDeliveryArea #postalSelection,
+#preSelectDeliveryArea #deliveryAreaSelection {
+  position: relative;
+  margin: 0;
+  top: 0;
+}
+#preSelectDeliveryArea #postalSelection {
+  font-size: 24px;
+  font-family: "VAGRoundedStd-Thin";
+  color: rgba(202, 176, 111, 0.5);
+  padding: 10px 30px 20px;
+  border-bottom: 1px solid #ddbe84;
+  line-height: 1.3;
+}
+#preSelectDeliveryArea #postalSelection:last-child {
+  border: none;
+}
+#preSelectDeliveryArea #postalSelection span.preselected {
+  color: #cab06f;
+}
+#preSelectDeliveryArea #deliveryAreaSelection {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 20px 30px;
+  background: rgba(224, 166, 54, 0.2);
+}
+#preSelectDeliveryArea #deliveryAreaSelection span {
+  color: #be9e4f;
+}
+#preSelectDeliveryArea #deliveryAreaSelection span:before,
+#preSelectDeliveryArea #deliveryAreaSelection span:after {
+  color: rgba(190, 158, 79, 0.5);
+}
+#preSelectDeliveryArea #deliveryAreaSelection span:hover {
+  color: #9cc83e;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea,
+#preSelectDeliveryArea .preSelectionInfo,
+#preSelectDeliveryArea .noDeliveryArea {
+  cursor: default;
+  font-size: 24px;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea {
+  cursor: pointer;
+  -webkit-transition: background .1s linear, color .1s linear;
+  -moz-transition: background .1s linear, color .1s linear;
+  -o-transition: background .1s linear, color .1s linear;
+  transition: background .1s linear, color .1s linear;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea span {
+  color: #cab06f !important;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea span:before,
+#preSelectDeliveryArea .onlyOneDeliveryArea span:after {
+  content: "";
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea span:hover {
+  color: #bb9a48 !important;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea:hover {
+  background: rgba(224, 166, 54, 0.3) !important;
+  color: #bb9a48;
+}
+#preSelectDeliveryArea .onlyOneDeliveryArea:hover span {
+  color: #bb9a48 !important;
+}
+#preSelectDeliveryArea .noDeliveryArea {
+  color: #dc952b;
+}
 #categoriesNavigation,
 #sectionsNavigation {
   width: 50%;
@@ -4456,7 +4620,6 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #storeDeliveryDetails .bEdit {
   position: relative;
-  display: none;
   top: -2px;
   padding-left: 5px;
   height: 30px;
@@ -4473,20 +4636,18 @@ input[type="text"]#locationSelectionInput:focus {
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
+  cursor: pointer;
 }
 #currentDeliveryArea span {
   color: inherit;
 }
-#currentDeliveryArea.editable {
-  cursor: pointer;
-}
-#currentDeliveryArea.editable .bEdit {
+#currentDeliveryArea .bEdit {
   display: inline-block;
 }
-#currentDeliveryArea.editable:hover {
+#currentDeliveryArea:hover {
   color: #57a827;
 }
-#currentDeliveryArea.editable:hover .bEdit {
+#currentDeliveryArea:hover .bEdit {
   color: #cab06f;
 }
 #storeNote #deliveryAreas,
@@ -4558,6 +4719,7 @@ input[type="text"]#locationSelectionInput:focus {
 .article > h3 {
   width: 265px;
   text-align: center;
+  cursor: pointer;
 }
 .item img,
 .article img {
@@ -4571,6 +4733,7 @@ input[type="text"]#locationSelectionInput:focus {
   font-size: 15px;
   width: inherit;
   text-align: center;
+  cursor: pointer;
 }
 .item .pricetag,
 .article .pricetag {

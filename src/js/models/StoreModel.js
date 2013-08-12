@@ -33,7 +33,9 @@ define([
 			number: 0,
 
 			// needed in client.dashboard
-			numberOfUndoneOrders: 0
+			numberOfUndoneOrders: 0,
+
+			deliveryAreaWasSelected: false,
 		},
 
 		idAttribute: 'alias',
@@ -169,7 +171,12 @@ define([
 			if (selectedDeliveryAreaModel) {
 				return selectedDeliveryAreaModel;
 			} else {
-				return deliveryAreasCollection.first().set('isSelected', true);
+				// TODO remove!!!
+				return deliveryAreasCollection.first().set({
+					isSelected: true
+				}, {
+					silent: true
+				});
 			}
 
 		},
@@ -261,7 +268,11 @@ define([
 
 			if (deliveryAreasCollection) {
 				deliveryAreasCollection.on('add remove change', function () {
-					this.trigger('change');
+					this.set({
+						deliveryAreaWasSelected: true
+					}, {
+						silent: true
+					}).trigger('change');
 				}, this);
 			}
 		},

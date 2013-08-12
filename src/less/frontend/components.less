@@ -757,6 +757,7 @@ img.cookie    { margin: 0 -10px;}
   right: 0;
   bottom: 0;
   background: rgba(255,255,255,0.9);
+  z-index: 99;
   
   #popupContainer {
     position: absolute;
@@ -942,11 +943,10 @@ aside#header {
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
       .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
       
-      .iCart {
+      .iTray {
         margin: 0 10px 0 0;
         .positioned;
         vertical-align: middle;
-        //top: 7px;
  
         span {
           display: none;
@@ -955,8 +955,8 @@ aside#header {
           color: @white;
           font-style: normal;
           position: absolute;
-          left: 19px;
-          top: -5px;
+          left: 25px;
+          top: 15px;
           width: 15px;
           text-align: center;
           z-index: 2;
@@ -966,21 +966,22 @@ aside#header {
         &:before {
           color: darken(@onHeaderColor, 1%);
           text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 darken(@onHeaderColor, 20%);
-          top: 0;
+          top: -2px;
+          font-size: 40px;
+          line-height: 0.8;
         }  
       }
 
-
       &.filled {
-        .iCart {
+        .iTray {
           &:after {
             content: " ";
             .border-radius(500px);
             width: 15px;
             height: 15px;
             position: absolute;
-            left: 19px;
-            top: -4px;
+            left: 25px;
+            top: 16px;
             background: @greenLight;
             .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
           }
@@ -1015,7 +1016,8 @@ aside#header {
     }
   
   }
-    // CLIENT SECTION
+
+  // CLIENT SECTION
 
   div#clientAreaNavigation {
     float: right;
@@ -1264,9 +1266,11 @@ input[type="text"]#locationSelectionInput {
 
 // Delivery Area Selection
 
-#deliveryAreaSelection {
+#deliveryAreaSelection, #postalSelection {
   //display: none;
-  margin-top: 20px;
+  top: 110px + 83px + 10px;
+  margin: 0 20% 0;
+  position: absolute;
   font-size: 40px;
   font-family: @headingsFontFamily;
   color: @onNoteColor;
@@ -1483,6 +1487,120 @@ input[type="text"]#locationSelectionInput {
 @sidemargin:    28px;
 
 
+#preSelectDeliveryArea {
+  position: fixed;
+  z-index: 101;
+  background: rgba(255,255,255,0.75);
+  #popupContainer {
+    margin-top: -128px + 20px;
+    width: 710px;
+    margin-left: -355px;
+  }
+
+  // Location Selection
+
+  input[type="text"]#locationSelectionInput {
+    // padding-left: 250px;
+  }
+
+  #locationSelection {
+    position: relative;
+    top: 0;
+    padding: 40px 40px 0;
+    margin: 0;
+    width: auto;
+  }
+
+  #locationLabel {
+    // left: 50px;
+    bottom: 19px;
+    // margin-left: 0 !important;
+  }
+
+  #locationLoader {
+    // left: 224px;
+    bottom: 16px;
+    // margin-left: 0;
+  }
+  // Postal Selection
+  #postalSelection, #deliveryAreaSelection {
+    position: relative;
+    margin: 0;
+    top: 0;
+  }
+
+  #postalSelection {
+    font-size: 24px;
+    font-family: @headingsFontFamily;
+    color: @onNoteColor50;
+    padding: 10px 30px 20px;
+    border-bottom: 1px solid @noteBorderColor;
+    line-height: 1.3;
+    // text-align: left;
+    &:last-child {
+      border: none;
+    }
+    span {
+      &.preselected {
+        color: @onNoteColor;
+      }
+    }
+  }
+
+  // Delivery Area Selection
+
+  #deliveryAreaSelection {
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.7);
+    padding: 20px 30px;
+    background: @darkNote;
+    // font-size: 24px;
+    span {
+      color: @onDarkNoteColor;
+      &:before, &:after {
+        color: @onDarkNoteColor50;
+      }
+      &:hover {
+        color: @greenLighter;
+      }
+    }
+  }
+
+  .onlyOneDeliveryArea, .preSelectionInfo, .noDeliveryArea {
+    cursor: default;
+    font-size: 24px;  
+  }
+
+  .onlyOneDeliveryArea {
+    cursor: pointer;
+    .transition(e('background .1s linear, color .1s linear'));
+    span {
+      color: @onNoteColor !important;
+      &:before, &:after {
+        content:"";
+      }
+      &:hover {
+        color: @onRlyDarkNoteColor !important;
+      }
+    }
+    &:hover {
+      background: @rlyDarkNote !important;
+      color: @onRlyDarkNoteColor;
+      span {
+        color: @onRlyDarkNoteColor !important;
+      }
+    }
+    
+
+  }
+
+  .noDeliveryArea {
+    color: @orange;
+  }
+
+}
+
+
 #categoriesNavigation, #sectionsNavigation {
   width: 50%;
   text-align: center;
@@ -1542,7 +1660,7 @@ input[type="text"]#locationSelectionInput {
 
   .bEdit {
     .positioned;
-    display: none;
+    // display: none;
     top: -2px;
     padding-left: 5px;
     height: 30px;
@@ -1560,18 +1678,17 @@ input[type="text"]#locationSelectionInput {
 #currentDeliveryArea {
   
   .transition(color .1s linear);
-  span { color: inherit; }
-  
-  &.editable {
-    cursor: pointer;
+  cursor: pointer;
+  span {
+    color: inherit;
+  }
+  .bEdit {
+    display: inline-block;
+  }
+  &:hover{
+    color: @greenLight;
     .bEdit {
-      display: inline-block;
-    }
-    &:hover{
-      color: @greenLight;
-      .bEdit {
-        color: @onNoteColor;
-      }
+      color: @onNoteColor;
     }
   }
 }
@@ -1668,6 +1785,7 @@ input[type="text"]#locationSelectionInput {
   >h3 {
     width: @itemWidth;
     text-align: center;
+    cursor: pointer;
   }
 
   img {
@@ -1681,6 +1799,7 @@ input[type="text"]#locationSelectionInput {
     font-size: 15px;
     width: inherit;
     text-align: center;
+    cursor: pointer;
   }
 
   .pricetag {
