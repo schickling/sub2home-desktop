@@ -81,7 +81,7 @@ define([
 		},
 
 		_selectPostal: function (e) {
-			var postal = e.target.innerText;
+			var postal = e.target.textContent;
 			this.postalSearchView.setPostal(postal);
 		},
 
@@ -136,7 +136,7 @@ define([
 					$renderedPostals = self.$postalSelection.children();
 
 				$renderedPostals.each(function () {
-					$(this).toggleClass('preselected', this.innerText.indexOf(postalPrefix) != -1);
+					$(this).toggleClass('preselected', this.textContent.indexOf(postalPrefix) != -1);
 				});
 
 			}, 50);
@@ -145,7 +145,7 @@ define([
 		_selectDeliveryArea: function (e) {
 			var postal = parseInt(e.target.dataset.postal, 10),
 				isDistirct = e.target.dataset.district === 'true',
-				district = e.target.innerText,
+				district = e.target.textContent,
 				oldSelectedDeliveryAreaModel = this.model.getSelectedDeliveryAreaModel(),
 				deliveryAreasCollection = this.model.get('deliveryAreasCollection'),
 				newDeliveryAreaModel = deliveryAreasCollection.find(function (deliveryAreaModel) {
