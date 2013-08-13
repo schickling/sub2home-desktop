@@ -14,15 +14,10 @@ define([
 
 		initialize: function () {
 			this._render();
-
-			this._listenForPriceChange();
-
-			this._listenForDestory();
 		},
 
 		_render: function () {
 			var json = {
-				total: this.model.get('total'),
 				image: this.model.get('largeImage'),
 				title: this.model.get('title'),
 				info: this.model.get('info'),
@@ -30,7 +25,6 @@ define([
 			};
 
 			this.$el.html(this.template(json));
-
 			this.$el.addClass(this._getImageClass());
 		},
 
@@ -39,14 +33,6 @@ define([
 				imageWithoutFileExtension = image.substr(0, image.lastIndexOf('.'));
 
 			return imageWithoutFileExtension.split('-').pop() || '';
-		},
-
-		_listenForPriceChange: function () {
-			this.listenTo(this.model, 'change:total', this._render);
-		},
-
-		_listenForDestory: function () {
-			this.options.selectionView.once('destroy', this.stopListening, this);
 		}
 
 	});
