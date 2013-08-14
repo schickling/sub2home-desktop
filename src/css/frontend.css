@@ -8542,6 +8542,11 @@ div#payment > div.disabled .btn.active {
   top: 0;
   bottom: 0;
   right: -301px;
+  cursor: pointer;
+  -webkit-transition: background .1s linear, border-left .1s linear;
+  -moz-transition: background .1s linear, border-left .1s linear;
+  -o-transition: background .1s linear, border-left .1s linear;
+  transition: background .1s linear, border-left .1s linear;
 }
 #noUpgrade > div {
   position: absolute;
@@ -8549,7 +8554,6 @@ div#payment > div.disabled .btn.active {
   left: 50%;
   width: 200px;
   margin: -118px 0 0 -100px;
-  cursor: pointer;
 }
 #noUpgrade h3 {
   margin-top: 14px;
@@ -8561,6 +8565,10 @@ div#payment > div.disabled .btn.active {
   margin-top: 20px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
+}
+#noUpgrade:hover {
+  background: #efefe9;
+  border-left: 1px solid #d0d0d0;
 }
 .itemsTimeline .itemTimeline:first-child:before {
   font-family: "Homicons";

@@ -4816,15 +4816,15 @@ div#payment {
   border-left: 1px solid @grayLittleLight;
   top: 0;
   bottom: 0;
-
   right: -301px;
+  cursor: pointer;
+  .transition(e('background .1s linear, border-left .1s linear'));
   >div {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 200px;
     margin: -118px 0 0 -100px;
-    cursor: pointer;
   }
   h3 {
     margin-top: 14px;
@@ -4836,6 +4836,11 @@ div#payment {
     margin-top: 20px;
     font-family: @handFontFamily;
     font-size: 15px;
+  }
+
+  &:hover {
+    background: darken(@separateStageArea, 5%);
+    border-left: 1px solid darken(@grayLittleLight, 5%);
   }
 }
 
