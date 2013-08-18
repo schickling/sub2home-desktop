@@ -3989,8 +3989,8 @@ aside#header.isLoggedIn #headerCustomerContent #currentInfo {
   color: #ffffff;
   font-style: normal;
   position: absolute;
-  left: 15px;
-  top: -7px;
+  left: 24px;
+  top: 17px;
   width: 15px;
   text-align: center;
   z-index: 2;
@@ -4005,8 +4005,8 @@ aside#header.isLoggedIn #headerCustomerContent #currentInfo {
   width: 15px;
   height: 15px;
   position: absolute;
-  left: 15px;
-  top: -6px;
+  left: 25px;
+  top: 17px;
   background: #57a827;
   -webkit-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
