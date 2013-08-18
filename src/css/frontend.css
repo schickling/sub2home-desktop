@@ -8921,6 +8921,7 @@ div#payment > div.disabled .btn.active {
   padding: 0;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 #checkoutControls #noDeliveriesToday {
   font-family: "VAGRoundedStd-Thin";
@@ -8928,6 +8929,76 @@ div#payment > div.disabled .btn.active {
   color: #cab06f;
   text-align: center;
   padding: 5%;
+}
+.goldenThread {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  margin-right: -15px;
+}
+.goldenThread #step1,
+.goldenThread #step2,
+.goldenThread #step3 {
+  position: relative;
+}
+.goldenThread #step1:after,
+.goldenThread #step2:after,
+.goldenThread #step3:after {
+  content: " ";
+  height: 148px;
+  width: 1px;
+  border-right: 3px dashed rgba(202, 176, 111, 0.5);
+  display: block;
+  margin-left: 13px;
+}
+.goldenThread #step1 div,
+.goldenThread #step2 div,
+.goldenThread #step3 div {
+  height: 24px;
+  width: 31px;
+  behavior: url(../css/border-radius.htc);
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  margin: 10px 0;
+  background: rgba(202, 176, 111, 0.5);
+  color: #f4e3b7;
+  padding: 7px 0 0 0;
+  font-family: "VAGRoundedStd-Thin";
+  font-size: 20px;
+  text-align: center;
+  line-height: 1;
+  -webkit-transition: background 0.1s linear;
+  -moz-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+}
+.goldenThread #step1:before {
+  content: " ";
+  height: 213px;
+  width: 1px;
+  border-right: 3px dashed rgba(202, 176, 111, 0.5);
+  display: block;
+  margin-left: 12px;
+}
+.goldenThread #step2:after {
+  height: 133px;
+}
+.goldenThread #step3:after {
+  height: 0;
+  width: 0;
+  border: none;
+}
+#checkoutBonusOptions .goldenThread {
+  margin-top: 49px;
+}
+#checkoutBasicControls .goldenThread {
+  margin-top: 53px;
+}
+#checkoutBonusOptions:hover .goldenThread div > div,
+#checkoutDeliveryRegulation:hover .goldenThread div > div,
+#checkoutBasicControls:hover .goldenThread div > div {
+  background: #cab06f;
 }
 #checkoutDeliveryRegulation {
   position: relative;
@@ -9048,6 +9119,7 @@ div#payment > div.disabled .btn.active {
   left: 8%;
   right: 8%;
   margin-left: 400px;
+  top: 60px;
 }
 #deliveryAdditionalNote div {
   width: 100%;

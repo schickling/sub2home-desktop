@@ -4973,6 +4973,7 @@ div#payment {
 //   color: @onNoteColor50;
 // }
 
+
 #orderedItems {
   margin: 0;
   padding: 100px 8% 50px;
@@ -5264,10 +5265,14 @@ div#payment {
 // Checkout-Controls
 // ---------------------------
 
+
+
+
 #checkoutControls {
   padding: 0;
   width: 100%;
   overflow: hidden;
+  .positioned;
   //background: @darkNote;
   #noDeliveriesToday {
     font-family: @headingsFontFamily;
@@ -5278,7 +5283,87 @@ div#payment {
   }
 }
 
+// Golden Thread
 
+.goldenThread {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  margin-right: -15px;
+
+  #step1, #step2, #step3 {
+    .positioned;
+    &:after {
+      content:" ";
+      height: 148px;
+      width: 1px;
+      border-right: 3px dashed @onNoteColor50;
+      display: block;
+      margin-left: 13px;
+    }
+    div {
+      height: 24px;
+      width: 31px;
+      .img-circle;
+      margin: 10px 0;
+      background: @onNoteColor50;
+      color: @darkNoteColor;
+      padding: 7px 0 0 0;
+      font-family: @headingsFontFamily;
+      font-size: 20px;
+      text-align: center;
+      line-height: 1;
+      .transition(background .1s linear);
+    }
+  }
+
+  #step1 {
+    &:before {
+      content:" ";
+      height: 213px;
+      width: 1px;
+      border-right: 3px dashed @onNoteColor50;
+      display: block;
+      margin-left: 12px;
+    }
+  }
+  
+  #step2 {
+
+    &:after {
+      height: 133px;
+    }
+  }
+
+  #step3 {
+    &:after {
+      height: 0;
+      width: 0;
+      border: none;
+    }
+  }
+
+}
+
+#checkoutBonusOptions .goldenThread {
+  margin-top: 49px;
+}
+
+#checkoutBasicControls .goldenThread {
+  margin-top: 53px;
+}
+
+// #checkoutDeliveryRegulation:hover {
+//   ;
+// }
+
+#checkoutBonusOptions, #checkoutDeliveryRegulation, #checkoutBasicControls {
+  &:hover {
+    .goldenThread div > div {
+      background: @onNoteColor;
+    }
+  }
+}
 
 // Checkout-Additional-Options
 // ---------------------------
@@ -5385,6 +5470,7 @@ div#payment {
   left: 8%;
   right: 8%;
   margin-left: 400px;
+  top: 60px;
   div {
     width: 100%;
     height: 40px;
