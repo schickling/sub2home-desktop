@@ -8946,6 +8946,7 @@ div#payment > div.disabled .btn.active {
 .goldenThread #step3:after {
   content: " ";
   height: 148px;
+  height: 185px;
   width: 1px;
   border-right: 3px dashed rgba(202, 176, 111, 0.5);
   display: block;
@@ -8976,6 +8977,7 @@ div#payment > div.disabled .btn.active {
 .goldenThread #step1:before {
   content: " ";
   height: 213px;
+  height: 176px;
   width: 1px;
   border-right: 3px dashed rgba(202, 176, 111, 0.5);
   display: block;
