@@ -6846,7 +6846,7 @@ input[type="text"]#locationSelectionInput:focus {
   position: relative;
   text-align: right;
   height: 40px;
-  margin: 92px 30px 0;
+  margin: 92px 30px 0 5%;
 }
 #orderControls #searchbar {
   position: absolute;
