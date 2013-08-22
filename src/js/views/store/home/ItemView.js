@@ -26,7 +26,6 @@ define([
 
 		initialize: function () {
 			this._render();
-			this._waitForImage();
 		},
 
 		_render: function () {
@@ -41,16 +40,6 @@ define([
 			this.$el.html(this.template(json));
 
 			this.$el.addClass(this._getImageClass());
-		},
-
-		_waitForImage: function () {
-			var $imagePlaceholder = this.$('.imagePlaceholder');
-
-			this.$('img').one('load', function () {
-				$imagePlaceholder.hide();
-			}).each(function () {
-				if (this.complete) $(this).load();
-			});
 		},
 
 		_getImageClass: function () {
