@@ -3680,6 +3680,30 @@ img.cookie {
   font-size: 24px;
   resize: none;
 }
+#actingHint {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 99;
+  text-align: center;
+}
+#actingHint #actingHintContainer {
+  position: inline-block;
+  font-family: "VAGRoundedStd-Thin";
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  color: #bcbcbc;
+  line-height: 1;
+  margin-top: -25px;
+}
 aside#header {
   *zoom: 1;
   -webkit-backface-visibility: hidden;
@@ -3733,6 +3757,13 @@ aside#header #toTheInfo:before {
 aside#header #toTheInfo:hover {
   color: #836c35;
   background: rgba(184, 126, 0, 0.08);
+}
+aside#header #toTheInfo.closeTheInfo:before {
+  font-family: "Homicons";
+  content: "\e05f";
+  font-size: 25px;
+  top: 23px;
+  left: 3px;
 }
 aside#header #headerClientContent,
 aside#header #headerCustomerContent {
@@ -3989,8 +4020,8 @@ aside#header.isLoggedIn #headerCustomerContent #currentInfo {
   color: #ffffff;
   font-style: normal;
   position: absolute;
-  left: 24px;
-  top: 17px;
+  left: 15px;
+  top: -7px;
   width: 15px;
   text-align: center;
   z-index: 2;
@@ -4005,8 +4036,8 @@ aside#header.isLoggedIn #headerCustomerContent #currentInfo {
   width: 15px;
   height: 15px;
   position: absolute;
-  left: 25px;
-  top: 17px;
+  left: 15px;
+  top: -6px;
   background: #57a827;
   -webkit-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
   -moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.45), 0 1px 0 0 rgba(255, 255, 255, 0.7);
@@ -4214,9 +4245,6 @@ input[type="text"]#locationSelectionInput:focus {
   cursor: default;
   color: rgba(202, 176, 111, 0.5);
 }
-#deliveryAreaSelection span:last-child {
-  white-space: pre;
-}
 #map {
   height: 100%;
   z-index: 50;
@@ -4316,6 +4344,9 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .storePreview.unavailable {
   cursor: default;
+}
+#suggestStore {
+  background: none;
 }
 #suggestStore #popupContainer #message {
   padding-bottom: 40px;
@@ -4577,7 +4608,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #categoriesNavigation,
 #sectionsNavigation {
-  width: 50%;
+  width: 45%;
   text-align: center;
   height: inherit;
   height: 70px;
@@ -4702,6 +4733,16 @@ input[type="text"]#locationSelectionInput:focus {
   height: 1px;
   background: rgba(202, 176, 111, 0.5);
 }
+.imagePlaceholder {
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/placeholderimage.gif") no-repeat center #ffffff;
+  position: absolute;
+  top: 26px;
+  left: 25px;
+  right: 25px;
+  height: 160px;
+  z-index: 6;
+  padding-bottom: 10px;
+}
 .items {
   display: inline-block;
   text-align: left;
@@ -4766,12 +4807,12 @@ input[type="text"]#locationSelectionInput:focus {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  z-index: 5;
+  z-index: 7;
 }
 .item .detailsArticle img,
 .article .detailsArticle img {
   position: absolute;
-  z-index: 6;
+  z-index: 8;
   left: 25px;
   top: 25px;
 }
@@ -4793,7 +4834,7 @@ input[type="text"]#locationSelectionInput:focus {
 }
 .item .detailsArticle .pricetag,
 .article .detailsArticle .pricetag {
-  z-index: 7;
+  z-index: 9;
 }
 .item .footlongOption,
 .article .footlongOption {
@@ -6601,7 +6642,7 @@ input[type="text"]#locationSelectionInput:focus {
   overflow: hidden;
 }
 #revenuesNote #toggleRevenues {
-  margin: 30px;
+  margin: 30px 30px 30px 38px;
   position: absolute;
   color: rgba(202, 176, 111, 0.5);
   cursor: pointer;
@@ -6812,7 +6853,7 @@ input[type="text"]#locationSelectionInput:focus {
   height: 30px;
   text-align: left;
   padding: 5px 5px 5px 40px;
-  left: 0;
+  left: 70px;
   right: 70px;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
@@ -6842,18 +6883,24 @@ input[type="text"]#locationSelectionInput:focus {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#orderControls .bRefresh {
+#orderControls .bRefresh,
+#orderControls .bCheck {
   margin: 7px 10px 0 0;
   height: 27px;
   width: 27px;
 }
-#orderControls .bRefresh:before {
+#orderControls .bRefresh:before,
+#orderControls .bCheck:before {
   width: 27px;
   height: 27px;
   top: -2px;
 }
+#orderControls .bCheck {
+  position: absolute;
+  left: 20px;
+}
 .content.orders {
-  padding: 30px 5%;
+  padding: 30px;
 }
 .content.orders #orderListing {
   display: none;
@@ -8542,11 +8589,6 @@ div#payment > div.disabled .btn.active {
   top: 0;
   bottom: 0;
   right: -301px;
-  cursor: pointer;
-  -webkit-transition: background .1s linear, border-left .1s linear;
-  -moz-transition: background .1s linear, border-left .1s linear;
-  -o-transition: background .1s linear, border-left .1s linear;
-  transition: background .1s linear, border-left .1s linear;
 }
 #noUpgrade > div {
   position: absolute;
@@ -8554,6 +8596,7 @@ div#payment > div.disabled .btn.active {
   left: 50%;
   width: 200px;
   margin: -118px 0 0 -100px;
+  cursor: pointer;
 }
 #noUpgrade h3 {
   margin-top: 14px;
@@ -8565,10 +8608,6 @@ div#payment > div.disabled .btn.active {
   margin-top: 20px;
   font-family: "Handlee", Helvetica, Arial, sans-serif;
   font-size: 15px;
-}
-#noUpgrade:hover {
-  background: #efefe9;
-  border-left: 1px solid #d0d0d0;
 }
 .itemsTimeline .itemTimeline:first-child:before {
   font-family: "Homicons";
@@ -8838,6 +8877,9 @@ div#payment > div.disabled .btn.active {
 .menuItems {
   padding: 0 10px;
 }
+#orderedItems {
+  z-index: 100;
+}
 #orderedItems .menuItem {
   display: inline-block;
   vertical-align: top;
@@ -8921,86 +8963,54 @@ div#payment > div.disabled .btn.active {
   padding: 0;
   width: 100%;
   overflow: hidden;
-  position: relative;
+  min-height: 100%;
 }
 #checkoutControls #noDeliveriesToday {
   font-family: "VAGRoundedStd-Thin";
   font-size: 60px;
   color: #cab06f;
   text-align: center;
-  padding: 5%;
+  line-height: 1.3;
+  min-height: 100%;
 }
-.goldenThread {
-  position: absolute;
-  top: 0;
-  right: 4%;
-  margin-right: -15px;
+#checkoutControls #noDeliveriesToday > span {
+  padding: 3% 5% 3%;
+  margin-bottom: 50px;
+  display: inline-block;
 }
-.goldenThread #step1,
-.goldenThread #step2,
-.goldenThread #step3 {
-  position: relative;
+#checkoutControls #noDeliveriesToday div {
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.goldenThread #step1:after,
-.goldenThread #step2:after,
-.goldenThread #step3:after {
-  content: " ";
-  height: 148px;
-  height: 185px;
-  width: 1px;
-  border-right: 3px dashed rgba(202, 176, 111, 0.5);
+#checkoutControls #noDeliveriesToday div span {
+  background: rgba(224, 166, 54, 0.28);
+  width: 100%;
+  font-size: 24px;
   display: block;
-  margin-left: 13px;
-}
-.goldenThread #step1 div,
-.goldenThread #step2 div,
-.goldenThread #step3 div {
-  height: 24px;
-  width: 31px;
-  behavior: url(../css/border-radius.htc);
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
-  margin: 10px 0;
-  background: rgba(202, 176, 111, 0.5);
-  color: #f4e3b7;
-  padding: 7px 0 0 0;
-  font-family: "VAGRoundedStd-Thin";
-  font-size: 20px;
-  text-align: center;
+  padding: 20px 0 15px;
   line-height: 1;
-  -webkit-transition: background 0.1s linear;
-  -moz-transition: background 0.1s linear;
-  -o-transition: background 0.1s linear;
-  transition: background 0.1s linear;
+  cursor: pointer;
+  -webkit-transition: background .1s linear, color .1s linear;
+  -moz-transition: background .1s linear, color .1s linear;
+  -o-transition: background .1s linear, color .1s linear;
+  transition: background .1s linear, color .1s linear;
 }
-.goldenThread #step1:before {
+#checkoutControls #noDeliveriesToday div span:before {
   content: " ";
-  height: 213px;
-  height: 176px;
-  width: 1px;
-  border-right: 3px dashed rgba(202, 176, 111, 0.5);
-  display: block;
-  margin-left: 12px;
+  border-top: 1px solid #cab06f;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
 }
-.goldenThread #step2:after {
-  height: 133px;
-}
-.goldenThread #step3:after {
-  height: 0;
-  width: 0;
-  border: none;
-}
-#checkoutBonusOptions .goldenThread {
-  margin-top: 49px;
-}
-#checkoutBasicControls .goldenThread {
-  margin-top: 53px;
-}
-#checkoutBonusOptions:hover .goldenThread div > div,
-#checkoutDeliveryRegulation:hover .goldenThread div > div,
-#checkoutBasicControls:hover .goldenThread div > div {
-  background: #cab06f;
+#checkoutControls #noDeliveriesToday div span:hover {
+  background: rgba(224, 166, 54, 0.45);
+  color: #7a642d;
 }
 #checkoutDeliveryRegulation {
   position: relative;
@@ -9121,7 +9131,6 @@ div#payment > div.disabled .btn.active {
   left: 8%;
   right: 8%;
   margin-left: 400px;
-  top: 60px;
 }
 #deliveryAdditionalNote div {
   width: 100%;
@@ -10099,10 +10108,15 @@ aside.infoNavigation ul li.active {
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
 }
 #officeContact header h2 {
-  font-size: 27px;
+  font-size: 28px;
   line-height: 1;
   color: #0c0c0c;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+#officeContact header span {
+  color: inherit;
+  text-shadow: inherit;
+  font-size: 14px !important;
 }
 #officeContact .icn {
   font-size: 24px;
@@ -10121,6 +10135,17 @@ aside.infoNavigation ul li.active {
 #impressum div {
   opacity: 0.5;
   filter: alpha(opacity=50);
+}
+#impressum:after {
+  content: "\e000";
+  font-family: "Homicons";
+  font-size: 150px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: 120px 0 100px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: rgba(0, 0, 0, 0.4);
 }
 #error404 {
   position: absolute;
@@ -10206,6 +10231,17 @@ aside.infoNavigation ul li.active {
 .affix {
   position: fixed;
 }
+.superscript {
+  vertical-align: super;
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: inherit;
+  text-shadow: inherit;
+}
+.superscript:before,
+.superscript:after {
+  content: "" !important;
+}
 .location-fixing img {
   max-width: none;
 }
@@ -10254,6 +10290,17 @@ aside#header {
     margin: 0px 15% 0;
   }
 }
+@media (max-width: 1204px) {
+  #actingHint #actingHintContainer {
+    margin-top: -50px;
+    padding: 0 21%;
+  }
+}
+@media (max-width: 1000px) {
+  #actingHint #actingHintContainer {
+    padding: 0 14%;
+  }
+}
 @media (max-width: 1113px) {
   .locationSelection {
     width: 80%;
@@ -10292,7 +10339,7 @@ aside#header {
     width: 52%;
   }
   #categoriesNavigation {
-    width: 48%;
+    width: 42%;
   }
 }
 @media (max-width: 1300px) {
@@ -10325,7 +10372,7 @@ aside#header {
     margin: 0;
   }
   #categoriesNavigation {
-    width: 49%;
+    width: 42%;
   }
 }
 @media (max-width: 1200px) {

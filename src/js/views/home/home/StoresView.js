@@ -22,9 +22,9 @@ define([
 		geocoder: null,
 		postal: null,
 
-		// deffereds
-		mapDeffered: $.Deferred(),
-		collectionDeffered: null,
+		// deferreds
+		mapDeferred: $.Deferred(),
+		collectionDeferred: null,
 
 		storeViews: [],
 		promotionView: null,
@@ -35,14 +35,15 @@ define([
 		$deliveryAreaSelection: null,
 		$mapContainer: null,
 		$map: null,
+		$actingHint: null,
 
 		initialize: function () {
 			this._cacheDom();
 			this._renderPostalSearchView();
 			this._renderPromotionView();
-			this._waitForPostal();
 			this._loadStores();
 			this._loadMap();
+			this._runAndWaitForPostal();
 		},
 
 		_cacheDom: function () {
@@ -50,11 +51,17 @@ define([
 			this.$deliveryAreaSelection = this.$homeNote.find('#deliveryAreaSelection');
 			this.$mapContainer = this.$('#mapContainer');
 			this.$map = this.$mapContainer.find('#map');
+			this.$actingHint = this.$mapContainer.find('#actingHint');
 		},
 
 		_renderPostalSearchView: function () {
+			var self = this;
+
 			this.postalSearchView = new PostalSearchView({
-				el: this.$('#locationSelection')
+				el: this.$('#locationSelection'),
+				newPostalCallback: function (postal) {
+					self._newPostalCallback(postal);
+				}
 			});
 		},
 
@@ -66,7 +73,7 @@ define([
 
 		_loadStores: function () {
 			this.collection = new StoresCollection();
-			this.collectionDeffered = this.collection.fetch();
+			this.collectionDeferred = this.collection.fetch();
 		},
 
 		_loadMap: function () {
@@ -91,22 +98,22 @@ define([
 			var self = this;
 			gmaps.event.addListenerOnce(map, 'idle', function () {
 				// init geolocation
-				self.mapDeffered.resolve();
+				self.mapDeferred.resolve();
 				gmaps.event.trigger(map, 'resize');
 			});
 		},
 
-		_waitForPostal: function () {
+		_runAndWaitForPostal: function (postal) {
 			var self = this;
 
-			notificationcenter.notify('views.home.home.lookupLocation');
-
 			this.listenTo(this.postalSearchView, 'newPostal', function (postal) {
-				$.when(self.mapDeffered, self.collectionDeffered).done(function () {
+				$.when(self.mapDeferred, self.collectionDeferred).done(function () {
 					self.postal = postal;
 					self._lookUpStores();
 				});
 			});
+
+			this.postalSearchView.run();
 		},
 
 		_lookUpStores: function () {
@@ -130,15 +137,18 @@ define([
 				if (matchingDeliveryAreas.length > 1) {
 					this._renderDeliveryAreas(matchingDeliveryAreas);
 					this.postalSearchView.showDeliveryAreaLabel();
+					this._showActingHint();
 				} else {
 					this.postalSearchView.showStoreSelectionLabel();
 					matchingDeliveryAreas[0].set('isSelected', true);
 					this.storeViews[0].markAvailable();
+					this._hideActingHint();
 				}
 
 				this._hidePromotionView();
 
 			} else {
+				this._hideActingHint();
 				this._noStoresFound();
 			}
 		},
@@ -297,6 +307,14 @@ define([
 
 		_hidePromotionView: function () {
 			this.promotionView.hide();
+		},
+
+		_showActingHint: function () {
+			this.$actingHint.fadeIn(200);
+		},
+
+		_hideActingHint: function () {
+			this.$actingHint.fadeOut(200);
 		},
 
 		destroy: function () {

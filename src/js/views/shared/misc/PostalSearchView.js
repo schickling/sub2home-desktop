@@ -13,8 +13,6 @@ define([
 
 	var PostalSearchView = Backbone.View.extend({
 
-		template: _.template(PostalSearchTemplate),
-
 		events: {
 			'input #locationSelectionInput': '_checkInput'
 		},
@@ -33,11 +31,21 @@ define([
 		initialize: function () {
 			this._render();
 			this._cacheDom();
-			this._checkLocation();
+		},
+
+		run: function () {
+			var postal = postalOracle.getPostal();
+
+			if (postal) {
+				this._hideRotateLocation();
+				this.setPostal(postal);
+			} else {
+				this._checkLocation();
+			}
 		},
 
 		_render: function () {
-			this.$el.html(this.template());
+			this.$el.html(PostalSearchTemplate);
 		},
 
 		_cacheDom: function () {
@@ -54,12 +62,13 @@ define([
 
 			this._startRotateLocation();
 
-			postalOracle.calculate(function (postal) {
-				self._stopAndHideRotateLocation();
+			postalOracle.calculate(function () {
+				notificationcenter.notify('views.home.home.lookupLocation');
+				self._stopAndFadeOutRotateLocation();
 				self._focusSearch();
-				self.setPostal(postal);
+				self.setPostal(postalOracle.getPostal());
 			}, function () {
-				self._stopAndHideRotateLocation();
+				self._stopAndFadeOutRotateLocation();
 				self._focusSearch();
 			});
 
@@ -70,6 +79,10 @@ define([
 
 			if (postal != this.postal) {
 				this.trigger('newPostal', postal);
+			}
+
+			if (postalOracle.getPostal() != postal) {
+				postalOracle.setPostal(postal)
 			}
 
 			this.$input.val(postal);
@@ -104,8 +117,15 @@ define([
 			return postal > 9999 && postal < 100000;
 		},
 
+		_hideRotateLocation: function () {
+			this.$locationLoader.hide();
+			this.$locationLabel.css({
+				marginLeft: -174
+			});
+		},
+
 		_stopLocationDetermination: function () {
-			this._stopAndHideRotateLocation();
+			this._stopAndFadeOutRotateLocation();
 			postalOracle.cancel();
 		},
 
@@ -119,7 +139,7 @@ define([
 			}, 20);
 		},
 
-		_stopAndHideRotateLocation: function () {
+		_stopAndFadeOutRotateLocation: function () {
 			clearInterval(this.rotateInterval);
 
 			this.$locationLoader.stop().fadeOut(100);
@@ -140,7 +160,7 @@ define([
 			this.$storeSelectionLabel.stop().delay(100).fadeIn(150);
 		},
 
-		destroy: function() {
+		destroy: function () {
 			this._stopLocationDetermination();
 		}
 

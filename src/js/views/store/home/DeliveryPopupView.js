@@ -34,7 +34,7 @@ define([
 			this._render();
 			this._fadeIn();
 			this._preselectPostals();
-			this._waitForPostal();
+			this._runAndWaitForPostal();
 		},
 
 		_collectPostals: function () {
@@ -76,8 +76,9 @@ define([
 			});
 		},
 
-		_waitForPostal: function () {
+		_runAndWaitForPostal: function () {
 			this.listenTo(this.postalSearchView, 'newPostal', this._newPostal);
+			this.postalSearchView.run();
 		},
 
 		_selectPostal: function (e) {

@@ -54,6 +54,17 @@
   position: fixed;
 }
 
+.superscript {
+  vertical-align: super;
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: inherit;
+  text-shadow: inherit;
+  &:before, &:after {
+    content: "" !important;
+  }
+}
+
 // Bootstrap Map Pin Fix
 
 .location-fixing img {

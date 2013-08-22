@@ -61,6 +61,7 @@
 
 // Grays
 // -------------------------
+
 @black:                 #000;
 @grayDarker:            #222;
 @grayDark:              #555;
@@ -89,8 +90,10 @@
 @separateStageArea:		#fafaf8;
 
 @slightlyDarkNote:        rgba(224,166,54,0.1);
-@darkNote:				rgba(224,166,54,0.2);
-@rlyDarkNote:        rgba(224,166,54,0.3);
+@darkNote:				        rgba(224,166,54,0.2);
+@rlyDarkNote:             rgba(224,166,54,0.3);
+@onlySlightlyDarkNote:    rgba(224,166,54,0.28);
+@onlyRlyDarkNote:         rgba(224,166,54,0.45);
 
 @onDarkNoteColor50:		darken(rgba(197,168,98,0.5), 5%);
 @onDarkNoteColor70:		darken(rgba(197,168,98,0.7), 5%);
@@ -109,6 +112,7 @@
 
 // Accent colors
 // -------------------------
+
 @blue:                  #049cdb;
 @blueDark:              #0064cd;
 @green:                 #46a546;
@@ -137,6 +141,7 @@
 
 // Scaffolding
 // -------------------------
+
 @bodyBackground:        @white;
 @textColor:             @grayDark;
 
@@ -162,26 +167,20 @@
 
 @magnifier:						url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/magnifier.png") no-repeat;
 
+@placeholderImage:    url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/placeholderimage.gif") no-repeat center;
 
-// @checkoutImage: 				url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/checkout_image.jpg") no-repeat bottom center;
-
-
-// @pricetagImage:			url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/pricetag.png") no-repeat;
-
-
-// @flagLeftBackground:	url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/flag_left.png") no-repeat;
-// @flagCenterBackground:	url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/flag_center.png") repeat-x;
-// @flagRightBackground:	url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/flag_right.png") no-repeat;
 
 
 // Links
 // -------------------------
+
 @linkColor:             @greenDark;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
+
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -193,14 +192,14 @@
 @baseLineHeight:        18px;
 @altFontFamily:         @serifFontFamily;
 
-@headingsFontFamily:    "VAGRoundedStd-Thin"; // empty to use BS default, @baseFontFamily
-//@headingsBoldFontFamily: "VAGRounded LT Light";
-@headingsFontWeight:    normal;    // instead of browser default, bold
-@headingsColor:         @greenDark; // empty to use BS default, @textColor
-@headingsFontSize:		20px;
+@headingsFontFamily:    "VAGRoundedStd-Thin";
+@headingsFontWeight:    normal;
+@headingsColor:         @greenDark;
+@headingsFontSize:		  20px;
 
 // Tables
 // -------------------------
+
 @tableBackground:                   transparent; // overall background-color
 @tableBackgroundAccent:             #f9f9f9; // for striping
 @tableBackgroundHover:              #f5f5f5; // for hover
@@ -208,54 +207,56 @@
 
 // Buttons
 // -------------------------
+
 @btnBackground:                     darken(@white, 3%);
-@btnBackgroundCenter:				darken(@white, 5%);
+@btnBackgroundCenter:				        darken(@white, 5%);
 @btnBackgroundHighlight:            darken(@white, 10%);
 @btnBorder:                         #bbb;
-@btnTextShadow:						0 1px 0px rgba(255,255,255,0.15);
-@btnMoreTextShadow:					0 1px 0px rgba(255,255,255,0.50);
+@btnTextShadow:						          0 1px 0px rgba(255,255,255,0.15);
+@btnMoreTextShadow:					        0 1px 0px rgba(255,255,255,0.50);
 
 @btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundCenter:		@gray;
+@btnPrimaryBackgroundCenter:		    @gray;
 @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
 @btnInfoBackground:                 darken(@blueDark, 3%);
-@btnInfoBackgroundCenter:			darken(@blueDark, 5%);
+@btnInfoBackgroundCenter:			      darken(@blueDark, 5%);
 @btnInfoBackgroundHighlight:        darken(@blueDark, 10%);
 
 @btnDarkInfoBackground:             darken(@blueDark, 13%);
-@btnDarkInfoBackgroundCenter:		darken(@blueDark, 15%);
+@btnDarkInfoBackgroundCenter:		     darken(@blueDark, 15%);
 @btnDarkInfoBackgroundHighlight:    darken(@blueDark, 20%);
 
 @btnSuccessBackground:              rgb(191,229,110);
-@btnSuccessBackgroundCenter:		rgb(177,218,89);
+@btnSuccessBackgroundCenter:		    rgb(177,218,89);
 @btnSuccessBackgroundHighlight:     rgb(156,200,62);
-@btnSuccessColor:					darken(#598301, 4%);
+@btnSuccessColor:					          darken(#598301, 4%);
 
 @btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundCenter:		lighten(@orange, 5%);
+@btnWarningBackgroundCenter:		    lighten(@orange, 5%);
 @btnWarningBackgroundHighlight:     @orange;
 
 @btnDangerBackground:               #ee5f5b;
-@btnDangerBackgroundCenter:			@gray;
+@btnDangerBackgroundCenter:			    @gray;
 @btnDangerBackgroundHighlight:      #bd362f;
 
 @btnInverseBackground:              #444;
-@btnInverseBackgroundCenter:		@gray;
+@btnInverseBackgroundCenter:		    @gray;
 @btnInverseBackgroundHighlight:     @grayDarker;
 
-@btnDarkBackground:					lighten(@grayDark, 18%);
-@btnDarkBackgroundCenter:			lighten(@grayDark, 8%);
-@btnDarkBackgroundHighlight:		lighten(@grayDark, 3%);
-@btnDarkColor:						darken(@grayDark, 18%);
+@btnDarkBackground:					        lighten(@grayDark, 18%);
+@btnDarkBackgroundCenter:			      lighten(@grayDark, 8%);
+@btnDarkBackgroundHighlight:		    lighten(@grayDark, 3%);
+@btnDarkColor:						          darken(@grayDark, 18%);
 
 
-@btnHalfOpBackground:				@onNoteColor10;
-@btnHalfOpBackgroundCenter:			@onNoteColor30;
-@btnHalfOpBackgroundHighlight:		@onNoteColor30;
+@btnHalfOpBackground:				        @onNoteColor10;
+@btnHalfOpBackgroundCenter:			    @onNoteColor30;
+@btnHalfOpBackgroundHighlight:		  @onNoteColor30;
 
 // Forms
 // -------------------------
+
 @inputBackground:               @white;
 @inputBorder:                   #ccc;
 @inputBorderRadius:             3px;
