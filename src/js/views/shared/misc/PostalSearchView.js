@@ -82,7 +82,7 @@ define([
 			}
 
 			if (postalOracle.getPostal() != postal) {
-				postalOracle.setPostal(postal)
+				postalOracle.setPostal(postal);
 			}
 
 			this.$input.val(postal);
