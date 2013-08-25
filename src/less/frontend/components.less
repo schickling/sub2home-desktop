@@ -3237,7 +3237,7 @@ input[type="text"]#locationSelectionInput {
   .positioned;
   text-align: right;
   height: 40px;
-  margin: 92px 30px 0 5%;
+  margin: 92px 30px 0 30px;
 
   #searchbar {
     position: absolute;
@@ -3628,22 +3628,19 @@ input[type="text"]#locationSelectionInput {
       // }
       &.balanced {
         .orderHeader >div {
-          padding-top: 10px;
           &.orderValueContainer {
             padding-top: 0;
+            margin-top: -4px;
           }
-          .orderValue {
+          .orderValue, .orderValueWithCredit {
             text-decoration: line-through;
             font-size: 16px;
           }
 
           .orderValueWithCredit {
             color: @orange;
-            margin: 5px 0 15px;
+            text-decoration: none;
           }
-          // &.orderTimeLimit {
-          //   display: none;
-          // }
 
           &.alertOrder {
             color: @greenLighter;

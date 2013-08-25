@@ -6846,7 +6846,7 @@ input[type="text"]#locationSelectionInput:focus {
   position: relative;
   text-align: right;
   height: 40px;
-  margin: 92px 30px 0 5%;
+  margin: 92px 30px 0 30px;
 }
 #orderControls #searchbar {
   position: absolute;
@@ -7269,19 +7269,18 @@ input[type="text"]#locationSelectionInput:focus {
   border-right: 1px solid #e4e4e4;
   font-weight: bold;
 }
-.content.orders #orderListing .order.balanced .orderHeader > div {
-  padding-top: 10px;
-}
 .content.orders #orderListing .order.balanced .orderHeader > div.orderValueContainer {
   padding-top: 0;
+  margin-top: -4px;
 }
-.content.orders #orderListing .order.balanced .orderHeader > div .orderValue {
+.content.orders #orderListing .order.balanced .orderHeader > div .orderValue,
+.content.orders #orderListing .order.balanced .orderHeader > div .orderValueWithCredit {
   text-decoration: line-through;
   font-size: 16px;
 }
 .content.orders #orderListing .order.balanced .orderHeader > div .orderValueWithCredit {
   color: #dc952b;
-  margin: 5px 0 15px;
+  text-decoration: none;
 }
 .content.orders #orderListing .order.balanced .orderHeader > div.alertOrder {
   color: #9cc83e;
