@@ -47,7 +47,8 @@ define([
 			'click #refresh': '_refresh',
 			'click #loadMore': '_loadMore',
 			'click #bMail': '_sendTestOrder',
-			'mousemove': '_resetAutoRefresh'
+			'mousemove': '_resetAutoRefresh',
+			'click #checkAllOrders': '_checkAllOrders'
 		},
 
 		initialize: function () {
@@ -290,6 +291,16 @@ define([
 				},
 				error: function () {
 					notificationcenter.notify('views.store.dashboard.testOrder.error');
+				}
+			});
+		},
+
+		_checkAllOrders: function () {
+			_.each(this.collection.models, function (orderModel) {
+				if (!orderModel.get('isDelivered')) {
+					orderModel.save({
+						isDelivered: true
+					});
 				}
 			});
 		},
