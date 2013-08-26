@@ -4737,8 +4737,11 @@ input[type="text"]#locationSelectionInput:focus {
   height: 1px;
   background: rgba(202, 176, 111, 0.5);
 }
+/*// IMAGE PLACEHOLDER
+
+
 .imagePlaceholder {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/placeholderimage.gif") no-repeat center #ffffff;
+  background: @placeholderImage white;
   position: absolute;
   top: 26px;
   left: 25px;
@@ -4746,7 +4749,8 @@ input[type="text"]#locationSelectionInput:focus {
   height: 160px;
   z-index: 6;
   padding-bottom: 10px;
-}
+
+}*/
 .items {
   display: inline-block;
   text-align: left;
@@ -5044,6 +5048,10 @@ input[type="text"]#locationSelectionInput:focus {
 .item.b .pricetag.small {
   top: 119px;
   left: 167px;
+}
+.item .itemPreview.loading {
+  width: 265px;
+  height: 160px;
 }
 .article {
   background: none;
