@@ -1331,6 +1331,8 @@ input[type="text"]#locationSelectionInput {
       }
     }
     &:last-child {
+      white-space: pre;
+
       &:before {
         content: " oder "
       }
@@ -4871,8 +4873,10 @@ div#payment {
   border-left: 1px solid @grayLittleLight;
   top: 0;
   bottom: 0;
-
   right: -301px;
+  cursor: pointer;
+  .transition(e('background .1s linear, border-left .1s linear'));
+
   >div {
     position: absolute;
     top: 50%;
@@ -4891,6 +4895,10 @@ div#payment {
     margin-top: 20px;
     font-family: @handFontFamily;
     font-size: 15px;
+  }
+  &:hover {
+    background: darken(@separateStageArea, 5%);
+    border-left: 1px solid darken(@grayLittleLight, 5%);
   }
 }
 
@@ -5320,6 +5328,7 @@ div#payment {
   width: 100%;
   overflow: hidden;
   min-height: 100%;
+  .positioned;
   //background: @darkNote;
   #noDeliveriesToday {
     font-family: @headingsFontFamily;
@@ -5328,10 +5337,12 @@ div#payment {
     text-align: center;
     line-height: 1.3;
     min-height: 100%;
+
+    padding: 5%;
     >span {
-    padding: 3% 5% 3%;
-    margin-bottom: 50px;
-    display: inline-block;
+      padding: 3% 5% 3%;
+      margin-bottom: 50px;
+      display: inline-block;
     }
     div {
       background: @noteBackground;
@@ -5366,6 +5377,91 @@ div#payment {
     }
   }
 }
+ 
+// Golden Thread
+ 
+.goldenThread {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  margin-right: -15px;
+ 
+  #step1, #step2, #step3 {
+    .positioned;
+    &:after {
+      content:" ";
+      height: 148px;
+      height: 185px;
+      width: 1px;
+      border-right: 3px dashed @onNoteColor50;
+      display: block;
+      margin-left: 13px;
+    }
+    div {
+      height: 24px;
+      width: 31px;
+      .img-circle;
+      margin: 10px 0;
+      background: @onNoteColor50;
+      color: @darkNoteColor;
+      padding: 7px 0 0 0;
+      font-family: @headingsFontFamily;
+      font-size: 20px;
+      text-align: center;
+      line-height: 1;
+      .transition(background .1s linear);
+    }
+  }
+ 
+  #step1 {
+    &:before {
+      content:" ";
+      height: 213px;
+      height: 176px;
+      width: 1px;
+      border-right: 3px dashed @onNoteColor50;
+      display: block;
+      margin-left: 12px;
+    }
+  }
+  
+  #step2 {
+ 
+    &:after {
+      height: 133px;
+    }
+  }
+ 
+  #step3 {
+    &:after {
+      height: 0;
+      width: 0;
+      border: none;
+    }
+  }
+}
+
+#checkoutBonusOptions .goldenThread {
+  margin-top: 49px;
+}
+ 
+#checkoutBasicControls .goldenThread {
+  margin-top: 53px;
+}
+ 
+// #checkoutDeliveryRegulation:hover {
+//   ;
+// }
+ 
+#checkoutBonusOptions, #checkoutDeliveryRegulation, #checkoutBasicControls {
+  &:hover {
+    .goldenThread div > div {
+      background: @onNoteColor;
+    }
+  }
+}
+
+
 
 
 
