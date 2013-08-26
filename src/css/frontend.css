@@ -325,7 +325,7 @@ aside#header .iInfo {
   left: 0;
   right: 0;
   z-index: 100;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   overflow: visible !important;
 }
 .note#homeNote {
@@ -368,7 +368,7 @@ aside#header .iInfo {
 }
 .note.full .container,
 .note#trayNote .container {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
 }
 .note.full > .container,
 .note#trayNote > .container {
@@ -528,7 +528,7 @@ aside#header .iInfo {
   bottom: 0;
 }
 .content.info .container {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat #454545;
   overflow-x: hidden;
 }
 /*
@@ -793,7 +793,7 @@ address {
   line-height: 18px;
 }
 .darkback {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat #454545;
 }
 .darkback h1,
 .darkback h2,
@@ -3495,7 +3495,7 @@ img.cookie {
   position: relative;
   margin-left: 10px;
   margin-top: 10px;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat rgba(202, 176, 111, 0.5);
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7 rgba(202, 176, 111, 0.5);
   -webkit-backface-visibility: auto;
   -moz-backface-visibility: auto;
   backface-visibility: auto;
@@ -3629,7 +3629,7 @@ img.cookie {
   left: 50%;
   width: 690px;
   margin: -185px 0 0 -345px;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -4803,7 +4803,7 @@ input[type="text"]#locationSelectionInput:focus {
   left: -99px;
   text-align: left;
   overflow: hidden;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -5068,7 +5068,7 @@ input[type="text"]#locationSelectionInput:focus {
   backface-visibility: hidden;
 }
 .article.selected {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -5100,7 +5100,7 @@ input[type="text"]#locationSelectionInput:focus {
   top: 0;
   left: -43px;
   overflow: hidden;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -8687,7 +8687,7 @@ div#payment > div.disabled .btn.active {
   margin: 0;
   padding: 100px 8% 50px;
   position: relative;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
 }
 #orderedItems:after {
   content: " ";
@@ -9001,7 +9001,7 @@ div#payment > div.disabled .btn.active {
   display: inline-block;
 }
 #checkoutControls #noDeliveriesToday div {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -9698,7 +9698,7 @@ div#payment > div.disabled .btn.active {
   color: inherit;
 }
 #checkoutSettings {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat #454545;
   position: relative;
   overflow: hidden;
   height: 0;
@@ -9714,7 +9714,7 @@ div#payment > div.disabled .btn.active {
   left: 0;
   right: 0;
   top: 0;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darknotebottom.png") repeat-x;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darknotebottom.png") repeat-x #fbe6bb;
 }
 #deliveryAddressSettings {
   position: relative;
@@ -9934,7 +9934,7 @@ aside.infoNavigation {
   top: 0;
   bottom: 0;
   width: 260px;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat;
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/darkbackground.jpg") repeat #454545;
   padding: 10% 0 0 50px;
 }
 aside.infoNavigation:after {
