@@ -28,7 +28,7 @@ define([
 
 			this.$el.html(this.template(json));
 
-			this.$el.addClass(this.model.get('placeholder'));
+			this.$el.addClass(menuComponentBlockMediaModel.get('placeholder'));
 		},
 
 		_getComposedTitle: function () {
