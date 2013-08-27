@@ -24,6 +24,7 @@ define([
 			source = this.getAttribute('data-src');
 			this.setAttribute('src', source);
 			this.removeAttribute('data-src');
+			this.className = 'itemPreview';
 		});
 
 		function unveil() {
