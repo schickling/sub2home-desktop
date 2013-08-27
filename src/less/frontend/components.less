@@ -564,6 +564,7 @@ img.cookie    { margin: 0 -10px;}
         margin-left: 0;
       }
       .icn {
+        .positioned;
         &:before {
           top: 1px;
         }
@@ -574,10 +575,22 @@ img.cookie    { margin: 0 -10px;}
           left: 4px;
         }
       }
-      .iSnacks {
-        .positioned;
-        top: 4px;
+
+      .iSub {
+        
+        top: -2px;
       }
+      .iSnacks {
+        
+        top: 4px;
+        left: 4px;
+      }
+      
+      .iBeverage {
+        left: 2px;
+        top: 2px;
+      }
+
       img {
         position: absolute;
         top: 0;
@@ -661,7 +674,13 @@ img.cookie    { margin: 0 -10px;}
     position: relative;
     margin-left: 10px;
     margin-top: 10px;
+
+// DEACTIVATE TO CHECK IMAGE POSITIONS
+
     background: @noteBackground;
+
+// -----------------------------------
+    
     .backface-visibility(auto);
     .border-radius(500px);
     text-align: center;
@@ -4965,8 +4984,8 @@ div#payment {
       left: 2px;
     }
     .iMenuUpgrade {
-      top: 1px;
-      left: 0;
+      top: 2px;
+      left: 1px;
     }
 
     .iCart {

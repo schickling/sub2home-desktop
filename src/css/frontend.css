@@ -3399,6 +3399,11 @@ img.cookie {
 #sectionsNavigation .itemsTimeline .itemTimeline:first-child {
   margin-left: 0;
 }
+#timelineNote .itemsTimeline .itemTimeline .icn,
+#categoriesNavigation .itemsTimeline .itemTimeline .icn,
+#sectionsNavigation .itemsTimeline .itemTimeline .icn {
+  position: relative;
+}
 #timelineNote .itemsTimeline .itemTimeline .icn:before,
 #categoriesNavigation .itemsTimeline .itemTimeline .icn:before,
 #sectionsNavigation .itemsTimeline .itemTimeline .icn:before {
@@ -3414,11 +3419,22 @@ img.cookie {
 #sectionsNavigation .itemsTimeline .itemTimeline .icn.iToy:before {
   left: 4px;
 }
+#timelineNote .itemsTimeline .itemTimeline .iSub,
+#categoriesNavigation .itemsTimeline .itemTimeline .iSub,
+#sectionsNavigation .itemsTimeline .itemTimeline .iSub {
+  top: -2px;
+}
 #timelineNote .itemsTimeline .itemTimeline .iSnacks,
 #categoriesNavigation .itemsTimeline .itemTimeline .iSnacks,
 #sectionsNavigation .itemsTimeline .itemTimeline .iSnacks {
-  position: relative;
   top: 4px;
+  left: 4px;
+}
+#timelineNote .itemsTimeline .itemTimeline .iBeverage,
+#categoriesNavigation .itemsTimeline .itemTimeline .iBeverage,
+#sectionsNavigation .itemsTimeline .itemTimeline .iBeverage {
+  left: 2px;
+  top: 2px;
 }
 #timelineNote .itemsTimeline .itemTimeline img,
 #categoriesNavigation .itemsTimeline .itemTimeline img,
@@ -8689,8 +8705,8 @@ div#payment > div.disabled .btn.active {
   left: 2px;
 }
 .itemsTimeline .itemTimeline .iMenuUpgrade {
-  top: 1px;
-  left: 0;
+  top: 2px;
+  left: 1px;
 }
 .itemsTimeline .itemTimeline .iCart.clickable {
   color: #9cc83e;
