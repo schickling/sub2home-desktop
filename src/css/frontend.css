@@ -3507,7 +3507,7 @@ img.cookie {
   position: relative;
   margin-left: 10px;
   margin-top: 10px;
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7 rgba(202, 176, 111, 0.5);
+  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
   -webkit-backface-visibility: auto;
   -moz-backface-visibility: auto;
   backface-visibility: auto;
