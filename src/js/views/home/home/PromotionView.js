@@ -35,7 +35,7 @@ define([
 		_submit: function () {
 			var input = this.$('#suggestStoreMessage').val(),
 				postal = postalOracle.getPostal(),
-				text = 'Message: ' + input + '\nPostal' + postal,
+				text = 'Message: "' + input + '" Postal:' + postal,
 				self = this;
 
 			$.ajax({
