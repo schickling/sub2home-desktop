@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'notificationcenter',
+    'modules/postalOracle',
     'text!templates/home/home/PromotionTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, PromotionTemplate) {
+    ], function ($, _, Backbone, notificationcenter, postalOracle, PromotionTemplate) {
 
 	"use strict";
 
@@ -32,7 +33,9 @@ define([
 		},
 
 		_submit: function () {
-			var text = this.$('#suggestStoreMessage').val(),
+			var input = this.$('#suggestStoreMessage').val(),
+				postal = postalOracle.getPostal(),
+				text = 'Message: ' + input + '\nPostal' + postal,
 				self = this;
 
 			$.ajax({
