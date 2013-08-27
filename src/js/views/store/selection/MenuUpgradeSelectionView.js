@@ -33,7 +33,7 @@ define([
 						phrase: 'Mach\'s zum Menü',
 						menuUpgradeSelection: true,
 						icon: 'iMenuUpgrade',
-						image: 'https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/menuupgrade.png'
+						image: 'https://d3uu6huyzvecb1.cloudfront.net/images/common/menuupgrade.png'
 					});
 
 

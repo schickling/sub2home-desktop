@@ -50,7 +50,7 @@ define([
 		},
 
 		_addMarker: function () {
-			var icon = new gmaps.MarkerImage('https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/pin.png', // url
+			var icon = new gmaps.MarkerImage('https://d3uu6huyzvecb1.cloudfront.net/images/common/pin.png', // url
 			null, // size
 			null, // origin
 			new gmaps.Point(29, 87) // anchor

@@ -20,10 +20,11 @@ define([
 
 		_render: function () {
 
-			var json = {
-				title: this._getComposedTitle(),
-				image: this.model.get('largeImage')
-			};
+			var menuComponentBlockMediaModel = this.model.get('menuComponentBlockMediaModel'),
+				json = {
+					title: this._getComposedTitle(),
+					image: menuComponentBlockMediaModel.get('largeImage')
+				};
 
 			this.$el.html(this.template(json));
 

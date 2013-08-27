@@ -36,17 +36,18 @@ define([
 			if (menuComponentBlockModel) {
 				this.active = true;
 
+				var menuComponentBlockMediaModel = menuComponentBlockModel.get('menuComponentBlockMediaModel');
+
 				timelineItemModel.set({
 					isLocked: articleModel === null,
-					icon: menuComponentBlockModel.get('icon'),
-					image: menuComponentBlockModel.get('smallImage'),
+					icon: menuComponentBlockMediaModel.get('icon'),
+					image: menuComponentBlockMediaModel.get('smallImage'),
 					phrase: this._getTitle()
 				});
 
 				this._listenForArticleSelection();
 
 			} else {
-
 
 				// just symbolizes base article
 				timelineItemModel.set({
@@ -55,7 +56,6 @@ define([
 					image: articleModel.get('smallImage')
 				});
 			}
-
 
 			this.timelineItemsCollection.add(timelineItemModel);
 
