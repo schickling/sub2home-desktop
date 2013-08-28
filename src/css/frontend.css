@@ -365,10 +365,10 @@ aside#header .iInfo {
   overflow-x: hidden;
   overflow-y: auto !important;
   padding: 0;
-}
-.note.full .container,
-.note#trayNote .container {
-  background: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/images/common/notebackground.jpg") repeat #fbf4d7;
+  /*    .container {
+      background: @noteBackground;
+    }*/
+
 }
 .note.full > .container,
 .note#trayNote > .container {
@@ -8848,7 +8848,8 @@ div#payment > div.disabled .btn.active {
   float: left;
   height: 160px;
   width: auto;
-  cursor: pointer;
+  /*cursor: pointer;*/
+
 }
 .orderedArticle .itemDescription {
   float: left;
@@ -8959,6 +8960,7 @@ div#payment > div.disabled .btn.active {
   vertical-align: top;
   margin: 0 0 0 50px;
   width: 265px;
+  cursor: pointer;
   position: relative;
 }
 #orderedItems .menuItem img {
