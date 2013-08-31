@@ -17,7 +17,8 @@ define([
 			'click #postalSelection span': '_selectPostal',
 			'input #locationSelectionInput': '_preselectPostals',
 			'click #deliveryAreaSelection.onlyOneDeliveryArea': '_transferClick',
-			'click #deliveryAreaSelection span': '_selectDeliveryArea'
+			'click #deliveryAreaSelection span': '_selectDeliveryArea',
+			'click': '_hide'
 		},
 
 		postals: [],
@@ -169,6 +170,12 @@ define([
 
 		_transferClick: function (e) {
 			$(e.target).children('span').trigger('click');
+		},
+
+		_hide: function (e) {
+			if (e.target == this.el) {
+				this._fadeOut();
+			}
 		},
 
 		_fadeIn: function () {

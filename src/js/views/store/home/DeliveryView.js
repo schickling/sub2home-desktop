@@ -79,7 +79,7 @@ define([
 		},
 
 		_fixWidthOtherDay: function (area, nextDeliveryTime) {
-			var tooLong = area.length + nextDeliveryTime.length > 23;
+			var tooLong = area.length + nextDeliveryTime.length > 21;
 
 			this.$el.toggleClass('shrink', tooLong);
 		}
