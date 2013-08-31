@@ -44,7 +44,7 @@ define([
 		getName: function () {
 			var addressModel = this.get('addressModel');
 
-			return addressModel.get('firstName');
+			return addressModel.get('firstName') + ' ' + this.get('lastName');
 		}
 
 	});
