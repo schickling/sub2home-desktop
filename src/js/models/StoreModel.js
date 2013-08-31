@@ -136,8 +136,6 @@ define([
 					dayOfWeek: dayOfWeek
 				});
 
-				console.log(deliveryTimeModelsOfToday);
-
 			return deliveryTimeModelsOfToday.length > 0;
 		},
 
