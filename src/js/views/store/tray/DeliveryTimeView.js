@@ -26,6 +26,8 @@ define([
 
 		initialize: function () {
 
+			cartModel.validateDueDate();
+			
 			this._render();
 
 			// keep due date in time

@@ -5,6 +5,7 @@ define([
     'backbone',
     'router',
     'models/cartModel',
+    'models/stateModel',
     'views/PageView',
     'views/store/tray/NoDeliveryView',
     'views/store/tray/DeliveryTimeView',
@@ -16,7 +17,7 @@ define([
     'views/store/tray/CheckoutSettingsView',
     'views/store/tray/OrderedItemsView',
     'text!templates/store/tray/MainTemplate.html'
-    ], function ($, _, Backbone, router, cartModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, MinimumValueView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
+    ], function ($, _, Backbone, router, cartModel, stateModel, PageView, NoDeliveryView, DeliveryTimeView, CommentView, SubcardView, MinimumValueView, FreeCookieView, ControlView, CheckoutSettingsView, OrderedItemsView, MainTemplate) {
 
 	"use strict";
 
@@ -25,7 +26,8 @@ define([
 		events: {
 			'click .settings': '_showCheckoutSettings',
 			// custom dom event because address needs to be checked first
-			'hide #checkoutSettings': '_hideCheckoutSettings'
+			'hide #checkoutSettings': '_hideCheckoutSettings',
+			'click #noDeliveriesToday': '_navigateToHomeHome'
 		},
 
 		pageTitle: 'Fast fertig - sub2home',
@@ -99,6 +101,8 @@ define([
 					el: this.$('#checkoutControls')
 				});
 
+				this.$('.goldenThread').hide();
+
 			}
 
 			this.append();
@@ -144,11 +148,12 @@ define([
 		},
 
 		_storeIsDelivering: function () {
-			cartModel.validateDueDate();
+			return stateModel.get('storeModel').isDeliveringToday();
+		},
 
-			return cartModel.getDueDate() !== null;
+		_navigateToHomeHome: function () {
+			router.navigate('/', true);
 		}
-
 
 	});
 

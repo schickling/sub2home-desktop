@@ -107,18 +107,17 @@ define([
 		},
 
 		_renderOneDeliveryArea: function (deliveryAreaModel) {
-			var html = 'Nach <span data-district="false" data-postal="' + deliveryAreaModel.get('postal') + '">' + deliveryAreaModel.get('city') + '</span> (' + deliveryAreaModel.get('postal') + ') liefern lassen';
+			var html = 'Nach <span data-postal="' + deliveryAreaModel.get('postal') + '">' + deliveryAreaModel.get('city') + '</span> (' + deliveryAreaModel.get('postal') + ') liefern lassen';
 			this.$deliveryAreaSelection.html(html).removeClass().addClass('onlyOneDeliveryArea');
 		},
 
 		_renderMultipleeDeliveryAreas: function (deliveryAreaModels) {
 			var html = '',
-				isDistirct, district;
+				district;
 
 			_.each(deliveryAreaModels, function (deliveryAreaModel) {
-				isDistirct = deliveryAreaModel.has('district');
 				district = deliveryAreaModel.get('district') || deliveryAreaModel.get('city');
-				html += '<span data-district="' + isDistirct + '" data-postal="' + deliveryAreaModel.get('postal') + '">' + district + '</span>';
+				html += '<span  data-postal="' + deliveryAreaModel.get('postal') + '">' + district + '</span>';
 			});
 
 			this.$deliveryAreaSelection.html(html).removeClass();
@@ -146,16 +145,11 @@ define([
 
 		_selectDeliveryArea: function (e) {
 			var postal = parseInt(e.target.dataset.postal, 10),
-				isDistirct = e.target.dataset.district === 'true',
 				district = e.target.textContent,
 				oldSelectedDeliveryAreaModel = this.model.getSelectedDeliveryAreaModel(),
 				deliveryAreasCollection = this.model.get('deliveryAreasCollection'),
 				newDeliveryAreaModel = deliveryAreasCollection.find(function (deliveryAreaModel) {
-					if (isDistirct) {
-						return deliveryAreaModel.get('postal') == postal && deliveryAreaModel.get('district') == district;
-					} else {
-						return deliveryAreaModel.get('postal') == postal && deliveryAreaModel.get('city') == district;
-					}
+					return deliveryAreaModel.get('postal') == postal && (deliveryAreaModel.get('district') == district || deliveryAreaModel.get('city') == district);
 				});
 
 			oldSelectedDeliveryAreaModel.set({

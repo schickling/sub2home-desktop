@@ -128,6 +128,19 @@ define([
 			return this._getCurrentDeliveryTimeModel() !== null;
 		},
 
+		isDeliveringToday: function () {
+			var now = new Date(),
+				dayOfWeek = now.getDay(),
+				deliveryTimesCollection = this.get('deliveryTimesCollection'),
+				deliveryTimeModelsOfToday = deliveryTimesCollection.where({
+					dayOfWeek: dayOfWeek
+				});
+
+				console.log(deliveryTimeModelsOfToday);
+
+			return deliveryTimeModelsOfToday.length > 0;
+		},
+
 		_getCurrentDeliveryTimeModel: function () {
 			var currentDeliveryModel = null,
 				deliveryTimesCollection = this.get('deliveryTimesCollection');
