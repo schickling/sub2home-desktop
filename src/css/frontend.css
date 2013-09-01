@@ -8248,6 +8248,9 @@ div#payment > div.disabled .btn.active {
   width: 200px;
   vertical-align: center;
 }
+.slide .item.ingredient img.loading {
+  padding: 40px 0;
+}
 .slide .item.ingredient .smallNote {
   opacity: 0;
   filter: alpha(opacity=0);
