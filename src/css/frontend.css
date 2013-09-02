@@ -8192,7 +8192,7 @@ div#payment > div.disabled .btn.active {
 }
 #stage {
   position: absolute;
-  width: 40000px;
+  width: 9999%;
   *zoom: 1;
   height: 100%;
   overflow: hidden;
