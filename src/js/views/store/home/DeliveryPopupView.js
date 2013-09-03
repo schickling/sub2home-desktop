@@ -144,7 +144,7 @@ define([
 		},
 
 		_selectDeliveryArea: function (e) {
-			var postal = parseInt(e.target.dataset.postal, 10),
+			var postal = parseInt(e.target.getAttribute('data-postal'), 10),
 				district = e.target.textContent,
 				oldSelectedDeliveryAreaModel = this.model.getSelectedDeliveryAreaModel(),
 				deliveryAreasCollection = this.model.get('deliveryAreasCollection'),
