@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "grunt": "0.4.x",
-    "grunt-requirejs": "0.3.x",
+    "grunt-requirejs": "0.4.x",
     "grunt-jasmine-task": "0.2.x",
     "grunt-contrib-less": "0.5.x",
     "grunt-exec": "0.4.x",
