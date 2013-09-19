@@ -9731,7 +9731,7 @@ div#payment > div.disabled .btn.active {
   left: 0;
   right: 0;
   top: 0;
-  background: url("https://d3uu6huyzvecb1.cloudfront.net/images/common/darknotebottom.png") repeat-x #fbe6bb;
+  background: url("https://d3uu6huyzvecb1.cloudfront.net/images/common/darknotebottom.png") repeat-x;
 }
 #deliveryAddressSettings {
   position: relative;
