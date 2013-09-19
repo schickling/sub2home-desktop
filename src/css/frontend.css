@@ -9695,14 +9695,16 @@ div#payment > div.disabled .btn.active {
   margin-right: 180px;
   top: 230px;
 }
-#acceptAGB span {
+#acceptAGB a {
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-#acceptAGB span:hover {
+#acceptAGB a:hover {
   color: #9b7e39;
 }
 #acceptAGB .iDocument {
