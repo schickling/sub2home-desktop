@@ -7,7 +7,7 @@ require.config({
 		text: 'vendor/requirejs-text/text',
 		jquery: 'vendor/jquery/jquery',
 		jqueryRotate: 'vendor/jquery-rotate/jquery.rotate',
-		jqueryEasing: 'vendor/jquery-easing/jquery.easing',
+		jqueryEasing: 'vendor/jquery.easing/js/jquery.easing',
 		jqueryColor: 'vendor/jquery-color/jquery.color',
 		jqueryOverscroll: 'vendor/jquery-overscroll/src/jquery.overscroll',
 		jqueryBrowserDetection: 'vendor/jquery-browser-detection/src/jquery.browser.detection',
