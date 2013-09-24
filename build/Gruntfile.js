@@ -1,4 +1,8 @@
+"use strict";
+
 module.exports = function (grunt) {
+  require('load-grunt-tasks')(grunt);
+  require('time-grunt')(grunt);
 
 	var include = [
     'main',
@@ -29,6 +33,9 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
 			all: [
             'Gruntfile.js',
             '../src/js/main.js',
@@ -38,15 +45,7 @@ module.exports = function (grunt) {
             '../src/js/collections/*.js',
             '../src/js/views/**/*.js',
             'test/spec/**/*.js'
-            ],
-			options: {
-				// options here to override JSHint defaults
-				globals: {
-					require: true
-				},
-				es5: true,
-				browser: true,
-			}
+            ]
 		},
 
 		// kick off jasmine, showing results at the cli
