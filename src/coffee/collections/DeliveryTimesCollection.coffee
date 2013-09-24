@@ -1,7 +1,10 @@
 define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, DeliveryTimeModel) ->
   "use strict"
+
   DeliveryTimesCollection = Backbone.Collection.extend(
+
     model: DeliveryTimeModel
+
     getNextDeliveryTimeModel: ->
       now = new Date()
       dayOfWeek = now.getDay()
@@ -9,9 +12,8 @@ define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, Del
 
       for i in [0..6]
         filteredDeliveryTimeModels = @_getFilteredDeliveryTimeModels(dayOfWeek, i is 0)
-        return filteredDeliveryTimeModels[0]  if filteredDeliveryTimeModels.length > 0
+        return filteredDeliveryTimeModels[0] if filteredDeliveryTimeModels.length > 0
         dayOfWeek = (dayOfWeek + 1) % 7
-        
 
     _getFilteredDeliveryTimeModels: (dayOfWeek, shouldRespectStartTime) ->
       now = new Date()

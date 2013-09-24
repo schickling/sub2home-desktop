@@ -5,12 +5,7 @@
     ItemsCollection = Backbone.Collection.extend({
       model: ItemModel,
       groupItems: function() {
-        var attachedItemsCollection, currentItemModel, currentRelatedItemModel, i, j, relatedItemModels, savedCounter, _i, _j, _ref, _ref1, _results;
-        currentItemModel = void 0;
-        relatedItemModels = void 0;
-        savedCounter = void 0;
-        currentRelatedItemModel = void 0;
-        attachedItemsCollection = void 0;
+        var attachedItemsCollection, currentItemModel, currentRelatedItemModel, i, relatedItemModel, relatedItemModels, savedCounter, _i, _j, _len, _ref, _results;
         _results = [];
         for (i = _i = 0, _ref = this.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
           currentItemModel = this.models[i];
@@ -27,8 +22,9 @@
           }
           if (relatedItemModels.length > 0) {
             attachedItemsCollection = new ItemsCollection();
-            for (j = _j = 0, _ref1 = relatedItemModels.length - 1; 0 <= _ref1 ? _j <= _ref1 : _j >= _ref1; j = 0 <= _ref1 ? ++_j : --_j) {
-              attachedItemsCollection.add(relatedItemModels[j]);
+            for (_j = 0, _len = relatedItemModels.length; _j < _len; _j++) {
+              relatedItemModel = relatedItemModels[_j];
+              attachedItemsCollection.add(relatedItemModel);
             }
             currentItemModel.set("attachedItemsCollection", attachedItemsCollection);
           }

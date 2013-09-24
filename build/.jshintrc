@@ -3,5 +3,6 @@
     "require": true
   },
   "browser": true,
+  "boss": true,
   "node": true
 }

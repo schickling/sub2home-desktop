@@ -1,7 +1,9 @@
 define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceModel) ->
   "use strict"
   InvoicesCollection = Backbone.Collection.extend(
+
     model: InvoiceModel
+
     comparator: (invoiceModel) ->
       invoiceModel.get "timeSpan"
 

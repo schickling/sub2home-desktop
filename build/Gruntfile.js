@@ -133,8 +133,17 @@ module.exports = function (grunt) {
       coffee: {
         files: ['<%= config.src %>/coffee/{,*/}*.coffee'],
         tasks: ['coffee:src']
+      },
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: [
+          '<%= config.src %>/js/**/*.js',
+          // '<%= config.src %>/**/*.{html,css,js}',
+        ]
       }
-    }
+    },
   });
 
   grunt.registerTask('server', [

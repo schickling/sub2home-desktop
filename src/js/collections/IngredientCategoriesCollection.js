@@ -4,6 +4,7 @@
     var IngredientCategoriesCollection;
     IngredientCategoriesCollection = Backbone.Collection.extend({
       model: IngredientCategoryModel,
+      url: "stores/storeAlias/ingredientcategories",
       getAllSelectedIngredientModels: function() {
         var ingredientModels;
         ingredientModels = [];
@@ -17,9 +18,6 @@
           });
         });
         return ingredientModels;
-      },
-      url: function() {
-        return "stores/storeAlias/ingredientcategories";
       }
     });
     return IngredientCategoriesCollection;

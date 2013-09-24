@@ -4,9 +4,7 @@
     var CategoriesCollection;
     CategoriesCollection = Backbone.Collection.extend({
       model: CategoryModel,
-      url: function() {
-        return "stores/storeAlias/categories";
-      }
+      url: "stores/storeAlias/categories"
     });
     return CategoriesCollection;
   });

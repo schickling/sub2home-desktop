@@ -2,7 +2,6 @@ define ["underscore", "backbone", "models/CategoryModel"], (_, Backbone, Categor
   "use strict"
   CategoriesCollection = Backbone.Collection.extend(
     model: CategoryModel
-    url: ->
-      "stores/storeAlias/categories"
+    url: "stores/storeAlias/categories"
   )
   CategoriesCollection
