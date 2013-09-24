@@ -137,6 +137,11 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('server', [
+    'coffee',
+    'watch',
+    ]);
+
   grunt.registerTask('test', [
     'jshint'
     ]);

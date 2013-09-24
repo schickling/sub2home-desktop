@@ -1,83 +1,69 @@
-// Filename: src/js/modules/postalOracle.js
-define([
-    'gmaps'
-    ], function (gmaps) {
+(function() {
+  define(["gmaps"], function(gmaps) {
+    "use strict";
+    var PostalOracle, geocoder;
+    geocoder = new gmaps.Geocoder();
+    PostalOracle = {
+      shouldBeCanceled: false,
+      calculate: function(successCallback, errorCallback) {
+        var self;
+        self = this;
+        if (!navigator.geolocation) {
+          errorCallback();
+          return;
+        }
+        this.shouldBeCanceled = false;
+        return navigator.geolocation.getCurrentPosition((function(position) {
+          var latLng;
+          if (self.shouldBeCanceled) {
+            return;
+          }
+          latLng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
+          return geocoder.geocode({
+            latLng: latLng
+          }, function(results, status) {
+            var addressComponent, postal, type, _i, _j, _len, _len1, _ref, _ref1;
+            if (self.shouldBeCanceled) {
+              return;
+            }
+            if (status === gmaps.GeocoderStatus.OK) {
+              _ref = results[0].address_components;
+              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                addressComponent = _ref[_i];
+                _ref1 = addressComponent.types;
+                for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+                  type = _ref1[_j];
+                  if (type === "postal_code") {
+                    postal = addressComponent.long_name;
+                    break;
+                  }
+                }
+              }
+              if (postal < 10000 || postal > 99999) {
+                return errorCallback();
+              } else {
+                self.setPostal(postal);
+                return successCallback();
+              }
+            } else {
+              return errorCallback();
+            }
+          });
+        }), errorCallback, {
+          timeout: 10000
+        });
+      },
+      cancel: function() {
+        return this.shouldBeCanceled = true;
+      },
+      setPostal: function(postal) {
+        return localStorage.setItem("postal", postal);
+      },
+      getPostal: function() {
+        return localStorage.getItem("postal");
+      }
+    };
+    return PostalOracle;
+  });
 
-	"use strict";
-
-	var geocoder = new gmaps.Geocoder();
-
-	var PostalOracle = {
-
-		shouldBeCanceled: false,
-
-		calculate: function (successCallback, errorCallback) {
-
-			var self = this,
-				postal;
-
-			if (!navigator.geolocation) {
-				errorCallback();
-				return;
-			}
-
-			this.shouldBeCanceled = false;
-
-			navigator.geolocation.getCurrentPosition(function (position) {
-
-				if (self.shouldBeCanceled) return;
-
-				var latlng = new gmaps.LatLng(position.coords.latitude, position.coords.longitude);
-
-				geocoder.geocode({
-					latLng: latlng
-				}, function (results, status) {
-
-					if (self.shouldBeCanceled) return;
-
-					if (status == gmaps.GeocoderStatus.OK) {
-
-						// parse results for postal
-						for (var i = 0; i < results[0].address_components.length; i++) {
-							for (var j = 0; j < results[0].address_components[i].types.length; j++) {
-								if (results[0].address_components[i].types[j] == "postal_code") {
-									postal = results[0].address_components[i].long_name;
-									break;
-								}
-							}
-						}
-
-						if (postal < 10000 || postal > 99999) {
-							errorCallback();
-						} else {
-							self.setPostal(postal);
-							successCallback();
-						}
-
-					} else {
-						errorCallback();
-					}
-
-				});
-			}, errorCallback, {
-				timeout: 10000
-			});
-		},
-
-		cancel: function () {
-			this.shouldBeCanceled = true;
-		},
-
-		setPostal: function (postal) {
-			localStorage.setItem('postal', postal);
-		},
-
-		getPostal: function () {
-			return localStorage.getItem('postal');
-		}
-
-	};
-
-	return PostalOracle;
-
-});
+}).call(this);
