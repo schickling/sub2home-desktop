@@ -25,11 +25,10 @@ module.exports = function (grunt) {
     'views/store/config/MainView'
     ],
     config = {
-      dist: '../dist/',
-      src: '../src/',
+      dist: '../dist',
+      src: '../src',
     };
 
-  // config
   grunt.initConfig({
 
     config: config,
@@ -39,12 +38,12 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '../src/js/main.js',
-        '../src/js/config.js',
-        '../src/js/modules/*.js',
-        '../src/js/models/*.js',
-        '../src/js/collections/*.js',
-        '../src/js/views/**/*.js',
+        '<%= config.src %>/js/main.js',
+        '<%= config.src %>/js/config.js',
+        '<%= config.src %>/js/modules/*.js',
+        '<%= config.src %>/js/models/*.js',
+        '<%= config.src %>/js/collections/*.js',
+        '<%= config.src %>/js/views/**/*.js',
         'test/spec/**/*.js'
         ]
     },
@@ -52,12 +51,12 @@ module.exports = function (grunt) {
     requirejs: {
       dist: {
         options: {
-          optimize: 'uglify', // minify output with uglify & closure-compiler, checking which version is the smallest
-          baseUrl: '../src/js',
-          mainConfigFile: '../src/js/config.js',
+          optimize: 'uglify',
+          baseUrl: '<%= config.src %>/js',
+          mainConfigFile: '<%= config.src %>/js/config.js',
           preserveLicenseComments: false,
           include: backboneModules,
-          out: config.dist + 'js/main.js'
+          out: '<%= config.dist %>/js/main.js'
         }
       }
     },
