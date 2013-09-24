@@ -32,6 +32,17 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     config: config,
+    coffee: {
+      src: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.src %>/coffee',
+          src: '{,*/}*.coffee',
+          dest: '<%= config.src %>/js',
+          ext: '.js'
+        }]
+      }
+    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -125,6 +136,7 @@ module.exports = function (grunt) {
     ]);
 
   grunt.registerTask('build', [
+    'coffee',
     'test',
     'clean:dist',
     'copy:dist',

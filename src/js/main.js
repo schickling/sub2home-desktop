@@ -1,13 +1,8 @@
-// Filename: main.js
-require(['config'], function () {
+(function() {
+  require(["config"], function() {
+    return require(["router"], function(router) {
+      return router.init();
+    });
+  });
 
-  "use strict";
-
-	// wait for config loaded and start app
-	require(['router'], function (router) {
-
-		// start router
-		router.init();
-
-	});
-});
+}).call(this);
