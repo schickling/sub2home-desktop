@@ -47,7 +47,6 @@ module.exports = function (grunt) {
         'test/spec/**/*.js'
         ]
     },
-
     requirejs: {
       dist: {
         options: {
@@ -60,14 +59,38 @@ module.exports = function (grunt) {
         }
       }
     },
-
+    rev: {
+      dist: {
+        files: {
+          src: [
+            '<%= config.dist %>/js/main.js',
+            '<%= config.dist %>/css/frontend.css',
+          ]
+        }
+      }
+    },
+    usemin: {
+      html: ['<%= config.dist %>/index.html'],
+      options: {
+        dirs: ['<%= config.dist %>']
+      }
+    },
+    htmlmin: {
+      dist: {
+        options: {
+          collapseWhitespace: true,
+        },
+        files: [{
+          '<%= config.dist %>/index.html': '<%= config.dist %>/index.html'
+        }]
+      }
+    },
     clean: {
       dist: '<%= config.dist %>',
       options: {
         force: true
       }
     },
-
     copy: {
       dist: {
         files: [{
@@ -85,18 +108,16 @@ module.exports = function (grunt) {
         }]
       }
     },
-
     less: {
       dist: {
         options: {
           yuicompress: true
         },
         files: {
-          '../dist/css/frontend.css': '../src/less/frontend/frontend.less'
+          '<%= config.dist %>/css/frontend.css': '<%= config.src %>/less/frontend/frontend.less'
         }
       }
     }
-
   });
 
   grunt.registerTask('test', [
@@ -108,7 +129,10 @@ module.exports = function (grunt) {
     'clean:dist',
     'copy:dist',
     'requirejs:dist',
-    'less:dist'
+    'less:dist',
+    'rev:dist',
+    'usemin',
+    'htmlmin',
     ]);
 
   grunt.registerTask('default', [
