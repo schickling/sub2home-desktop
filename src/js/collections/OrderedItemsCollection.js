@@ -1,29 +1,19 @@
-// Filename: src/js/collections/OrderedItemsCollection.js
-define([
-	'underscore',
-	'backbone',
-	'models/OrderedItemModel'
-	], function (_, Backbone, OrderedItemModel) {
+(function() {
+  define(["underscore", "backbone", "models/OrderedItemModel"], function(_, Backbone, OrderedItemModel) {
+    "use strict";
+    var OrderedItemsCollection;
+    OrderedItemsCollection = Backbone.Collection.extend({
+      model: OrderedItemModel,
+      getTotal: function() {
+        var total;
+        total = 0;
+        this.each(function(orderedItemModel) {
+          return total += orderedItemModel.get("total");
+        });
+        return total;
+      }
+    });
+    return OrderedItemsCollection;
+  });
 
-	"use strict";
-
-
-	var OrderedItemsCollection = Backbone.Collection.extend({
-
-		model: OrderedItemModel,
-
-		getTotal: function() {
-			var total = 0;
-
-			this.each(function(orderedItemModel) {
-				total += orderedItemModel.get('total');
-			});
-
-			return total;
-		}
-
-	});
-
-	return OrderedItemsCollection;
-
-});
+}).call(this);
