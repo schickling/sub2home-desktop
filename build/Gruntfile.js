@@ -1,33 +1,33 @@
 "use strict";
 
+var backboneModules = [
+  'main',
+  'models/clientModel',
+  'views/header/HeaderView',
+  'views/header/ClientView',
+  'views/home/home/MainView',
+  'views/home/info/MainView',
+  'views/home/404/MainView',
+  'views/client/login/MainView',
+  'views/client/dashboard/MainView',
+  'views/client/config/MainView',
+  'views/store/home/MainView',
+  'views/store/info/MainView',
+  'views/store/selection/MainView',
+  'views/store/tray/MainView',
+  'views/store/checkout/MainView',
+  'views/store/dashboard/MainView',
+  'views/store/assortment/MainView',
+  'views/store/config/MainView'
+  ],
+  config = {
+    dist: '../dist',
+    src: '../src',
+  };
+
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
-
-  var backboneModules = [
-    'main',
-    'models/clientModel',
-    'views/header/HeaderView',
-    'views/header/ClientView',
-    'views/home/home/MainView',
-    'views/home/info/MainView',
-    'views/home/404/MainView',
-    'views/client/login/MainView',
-    'views/client/dashboard/MainView',
-    'views/client/config/MainView',
-    'views/store/home/MainView',
-    'views/store/info/MainView',
-    'views/store/selection/MainView',
-    'views/store/tray/MainView',
-    'views/store/checkout/MainView',
-    'views/store/dashboard/MainView',
-    'views/store/assortment/MainView',
-    'views/store/config/MainView'
-    ],
-    config = {
-      dist: '../dist',
-      src: '../src',
-    };
 
   grunt.initConfig({
 
@@ -127,6 +127,12 @@ module.exports = function (grunt) {
         files: {
           '<%= config.dist %>/css/frontend.css': '<%= config.src %>/less/frontend/frontend.less'
         }
+      }
+    },
+    watch: {
+      coffee: {
+        files: ['<%= config.src %>/coffee/{,*/}*.coffee'],
+        tasks: ['coffee:src']
       }
     }
   });
