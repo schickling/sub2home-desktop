@@ -4,7 +4,7 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
-	var include = [
+  var backboneModules = [
     'main',
     'models/clientModel',
     'views/header/HeaderView',
@@ -23,153 +23,141 @@ module.exports = function (grunt) {
     'views/store/dashboard/MainView',
     'views/store/assortment/MainView',
     'views/store/config/MainView'
-    ];
+    ],
+    options = {
+      dist: '../dist/'
+    };
 
-	var distFolder = '../dist/';
+  // config
+  grunt.initConfig({
 
-	// config
-	grunt.initConfig({
-
-		pkg: grunt.file.readJSON('package.json'),
-
-		jshint: {
+    jshint: {
       options: {
         jshintrc: '.jshintrc'
       },
-			all: [
-            'Gruntfile.js',
-            '../src/js/main.js',
-            '../src/js/config.js',
-            '../src/js/modules/*.js',
-            '../src/js/models/*.js',
-            '../src/js/collections/*.js',
-            '../src/js/views/**/*.js',
-            'test/spec/**/*.js'
-            ]
-		},
+      all: [
+        'Gruntfile.js',
+        '../src/js/main.js',
+        '../src/js/config.js',
+        '../src/js/modules/*.js',
+        '../src/js/models/*.js',
+        '../src/js/collections/*.js',
+        '../src/js/views/**/*.js',
+        'test/spec/**/*.js'
+        ]
+    },
 
-		// kick off jasmine, showing results at the cli
-		jasmine: {
-			all: ['../test/runner.html']
-		},
+    requirejs: {
+      development: {
+        options: {
+          optimize: 'none',
+          baseUrl: '../src/js',
+          mainConfigFile: '../src/js/config.js',
+          preserveLicenseComments: false,
+          include: backboneModules,
+          out: options.dist + 'js/main.js'
+        }
+      },
+      production: {
+        options: {
+          optimize: 'uglify', // minify output with uglify & closure-compiler, checking which version is the smallest
+          baseUrl: '../src/js',
+          mainConfigFile: '../src/js/config.js',
+          preserveLicenseComments: false,
+          include: backboneModules,
+          out: options.dist + 'js/main.js'
+        }
+      }
+    },
 
-		requirejs: {
-			development: {
-				options: {
-					optimize: 'none',
-					baseUrl: '../src/js',
-					mainConfigFile: '../src/js/config.js',
-					preserveLicenseComments: false,
-					include: include,
-					out: distFolder + 'js/main.js'
-				}
-			},
-			production: {
-				options: {
-					optimize: 'uglify', // minify output with uglify & closure-compiler, checking which version is the smallest
-					baseUrl: '../src/js',
-					mainConfigFile: '../src/js/config.js',
-					preserveLicenseComments: false,
-					include: include,
-					out: distFolder + 'js/main.js'
-				}
-			}
-		},
+    exec: {
+      linkSrcJS: {
+        command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + options.dist + 'js'
+      },
+      linkSrcTemplates: {
+        command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + options.dist + 'public/templates'
+      },
+      createRequireJsDir: {
+        command: 'mkdir -p $(pwd)/' + options.dist + 'js/vendor/requirejs'
+      },
+      copyRequireJs: {
+        command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + options.dist + 'js/vendor/requirejs/'
+      },
+      copyIndexHtml: {
+        command: 'cp $(pwd)/../src/index.html $(pwd)/' + options.dist + 'index.html'
+      },
+      copyFavicon: {
+        command: 'cp $(pwd)/../src/favicon.ico $(pwd)/' + options.dist + 'favicon.ico'
+      },
+      copyBrowserFolder: {
+        command: 'cp -r $(pwd)/../src/browser $(pwd)/' + options.dist + 'browser'
+      },
+      copyMobileFolder: {
+        command: 'cp -r $(pwd)/../src/mobile $(pwd)/' + options.dist + 'mobile'
+      },
+      copyHtaccess: {
+        command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + options.dist + '.htaccess'
+      },
+      makeDistFolder: {
+        command: 'mkdir -p $(pwd)/' + options.dist
+      }
+    },
 
-		exec: {
-			linkSrcJS: {
-				command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + distFolder + 'js'
-			},
-			linkSrcTemplates: {
-				command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + distFolder + 'public/templates'
-			},
-			createRequireJsDir: {
-				command: 'mkdir -p $(pwd)/' + distFolder + 'js/vendor/requirejs'
-			},
-			copyRequireJs: {
-				command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + distFolder + 'js/vendor/requirejs/'
-			},
-			copyIndexHtml: {
-				command: 'cp $(pwd)/../src/index.html $(pwd)/' + distFolder + 'index.html'
-			},
-			copyFavicon: {
-				command: 'cp $(pwd)/../src/favicon.ico $(pwd)/' + distFolder + 'favicon.ico'
-			},
-			copyBrowserFolder: {
-				command: 'cp -r $(pwd)/../src/browser $(pwd)/' + distFolder + 'browser'
-			},
-			copyMobileFolder: {
-				command: 'cp -r $(pwd)/../src/mobile $(pwd)/' + distFolder + 'mobile'
-			},
-			copyHtaccess: {
-				command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + distFolder + '.htaccess'
-			},
-			makeDistFolder: {
-				command: 'mkdir -p $(pwd)/' + distFolder
-			}
-		},
+    less: {
+      development: {
+        files: {
+          '../dist/css/frontend.css': '../src/less/frontend/frontend.less'
+        }
+      },
+      production: {
+        options: {
+          yuicompress: true
+        },
+        files: {
+          '../dist/css/frontend.css': '../src/less/frontend/frontend.less'
+        }
+      }
+    }
 
-		less: {
-			development: {
-				files: {
-					'../dist/css/frontend.css': '../src/less/frontend/frontend.less'
-				}
-			},
-			production: {
-				options: {
-					yuicompress: true
-				},
-				files: {
-					'../dist/css/frontend.css': '../src/less/frontend/frontend.less'
-				}
-			}
-		}
+  });
 
-	});
-
-	// load tasks
-	// grunt.loadNpmTasks('grunt-jasmine-task');
-	grunt.loadNpmTasks('grunt-requirejs');
-	grunt.loadNpmTasks('grunt-exec');
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-
-	// register tasks
-	grunt.registerTask('prepareRequireJs', [
-		'exec:makeDistFolder',
-		'exec:copyHtaccess',
-		'exec:copyIndexHtml',
-		'exec:copyFavicon',
-		'exec:copyBrowserFolder',
-		'exec:copyMobileFolder',
-        'exec:createRequireJsDir',
-        'exec:copyRequireJs'
+  // register tasks
+  grunt.registerTask('prepareRequireJs', [
+    'exec:makeDistFolder',
+    'exec:copyHtaccess',
+    'exec:copyIndexHtml',
+    'exec:copyFavicon',
+    'exec:copyBrowserFolder',
+    'exec:copyMobileFolder',
+    'exec:createRequireJsDir',
+    'exec:copyRequireJs'
     ]);
 
-	grunt.registerTask('dev', [
-		'exec:linkSrcJS',
-		'exec:linkSrcTemplates'
-		]);
+  grunt.registerTask('dev', [
+    'exec:linkSrcJS',
+    'exec:linkSrcTemplates'
+    ]);
 
-	grunt.registerTask('test', [
-		'jshint'
-		]);
+  grunt.registerTask('test', [
+    'jshint'
+    ]);
 
-	grunt.registerTask('build:dev', [
-		'test',
-		'requirejs:development',
-		'less:development',
-		'prepareRequireJs'
-		]);
+  grunt.registerTask('build:dev', [
+    'test',
+    'requirejs:development',
+    'less:development',
+    'prepareRequireJs'
+    ]);
 
-	grunt.registerTask('build:prod', [
-		'test',
-		'prepareRequireJs',
-		'requirejs:production',
-		'less:production'
-		]);
+  grunt.registerTask('build:prod', [
+    'test',
+    'prepareRequireJs',
+    'requirejs:production',
+    'less:production'
+    ]);
 
-	grunt.registerTask('default', [
-		'build:prod'
-		]);
+  grunt.registerTask('default', [
+    'build:prod'
+    ]);
+
 };

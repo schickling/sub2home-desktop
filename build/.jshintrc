@@ -2,7 +2,6 @@
   "globals": {
     "require": true
   },
-  "es5": true,
   "browser": true,
   "node": true
 }
