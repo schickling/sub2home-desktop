@@ -24,13 +24,15 @@ module.exports = function (grunt) {
     'views/store/assortment/MainView',
     'views/store/config/MainView'
     ],
-    options = {
-      dist: '../dist/'
+    config = {
+      dist: '../dist/',
+      src: '../src/',
     };
 
   // config
   grunt.initConfig({
 
+    config: config,
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -48,68 +50,45 @@ module.exports = function (grunt) {
     },
 
     requirejs: {
-      development: {
-        options: {
-          optimize: 'none',
-          baseUrl: '../src/js',
-          mainConfigFile: '../src/js/config.js',
-          preserveLicenseComments: false,
-          include: backboneModules,
-          out: options.dist + 'js/main.js'
-        }
-      },
-      production: {
+      dist: {
         options: {
           optimize: 'uglify', // minify output with uglify & closure-compiler, checking which version is the smallest
           baseUrl: '../src/js',
           mainConfigFile: '../src/js/config.js',
           preserveLicenseComments: false,
           include: backboneModules,
-          out: options.dist + 'js/main.js'
+          out: config.dist + 'js/main.js'
         }
       }
     },
 
-    exec: {
-      linkSrcJS: {
-        command: 'ln -s $(pwd)/../src/js/ $(pwd)/' + options.dist + 'js'
-      },
-      linkSrcTemplates: {
-        command: 'ln -s $(pwd)/../src/templates/ $(pwd)/' + options.dist + 'public/templates'
-      },
-      createRequireJsDir: {
-        command: 'mkdir -p $(pwd)/' + options.dist + 'js/vendor/requirejs'
-      },
-      copyRequireJs: {
-        command: 'cp $(pwd)/../src/js/vendor/requirejs/require.js $(pwd)/' + options.dist + 'js/vendor/requirejs/'
-      },
-      copyIndexHtml: {
-        command: 'cp $(pwd)/../src/index.html $(pwd)/' + options.dist + 'index.html'
-      },
-      copyFavicon: {
-        command: 'cp $(pwd)/../src/favicon.ico $(pwd)/' + options.dist + 'favicon.ico'
-      },
-      copyBrowserFolder: {
-        command: 'cp -r $(pwd)/../src/browser $(pwd)/' + options.dist + 'browser'
-      },
-      copyMobileFolder: {
-        command: 'cp -r $(pwd)/../src/mobile $(pwd)/' + options.dist + 'mobile'
-      },
-      copyHtaccess: {
-        command: 'cp $(pwd)/../src/.htaccess $(pwd)/' + options.dist + '.htaccess'
-      },
-      makeDistFolder: {
-        command: 'mkdir -p $(pwd)/' + options.dist
+    clean: {
+      dist: '<%= config.dist %>',
+      options: {
+        force: true
+      }
+    },
+
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= config.src %>',
+          dest: '<%= config.dist %>',
+          src: [
+            'index.html',
+            'favicon.ico',
+            'js/vendor/requirejs/require.js',
+            'mobile/*',
+            'browser/*',
+          ]
+        }]
       }
     },
 
     less: {
-      development: {
-        files: {
-          '../dist/css/frontend.css': '../src/less/frontend/frontend.less'
-        }
-      },
-      production: {
+      dist: {
         options: {
           yuicompress: true
         },
@@ -121,43 +100,20 @@ module.exports = function (grunt) {
 
   });
 
-  // register tasks
-  grunt.registerTask('prepareRequireJs', [
-    'exec:makeDistFolder',
-    'exec:copyHtaccess',
-    'exec:copyIndexHtml',
-    'exec:copyFavicon',
-    'exec:copyBrowserFolder',
-    'exec:copyMobileFolder',
-    'exec:createRequireJsDir',
-    'exec:copyRequireJs'
-    ]);
-
-  grunt.registerTask('dev', [
-    'exec:linkSrcJS',
-    'exec:linkSrcTemplates'
-    ]);
-
   grunt.registerTask('test', [
     'jshint'
     ]);
 
-  grunt.registerTask('build:dev', [
+  grunt.registerTask('build', [
     'test',
-    'requirejs:development',
-    'less:development',
-    'prepareRequireJs'
-    ]);
-
-  grunt.registerTask('build:prod', [
-    'test',
-    'prepareRequireJs',
-    'requirejs:production',
-    'less:production'
+    'clean:dist',
+    'copy:dist',
+    'requirejs:dist',
+    'less:dist'
     ]);
 
   grunt.registerTask('default', [
-    'build:prod'
+    'build'
     ]);
 
 };
