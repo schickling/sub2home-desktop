@@ -1,7 +1,17 @@
-define ["underscore"], (_) ->
+define ["jquery", "underscore", "services/server"], ($, _, server) ->
 
-  describe "just checking", ->
+  describe "check server service", ->
 
-    it "works for underscore", ->
+    prefix = "/api/frontend"
 
-      expect(_.size([1, 2, 3])).toEqual 3
+    it "should prepend api prefix", ->
+      expect(server.getComposedUrl "articles").toBe("#{prefix}/articles")
+
+    it "should adjust replace 'storeAlias'", ->
+      server.setStoreAlias "test-store"
+      expect(server.getComposedUrl "storeAlias/articles").toBe("#{prefix}/test-store/articles")
+      expect(server.getComposedUrl "storealias/articles").toBe("#{prefix}/storealias/articles")
+
+    it "should return full url", ->
+      url = "http://www.google.com"
+      expect(server.getComposedUrl url).toBe(url)

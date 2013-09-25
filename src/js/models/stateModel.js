@@ -35,6 +35,7 @@ define([
 		// TODO: clean up
 		initialize: function () {
 
+			server.initialize();
 
 			// laod from localStorage if exists
 			this.fetch();

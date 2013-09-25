@@ -1,27 +1,25 @@
 define(["jquery"], function($) {
   var Server;
-  Server = {
+  return Server = {
     storeAlias: "",
+    api: "/api/frontend",
     initialize: function() {
-      var self;
-      self = this;
+      var _this = this;
       return $.ajaxSetup({
         beforeSend: function(xhr, settings) {
-          return settings.url = self.getComposedUrl(settings.url);
+          return settings.url = _this.getComposedUrl(settings.url);
         }
       });
     },
     getComposedUrl: function(url) {
-      if (url.substring(0, 3) === "http") {
+      if (url.substring(0, 4) === "http") {
         return url;
       }
       url = url.replace("storeAlias", this.storeAlias);
-      return "/api/frontend/" + url;
+      return "" + this.api + "/" + url;
     },
     setStoreAlias: function(storeAlias) {
       return this.storeAlias = storeAlias;
     }
   };
-  Server.initialize();
-  return Server;
 });

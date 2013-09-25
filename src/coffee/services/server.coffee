@@ -1,20 +1,18 @@
 define ["jquery"], ($) ->
 
   Server =
+
     storeAlias: ""
+    api: "/api/frontend"
 
     initialize: ->
-      self = this
-      $.ajaxSetup beforeSend: (xhr, settings) ->
-        settings.url = self.getComposedUrl(settings.url)
+      $.ajaxSetup beforeSend: (xhr, settings) =>
+        settings.url = @getComposedUrl settings.url
 
     getComposedUrl: (url) ->
-      return url if url.substring(0, 3) is "http"
+      return url  if url.substring(0, 4) is "http"
       url = url.replace("storeAlias", @storeAlias)
-      "/api/frontend/#{url}"
+      "#{@api}/#{url}"
 
     setStoreAlias: (storeAlias) ->
       @storeAlias = storeAlias
-
-  Server.initialize()
-  Server
