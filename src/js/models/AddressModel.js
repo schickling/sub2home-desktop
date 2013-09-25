@@ -1,5 +1,6 @@
 define(["underscore", "backbone", "notificationcenter"], function(_, Backbone, notificationcenter) {
-  return Backbone.Model.extend({
+  var AddressModel;
+  return AddressModel = Backbone.Model.extend({
     defaults: {
       firstName: "",
       lastName: "",

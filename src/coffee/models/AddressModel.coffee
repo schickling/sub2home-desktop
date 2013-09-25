@@ -1,6 +1,6 @@
 define ["underscore", "backbone", "notificationcenter"], (_, Backbone, notificationcenter) ->
 
-  Backbone.Model.extend
+  AddressModel = Backbone.Model.extend
 
     defaults:
       firstName: ""
