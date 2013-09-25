@@ -128,7 +128,23 @@ module.exports = (grunt) ->
         configFile: "<%= config.test %>/karma.conf.js"
         singleRun: true
 
-  grunt.registerTask "server", ["watch"]
-  grunt.registerTask "test", ["jshint", "karma:unit"]
-  grunt.registerTask "build", ["coffee", "test", "clean:dist", "copy:dist", "requirejs:dist", "less:dist", "rev:dist", "usemin", "htmlmin"]
-  grunt.registerTask "default", ["build"]
+  grunt.registerTask "server", [
+    "watch"
+  ]
+  grunt.registerTask "test", [
+    "jshint"
+    "karma:unit"
+  ]
+  grunt.registerTask "build", [
+    "coffee"
+    "clean:dist"
+    "copy:dist"
+    "requirejs:dist"
+    "less:dist"
+    "rev:dist"
+    "usemin"
+    "htmlmin"
+  ]
+  grunt.registerTask "default", [
+    "build"
+  ]
