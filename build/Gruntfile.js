@@ -30,12 +30,12 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.initConfig({
-
     config: config,
     coffee: {
       src: {
         files: [{
           expand: true,
+          bare: true,
           cwd: '<%= config.src %>/coffee',
           src: '{,*/}*.coffee',
           dest: '<%= config.src %>/js',
@@ -120,6 +120,11 @@ module.exports = function (grunt) {
       }
     },
     less: {
+      src: {
+        files: {
+          '<%= config.src %>/css/frontend.css': '<%= config.src %>/less/frontend/frontend.less'
+        }
+      },
       dist: {
         options: {
           yuicompress: true
@@ -132,7 +137,15 @@ module.exports = function (grunt) {
     watch: {
       coffee: {
         files: ['<%= config.src %>/coffee/{,*/}*.coffee'],
-        tasks: ['coffee:src']
+        tasks: ['coffee:src'],
+      },
+      // js: {
+      //   files: ['<%= config.src %>/js/{,*/}*.js'],
+      //   tasks: ['jshint'],
+      // },
+      less: {
+        files: ['<%= config.src %>/less/**/*.less'],
+        tasks: ['less:src'],
       },
       livereload: {
         options: {
@@ -140,14 +153,14 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= config.src %>/js/**/*.js',
-          // '<%= config.src %>/**/*.{html,css,js}',
+          '<%= config.src %>/templates/**/*.html',
+          '<%= config.src %>/css/*.css',
         ]
       }
     },
   });
 
   grunt.registerTask('server', [
-    'coffee',
     'watch',
     ]);
 

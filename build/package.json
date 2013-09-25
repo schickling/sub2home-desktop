@@ -16,6 +16,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "time-grunt": "~0.1.1",
     "load-grunt-tasks": "~0.1.0",
-    "jshint": "~2.1.11"
+    "jshint": "~2.1.11",
+    "grunt-newer": "~0.5.3"
   }
 }
