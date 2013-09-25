@@ -76,7 +76,15 @@ module.exports = (grunt) ->
           dot: true
           cwd: "<%= config.src %>"
           dest: "<%= config.dist %>"
-          src: ["index.html", "favicon.ico", "components/requirejs/require.js", "mobile/*", "browser/*"]
+          src: [
+            "index.html"
+            "sitemap.xml"
+            "robots.txt"
+            "favicon.ico"
+            "components/requirejs/require.js"
+            "mobile/*"
+            "browser/*"
+          ]
         ]
 
     less:
