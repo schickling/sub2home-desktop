@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /login/
+Disallow: /*/login/
+Disallow: /einstellungen/
+Disallow: /*/einstellungen/
+Disallow: /dashboard/
+Disallow: /*/dashboard/
+Disallow: /*/sortiment/
+Disallow: /*/theke/*
+Disallow: /*/tablett/
+Disallow: /*/danke/
+Disallow: /login/
