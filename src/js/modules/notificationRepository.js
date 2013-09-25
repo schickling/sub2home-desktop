@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "models/NotificationModel"], function(_, NotificationModel) {
-    "use strict";
     var NotificationRepository;
     NotificationRepository = {
       _items: {

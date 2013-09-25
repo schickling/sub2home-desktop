@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/MenuUpgradeModel"], function(_, Backbone, MenuUpgradeModel) {
-    "use strict";
     var MenuUpgradesCollection;
     MenuUpgradesCollection = Backbone.Collection.extend({
       model: MenuUpgradeModel,

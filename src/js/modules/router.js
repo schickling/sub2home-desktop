@@ -1,6 +1,5 @@
 (function() {
   define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "notificationcenter", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
-    "use strict";
     var Router;
     Router = Backbone.Router.extend({
       routes: {

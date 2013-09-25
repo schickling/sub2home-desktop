@@ -1,5 +1,5 @@
 define ["underscore", "backbone", "models/ItemModel", "collections/ItemsCollection"], (_, Backbone, ItemModel) ->
-  "use strict"
+
   ItemsCollection = Backbone.Collection.extend(
 
     model: ItemModel

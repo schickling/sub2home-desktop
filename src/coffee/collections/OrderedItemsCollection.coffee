@@ -1,5 +1,5 @@
 define ["underscore", "backbone", "models/OrderedItemModel"], (_, Backbone, OrderedItemModel) ->
-  "use strict"
+
   OrderedItemsCollection = Backbone.Collection.extend(
     model: OrderedItemModel
     getTotal: ->

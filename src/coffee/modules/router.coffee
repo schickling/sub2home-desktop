@@ -1,5 +1,5 @@
 define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "notificationcenter", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) ->
-  "use strict"
+
   Router = Backbone.Router.extend(
     routes:
 

@@ -1,6 +1,5 @@
 (function() {
   define(["gmaps"], function(gmaps) {
-    "use strict";
     var PostalOracle, geocoder;
     geocoder = new gmaps.Geocoder();
     PostalOracle = {

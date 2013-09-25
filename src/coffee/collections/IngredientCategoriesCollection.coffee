@@ -1,5 +1,5 @@
 define ["underscore", "backbone", "models/IngredientCategoryModel", "collections/IngredientsCollection"], (_, Backbone, IngredientCategoryModel, IngredientsCollection) ->
-  "use strict"
+
   IngredientCategoriesCollection = Backbone.Collection.extend(
 
     model: IngredientCategoryModel

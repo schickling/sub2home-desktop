@@ -1,5 +1,4 @@
 define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, DeliveryTimeModel) ->
-  "use strict"
 
   DeliveryTimesCollection = Backbone.Collection.extend(
 

@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backbone, DeliveryTimeModel) {
-    "use strict";
     var DeliveryTimesCollection;
     DeliveryTimesCollection = Backbone.Collection.extend({
       model: DeliveryTimeModel,

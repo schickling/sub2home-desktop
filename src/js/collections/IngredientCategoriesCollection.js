@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/IngredientCategoryModel", "collections/IngredientsCollection"], function(_, Backbone, IngredientCategoryModel, IngredientsCollection) {
-    "use strict";
     var IngredientCategoriesCollection;
     IngredientCategoriesCollection = Backbone.Collection.extend({
       model: IngredientCategoryModel,

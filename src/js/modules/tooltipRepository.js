@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "models/TooltipModel"], function(_, TooltipModel) {
-    "use strict";
     var TooltipRepository;
     TooltipRepository = {
       _items: {

@@ -1,5 +1,5 @@
 define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
-  "use strict"
+
   TooltipRepository =
     _items:
       default:

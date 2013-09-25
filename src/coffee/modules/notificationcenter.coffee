@@ -1,5 +1,5 @@
 define ["notificationRepository", "tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView", "views/notifications/TooltipsView"], (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) ->
-  "use strict"
+
   Notificationcenter =
     init: ->
       @notificationsView = new NotificationsView()

@@ -1,5 +1,5 @@
 define ["gmaps"], (gmaps) ->
-  "use strict"
+
 
   geocoder = new gmaps.Geocoder()
 

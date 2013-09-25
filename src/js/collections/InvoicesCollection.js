@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/InvoiceModel"], function(_, Backbone, InvoiceModel) {
-    "use strict";
     var InvoicesCollection;
     InvoicesCollection = Backbone.Collection.extend({
       model: InvoiceModel,

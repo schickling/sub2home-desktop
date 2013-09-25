@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/TimelineItemModel"], function(_, Backbone, TimelineItemModel) {
-    "use strict";
     var TimelineItemsCollection;
     TimelineItemsCollection = Backbone.Collection.extend({
       model: TimelineItemModel

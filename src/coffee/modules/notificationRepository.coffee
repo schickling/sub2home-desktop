@@ -1,5 +1,5 @@
 define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
-  "use strict"
+
   NotificationRepository =
     _items:
       default:

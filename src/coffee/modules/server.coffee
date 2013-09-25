@@ -1,5 +1,5 @@
 define ["jquery"], ($) ->
-  "use strict"
+
 
   Server =
     storeAlias: ""

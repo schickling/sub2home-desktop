@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/ItemModel", "collections/ItemsCollection"], function(_, Backbone, ItemModel) {
-    "use strict";
     var ItemsCollection;
     ItemsCollection = Backbone.Collection.extend({
       model: ItemModel,

@@ -1,6 +1,5 @@
 (function() {
   define(["underscore", "backbone", "models/DeliveryAreaModel"], function(_, Backbone, DeliveryAreaModel) {
-    "use strict";
     var DeliveryAreasCollection;
     DeliveryAreasCollection = Backbone.Collection.extend({
       model: DeliveryAreaModel,
