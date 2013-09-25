@@ -1,6 +1,6 @@
-define ["underscore", "backbone", "models/ItemModel", "collections/ItemsCollection"], (_, Backbone, ItemModel) ->
+define ["underscore", "backbone", "models/ItemModel"], (_, Backbone, ItemModel) ->
 
-  ItemsCollection = Backbone.Collection.extend(
+  ItemsCollection = Backbone.Collection.extend
 
     model: ItemModel
 
@@ -30,5 +30,3 @@ define ["underscore", "backbone", "models/ItemModel", "collections/ItemsCollecti
         # reset counter
         i = savedCounter
         i++
-  )
-  ItemsCollection

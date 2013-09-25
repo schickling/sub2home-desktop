@@ -1,10 +1,6 @@
-(function() {
-  define(["underscore", "backbone", "models/MenuComponentBlockModel"], function(_, Backbone, MenuComponentBlockModel) {
-    var MenuComponentBlocksCollection;
-    MenuComponentBlocksCollection = Backbone.Collection.extend({
-      model: MenuComponentBlockModel
-    });
-    return MenuComponentBlocksCollection;
+define(["underscore", "backbone", "models/MenuComponentBlockModel"], function(_, Backbone, MenuComponentBlockModel) {
+  var MenuComponentBlocksCollection;
+  return MenuComponentBlocksCollection = Backbone.Collection.extend({
+    model: MenuComponentBlockModel
   });
-
-}).call(this);
+});

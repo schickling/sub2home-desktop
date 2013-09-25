@@ -428,5 +428,3 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
       defaultItem = title: alias
       item = @_items[alias] or defaultItem
       new NotificationModel(item)
-
-  NotificationRepository

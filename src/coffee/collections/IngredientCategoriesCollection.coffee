@@ -1,6 +1,6 @@
 define ["underscore", "backbone", "models/IngredientCategoryModel", "collections/IngredientsCollection"], (_, Backbone, IngredientCategoryModel, IngredientsCollection) ->
 
-  IngredientCategoriesCollection = Backbone.Collection.extend(
+  IngredientCategoriesCollection = Backbone.Collection.extend
 
     model: IngredientCategoryModel
 
@@ -14,6 +14,3 @@ define ["underscore", "backbone", "models/IngredientCategoryModel", "collections
           ingredientModels.push ingredientModel  if ingredientModel.get("isSelected")
 
       ingredientModels
-
-  )
-  IngredientCategoriesCollection

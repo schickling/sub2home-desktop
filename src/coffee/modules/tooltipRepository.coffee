@@ -58,5 +58,3 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
       defaultItem = @_items["default"]
       item = @_items[alias] or defaultItem
       new TooltipModel(item)
-
-  TooltipRepository

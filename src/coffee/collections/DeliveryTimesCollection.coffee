@@ -1,6 +1,6 @@
 define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, DeliveryTimeModel) ->
 
-  DeliveryTimesCollection = Backbone.Collection.extend(
+  DeliveryTimesCollection = Backbone.Collection.extend
 
     model: DeliveryTimeModel
 
@@ -26,5 +26,3 @@ define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, Del
       _.sortBy filteredDeliveryTimeModels, (deliveryTimeModel) ->
         deliveryTimeModel.get "startMinutes"
 
-  )
-  DeliveryTimesCollection

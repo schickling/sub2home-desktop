@@ -1,19 +1,16 @@
 define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "notificationcenter", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) ->
 
-  Router = Backbone.Router.extend(
-    routes:
+  Router = Backbone.Router.extend
 
+    routes:
       # home
       "": "_showHomeHome"
-
       # info
       "info": "_showHomeInfo"
-
       # client
       "login": "_showClientLogin"
       "dashboard": "_showClientDashboard"
       "einstellungen": "_showClientConfig"
-
       # store
       ":alias": "_showStoreHome"
       ":alias/theke/:resourceType/:resourceId": "_showStoreSelection"
@@ -21,20 +18,15 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "not
       ":alias/danke": "_showStoreCheckout"
       ":alias/info": "_showStoreInfo"
       ":alias/login": "_showStoreLogin"
-
       # store (logged in)
       ":alias/einstellungen": "_showStoreConfig"
       ":alias/sortiment": "_showStoreAssortment"
       ":alias/dashboard": "_showStoreDashboard"
-
       # common
       "404": "_showPageNotFound"
       "*actions": "_defaultAction"
 
-    # needed to overwrite each page view
-    _pageView: null
     init: ->
-
       # init header
       require ["views/header/HeaderView"], (HeaderView) ->
         new HeaderView()
@@ -197,5 +189,5 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "not
           trigger: true
           replace: true
         false
-  )
+
   new Router()

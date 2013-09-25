@@ -1,8 +1,11 @@
 define ["underscore", "backbone", "models/StoreModel"], (_, Backbone, StoreModel) ->
 
-  StoresCollection = Backbone.Collection.extend(
+  StoresCollection = Backbone.Collection.extend
+
     model: StoreModel
+
     url: "stores"
+
     filterByDeliveryPostal: (postal) ->
       storesInRange = @filter((storeModel) ->
         isInRange = false
@@ -16,5 +19,3 @@ define ["underscore", "backbone", "models/StoreModel"], (_, Backbone, StoreModel
         isInRange
       )
       storesInRange
-  )
-  StoresCollection

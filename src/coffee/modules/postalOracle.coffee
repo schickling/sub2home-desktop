@@ -1,6 +1,5 @@
 define ["gmaps"], (gmaps) ->
 
-
   geocoder = new gmaps.Geocoder()
 
   PostalOracle =
@@ -50,5 +49,3 @@ define ["gmaps"], (gmaps) ->
 
     getPostal: ->
       localStorage.getItem "postal"
-
-  PostalOracle

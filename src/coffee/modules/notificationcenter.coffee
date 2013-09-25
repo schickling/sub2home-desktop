@@ -19,5 +19,3 @@ define ["notificationRepository", "tooltipRepository", "models/NotificationModel
 
     destroyAllNotifications: ->
       @notificationsView.destroyAllNotificationViews()
-
-  Notificationcenter

@@ -1,10 +1,6 @@
-(function() {
-  define(["underscore", "backbone", "models/MenuComponentOptionArticleModel"], function(_, Backbone, MenuComponentOptionArticleModel) {
-    var MenuComponentOptionArticlesCollection;
-    MenuComponentOptionArticlesCollection = Backbone.Collection.extend({
-      model: MenuComponentOptionArticleModel
-    });
-    return MenuComponentOptionArticlesCollection;
+define(["underscore", "backbone", "models/MenuComponentOptionArticleModel"], function(_, Backbone, MenuComponentOptionArticleModel) {
+  var MenuComponentOptionArticlesCollection;
+  return MenuComponentOptionArticlesCollection = Backbone.Collection.extend({
+    model: MenuComponentOptionArticleModel
   });
-
-}).call(this);
+});

@@ -1,11 +1,11 @@
 define ["underscore", "backbone", "models/OrderModel"], (_, Backbone, OrderModel) ->
 
-  OrderCollection = Backbone.Collection.extend(
+  OrdersCollection = Backbone.Collection.extend
+
     model: OrderModel
+
+    url: "stores/storeAlias/orders"
+
     comparator: (orderModel) ->
       -(orderModel.id)
 
-    url: ->
-      "stores/storeAlias/orders"
-  )
-  OrderCollection

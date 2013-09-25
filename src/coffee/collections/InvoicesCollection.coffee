@@ -1,6 +1,6 @@
 define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceModel) ->
 
-  InvoicesCollection = Backbone.Collection.extend(
+  InvoicesCollection = Backbone.Collection.extend
 
     model: InvoiceModel
 
@@ -34,8 +34,6 @@ define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceM
 
     getSplittedCollectionsByYears: ->
       collections = {}
-      yearCollection = undefined
-      year = undefined
       _.each @models, (invoiceModel) ->
         year = invoiceModel.getTimeSpanYear()
         yearCollection = collections[year]
@@ -45,5 +43,3 @@ define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceM
           collections[year] = new InvoicesCollection(invoiceModel)
 
       collections
-  )
-  InvoicesCollection

@@ -1,11 +1,7 @@
-(function() {
-  define(["underscore", "backbone", "models/CategoryModel"], function(_, Backbone, CategoryModel) {
-    var CategoriesCollection;
-    CategoriesCollection = Backbone.Collection.extend({
-      model: CategoryModel,
-      url: "stores/storeAlias/categories"
-    });
-    return CategoriesCollection;
+define(["underscore", "backbone", "models/CategoryModel"], function(_, Backbone, CategoryModel) {
+  var CategoriesCollection;
+  return CategoriesCollection = Backbone.Collection.extend({
+    model: CategoryModel,
+    url: "stores/storeAlias/categories"
   });
-
-}).call(this);
+});

@@ -1,10 +1,6 @@
-(function() {
-  define(["underscore", "backbone", "models/IngredientModel"], function(_, Backbone, IngredientModel) {
-    var IngredientsCollection;
-    IngredientsCollection = Backbone.Collection.extend({
-      model: IngredientModel
-    });
-    return IngredientsCollection;
+define(["underscore", "backbone", "models/IngredientModel"], function(_, Backbone, IngredientModel) {
+  var IngredientsCollection;
+  return IngredientsCollection = Backbone.Collection.extend({
+    model: IngredientModel
   });
-
-}).call(this);
+});

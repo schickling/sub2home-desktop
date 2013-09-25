@@ -35,12 +35,14 @@ module.exports = function (grunt) {
       src: {
         files: [{
           expand: true,
-          bare: true,
           cwd: '<%= config.src %>/coffee',
           src: '{,*/}*.coffee',
           dest: '<%= config.src %>/js',
           ext: '.js'
-        }]
+        }],
+        options: {
+          bare: true,
+        }
       }
     },
     jshint: {
