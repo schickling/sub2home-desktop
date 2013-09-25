@@ -124,7 +124,7 @@ define([
 		},
 
 		_renderNoDeliveryArea: function (postal) {
-			this.$deliveryAreaSelection.html('SUBWAY® ' + this.model.get('title') + ' liefert leider nicht nach ' + postal).removeClass().addClass('noDeliveryArea');
+			this.$deliveryAreaSelection.html('SUBWAY<span class="superscript">®</span> ' + this.model.get('title') + ' liefert leider nicht nach ' + postal).removeClass().addClass('noDeliveryArea');
 		},
 
 		_preselectPostals: function () {
