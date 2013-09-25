@@ -174,6 +174,12 @@ module.exports = function (grunt) {
         ]
       }
     },
+    karma: {
+      unit: {
+        configFile: '<%= config.test %>/karma.conf.js',
+        singleRun: true,
+      }
+    }
   });
 
   grunt.registerTask('server', [
@@ -181,7 +187,8 @@ module.exports = function (grunt) {
     ]);
 
   grunt.registerTask('test', [
-    'jshint'
+    'jshint',
+    'karma:unit'
     ]);
 
   grunt.registerTask('build', [
