@@ -344,13 +344,13 @@ define([
 				if (this._noUpgradeViewIsActive()) {
 					this.$noUpgrade.stop().animate({
 						right: 0
-					});
+					}, 200);
 				} else {
 					// check if still visible
 					if (this.$noUpgrade.css('right') !== '-301px') {
 						this.$noUpgrade.stop().animate({
 							right: -301
-						});
+						}, 200);
 					}
 				}
 			}
