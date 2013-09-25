@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'moment',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/AddressModel',
     'models/CreditModel',
     'collections/OrderedItemsCollection'

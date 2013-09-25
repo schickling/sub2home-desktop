@@ -1,4 +1,4 @@
-define(["notificationRepository", "tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView", "views/notifications/TooltipsView"], function(notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) {
+define(["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView", "views/notifications/TooltipsView"], function(notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) {
   var Notificationcenter;
   return Notificationcenter = {
     init: function() {

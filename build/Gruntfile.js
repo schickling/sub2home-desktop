@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         '<%= config.src %>/js/main.js',
         '<%= config.src %>/js/config.js',
-        '<%= config.src %>/js/modules/*.js',
+        '<%= config.src %>/js/services/*.js',
         '<%= config.src %>/js/models/*.js',
         '<%= config.src %>/js/collections/*.js',
         '<%= config.src %>/js/views/**/*.js',

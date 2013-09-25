@@ -3,8 +3,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
+    'services/router',
+    'services/notificationcenter',
     'views/store/tray/OrderedArticleSingleView',
     'views/store/tray/OrderedMenuView'
     ], function ($, _, Backbone, router, notificationcenter, OrderedArticleSingleView, OrderedMenuView) {

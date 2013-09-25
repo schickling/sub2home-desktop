@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'gmaps',
+    'services/gmaps',
     'views/assets/mapStyles'
     ], function ($, _, Backbone, gmaps, mapStyles) {
 

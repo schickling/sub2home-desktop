@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'text!templates/store/config/DeliveryAreaTemplate.html'
     ], function ($, _, Backbone, notificationcenter, DeliveryAreaTemplate) {
 

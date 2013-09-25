@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'moment',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/DeliveryTimeTemplate.html'
 ], function ($, _, Backbone, moment, notificationcenter, cartModel, DeliveryTimeTemplate) {
@@ -27,7 +27,7 @@ define([
 		initialize: function () {
 
 			cartModel.validateDueDate();
-			
+
 			this._render();
 
 			// keep due date in time

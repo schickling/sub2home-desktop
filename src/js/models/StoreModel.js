@@ -2,7 +2,7 @@
 define([
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/AddressModel',
     'collections/DeliveryAreasCollection',
     'collections/DeliveryTimesCollection',

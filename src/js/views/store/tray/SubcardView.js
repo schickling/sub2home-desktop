@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/SubcardTemplate.html'
     ], function ($, _, Backbone, notificationcenter, cartModel, SubcardTemplate) {

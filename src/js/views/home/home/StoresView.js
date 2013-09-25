@@ -3,9 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
-    'gmaps', // returns window.google.maps namespace
+    'services/router',
+    'services/notificationcenter',
+    'services/gmaps', // returns window.google.maps namespace
     'models/stateModel',
     'views/assets/mapStyles',
     'views/shared/misc/PostalSearchView',

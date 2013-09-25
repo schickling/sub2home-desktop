@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'views/store/config/AddressView',
     'text!templates/store/config/StoreInfoTemplate.html'
     ], function ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) {

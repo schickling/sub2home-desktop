@@ -3,8 +3,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
+    'services/router',
+    'services/notificationcenter',
     'models/stateModel',
     'views/header/CartView',
     'text!templates/header/StoreTemplate.html'

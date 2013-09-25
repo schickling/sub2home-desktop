@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'models/stateModel',
     'views/PageView',
     'views/store/config/MapView',

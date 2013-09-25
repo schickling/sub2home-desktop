@@ -19,12 +19,3 @@ require.config paths:
 
   # templates
   templates: "../templates"
-
-  # module alias
-  notificationRepository: "modules/notificationRepository"
-  tooltipRepository: "modules/tooltipRepository"
-  notificationcenter: "modules/notificationcenter"
-  server: "modules/server"
-  gmaps: "modules/gmaps"
-  router: "modules/router"
-  global: "modules/global"

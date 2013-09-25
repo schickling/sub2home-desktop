@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'views/PageView',
     'text!templates/home/404/MainTemplate.html'
     ], function ($, _, Backbone, router, PageView, MainTemplate) {

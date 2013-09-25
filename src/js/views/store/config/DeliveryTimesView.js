@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/DeliveryTimeModel',
     'collections/DeliveryTimesCollection',
     'views/store/config/DeliveryTimeView'

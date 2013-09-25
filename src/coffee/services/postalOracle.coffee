@@ -1,4 +1,4 @@
-define ["gmaps"], (gmaps) ->
+define ["services/gmaps"], (gmaps) ->
 
   geocoder = new gmaps.Geocoder()
 

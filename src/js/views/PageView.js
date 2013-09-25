@@ -5,8 +5,8 @@ define([
     'jqueryPlaceholder',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
+    'services/router',
+    'services/notificationcenter',
     'models/stateModel',
     'views/assets/transitions'
 ], function ($, jqueryEasing, jqueryBrowserDetection, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) {

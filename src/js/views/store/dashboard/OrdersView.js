@@ -4,7 +4,7 @@ define([
     'jqueryRotate',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'collections/OrdersCollection',
     'views/store/dashboard/OrderView',
     'views/store/dashboard/CreditView',

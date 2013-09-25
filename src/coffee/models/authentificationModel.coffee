@@ -1,4 +1,4 @@
-define ["jquery", "underscore", "backbone", "notificationcenter"], ($, _, Backbone, notificationcenter) ->
+define ["jquery", "underscore", "backbone", "services/notificationcenter"], ($, _, Backbone, notificationcenter) ->
 
   AuthentificationModel = Backbone.Model.extend
 

@@ -3,8 +3,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
+    'services/router',
+    'services/notificationcenter',
     'models/cartModel'
 ], function ($, _, Backbone, router, notificationcenter, cartModel) {
 
@@ -210,7 +210,7 @@ define([
 				$buttonPrev = this.$buttonPrev,
 				$buttonCart = this.$buttonCart;
 
-			// hide all buttons 
+			// hide all buttons
 			$buttonNext.stop(true).fadeOut(animationTime, function () {
 				if (noUpgradeViewIsActive) {
 					$buttonNext.css({

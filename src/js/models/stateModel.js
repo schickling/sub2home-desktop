@@ -4,7 +4,7 @@ define([
     'backbone',
     'backboneLocalStorage',
     'models/StoreModel',
-    'server'
+    'services/server'
     ], function (_, Backbone, backboneLocalStorage, StoreModel, server) {
 
 	"use strict";

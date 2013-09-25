@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/FreeCookieTemplate.html'
 ], function ($, _, Backbone, notificationcenter, cartModel, FreeCookieTemplate) {
@@ -61,7 +61,7 @@ define([
 		},
 
 		_checkCollapseInput: function () {
-			
+
 			this._saveCode();
 			this._markHasCode();
 			this._markIsValid();

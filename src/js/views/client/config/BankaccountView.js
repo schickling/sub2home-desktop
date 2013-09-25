@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'text!templates/client/config/BankaccountTemplate.html'
     ], function ($, _, Backbone, notificationcenter, BankaccountTemplate) {
 

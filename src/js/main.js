@@ -1,5 +1,5 @@
 require(["config"], function() {
-  return require(["router"], function(router) {
+  return require(["services/router"], function(router) {
     return router.init();
   });
 });

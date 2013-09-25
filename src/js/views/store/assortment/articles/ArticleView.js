@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'views/store/assortment/ItemBaseView',
     'text!templates/store/assortment/articles/ArticleTemplate.html'
     ], function ($, _, Backbone, notificationcenter, ItemBaseView, ArticleTemplate) {

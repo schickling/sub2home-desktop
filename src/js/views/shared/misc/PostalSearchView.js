@@ -4,8 +4,8 @@ define([
     'jqueryRotate',
     'underscore',
     'backbone',
-    'notificationcenter',
-    'modules/postalOracle',
+    'services/notificationcenter',
+    'services/postalOracle',
     'text!templates/shared/misc/PostalSearchTemplate.html'
 ], function ($, jqueryRotate, _, Backbone, notificationcenter, postalOracle, PostalSearchTemplate) {
 

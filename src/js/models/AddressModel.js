@@ -1,4 +1,4 @@
-define(["underscore", "backbone", "notificationcenter"], function(_, Backbone, notificationcenter) {
+define(["underscore", "backbone", "services/notificationcenter"], function(_, Backbone, notificationcenter) {
   var AddressModel;
   return AddressModel = Backbone.Model.extend({
     defaults: {

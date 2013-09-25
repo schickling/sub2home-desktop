@@ -15,13 +15,6 @@ require.config({
     backboneLocalStorage: "vendor/backbone.localStorage/backbone.localStorage",
     backboneAnalytics: "vendor/backbone.analytics/backbone.analytics",
     moment: "vendor/moment/moment",
-    templates: "../templates",
-    notificationRepository: "modules/notificationRepository",
-    tooltipRepository: "modules/tooltipRepository",
-    notificationcenter: "modules/notificationcenter",
-    server: "modules/server",
-    gmaps: "modules/gmaps",
-    router: "modules/router",
-    global: "modules/global"
+    templates: "../templates"
   }
 });

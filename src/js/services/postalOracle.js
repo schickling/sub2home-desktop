@@ -1,4 +1,4 @@
-define(["gmaps"], function(gmaps) {
+define(["services/gmaps"], function(gmaps) {
   var PostalOracle, geocoder;
   geocoder = new gmaps.Geocoder();
   return PostalOracle = {

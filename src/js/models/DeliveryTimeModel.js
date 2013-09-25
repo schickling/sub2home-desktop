@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone',
-    'notificationcenter'
+    'services/notificationcenter'
     ], function (_, Backbone, notificationcenter) {
 
 	"use strict";

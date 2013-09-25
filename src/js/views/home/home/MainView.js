@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'views/PageView',
     'views/home/home/StoresView',
     'text!templates/home/home/MainTemplate.html'

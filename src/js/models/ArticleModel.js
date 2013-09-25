@@ -1,4 +1,4 @@
-define(["underscore", "backbone", "collections/MenuUpgradesCollection", "collections/IngredientCategoriesCollection", "notificationcenter"], function(_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
+define(["underscore", "backbone", "collections/MenuUpgradesCollection", "collections/IngredientCategoriesCollection", "services/notificationcenter"], function(_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) {
   var ArticleModel;
   return ArticleModel = Backbone.Model.extend({
     defaults: {

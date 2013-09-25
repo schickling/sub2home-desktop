@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'models/cartModel',
     'views/PageView',
     'views/store/checkout/CountdownView',

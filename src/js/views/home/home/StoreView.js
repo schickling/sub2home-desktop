@@ -2,8 +2,8 @@
 define([
 	'jquery',
 	'underscore',
-	'gmaps',
-	'notificationcenter',
+	'services/gmaps',
+	'services/notificationcenter',
 	'text!templates/home/home/StoreTemplate.html'
 ], function ($, _, gmaps, notificationcenter, StoreTemplate) {
 

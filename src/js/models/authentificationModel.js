@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone", "notificationcenter"], function($, _, Backbone, notificationcenter) {
+define(["jquery", "underscore", "backbone", "services/notificationcenter"], function($, _, Backbone, notificationcenter) {
   var AuthentificationModel;
   AuthentificationModel = Backbone.Model.extend({
     defaults: {

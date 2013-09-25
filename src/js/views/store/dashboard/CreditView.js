@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
+    'services/notificationcenter',
     'models/CreditModel',
     'text!templates/store/dashboard/CreditTemplate.html'
 ], function ($, _, Backbone, notificationcenter, CreditModel, CreditTemplate) {

@@ -1,4 +1,4 @@
-define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "notificationcenter", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
+define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
   var Router;
   Router = Backbone.Router.extend({
     routes: {

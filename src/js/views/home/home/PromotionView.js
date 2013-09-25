@@ -3,8 +3,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter',
-    'modules/postalOracle',
+    'services/notificationcenter',
+    'services/postalOracle',
     'text!templates/home/home/PromotionTemplate.html'
     ], function ($, _, Backbone, notificationcenter, postalOracle, PromotionTemplate) {
 

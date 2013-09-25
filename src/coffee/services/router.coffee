@@ -1,4 +1,4 @@
-define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "notificationcenter", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) ->
+define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 

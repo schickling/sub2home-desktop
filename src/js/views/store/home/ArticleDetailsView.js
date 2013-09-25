@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'models/stateModel',
     'text!templates/store/home/ArticleDetailsTemplate.html'
     ], function ($, _, Backbone, router, stateModel, ArticleDetailsTemplate) {

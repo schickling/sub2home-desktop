@@ -1,4 +1,4 @@
-define ["underscore", "backbone", "notificationcenter"], (_, Backbone, notificationcenter) ->
+define ["underscore", "backbone", "services/notificationcenter"], (_, Backbone, notificationcenter) ->
 
   BankaccountModel = Backbone.Model.extend
 

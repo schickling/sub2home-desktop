@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'moment',
-    'notificationcenter',
+    'services/notificationcenter',
     'text!templates/store/dashboard/revenues/RevenueTemplate.html'
     ], function ($, _, Backbone, moment, notificationcenter, RevenueTemplate) {
 

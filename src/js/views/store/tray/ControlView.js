@@ -4,8 +4,8 @@ define([
     'jqueryColor',
     'underscore',
     'backbone',
-    'router',
-    'notificationcenter',
+    'services/router',
+    'services/notificationcenter',
     'models/cartModel',
     'text!templates/store/tray/ControlTemplate.html'
     ], function ($, jqueryColor, _, Backbone, router, notificationcenter, cartModel, ControlTemplate) {

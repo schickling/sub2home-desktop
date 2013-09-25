@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'moment',
-    'router',
+    'services/router',
     'text!templates/client/dashboard/StoreTemplate.html'
     ], function ($, _, Backbone, moment, router, StoreTemplate) {
 

@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'notificationcenter'
+    'services/notificationcenter'
     ], function ($, _, Backbone, notificationcenter, ArticleTemplate) {
 
 	"use strict";

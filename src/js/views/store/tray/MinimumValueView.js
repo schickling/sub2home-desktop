@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'models/cartModel',
     'text!templates/store/tray/MinimumValueTemplate.html'
 ], function ($, _, Backbone, router, cartModel, MinimumValueTemplate) {

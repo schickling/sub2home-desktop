@@ -4,7 +4,7 @@ define([
     'jqueryEasing',
     'underscore',
     'backbone',
-    'router',
+    'services/router',
     'models/authentificationModel',
     'models/stateModel',
     'views/header/StoreView',

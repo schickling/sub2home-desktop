@@ -1,4 +1,4 @@
 require ["config"], ->
   # wait for config loaded and start app
-  require ["router"], (router) ->
+  require ["services/router"], (router) ->
     router.init()
