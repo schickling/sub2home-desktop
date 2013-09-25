@@ -23,6 +23,7 @@ var backboneModules = [
   config = {
     dist: '../dist',
     src: '../src',
+    test: '../test',
   };
 
 module.exports = function (grunt) {
@@ -36,13 +37,22 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.src %>/coffee',
-          src: '{,*/}*.coffee',
+          src: '**/*.coffee',
           dest: '<%= config.src %>/js',
           ext: '.js'
-        }],
-        options: {
-          bare: true,
-        }
+        }]
+      },
+      test: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.test %>',
+          src: '**/*.coffee',
+          dest: '<%= config.test %>/.tmp',
+          ext: '.js'
+        }]
+      },
+      options: {
+        bare: true,
       }
     },
     jshint: {
@@ -137,12 +147,16 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      coffee: {
-        files: ['<%= config.src %>/coffee/{,*/}*.coffee'],
+      coffeeSrc: {
+        files: ['<%= config.src %>/coffee/**/*.coffee'],
         tasks: ['coffee:src'],
       },
+      coffeeTest: {
+        files: ['<%= config.test %>/spec/**/*.coffee'],
+        tasks: ['coffee:test'],
+      },
       // js: {
-      //   files: ['<%= config.src %>/js/{,*/}*.js'],
+      //   files: ['<%= config.src %>/js/**/*.js'],
       //   tasks: ['jshint'],
       // },
       less: {
