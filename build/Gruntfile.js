@@ -114,7 +114,7 @@ module.exports = function (grunt) {
           src: [
             'index.html',
             'favicon.ico',
-            'js/vendor/requirejs/require.js',
+            'components/requirejs/require.js',
             'mobile/*',
             'browser/*',
           ]
