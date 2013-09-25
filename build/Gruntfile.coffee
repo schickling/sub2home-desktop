@@ -50,7 +50,7 @@ module.exports = (grunt) ->
     rev:
       dist:
         files:
-          src: ["<%= config.dist %>/js/main.js", "<%= config.dist %>/css/frontend.css"]
+          src: ["<%= config.dist %>/js/main.js", "<%= config.dist %>/css/main.css"]
 
     usemin:
       html: ["<%= config.dist %>/index.html"]
@@ -82,14 +82,14 @@ module.exports = (grunt) ->
     less:
       src:
         files:
-          "<%= config.src %>/css/frontend.css": "<%= config.src %>/less/frontend/frontend.less"
+          "<%= config.src %>/css/main.css": "<%= config.src %>/less/main.less"
 
       dist:
         options:
           yuicompress: true
 
         files:
-          "<%= config.dist %>/css/frontend.css": "<%= config.src %>/less/frontend/frontend.less"
+          "<%= config.dist %>/css/main.css": "<%= config.src %>/less/main.less"
 
     watch:
       coffeeSrc:
@@ -104,8 +104,9 @@ module.exports = (grunt) ->
       #   files: ['<%= config.src %>/js/**/*.js'],
       #   tasks: ['jshint'],
       # },
+
       less:
-        files: ["<%= config.src %>/less/**/*.less"]
+        files: ["<%= config.src %>/less/*.less"]
         tasks: ["less:src"]
 
       livereload:
