@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Wed Sep 25 2013 11:16:47 GMT+0200 (CEST)
+// Generated on Wed Sep 25 2013 12:01:18 GMT+0200 (CEST)
 
 module.exports = function(config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: '../src/js',
+    basePath: '../',
 
 
     // frameworks to use
@@ -14,13 +14,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'config.js'
+      'test/main-test.js',
+      {pattern: 'src/components/**/*.js', included: false},
+      {pattern: 'src/js/**/*.js', included: false},
+      {pattern: 'test/spec/**/*.js', included: false}
     ],
 
 
     // list of files to exclude
     exclude: [
-
+      'src/js/main.js'
     ],
 
 
