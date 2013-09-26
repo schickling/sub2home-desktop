@@ -2,15 +2,19 @@ define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backb
   var DeliveryTimesCollection;
   return DeliveryTimesCollection = Backbone.Collection.extend({
     model: DeliveryTimeModel,
-    getNextDeliveryTimeModel: function() {
+    getNextDeliveryTimeModel: function(skip) {
       var dayOfWeek, filteredDeliveryTimeModels, i, now, _i;
+      if (skip == null) {
+        skip = 0;
+      }
       now = new Date();
       dayOfWeek = now.getDay();
-      filteredDeliveryTimeModels = void 0;
       for (i = _i = 0; _i <= 6; i = ++_i) {
         filteredDeliveryTimeModels = this._getFilteredDeliveryTimeModels(dayOfWeek, i === 0);
-        if (filteredDeliveryTimeModels.length > 0) {
-          return filteredDeliveryTimeModels[0];
+        if (skip < filteredDeliveryTimeModels.length) {
+          return filteredDeliveryTimeModels[skip];
+        } else {
+          skip -= filteredDeliveryTimeModels.length;
         }
         dayOfWeek = (dayOfWeek + 1) % 7;
       }
@@ -21,7 +25,7 @@ define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backb
       totalMinutesOfNow = now.getMinutes() + now.getHours() * 60;
       filteredDeliveryTimeModels = this.filter(function(deliveryTimeModel) {
         if (shouldRespectStartTime) {
-          return deliveryTimeModel.get("dayOfWeek") === dayOfWeek && deliveryTimeModel.get("startMinutes") > totalMinutesOfNow;
+          return deliveryTimeModel.get("dayOfWeek") === dayOfWeek && deliveryTimeModel.get("endMinutes") > totalMinutesOfNow;
         } else {
           return deliveryTimeModel.get("dayOfWeek") === dayOfWeek;
         }
