@@ -7,6 +7,7 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '../',
 
+    preprocessors: {'*/.html': [] },
 
     // frameworks to use
     frameworks: ['jasmine', 'requirejs'],
@@ -15,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'test/main-test.js',
+      {pattern: 'src/templates/**/*.html', included: false},
       {pattern: 'src/components/**/*.js', included: false},
       {pattern: 'src/js/**/*.js', included: false},
       {pattern: 'test/.tmp/spec/**/*.js', included: false},
@@ -57,7 +59,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // If browser does not capture in given timeout [ms], kill it
