@@ -118,20 +118,20 @@ textarea {
 */
 @font-face {
   font-family: 'VAGRoundedStd-Thin';
-  src: url('https://d3uu6huyzvecb1.cloudfront.net/fonts/2654AB_0_0.eot');
-  src: url('https://d3uu6huyzvecb1.cloudfront.net/fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('https://d3uu6huyzvecb1.cloudfront.net/fonts/2654AB_0_0.woff') format('woff'), url('https://d3uu6huyzvecb1.cloudfront.net/fonts/2654AB_0_0.ttf') format('truetype');
+  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.woff') format('woff'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.ttf') format('truetype');
 }
 @font-face {
   font-family: "Handlee";
-  src: url("https://d3uu6huyzvecb1.cloudfront.net/fonts/handlee.eot");
-  src: url("https://d3uu6huyzvecb1.cloudfront.net/fonts/handlee.eot?#iefix") format("embedded-opentype"), url("https://d3uu6huyzvecb1.cloudfront.net/fonts/handlee.woff") format("woff"), url("https://d3uu6huyzvecb1.cloudfront.net/fonts/handlee.ttf") format("truetype"), url("https://d3uu6huyzvecb1.cloudfront.net/fonts/handlee.svg#Handlee") format("svg");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.svg#Handlee") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Homicons";
-  src: url("https://d3uu6huyzvecb1.cloudfront.net/fonts/Homicons.eot");
-  src: url("https://d3uu6huyzvecb1.cloudfront.net/fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("https://d3uu6huyzvecb1.cloudfront.net/fonts/Homicons.ttf") format("truetype"), url("https://d3uu6huyzvecb1.cloudfront.net/fonts/Homicons.svg#Homicons") format("svg");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot");
+  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.svg#Homicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
