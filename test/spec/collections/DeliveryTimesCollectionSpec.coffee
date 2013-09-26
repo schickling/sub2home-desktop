@@ -48,3 +48,5 @@ define ["collections/DeliveryTimesCollection"], (DeliveryTimesCollection) ->
         endMinutes: 840
         )
 
+    it "should skip fourteen and fail", ->
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(14)).toBe(undefined)
