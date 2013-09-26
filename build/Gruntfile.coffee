@@ -66,6 +66,7 @@ module.exports = (grunt) ->
 
     clean:
       dist: "<%= config.dist %>"
+      test: "<%= config.test %>/.tmp"
       options:
         force: true
 
@@ -129,6 +130,8 @@ module.exports = (grunt) ->
         singleRun: true
 
   grunt.registerTask "server", [
+    "clean:test"
+    "coffee"
     "watch"
   ]
   grunt.registerTask "test", [

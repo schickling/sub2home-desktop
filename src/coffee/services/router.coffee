@@ -149,13 +149,11 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       @_loadMainView "views/home/404/MainView"
 
     _loadMainView: (pathToMainView, params) ->
-      self = this
-      require [pathToMainView], (MainView) ->
-        params = params or {}
-
+      require [pathToMainView], (MainView) =>
+        params ?= {}
         # destory old page view to unbind listeners
-        params.currentPageView = self._pageView  if self._pageView
-        self._pageView = new MainView(params)
+        params.currentPageView = @_pageView  if @_pageView
+        @_pageView = new MainView(params)
 
     _defaultAction: ->
       fragment = Backbone.history.fragment

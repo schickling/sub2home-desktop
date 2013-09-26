@@ -18,6 +18,7 @@ define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backb
         }
         dayOfWeek = (dayOfWeek + 1) % 7;
       }
+      return false;
     },
     _getFilteredDeliveryTimeModels: function(dayOfWeek, shouldRespectStartTime) {
       var filteredDeliveryTimeModels, now, totalMinutesOfNow;

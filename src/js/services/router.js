@@ -176,14 +176,15 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       return this._loadMainView("views/home/404/MainView");
     },
     _loadMainView: function(pathToMainView, params) {
-      var self;
-      self = this;
+      var _this = this;
       return require([pathToMainView], function(MainView) {
-        params = params || {};
-        if (self._pageView) {
-          params.currentPageView = self._pageView;
+        if (params == null) {
+          params = {};
         }
-        return self._pageView = new MainView(params);
+        if (_this._pageView) {
+          params.currentPageView = _this._pageView;
+        }
+        return _this._pageView = new MainView(params);
       });
     },
     _defaultAction: function() {

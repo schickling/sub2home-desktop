@@ -16,6 +16,8 @@ define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, Del
           skip -= filteredDeliveryTimeModels.length
         dayOfWeek = (dayOfWeek + 1) % 7
 
+      false
+
     _getFilteredDeliveryTimeModels: (dayOfWeek, shouldRespectStartTime) ->
       now = new Date()
       totalMinutesOfNow = now.getMinutes() + now.getHours() * 60

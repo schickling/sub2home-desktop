@@ -1,10 +1,12 @@
-define ["services/dueDateCalculater", "collections/DeliveryTimesCollection"], (dueDateCalculater, DeliveryTimesCollection) ->
+define ["services/dueDateCalculater", "collections/DeliveryTimesCollection", "timemachine"], (dueDateCalculater, DeliveryTimesCollection, timemachine) ->
 
   describe "check due date matcher service", ->
 
-    # its now always August 16, 2012 12:25:00
-    WindowDate = window.Date
-    window.Date = -> new WindowDate("August 16, 2012 12:25:00")
+    beforeEach ->
+      timemachine.config dateString: "August 16, 2012 12:25:00"
+
+    afterEach ->
+      timemachine.reset()
 
     it "should return now for 0 minimumDeliveryTime if is currently delivering", ->
       deliveryTimesCollection = getDeliveringDeliveryTimesCollection()
@@ -18,7 +20,7 @@ define ["services/dueDateCalculater", "collections/DeliveryTimesCollection"], (d
       deliveryTimesCollection = getDeliveringDeliveryTimesCollection()
       minimumDeliveryTime = 20
       now = new Date()
-      now.setMinutes(now.getMinutes() + 20)
+      now.setMinutes now.getMinutes() + 20
       dueTime = now.toTimeString()
       expect(dueDateCalculater.getDueDate(deliveryTimesCollection, minimumDeliveryTime).toTimeString()).toBe(dueTime)
 

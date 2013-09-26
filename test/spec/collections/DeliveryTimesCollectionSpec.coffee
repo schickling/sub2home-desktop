@@ -1,4 +1,4 @@
-define ["collections/DeliveryTimesCollection"], (DeliveryTimesCollection) ->
+define ["collections/DeliveryTimesCollection", "timemachine"], (DeliveryTimesCollection, timemachine) ->
 
   describe "check delivery times collection", ->
 
@@ -13,12 +13,12 @@ define ["collections/DeliveryTimesCollection"], (DeliveryTimesCollection) ->
         startMinutes: 1080 # 6pm
         endMinutes: 1320 # 10pm
 
-    # its now always August 16, 2012 12:25:00
-    WindowDate = window.Date
-    window.Date = -> new WindowDate("August 16, 2012 12:25:00")
-
     beforeEach ->
       deliveryTimesCollection.shuffle()
+      timemachine.config dateString: "August 16, 2012 12:25:00"
+
+    afterEach ->
+      timemachine.reset()
 
     it "should get next", ->
       expect(deliveryTimesCollection.getNextDeliveryTimeModel().toJSON()).toEqual(
@@ -49,4 +49,4 @@ define ["collections/DeliveryTimesCollection"], (DeliveryTimesCollection) ->
         )
 
     it "should skip fourteen and fail", ->
-      expect(deliveryTimesCollection.getNextDeliveryTimeModel(14)).toBe(undefined)
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(14)).toBe(false)
