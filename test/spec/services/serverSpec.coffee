@@ -1,4 +1,4 @@
-define ["jquery", "underscore", "services/server"], ($, _, server) ->
+define ["services/server"], (server) ->
 
   describe "check server service", ->
 
