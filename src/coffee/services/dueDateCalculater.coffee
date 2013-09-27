@@ -12,13 +12,42 @@ define [], ->
   DueDateCalculater =
 
     getDueDate: (deliveryTimesCollection, minimumDeliveryTime, dueDate = new Date(), minutesToAdd = 0) ->
-      dueDate = dueDate.clone()
-      dueDate.addMinutes minutesToAdd
+      @now = new Date()
+      @dueDate = if dueDate > @now then dueDate.clone() else @now.clone()
+      @dueDate.addMinutes minutesToAdd
+      @minimumDeliveryTime = minimumDeliveryTime
+      @nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel @now
 
-      nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel(dueDate)
+      return null  if @_endMinutesExceeded()
 
-      difference = Math.max nextDeliveryTimeModel.get("startMinutes") - dueDate.getTotalMinutes(), minimumDeliveryTime
-      additional = if difference is minimumDeliveryTime then (5 - (dueDate.getMinutes() % 5)) % 5 else 0
-      dueDate.addMinutes difference + additional
+      if minutesToAdd < 0
+        return null  unless @_startMinutesReached() and @_minimumReached()
+      else
+        @_jumpToBorder()  unless @_startMinutesReached()
+        @_increase()  unless @_minimumReached()
 
-      dueDate
+      @_roundUp()
+
+      @dueDate
+
+    _startMinutesReached: ->
+      @dueDate.getTotalMinutes() >= @nextDeliveryTimeModel.get("startMinutes")
+
+    _endMinutesExceeded: ->
+      @dueDate.getTotalMinutes() > @nextDeliveryTimeModel.get("endMinutes") + @minimumDeliveryTime
+
+    _minimumReached: ->
+      @dueDate.getTotalMinutes() >= @now.getTotalMinutes() + @minimumDeliveryTime
+
+    _jumpToBorder: ->
+      @dueDate.setHours parseInt(@nextDeliveryTimeModel.get("startMinutes") / 60, 10)
+      @dueDate.setMinutes @nextDeliveryTimeModel.get("startMinutes") % 60
+
+    _increase: ->
+      minimumToAdd = @minimumDeliveryTime - @dueDate.getTotalMinutes() + @now.getTotalMinutes()
+      @dueDate.addMinutes minimumToAdd
+
+    _roundUp: ->
+      # round up to 5
+      @dueDate.addMinutes ((5 - (@dueDate.getMinutes() % 5)) % 5)
+

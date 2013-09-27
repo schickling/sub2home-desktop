@@ -33,7 +33,8 @@ define([
 
 		_render: function () {
 
-			var dueDate = cartModel.getDueDate(),
+			var orderModel = cartModel.get('orderModel'),
+				dueDate = orderModel.get('dueDate'),
 				dueMoment = moment(dueDate),
 				currentMoment = moment(),
 				hours = dueMoment.diff(currentMoment, 'hours'),
