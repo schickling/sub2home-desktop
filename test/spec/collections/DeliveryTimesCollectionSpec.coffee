@@ -1,6 +1,6 @@
 define ["collections/DeliveryTimesCollection", "timemachine"], (DeliveryTimesCollection, timemachine) ->
 
-  describe "check delivery times collection", ->
+  ddescribe "check getNextDeliveryTimeModel for delivery times collection", ->
 
     deliveryTimesCollection = new DeliveryTimesCollection()
     for dayOfWeek in [0..6]
@@ -15,38 +15,68 @@ define ["collections/DeliveryTimesCollection", "timemachine"], (DeliveryTimesCol
 
     beforeEach ->
       deliveryTimesCollection.shuffle()
+
+    it "should return current", ->
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 11:00:00")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 660
+        endMinutes: 840
+        )
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 12:25:00")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 660
+        endMinutes: 840
+        )
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 14:00:00")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 660
+        endMinutes: 840
+        )
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 14:00:59")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 660
+        endMinutes: 840
+        )
+
+    it "should have default date", ->
       timemachine.config dateString: "August 16, 2012 12:25:00"
-
-    afterEach ->
-      timemachine.reset()
-
-    it "should get next", ->
       expect(deliveryTimesCollection.getNextDeliveryTimeModel().toJSON()).toEqual(
         dayOfWeek: 4
         startMinutes: 660
         endMinutes: 840
         )
+      timemachine.reset()
 
-    it "should skip one", ->
-      expect(deliveryTimesCollection.getNextDeliveryTimeModel(1).toJSON()).toEqual(
+    it "should return this evening", ->
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 14:01:00")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 1080
+        endMinutes: 1320
+        )
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 18:00:00")).toJSON()).toEqual(
+        dayOfWeek: 4
+        startMinutes: 1080
+        endMinutes: 1320
+        )
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 22:00:59")).toJSON()).toEqual(
         dayOfWeek: 4
         startMinutes: 1080
         endMinutes: 1320
         )
 
-    it "should skip two", ->
-      expect(deliveryTimesCollection.getNextDeliveryTimeModel(2).toJSON()).toEqual(
+    it "should return tomorrow noon", ->
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 16, 2012 22:01:00")).toJSON()).toEqual(
         dayOfWeek: 5
         startMinutes: 660
         endMinutes: 840
         )
-
-    it "should skip eight", ->
-      expect(deliveryTimesCollection.getNextDeliveryTimeModel(8).toJSON()).toEqual(
-        dayOfWeek: 1
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 17, 2012 00:00:00")).toJSON()).toEqual(
+        dayOfWeek: 5
         startMinutes: 660
         endMinutes: 840
         )
-
-    it "should skip fourteen and fail", ->
-      expect(deliveryTimesCollection.getNextDeliveryTimeModel(14)).toBe(false)
+      expect(deliveryTimesCollection.getNextDeliveryTimeModel(new Date("August 17, 2012 14:00:00")).toJSON()).toEqual(
+        dayOfWeek: 5
+        startMinutes: 660
+        endMinutes: 840
+        )

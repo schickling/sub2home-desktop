@@ -4,29 +4,21 @@ define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, Del
 
     model: DeliveryTimeModel
 
-    getNextDeliveryTimeModel: (skip = 0) ->
-      now = new Date()
-      dayOfWeek = now.getDay()
+    getNextDeliveryTimeModel: (date = new Date()) ->
+      dayOfWeek = date.getDay()
+      totalMinutes = date.getMinutes() + date.getHours() * 60
 
       for i in [0..6]
-        filteredDeliveryTimeModels = @_getFilteredDeliveryTimeModels(dayOfWeek, i is 0)
-        if skip < filteredDeliveryTimeModels.length
-          return filteredDeliveryTimeModels[skip]
-        else
-          skip -= filteredDeliveryTimeModels.length
+        filteredDeliveryTimeModels = @_getFilteredDeliveryTimeModels(totalMinutes, dayOfWeek, i is 0)
+        return filteredDeliveryTimeModels[0]  if filteredDeliveryTimeModels.length > 0
         dayOfWeek = (dayOfWeek + 1) % 7
 
       false
 
-    _getFilteredDeliveryTimeModels: (dayOfWeek, shouldRespectStartTime) ->
-      now = new Date()
-      totalMinutesOfNow = now.getMinutes() + now.getHours() * 60
-      filteredDeliveryTimeModels = @filter((deliveryTimeModel) ->
-        if shouldRespectStartTime # today
-          deliveryTimeModel.get("dayOfWeek") is dayOfWeek and deliveryTimeModel.get("endMinutes") > totalMinutesOfNow
-        else
-          deliveryTimeModel.get("dayOfWeek") is dayOfWeek
-      )
+    _getFilteredDeliveryTimeModels: (totalMinutes, dayOfWeek, shouldRespectStartTime) ->
+      # filter
+      filteredDeliveryTimeModels = @filter (deliveryTimeModel) ->
+        deliveryTimeModel.get("dayOfWeek") is dayOfWeek and (shouldRespectStartTime and deliveryTimeModel.get("endMinutes") >= totalMinutes or not shouldRespectStartTime)
+      # sort
       _.sortBy filteredDeliveryTimeModels, (deliveryTimeModel) ->
         deliveryTimeModel.get "startMinutes"
-
