@@ -11,7 +11,7 @@ define([], function() {
   };
   return DueDateCalculater = {
     getDueDate: function(deliveryTimesCollection, minimumDeliveryTime, dueDate, minutesToAdd) {
-      var difference, nextDeliveryTimeModel;
+      var additional, difference, nextDeliveryTimeModel;
       if (dueDate == null) {
         dueDate = new Date();
       }
@@ -22,7 +22,8 @@ define([], function() {
       dueDate.addMinutes(minutesToAdd);
       nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel(dueDate);
       difference = Math.max(nextDeliveryTimeModel.get("startMinutes") - dueDate.getTotalMinutes(), minimumDeliveryTime);
-      dueDate.addMinutes(difference);
+      additional = difference === minimumDeliveryTime ? (5 - (dueDate.getMinutes() % 5)) % 5 : 0;
+      dueDate.addMinutes(difference + additional);
       return dueDate;
     }
   };

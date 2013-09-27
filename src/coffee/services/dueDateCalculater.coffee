@@ -18,6 +18,7 @@ define [], ->
       nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel(dueDate)
 
       difference = Math.max nextDeliveryTimeModel.get("startMinutes") - dueDate.getTotalMinutes(), minimumDeliveryTime
-      dueDate.addMinutes difference
+      additional = if difference is minimumDeliveryTime then (5 - (dueDate.getMinutes() % 5)) % 5 else 0
+      dueDate.addMinutes difference + additional
 
       dueDate

@@ -19,7 +19,12 @@ define ["services/dueDateCalculater", "collections/DeliveryTimesCollection", "ti
       inputDueDate = new Date("Thu Aug 16 2012 12:25:00 GMT+0200")
       expectedDueDate = new Date("Thu Aug 16 2012 12:45:00 GMT+0200")
       expect(dueDateCalculater.getDueDate(deliveryTimesCollection, 20, inputDueDate).toStr()).toBe(expectedDueDate.toStr())
-      timemachine.reset()
+
+    it "should round to fives", ->
+      deliveryTimesCollection = getDeliveringDeliveryTimesCollection()
+      inputDueDate = new Date("Thu Aug 16 2012 12:26:00 GMT+0200")
+      expectedDueDate = new Date("Thu Aug 16 2012 12:50:00 GMT+0200")
+      expect(dueDateCalculater.getDueDate(deliveryTimesCollection, 20, inputDueDate).toStr()).toBe(expectedDueDate.toStr())
 
     it "should return next possible dueDate for 20 minimumDeliveryTime if is currently delivering and last minute is running", ->
       deliveryTimesCollection = getDeliveringDeliveryTimesCollection()
@@ -42,7 +47,7 @@ define ["services/dueDateCalculater", "collections/DeliveryTimesCollection", "ti
     it "should return next possible dueDate for 20 minimumDeliveryTime if next will beginn in 19", ->
       deliveryTimesCollection = getDeliveringDeliveryTimesCollection()
       inputDueDate = new Date("Thu Aug 16 2012 17:41:00 GMT+0200")
-      expectedDueDate = new Date("Thu Aug 16 2012 18:01:00 GMT+0200")
+      expectedDueDate = new Date("Thu Aug 16 2012 18:05:00 GMT+0200")
       expect(dueDateCalculater.getDueDate(deliveryTimesCollection, 20, inputDueDate).toStr()).toBe(expectedDueDate.toStr())
 
   getDeliveringDeliveryTimesCollection = ->
