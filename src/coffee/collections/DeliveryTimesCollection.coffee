@@ -4,7 +4,7 @@ define ["underscore", "backbone", "models/DeliveryTimeModel"], (_, Backbone, Del
 
     model: DeliveryTimeModel
 
-    getNextDeliveryTimeModel: (date = new Date()) ->
+    getNextDeliveryTimeModel: (date) ->
       dayOfWeek = date.getDay()
       totalMinutes = date.getMinutes() + date.getHours() * 60
 

@@ -4,9 +4,6 @@ define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backb
     model: DeliveryTimeModel,
     getNextDeliveryTimeModel: function(date) {
       var dayOfWeek, filteredDeliveryTimeModels, i, totalMinutes, _i;
-      if (date == null) {
-        date = new Date();
-      }
       dayOfWeek = date.getDay();
       totalMinutes = date.getMinutes() + date.getHours() * 60;
       for (i = _i = 0; _i <= 6; i = ++_i) {

@@ -1,33 +1,23 @@
-define ["underscore"], (_) ->
+define [], ->
+
+  Date.prototype.addMinutes = (minutes) ->
+    this.setTime new Date this.getTime() + minutes * 60000
+
+  Date.prototype.clone = ->
+    new Date this.getTime()
+
+  Date.prototype.getTotalMinutes = ->
+    this.getHours() * 60 + this.getMinutes()
 
   DueDateCalculater =
 
     getDueDate: (deliveryTimesCollection, minimumDeliveryTime, dueDate = new Date(), minutesToAdd = 0) ->
-      @dueDate = dueDate
+      dueDate = dueDate.clone()
+      dueDate.addMinutes minutesToAdd
 
-      if @_isNow
-        @_addMinutes minimumDeliveryTime
-      else
-        @_addMinutes minutesToAdd
+      nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel(dueDate)
 
-      nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel()
-      unless @_isBetween nextDeliveryTimeModel.get "startMinutes", nextDeliveryTimeModel.get "endMinutes"
-        nextDeliveryTimeModel = deliveryTimesCollection.getNextDeliveryTimeModel(1)
-        if nextDayOfWeek = nextDeliveryTimeModel.get "dayOfWeek" isnt @dueDate.getDay()
-          # TODO
-          1
-        @dueDate.setHours = parseInt nextDeliveryTimeModel.get("startMinutes") / 60, 10
-        @dueDate.setMinutes = nextDeliveryTimeModel.get "startMinutes" % 60
+      difference = Math.max nextDeliveryTimeModel.get("startMinutes") - dueDate.getTotalMinutes(), minimumDeliveryTime
+      dueDate.addMinutes difference
 
-      @dueDate
-
-
-    _isNow: ->
-      @dueDate.toTimeString() is new Date().toTimeString()
-
-    _addMinutes: (minutes) ->
-      @dueDate = new Date(@dueDate.getTime() + minutes * 60000)
-
-    _isBetween: (startMinutes, endMinutes) ->
-      startMinutes <= @dueDate.getMinutes() + @dueDate.getHours() * 60 <= endMinutes
-
+      dueDate
