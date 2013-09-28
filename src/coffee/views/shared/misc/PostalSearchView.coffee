@@ -46,7 +46,6 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     destroy: ->
       @_stopLocationDetermination()
 
-
     _render: ->
       @$el.html PostalSearchTemplate
 
@@ -89,8 +88,7 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       postal > 9999 and postal < 100000
 
     _hideRotateLocation: ->
-      @$locationLoader.hide()
-      @$locationLabel.css marginLeft: -174
+      @$locationLoader.removeClass "active"
 
     _stopLocationDetermination: ->
       @_stopAndFadeOutRotateLocation()
@@ -106,7 +104,4 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
 
     _stopAndFadeOutRotateLocation: ->
       clearInterval @rotateInterval
-      @$locationLoader.stop().fadeOut 100
-      @$locationLabel.stop().animate
-        marginLeft: -174
-      , 200
+      @_hideRotateLocation

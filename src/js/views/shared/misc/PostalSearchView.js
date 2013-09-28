@@ -98,10 +98,7 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       return postal > 9999 && postal < 100000;
     },
     _hideRotateLocation: function() {
-      this.$locationLoader.hide();
-      return this.$locationLabel.css({
-        marginLeft: -174
-      });
+      return this.$locationLoader.removeClass("active");
     },
     _stopLocationDetermination: function() {
       this._stopAndFadeOutRotateLocation();
@@ -118,10 +115,7 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     },
     _stopAndFadeOutRotateLocation: function() {
       clearInterval(this.rotateInterval);
-      this.$locationLoader.stop().fadeOut(100);
-      return this.$locationLabel.stop().animate({
-        marginLeft: -174
-      }, 200);
+      return this._hideRotateLocation;
     }
   });
 });
