@@ -100,45 +100,45 @@ textarea {
 }
 /* @license
  * MyFonts Webfont Build ID 2512043, 2013-03-22T12:25:39-0400
- * 
+ *
  * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
+ * Agreement(s) entered into by the website owner. All other parties are
  * explicitly restricted from using the Licensed Webfonts(s).
- * 
+ *
  * You may obtain a valid license at the URLs below.
- * 
+ *
  * Webfont: VAG Rounded Thin by Linotype
  * URL: http://www.myfonts.com/fonts/linotype/vag-rounded/thin/
  * Copyright: Copyright &#x00A9; 1989, 1995, 2001 Adobe Systems Incorporated.  All Rights Reserved.
- * 
- * 
+ *
+ *
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=2512043
- * 
+ *
  * © 2013 MyFonts Inc
 */
 @font-face {
   font-family: 'VAGRoundedStd-Thin';
-  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot');
-  src: url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.woff') format('woff'), url('https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/2654AB_0_0.ttf') format('truetype');
+  src: url('https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/2654AB_0_0.eot');
+  src: url('https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/2654AB_0_0.eot?#iefix') format('embedded-opentype'), url('https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/2654AB_0_0.woff') format('woff'), url('https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/2654AB_0_0.ttf') format('truetype');
 }
 @font-face {
   font-family: "Handlee";
-  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot");
-  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/handlee.svg#Handlee") format("svg");
+  src: url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/handlee.eot");
+  src: url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/handlee.eot?#iefix") format("embedded-opentype"), url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/handlee.woff") format("woff"), url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/handlee.ttf") format("truetype"), url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/handlee.svg#Handlee") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Homicons";
-  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot");
-  src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.ttf") format("truetype"), url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.svg#Homicons") format("svg");
+  src: url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/Homicons.eot");
+  src: url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/Homicons.eot?#iefix") format("embedded-opentype"), url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/Homicons.ttf") format("truetype"), url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/Homicons.svg#Homicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Homicons";
-    src: url("https://s3-eu-west-1.amazonaws.com/sub2home-static/fonts/Homicons.svg#Homicons") format("svg");
+    src: url("https://sub2home-static.s3-eu-west-1.amazonaws.com/fonts/Homicons.svg#Homicons") format("svg");
   }
 }
 .clearfix {

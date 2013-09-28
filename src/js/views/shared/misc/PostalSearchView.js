@@ -62,17 +62,16 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       return this.$locationLabel = this.$("#locationLabel");
     },
     _checkLocation: function() {
-      var self;
-      self = this;
+      var _this = this;
       this._startRotateLocation();
       return postalOracle.calculate((function() {
         notificationcenter.notify("views.home.home.lookupLocation");
-        self._stopAndFadeOutRotateLocation();
-        self._focusSearch();
-        return self.setPostal(postalOracle.getPostal());
+        _this._stopAndFadeOutRotateLocation();
+        _this._focusSearch();
+        return _this.setPostal(postalOracle.getPostal());
       }), function() {
-        self._stopAndFadeOutRotateLocation();
-        return self._focusSearch();
+        _this._stopAndFadeOutRotateLocation();
+        return _this._focusSearch();
       });
     },
     _focusSearch: function() {

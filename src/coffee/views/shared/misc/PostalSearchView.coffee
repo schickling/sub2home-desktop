@@ -59,16 +59,15 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       @$locationLabel = @$("#locationLabel")
 
     _checkLocation: ->
-      self = this
       @_startRotateLocation()
-      postalOracle.calculate (->
+      postalOracle.calculate (=>
         notificationcenter.notify "views.home.home.lookupLocation"
-        self._stopAndFadeOutRotateLocation()
-        self._focusSearch()
-        self.setPostal postalOracle.getPostal()
-      ), ->
-        self._stopAndFadeOutRotateLocation()
-        self._focusSearch()
+        @_stopAndFadeOutRotateLocation()
+        @_focusSearch()
+        @setPostal postalOracle.getPostal()
+      ), =>
+        @_stopAndFadeOutRotateLocation()
+        @_focusSearch()
 
     _focusSearch: ->
       @$input.focus()
