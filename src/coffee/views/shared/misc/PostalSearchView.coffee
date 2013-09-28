@@ -27,14 +27,14 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
         @_checkLocation()
 
     showDeliveryAreaLabel: ->
-      @$locationLabel.fadeOut 100
-      @$storeSelectionLabel.stop().fadeOut 100
-      @$deliveryAreaLabel.stop().delay(100).fadeIn 150
+      @$locationLabel.removeClass "active"
+      @$storeSelectionLabel.removeClass "active"
+      @$deliveryAreaLabel.addClass "active"
 
     showStoreSelectionLabel: ->
-      @$deliveryAreaLabel.stop().fadeOut 100
-      @$locationLabel.fadeOut 100
-      @$storeSelectionLabel.stop().delay(100).fadeIn 150
+      @$locationLabel.removeClass "active"
+      @$storeSelectionLabel.addClass "active"
+      @$deliveryAreaLabel.removeClass "active"
 
     setPostal: (postal) ->
       postal = parseInt(postal, 10)

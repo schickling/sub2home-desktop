@@ -27,14 +27,14 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       }
     },
     showDeliveryAreaLabel: function() {
-      this.$locationLabel.fadeOut(100);
-      this.$storeSelectionLabel.stop().fadeOut(100);
-      return this.$deliveryAreaLabel.stop().delay(100).fadeIn(150);
+      this.$locationLabel.removeClass("active");
+      this.$storeSelectionLabel.removeClass("active");
+      return this.$deliveryAreaLabel.addClass("active");
     },
     showStoreSelectionLabel: function() {
-      this.$deliveryAreaLabel.stop().fadeOut(100);
-      this.$locationLabel.fadeOut(100);
-      return this.$storeSelectionLabel.stop().delay(100).fadeIn(150);
+      this.$locationLabel.removeClass("active");
+      this.$storeSelectionLabel.addClass("active");
+      return this.$deliveryAreaLabel.removeClass("active");
     },
     setPostal: function(postal) {
       postal = parseInt(postal, 10);
