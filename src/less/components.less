@@ -1237,19 +1237,23 @@ input[type="text"]#locationSelectionInput {
   margin: 0 20% 0 ;
 
   #locationLabel, #deliveryAreaLabel, #storeSelectionLabel {
-    //display: block;
+    // display: none;
     font-size: 20px;
     line-height: 16px;
-
+    .opacity(0);
     top: auto;
     bottom: 16px;
     color: @onNoteColor;
     left: 50%;
     margin-left: -174px - 55px;
+    .transition(opacity .1s linear);
+    &.active {
+      .opacity(100);
+      // display: block;
+    }
   }
 
   #deliveryAreaLabel, #storeSelectionLabel {
-    display: none;
     position: absolute;
     text-transform: uppercase;
     margin-left: -265px;
@@ -1258,7 +1262,7 @@ input[type="text"]#locationSelectionInput {
 
   #storeSelectionLabel {
     margin-left: -238px;
-    display: none;
+    // display: none;
   }
 
   #locationLoader {

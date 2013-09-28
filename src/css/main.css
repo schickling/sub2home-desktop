@@ -4105,15 +4105,26 @@ input[type="text"]#locationSelectionInput:focus {
 #locationSelection #storeSelectionLabel {
   font-size: 20px;
   line-height: 16px;
+  opacity: 0;
+  filter: alpha(opacity=0);
   top: auto;
   bottom: 16px;
   color: #cab06f;
   left: 50%;
   margin-left: -229px;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+#locationSelection #locationLabel.active,
+#locationSelection #deliveryAreaLabel.active,
+#locationSelection #storeSelectionLabel.active {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 #locationSelection #deliveryAreaLabel,
 #locationSelection #storeSelectionLabel {
-  display: none;
   position: absolute;
   text-transform: uppercase;
   margin-left: -265px;
@@ -4121,7 +4132,6 @@ input[type="text"]#locationSelectionInput:focus {
 }
 #locationSelection #storeSelectionLabel {
   margin-left: -238px;
-  display: none;
 }
 #locationSelection #locationLoader {
   position: absolute;
