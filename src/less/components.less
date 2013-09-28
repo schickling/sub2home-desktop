@@ -37,7 +37,7 @@ img.cookie    { margin: 0 -10px;}
   z-index: 8999;
 
   header {
-    
+
     h4 {
       color: inherit;
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
@@ -45,7 +45,7 @@ img.cookie    { margin: 0 -10px;}
       //text-transform: uppercase;
       margin: -2px 30px 0 30px;
       line-height: 1.1;
-      
+
       //.positioned;
 
       &:before {
@@ -56,7 +56,7 @@ img.cookie    { margin: 0 -10px;}
         top: 13px;
         left: 15px;
         margin-right: 12px;
-      }  
+      }
     }
     .bClose {
       .header-engraved-text;
@@ -77,7 +77,7 @@ img.cookie    { margin: 0 -10px;}
 
   p {
     font-size: 15px;
-     
+
     color: darken(@onHeaderColor, 5%);
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     margin: 15px 0 0 0;
@@ -156,11 +156,11 @@ img.cookie    { margin: 0 -10px;}
     color: inherit;
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     padding: 9px 12px 6px;
-     
+
     //letter-spacing: 1px;
     font-size: 16px;
     text-transform: none;
-    z-index: 9001; 
+    z-index: 9001;
   }
 
   &.left {
@@ -259,7 +259,7 @@ img.cookie    { margin: 0 -10px;}
     }
   }
 
-  // Left-hand  
+  // Left-hand
 
   &.leftHandAbove {
     &:before {
@@ -435,7 +435,7 @@ img.cookie    { margin: 0 -10px;}
   .positioned;
   height: 33px;
   text-align: center;
-   
+
   color: @white;
   font-size: @headingsFontSize;
   position: absolute;
@@ -517,7 +517,7 @@ img.cookie    { margin: 0 -10px;}
     font-size: 55px;
     left: -19px;
   }
-  
+
   &:after {
     content: "\e098";
     font-size: 42px;
@@ -526,7 +526,7 @@ img.cookie    { margin: 0 -10px;}
 
   &:hover {
      left: -144px;
-  }  
+  }
 }
 
 
@@ -577,15 +577,15 @@ img.cookie    { margin: 0 -10px;}
       }
 
       .iSub {
-        
+
         top: -2px;
       }
       .iSnacks {
-        
+
         top: 4px;
         left: 4px;
       }
-      
+
       .iBeverage {
         left: 2px;
         top: 2px;
@@ -604,11 +604,11 @@ img.cookie    { margin: 0 -10px;}
       .timelineItem:before {
         content: " ";
       }
-    } 
+    }
     &:last-child {
       margin-right: 0;
     }
-  }  
+  }
 
 // TIMELINE CONTENT
 
@@ -627,12 +627,12 @@ img.cookie    { margin: 0 -10px;}
       width: 100px;
       left: 50%;
       margin-left: -50px;
-       
+
       .engraved-text;
       font-size: 15px;
       white-space: pre-wrap;
-    }  
-    
+    }
+
     .itemTimeline {
       color: @onNoteColor;
       .icn {
@@ -680,7 +680,7 @@ img.cookie    { margin: 0 -10px;}
     background: @noteBackground;
 
 // -----------------------------------
-    
+
     .backface-visibility(auto);
     .border-radius(500px);
     text-align: center;
@@ -752,7 +752,7 @@ img.cookie    { margin: 0 -10px;}
   #gradient > .vertical(@grayVeryLightest,@grayLightest);
   .border-radius(2px);
   border: 1px solid @grayLighter;
-   
+
   color: darken(@grayLight, 10%);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
   font-size: 24px;
@@ -776,7 +776,7 @@ img.cookie    { margin: 0 -10px;}
   bottom: 0;
   background: rgba(255,255,255,0.9);
   z-index: 99;
-  
+
   #popupContainer {
     position: absolute;
     z-index: 99999;
@@ -819,7 +819,7 @@ img.cookie    { margin: 0 -10px;}
         .border-box;
         width: 100%;
         background: none;
-         
+
         line-height: 41px;
         color: @onDarkNoteColor;
         border: none;
@@ -842,10 +842,10 @@ img.cookie    { margin: 0 -10px;}
   z-index: 99;
   text-align: center;
 
-  
+
   #actingHintContainer {
     position: inline-block;
-     
+
     font-size: 50px;
     position: absolute;
     top: 50%;
@@ -864,7 +864,7 @@ img.cookie    { margin: 0 -10px;}
 aside#header {
   .clearfix;
   .backface-visibility(hidden);
-  
+
   #logo {
     display: block;
     border: none;
@@ -916,7 +916,7 @@ aside#header {
     position: absolute;
     right: 60px;
     left: 105px;
-     
+
     font-size: 15px;
     color: @onHeaderColor;
     text-shadow: 0 1px 0 rgba(255,255,255,0.7);
@@ -931,7 +931,7 @@ aside#header {
       width: 100%;
       text-align: center;
     }
-  
+
     >div {
       border-left: 1px solid @onNoteColor;
       height: 67px;
@@ -985,7 +985,7 @@ aside#header {
     }
 
     // TRAY PREVIEW SECTION
-  
+
     #trayPreview {
       padding-top: 19px;
       height: 48px;
@@ -995,12 +995,12 @@ aside#header {
       border-left: 1px solid rgba(255,255,255,0.6);
       .box-shadow(inset 1px 0 0 0 @onNoteColor, inset -1px 0 0 0 @onNoteColor);
       .transition(e('background .1s linear, color .1s linear, box-shadow .1s linear'));
-      
+
       .iTray {
         margin: 0 10px 0 0;
         .positioned;
         vertical-align: middle;
- 
+
         span {
           display: none;
           font-size: 10px;
@@ -1022,7 +1022,7 @@ aside#header {
           top: -2px;
           font-size: 40px;
           line-height: 0.8;
-        }  
+        }
       }
 
       &.filled {
@@ -1067,7 +1067,7 @@ aside#header {
         white-space: nowrap;
       }
     }
-  
+
   }
 
   // CLIENT SECTION
@@ -1123,7 +1123,7 @@ aside#header {
   span {
     display: none;
     font-size: 10px;
-     
+
     color: @white;
     font-style: normal;
     position: absolute;
@@ -1194,7 +1194,7 @@ div#roleSwitch {
     .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
     color: #ae7f0f;
     text-align: center;
-    
+
     &:before{
       top: -4px;
     }
@@ -1240,7 +1240,7 @@ input[type="text"]#locationSelectionInput {
     //display: block;
     font-size: 20px;
     line-height: 16px;
-     
+
     top: auto;
     bottom: 16px;
     color: @onNoteColor;
@@ -1260,7 +1260,7 @@ input[type="text"]#locationSelectionInput {
     margin-left: -238px;
     display: none;
   }
-  
+
   #locationLoader {
     position: absolute;
     left: 50%;
@@ -1325,7 +1325,7 @@ input[type="text"]#locationSelectionInput {
   margin: 0 20% 0;
   position: absolute;
   font-size: 40px;
-   
+
   color: @onNoteColor;
   line-height: 1.2;
   span {
@@ -1388,7 +1388,7 @@ input[type="text"]#locationSelectionInput {
   cursor: pointer;
   text-align: center;
   background: @smallNoteCenterBackground;
-  
+
   .transition(opacity linear 0.1s);
 
   &:before {
@@ -1421,7 +1421,7 @@ input[type="text"]#locationSelectionInput {
 
   .center_content {
     text-align: left;
-  }     
+  }
 
   h4 {
     margin-bottom: 2px;
@@ -1437,7 +1437,7 @@ input[type="text"]#locationSelectionInput {
       height: 9px;
       display: inline-block;
       margin-right: 7px;
-      
+
       &.delivering {
         background-color: @greenLighter;
       }
@@ -1452,7 +1452,7 @@ input[type="text"]#locationSelectionInput {
 
     .notDeliveryTime {
       color: @orange;
-    }  
+    }
   }
 }
 
@@ -1484,7 +1484,7 @@ input[type="text"]#locationSelectionInput {
 #suggestStore {
 
   background: none;
-  
+
   #popupContainer #message {
     padding-bottom: 40px;
   }
@@ -1497,7 +1497,7 @@ input[type="text"]#locationSelectionInput {
 
   #suggestStoreDescription {
     .pull-left;
-     
+
     font-size: 16px;
     color: @onNoteColor;
     text-align: left;
@@ -1520,7 +1520,7 @@ input[type="text"]#locationSelectionInput {
       display: inline-block;
        margin: 3px 0 0 20px;
       vertical-align: top;
-      
+
     }
   }
 
@@ -1588,7 +1588,7 @@ input[type="text"]#locationSelectionInput {
 
   #postalSelection {
     font-size: 24px;
-     
+
     color: @onNoteColor50;
     padding: 10px 30px 20px;
     border-bottom: 1px solid @noteBorderColor;
@@ -1625,7 +1625,7 @@ input[type="text"]#locationSelectionInput {
 
   .onlyOneDeliveryArea, .preSelectionInfo, .noDeliveryArea {
     cursor: default;
-    font-size: 24px;  
+    font-size: 24px;
   }
 
   .onlyOneDeliveryArea {
@@ -1647,7 +1647,7 @@ input[type="text"]#locationSelectionInput {
         color: @onRlyDarkNoteColor !important;
       }
     }
-    
+
 
   }
 
@@ -1706,7 +1706,7 @@ input[type="text"]#locationSelectionInput {
   top: 96px;
   right: 20px;
   text-align: right;
-   
+
   font-size: 33px;
   line-height: 1.2;
   color: @onNoteColor50;
@@ -1733,7 +1733,7 @@ input[type="text"]#locationSelectionInput {
 
 
 #currentDeliveryArea {
-  
+
   .transition(color .1s linear);
   cursor: pointer;
   span {
@@ -1966,7 +1966,7 @@ input[type="text"]#locationSelectionInput {
     height: 35px;
     .img-circle;
     .box-shadow(0 0 5px 0 rgba(0,0,0,0.3));
-    
+
     position: absolute;
     right: 31px;
     top: 40px;
@@ -2088,7 +2088,7 @@ input[type="text"]#locationSelectionInput {
       }
     }
   }
-  
+
   &.sl {
     .footlongOption {
       top: 28px;
@@ -2102,7 +2102,7 @@ input[type="text"]#locationSelectionInput {
   }
 
 // OTHER-THAN-SUB
-  
+
   &.w {
     .pricetag {
       left: 133px;
@@ -2297,7 +2297,7 @@ input[type="text"]#locationSelectionInput {
     width: 90px;
     font-size: 14px !important;
     padding: 4px 0 0 70px;
-    
+
     &:before {
       .transition(color .1s linear);
       color: @onNoteColor50;
@@ -2430,7 +2430,7 @@ input[type="text"]#locationSelectionInput {
       padding: 0 14px 3px 4px;
     }
   }
-  
+
   .iBtn {
 
     //.opacity(0);
@@ -2547,7 +2547,7 @@ input[type="text"]#locationSelectionInput {
   top: 0;
   left: 0;
   bottom: 0;
-   
+
   padding: 100px 5% 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -2573,7 +2573,7 @@ input[type="text"]#locationSelectionInput {
       text-align: right;
       display: inline-block;
       line-height: 0.4;
-    
+
       span {
         font-size: 20px;
         text-transform: uppercase;
@@ -2661,7 +2661,7 @@ input[type="text"]#locationSelectionInput {
       color: @onNoteColor50;
       .transition(color .1s linear)
     }
-    
+
     &:after {
       content: " ";
       height: 1px;
@@ -2673,13 +2673,13 @@ input[type="text"]#locationSelectionInput {
       border-bottom: 1px solid rgba(255,255,255,1);
     }
 
-    &:last-child:after {  
+    &:last-child:after {
       height: 0;
       background: none;
       border: none;
 
     }
-    
+
     header {
       position: relative;
       left: 0px;
@@ -2701,7 +2701,7 @@ input[type="text"]#locationSelectionInput {
       margin: 25px 0 0 0;
       >div {
         display: inline-block;
-         
+
         font-size: 50px;
         color: @onNoteColor50;
         .transition(color .1s linear);
@@ -2744,7 +2744,7 @@ input[type="text"]#locationSelectionInput {
   margin-top: 50px;
   padding-top: 6px;
   padding-left: 222px;
-   
+
   height: 230px;
 
   &:before {
@@ -2758,7 +2758,7 @@ input[type="text"]#locationSelectionInput {
   }
 
   #clientNr {
-    
+
     font-size: 40px;
     color: @onNoteColor;
     margin-top: 30px;
@@ -2767,7 +2767,7 @@ input[type="text"]#locationSelectionInput {
       margin-right: 15px;
     }
   }
-  
+
   #triggerEditPassword {
     .clearfix;
     p {
@@ -2845,7 +2845,7 @@ input[type="text"]#locationSelectionInput {
         margin-top: 15px;
       }
     }
-    
+
     .well {
       margin-top: 5px;
     }
@@ -2908,10 +2908,10 @@ input[type="text"]#locationSelectionInput {
 }
 
 #storeAddress, #clientAddress {
-    
+
   padding-top: 10px;
   position: relative;
-  
+
   input {
     .border-box;
     height: 27px;
@@ -2921,7 +2921,7 @@ input[type="text"]#locationSelectionInput {
   >div {
     position: relative;
 
-    &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeOrderingContact, &#storeOrderingContact {
+    &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeFacebook, &#storeOrderingContact, &#storeOrderingContact {
       margin-top: 20px;
       overflow: hidden;
       height: 27px;
@@ -2954,7 +2954,7 @@ input[type="text"]#locationSelectionInput {
           width: 40%;
           input {
             padding-left: 72px;
-          }  
+          }
         }
 
         &#storeStreetNumber, &#clientStreetNumber {
@@ -2963,7 +2963,7 @@ input[type="text"]#locationSelectionInput {
           margin-left: 20px;
           input {
             padding-left: 33px;
-          }  
+          }
         }
 
         &#storeStreetAdditional, &#clientStreetAdditional {
@@ -2983,7 +2983,7 @@ input[type="text"]#locationSelectionInput {
 
     }
     &#storeContact, &#clientContact {
-      
+
       #storePhone, #clientPhone {
         width: 210px;
         input {
@@ -2999,15 +2999,34 @@ input[type="text"]#locationSelectionInput {
 
       }
     }
+
+    &#storeFacebook {
+      #storeFacebookUrl {
+        font-size: 16px;
+        left: 65px;
+        top: 3px;
+        text-transform: none;
+        color: @grayDark;
+      }
+      input {
+        padding-left: 173px;
+      }
+
+      &.noFacebook {
+        #storeFacebookUrl {
+          color: @onNoteColor50;
+        }
+      }
+    }
   }
-} 
+}
 
 
 #clientBankData {
 
   padding-top: 10px;
   position: relative;
-  
+
   input {
     .border-box;
     height: 27px;
@@ -3064,7 +3083,7 @@ input[type="text"]#locationSelectionInput {
         .positioned;
       }
     }
-    
+
     h3 {
       color: inherit;
       margin: 0 0 0 5px;
@@ -3073,7 +3092,7 @@ input[type="text"]#locationSelectionInput {
       top: 6px;
       vertical-align: top;
     }
-    
+
     .transition(color .1s linear);
     &:hover {
       color: @onNoteColor;
@@ -3106,7 +3125,7 @@ input[type="text"]#locationSelectionInput {
         color: @onNoteColor;
       }
     }
-    
+
   }
 
   #revenues {
@@ -3129,9 +3148,9 @@ input[type="text"]#locationSelectionInput {
       white-space: nowrap;
       overflow-x: auto;
       overflow-y: hidden;
-      
+
       height: 270px;
-    }  
+    }
 
     .turnoverYear {
       display: inline-block;
@@ -3139,7 +3158,7 @@ input[type="text"]#locationSelectionInput {
       .positioned;
       margin-left: 30px;
       &:before {
-        content: " "; 
+        content: " ";
         width: 1px;
         height: 165px;
         background: @onNoteColor;
@@ -3152,7 +3171,7 @@ input[type="text"]#locationSelectionInput {
         position: absolute;
         top: 10px;
         left: 70px;
-         
+
         font-size: 50px;
         color: @onNoteColor50;
         .bDocument {
@@ -3185,7 +3204,7 @@ input[type="text"]#locationSelectionInput {
     .turnover {
       display: inline-block;
       text-align: center;
-       
+
       .positioned;
       line-height: 1;
       margin-left: 70px;
@@ -3319,9 +3338,9 @@ input[type="text"]#locationSelectionInput {
     .order {
 
       border-bottom: 1px solid @grayLighter;
-      
+
       width: 100%;
-       
+
       font-size: 24px;
       text-align: left;
       .backface-visibility(hidden);
@@ -3356,7 +3375,7 @@ input[type="text"]#locationSelectionInput {
             &:hover, &.delivered:hover {
               color: @greenLighter70;
             }
-            
+
             &.delivered, &:active {
               color: @greenLighter;
             }
@@ -3366,7 +3385,7 @@ input[type="text"]#locationSelectionInput {
                 content:"\e074";
               }
             }
-            
+
           }
 
           &.orderNumber {
@@ -3431,7 +3450,7 @@ input[type="text"]#locationSelectionInput {
 
           &.orderValueWithCredit {
             color: @orange;
-            float: right; 
+            float: right;
           }
 
           &.orderPaymentMethod {
@@ -3443,7 +3462,7 @@ input[type="text"]#locationSelectionInput {
           &.orderTimeLimit {
             margin-right: 20px;
             color: @orange;
-            
+
           }
 
         }
@@ -3502,7 +3521,7 @@ input[type="text"]#locationSelectionInput {
         }
 
         .orderedArticle, .orderedMenu {
-          
+
           .border-radius(2px);
           border: 1px solid @grayLighter;
           padding: 20px 0;
@@ -3510,7 +3529,7 @@ input[type="text"]#locationSelectionInput {
 
           padding: 20px 20px 20px 50px;
           color: @black;
-          
+
           &.sub {
             border-bottom: 1px solid @grayLighter;
             padding-bottom: 10px;
@@ -3519,7 +3538,7 @@ input[type="text"]#locationSelectionInput {
               padding-bottom: 0;
             }
           }
-          
+
           h3 {
             padding: 0;
             margin: 0 0 5px 10px;
@@ -3594,7 +3613,7 @@ input[type="text"]#locationSelectionInput {
             padding:0 0 0 20px;
             margin: 20px 0 0 0;
           }
-          
+
           .menuPrice, .articleAmount {
             font-size: 16px;
             background: @grayLightest;
@@ -3630,9 +3649,9 @@ input[type="text"]#locationSelectionInput {
       }
       // &.balance {
       //   color: @orange;
-        
+
       //   .orderHeader > div {
-            
+
       //     &.orderStatus {
       //       color: inherit;
       //       &:before {
@@ -3645,7 +3664,7 @@ input[type="text"]#locationSelectionInput {
       //     &.orderTitle {
       //       margin-left: 20px;
       //     }
-      
+
       //     &.orderValue {
       //       color: inherit;
       //       margin: 0 70px;
@@ -3694,9 +3713,9 @@ input[type="text"]#locationSelectionInput {
       margin-bottom: 15px;
       &:after{
         content: " ";
-        
+
         position: absolute;
-        
+
         bottom: 1px;
         left: 0;
         right: 0;
@@ -3717,11 +3736,11 @@ input[type="text"]#locationSelectionInput {
             }
           }
         }
-      }  
+      }
     }
 
     #olderOrders {
-      
+
       .opacity(30);
       .transition(opacity .1s linear);
       &:hover {
@@ -3811,7 +3830,7 @@ input[type="text"]#locationSelectionInput {
   line-height: 1.3;
   font-size: 40px;
   color: @grayLight;
-   
+
   text-align: center;
   #bMail {
     font-size: 70px;
@@ -3865,13 +3884,13 @@ header h2 {
     width: 100%;
   }
 
-  
+
 
   >div {
     float: left;
     text-align: left;
-    
-    
+
+
     &#storeMap {
       .positioned;
       width: 50%;
@@ -4027,7 +4046,7 @@ div#payment {
   padding: 40px 10px 20px;
   position: relative;
   .clearfix;
-  
+
   input {
     position: relative;
     top: -1px;
@@ -4051,7 +4070,7 @@ div#payment {
       min-width: 506px;
       margin: 0 0 0 0;
       text-align: left;
-       
+
       font-size: 16px;
       color: rgba(0,0,0,0.5);
       padding: 0 0 70px 0;
@@ -4081,7 +4100,7 @@ div#payment {
     }
 
     &#deliveryTimes {
-      width: 700px; 
+      width: 700px;
       float: right;
       margin-left: 20px;
       text-align: left;
@@ -4100,11 +4119,11 @@ div#payment {
         overflow: hidden;
         padding: 10px 0;
         .positioned;
-        
+
         .weekday {
           position: absolute;
           bottom: 33px;
-           
+
           text-transform: uppercase;
           font-size: 40px;
           color: @greenLighter;
@@ -4242,7 +4261,7 @@ div#payment {
       right: 45px;
     }
   }
-  
+
   &.mi {
     .articlePreview {
       width: 180px;
@@ -4270,7 +4289,7 @@ div#payment {
 
 .sizeTag {
   .positioned;
-   
+
   font-size: 18px;
   margin-top: 9px;
   .engraved-text;
@@ -4351,7 +4370,7 @@ div#payment {
       }
     }
     &.unused {
-      
+
       .label {
         color: @onNoteColor50;
       }
@@ -4378,7 +4397,7 @@ div#payment {
 
 .menuInfo {
   margin-top: 30px;
-   
+
 }
 
 
@@ -4402,7 +4421,7 @@ div#payment {
       position: absolute;
       left: -27px;
       top: -6px;
-     } 
+     }
 
     &:hover {
       color: rgba(0,0,0,0.35);
@@ -4431,7 +4450,7 @@ div#payment {
 }
 
 .showAll {
-  
+
   font-family: "Homicons";
   font-size: 55px;
   position: absolute;
@@ -4450,7 +4469,7 @@ div#payment {
     color: rgba(0,0,0,0.2);
     .transition(color .1s linear);
   }
-  
+
   &:after {
     content: "\e09c";
     color: rgba(0,0,0,0.08);
@@ -4553,7 +4572,7 @@ div#payment {
       font-size: 15px;
       font-family: @handFontFamily;
     }
-    
+
     .accentIngredient {
       position: absolute;
       left: 0px;
@@ -4623,7 +4642,7 @@ div#payment {
       visibility: hidden;
     }
   }
-  
+
   // &.biggerThanVisible {
   //   .box-shadow(inset 0px -5px 7px 0 @greenLighter60);
   // }
@@ -4643,7 +4662,7 @@ div#payment {
   width: 310px;
   height: 240px;
   margin: 60px 40px;
-  
+
   .positioned;
   display: inline-block;
   cursor: pointer;
@@ -4696,7 +4715,7 @@ div#payment {
         position: absolute;
       }
     }
-  }  
+  }
 
 
   // Component-Block-Placeholder
@@ -4763,7 +4782,7 @@ div#payment {
 
     top: -20px;
     margin-left: -40px;
-    
+
     &:before, &:after {
       font-size: 270px;
       top: -15px;
@@ -4785,13 +4804,13 @@ div#payment {
       }
     }
   }
-  
+
  .pCookieChips {
 
     top: -20px;
     margin-left: -40px;
     z-index: 1;
-    
+
     &:before, &:after {
       font-size: 270px;
       top: -15px;
@@ -4813,7 +4832,7 @@ div#payment {
       }
     }
   }
-  
+
 
 
     // --------------------------
@@ -4866,7 +4885,7 @@ div#payment {
 
   &:hover {
     .menuComponentBlock {
-      
+
       &:before, &:after {
         .opacity(0);
       }
@@ -5066,7 +5085,7 @@ div#payment {
       }
     }
   }
-}  
+}
 
 // --------------------------------------------------  TRAY  ---------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
@@ -5137,7 +5156,7 @@ div#payment {
   left: -38px;
   top: 50%;
   margin-top: -49px;
-  
+
   .amount {
     height: 26px;
     width: 38px;
@@ -5147,7 +5166,7 @@ div#payment {
     color: @white;
     text-shadow: 0 1px 2px rgba(0,0,0,0.45);
     font-size: 30px;
-     
+
     padding: 12px 0 0;
     text-align: center;
     cursor: default;
@@ -5255,7 +5274,7 @@ div#payment {
         margin: 25px 0 0 25px;
         display: inline-block;
       }
-    }  
+    }
   }
   .pricetag {
     top: -1px;
@@ -5271,7 +5290,7 @@ div#payment {
       margin-left: 15px;
     }
   }
-  
+
   &:first-child {
     margin-top: 40px;
     .notice {
@@ -5352,7 +5371,7 @@ div#payment {
     &:before {
       content: "+";
       font-size: 60px;
-       
+
       .r-engraved-text;
       position: absolute;
       left: -50px;
@@ -5386,7 +5405,7 @@ div#payment {
   .positioned;
   //background: @darkNote;
   #noDeliveriesToday {
-     
+
     font-size: 60px;
     color: @onNoteColor;
     text-align: center;
@@ -5432,15 +5451,15 @@ div#payment {
     }
   }
 }
- 
+
 // Golden Thread
- 
+
 .goldenThread {
   position: absolute;
   top: 0;
   right: 4%;
   margin-right: -15px;
- 
+
   #step1, #step2, #step3 {
     .positioned;
     &:after {
@@ -5460,14 +5479,14 @@ div#payment {
       background: @onNoteColor50;
       color: @darkNoteColor;
       padding: 7px 0 0 0;
-       
+
       font-size: 20px;
       text-align: center;
       line-height: 1;
       .transition(background .1s linear);
     }
   }
- 
+
   #step1 {
     &:before {
       content:" ";
@@ -5479,14 +5498,14 @@ div#payment {
       margin-left: 12px;
     }
   }
-  
+
   #step2 {
- 
+
     &:after {
       height: 133px;
     }
   }
- 
+
   #step3 {
     &:after {
       height: 0;
@@ -5499,15 +5518,15 @@ div#payment {
 #checkoutBonusOptions .goldenThread {
   margin-top: 49px;
 }
- 
+
 #checkoutBasicControls .goldenThread {
   margin-top: 53px;
 }
- 
+
 // #checkoutDeliveryRegulation:hover {
 //   ;
 // }
- 
+
 #checkoutBonusOptions, #checkoutDeliveryRegulation, #checkoutBasicControls {
   &:hover {
     .goldenThread div > div {
@@ -5539,7 +5558,7 @@ div#payment {
       .positioned;
 
       >p {
-         
+
         font-size: 18px;
         .dark-engraved-text;
         text-align: center;
@@ -5576,7 +5595,7 @@ div#payment {
       #gradient > .vertical(#f4d68d,#e6ba4e);
       .box-shadow(0 1px 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 0 rgba(255,255,255,0.4));
       font-size: 100px;
-       
+
       color: #37270a;
       text-align: center;
       line-height: 0.47;
@@ -5616,7 +5635,7 @@ div#payment {
       &:after {
         top: 30px;
       }
-    }      
+    }
   }
 }
 
@@ -5703,7 +5722,7 @@ div#payment {
   // display: none;
   padding-top: 50px;
   height: auto;
-   
+
   .positioned;
   font-size: 16px;
   vertical-align: top;
@@ -5774,11 +5793,11 @@ div#payment {
     left: auto;
     text-transform: none;
     color: darken(@onNoteColor, 7%);
-     
+
     //margin-top: 4px;
     cursor: pointer;
   }
-  
+
   &.hasCode {
     input {
       color: @orange;
@@ -5793,13 +5812,13 @@ div#payment {
       }
     }
   }
-  
+
 
 }
 #subcardOption {
   .positioned;
   overflow: hidden;
-   
+
   font-size: 17px;
   color: @onNoteColor;
   display: inline-block;
@@ -5836,7 +5855,7 @@ div#payment {
   text-align: right;
   padding: 50px 8% 150px;
   font-size: 40px;
-   
+
   color: @onDarkNoteColor50;
   line-height: 1.5;
   background: @slightlyDarkNote;
@@ -5903,7 +5922,7 @@ div#payment {
       &:hover {
         border-bottom-color: @onDarkNoteColor;
         padding-right: 50px;
-  
+
         .iEdit {
           .opacity(100);
         }
@@ -5934,7 +5953,7 @@ div#payment {
     height: 123px;
     cursor: pointer;
     color: @onNoteColor50;
-    
+
     &:before {
       font-size: 150px;
       position: absolute;
@@ -5945,8 +5964,8 @@ div#payment {
     &:hover {
       color: @onNoteColor;
     }
-  } 
-  
+  }
+
   #iCart {
     color: @onNoteColor20;
     margin-right: -150px;
@@ -5960,7 +5979,7 @@ div#payment {
       color: rgba(156,200,62,0.4);
       cursor: pointer;
       .transition(color .1s linear);
-      
+
       &:hover {
         color: @greenLighter !important;
         right: 10px;
@@ -6079,7 +6098,7 @@ div#payment {
     font-size: 24px;
     color: inherit;
   }
-  
+
 }
 
 
@@ -6093,7 +6112,7 @@ div#payment {
     color: @white;
     padding-top: 10px;
   }
-  
+
   &:before {
     content: " ";
     height: 7px;
@@ -6118,7 +6137,7 @@ div#payment {
     font-size: 24px;
     .border-box;
     color: @white;
-     
+
     .transition(border-color .1s linear);
     &:focus {
       border-bottom: 1px solid @greenLighter70;
@@ -6212,7 +6231,7 @@ div#payment {
             padding: 7px 0 0 52px;
           }
         }
-        
+
       }
     }
   }
@@ -6231,7 +6250,7 @@ div#payment {
   padding-bottom: 50px;
   line-height: 1.4;
   font-size: 40px;
-   
+
   color: @grayOnDark;
   .transition(color .1s linear);
   &:hover {
@@ -6266,7 +6285,7 @@ div#payment {
   text-align: center;
 
   #thxText {
-     
+
     font-size: 24px;
     color: @onNoteColor;
     .positioned;
@@ -6278,7 +6297,7 @@ div#payment {
     span {
         font-size: 24px;
         display: inline-block;
-         
+
         padding-top: 8px;
 
       &.emphasized {
@@ -6299,7 +6318,7 @@ div#payment {
   #countdown {
     font-size: 150px;
     line-height: 1;
-     
+
     color: @onNoteColor30;
     text-align: center;
     margin: 0 auto;
@@ -6366,7 +6385,7 @@ aside.infoNavigation {
         color: @onInfoColor;
         text-shadow: 0 1px 0 rgba(255,255,255,0.15);
         font-size: 20px;
-         
+
         line-height: 1.5;
         cursor: pointer;
         &.active {
@@ -6386,16 +6405,16 @@ aside.infoNavigation {
     padding: 0;
     //.border-box;
     width: auto;
-    
+
 
 
     article {
       padding: 50px 50px 50px 80px;
       text-align: left;
       border-left: 1px solid rgba(255,255,255,0.1);
-      
+
       header {
-        
+
         h1 {
           font-size: 60px;
           color: @onInfoColor;
@@ -6413,7 +6432,7 @@ aside.infoNavigation {
           margin: 0 0 0 20px;
         }
       }
-      
+
       h3 {
         color: @white;
         text-shadow: 0 2px 2px rgba(0,0,0,0.7);
@@ -6424,11 +6443,11 @@ aside.infoNavigation {
         font-size: 24px;
         color: @onInfoColor;
         text-shadow: 0 1px 0 rgba(255,255,255,0.1);
-         
+
         line-height: 32px;
         margin-bottom: 15px;
       }
-      
+
       h3, p {
         a {
           color: inherit;
@@ -6452,7 +6471,7 @@ aside.infoNavigation {
         padding: 0 20px;
         vertical-align: top;
       }
-      
+
       .fluidColumn {
         width: auto;
       }
@@ -6498,7 +6517,7 @@ aside.infoNavigation {
         h3 {
           margin-left: 20px;
         }
-        
+
         .icn {
           font-size: 24px;
           margin-right: 5px;
@@ -6524,7 +6543,7 @@ aside.infoNavigation {
       &#storeInfoPlaceholder {
         header h1 {
           font-size: 60px;
-           
+
           color: @onInfoColor60;
           text-shadow: 0 1px 0 rgba(255,255,255,0.15);
           margin: 0;
@@ -6536,7 +6555,7 @@ aside.infoNavigation {
       &#infoDeliveryAreas {
 
           p {
-             
+
             font-size: 24px;
             display: inline-block;
           }
@@ -6585,7 +6604,7 @@ aside.infoNavigation {
           }
         }
       }
-    } 
+    }
 
     &#storeInfo {
       overflow: hidden;
@@ -6611,7 +6630,7 @@ aside.infoNavigation {
         font-size: 24px;
         color: @onInfoColor;
         text-shadow: 0 1px 0 rgba(255,255,255,0.1);
-         
+
         line-height: 32px;
         padding-left: 70px;
         width: 147px;
@@ -6649,7 +6668,7 @@ aside.infoNavigation {
     left: -1px;
     right: 0;
   }
-  
+
   header {
     margin-bottom: 50px;
     h1 {
@@ -6720,7 +6739,7 @@ aside.infoNavigation {
     margin-top: 30px;
     font-size: 50px;
     color: @greenLighter;
-     
+
     line-height: 1;
     width: 100%;
     text-align: center;
@@ -6731,7 +6750,7 @@ aside.infoNavigation {
     cursor: pointer;
     margin-top: 33px;
     font-size: 40px;
-     
+
     color: @grayLight;
     text-align: center;
     .transition(color .1s linear);
