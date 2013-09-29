@@ -1,0 +1,131 @@
+define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView", "text!templates/store/home/DeliveryPopupTemplate.html"], ($, _, Backbone, PostalSearchView, DeliveryPopupTemplate) ->
+
+  DeliveryPopupView = Backbone.View.extend
+
+    template: _.template(DeliveryPopupTemplate)
+
+    events:
+      "click #postalSelection span": "_selectPostal"
+      "input #locationSelectionInput": "_preselectPostals"
+      "click #deliveryAreaSelection.onlyOneDeliveryArea": "_transferClick"
+      "click #deliveryAreaSelection span": "_selectDeliveryArea"
+      "click": "_hide"
+
+    postals: []
+    preselectionTimeout: null
+    postalSearchView: null
+
+    $postalSelection: null
+    $deliveryAreaSelection: null
+
+    initialize: ->
+      @_collectPostals()
+      @_render()
+      @_fadeIn()
+      @_preselectPostals()
+      @_runAndWaitForPostal()
+
+    _collectPostals: ->
+      deliveryAreasCollection = @model.get("deliveryAreasCollection")
+      postals = []
+      _.each deliveryAreasCollection.models, (deliveryAreaModel) ->
+        postals.push deliveryAreaModel.get("postal")
+
+      @postals = _.uniq(postals)
+
+    _render: ->
+      @$el.html @template()
+      @_cacheDom()
+      @_renderPostals()
+      @_renderPostalSearchView()
+
+    _cacheDom: ->
+      @$postalSelection = @$("#postalSelection")
+      @$deliveryAreaSelection = @$("#deliveryAreaSelection")
+
+    _renderPostals: ->
+      html = ""
+      _.each @postals, (postal) ->
+        html += "<span>" + postal + "</span>"
+
+      @$postalSelection.html html
+
+    _renderPostalSearchView: ->
+      @postalSearchView = new PostalSearchView(el: @$("#locationSelection"))
+
+    _runAndWaitForPostal: ->
+      @listenTo @postalSearchView, "newPostal", @_newPostal
+      @postalSearchView.run()
+
+    _selectPostal: (e) ->
+      postal = e.target.textContent
+      @postalSearchView.setPostal postal
+
+    _newPostal: (postal) ->
+      @_preselectPostals()
+      deliveryAreasCollection = @model.get("deliveryAreasCollection")
+      matchingDeliveryAreaModels = deliveryAreasCollection.where(postal: postal)
+      if matchingDeliveryAreaModels.length is 1
+        @_renderOneDeliveryArea matchingDeliveryAreaModels[0]
+        @postalSearchView.showDeliveryAreaLabel()
+      else if matchingDeliveryAreaModels.length > 1
+        @_renderMultipleeDeliveryAreas matchingDeliveryAreaModels
+        @postalSearchView.showDeliveryAreaLabel()
+      else
+        @_renderNoDeliveryArea postal
+        @postalSearchView.showLocationLabel()
+
+    _renderOneDeliveryArea: (deliveryAreaModel) ->
+      html = "Nach <span data-postal=\"" + deliveryAreaModel.get("postal") + "\">" + deliveryAreaModel.get("city") + "</span> (" + deliveryAreaModel.get("postal") + ") liefern lassen"
+      @$deliveryAreaSelection.html(html).removeClass().addClass "onlyOneDeliveryArea"
+
+    _renderMultipleeDeliveryAreas: (deliveryAreaModels) ->
+      html = ""
+      district = undefined
+      _.each deliveryAreaModels, (deliveryAreaModel) ->
+        district = deliveryAreaModel.get("district") or deliveryAreaModel.get("city")
+        html += "<span  data-postal=\"" + deliveryAreaModel.get("postal") + "\">" + district + "</span>"
+
+      @$deliveryAreaSelection.html(html).removeClass()
+
+    _renderNoDeliveryArea: (postal) ->
+      @$deliveryAreaSelection.html("SUBWAY<span class=\"superscript\">®</span> " + @model.get("title") + " liefert leider nicht nach " + postal).removeClass().addClass "noDeliveryArea"
+
+    _preselectPostals: ->
+      self = this
+      clearTimeout @preselectionTimeout
+      @preselectionTimeout = setTimeout(->
+        postalPrefix = self.$("#locationSelectionInput").val()
+        $renderedPostals = self.$postalSelection.children()
+        $renderedPostals.each ->
+          $(this).toggleClass "preselected", @textContent.indexOf(postalPrefix) isnt -1
+
+      , 50)
+
+    _selectDeliveryArea: (e) ->
+      postal = parseInt(e.target.getAttribute("data-postal"), 10)
+      district = e.target.textContent
+      oldSelectedDeliveryAreaModel = @model.getSelectedDeliveryAreaModel()
+      deliveryAreasCollection = @model.get("deliveryAreasCollection")
+      newDeliveryAreaModel = deliveryAreasCollection.find((deliveryAreaModel) ->
+        deliveryAreaModel.get("postal") is postal and (deliveryAreaModel.get("district") is district or deliveryAreaModel.get("city") is district)
+      )
+      oldSelectedDeliveryAreaModel.set
+        isSelected: false
+      ,
+        silent: true
+
+      newDeliveryAreaModel.set "isSelected", true
+      @_fadeOut()
+
+    _transferClick: (e) ->
+      $(e.target).children("span").trigger "click"
+
+    _hide: (e) ->
+      @_fadeOut()  if e.target is @el
+
+    _fadeIn: ->
+      @$el.fadeIn()
+
+    _fadeOut: ->
+      @$el.fadeOut()

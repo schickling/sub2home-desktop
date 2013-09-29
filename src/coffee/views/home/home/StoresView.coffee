@@ -1,6 +1,7 @@
 define ["jquery", "underscore", "backbone", "services/router", "services/notificationcenter", "services/gmaps", "models/stateModel", "views/assets/mapStyles", "views/shared/misc/PostalSearchView", "views/home/home/StoreView", "views/home/home/PromotionView", "collections/StoresCollection"], ($, _, Backbone, router, notificationcenter, gmaps, stateModel, mapStyles, PostalSearchView, StoreView, PromotionView, StoresCollection) ->
 
   StoresView = Backbone.View.extend
+
     map: null
     geocoder: null
     postal: null
@@ -100,6 +101,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       else
         @_hideActingHint()
         @_noStoresFound()
+        @postalSearchView.showLocationLabel()
 
     _cleanPreviousResults: ->
 

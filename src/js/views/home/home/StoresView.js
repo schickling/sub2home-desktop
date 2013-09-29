@@ -101,7 +101,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
         return this._hidePromotionView();
       } else {
         this._hideActingHint();
-        return this._noStoresFound();
+        this._noStoresFound();
+        return this.postalSearchView.showLocationLabel();
       }
     },
     _cleanPreviousResults: function() {

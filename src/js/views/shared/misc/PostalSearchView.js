@@ -38,6 +38,12 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       this.$storeSelectionLabel.addClass("active");
       return this.$deliveryAreaLabel.removeClass("active");
     },
+    showLocationLabel: function() {
+      this.$el.attr("data-active", "location");
+      this.$locationLabel.addClass("active");
+      this.$storeSelectionLabel.removeClass("active");
+      return this.$deliveryAreaLabel.removeClass("active");
+    },
     setPostal: function(postal) {
       postal = parseInt(postal, 10);
       if (postal !== this.postal) {

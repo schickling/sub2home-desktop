@@ -38,6 +38,12 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       @$storeSelectionLabel.addClass "active"
       @$deliveryAreaLabel.removeClass "active"
 
+    showLocationLabel: ->
+      @$el.attr "data-active", "location"
+      @$locationLabel.addClass "active"
+      @$storeSelectionLabel.removeClass "active"
+      @$deliveryAreaLabel.removeClass "active"
+
     setPostal: (postal) ->
       postal = parseInt(postal, 10)
       @trigger "newPostal", postal  unless postal is @postal
