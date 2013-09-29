@@ -11,6 +11,7 @@ require(['/base/src/js/config.js'], function () {
 
   var paths = requirejs.s.contexts._.config.paths;
   paths.timemachine = '../components/timemachine/timemachine';
+  paths.resources = '../../test/resources';
 
   require.config({
     baseUrl: '/base/src/js',

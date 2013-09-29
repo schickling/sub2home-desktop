@@ -1,4 +1,4 @@
-define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeModel", "models/MenuComponentBlockModel", "collections/IngredientCategoriesCollection"], (_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel, IngredientCategoriesCollection) ->
+define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeModel", "models/MenuComponentBlockModel"], (_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel) ->
 
   OrderedArticleModel = Backbone.Model.extend
 
@@ -66,4 +66,17 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
       @get("menuUpgradeModel") isnt null
 
     isComplete: ->
-      true
+      isComplete = true
+      @get("articleModel").get("ingredientCategoriesCollection").each (ingredientCategoryModel) ->
+        if ingredientCategoryModel.get("isMandatory")
+          nonWasPicked = true
+          ingredientCategoryModel.get("ingredientsCollection").each (ingredientModel) ->
+            nonWasPicked = false  if ingredientModel.get("isSelected")
+          isComplete = false  if nonWasPicked
+      isComplete
+
+
+
+
+
+

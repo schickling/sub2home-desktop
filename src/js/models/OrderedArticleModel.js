@@ -1,4 +1,4 @@
-define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeModel", "models/MenuComponentBlockModel", "collections/IngredientCategoriesCollection"], function(_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel, IngredientCategoriesCollection) {
+define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeModel", "models/MenuComponentBlockModel"], function(_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel) {
   var OrderedArticleModel;
   return OrderedArticleModel = Backbone.Model.extend({
     defaults: {
@@ -61,7 +61,23 @@ define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
       return this.get("menuUpgradeModel") !== null;
     },
     isComplete: function() {
-      return true;
+      var isComplete;
+      isComplete = true;
+      this.get("articleModel").get("ingredientCategoriesCollection").each(function(ingredientCategoryModel) {
+        var nonWasPicked;
+        if (ingredientCategoryModel.get("isMandatory")) {
+          nonWasPicked = true;
+          ingredientCategoryModel.get("ingredientsCollection").each(function(ingredientModel) {
+            if (ingredientModel.get("isSelected")) {
+              return nonWasPicked = false;
+            }
+          });
+          if (nonWasPicked) {
+            return isComplete = false;
+          }
+        }
+      });
+      return isComplete;
     }
   });
 });
