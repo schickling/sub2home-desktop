@@ -112,7 +112,7 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
         height: "auto"
       });
       $currentNoteContainer.remove();
-      $newNoteContainer.hide().appendTo($currentNote).fadeIn();
+      $newNoteContainer.appendTo($currentNote);
       $currentNote.attr("id", "homeNote");
       $currentNoteContainer.fadeOut();
       return $newContent.css({
