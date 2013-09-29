@@ -21,7 +21,7 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
         title: @model.get("title")
         orderEmail: @model.get("orderEmail")
         isOpen: @model.get("isOpen")
-        facebookUrl: @model.get("facebookUrl")
+        facebookUrl: @model.get("facebookUrl").replace('https://www.facebook.com/', '')
         allowsPaymentEc: @model.get("allowsPaymentEc")
         allowsPaymentCash: @model.get("allowsPaymentCash")
 
@@ -45,7 +45,7 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
 
     _updateFacebookUrl: (e) ->
       $input = $(e.target)
-      val = $input.val()
+      val = "https://www.facebook.com/#{$input.val()}"
       @model.set "facebookUrl", val
       @_saveModel()
 

@@ -21,7 +21,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
         title: this.model.get("title"),
         orderEmail: this.model.get("orderEmail"),
         isOpen: this.model.get("isOpen"),
-        facebookUrl: this.model.get("facebookUrl"),
+        facebookUrl: this.model.get("facebookUrl").replace('https://www.facebook.com/', ''),
         allowsPaymentEc: this.model.get("allowsPaymentEc"),
         allowsPaymentCash: this.model.get("allowsPaymentCash")
       };
@@ -48,7 +48,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
     _updateFacebookUrl: function(e) {
       var $input, val;
       $input = $(e.target);
-      val = $input.val();
+      val = "https://www.facebook.com/" + ($input.val());
       this.model.set("facebookUrl", val);
       return this._saveModel();
     },
