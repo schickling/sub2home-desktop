@@ -831,33 +831,6 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
-#actingHint {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255,255,255,0.9);
-  z-index: 99;
-  text-align: center;
-
-
-  #actingHintContainer {
-    position: inline-block;
-
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    padding: 0 5%;
-    color: @graySlightlyLight;
-    line-height: 1;
-    margin-top: -25px;
-  }
-}
-
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
@@ -1563,6 +1536,88 @@ input[type="text"]#locationSelectionInput {
 }
 
 
+#actingHint {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.9);
+  z-index: 99;
+  text-align: center;
+  .opacity(0);
+  .transition(opacity .2s .2s linear);
+
+
+  #actingHintContainer {
+    position: inline-block;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    color: @graySlightlyLight;
+    line-height: 1;
+    margin-top: -25px;
+  }
+}
+
+
+// ANIMATIONS
+
+#homeNote {
+  .transition(padding-bottom .2s ease);
+
+  &[data-delivery-area-rows="1"] {
+    padding-bottom: 48px;
+  }
+  &[data-delivery-area-rows="2"] {
+    padding-bottom: 48px*2;
+  }
+  &[data-delivery-area-rows="3"] {
+    padding-bottom: 48px*3;
+  }
+  &[data-delivery-area-rows="4"] {
+    padding-bottom: 48px*4;
+  }
+  &[data-delivery-area-rows="5"] {
+    padding-bottom: 48px*5;
+  }
+  &[data-delivery-area-rows="6"] {
+    padding-bottom: 48px*6;
+  }
+}
+
+
+.content.home #mapContainer {
+  .transition(top .2s ease);
+  &[data-delivery-area-rows="1"], &[data-delivery-area-rows="2"], &[data-delivery-area-rows="3"], &[data-delivery-area-rows="4"], &[data-delivery-area-rows="5"], &[data-delivery-area-rows="6"] {
+    #actingHint {
+      display: block;
+      .opacity(100);
+    }
+  }
+  &[data-delivery-area-rows="1"] {
+    top: 240px + 48px;
+  }
+  &[data-delivery-area-rows="2"] {
+    top: 240px + 48px*2;
+  }
+  &[data-delivery-area-rows="3"] {
+    top: 240px + 48px*3;
+  }
+  &[data-delivery-area-rows="4"] {
+    top: 240px + 48px*4;
+  }
+  &[data-delivery-area-rows="5"] {
+    top: 240px + 48px*5;
+  }
+  &[data-delivery-area-rows="6"] {
+    top: 240px + 48px*6;
+  }
+}
 
 
 
