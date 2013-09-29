@@ -91,15 +91,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
         if matchingDeliveryAreas.length > 1
           @_renderDeliveryAreas matchingDeliveryAreas
           @postalSearchView.showDeliveryAreaLabel()
-          @_showActingHint()
         else
           @postalSearchView.showStoreSelectionLabel()
           matchingDeliveryAreas[0].set "isSelected", true
           @storeViews[0].markAvailable()
-          @_hideActingHint()
         @_hidePromotionView()
       else
-        @_hideActingHint()
         @_noStoresFound()
         @postalSearchView.showLocationLabel()
 
@@ -201,11 +198,10 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _getMatchingDeliveryAreas: (stores) ->
       matchingDeliveryAreas = []
-      _.each stores, ((storeModel) ->
+      _.each stores, (storeModel) =>
         deliveryAreasCollection = storeModel.get("deliveryAreasCollection")
         filteredDeliveryAreas = deliveryAreasCollection.where(postal: @postal)
         matchingDeliveryAreas = _.union(matchingDeliveryAreas, filteredDeliveryAreas)
-      ), this
       matchingDeliveryAreas
 
     _showPromotionView: ->
@@ -213,12 +209,6 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _hidePromotionView: ->
       @promotionView.hide()
-
-    _showActingHint: ->
-      @$actingHint.fadeIn 200
-
-    _hideActingHint: ->
-      @$actingHint.fadeOut 200
 
     destroy: ->
       @postalSearchView.destroy()

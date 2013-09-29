@@ -65,20 +65,12 @@ define(["jquery", "underscore", "services/gmaps", "services/notificationcenter",
     }
   };
   StoreView.prototype.markAvailable = function() {
-    var _this = this;
     this.state = "available";
-    this.$el.removeClass("unavailable");
-    this.$el.off("mouseenter mouseleave").on("mouseenter", function() {
-      return _this.$note.addClass("hover");
-    });
-    return this.$el.off("mouseenter mouseleave").on("mouseleave", function() {
-      return _this.$note.removeClass("hover");
-    });
+    return this.$el.removeClass("unavailable");
   };
   StoreView.prototype.markUnavailable = function() {
     this.state = "unavailable";
-    this.$el.addClass("unavailable");
-    return this.$el.off("mouseenter mouseleave");
+    return this.$el.addClass("unavailable");
   };
   StoreView.prototype.remove = function() {
     this.setMap(null);
