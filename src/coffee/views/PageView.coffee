@@ -116,14 +116,12 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       $currentContent = $current.find(".content")
 
       # load new note
-      $currentNote.animate
-        height: 240
-      , @_animationTime, ->
-        $currentNoteContainer.remove()
-        $newNoteContainer.hide().appendTo($currentNote).fadeIn()
+      $currentNote.css height: "auto"
+      $currentNoteContainer.remove()
+      $newNoteContainer.hide().appendTo($currentNote).fadeIn()
 
-        # set correct id
-        $currentNote.attr "id", "homeNote"
+      # set correct id
+      $currentNote.attr "id", "homeNote"
 
       $currentNoteContainer.fadeOut()
 

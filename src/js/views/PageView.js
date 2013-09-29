@@ -108,13 +108,12 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       $currentNote = $current.find("#storeNote");
       $currentNoteContainer = $currentNote.children(".container");
       $currentContent = $current.find(".content");
-      $currentNote.animate({
-        height: 240
-      }, this._animationTime, function() {
-        $currentNoteContainer.remove();
-        $newNoteContainer.hide().appendTo($currentNote).fadeIn();
-        return $currentNote.attr("id", "homeNote");
+      $currentNote.css({
+        height: "auto"
       });
+      $currentNoteContainer.remove();
+      $newNoteContainer.hide().appendTo($currentNote).fadeIn();
+      $currentNote.attr("id", "homeNote");
       $currentNoteContainer.fadeOut();
       return $newContent.css({
         top: "100%"
