@@ -4311,6 +4311,12 @@ input[type="text"]#locationSelectionInput:focus {
 .storePreview {
   position: absolute;
   cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
 }
 .storePreview > img {
   margin-top: -87px;
@@ -4325,9 +4331,18 @@ input[type="text"]#locationSelectionInput:focus {
   display: inline-block;
   cursor: inherit;
   left: 23px;
+  -webkit-transition: margin-top 0.5s ease;
+  -moz-transition: margin-top 0.5s ease;
+  -o-transition: margin-top 0.5s ease;
+  transition: margin-top 0.5s ease;
 }
 .storePreview.unavailable {
   cursor: default;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.storePreview:hover .smallNote {
+  margin-top: -5px;
 }
 #suggestStore {
   background: none;
