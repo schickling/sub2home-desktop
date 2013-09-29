@@ -118,7 +118,7 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
 
       # load new note
       $currentNote.animate
-        height: "35%"
+        height: 240
       , @_animationTime, ->
         $currentNoteContainer.remove()
         $newNoteContainer.hide().appendTo($currentNote).fadeIn()

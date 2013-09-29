@@ -127,7 +127,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
           @$deliveryAreaSelection.append $deliveryArea
 
           # bind dom click handler
-          $deliveryArea.on "click", ->
+          $deliveryArea.on "click", =>
             district = $deliveryArea.text()
 
             # mark dom visited

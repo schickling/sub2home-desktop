@@ -109,7 +109,7 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       $currentContent = $current.find(".content");
       self = this;
       $currentNote.animate({
-        height: "35%"
+        height: 240
       }, this._animationTime, function() {
         $currentNoteContainer.remove();
         $newNoteContainer.hide().appendTo($currentNote).fadeIn();

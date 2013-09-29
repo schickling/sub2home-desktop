@@ -128,11 +128,11 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
               districtToMark = deliveryAreaModelToMark.get("district") || deliveryAreaModelToMark.get("city");
               return deliveryAreaModelToMark.set("isSelected", districtToMark === district);
             });
-            _.each(this.storeViews, function(storeView) {
+            _.each(_this.storeViews, function(storeView) {
               return storeView.updateView();
             });
-            if (this.storeViews.length === 1) {
-              return this.storeViews[0].selectStore();
+            if (_this.storeViews.length === 1) {
+              return _this.storeViews[0].selectStore();
             }
           });
         }
