@@ -1,157 +1,88 @@
-// Filename: src/js/views/home/home/StoreView.js
-define([
-	'jquery',
-	'underscore',
-	'services/gmaps',
-	'services/notificationcenter',
-	'text!templates/home/home/StoreTemplate.html'
-], function ($, _, gmaps, notificationcenter, StoreTemplate) {
-
-	"use strict";
-
-	var StoreView = function (model, parentView) {
-
-		// link to HomeView
-		this.parentView = parentView;
-
-		this.model = model;
-
-		// needed in StoresView.js
-		var addressModel = this.model.get('addressModel');
-		this.position = new gmaps.LatLng(addressModel.get('latitude'), addressModel.get('longitude'));
-
-		// set map
-		this.setValues({
-			map: parentView.map
-		});
-
-		// render template
-		var isDelivering = this.model.isDelivering(),
-			json = {
-				title: this.model.get('title'),
-				isDelivering: isDelivering
-			};
-
-		if (!isDelivering) {
-			var nextDeliveryTimeModel = this.model.getNextDeliveryTimeModel();
-
-			json.nextDeliveryTime = nextDeliveryTimeModel.getStartTime();
-		}
-
-		this.$el = $(this.template(json));
-
-		// cache note
-		this.$note = this.$el.find('.smallNote');
-
-		// set state
-		this.state = 'initialized';
-
-	};
-
-	StoreView.prototype = new gmaps.OverlayView();
-
-	StoreView.prototype.template = _.template(StoreTemplate);
-
-	// wrapper around parents selectStore method
-	StoreView.prototype.selectStore = function () {
-		switch (this.state) {
-		case 'initialized':
-			notificationcenter.notify('views.home.home.selectDeliveryArea');
-			break;
-		case 'available':
-			this.parentView.selectStore(this.model);
-			break;
-		case 'unavailable':
-			notificationcenter.notify('views.home.home.storeNotInRange');
-		}
-	};
-
-	// Implement onAdd
-	StoreView.prototype.onAdd = function () {
-		var pane = this.getPanes().overlayMouseTarget,
-			self = this,
-			$el = this.$el;
-
-		$(pane).append($el);
-
-		$el.on('click', function () {
-			self.selectStore();
-		});
-	};
-
-	// Implement draw
-	StoreView.prototype.draw = function () {
-		var projection = this.getProjection(),
-			position = projection.fromLatLngToDivPixel(this.position),
-			$el = this.$el;
-
-		$el.css({
-			left: position.x - $el.width() / 2,
-			top: position.y
-		});
-	};
-
-	// gets called when a delivery area is choosen
-	StoreView.prototype.updateView = function () {
-		var deliveryAreasCollection = this.model.get('deliveryAreasCollection'),
-			storeAvailable = deliveryAreasCollection.where({
-				isSelected: true
-			}).length;
-
-		if (storeAvailable) {
-			this.markAvailable();
-		} else {
-			this.markUnavailable();
-		}
-	};
-
-	StoreView.prototype.markAvailable = function () {
-		var self = this,
-			$el = this.$el,
-			$note = this.$note;
-
-		this.state = 'available';
-
-		$el.animate({
-			opacity: 1
-		});
-
-		$el.removeClass('unavailable');
-
-		// bind storeview event handlers
-		$el.on('mouseenter', function () {
-			$note.stop().animate({
-				marginTop: -5
-			});
-		});
-
-		$el.on('mouseleave', function () {
-			$note.stop().animate({
-				marginTop: 0
-			});
-		});
-
-	};
-
-	StoreView.prototype.markUnavailable = function () {
-		var $el = this.$el;
-
-		this.state = 'unavailable';
-
-		$el.animate({
-			opacity: 0.5
-		});
-
-		$el.addClass('unavailable');
-
-		$el.off('mouseenter mouseleave');
-	};
-
-	StoreView.prototype.remove = function () {
-		this.setMap(null);
-		this.$el.remove();
-	};
-
-	return StoreView;
-
+define(["jquery", "underscore", "services/gmaps", "services/notificationcenter", "text!templates/home/home/StoreTemplate.html"], function($, _, gmaps, notificationcenter, StoreTemplate) {
+  var StoreView;
+  StoreView = function(model, parentView) {
+    var addressModel, isDelivering, json, nextDeliveryTimeModel;
+    this.parentView = parentView;
+    this.model = model;
+    addressModel = this.model.get("addressModel");
+    this.position = new gmaps.LatLng(addressModel.get("latitude"), addressModel.get("longitude"));
+    this.setValues({
+      map: parentView.map
+    });
+    isDelivering = this.model.isDelivering();
+    json = {
+      title: this.model.get("title"),
+      isDelivering: isDelivering
+    };
+    if (!isDelivering) {
+      nextDeliveryTimeModel = this.model.getNextDeliveryTimeModel();
+      json.nextDeliveryTime = nextDeliveryTimeModel.getStartTime();
+    }
+    this.$el = $(this.template(json));
+    this.$note = this.$el.find(".smallNote");
+    return this.state = "initialized";
+  };
+  StoreView.prototype = new gmaps.OverlayView();
+  StoreView.prototype.template = _.template(StoreTemplate);
+  StoreView.prototype.selectStore = function() {
+    switch (this.state) {
+      case "initialized":
+        return notificationcenter.notify("views.home.home.selectDeliveryArea");
+      case "available":
+        return this.parentView.selectStore(this.model);
+      case "unavailable":
+        return notificationcenter.notify("views.home.home.storeNotInRange");
+    }
+  };
+  StoreView.prototype.onAdd = function() {
+    var pane,
+      _this = this;
+    pane = this.getPanes().overlayMouseTarget;
+    $(pane).append(this.$el);
+    return this.$el.on("click", function() {
+      return _this.selectStore();
+    });
+  };
+  StoreView.prototype.draw = function() {
+    var position, projection;
+    projection = this.getProjection();
+    position = projection.fromLatLngToDivPixel(this.position);
+    return this.$el.css({
+      left: position.x - this.$el.width() / 2,
+      top: position.y
+    });
+  };
+  StoreView.prototype.updateView = function() {
+    var deliveryAreasCollection, storeAvailable;
+    deliveryAreasCollection = this.model.get("deliveryAreasCollection");
+    storeAvailable = deliveryAreasCollection.where({
+      isSelected: true
+    }).length;
+    if (storeAvailable) {
+      return this.markAvailable();
+    } else {
+      return this.markUnavailable();
+    }
+  };
+  StoreView.prototype.markAvailable = function() {
+    var _this = this;
+    this.state = "available";
+    this.$el.removeClass("unavailable");
+    this.$el.off("mouseenter mouseleave").on("mouseenter", function() {
+      return _this.$note.addClass("hover");
+    });
+    return this.$el.off("mouseenter mouseleave").on("mouseleave", function() {
+      return _this.$note.removeClass("hover");
+    });
+  };
+  StoreView.prototype.markUnavailable = function() {
+    this.state = "unavailable";
+    this.$el.addClass("unavailable");
+    return this.$el.off("mouseenter mouseleave");
+  };
+  StoreView.prototype.remove = function() {
+    this.setMap(null);
+    return this.$el.remove();
+  };
+  return StoreView;
 });

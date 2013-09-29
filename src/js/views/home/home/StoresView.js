@@ -91,16 +91,13 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
         if (matchingDeliveryAreas.length > 1) {
           this._renderDeliveryAreas(matchingDeliveryAreas);
           this.postalSearchView.showDeliveryAreaLabel();
-          this._showActingHint();
         } else {
           this.postalSearchView.showStoreSelectionLabel();
           matchingDeliveryAreas[0].set("isSelected", true);
           this.storeViews[0].markAvailable();
-          this._hideActingHint();
         }
         return this._hidePromotionView();
       } else {
-        this._hideActingHint();
         this._noStoresFound();
         return this.postalSearchView.showLocationLabel();
       }
@@ -193,16 +190,17 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       });
     },
     _getMatchingDeliveryAreas: function(stores) {
-      var matchingDeliveryAreas;
+      var matchingDeliveryAreas,
+        _this = this;
       matchingDeliveryAreas = [];
-      _.each(stores, (function(storeModel) {
+      _.each(stores, function(storeModel) {
         var deliveryAreasCollection, filteredDeliveryAreas;
         deliveryAreasCollection = storeModel.get("deliveryAreasCollection");
         filteredDeliveryAreas = deliveryAreasCollection.where({
-          postal: this.postal
+          postal: _this.postal
         });
         return matchingDeliveryAreas = _.union(matchingDeliveryAreas, filteredDeliveryAreas);
-      }), this);
+      });
       return matchingDeliveryAreas;
     },
     _showPromotionView: function() {
@@ -210,12 +208,6 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     },
     _hidePromotionView: function() {
       return this.promotionView.hide();
-    },
-    _showActingHint: function() {
-      return this.$actingHint.fadeIn(200);
-    },
-    _hideActingHint: function() {
-      return this.$actingHint.fadeOut(200);
     },
     destroy: function() {
       return this.postalSearchView.destroy();
