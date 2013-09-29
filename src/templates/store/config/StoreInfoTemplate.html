@@ -1,10 +1,12 @@
 <h1 id="storeName"><i id="storeOpen" <% if (isOpen) { %>class="isOpen"<% } %>></i><%= title %> <span>(<%= number %>)</span></h1>
 <div id="storeData">
 	<div id="storeAddress"></div>
-	<div id="storeFacebook">
-		<label id="storeFacebookLabel" for="storeFacebookInput">Facebook</label>
-		<label id="storeFacebookUrl" for="storeFacebookInput">facebook.com /</label>
-		<input id="storeFacebookInput" value="<%= facebookUrl %>">
+	<div id="storeSocial">
+		<div id="storeFacebook">
+			<label id="storeFacebookLabel" for="storeFacebookInput">Facebook</label>
+			<label id="storeFacebookUrl" for="storeFacebookInput">facebook.com /</label>
+			<input id="storeFacebookInput" value="<%= facebookUrl %>">
+		</div>
 	</div>
 	<div id="storeOrderingContact" class="well">
 		<label for="storeOrderingContactInput">Bestellungen an</label>
