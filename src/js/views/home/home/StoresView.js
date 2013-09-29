@@ -9,7 +9,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     storeViews: null,
     promotionView: null,
     postalSearchView: null,
-    $homeNote: null,
+    $noteContainer: null,
     $deliveryAreaSelection: null,
     $mapContainer: null,
     $map: null,
@@ -24,8 +24,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this._runAndWaitForPostal();
     },
     _cacheDom: function() {
-      this.$homeNote = this.$("#homeNote");
-      this.$deliveryAreaSelection = this.$homeNote.find("#deliveryAreaSelection");
+      this.$noteContainer = this.$("#noteContainer");
+      this.$deliveryAreaSelection = this.$noteContainer.find("#deliveryAreaSelection");
       this.$mapContainer = this.$("#mapContainer");
       this.$map = this.$mapContainer.find("#map");
       return this.$actingHint = this.$mapContainer.find("#actingHint");
@@ -143,7 +143,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     _adjustProportions: function() {
       var numberOfRows;
       numberOfRows = parseInt(this.$deliveryAreaSelection.height() / 48, 10);
-      this.$homeNote.attr("data-delivery-area-rows", numberOfRows);
+      this.$noteContainer.attr("data-delivery-area-rows", numberOfRows);
       return this.$mapContainer.attr("data-delivery-area-rows", numberOfRows);
     },
     _renderStores: function(stores) {
@@ -210,7 +210,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this.promotionView.hide();
     },
     destroy: function() {
-      return this.postalSearchView.destroy();
+      this.postalSearchView.destroy();
+      return this.$mapContainer.remove();
     }
   });
 });

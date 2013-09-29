@@ -114,7 +114,6 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       $currentNote = $current.find("#storeNote")
       $currentNoteContainer = $currentNote.children(".container")
       $currentContent = $current.find(".content")
-      self = this
 
       # load new note
       $currentNote.animate
@@ -131,13 +130,13 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       # slide up new content
       $newContent.css(top: "100%").appendTo($current).animate
         top: 0
-      , @_animationTime, "easeInOutQuad", ->
+      , @_animationTime, "easeInOutQuad", =>
         $currentContent.remove()
 
         # reassign $el for events
-        self.$el = $current
-        self.delegateEvents()
-        self._finalizeLoad()
+        @$el = $current
+        @delegateEvents()
+        @_finalizeLoad()
 
     # Pages slides down
     _transitionBFoward: ->

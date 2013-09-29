@@ -15,7 +15,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
     postalSearchView: null
 
     # cached dom
-    $homeNote: null
+    $noteContainer: null
     $deliveryAreaSelection: null
     $mapContainer: null
     $map: null
@@ -31,8 +31,8 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_runAndWaitForPostal()
 
     _cacheDom: ->
-      @$homeNote = @$("#homeNote")
-      @$deliveryAreaSelection = @$homeNote.find("#deliveryAreaSelection")
+      @$noteContainer = @$("#noteContainer")
+      @$deliveryAreaSelection = @$noteContainer.find("#deliveryAreaSelection")
       @$mapContainer = @$("#mapContainer")
       @$map = @$mapContainer.find("#map")
       @$actingHint = @$mapContainer.find("#actingHint")
@@ -150,7 +150,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _adjustProportions: ->
       numberOfRows = parseInt(@$deliveryAreaSelection.height() / 48, 10)
-      @$homeNote.attr("data-delivery-area-rows", numberOfRows)
+      @$noteContainer.attr("data-delivery-area-rows", numberOfRows)
       @$mapContainer.attr("data-delivery-area-rows", numberOfRows)
 
     _renderStores: (stores) ->
@@ -212,3 +212,4 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     destroy: ->
       @postalSearchView.destroy()
+      @$mapContainer.remove()

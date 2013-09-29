@@ -98,7 +98,8 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       });
     },
     _transitionABackward: function() {
-      var $current, $currentContent, $currentNote, $currentNoteContainer, $new, $newContent, $newNote, $newNoteContainer, self;
+      var $current, $currentContent, $currentNote, $currentNoteContainer, $new, $newContent, $newNote, $newNoteContainer,
+        _this = this;
       $new = this.$el;
       $newNote = $new.find("#homeNote");
       $newNoteContainer = $newNote.children(".container");
@@ -107,7 +108,6 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       $currentNote = $current.find("#storeNote");
       $currentNoteContainer = $currentNote.children(".container");
       $currentContent = $current.find(".content");
-      self = this;
       $currentNote.animate({
         height: 240
       }, this._animationTime, function() {
@@ -122,9 +122,9 @@ define(["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
         top: 0
       }, this._animationTime, "easeInOutQuad", function() {
         $currentContent.remove();
-        self.$el = $current;
-        self.delegateEvents();
-        return self._finalizeLoad();
+        _this.$el = $current;
+        _this.delegateEvents();
+        return _this._finalizeLoad();
       });
     },
     _transitionBFoward: function() {
