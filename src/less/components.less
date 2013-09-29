@@ -1246,11 +1246,14 @@ input[type="text"]#locationSelectionInput {
     color: @onNoteColor;
     left: 50%;
     margin-left: -174px - 55px;
-    .transition(opacity .1s linear);
     &.active {
       .opacity(100);
       // display: block;
     }
+  }
+
+  #locationLabel {
+    .transition(e('opacity .1s linear, margin-left .1s ease'));
   }
 
   #deliveryAreaLabel, #storeSelectionLabel {
@@ -1258,6 +1261,7 @@ input[type="text"]#locationSelectionInput {
     text-transform: uppercase;
     margin-left: -265px;
     color: @greenLight;
+    .transition(opacity .3s linear);
   }
 
   #storeSelectionLabel {
@@ -1283,10 +1287,6 @@ input[type="text"]#locationSelectionInput {
       left: 0;
       top: 18px;
     }
-
-    &.active {
-      .opacity(100);
-    }
   }
   #location {
     font-size: inherit;
@@ -1302,17 +1302,35 @@ input[type="text"]#locationSelectionInput {
       width: 54px;
     }
   }
-  // &.hasDeliveryAreaSelection {
-  //   label {
-  //     color: @greenLight;
-  //   }
-  //   #locationSelectionInput {
-  //     color: @onNoteColor30;
-  //     &:focus {
-  //       color: @greenDark;
-  //     }
-  //   }
-  // }
+
+
+  &[data-active="loading"] {
+    #locationLabel {
+      .opacity(100);
+    }
+    #locationLoader {
+      .opacity(100);
+    }
+  }
+
+  &[data-active="location"] {
+    #locationLabel {
+      .opacity(100);
+      margin-left: -174px;
+    }
+  }
+
+  &[data-active="store"] {
+    #storeSelectionLabel {
+      .opacity(100);
+    }
+  }
+
+  &[data-active="deliveryArea"] {
+    #deliveryAreaLabel {
+      .opacity(100);
+    }
+  }
 }
 
 #homeNote .notice {
