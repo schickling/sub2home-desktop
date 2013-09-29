@@ -20,18 +20,20 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       var postal;
       postal = postalOracle.getPostal();
       if (postal) {
-        this._hideRotateLocation();
+        this._hideSpinner();
         return this.setPostal(postal);
       } else {
         return this._checkLocation();
       }
     },
     showDeliveryAreaLabel: function() {
+      this.$el.attr("data-active", "deliveryAreaActive");
       this.$locationLabel.removeClass("active");
       this.$storeSelectionLabel.removeClass("active");
       return this.$deliveryAreaLabel.addClass("active");
     },
     showStoreSelectionLabel: function() {
+      this.$el.attr("data-active", "storeActive");
       this.$locationLabel.removeClass("active");
       this.$storeSelectionLabel.addClass("active");
       return this.$deliveryAreaLabel.removeClass("active");
@@ -66,11 +68,11 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       this._startRotateLocation();
       return postalOracle.calculate((function() {
         notificationcenter.notify("views.home.home.lookupLocation");
-        _this._stopAndFadeOutRotateLocation();
+        _this._stopRotationAndHideSpinner();
         _this._focusSearch();
         return _this.setPostal(postalOracle.getPostal());
       }), function() {
-        _this._stopAndFadeOutRotateLocation();
+        _this._stopRotationAndHideSpinner();
         return _this._focusSearch();
       });
     },
@@ -97,25 +99,26 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     _isValidPostal: function(postal) {
       return postal > 9999 && postal < 100000;
     },
-    _hideRotateLocation: function() {
+    _hideSpinner: function() {
       return this.$locationLoader.removeClass("active");
     },
     _stopLocationDetermination: function() {
-      this._stopAndFadeOutRotateLocation();
+      this._stopRotationAndHideSpinner();
       return postalOracle.cancel();
     },
     _startRotateLocation: function() {
-      var $location, deg;
-      $location = this.$location;
+      var deg,
+        _this = this;
       deg = 0;
       return this.rotateInterval = setInterval(function() {
         deg = (deg + 5) % 180;
-        return $location.rotate(deg);
+        return _this.$location.rotate(deg);
       }, 20);
     },
-    _stopAndFadeOutRotateLocation: function() {
+    _stopRotationAndHideSpinner: function() {
+      notificationcenter.destroyAllNotifications();
       clearInterval(this.rotateInterval);
-      return this._hideRotateLocation;
+      return this._hideSpinner();
     }
   });
 });

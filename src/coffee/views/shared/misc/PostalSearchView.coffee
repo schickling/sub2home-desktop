@@ -21,17 +21,19 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     run: ->
       postal = postalOracle.getPostal()
       if postal
-        @_hideRotateLocation()
+        @_hideSpinner()
         @setPostal postal
       else
         @_checkLocation()
 
     showDeliveryAreaLabel: ->
+      @$el.attr "data-active", "deliveryAreaActive"
       @$locationLabel.removeClass "active"
       @$storeSelectionLabel.removeClass "active"
       @$deliveryAreaLabel.addClass "active"
 
     showStoreSelectionLabel: ->
+      @$el.attr "data-active", "storeActive"
       @$locationLabel.removeClass "active"
       @$storeSelectionLabel.addClass "active"
       @$deliveryAreaLabel.removeClass "active"
@@ -61,11 +63,11 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       @_startRotateLocation()
       postalOracle.calculate (=>
         notificationcenter.notify "views.home.home.lookupLocation"
-        @_stopAndFadeOutRotateLocation()
+        @_stopRotationAndHideSpinner()
         @_focusSearch()
         @setPostal postalOracle.getPostal()
       ), =>
-        @_stopAndFadeOutRotateLocation()
+        @_stopRotationAndHideSpinner()
         @_focusSearch()
 
     _focusSearch: ->
@@ -87,21 +89,21 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     _isValidPostal: (postal) ->
       postal > 9999 and postal < 100000
 
-    _hideRotateLocation: ->
+    _hideSpinner: ->
       @$locationLoader.removeClass "active"
 
     _stopLocationDetermination: ->
-      @_stopAndFadeOutRotateLocation()
+      @_stopRotationAndHideSpinner()
       postalOracle.cancel()
 
     _startRotateLocation: ->
-      $location = @$location
       deg = 0
-      @rotateInterval = setInterval(->
+      @rotateInterval = setInterval(=>
         deg = (deg + 5) % 180
-        $location.rotate deg
+        @$location.rotate deg
       , 20)
 
-    _stopAndFadeOutRotateLocation: ->
+    _stopRotationAndHideSpinner: ->
+      notificationcenter.destroyAllNotifications()
       clearInterval @rotateInterval
-      @_hideRotateLocation
+      @_hideSpinner()
