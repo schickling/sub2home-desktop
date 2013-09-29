@@ -152,14 +152,9 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @$deliveryAreaSelection.delay(200).fadeIn 200
 
     _adjustProportions: ->
-      notePaddingBottom = @$deliveryAreaSelection.height() - 20
-      containerTop = 240 + notePaddingBottom
-      @$homeNote.stop().animate
-        paddingBottom: notePaddingBottom
-      , 200
-      @$mapContainer.stop().animate
-        top: containerTop
-      , 200
+      numberOfRows = parseInt(@$deliveryAreaSelection.height() / 48, 10)
+      @$homeNote.attr("data-delivery-area-rows", numberOfRows)
+      @$mapContainer.attr("data-delivery-area-rows", numberOfRows)
 
     _renderStores: (stores) ->
       latLngBounds = new gmaps.LatLngBounds()

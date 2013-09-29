@@ -144,15 +144,10 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this.$deliveryAreaSelection.delay(200).fadeIn(200);
     },
     _adjustProportions: function() {
-      var containerTop, notePaddingBottom;
-      notePaddingBottom = this.$deliveryAreaSelection.height() - 20;
-      containerTop = 240 + notePaddingBottom;
-      this.$homeNote.stop().animate({
-        paddingBottom: notePaddingBottom
-      }, 200);
-      return this.$mapContainer.stop().animate({
-        top: containerTop
-      }, 200);
+      var numberOfRows;
+      numberOfRows = parseInt(this.$deliveryAreaSelection.height() / 48, 10);
+      this.$homeNote.attr("data-delivery-area-rows", numberOfRows);
+      return this.$mapContainer.attr("data-delivery-area-rows", numberOfRows);
     },
     _renderStores: function(stores) {
       var latLngBounds;
