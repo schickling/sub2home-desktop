@@ -118,7 +118,7 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
       # load new note
       $currentNote.css height: "auto"
       $currentNoteContainer.remove()
-      $newNoteContainer.hide().appendTo($currentNote).fadeIn()
+      $newNoteContainer.hide().appendTo($currentNote)
 
       # set correct id
       $currentNote.attr "id", "homeNote"
