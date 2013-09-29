@@ -335,7 +335,6 @@ aside#header .iInfo {
   overflow: visible !important;
 }
 .note#homeNote {
-  height: 240px;
   text-align: center;
 }
 .note#homeNote .container {
@@ -4542,28 +4541,35 @@ input[type="text"]#locationSelectionInput:focus {
   line-height: 1;
   margin-top: -25px;
 }
-#homeNote {
+.note#homeNote {
+  height: auto;
+}
+.note#homeNote #noteContainer {
+  height: 240px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   -webkit-transition: padding-bottom 0.2s ease;
   -moz-transition: padding-bottom 0.2s ease;
   -o-transition: padding-bottom 0.2s ease;
   transition: padding-bottom 0.2s ease;
 }
-#homeNote[data-delivery-area-rows="1"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="1"] {
   padding-bottom: 48px !important;
 }
-#homeNote[data-delivery-area-rows="2"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="2"] {
   padding-bottom: 96px !important;
 }
-#homeNote[data-delivery-area-rows="3"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="3"] {
   padding-bottom: 144px !important;
 }
-#homeNote[data-delivery-area-rows="4"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="4"] {
   padding-bottom: 192px !important;
 }
-#homeNote[data-delivery-area-rows="5"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="5"] {
   padding-bottom: 240px !important;
 }
-#homeNote[data-delivery-area-rows="6"] {
+.note#homeNote #noteContainer[data-delivery-area-rows="6"] {
   padding-bottom: 288px !important;
 }
 .content.home #mapContainer {
