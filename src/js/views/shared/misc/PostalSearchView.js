@@ -27,13 +27,13 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       }
     },
     showDeliveryAreaLabel: function() {
-      this.$el.attr("data-active", "deliveryAreaActive");
+      this.$el.attr("data-active", "deliveryArea");
       this.$locationLabel.removeClass("active");
       this.$storeSelectionLabel.removeClass("active");
       return this.$deliveryAreaLabel.addClass("active");
     },
     showStoreSelectionLabel: function() {
-      this.$el.attr("data-active", "storeActive");
+      this.$el.attr("data-active", "store");
       this.$locationLabel.removeClass("active");
       this.$storeSelectionLabel.addClass("active");
       return this.$deliveryAreaLabel.removeClass("active");

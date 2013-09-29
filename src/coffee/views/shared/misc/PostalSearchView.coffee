@@ -27,13 +27,13 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
         @_checkLocation()
 
     showDeliveryAreaLabel: ->
-      @$el.attr "data-active", "deliveryAreaActive"
+      @$el.attr "data-active", "deliveryArea"
       @$locationLabel.removeClass "active"
       @$storeSelectionLabel.removeClass "active"
       @$deliveryAreaLabel.addClass "active"
 
     showStoreSelectionLabel: ->
-      @$el.attr "data-active", "storeActive"
+      @$el.attr "data-active", "store"
       @$locationLabel.removeClass "active"
       @$storeSelectionLabel.addClass "active"
       @$deliveryAreaLabel.removeClass "active"
