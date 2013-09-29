@@ -84,8 +84,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
       });
     },
     _togglePaymentMethod: function(e) {
-      var $button, $wrapper, attribute, changedAttributes, method, self, storeModel, value;
-      self = this;
+      var $button, $wrapper, attribute, changedAttributes, method, storeModel, value;
       storeModel = this.model;
       $button = $(e.target);
       $wrapper = $button.parent();
@@ -106,8 +105,6 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
       });
     },
     _saveModel: function() {
-      var self;
-      self = this;
       return this.model.save({}, {
         success: function() {
           return notificationcenter.notify("views.store.config.info.success");

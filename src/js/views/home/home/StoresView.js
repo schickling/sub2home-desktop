@@ -113,30 +113,29 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this.storeViews = [];
     },
     _renderDeliveryAreas: function(deliveryAreaModels) {
-      var district, districtToMark, renderedDistricts, self;
-      self = this;
-      district = void 0;
-      districtToMark = void 0;
+      var renderedDistricts,
+        _this = this;
       renderedDistricts = [];
       _.each(deliveryAreaModels, function(deliveryAreaModel) {
-        var $deliveryArea;
+        var $deliveryArea, district;
         district = deliveryAreaModel.get("district") || deliveryAreaModel.get("city");
         if (!_.contains(renderedDistricts, district)) {
           renderedDistricts.push(district);
           $deliveryArea = $("<span>").text(district);
-          self.$deliveryAreaSelection.append($deliveryArea);
+          _this.$deliveryAreaSelection.append($deliveryArea);
           return $deliveryArea.on("click", function() {
             district = $deliveryArea.text();
             $deliveryArea.addClass("selected").siblings().removeClass("selected");
             _.each(deliveryAreaModels, function(deliveryAreaModelToMark) {
+              var districtToMark;
               districtToMark = deliveryAreaModelToMark.get("district") || deliveryAreaModelToMark.get("city");
               return deliveryAreaModelToMark.set("isSelected", districtToMark === district);
             });
-            _.each(self.storeViews, function(storeView) {
+            _.each(this.storeViews, function(storeView) {
               return storeView.updateView();
             });
-            if (self.storeViews.length === 1) {
-              return self.storeViews[0].selectStore();
+            if (this.storeViews.length === 1) {
+              return this.storeViews[0].selectStore();
             }
           });
         }
@@ -188,14 +187,13 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this.map.fitBounds(latlngbounds);
     },
     _centerMapToNotFoundPostal: function() {
-      var self;
-      self = this;
+      var _this = this;
       return this.geocoder.geocode({
         address: this.postal + ",Germany"
       }, function(results, status) {
         if (status === gmaps.GeocoderStatus.OK) {
-          self.map.setZoom(14);
-          return self.map.setCenter(results[0].geometry.location);
+          _this.map.setZoom(14);
+          return _this.map.setCenter(results[0].geometry.location);
         }
       });
     },

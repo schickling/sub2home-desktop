@@ -115,20 +115,19 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @storeViews = []
 
     _renderDeliveryAreas: (deliveryAreaModels) ->
-      self = this
-      district = undefined
-      districtToMark = undefined
+
       renderedDistricts = []
 
       # render new areas
-      _.each deliveryAreaModels, (deliveryAreaModel) ->
+      _.each deliveryAreaModels, (deliveryAreaModel) =>
+
         district = deliveryAreaModel.get("district") or deliveryAreaModel.get("city")
         unless _.contains(renderedDistricts, district)
           renderedDistricts.push district
           $deliveryArea = $("<span>").text(district)
 
           # append to list
-          self.$deliveryAreaSelection.append $deliveryArea
+          @$deliveryAreaSelection.append $deliveryArea
 
           # bind dom click handler
           $deliveryArea.on "click", ->
@@ -142,15 +141,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
               districtToMark = deliveryAreaModelToMark.get("district") or deliveryAreaModelToMark.get("city")
               deliveryAreaModelToMark.set "isSelected", districtToMark is district
 
-
             # update storeviews
-            _.each self.storeViews, (storeView) ->
+            _.each @storeViews, (storeView) ->
               storeView.updateView()
 
-
             # TODO rewrite
-            self.storeViews[0].selectStore()  if self.storeViews.length is 1
-
+            @storeViews[0].selectStore()  if @storeViews.length is 1
 
       @_adjustProportions()
       @$deliveryAreaSelection.delay(200).fadeIn 200
@@ -182,7 +178,6 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_showPromotionView()
 
     selectStore: (storeModel) ->
-
       # adjust store alias without notifying
       # (stateModel gets saved through storeModel change)
       stateModel.set
@@ -202,13 +197,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @map.fitBounds latlngbounds
 
     _centerMapToNotFoundPostal: ->
-      self = this
       @geocoder.geocode
         address: @postal + ",Germany"
-      , (results, status) ->
+      , (results, status) =>
         if status is gmaps.GeocoderStatus.OK
-          self.map.setZoom 14
-          self.map.setCenter results[0].geometry.location
+          @map.setZoom 14
+          @map.setCenter results[0].geometry.location
 
     _getMatchingDeliveryAreas: (stores) ->
       matchingDeliveryAreas = []

@@ -73,7 +73,6 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
           notificationcenter.notify "views.store.config.isOpenError"
 
     _togglePaymentMethod: (e) ->
-      self = this
       storeModel = @model
       $button = $(e.target)
       $wrapper = $button.parent()
@@ -91,7 +90,6 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
           notificationcenter.notify "views.store.config.paymentMethods.error"
 
     _saveModel: ->
-      self = this
       @model.save {},
         success: ->
           notificationcenter.notify "views.store.config.info.success"
