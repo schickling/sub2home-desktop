@@ -1,6 +1,7 @@
 define ["underscore", "backbone", "models/MenuBundleModel", "collections/TimelineItemsCollection", "collections/OrderedArticlesCollection"], (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) ->
 
   OrderedItemModel = Backbone.Model.extend
+
     defaults:
 
       # needed to be overwritten by unique id
@@ -97,6 +98,18 @@ define ["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
         menuUpgradeModel = firstOrderedArticleModel.get("menuUpgradeModel")
         menuUpgradeModel.get "title"
 
+    isEditable: ->
+      return true  if @isMenu()
+      orderedArticleModel = @get("orderedArticlesCollection").first()
+      articleModel = orderedArticleModel.get("articleModel")
+      articleModel.get "allowsIngredients"
+
+    canBeUpgraded: ->
+      @get("orderedArticlesCollection").first().isMenuUpgradeBase()
+
+    isComplete: ->
+      true
+
     _initializeListeners: ->
       @_listenToAmount()
 
@@ -165,3 +178,9 @@ define ["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
 
     canBeUpgraded: ->
       @get("orderedArticlesCollection").first().isMenuUpgradeBase()
+
+    isComplete: ->
+      isComplete = true
+      @get('orderedArticlesCollection').each (orderedArticleModel) ->
+        isComplete = false  unless orderedArticleModel.isComplete()
+      isComplete
