@@ -64,17 +64,8 @@ define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
       var isComplete;
       isComplete = true;
       this.get("articleModel").get("ingredientCategoriesCollection").each(function(ingredientCategoryModel) {
-        var nonWasPicked;
-        if (ingredientCategoryModel.get("isMandatory")) {
-          nonWasPicked = true;
-          ingredientCategoryModel.get("ingredientsCollection").each(function(ingredientModel) {
-            if (ingredientModel.get("isSelected")) {
-              return nonWasPicked = false;
-            }
-          });
-          if (nonWasPicked) {
-            return isComplete = false;
-          }
+        if (!ingredientCategoryModel.isComplete()) {
+          return isComplete = false;
         }
       });
       return isComplete;

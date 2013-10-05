@@ -1,15 +1,26 @@
-define ["models/OrderedArticleModel", "models/ArticleModel", "text!resources/CompleteArticleModel.json", "text!resources/IncompleteArticleModel.json"], (OrderedArticleModel, ArticleModel, CompleteArticleModelJson, InompleteArticleModelJson) ->
+define ["collections/IngredientCategoriesCollection", "models/ArticleModel", "models/OrderedArticleModel", "models/IngredientCategoryModel"], (IngredientCategoriesCollection, ArticleModel, OrderedArticleModel, IngredientCategoryModel) ->
 
   describe "check isComplete", ->
 
+    beforeEach ->
+      @orderedArticle = new OrderedArticleModel
+      @orderedArticle.set("articleModel", new ArticleModel(ingredientCategoriesCollection: new IngredientCategoriesCollection))
+      @ingredientCategoriesCollection = @orderedArticle.get("articleModel").get("ingredientCategoriesCollection")
+
     it "shoud return true", ->
-      articleModel = new ArticleModel JSON.parse(CompleteArticleModelJson), parse: true
-      orderedArticleModel = new OrderedArticleModel
-      orderedArticleModel.set "articleModel", articleModel
-      expect(orderedArticleModel.isComplete()).toBe(true)
+      firstIngredientCategoryModel = new IngredientCategoryModel
+      secondIngredientCategoryModel = new IngredientCategoryModel
+      spyOn(firstIngredientCategoryModel, "isComplete").andReturn(true)
+      spyOn(secondIngredientCategoryModel, "isComplete").andReturn(true)
+      @ingredientCategoriesCollection.add firstIngredientCategoryModel
+      @ingredientCategoriesCollection.add secondIngredientCategoryModel
+      expect(@orderedArticle.isComplete()).toBe(true)
 
     it "shoud return false", ->
-      articleModel = new ArticleModel JSON.parse(InompleteArticleModelJson), parse: true
-      orderedArticleModel = new OrderedArticleModel
-      orderedArticleModel.set "articleModel", articleModel
-      expect(orderedArticleModel.isComplete()).toBe(false)
+      firstIngredientCategoryModel = new IngredientCategoryModel
+      secondIngredientCategoryModel = new IngredientCategoryModel
+      spyOn(firstIngredientCategoryModel, "isComplete").andReturn(true)
+      spyOn(secondIngredientCategoryModel, "isComplete").andReturn(false)
+      @ingredientCategoriesCollection.add firstIngredientCategoryModel
+      @ingredientCategoriesCollection.add secondIngredientCategoryModel
+      expect(@orderedArticle.isComplete()).toBe(false)

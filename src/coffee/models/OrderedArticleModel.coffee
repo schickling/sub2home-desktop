@@ -68,15 +68,6 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
     isComplete: ->
       isComplete = true
       @get("articleModel").get("ingredientCategoriesCollection").each (ingredientCategoryModel) ->
-        if ingredientCategoryModel.get("isMandatory")
-          nonWasPicked = true
-          ingredientCategoryModel.get("ingredientsCollection").each (ingredientModel) ->
-            nonWasPicked = false  if ingredientModel.get("isSelected")
-          isComplete = false  if nonWasPicked
+        isComplete = false  unless ingredientCategoryModel.isComplete()
       isComplete
-
-
-
-
-
 
