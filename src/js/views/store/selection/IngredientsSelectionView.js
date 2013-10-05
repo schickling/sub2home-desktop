@@ -51,11 +51,11 @@ define([
 
 								// update timeline items on ingredient select/unselect
 								ingredientModel.bind('change:isSelected', function() {
-									this._updateTimelineModel(ingredientModel, timelineItemModel);
+									this._updateTimelineModel(ingredientCategoryModel, timelineItemModel);
 								}, this);
 
 								// update timeline items initially for editing ordered items
-								this._updateTimelineModel(ingredientModel, timelineItemModel);
+								this._updateTimelineModel(ingredientCategoryModel, timelineItemModel);
 
 							}, this);
 						}
@@ -69,15 +69,8 @@ define([
 
 		},
 
-		_updateTimelineModel: function (ingredientModel, timelineItemModel) {
-			// count isSelected items
-			var isSelectedCount = ingredientModel.collection.where({
-				isSelected: true
-			}).length;
-
-			// mark as locked if no ingredient isSelected
-			timelineItemModel.set('isLocked', (isSelectedCount === 0));
-
+		_updateTimelineModel: function (ingredientCategoryModel, timelineItemModel) {
+			timelineItemModel.set('isLocked', !ingredientCategoryModel.isComplete());
 		}
 
 	});

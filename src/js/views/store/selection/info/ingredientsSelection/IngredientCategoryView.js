@@ -29,7 +29,8 @@ define([
 			var ingredientsView = new IngredientsView({
 				collection: this.model.get('ingredientsCollection'),
 				el: this.$('.ingredients'),
-				selectionView: this.options.selectionView
+				selectionView: this.options.selectionView,
+				model: this.model
 			});
 		}
 

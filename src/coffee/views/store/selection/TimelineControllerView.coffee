@@ -164,7 +164,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
           # _navigate
           @_navigate()
-        @$timelineCart.toggleClass "clickable", @_isReadyForCart()
+        @$timelineCart.toggleClass "clickable", @model.isComplete()
 
 
     _adjustButtons: ->
@@ -426,8 +426,3 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _noUpgradeViewIsActive: ->
       @_hasNoUpgradeView() and @currentTimelineItemModel.get("menuUpgradeSelection")
-
-    _isReadyForCart: ->
-      @collection.filter((timelineItemModel) ->
-        timelineItemModel.get("isLocked") or not timelineItemModel.get("wasVisited") and not timelineItemModel.get("isDisabled")
-      ).length is 0

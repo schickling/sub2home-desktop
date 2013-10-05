@@ -104,7 +104,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
           this.currentTimelineItemIndex = this.collection.indexOf(timelineItemModel);
           this._navigate();
         }
-        return this.$timelineCart.toggleClass("clickable", this._isReadyForCart());
+        return this.$timelineCart.toggleClass("clickable", this.model.isComplete());
       });
     },
     _adjustButtons: function() {
@@ -372,11 +372,6 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     },
     _noUpgradeViewIsActive: function() {
       return this._hasNoUpgradeView() && this.currentTimelineItemModel.get("menuUpgradeSelection");
-    },
-    _isReadyForCart: function() {
-      return this.collection.filter(function(timelineItemModel) {
-        return timelineItemModel.get("isLocked") || !timelineItemModel.get("wasVisited") && !timelineItemModel.get("isDisabled");
-      }).length === 0;
     }
   });
 });

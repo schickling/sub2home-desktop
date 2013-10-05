@@ -54,6 +54,7 @@ define([
 			var ingredientView = new IngredientView({
 				model: ingredientModel
 			});
+			ingredientView.parentView = this;
 
 			this.$el.append(ingredientView.el);
 		},
