@@ -66,7 +66,7 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
       @get("menuUpgradeModel") isnt null
 
     isComplete: ->
-      return true  unless @get("articleModel")
+      return true  unless @get("articleModel") and @get("articleModel").get("ingredientCategoriesCollection")
       isComplete = true
       @get("articleModel").get("ingredientCategoriesCollection").each (ingredientCategoryModel) ->
         isComplete = false  unless ingredientCategoryModel.isComplete()
