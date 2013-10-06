@@ -62,6 +62,9 @@ define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
     },
     isComplete: function() {
       var isComplete;
+      if (!this.get("articleModel")) {
+        return true;
+      }
       isComplete = true;
       this.get("articleModel").get("ingredientCategoriesCollection").each(function(ingredientCategoryModel) {
         if (!ingredientCategoryModel.isComplete()) {
