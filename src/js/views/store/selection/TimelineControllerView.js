@@ -6,7 +6,6 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     currentTimelineItemIndex: 0,
     currentInfoIndex: 0,
     animationTime: 400,
-    delayTimeout: 0,
     $buttonNext: null,
     $buttonPrev: null,
     $buttonCart: null,
@@ -21,7 +20,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     $stageOverlay: null,
     events: {
       "click #bNext": "_forward",
-      "click .menuUpgrade, .article": "_delayedForward",
+      "fetched .article, .menuUpgrade": "_forward",
       "click #bPrev": "_backward",
       "click #bCart": "_finish",
       "click .iCart": "_finish",
@@ -191,15 +190,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
         }
       }
     },
-    _delayedForward: function() {
-      var self;
-      self = this;
-      return this.delayTimeout = setTimeout(function() {
-        return self._forward();
-      }, 400);
-    },
     _navigate: function() {
-      clearTimeout(this.delayTimeout);
       this._slideStage();
       this._slideTimeline();
       this._changeInfo();

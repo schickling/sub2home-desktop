@@ -81,6 +81,8 @@ define([
 			this.$el.siblings().removeClass('selected');
 
 			this.orderedArticleModel.set('menuUpgradeModel', this.model);
+
+			this.$el.trigger("fetched");
 		}
 
 	});

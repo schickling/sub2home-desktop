@@ -72,6 +72,7 @@ define([
 
 					// mark current as isSelected
 					self.model.set('isSelected', true);
+					self.$el.trigger("fetched");
 				}
 			});
 		},

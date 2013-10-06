@@ -14,7 +14,6 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
     currentTimelineItemIndex: 0
     currentInfoIndex: 0
     animationTime: 400
-    delayTimeout: 0
 
     # cached dom
     $buttonNext: null
@@ -33,7 +32,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
       # buttons
       "click #bNext": "_forward"
-      "click .menuUpgrade, .article": "_delayedForward"
+      "fetched .article, .menuUpgrade": "_forward"
       "click #bPrev": "_backward"
       "click #bCart": "_finish"
 
@@ -238,14 +237,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
           @_transferActiveState()
           @_navigate()
 
-    _delayedForward: ->
-      self = this
-      @delayTimeout = setTimeout(->
-        self._forward()
-      , 400)
-
     _navigate: ->
-      clearTimeout @delayTimeout
       @_slideStage()
       @_slideTimeline()
       @_changeInfo()
