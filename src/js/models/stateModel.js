@@ -22,6 +22,7 @@ define([
 			storeAlias: '',
 			storeModel: null,
 			changedStore: false,
+			storeFetchDate: null,
 
 			// header state
 			isClientHeaderActive: false,
@@ -60,7 +61,11 @@ define([
 
 
 			// initialize store model if needed
-			if (!storeModel && this.get('storeAlias') !== '') {
+			var minimumFetchTimestamp = new Date().getTime() - (3 * 60 * 60 * 1000),
+				realFetchDate = this.get('storeFetchDate') || new Date(0),
+				needsRefetch = realFetchDate.getTime() < minimumFetchTimestamp;
+
+			if (!storeModel && this.get('storeAlias') !== '' || needsRefetch) {
 				this._fetchStoreModelFromServer();
 			}
 
@@ -119,6 +124,8 @@ define([
 				}
 			}
 
+			response.storeFetchDate = new Date(response.storeFetchDate);
+
 			return response;
 		},
 
@@ -153,6 +160,7 @@ define([
 
 				this.set({
 					storeModel: storeModel,
+					storeFetchDate: new Date(),
 
 					// cache store changed in boolean
 					// needed if listener for storeAlias:change wasn't initialized yet in cartModel
