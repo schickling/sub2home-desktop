@@ -27,8 +27,8 @@ define([
 
 		initialize: function () {
 			this._render();
-
 			this._listenToHeaderState();
+			this._listenToInfo();
 
 			stateModel.on('change:storeModel', this._renderStoreView, this);
 
@@ -59,8 +59,17 @@ define([
 			} else if (isStoreSelected) {
 				this._showStoreView();
 				this.$('#headerClientContent').hide();
+				this._toggleInfoClose();
 			}
 
+		},
+
+		_listenToInfo: function() {
+			stateModel.on('change:currentRoute', this._toggleInfoClose, this);
+		},
+
+		_toggleInfoClose: function() {
+			this.$('#toTheInfo').toggleClass('closeTheInfo', this._isOnInfoPage());
 		},
 
 		_listenToHeaderState: function () {
@@ -158,11 +167,19 @@ define([
 			}
 		},
 
-		_goToInfo: function () {
-			if (stateModel.currentRouteIsStoreRelated()) {
-				router.navigate('store/info', true);
+		_isOnInfoPage: function() {
+			return !!stateModel.get('currentRoute').match(/(store.)?info/);
+		},
+
+		_goToInfo: function (e) {
+			if (this._isOnInfoPage()) {
+				window.history.back();
 			} else {
-				router.navigate('info', true);
+				if (stateModel.currentRouteIsStoreRelated()) {
+					router.navigate('store/info', true);
+				} else {
+					router.navigate('info', true);
+				}
 			}
 		},
 

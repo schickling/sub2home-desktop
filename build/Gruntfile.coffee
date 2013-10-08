@@ -70,6 +70,13 @@ module.exports = (grunt) ->
       options:
         force: true
 
+    concurrent:
+      dist: [
+        "copy:dist"
+        "requirejs:dist"
+        "less:dist"
+      ]
+
     copy:
       dist:
         files: [
@@ -141,9 +148,7 @@ module.exports = (grunt) ->
   grunt.registerTask "build", [
     "coffee"
     "clean:dist"
-    "copy:dist"
-    "requirejs:dist"
-    "less:dist"
+    "concurrent:dist"
     "rev:dist"
     "usemin"
     "htmlmin"
