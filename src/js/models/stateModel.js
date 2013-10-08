@@ -167,8 +167,6 @@ define([
 					changedStore: true
 				});
 
-				console.log(storeModel);
-
 				this._listenForStoreInternalChanges();
 
 			}

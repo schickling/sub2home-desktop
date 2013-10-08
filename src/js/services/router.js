@@ -1,4 +1,4 @@
-define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
+define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "services/localStorageVersioner", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) {
   var Router;
   Router = Backbone.Router.extend({
     routes: {
@@ -23,6 +23,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       require(["views/header/HeaderView"], function(HeaderView) {
         return new HeaderView();
       });
+      localStorageVersioner.initialize();
       notificationcenter.init();
       return Backbone.history.start({
         pushState: true,
