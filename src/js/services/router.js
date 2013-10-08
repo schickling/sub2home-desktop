@@ -41,20 +41,23 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     },
     _showHomeHome: function() {
       stateModel.set({
-        currentRoute: "home.home"
+        currentRoute: "home.home",
+        isClientHeaderActive: false
       });
       return this._loadMainView("views/home/home/MainView");
     },
     _showHomeInfo: function() {
       stateModel.set({
-        currentRoute: "home.info"
+        currentRoute: "home.info",
+        isClientHeaderActive: false
       });
       return this._loadMainView("views/home/info/MainView");
     },
     _showClientLogin: function() {
       if (!this._isLoggedIn()) {
         stateModel.set({
-          currentRoute: "client.login"
+          currentRoute: "client.login",
+          isClientHeaderActive: false
         });
         return this._loadMainView("views/client/login/MainView");
       } else {
@@ -67,7 +70,8 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showClientDashboard: function() {
       if (this._isLoggedIn()) {
         stateModel.set({
-          currentRoute: "client.dashboard"
+          currentRoute: "client.dashboard",
+          isClientHeaderActive: true
         });
         return this._loadMainView("views/client/dashboard/MainView");
       }
@@ -75,7 +79,8 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showClientConfig: function() {
       if (this._isLoggedIn()) {
         stateModel.set({
-          currentRoute: "client.config"
+          currentRoute: "client.config",
+          isClientHeaderActive: true
         });
         return this._loadMainView("views/client/config/MainView");
       }
@@ -83,6 +88,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreHome: function(alias) {
       stateModel.set({
         currentRoute: "store.home",
+        isClientHeaderActive: false,
         storeAlias: alias
       });
       if (this._isValidStoreModel()) {
@@ -93,6 +99,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       var params;
       stateModel.set({
         currentRoute: "store.selection",
+        isClientHeaderActive: false,
         storeAlias: alias
       });
       params = {
@@ -106,6 +113,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreTray: function(alias) {
       stateModel.set({
         currentRoute: "store.tray",
+        isClientHeaderActive: false,
         storeAlias: alias
       });
       if (this._isValidStoreModel()) {
@@ -115,6 +123,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreCheckout: function(alias) {
       stateModel.set({
         currentRoute: "store.checkout",
+        isClientHeaderActive: false,
         storeAlias: alias
       });
       if (this._isValidStoreModel()) {
@@ -125,6 +134,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if (this._isLoggedIn()) {
         stateModel.set({
           currentRoute: "store.config",
+          isClientHeaderActive: true,
           storeAlias: alias
         });
         if (this._isValidStoreModel()) {
@@ -136,6 +146,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if (this._isLoggedIn()) {
         stateModel.set({
           currentRoute: "store.assortment",
+          isClientHeaderActive: true,
           storeAlias: alias
         });
         if (this._isValidStoreModel()) {
@@ -147,6 +158,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if (this._isLoggedIn()) {
         stateModel.set({
           currentRoute: "store.dashboard",
+          isClientHeaderActive: true,
           storeAlias: alias
         });
         if (this._isValidStoreModel()) {
@@ -157,6 +169,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreInfo: function(alias) {
       stateModel.set({
         currentRoute: "store.info",
+        isClientHeaderActive: false,
         storeAlias: alias
       });
       if (this._isValidStoreModel()) {
@@ -171,7 +184,8 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     },
     _showPageNotFound: function() {
       stateModel.set({
-        currentRoute: "home.404"
+        currentRoute: "home.404",
+        isClientHeaderActive: false
       });
       return this._loadMainView("views/home/404/MainView");
     },

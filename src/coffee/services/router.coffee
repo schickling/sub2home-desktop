@@ -50,16 +50,22 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       this
 
     _showHomeHome: ->
-      stateModel.set currentRoute: "home.home"
+      stateModel.set
+        currentRoute: "home.home"
+        isClientHeaderActive: false
       @_loadMainView "views/home/home/MainView"
 
     _showHomeInfo: ->
-      stateModel.set currentRoute: "home.info"
+      stateModel.set
+        currentRoute: "home.info"
+        isClientHeaderActive: false
       @_loadMainView "views/home/info/MainView"
 
     _showClientLogin: ->
       unless @_isLoggedIn()
-        stateModel.set currentRoute: "client.login"
+        stateModel.set
+          currentRoute: "client.login"
+          isClientHeaderActive: false
         @_loadMainView "views/client/login/MainView"
       else
         @navigate "dashboard",
@@ -68,17 +74,22 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
 
     _showClientDashboard: ->
       if @_isLoggedIn()
-        stateModel.set currentRoute: "client.dashboard"
+        stateModel.set
+          currentRoute: "client.dashboard"
+          isClientHeaderActive: true
         @_loadMainView "views/client/dashboard/MainView"
 
     _showClientConfig: ->
       if @_isLoggedIn()
-        stateModel.set currentRoute: "client.config"
+        stateModel.set
+          currentRoute: "client.config"
+          isClientHeaderActive: true
         @_loadMainView "views/client/config/MainView"
 
     _showStoreHome: (alias) ->
       stateModel.set
         currentRoute: "store.home"
+        isClientHeaderActive: false
         storeAlias: alias
 
       @_loadMainView "views/store/home/MainView"  if @_isValidStoreModel()
@@ -86,6 +97,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreSelection: (alias, resourceType, resourceId) ->
       stateModel.set
         currentRoute: "store.selection"
+        isClientHeaderActive: false
         storeAlias: alias
 
       params =
@@ -97,6 +109,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreTray: (alias) ->
       stateModel.set
         currentRoute: "store.tray"
+        isClientHeaderActive: false
         storeAlias: alias
 
       @_loadMainView "views/store/tray/MainView"  if @_isValidStoreModel()
@@ -104,6 +117,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreCheckout: (alias) ->
       stateModel.set
         currentRoute: "store.checkout"
+        isClientHeaderActive: false
         storeAlias: alias
 
       @_loadMainView "views/store/checkout/MainView"  if @_isValidStoreModel()
@@ -112,6 +126,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if @_isLoggedIn()
         stateModel.set
           currentRoute: "store.config"
+          isClientHeaderActive: true
           storeAlias: alias
 
         @_loadMainView "views/store/config/MainView"  if @_isValidStoreModel()
@@ -120,6 +135,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if @_isLoggedIn()
         stateModel.set
           currentRoute: "store.assortment"
+          isClientHeaderActive: true
           storeAlias: alias
 
         @_loadMainView "views/store/assortment/MainView"  if @_isValidStoreModel()
@@ -128,6 +144,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
       if @_isLoggedIn()
         stateModel.set
           currentRoute: "store.dashboard"
+          isClientHeaderActive: true
           storeAlias: alias
 
         @_loadMainView "views/store/dashboard/MainView"  if @_isValidStoreModel()
@@ -135,6 +152,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _showStoreInfo: (alias) ->
       stateModel.set
         currentRoute: "store.info"
+        isClientHeaderActive: false
         storeAlias: alias
 
       @_loadMainView "views/store/info/MainView"  if @_isValidStoreModel()
@@ -145,7 +163,9 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         trigger: true
 
     _showPageNotFound: ->
-      stateModel.set currentRoute: "home.404"
+      stateModel.set
+        currentRoute: "home.404"
+        isClientHeaderActive: false
       @_loadMainView "views/home/404/MainView"
 
     _loadMainView: (pathToMainView, params) ->
