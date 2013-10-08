@@ -15,13 +15,10 @@ define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
 
       # determine if on last reload store was changed
       @_resetOrderModel()  if stateModel.hasChangedStore()
-      stateModel.on "change:storeModel", (->
 
-        # reset ordered items collection on store change
-        @_resetOrderModel()
-        @_listenToDeliveryAreaSelection()
-      ), this
+      @_listenToStoreModelChange()
       @_listenToDeliveryAreaSelection()
+      @_adjustCustomerAddress()
 
     toJSON: ->
       attributes = _.clone(@attributes)
@@ -35,7 +32,7 @@ define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
         # the cart model gets saved
         currentOrderModel = @get("orderModel")
 
-        # if addressmodel already initialized it doesn't need to be initialize twice
+        # if addressModel already initialized it doesn't need to be initialize twice
         if currentOrderModel
           response.orderModel = currentOrderModel
         else
@@ -141,8 +138,10 @@ define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
 
     _resetOrderModel: ->
       # reset order model
-      orderModel = new OrderModel()
-      storeModel = stateModel.get("storeModel")
+      addressModel = @get("orderModel").get("addressModel")
+      orderModel = new OrderModel({
+        addressModel: addressModel
+        })
       @set "orderModel", orderModel
       @_listenToOrderModel()
       @_adjustCustomerAddress()
@@ -151,9 +150,14 @@ define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
       orderModel = @get("orderModel")
 
       # listen for changes in order model
-      orderModel.on "change", (->
+      orderModel.on "change", =>
         @trigger "change"
-      ), this
+
+    _listenToStoreModelChange: ->
+      stateModel.on "change:storeModel", =>
+        # reset ordered items collection on store change
+        @_resetOrderModel()
+        @_listenToDeliveryAreaSelection()
 
     _listenToDeliveryAreaSelection: ->
       storeModel = stateModel.get("storeModel")

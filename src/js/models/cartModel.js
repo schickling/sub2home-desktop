@@ -13,11 +13,9 @@ define(["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
       if (stateModel.hasChangedStore()) {
         this._resetOrderModel();
       }
-      stateModel.on("change:storeModel", (function() {
-        this._resetOrderModel();
-        return this._listenToDeliveryAreaSelection();
-      }), this);
-      return this._listenToDeliveryAreaSelection();
+      this._listenToStoreModelChange();
+      this._listenToDeliveryAreaSelection();
+      return this._adjustCustomerAddress();
     },
     toJSON: function() {
       var attributes;
@@ -158,19 +156,29 @@ define(["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
       return this._listenToOrderModel();
     },
     _resetOrderModel: function() {
-      var orderModel, storeModel;
-      orderModel = new OrderModel();
-      storeModel = stateModel.get("storeModel");
+      var addressModel, orderModel;
+      addressModel = this.get("orderModel").get("addressModel");
+      orderModel = new OrderModel({
+        addressModel: addressModel
+      });
       this.set("orderModel", orderModel);
       this._listenToOrderModel();
       return this._adjustCustomerAddress();
     },
     _listenToOrderModel: function() {
-      var orderModel;
+      var orderModel,
+        _this = this;
       orderModel = this.get("orderModel");
-      return orderModel.on("change", (function() {
-        return this.trigger("change");
-      }), this);
+      return orderModel.on("change", function() {
+        return _this.trigger("change");
+      });
+    },
+    _listenToStoreModelChange: function() {
+      var _this = this;
+      return stateModel.on("change:storeModel", function() {
+        _this._resetOrderModel();
+        return _this._listenToDeliveryAreaSelection();
+      });
     },
     _listenToDeliveryAreaSelection: function() {
       var storeModel;
