@@ -190,6 +190,9 @@ define(["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
     _adjustCustomerAddress: function() {
       var addressModel, orderModel, selectedDeliveryAreaModel, storeModel;
       storeModel = stateModel.get("storeModel");
+      if (!storeModel) {
+        return;
+      }
       orderModel = this.get("orderModel");
       addressModel = orderModel.get("addressModel");
       selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel();

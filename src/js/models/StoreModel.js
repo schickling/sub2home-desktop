@@ -99,6 +99,9 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     getSelectedDeliveryAreaModel: function() {
       var deliveryAreasCollection, selectedDeliveryAreaModel;
       deliveryAreasCollection = this.get("deliveryAreasCollection");
+      if (!deliveryAreasCollection) {
+        return;
+      }
       selectedDeliveryAreaModel = deliveryAreasCollection.find(function(deliveryAreaModel) {
         return deliveryAreaModel.get("isSelected");
       });

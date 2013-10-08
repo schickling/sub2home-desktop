@@ -81,8 +81,9 @@ define ["underscore", "backbone", "services/notificationcenter", "models/Address
       selectedDeliveryAreaModel = @getSelectedDeliveryAreaModel()
       selectedDeliveryAreaModel.get "minimumDuration"
 
-    getSelectedDeliveryAreaModel: ->
+    getSelectedDeliveryAreaModel: () ->
       deliveryAreasCollection = @get("deliveryAreasCollection")
+      return  unless deliveryAreasCollection
       selectedDeliveryAreaModel = deliveryAreasCollection.find((deliveryAreaModel) ->
         deliveryAreaModel.get "isSelected"
       )
@@ -90,11 +91,10 @@ define ["underscore", "backbone", "services/notificationcenter", "models/Address
       # lazy select delivery area after it got parsed from server
       # and thus the customer didn't selected a delivery area
       if selectedDeliveryAreaModel
-        selectedDeliveryAreaModel
+        return selectedDeliveryAreaModel
       else
-
         # TODO remove!!!
-        deliveryAreasCollection.first().set
+        return deliveryAreasCollection.first().set
           isSelected: true
         ,
           silent: true

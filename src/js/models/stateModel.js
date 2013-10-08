@@ -65,7 +65,7 @@ define([
 				realFetchDate = this.get('storeFetchDate') || new Date(0),
 				needsRefetch = realFetchDate.getTime() < minimumFetchTimestamp;
 
-			if (!storeModel && this.get('storeAlias') !== '' || needsRefetch) {
+			if ((!storeModel || needsRefetch) && this.get('storeAlias') !== '') {
 				this._fetchStoreModelFromServer();
 			}
 
@@ -166,6 +166,8 @@ define([
 					// needed if listener for storeAlias:change wasn't initialized yet in cartModel
 					changedStore: true
 				});
+
+				console.log(storeModel);
 
 				this._listenForStoreInternalChanges();
 

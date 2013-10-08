@@ -15,6 +15,7 @@ define([
 
 			// add class
 			this.$el.addClass('ingredientCategory');
+			this.$el.toggleClass('isSingle', !!this.model.get('isSingle'));
 
 			// render ingredients
 			this.renderIngredients();

@@ -6,6 +6,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     currentTimelineItemIndex: 0,
     currentInfoIndex: 0,
     animationTime: 400,
+    delayTimeout: null,
     $buttonNext: null,
     $buttonPrev: null,
     $buttonCart: null,
@@ -20,6 +21,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     $stageOverlay: null,
     events: {
       "click #bNext": "_forward",
+      "click .ingredientCategory.isSingle .ingredient": "_delayedForward",
       "fetched .article, .menuUpgrade": "_forward",
       "click #bPrev": "_backward",
       "click #bCart": "_finish",
@@ -175,6 +177,13 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
           return this._navigate();
         }
       }
+    },
+    _delayedForward: function() {
+      var _this = this;
+      clearTimeout(this.delayTimeout);
+      return this.delayTimeout = setTimeout(function() {
+        return _this._forward();
+      }, 500);
     },
     _backward: function() {
       var currentTimelineItemModel;

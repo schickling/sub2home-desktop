@@ -166,6 +166,7 @@ define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
     _adjustCustomerAddress: ->
       # copy postal and city to customer address
       storeModel = stateModel.get("storeModel")
+      return  unless storeModel
       orderModel = @get("orderModel")
       addressModel = orderModel.get("addressModel")
       selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel()
