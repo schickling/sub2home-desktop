@@ -15,7 +15,9 @@ define([
 		template: _.template(DeliveryTemplate),
 
 		initialize: function () {
-			this._render();
+			if (stateModel.get('storeModel').get('deliveryAreaWasSelected')) {
+				this._render();
+			}
 			this._listenToStoreModel();
 		},
 
