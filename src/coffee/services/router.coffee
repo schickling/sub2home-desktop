@@ -1,4 +1,4 @@
-define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) ->
+define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "services/mouseflow", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, mouseflow, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -154,7 +154,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         # destory old page view to unbind listeners
         params.currentPageView = @_pageView  if @_pageView
         @_pageView = new MainView(params)
-        window.mouseflow.newPageView();
+        mouseflow.newPageView();
 
     _defaultAction: ->
       fragment = Backbone.history.fragment
