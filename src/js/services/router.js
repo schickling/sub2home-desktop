@@ -1,4 +1,4 @@
-define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "services/mouseflow", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, mouseflow, stateModel, authentificationModel) {
+define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "models/stateModel", "models/authentificationModel"], function(require, $, _, Backbone, backboneAnalytics, notificationcenter, stateModel, authentificationModel) {
   var Router;
   Router = Backbone.Router.extend({
     routes: {
@@ -184,8 +184,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         if (_this._pageView) {
           params.currentPageView = _this._pageView;
         }
-        _this._pageView = new MainView(params);
-        return mouseflow.newPageView();
+        return _this._pageView = new MainView(params);
       });
     },
     _defaultAction: function() {
