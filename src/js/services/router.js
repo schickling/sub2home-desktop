@@ -184,7 +184,8 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         if (_this._pageView) {
           params.currentPageView = _this._pageView;
         }
-        return _this._pageView = new MainView(params);
+        _this._pageView = new MainView(params);
+        return window.mouseflow.newPageView();
       });
     },
     _defaultAction: function() {

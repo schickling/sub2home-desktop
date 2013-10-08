@@ -154,6 +154,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         # destory old page view to unbind listeners
         params.currentPageView = @_pageView  if @_pageView
         @_pageView = new MainView(params)
+        window.mouseflow.newPageView();
 
     _defaultAction: ->
       fragment = Backbone.history.fragment
