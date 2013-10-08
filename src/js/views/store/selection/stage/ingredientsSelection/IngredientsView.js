@@ -1,10 +1,11 @@
 // Filename: src/js/views/store/selection/stage/ingredientsSelection/IngredientsView.js
 define([
 	'jquery',
+	'libs/jquery.lazyload',
 	'underscore',
 	'backbone',
 	'views/store/selection/stage/ingredientsSelection/IngredientView'
-	], function ($, _, Backbone, IngredientView) {
+	], function ($, jqueryLazyload, _, Backbone, IngredientView) {
 
 	"use strict";
 
@@ -15,7 +16,6 @@ define([
 		 */
 
 		initialize: function () {
-
 			this.render();
 		},
 
@@ -28,6 +28,8 @@ define([
 			_.each(this.collection.models, function (ingredientModel) {
 				this._renderIngredient(ingredientModel);
 			}, this);
+
+	        this.$el.lazyload();
 		},
 
 		_renderIngredient: function (ingredientModel) {
