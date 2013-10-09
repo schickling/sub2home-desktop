@@ -3,6 +3,7 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
   return MenuComponentOptionArticleView = Backbone.View.extend({
     className: "article",
     template: _.template(MenuComponentOptionArticleTemplate),
+    clickLocked: false,
     events: {
       click: "_select"
     },
@@ -36,41 +37,59 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
     _select: function() {
       var newArticleModel, oldArticleModel,
         _this = this;
-      oldArticleModel = this.orderedArticleModel.get("articleModel");
-      newArticleModel = new ArticleModel({
-        id: this.model.get("id")
-      });
-      return newArticleModel.fetch({
-        success: function() {
-          var newIngredientCategoriesCollection, oldIngredientCategoriesCollection;
-          if (oldArticleModel !== null) {
-            newIngredientCategoriesCollection = newArticleModel.get("ingredientCategoriesCollection");
-            oldIngredientCategoriesCollection = oldArticleModel.get("ingredientCategoriesCollection");
-            if (newIngredientCategoriesCollection && oldIngredientCategoriesCollection) {
-              newIngredientCategoriesCollection.each(function(newIngredientCategoryModel) {
-                var newIngredientsCollection, oldIngredientCategoryModel, oldIngredientsCollection;
-                oldIngredientCategoryModel = oldIngredientCategoriesCollection.find(function(oldIngredientCategoryModel) {
-                  return oldIngredientCategoryModel.get("title") === newIngredientCategoryModel.get("title");
-                });
-                if (oldIngredientCategoryModel) {
-                  newIngredientsCollection = newIngredientCategoryModel.get("ingredientsCollection");
-                  oldIngredientsCollection = oldIngredientCategoryModel.get("ingredientsCollection");
-                  return newIngredientsCollection.each(function(newIngredientModel) {
-                    var oldIngredientModel;
-                    oldIngredientModel = oldIngredientsCollection.find(function(oldIngredientModel) {
-                      return oldIngredientModel.get("id") === newIngredientModel.get("id");
-                    });
-                    return newIngredientModel.set("isSelected", oldIngredientModel && oldIngredientModel.get("isSelected"));
+      if (!this.clickLocked) {
+        this.clickLocked = true;
+        oldArticleModel = this.orderedArticleModel.get("articleModel");
+        newArticleModel = new ArticleModel({
+          id: this.model.get("id")
+        });
+        this.model.set({
+          isSelected: true
+        }, {
+          silent: true
+        });
+        this._update();
+        return newArticleModel.fetch({
+          success: function() {
+            var newIngredientCategoriesCollection, oldIngredientCategoriesCollection;
+            if (oldArticleModel !== null) {
+              newIngredientCategoriesCollection = newArticleModel.get("ingredientCategoriesCollection");
+              oldIngredientCategoriesCollection = oldArticleModel.get("ingredientCategoriesCollection");
+              if (newIngredientCategoriesCollection && oldIngredientCategoriesCollection) {
+                newIngredientCategoriesCollection.each(function(newIngredientCategoryModel) {
+                  var newIngredientsCollection, oldIngredientCategoryModel, oldIngredientsCollection;
+                  oldIngredientCategoryModel = oldIngredientCategoriesCollection.find(function(oldIngredientCategoryModel) {
+                    return oldIngredientCategoryModel.get("title") === newIngredientCategoryModel.get("title");
                   });
-                }
-              });
+                  if (oldIngredientCategoryModel) {
+                    newIngredientsCollection = newIngredientCategoryModel.get("ingredientsCollection");
+                    oldIngredientsCollection = oldIngredientCategoryModel.get("ingredientsCollection");
+                    return newIngredientsCollection.each(function(newIngredientModel) {
+                      var oldIngredientModel;
+                      oldIngredientModel = oldIngredientsCollection.find(function(oldIngredientModel) {
+                        return oldIngredientModel.get("id") === newIngredientModel.get("id");
+                      });
+                      return newIngredientModel.set("isSelected", oldIngredientModel && oldIngredientModel.get("isSelected"));
+                    });
+                  }
+                });
+              }
             }
+            _this.orderedArticleModel.set("articleModel", newArticleModel);
+            _this.model.trigger("change:isSelected");
+            _this.$el.trigger("fetched");
+            return _this.clickLocked = false;
+          },
+          error: function() {
+            _this.clickLocked = false;
+            return _this.model.set({
+              isSelected: true
+            }, {
+              silent: true
+            });
           }
-          _this.orderedArticleModel.set("articleModel", newArticleModel);
-          _this.model.set("isSelected", true);
-          return _this.$el.trigger("fetched");
-        }
-      });
+        });
+      }
     },
     _listenForDestory: function() {
       return this.options.selectionView.once("destroy", this.stopListening, this);

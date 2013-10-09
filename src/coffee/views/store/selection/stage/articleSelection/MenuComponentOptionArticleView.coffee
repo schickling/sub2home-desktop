@@ -6,6 +6,8 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
 
     template: _.template(MenuComponentOptionArticleTemplate)
 
+    clickLocked: false
+
     events:
       click: "_select"
 
@@ -37,36 +39,42 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
       @$el.toggleClass "selected", @model.get("isSelected")
 
     _select: ->
-      oldArticleModel = @orderedArticleModel.get("articleModel")
-      newArticleModel = new ArticleModel(id: @model.get("id"))
-      newArticleModel.fetch success: =>
+      unless @clickLocked
+        @clickLocked = true
+        oldArticleModel = @orderedArticleModel.get("articleModel")
+        newArticleModel = new ArticleModel(id: @model.get("id"))
+        @model.set { isSelected: true }, { silent: true }
+        @_update()
+        newArticleModel.fetch
+          success: =>
+            # copy old article model's ingredients
+            if oldArticleModel isnt null
+              newIngredientCategoriesCollection = newArticleModel.get("ingredientCategoriesCollection")
+              oldIngredientCategoriesCollection = oldArticleModel.get("ingredientCategoriesCollection")
+              if newIngredientCategoriesCollection and oldIngredientCategoriesCollection
 
-        # copy old article model's ingredients
-        if oldArticleModel isnt null
-          newIngredientCategoriesCollection = newArticleModel.get("ingredientCategoriesCollection")
-          oldIngredientCategoriesCollection = oldArticleModel.get("ingredientCategoriesCollection")
-          if newIngredientCategoriesCollection and oldIngredientCategoriesCollection
+                newIngredientCategoriesCollection.each (newIngredientCategoryModel) ->
+                  oldIngredientCategoryModel = oldIngredientCategoriesCollection.find (oldIngredientCategoryModel) ->
+                    oldIngredientCategoryModel.get("title") is newIngredientCategoryModel.get("title")
 
-            newIngredientCategoriesCollection.each (newIngredientCategoryModel) ->
-              oldIngredientCategoryModel = oldIngredientCategoriesCollection.find (oldIngredientCategoryModel) ->
-                oldIngredientCategoryModel.get("title") is newIngredientCategoryModel.get("title")
+                  if oldIngredientCategoryModel
+                    newIngredientsCollection = newIngredientCategoryModel.get("ingredientsCollection")
+                    oldIngredientsCollection = oldIngredientCategoryModel.get("ingredientsCollection")
 
-              if oldIngredientCategoryModel
-                newIngredientsCollection = newIngredientCategoryModel.get("ingredientsCollection")
-                oldIngredientsCollection = oldIngredientCategoryModel.get("ingredientsCollection")
+                    newIngredientsCollection.each (newIngredientModel) ->
+                      oldIngredientModel = oldIngredientsCollection.find (oldIngredientModel) ->
+                        oldIngredientModel.get("id") is newIngredientModel.get("id")
+                      newIngredientModel.set("isSelected", oldIngredientModel && oldIngredientModel.get("isSelected"))
 
-                newIngredientsCollection.each (newIngredientModel) ->
-                  oldIngredientModel = oldIngredientsCollection.find (oldIngredientModel) ->
-                    oldIngredientModel.get("id") is newIngredientModel.get("id")
-                  newIngredientModel.set("isSelected", oldIngredientModel && oldIngredientModel.get("isSelected"))
+            # add to ordered article
+            @orderedArticleModel.set "articleModel", newArticleModel
+            @model.trigger "change:isSelected"
+            @$el.trigger "fetched"
+            @clickLocked = false
 
-        # add to ordered article
-        @orderedArticleModel.set "articleModel", newArticleModel
-
-        # mark current as isSelected
-        @model.set "isSelected", true
-        @$el.trigger "fetched"
-
+          error: =>
+            @clickLocked = false
+            @model.set { isSelected: true }, { silent: true }
 
     _listenForDestory: ->
       @options.selectionView.once "destroy", @stopListening, this
