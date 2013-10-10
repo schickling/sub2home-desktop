@@ -65,8 +65,8 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
       # wait unitl map is loaded
       gmaps.event.addListenerOnce @map, "idle", =>
-        @mapDeferred.resolve() # init geolocation
         gmaps.event.trigger @map, "resize"
+        @mapDeferred.resolve() # init geolocation
 
     _runAndWaitForPostal: (postal) ->
       @listenTo @postalSearchView, "newPostal", (postal) =>
