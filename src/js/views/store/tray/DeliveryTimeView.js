@@ -36,8 +36,8 @@ define(["jquery", "underscore", "backbone", "moment", "services/notificationcent
     _initializeIntervalTimer: function() {
       var _this = this;
       return this.intervalTimer = setInterval(function() {
-        _this._fixDueDate;
-        return _this._render;
+        _this._fixDueDate();
+        return _this._render();
       }, 60000);
     },
     _addHour: function() {

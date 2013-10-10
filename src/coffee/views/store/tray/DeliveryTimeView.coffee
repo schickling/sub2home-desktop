@@ -35,8 +35,8 @@ define ["jquery", "underscore", "backbone", "moment", "services/notificationcent
 
     _initializeIntervalTimer: ->
       @intervalTimer = setInterval =>
-        @_fixDueDate
-        @_render
+        @_fixDueDate()
+        @_render()
       , 60000
 
     _addHour: ->
