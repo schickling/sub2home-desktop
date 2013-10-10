@@ -62,8 +62,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       this.geocoder = new gmaps.Geocoder();
       this.mapDeferred = $.Deferred();
       return gmaps.event.addListenerOnce(this.map, "idle", function() {
-        _this.mapDeferred.resolve();
-        return gmaps.event.trigger(_this.map, "resize");
+        gmaps.event.trigger(_this.map, "resize");
+        return _this.mapDeferred.resolve();
       });
     },
     _runAndWaitForPostal: function(postal) {
@@ -175,8 +175,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return notificationcenter.hideTooltip();
     },
     _centerMapToBounds: function(latlngbounds) {
-      this.map.setCenter(latlngbounds.getCenter());
-      return this.map.fitBounds(latlngbounds);
+      this.map.fitBounds(latlngbounds);
+      return this.map.setCenter(latlngbounds.getCenter());
     },
     _centerMapToNotFoundPostal: function() {
       var _this = this;

@@ -185,8 +185,9 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       notificationcenter.hideTooltip()
 
     _centerMapToBounds: (latlngbounds) ->
-      @map.setCenter latlngbounds.getCenter()
       @map.fitBounds latlngbounds
+      @map.setCenter latlngbounds.getCenter()
+      
 
     _centerMapToNotFoundPostal: ->
       @geocoder.geocode
