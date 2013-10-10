@@ -6,8 +6,6 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
 
     template: _.template(MenuComponentOptionArticleTemplate)
 
-    clickLocked: false
-
     events:
       click: "_select"
 
@@ -39,8 +37,8 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
       @$el.toggleClass "selected", @model.get("isSelected")
 
     _select: ->
-      unless @clickLocked
-        @clickLocked = true
+      unless @options.selectionView.clickLocked
+        @options.selectionView.clickLocked = true
         oldArticleModel = @orderedArticleModel.get("articleModel")
         newArticleModel = new ArticleModel(id: @model.get("id"))
         @model.set { isSelected: true }, { silent: true }
@@ -70,10 +68,12 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
             @orderedArticleModel.set "articleModel", newArticleModel
             @model.trigger "change:isSelected"
             @$el.trigger "fetched"
-            @clickLocked = false
+            setTimeout ( =>
+              @options.selectionView.clickLocked = false
+            ), 600
 
           error: =>
-            @clickLocked = false
+            @options.selectionView.clickLocked = false
             @model.set { isSelected: true }, { silent: true }
 
     _listenForDestory: ->

@@ -3,7 +3,6 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
   return MenuComponentOptionArticleView = Backbone.View.extend({
     className: "article",
     template: _.template(MenuComponentOptionArticleTemplate),
-    clickLocked: false,
     events: {
       click: "_select"
     },
@@ -37,8 +36,8 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
     _select: function() {
       var newArticleModel, oldArticleModel,
         _this = this;
-      if (!this.clickLocked) {
-        this.clickLocked = true;
+      if (!this.options.selectionView.clickLocked) {
+        this.options.selectionView.clickLocked = true;
         oldArticleModel = this.orderedArticleModel.get("articleModel");
         newArticleModel = new ArticleModel({
           id: this.model.get("id")
@@ -78,10 +77,12 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
             _this.orderedArticleModel.set("articleModel", newArticleModel);
             _this.model.trigger("change:isSelected");
             _this.$el.trigger("fetched");
-            return _this.clickLocked = false;
+            return setTimeout((function() {
+              return _this.options.selectionView.clickLocked = false;
+            }), 600);
           },
           error: function() {
-            _this.clickLocked = false;
+            _this.options.selectionView.clickLocked = false;
             return _this.model.set({
               isSelected: true
             }, {
