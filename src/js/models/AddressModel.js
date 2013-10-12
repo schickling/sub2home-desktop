@@ -59,7 +59,7 @@ define(["underscore", "backbone", "services/notificationcenter"], function(_, Ba
     },
     _validateEmail: function(email) {
       var re;
-      re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      re = /^(([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+)?$/;
       return re.test(email);
     },
     _validatePhone: function(phone) {
