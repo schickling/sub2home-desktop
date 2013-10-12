@@ -99,13 +99,16 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     },
     _listenToTimelineItem: function(timelineItemModel) {
       return this.listenTo(timelineItemModel, "change", function() {
+        var isComplete;
         if (timelineItemModel.hasChanged("isActive") && timelineItemModel.get("isActive")) {
           this.currentTimelineItemModel.set("isActive", false);
           this._setCurrentTimelineItem(timelineItemModel);
           this.currentTimelineItemIndex = this.collection.indexOf(timelineItemModel);
           this._navigate();
         }
-        return this.$timelineCart.toggleClass("clickable", this.model.isComplete());
+        isComplete = this.model.isComplete();
+        this.$timelineCart.toggleClass("clickable", isComplete);
+        return this.$buttonCart.toggleClass("clickable", isComplete);
       });
     },
     _adjustButtons: function() {

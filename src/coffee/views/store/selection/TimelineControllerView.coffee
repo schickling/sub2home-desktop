@@ -165,7 +165,9 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
           # _navigate
           @_navigate()
-        @$timelineCart.toggleClass "clickable", @model.isComplete()
+        isComplete = @model.isComplete()
+        @$timelineCart.toggleClass "clickable", isComplete
+        @$buttonCart.toggleClass "clickable", isComplete
 
 
     _adjustButtons: ->
