@@ -110,6 +110,11 @@
 	.slide .item.ingredient .smallNote .pricetag:after {
 		font-size: 99px; // To prevent sharp edges
 	}
+
+	.note .well {
+		background: @onNoteColor30_win;
+	}
+
 }
 
 // WIN CHROME
@@ -148,7 +153,7 @@
 			top: 5px;
 		}
 	}
-	
+
 	.amountOrderedItem .amount {
 		height: 28px;
 		padding-top: 10px;
@@ -160,15 +165,31 @@
 }
 
 .win.firefox {
-	
+
+	// global
+
 	label {
 		bottom: 0px;
 	}
 
+	.pricetag {
+		padding-top: 19px;
+	}
+
+	// home.home
+
+	#storeSuggestion #submitStoreSuggestion {
+		padding: 10px 14px 10px;
+	}
+
 	#locationSelection {
+		#locationLoader {
+			bottom: 24px;
+		}
 		#location {
 			.positioned;
-			top: 0px;	
+			top: 0px;
+			left: 0px;
 			&:before {
 				left: -5px;
 	     		top: 18px;
@@ -179,6 +200,8 @@
 			bottom: 22px;
 		}
 	}
+
+	// store.home
 
 	.flagFront {
 		&:before, &:after {
@@ -200,6 +223,8 @@
 		left: -3px;
 	}
 
+	// store.tray
+
 	.amountOrderedItem .amount {
 		height: 28px;
 		padding-top: 10px;
@@ -215,14 +240,13 @@
 	#checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
 		top: 33px;
 	}
-
 }
 
 .ie {
 	#locationSelection {
 		#location {
 			.positioned;
-			top: -2px;	
+			top: -2px;
 			&:before {
 				top: 20px;
 				left: -5px;
@@ -234,15 +258,15 @@
 	.item .footlongOption, .article .footlongOption {
 		&:before {
 			top: 87px;
-		}	
+		}
 	}
 
 	.pricetag {
 		padding-top: 13px;
 		// filter: Shadow(Color=#999999, Direction=180, Strength=5);
 		&:before {
-			
-			
+
+
 		}
 	}
 
@@ -261,7 +285,7 @@
 		 	padding-top: 4px;
 		 }
 	}
-	
+
 	.pricetag.small span {
 		top: -2px;
 	}

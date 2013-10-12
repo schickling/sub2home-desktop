@@ -11136,6 +11136,9 @@ aside#header {
 .win .slide .item.ingredient .smallNote .pricetag:after {
   font-size: 99px;
 }
+.win .note .well {
+  background: rgba(220, 175, 109, 0.3);
+}
 .win.chrome #checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
   margin-top: -2px;
 }
@@ -11178,9 +11181,19 @@ aside#header {
 .win.firefox label {
   bottom: 0px;
 }
+.win.firefox .pricetag {
+  padding-top: 19px;
+}
+.win.firefox #storeSuggestion #submitStoreSuggestion {
+  padding: 10px 14px 10px;
+}
+.win.firefox #locationSelection #locationLoader {
+  bottom: 24px;
+}
 .win.firefox #locationSelection #location {
   position: relative;
   top: 0px;
+  left: 0px;
 }
 .win.firefox #locationSelection #location:before {
   left: -5px;
