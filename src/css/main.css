@@ -10236,6 +10236,10 @@ div#payment > div.disabled .btn.active {
   border-bottom: 1px solid #dc952b;
   text-decoration: line-through;
 }
+#deliveryAddressSettings > div > div.invalid input:focus {
+  border-bottom: 1px solid #dc952b !important;
+  text-decoration: none;
+}
 #deliveryAddressSettings > div#customerName > div {
   width: 367px;
 }

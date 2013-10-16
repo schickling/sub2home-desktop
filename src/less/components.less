@@ -6285,11 +6285,11 @@ div#payment {
         input {
           border-bottom: 1px solid @orange;
           text-decoration: line-through;
+          &:focus {
+            border-bottom: 1px solid @orange !important;
+            text-decoration: none;
+          }
         }
-      }
-
-      &.valid {
-
       }
     }
 
