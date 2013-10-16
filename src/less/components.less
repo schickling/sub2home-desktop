@@ -6238,7 +6238,7 @@ div#payment {
 
     .transition(border-color .1s linear);
     &:focus {
-      border-bottom: 1px solid @greenLighter70;
+      border-bottom: 1px solid @greenLighter70 !important;
     }
   }
 
@@ -6253,7 +6253,46 @@ div#payment {
     >div {
       float: left;
       .positioned;
+
+      &.mandatory {
+        label {
+          color: @white;
+        }
+      }
+
+      &.passed {
+        label {
+          color: @labelColorOnDark;
+        }
+        input {
+          border-bottom: 1px solid @greenLighter40;
+
+        }
+        .iCheck;
+        &:before {
+          font-family: "Homicons";
+          position: absolute;
+          right: 5px;
+          top: 10px;
+          color: @greenLighter40;
+        }
+      }
+
+      &.invalid {
+        label {
+          color: @orange;
+        }
+        input {
+          border-bottom: 1px solid @orange;
+          text-decoration: line-through;
+        }
+      }
+
+      &.valid {
+
+      }
     }
+
     &#customerName {
       >div {
         width: 367px;

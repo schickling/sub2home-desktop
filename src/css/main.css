@@ -10187,7 +10187,7 @@ div#payment > div.disabled .btn.active {
 }
 #deliveryAddressSettings input:focus,
 #deliveryAddressSettings span:focus {
-  border-bottom: 1px solid rgba(156, 200, 62, 0.7);
+  border-bottom: 1px solid rgba(156, 200, 62, 0.7) !important;
 }
 #deliveryAddressSettings label {
   color: rgba(255, 255, 255, 0.2);
@@ -10209,6 +10209,32 @@ div#payment > div.disabled .btn.active {
 #deliveryAddressSettings > div > div {
   float: left;
   position: relative;
+}
+#deliveryAddressSettings > div > div.mandatory label {
+  color: #ffffff;
+}
+#deliveryAddressSettings > div > div.passed label {
+  color: rgba(255, 255, 255, 0.2);
+}
+#deliveryAddressSettings > div > div.passed input {
+  border-bottom: 1px solid rgba(156, 200, 62, 0.4);
+}
+#deliveryAddressSettings > div > div.passed:before {
+  content: "\e074";
+}
+#deliveryAddressSettings > div > div.passed:before {
+  font-family: "Homicons";
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: rgba(156, 200, 62, 0.4);
+}
+#deliveryAddressSettings > div > div.invalid label {
+  color: #dc952b;
+}
+#deliveryAddressSettings > div > div.invalid input {
+  border-bottom: 1px solid #dc952b;
+  text-decoration: line-through;
 }
 #deliveryAddressSettings > div#customerName > div {
   width: 367px;
