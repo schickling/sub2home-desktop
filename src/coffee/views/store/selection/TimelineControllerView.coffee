@@ -29,6 +29,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
     $timelineCart: null
     $noUpgrade: null
     $stageOverlay: null
+    $pulseNextButton: true
     events:
 
       # buttons
@@ -73,8 +74,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       # show no upgrade view if is first slide
       @_slideNoUpgradeView()
 
-      # compensate content overlay
+      # compensate content overlayls
+      
       @_adjustStageOverlay()
+
+      # initializie pulse button
+      @_initializePulseButton()
 
     _chacheDOM: ->
 
@@ -379,6 +384,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     destroy: ->
       $(document).off "keyup"
+      @$pulseNextButton = false
       @stopListening()
 
 
@@ -428,3 +434,21 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _noUpgradeViewIsActive: ->
       @_hasNoUpgradeView() and @currentTimelineItemModel.get("menuUpgradeSelection")
+
+    _initializePulseButton: ->
+      @$pulseNextButton = true
+      @_pulseNextButton ""
+
+    _pulseNextButton: (currentPulseClass) ->
+      pulseClass = "pulse"
+      that = this
+      if currentPulseClass is pulseClass
+        @$buttonNext.removeClass pulseClass
+        currentPulseClass = ""
+      else
+        @$buttonNext.addClass pulseClass
+        currentPulseClass = pulseClass
+      if @$pulseNextButton
+        setTimeout (->
+          that._pulseNextButton currentPulseClass
+        ), 1500

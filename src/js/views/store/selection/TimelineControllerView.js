@@ -19,6 +19,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     $timelineCart: null,
     $noUpgrade: null,
     $stageOverlay: null,
+    $pulseNextButton: true,
     events: {
       "click #bNext": "_forward",
       "click .ingredientCategory.isSingle .ingredient": "_delayedForward",
@@ -41,7 +42,8 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       this._initializeTimeline();
       this._initializeListeners();
       this._slideNoUpgradeView();
-      return this._adjustStageOverlay();
+      this._adjustStageOverlay();
+      return this._initializePulseButton();
     },
     _chacheDOM: function() {
       var $overlay;
@@ -332,6 +334,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     },
     destroy: function() {
       $(document).off("keyup");
+      this.$pulseNextButton = false;
       return this.stopListening();
     },
     _setCurrentTimelineItem: function(currentTimelineItemModel) {
@@ -375,6 +378,27 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     },
     _noUpgradeViewIsActive: function() {
       return this._hasNoUpgradeView() && this.currentTimelineItemModel.get("menuUpgradeSelection");
+    },
+    _initializePulseButton: function() {
+      this.$pulseNextButton = true;
+      return this._pulseNextButton("");
+    },
+    _pulseNextButton: function(currentPulseClass) {
+      var pulseClass, that;
+      pulseClass = "pulse";
+      that = this;
+      if (currentPulseClass === pulseClass) {
+        this.$buttonNext.removeClass(pulseClass);
+        currentPulseClass = "";
+      } else {
+        this.$buttonNext.addClass(pulseClass);
+        currentPulseClass = pulseClass;
+      }
+      if (this.$pulseNextButton) {
+        return setTimeout((function() {
+          return that._pulseNextButton(currentPulseClass);
+        }), 1500);
+      }
     }
   });
 });
