@@ -1,11 +1,11 @@
 // Filename: src/js/models/stateModel.js
 define([
-    'underscore',
-    'backbone',
-    'backboneLocalStorage',
-    'models/StoreModel',
-    'services/server'
-    ], function (_, Backbone, backboneLocalStorage, StoreModel, server) {
+	'underscore',
+	'backbone',
+	'backboneLocalStorage',
+	'models/StoreModel',
+	'services/server'
+], function(_, Backbone, backboneLocalStorage, StoreModel, server) {
 
 	"use strict";
 
@@ -34,7 +34,7 @@ define([
 		},
 
 		// TODO: clean up
-		initialize: function () {
+		initialize: function() {
 
 			server.initialize();
 
@@ -49,7 +49,7 @@ define([
 
 
 			// save on change
-			this.on('change', function () {
+			this.on('change', function() {
 				// console.log('state saved:');
 				// console.log(this.changedAttributes());
 				this.save({}, {
@@ -65,12 +65,12 @@ define([
 				realFetchDate = this.get('storeFetchDate') || new Date(0),
 				needsRefetch = realFetchDate.getTime() < minimumFetchTimestamp;
 
-			if ((!storeModel || needsRefetch) && this.get('storeAlias') !== '') {
-				this._fetchStoreModelFromServer();
-			}
+			// if ((!storeModel || needsRefetch) && this.get('storeAlias') !== '') {
+			this._fetchStoreModelFromServer();
+			// }
 
 			// save old route
-			this.on('change:currentRoute', function () {
+			this.on('change:currentRoute', function() {
 				this.set({
 					prevRoute: this.previous('currentRoute')
 				}, {
@@ -80,7 +80,7 @@ define([
 
 
 			// load new store on alias change
-			this.on('change:storeAlias', function () {
+			this.on('change:storeAlias', function() {
 
 				var currentStoreModel = this.get('storeModel');
 
@@ -97,7 +97,7 @@ define([
 
 		},
 
-		toJSON: function () {
+		toJSON: function() {
 
 			var attributes = _.clone(this.attributes);
 
@@ -108,7 +108,7 @@ define([
 			return attributes;
 		},
 
-		parse: function (response) {
+		parse: function(response) {
 
 			if (response.hasOwnProperty('storeModel')) {
 
@@ -129,12 +129,12 @@ define([
 			return response;
 		},
 
-		_setStoreAliasForServer: function () {
+		_setStoreAliasForServer: function() {
 			// mirror changes in store alias to ajax config
 			server.setStoreAlias(this.get('storeAlias'));
 		},
 
-		_fetchStoreModelFromServer: function () {
+		_fetchStoreModelFromServer: function() {
 
 			// console.log('fetched');
 
@@ -146,7 +146,7 @@ define([
 			storeModel.fetch({
 				// needed because other views depend on store models
 				async: false,
-				error: function () {
+				error: function() {
 					errorOccured = true;
 				}
 			});
@@ -158,6 +158,7 @@ define([
 
 			} else {
 
+				storeModel = this._selectCachedStoreModel(storeModel);
 				this.set({
 					storeModel: storeModel,
 					storeFetchDate: new Date(),
@@ -171,17 +172,35 @@ define([
 
 			}
 		},
+		_selectCachedStoreModel: function(storeModel) {
+			var selectedAreaModel;
+			var oldStoreModel = this.get("storeModel");
+			var oldDeliveryAreasCollection = oldStoreModel.get("deliveryAreasCollection");
+			var oldDeliveryAreaModel = oldDeliveryAreasCollection.find(function(deliveryAreaModel) {
+				return deliveryAreaModel.get("isSelected") === true;
+			});
+			if (oldDeliveryAreaModel) {
+				var newDeliveryAreasCollection = storeModel.get("deliveryAreasCollection");
+				var newDeliveryAreaModel = newDeliveryAreasCollection.find(function(deliveryAreaModel) {
+					return deliveryAreaModel.get("postal") === oldDeliveryAreaModel.get("postal") && (deliveryAreaModel.get("district") === oldDeliveryAreaModel.get("district") || deliveryAreaModel.get("city") === oldDeliveryAreaModel.get("district"));
+				});
+				if (newDeliveryAreaModel) {
+					newDeliveryAreaModel.set("isSelected", true);
+				}
+			}
 
-		_listenForStoreInternalChanges: function () {
+			return storeModel;
+		},
+		_listenForStoreInternalChanges: function() {
 			var storeModel = this.get('storeModel');
 
-			storeModel.on('change', function () {
+			storeModel.on('change', function() {
 				this.trigger('change');
 			}, this);
 		},
 
 		// needed for cart model
-		hasChangedStore: function () {
+		hasChangedStore: function() {
 			if (this.get('changedStore')) {
 				this.set('changedStore', false);
 
@@ -191,31 +210,31 @@ define([
 			return false;
 		},
 
-		doesStoreExist: function () {
+		doesStoreExist: function() {
 			return this.get('storeModel') !== null;
 		},
 
-		currentRouteIsClientRelated: function () {
+		currentRouteIsClientRelated: function() {
 			var currentRoute = this.get('currentRoute'),
 				clientRoutes = [
-                    'client.dashboard',
-                    'client.config',
-                    'store.config',
-                    'store.dashboard',
-                    'store.assortment'
-                    ];
+					'client.dashboard',
+					'client.config',
+					'store.config',
+					'store.dashboard',
+					'store.assortment'
+				];
 
 			return _.contains(clientRoutes, currentRoute);
 		},
 
-		currentRouteIsStoreRelated: function () {
+		currentRouteIsStoreRelated: function() {
 			var currentRoute = this.get('currentRoute'),
 				prefix = currentRoute.split('.')[0];
 
 			return prefix === 'store';
 		},
 
-		clientOwnsThisStore: function () {
+		clientOwnsThisStore: function() {
 			var storeModel = this.get('storeModel');
 
 			// check with number since number only gets set if client fetches store model
