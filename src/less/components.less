@@ -831,6 +831,14 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
+
+
+// Pulsation
+
+.pulse {
+  color: @greenLighter70 !important;
+}
+
 // -----------------------------------------------  HEADER  ----------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------
 
@@ -1022,7 +1030,7 @@ aside#header {
         }
       }
 
-      &:hover {
+      &:hover, &.justFilled {
         background: @headerTrayHoverBackground;
         color: darken(@onHeaderColor, 15%);
         .box-shadow(inset 1px 0 2px 0 darken(@onNoteColor, 15%), inset -1px 0 2px 0 darken(@onNoteColor, 15%));
@@ -4530,6 +4538,7 @@ div#payment {
 
     &.bNext {
       right: 20px;
+      &:hover { color: @greenLighter70};
     }
 
     &.bCart {

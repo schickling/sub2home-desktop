@@ -3644,6 +3644,9 @@ img.cookie {
   font-size: 24px;
   resize: none;
 }
+.pulse {
+  color: rgba(156, 200, 62, 0.7) !important;
+}
 aside#header {
   *zoom: 1;
   -webkit-backface-visibility: hidden;
@@ -3857,14 +3860,16 @@ aside#header #headerCustomerContent #trayPreview.filled > span {
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-aside#header #headerCustomerContent #trayPreview:hover {
+aside#header #headerCustomerContent #trayPreview:hover,
+aside#header #headerCustomerContent #trayPreview.justFilled {
   background: rgba(184, 126, 0, 0.35);
   color: #715d2e;
   -webkit-box-shadow: inset 1px 0 2px 0 #ad8d40, inset -1px 0 2px 0 #ad8d40;
   -moz-box-shadow: inset 1px 0 2px 0 #ad8d40, inset -1px 0 2px 0 #ad8d40;
   box-shadow: inset 1px 0 2px 0 #ad8d40, inset -1px 0 2px 0 #ad8d40;
 }
-aside#header #headerCustomerContent #trayPreview:hover > span {
+aside#header #headerCustomerContent #trayPreview:hover > span,
+aside#header #headerCustomerContent #trayPreview.justFilled > span {
   color: #715d2e;
 }
 aside#header #headerCustomerContent #sumContainer {
@@ -8564,6 +8569,9 @@ div#payment > div.disabled .btn.active {
 }
 #overlay .iBtn.bNext {
   right: 20px;
+}
+#overlay .iBtn.bNext:hover {
+  color: rgba(156, 200, 62, 0.7);
 }
 #overlay .iBtn.bCart {
   color: rgba(156, 200, 62, 0.2);
