@@ -175,19 +175,21 @@ define([
 		_selectCachedStoreModel: function(storeModel) {
 			var selectedAreaModel;
 			var oldStoreModel = this.get("storeModel");
-			var oldDeliveryAreasCollection = oldStoreModel.get("deliveryAreasCollection");
-			var oldDeliveryAreaModel = oldDeliveryAreasCollection.find(function(deliveryAreaModel) {
-				return deliveryAreaModel.get("isSelected") === true;
-			});
-			if (oldDeliveryAreaModel) {
-				var newDeliveryAreasCollection = storeModel.get("deliveryAreasCollection");
-				var newDeliveryAreaModel = newDeliveryAreasCollection.find(function(deliveryAreaModel) {
-					return deliveryAreaModel.get("postal") === oldDeliveryAreaModel.get("postal") && (deliveryAreaModel.get("district") === oldDeliveryAreaModel.get("district") || deliveryAreaModel.get("city") === oldDeliveryAreaModel.get("district"));
+			if (oldStoreModel) {
+				var oldDeliveryAreasCollection = oldStoreModel.get("deliveryAreasCollection");
+				var oldDeliveryAreaModel = oldDeliveryAreasCollection.find(function(deliveryAreaModel) {
+					return deliveryAreaModel.get("isSelected") === true;
 				});
-				if (newDeliveryAreaModel) {
-					newDeliveryAreaModel.set("isSelected", true);
+				if (oldDeliveryAreaModel) {
+					var newDeliveryAreasCollection = storeModel.get("deliveryAreasCollection");
+					var newDeliveryAreaModel = newDeliveryAreasCollection.find(function(deliveryAreaModel) {
+						return deliveryAreaModel.get("postal") === oldDeliveryAreaModel.get("postal") && (deliveryAreaModel.get("district") === oldDeliveryAreaModel.get("district") || deliveryAreaModel.get("city") === oldDeliveryAreaModel.get("district"));
+					});
+					if (newDeliveryAreaModel) {
+						newDeliveryAreaModel.set("isSelected", true);
+					}
 				}
-			}
+			};
 
 			return storeModel;
 		},
