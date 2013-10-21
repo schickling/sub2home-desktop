@@ -65,7 +65,7 @@ define([
 				realFetchDate = this.get('storeFetchDate') || new Date(0),
 				needsRefetch = realFetchDate.getTime() < minimumFetchTimestamp;
 
-			if ((!storeModel || needsRefetch) && this.get('storeAlias') !== '') {
+			if (this.get('storeAlias') !== '') {
 			this._fetchStoreModelFromServer();
 			}
 
@@ -158,7 +158,7 @@ define([
 
 			} else {
 
-				// storeModel = this._selectCachedStoreModel(storeModel);
+				storeModel = this._selectCachedStoreModel(storeModel);
 				this.set({
 					storeModel: storeModel,
 					storeFetchDate: new Date(),

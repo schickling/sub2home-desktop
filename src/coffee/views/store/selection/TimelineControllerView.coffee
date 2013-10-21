@@ -29,7 +29,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
     $timelineCart: null
     $noUpgrade: null
     $stageOverlay: null
-    $pulseNextButton: true
+    $pulseButtons: true
     events:
 
       # buttons
@@ -79,7 +79,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_adjustStageOverlay()
 
       # initializie pulse button
-      @_initializePulseButton()
+      @_initializePulseButtons()
 
     _chacheDOM: ->
 
@@ -435,20 +435,22 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
     _noUpgradeViewIsActive: ->
       @_hasNoUpgradeView() and @currentTimelineItemModel.get("menuUpgradeSelection")
 
-    _initializePulseButton: ->
-      @$pulseNextButton = true
-      @_pulseNextButton ""
+    _initializePulseButtons: ->
+      @$pulseButtons = true
+      @_pulseButtons ""
 
-    _pulseNextButton: (currentPulseClass) ->
+    _pulseButtons: (currentPulseClass) ->
       pulseClass = "pulse"
       that = this
       if currentPulseClass is pulseClass
         @$buttonNext.removeClass pulseClass
+        @$buttonCart.removeClass pulseClass
         currentPulseClass = ""
       else
         @$buttonNext.addClass pulseClass
+        @$buttonCart.addClass pulseClass
         currentPulseClass = pulseClass
-      if @$pulseNextButton
+      if @$pulseButtons
         setTimeout (->
-          that._pulseNextButton currentPulseClass
+          that._pulseButtons currentPulseClass
         ), 1500
