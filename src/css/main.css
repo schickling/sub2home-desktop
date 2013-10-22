@@ -8550,10 +8550,10 @@ div#payment > div.disabled .btn.active {
   width: 43px;
   margin: -43px 0 0 0;
   color: rgba(0, 0, 0, 0.15);
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 #overlay .iBtn:before {
   font-size: 100px;
