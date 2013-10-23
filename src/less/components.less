@@ -1369,6 +1369,9 @@ input[type="text"]#locationSelectionInput {
         color: @onNoteColor50;
 
       }
+      &:first-child:before {
+        content: " ";
+      }
     }
   }
 }
@@ -4542,15 +4545,18 @@ div#payment {
     }
 
     &.bCart {
-      color: @greenLighter20;
+      color: @grayLightest;
       right: 100px;
       right: 20px;
       width: 90px;
       &:before {
         left: -5px;
       }
-      &:hover {
-        color: @greenLighter;
+      &.clickable {
+        color: @greenLighter20;
+        &:hover {
+          color: @greenLighter;
+        }
       }
     }
   }
@@ -5120,8 +5126,8 @@ div#payment {
 
     .iCart {
       &.clickable {
-        color: @greenLighter;
-        text-shadow: 0 1px 0 @white, 0 -1px 0 darken(@greenLighter, 15%);
+        color: @greenLighter !important;
+        text-shadow: 0 1px 0 @white, 0 -1px 0 darken(@greenLighter, 15%) !important;
       }
     }
   }

@@ -4233,6 +4233,10 @@ input[type="text"]#locationSelectionInput:focus {
   cursor: default;
   color: rgba(202, 176, 111, 0.5);
 }
+#deliveryAreaSelection span:last-child:first-child:before,
+#postalSelection span:last-child:first-child:before {
+  content: " ";
+}
 #map {
   height: 100%;
   z-index: 50;
@@ -8550,10 +8554,10 @@ div#payment > div.disabled .btn.active {
   width: 43px;
   margin: -43px 0 0 0;
   color: rgba(0, 0, 0, 0.15);
-  -webkit-transition: color 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -o-transition: color 0.5s ease;
-  transition: color 0.5s ease;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 #overlay .iBtn:before {
   font-size: 100px;
@@ -8574,7 +8578,7 @@ div#payment > div.disabled .btn.active {
   color: rgba(156, 200, 62, 0.7);
 }
 #overlay .iBtn.bCart {
-  color: rgba(156, 200, 62, 0.2);
+  color: #f4f4f4;
   right: 100px;
   right: 20px;
   width: 90px;
@@ -8582,7 +8586,10 @@ div#payment > div.disabled .btn.active {
 #overlay .iBtn.bCart:before {
   left: -5px;
 }
-#overlay .iBtn.bCart:hover {
+#overlay .iBtn.bCart.clickable {
+  color: rgba(156, 200, 62, 0.2);
+}
+#overlay .iBtn.bCart.clickable:hover {
   color: #9cc83e;
 }
 .showAll {
@@ -9117,8 +9124,8 @@ div#payment > div.disabled .btn.active {
   left: 1px;
 }
 .itemsTimeline .itemTimeline .iCart.clickable {
-  color: #9cc83e;
-  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #6f9029;
+  color: #9cc83e !important;
+  text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #6f9029 !important;
 }
 .itemsTimeline:first-child .itemTimeline:before {
   content: " ";
