@@ -19,7 +19,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     $timelineCart: null,
     $noUpgrade: null,
     $stageOverlay: null,
-    $pulseButtons: true,
+    buttonsArePulsing: true,
     events: {
       "click #bNext": "_forward",
       "click .ingredientCategory.isSingle .ingredient": "_delayedForward",
@@ -380,13 +380,13 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
       return this._hasNoUpgradeView() && this.currentTimelineItemModel.get("menuUpgradeSelection");
     },
     _initializePulseButtons: function() {
-      this.$pulseButtons = true;
+      this.buttonsArePulsing = true;
       return this._pulseButtons("");
     },
     _pulseButtons: function(currentPulseClass) {
-      var pulseClass, that;
+      var pulseClass,
+        _this = this;
       pulseClass = "pulse";
-      that = this;
       if (currentPulseClass === pulseClass) {
         this.$buttonNext.removeClass(pulseClass);
         this.$buttonCart.removeClass(pulseClass);
@@ -396,9 +396,9 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
         this.$buttonCart.addClass(pulseClass);
         currentPulseClass = pulseClass;
       }
-      if (this.$pulseButtons) {
+      if (this.buttonsArePulsing) {
         return setTimeout((function() {
-          return that._pulseButtons(currentPulseClass);
+          return _this._pulseButtons(currentPulseClass);
         }), 1500);
       }
     }
