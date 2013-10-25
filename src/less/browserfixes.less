@@ -172,13 +172,33 @@
 		bottom: 0px;
 	}
 
+	.tooltip .tooltipInner {
+		padding-top: 5px;
+	}
+
+	.notification header h4:before {
+		top: 0;
+	}
+
+	#deliveryAddressSettings {
+		input, span {
+  			padding-bottom: 0 !important;
+  		}
+  	}
+
 	.pricetag {
 		padding-top: 19px;
 	}
 
+	// header
+
+	aside#header #headerCustomerContent #trayPreview .iTray span {
+		top: 14px;
+	}
+
 	// home.home
 
-	#storeSuggestion #submitStoreSuggestion {
+	#suggestStore #submitStoreSuggestion {
 		padding: 10px 14px 10px;
 	}
 
@@ -189,9 +209,9 @@
 		#location {
 			.positioned;
 			top: 0px;
-			left: 0px;
+			left: -1px;
 			&:before {
-				left: -5px;
+				left: 0px;
 	     		top: 18px;
 			}
 		}
@@ -230,6 +250,23 @@
 		padding-top: 10px;
 	}
 
+	.goldenThread {
+		#step1, #step2, #step3 {
+			div {
+				padding-top: 6px;
+				height: 25px;
+			}
+		}
+	}
+
+	#checkoutBasicControls #credit {
+		.bRemove, .bAdd {
+			&:before {
+				top: -3px;
+			}
+		}
+	}
+
 	#checkoutDeliveryRegulation #deliveryTimeClock .bottomTile {
 		// margin-top: -3px;
 		span {
@@ -240,6 +277,38 @@
 	#checkoutDeliveryRegulation #deliveryTimeClock .topTile span {
 		top: 33px;
 	}
+
+	// store.dashboard
+
+	#orderControls #searchbar {
+		background: @onNoteColor30_win;
+		input {
+			padding: 0 6px 2px;
+		}
+	}
+
+	#balanceOrderSettings #balanceOrderControls #submitBalanceOrder {
+		padding: 10px 14px 10px;
+	}
+
+	// store.config
+
+	#storeOrderingContact input {
+		height: 40px;
+		padding-bottom: 0;
+		top: 15px;
+		width: 80%;
+	}
+
+	div#payment >div {
+		#checkEC, #checkBar, #checkPaypal {
+			padding: 5px 14px 10px;
+		}
+		.icn:before {
+			top: -2px;
+		}
+	}
+
 }
 
 .ie {
