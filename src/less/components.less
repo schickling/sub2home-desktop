@@ -120,50 +120,51 @@ img.cookie    { margin: 0 -10px;}
 
 @tooltipArrowWidth:   10px;
 
-
 .tooltip {
-  position: fixed;
-  color: darken(@onHeaderColor, 5%);
-  .border-radius(3px);
-  border: 1px solid #c0a053;
-  color: inherit;
-  display: none;
-  margin: 11px 0 0 -23px;
-  z-index: 9999;
-  .box-shadow(0 1px 6px rgba(0,0,0,0.25));
-  &:before, &:after {
-    content: "▲";
-    position: absolute;
-    color: rgba(0,0,0,0);
-    text-shadow: 0 2px 9px rgba(0,0,0, 0.4), 0 -2px 0 #c0a053;
-    left: 15px;
-    top: -13px;
-    z-index: 9000;
-    font-size: 15px;
-  }
-
-  &:after {
-    color: #f2e1a6;
-    text-shadow: none;
-    z-index: 9001;
-  }
-
-
-  .tooltipInner {
-    position: relative;
+  .tooltipOuter {
+    position: fixed;
+    color: darken(@onHeaderColor, 5%);
     .border-radius(3px);
-    .notificationBackground;
+    border: 1px solid #c0a053;
     color: inherit;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-    padding: 9px 12px 6px;
+    display: none;
+    margin: 11px 0 0 -23px;
+    z-index: 9999;
+    .box-shadow(0 1px 6px rgba(0,0,0,0.25));
+    &:before, &:after {
+      content: "▲";
+      position: absolute;
+      color: rgba(0,0,0,0);
+      text-shadow: 0 2px 9px rgba(0,0,0, 0.4), 0 -2px 0 #c0a053;
+      left: 15px;
+      top: -13px;
+      z-index: 9000;
+      font-size: 15px;
+    }
 
-    //letter-spacing: 1px;
-    font-size: 16px;
-    text-transform: none;
-    z-index: 9001;
+    &:after {
+      color: #f2e1a6;
+      text-shadow: none;
+      z-index: 9001;
+    }
+
+
+    .tooltipInner {
+      position: relative;
+      .border-radius(3px);
+      .notificationBackground;
+      color: inherit;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      padding: 9px 12px 6px;
+
+      //letter-spacing: 1px;
+      font-size: 16px;
+      text-transform: none;
+      z-index: 9001;
+    }
   }
 
-  &.left {
+  &.left .tooltipOuter {
     margin: 11px -23px 0 0;
     &:before, &:after {
       left: auto;
@@ -171,11 +172,10 @@ img.cookie    { margin: 0 -10px;}
     }
   }
 
-  &.error { color: @red; }
-  &.warning { color: @orange; }
-  &.info { color: darken(@onHeaderColor, 5%); }
-  &.success { color: @greenLight; }
-
+  &.error .tooltipOuter { color: @red; }
+  &.warning .tooltipOuter { color: @orange; }
+  &.info .tooltipOuter { color: darken(@onHeaderColor, 5%); }
+  &.success .tooltipOuter { color: @greenLight; }
 }
 
 // Handwritten Notices
@@ -4098,7 +4098,6 @@ div#payment {
     #checkPaypal {
       font-size: 18px;
       padding: 10px 14px;
-
     }
 
     .icn {

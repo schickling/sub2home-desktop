@@ -2959,7 +2959,7 @@ img.cookie {
 .notification.success header h4:before {
   content: "\e067";
 }
-.tooltip {
+.tooltip .tooltipOuter {
   position: fixed;
   color: #957b3d;
   behavior: url(../css/border-radius.htc);
@@ -2975,8 +2975,8 @@ img.cookie {
   -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
-.tooltip:before,
-.tooltip:after {
+.tooltip .tooltipOuter:before,
+.tooltip .tooltipOuter:after {
   content: "▲";
   position: absolute;
   color: rgba(0, 0, 0, 0);
@@ -2986,12 +2986,12 @@ img.cookie {
   z-index: 9000;
   font-size: 15px;
 }
-.tooltip:after {
+.tooltip .tooltipOuter:after {
   color: #f2e1a6;
   text-shadow: none;
   z-index: 9001;
 }
-.tooltip .tooltipInner {
+.tooltip .tooltipOuter .tooltipInner {
   position: relative;
   behavior: url(../css/border-radius.htc);
   -webkit-border-radius: 3px;
@@ -3016,24 +3016,24 @@ img.cookie {
   text-transform: none;
   z-index: 9001;
 }
-.tooltip.left {
+.tooltip.left .tooltipOuter {
   margin: 11px -23px 0 0;
 }
-.tooltip.left:before,
-.tooltip.left:after {
+.tooltip.left .tooltipOuter:before,
+.tooltip.left .tooltipOuter:after {
   left: auto;
   right: 15px;
 }
-.tooltip.error {
+.tooltip.error .tooltipOuter {
   color: #9d261d;
 }
-.tooltip.warning {
+.tooltip.warning .tooltipOuter {
   color: #dc952b;
 }
-.tooltip.info {
+.tooltip.info .tooltipOuter {
   color: #957b3d;
 }
-.tooltip.success {
+.tooltip.success .tooltipOuter {
   color: #57a827;
 }
 .notice {
