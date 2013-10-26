@@ -1,6 +1,7 @@
 // Filename: src/js/views/header/CartView.js
 define([
 	'jquery',
+	'tooltipster',
 	'underscore',
 	'backbone',
 	'services/router',
@@ -8,7 +9,7 @@ define([
 	'models/stateModel',
 	'models/cartModel',
 	'text!templates/header/CartTemplate.html'
-], function($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
+], function ($, tooltipster, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
 
 	"use strict";
 
@@ -17,22 +18,24 @@ define([
 		template: _.template(CartTemplate),
 
 		events: {
-			'click': '_goToTray',
-			'mouseenter': '_showTooltip',
-			'mouseleave': '_hideTooltip',
+			'click': '_goToTray'
 		},
 
-		initialize: function() {
+		initialize: function () {
 			this.model = cartModel;
 
 			this._render();
+
+			this.$el.tooltipster({
+				arrow: false
+			});
 
 			this._listenToNewDeliveryArea();
 
 			this.model.on('change', this._render, this);
 		},
 
-		_listenToNewDeliveryArea: function() {
+		_listenToNewDeliveryArea: function () {
 			var storeModel = stateModel.get('storeModel');
 
 			// listen to store model is enough since store models get changed
@@ -40,7 +43,7 @@ define([
 			storeModel.on('change', this._render, this);
 		},
 
-		_render: function() {
+		_render: function () {
 
 			var storeModel = stateModel.get('storeModel'),
 				selectedDeliveryAreaModel = storeModel.getSelectedDeliveryAreaModel(),
@@ -59,27 +62,18 @@ define([
 				this.$el.addClass('justFilled');
 
 				var that = this;
-				setTimeout((function() {
+				setTimeout((function () {
 					that.$el.removeClass('justFilled');
 				}), 800);
 			};
 		},
 
-		_goToTray: function() {
+		_goToTray: function () {
 			if (this.model.getNumberOfOrderedItems() > 0) {
 				router.navigate('store/tablett', true);
 			} else {
 				notificationcenter.notify('views.header.cart.empty');
 			}
-		},
-
-		_showTooltip: function() {
-			var offset = this.$el.offset();
-			notificationcenter.tooltip('views.header.tray', offset.top + 52, offset.left + 36);
-		},
-
-		_hideTooltip: function() {
-			notificationcenter.hideTooltip();
 		}
 
 	});

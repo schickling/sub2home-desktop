@@ -11,6 +11,7 @@ require.config paths:
   jqueryBrowserDetection: "../components/jquery-browser-detection/src/jquery.browser.detection"
   jqueryPlaceholder: "../components/jquery-placeholder/jquery.placeholder"
   jqueryHiddenHeight: "../components/jquery-hidden-height/src/jquery.hidden.height"
+  tooltipster: "../components/tooltipster/js/jquery.tooltipster"
   underscore: "../components/underscore-amd/underscore"
   backbone: "../components/backbone-amd/backbone"
   backboneLocalStorage: "../components/backbone.localStorage/backbone.localStorage"
