@@ -17,7 +17,8 @@
     "backbone-amd": "1.0.x",
     "backbone.localStorage": "1.1.x",
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
-    "jquery-browser-detection": "*"
+    "jquery-browser-detection": "*",
+    "tooltipster": "~2.1.4"
   },
   "devDependencies": {
     "timemachine": "~0.1.1"

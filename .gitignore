@@ -4,3 +4,4 @@
 /dist
 .tmp
 .tern-port
+*.sublime-workspace
