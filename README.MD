@@ -20,3 +20,7 @@ $ grunt
 ```sh
 $ grunt server
 ```
+
+## Links
+
+* Style Guide: https://github.com/airbnb/javascript
