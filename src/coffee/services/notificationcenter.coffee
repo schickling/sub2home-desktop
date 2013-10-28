@@ -16,12 +16,12 @@ define ["jquery", "tooltipster", "services/notificationRepository", "services/to
 
     tooltip: ($el) ->
       tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'))
-      $el.tooltipster {
-        # theme: ".#{$el.attr('data-tooltip-class')}"
-        functionBefore: (origin, continueTooltip) ->
-          origin.tooltipster('update', tooltipModel.get('text'))
-          continueTooltip()
-        }
+      $el.tooltipster
+        arrow: false
+        theme: ".#{$el.attr('data-tooltip-class')}"
+        # functionBefore: (origin, continueTooltip) ->
+        #   origin.tooltipster('update', tooltipModel.get('text'))
+        #   continueTooltip()
 
     destroyAllNotifications: ->
       @notificationsView.destroyAllNotificationViews()
