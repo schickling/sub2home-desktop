@@ -7,6 +7,7 @@ require.config paths:
   jqueryRotate: "../components/jquery-rotate/jquery.rotate"
   jqueryEasing: "../components/jquery.easing/js/jquery.easing"
   jqueryColor: "../components/jquery-color/jquery.color"
+  jqueryLazyload: "libs/jquery-lazyload"
   jqueryOverscroll: "../components/jquery-overscroll/src/jquery.overscroll"
   jqueryBrowserDetection: "../components/jquery-browser-detection/src/jquery.browser.detection"
   jqueryPlaceholder: "../components/jquery-placeholder/jquery.placeholder"

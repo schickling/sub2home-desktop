@@ -2,6 +2,7 @@
 /build/node_modules/
 /src/components/
 /src/js/
+/src/css/
 /dist
 .tmp
 .tern-port

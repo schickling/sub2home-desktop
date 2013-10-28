@@ -1,4 +1,4 @@
-define ["jquery", "libs/jquery.lazyload", "underscore", "backbone", "models/stateModel", "views/PageView", "views/store/home/DeliveryPopupView", "views/store/home/DeliveryView", "views/store/home/CategoriesView", "views/store/home/CategoriesNavigationView", "text!templates/store/home/MainTemplate.html"], ($, jqueryLazyload, _, Backbone, stateModel, PageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
+define ["jquery", "jqueryLazyload", "underscore", "backbone", "models/stateModel", "views/PageView", "views/store/home/DeliveryPopupView", "views/store/home/DeliveryView", "views/store/home/CategoriesView", "views/store/home/CategoriesNavigationView", "text!templates/store/home/MainTemplate.html"], ($, jqueryLazyload, _, Backbone, stateModel, PageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
 
   MainView = PageView.extend
 
