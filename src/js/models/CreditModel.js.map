@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "CreditModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "CreditModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAW,CAA2B,GAA7C,EAAO,CAAuC,CAAvC,EAAA;CAEL,KAAA,KAAA;CAAuB,EAAT,EAAc,CAAd,EAAQ,CAAtB,EAAA;CAEE,CACE,EADF,IAAA;CACE,CAAY,GAAZ,CAAA,IAAA;CAAA,CACa,IAAb,KAAA;CADA,CAEO,GAAP,CAAA;MAHF;CAJyC,GAE7B;CAF6B"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "MenuComponentBlockMediaModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "MenuComponentBlockMediaModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAEL,CACC,GAHH,EAGG,CAAC,CAHG,EAAA;CAKL,KAAA,sBAAA;CAAwC,EAAT,EAAc,CAAd,EAAQ,CAAvC,mBAAA;CAFC"
+}

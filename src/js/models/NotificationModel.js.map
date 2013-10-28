@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "NotificationModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "NotificationModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAEL,CACC,GAHH,EAGG,CAAC,CAHG,EAAA;CAKL,KAAA,WAAA;CAA6B,EAAT,EAAc,CAAd,EAAQ,CAA5B,QAAA;CAEE,CACE,EADF,IAAA;CACE,CAAW,IAAX,GAAA;CAAA,CACO,GAAP,CAAA,aADA;CAAA,CAEa,IAAb,KAAA,cAFA;CAAA,CAGU,EAHV,EAGA,EAAA;MAJF;CAJD,GAEmB;CAFnB"
+}

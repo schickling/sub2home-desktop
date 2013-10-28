@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "MenuComponentOptionArticleModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "MenuComponentOptionArticleModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAEL,CACC,GAHH,EAGG,CAAC,CAHG,EAAA;CAKL,KAAA,yBAAA;CAA2C,EAAT,EAAc,CAAd,EAAQ,CAA1C,sBAAA;CAEE,CACE,EADF,IAAA;CACE,CAAO,GAAP,CAAA;CAAA,CACO,GAAP,CAAA;CADA,CAEa,IAAb,KAAA;CAFA,CAGM,EAAN,EAAA;CAHA,CAIY,GAJZ,CAIA,IAAA;MALF;CAJD,GAEiC;CAFjC"
+}

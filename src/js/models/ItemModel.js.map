@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ItemModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "ItemModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAEL,CACC,GAHH,EAGG,CAAC,CAHG,EAAA;CAKL,KAAA,GAAA;CAAqB,EAAT,EAAc,CAAd,EAAQ,CAApB;CAEE,CAAa,EAAb,CAAA,MAAA;CAAA,CAGE,EADF,IAAA;CACE,CAAyB,EAAzB,EAAA,iBAAA;CAAA,CACY,GADZ,CACA,IAAA;MAJF;CAJD,GAEW;CAFX"
+}

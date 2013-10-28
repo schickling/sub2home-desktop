@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "TooltipModel.js",
+  "sourceRoot": "",
+  "sources": [
+    "TooltipModel.coffee"
+  ],
+  "names": [],
+  "mappings": "AACA,CAAO,CAEL,CACC,GAHH,EAGG,CAAC,CAHG,EAAA;CAIL,CAAA,UAAA;CAAA,KAAA,MAAA;CAAA,CACA,CAAe,EAAc,CAAd,EAAQ,IAAvB;CAAqC,CACnC,EADmC,IAAA;CACnC,CAAW,IAAX,GAAA;CAAA,CACM,EAAN,EAAA,GADA;MADmC;CADrC,GACe;CAFd,QAMD;CANC"
+}
