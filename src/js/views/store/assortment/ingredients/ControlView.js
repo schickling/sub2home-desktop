@@ -1,72 +1,49 @@
-// Filename: src/js/views/store/assortment/ingredients/ControlView.js
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'views/store/assortment/ControlBaseView'
-    ], function ($, _, Backbone, ControlBaseView) {
-
-	"use strict";
-
-	var ControlView = ControlBaseView.extend({
-
-		events: {
-			'click .bReset': '_resetAllPrices',
-			'click .showAll': '_showAllIngredients'
-		},
-
-		_countItems: function () {
-			var numberOfItems = 0;
-
-			_.each(this.collection.models, function (ingredientCategoryModel) {
-				numberOfItems += ingredientCategoryModel.get('ingredientsCollection').length;
-			});
-
-			this.numberOfItems = numberOfItems;
-		},
-
-		_resetAllPrices: function () {
-			_.each(this.collection.models, function (ingredientCategoryModel) {
-				var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
-
-				_.each(ingredientsCollection.models, function (ingredient) {
-
-					// check if price reset is needed
-					if (ingredient.get('price') !== ingredient.get('customPrice')) {
-						this._updateModel(ingredient, {
-							customPrice: ingredient.get('price')
-						});
-					}
-
-				}, this);
-			}, this);
-
-			this._updateLoadBar();
-
-		},
-
-		_showAllIngredients: function () {
-			_.each(this.collection.models, function (ingredientCategoryModel) {
-				var ingredientsCollection = ingredientCategoryModel.get('ingredientsCollection');
-
-				_.each(ingredientsCollection.models, function (ingredientModel) {
-
-					// check if activation needed
-					if (!ingredientModel.get('isActive')) {
-						this._updateModel(ingredientModel, {
-							isActive: true
-						});
-					}
-
-				}, this);
-			}, this);
-
-			this._updateLoadBar();
-
-		}
-
-	});
-
-	return ControlView;
-
+define(["jquery", "underscore", "backbone", "views/store/assortment/ControlBaseView"], function($, _, Backbone, ControlBaseView) {
+  var ControlView;
+  return ControlView = ControlBaseView.extend({
+    events: {
+      "click .bReset": "_resetAllPrices",
+      "click .showAll": "_showAllIngredients"
+    },
+    _countItems: function() {
+      var numberOfItems;
+      numberOfItems = 0;
+      _.each(this.collection.models, function(ingredientCategoryModel) {
+        return numberOfItems += ingredientCategoryModel.get("ingredientsCollection").length;
+      });
+      return this.numberOfItems = numberOfItems;
+    },
+    _resetAllPrices: function() {
+      _.each(this.collection.models, (function(ingredientCategoryModel) {
+        var ingredientsCollection;
+        ingredientsCollection = ingredientCategoryModel.get("ingredientsCollection");
+        return _.each(ingredientsCollection.models, (function(ingredient) {
+          if (ingredient.get("price") !== ingredient.get("customPrice")) {
+            return this._updateModel(ingredient, {
+              customPrice: ingredient.get("price")
+            });
+          }
+        }), this);
+      }), this);
+      return this._updateLoadBar();
+    },
+    _showAllIngredients: function() {
+      _.each(this.collection.models, (function(ingredientCategoryModel) {
+        var ingredientsCollection;
+        ingredientsCollection = ingredientCategoryModel.get("ingredientsCollection");
+        return _.each(ingredientsCollection.models, (function(ingredientModel) {
+          if (!ingredientModel.get("isActive")) {
+            return this._updateModel(ingredientModel, {
+              isActive: true
+            });
+          }
+        }), this);
+      }), this);
+      return this._updateLoadBar();
+    }
+  });
 });
+
+/*
+//@ sourceMappingURL=ControlView.js.map
+*/

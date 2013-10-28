@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "MenuUpgradeView.js",
+  "sourceRoot": "",
+  "sources": [
+    "MenuUpgradeView.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAEL,CAIC,GANH,EAAO,CAMH,CANG,EAAA,OAMJ,kBANI,kCAAA;CAQL,KAAA,SAAA;CAA+B,EAAb,GAAA,GAAlB,GAA8B,GAA9B;CACE,CAAU,EAAV,IAAA,WAAU;CAAV,CACW,EAAX,KAAA,IADA;CAHD,GAEiB;CAFjB"
+}
