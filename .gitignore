@@ -1,6 +1,7 @@
 .DS_Store
 /build/node_modules/
 /src/components/
+/src/js/
 /dist
 .tmp
 .tern-port

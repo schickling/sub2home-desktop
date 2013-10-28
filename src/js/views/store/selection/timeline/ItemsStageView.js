@@ -1,46 +1,30 @@
-// Filename: src/js/views/store/selection/timeline/ItemsStageView.js
-define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'views/store/shared/timeline/ItemsStageBaseView',
-	'views/store/selection/timeline/ItemStageView'
-	], function ($, _, Backbone, ItemsStageBaseView, ItemStageView) {
-
-	"use strict";
-
-	var ItemsStageView = ItemsStageBaseView.extend({
-
-		render: function () {
-
-			// render items
-			_.each(this.collection.models, function (modelItem) {
-				this.renderItem(modelItem);
-			}, this);
-
-
-			// render description
-			var firstTimelineItemModel = this.collection.first();
-			if (!firstTimelineItemModel.get('disabled')) {
-				var $phrase = $('<div>', {
-					'class': 'phrase',
-					'text': firstTimelineItemModel.get('phrase')
-				});
-
-				this.$el.append($phrase);
-			}
-		},
-
-		renderItem: function (modelItem) {
-			var itemContentView = new ItemStageView({
-				model: modelItem
-			});
-
-			this.$el.append(itemContentView.el);
-		}
-
-	});
-
-	return ItemsStageView;
-
+define(["jquery", "underscore", "backbone", "views/store/shared/timeline/ItemsStageBaseView", "views/store/selection/timeline/ItemStageView"], function($, _, Backbone, ItemsStageBaseView, ItemStageView) {
+  var ItemsStageView;
+  return ItemsStageView = ItemsStageBaseView.extend({
+    render: function() {
+      var $phrase, firstTimelineItemModel;
+      _.each(this.collection.models, (function(modelItem) {
+        return this.renderItem(modelItem);
+      }), this);
+      firstTimelineItemModel = this.collection.first();
+      if (!firstTimelineItemModel.get("disabled")) {
+        $phrase = $("<div>", {
+          "class": "phrase",
+          text: firstTimelineItemModel.get("phrase")
+        });
+        return this.$el.append($phrase);
+      }
+    },
+    renderItem: function(modelItem) {
+      var itemContentView;
+      itemContentView = new ItemStageView({
+        model: modelItem
+      });
+      return this.$el.append(itemContentView.el);
+    }
+  });
 });
+
+/*
+//@ sourceMappingURL=ItemsStageView.js.map
+*/
