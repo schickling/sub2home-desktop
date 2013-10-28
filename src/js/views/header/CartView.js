@@ -26,9 +26,7 @@ define([
 
 			this._render();
 
-			this.$el.tooltipster({
-				arrow: false
-			});
+			this.$el.tooltipster();
 
 			this._listenToNewDeliveryArea();
 
