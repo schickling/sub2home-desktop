@@ -122,11 +122,12 @@ img.cookie    { margin: 0 -10px;}
 
 .tooltipster-content {
   .tooltipOuter {
-    position: fixed;
+    // position: fixed;
     color: darken(@onHeaderColor, 5%);
     .border-radius(3px);
     border: 1px solid #c0a053;
-    color: inherit;
+    // color: inherit;
+    line-height: 1;
     // display: none;
     margin: 11px 0 0 -23px;
     z-index: 9999;
@@ -136,10 +137,10 @@ img.cookie    { margin: 0 -10px;}
       position: absolute;
       color: rgba(0,0,0,0);
       text-shadow: 0 2px 9px rgba(0,0,0, 0.4), 0 -2px 0 #c0a053;
-      left: 15px;
-      top: -13px;
+      left: -7px;
+      top: 0px;
       z-index: 9000;
-      font-size: 15px;
+      font-size: 17px;
     }
 
     &:after {
@@ -155,7 +156,7 @@ img.cookie    { margin: 0 -10px;}
       .notificationBackground;
       color: inherit;
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-      padding: 9px 12px 6px;
+      padding: 11px 12px 7px;
 
       //letter-spacing: 1px;
       font-size: 16px;
