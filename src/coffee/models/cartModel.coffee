@@ -1,4 +1,10 @@
-define ["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "models/OrderModel"], (_, Backbone, backboneLocalStorage, stateModel, OrderModel) ->
+define [
+  "underscore"
+  "backbone"
+  "backboneLocalStorage"
+  "models/stateModel"
+  "models/OrderModel"
+  ], (_, Backbone, backboneLocalStorage, stateModel, OrderModel) ->
 
   CartModel = Backbone.Model.extend
 
