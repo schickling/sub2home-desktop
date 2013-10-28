@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/MenuComponentOptionModel"], function(_
     model: MenuComponentOptionModel
   });
 });
+
+/*
+//@ sourceMappingURL=MenuComponentOptionsCollection.js.map
+*/

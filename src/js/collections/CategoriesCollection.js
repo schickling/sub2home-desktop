@@ -5,3 +5,7 @@ define(["underscore", "backbone", "models/CategoryModel"], function(_, Backbone,
     url: "stores/storeAlias/categories"
   });
 });
+
+/*
+//@ sourceMappingURL=CategoriesCollection.js.map
+*/

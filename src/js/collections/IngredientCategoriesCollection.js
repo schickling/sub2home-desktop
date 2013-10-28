@@ -19,3 +19,7 @@ define(["underscore", "backbone", "models/IngredientCategoryModel", "collections
     }
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientCategoriesCollection.js.map
+*/

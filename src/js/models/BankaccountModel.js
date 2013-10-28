@@ -27,3 +27,7 @@ define(["underscore", "backbone", "services/notificationcenter"], function(_, Ba
     }
   });
 });
+
+/*
+//@ sourceMappingURL=BankaccountModel.js.map
+*/

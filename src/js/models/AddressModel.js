@@ -69,3 +69,7 @@ define(["underscore", "backbone", "services/notificationcenter"], function(_, Ba
     }
   });
 });
+
+/*
+//@ sourceMappingURL=AddressModel.js.map
+*/

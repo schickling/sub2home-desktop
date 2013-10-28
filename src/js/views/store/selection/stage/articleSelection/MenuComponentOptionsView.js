@@ -60,3 +60,7 @@ define(["jquery", "libs/jquery.lazyload", "underscore", "backbone", "views/store
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MenuComponentOptionsView.js.map
+*/

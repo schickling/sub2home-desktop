@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/IngredientModel"], function(_, Backbon
     model: IngredientModel
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientsCollection.js.map
+*/

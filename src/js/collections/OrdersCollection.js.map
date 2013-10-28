@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "OrdersCollection.js",
+  "sourceRoot": "",
+  "sources": [
+    "OrdersCollection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAe,CAAkC,GAAxD,EAAwD,CAAC,CAAlD,EAAA,OAAA;CAEL,KAAA,UAAA;CAA4B,EAAT,GAAA,EAAQ,CAA3B,CAAsC,MAAtC;CAEE,CAAO,EAAP,CAAA,KAAA;CAAA,CAEK,CAAL,CAAA,sBAFA;CAAA,CAIY,CAAA,CAAZ,KAAa,CAAb;AACI,CAAF,SAAY,GAAZ;CALF,IAIY;CARwC,GAEnC;CAFmC"
+}

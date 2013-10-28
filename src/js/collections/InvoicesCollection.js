@@ -55,3 +55,7 @@ define(["underscore", "backbone", "models/InvoiceModel"], function(_, Backbone, 
     }
   });
 });
+
+/*
+//@ sourceMappingURL=InvoicesCollection.js.map
+*/

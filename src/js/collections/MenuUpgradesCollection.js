@@ -5,3 +5,7 @@ define(["underscore", "backbone", "models/MenuUpgradeModel"], function(_, Backbo
     url: "stores/storeAlias/menuupgrades"
   });
 });
+
+/*
+//@ sourceMappingURL=MenuUpgradesCollection.js.map
+*/

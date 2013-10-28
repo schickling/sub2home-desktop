@@ -19,3 +19,7 @@ require.config({
     templates: "../templates"
   }
 });
+
+/*
+//@ sourceMappingURL=config.js.map
+*/

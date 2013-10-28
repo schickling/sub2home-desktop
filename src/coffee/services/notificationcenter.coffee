@@ -1,4 +1,4 @@
-define ["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView", "views/notifications/TooltipsView"], (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) ->
+define ["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) ->
 
   Notificationcenter =
 
@@ -6,7 +6,6 @@ define ["services/notificationRepository", "services/tooltipRepository", "models
 
     init: ->
       @notificationsView = new NotificationsView()
-      @tooltipsView = new TooltipsView()
 
     notify: (alias, data) ->
       @destroyAllNotifications()  if @lastNotificationAlias == alias
@@ -15,12 +14,14 @@ define ["services/notificationRepository", "services/tooltipRepository", "models
       notificationModel = notificationRepository.getNotificationModel(alias, data)
       @notificationsView.renderNotification notificationModel
 
-    tooltip: (alias, top, left) ->
-      tooltipModel = tooltipRepository.getTooltipModel(alias)
-      @tooltipsView.renderTooltip tooltipModel, top, left
-
-    hideTooltip: ->
-      @tooltipsView.hideTooltip()
+    tooltip: ($el) ->
+      tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'))
+      $el.tooltipster {
+        theme: ".#{$el.attr('data-tooltip-class')}"
+        functionBefore: (origin, continueTooltip) ->
+          origin.tooltipster('update', tooltipModel.get('text'))
+          continueTooltip()
+        }
 
     destroyAllNotifications: ->
       @notificationsView.destroyAllNotificationViews()

@@ -23,3 +23,7 @@ define(["underscore", "backbone", "models/StoreModel"], function(_, Backbone, St
     }
   });
 });
+
+/*
+//@ sourceMappingURL=StoresCollection.js.map
+*/

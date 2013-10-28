@@ -75,3 +75,7 @@ define(["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
     }
   });
 });
+
+/*
+//@ sourceMappingURL=OrderedArticleModel.js.map
+*/

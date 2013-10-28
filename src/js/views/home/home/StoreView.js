@@ -78,3 +78,7 @@ define(["jquery", "underscore", "services/gmaps", "services/notificationcenter",
   };
   return StoreView;
 });
+
+/*
+//@ sourceMappingURL=StoreView.js.map
+*/

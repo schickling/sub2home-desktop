@@ -189,3 +189,7 @@ define(["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
     }
   });
 });
+
+/*
+//@ sourceMappingURL=OrderedItemModel.js.map
+*/

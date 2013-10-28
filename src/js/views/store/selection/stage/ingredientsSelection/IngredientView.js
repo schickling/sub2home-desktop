@@ -39,3 +39,7 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "text!templates/stor
     }
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientView.js.map
+*/

@@ -12,3 +12,7 @@ define(["underscore", "backbone", "models/OrderedItemModel"], function(_, Backbo
     }
   });
 });
+
+/*
+//@ sourceMappingURL=OrderedItemsCollection.js.map
+*/

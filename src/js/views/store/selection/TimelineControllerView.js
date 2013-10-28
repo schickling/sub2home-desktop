@@ -404,3 +404,7 @@ define(["jquery", "underscore", "backbone", "services/router", "services/notific
     }
   });
 });
+
+/*
+//@ sourceMappingURL=TimelineControllerView.js.map
+*/

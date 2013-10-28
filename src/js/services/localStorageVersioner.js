@@ -13,3 +13,7 @@ define([], function() {
     }
   };
 });
+
+/*
+//@ sourceMappingURL=localStorageVersioner.js.map
+*/

@@ -153,3 +153,7 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     }
   });
 });
+
+/*
+//@ sourceMappingURL=StoreModel.js.map
+*/

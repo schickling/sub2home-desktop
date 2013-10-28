@@ -25,8 +25,7 @@ define([
 			this.model = cartModel;
 
 			this._render();
-
-			this.$el.tooltipster();
+			this._enableTooltips();
 
 			this._listenToNewDeliveryArea();
 
@@ -39,6 +38,10 @@ define([
 			// listen to store model is enough since store models get changed
 			// if a new delivery area is selected
 			storeModel.on('change', this._render, this);
+		},
+
+		_enableTooltips: function() {
+			notificationcenter.tooltip(this.$el);
 		},
 
 		_render: function () {

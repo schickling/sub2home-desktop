@@ -85,3 +85,7 @@ define(["jquery", "underscore", "backbone", "services/router", "models/stateMode
     }
   });
 });
+
+/*
+//@ sourceMappingURL=ArticleDetailsView.js.map
+*/

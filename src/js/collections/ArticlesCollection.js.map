@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ArticlesCollection.js",
+  "sourceRoot": "",
+  "sources": [
+    "ArticlesCollection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAe,CAAoC,GAA1D,EAA0D,CAAC,CAApD,EAAA,SAAA;CAEL,KAAA,YAAA;CAA8B,EAAT,GAAA,EAAQ,CAA7B,CAAwC,QAAxC;CAEE,CAAO,EAAP,CAAA,OAAA;CAJsD,GAEnC;CAFmC"
+}

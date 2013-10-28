@@ -3,3 +3,7 @@ require(["config"], function() {
     return router.init();
   });
 });
+
+/*
+//@ sourceMappingURL=main.js.map
+*/

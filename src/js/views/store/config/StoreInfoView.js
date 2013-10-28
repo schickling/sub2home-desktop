@@ -124,3 +124,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
     }
   });
 });
+
+/*
+//@ sourceMappingURL=StoreInfoView.js.map
+*/

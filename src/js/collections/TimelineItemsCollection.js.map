@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "TimelineItemsCollection.js",
+  "sourceRoot": "",
+  "sources": [
+    "TimelineItemsCollection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAe,CAAyC,GAA/D,EAA+D,CAAC,CAAzD,EAAA,KAAwD,SAAxD;CAEL,KAAA,iBAAA;CAAmC,EAAT,GAAA,EAAQ,CAAlC,CAA6C,aAA7C;CAEE,CAAO,EAAP,CAAA,YAAA;CAJ2D,GAEnC;CAFmC"
+}

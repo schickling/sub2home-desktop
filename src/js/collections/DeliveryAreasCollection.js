@@ -7,3 +7,7 @@ define(["underscore", "backbone", "models/DeliveryAreaModel"], function(_, Backb
     }
   });
 });
+
+/*
+//@ sourceMappingURL=DeliveryAreasCollection.js.map
+*/

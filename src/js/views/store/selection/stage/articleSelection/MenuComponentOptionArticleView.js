@@ -97,3 +97,7 @@ define(["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MenuComponentOptionArticleView.js.map
+*/

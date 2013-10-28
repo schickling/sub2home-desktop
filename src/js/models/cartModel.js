@@ -205,3 +205,7 @@ define(["underscore", "backbone", "backboneLocalStorage", "models/stateModel", "
   });
   return new CartModel();
 });
+
+/*
+//@ sourceMappingURL=cartModel.js.map
+*/

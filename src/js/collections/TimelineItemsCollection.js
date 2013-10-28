@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/TimelineItemModel"], function(_, Backb
     model: TimelineItemModel
   });
 });
+
+/*
+//@ sourceMappingURL=TimelineItemsCollection.js.map
+*/

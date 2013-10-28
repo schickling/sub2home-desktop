@@ -73,3 +73,7 @@ define(["jquery", "underscore", "backbone", "models/TimelineItemModel", "views/s
     }
   });
 });
+
+/*
+//@ sourceMappingURL=ArticleSelectionView.js.map
+*/

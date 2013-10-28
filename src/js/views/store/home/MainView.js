@@ -49,3 +49,7 @@ define(["jquery", "libs/jquery.lazyload", "underscore", "backbone", "models/stat
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MainView.js.map
+*/

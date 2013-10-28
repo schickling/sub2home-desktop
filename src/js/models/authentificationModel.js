@@ -115,3 +115,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter"], func
   });
   return new AuthentificationModel();
 });
+
+/*
+//@ sourceMappingURL=authentificationModel.js.map
+*/

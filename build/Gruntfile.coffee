@@ -9,7 +9,9 @@ module.exports = (grunt) ->
   require("time-grunt") grunt
   grunt.initConfig
     config: config
+
     coffee:
+
       src:
         files: [
           expand: true
@@ -29,6 +31,8 @@ module.exports = (grunt) ->
         ]
 
       options:
+        sourceMap: true
+        sourceRoot: ''
         bare: true
 
     jshint:

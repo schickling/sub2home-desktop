@@ -144,3 +144,7 @@ define(["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView"
     }
   });
 });
+
+/*
+//@ sourceMappingURL=DeliveryPopupView.js.map
+*/

@@ -7,3 +7,7 @@ define(["underscore", "backbone", "models/MenuBundleModel"], function(_, Backbon
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MenuBundlesCollection.js.map
+*/

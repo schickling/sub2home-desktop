@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/OrderedArticleModel"], function(_, Bac
     model: OrderedArticleModel
   });
 });
+
+/*
+//@ sourceMappingURL=OrderedArticlesCollection.js.map
+*/

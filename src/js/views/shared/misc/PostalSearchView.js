@@ -128,3 +128,7 @@ define(["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
     }
   });
 });
+
+/*
+//@ sourceMappingURL=PostalSearchView.js.map
+*/

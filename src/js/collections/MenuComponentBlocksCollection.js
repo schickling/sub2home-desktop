@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/MenuComponentBlockModel"], function(_,
     model: MenuComponentBlockModel
   });
 });
+
+/*
+//@ sourceMappingURL=MenuComponentBlocksCollection.js.map
+*/

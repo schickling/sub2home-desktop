@@ -1,10 +1,9 @@
-define(["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView", "views/notifications/TooltipsView"], function(notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView, TooltipsView) {
+define(["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], function(notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) {
   var Notificationcenter;
   return Notificationcenter = {
     lastNotificationAlias: null,
     init: function() {
-      this.notificationsView = new NotificationsView();
-      return this.tooltipsView = new TooltipsView();
+      return this.notificationsView = new NotificationsView();
     },
     notify: function(alias, data) {
       var notificationModel;
@@ -16,16 +15,23 @@ define(["services/notificationRepository", "services/tooltipRepository", "models
       notificationModel = notificationRepository.getNotificationModel(alias, data);
       return this.notificationsView.renderNotification(notificationModel);
     },
-    tooltip: function(alias, top, left) {
+    tooltip: function($el) {
       var tooltipModel;
-      tooltipModel = tooltipRepository.getTooltipModel(alias);
-      return this.tooltipsView.renderTooltip(tooltipModel, top, left);
-    },
-    hideTooltip: function() {
-      return this.tooltipsView.hideTooltip();
+      tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'));
+      return $el.tooltipster({
+        theme: "." + ($el.attr('data-tooltip-class')),
+        functionBefore: function(origin, continueTooltip) {
+          origin.tooltipster('update', tooltipModel.get('text'));
+          return continueTooltip();
+        }
+      });
     },
     destroyAllNotifications: function() {
       return this.notificationsView.destroyAllNotificationViews();
     }
   };
 });
+
+/*
+//@ sourceMappingURL=notificationcenter.js.map
+*/

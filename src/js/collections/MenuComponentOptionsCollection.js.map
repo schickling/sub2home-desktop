@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "MenuComponentOptionsCollection.js",
+  "sourceRoot": "",
+  "sources": [
+    "MenuComponentOptionsCollection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAe,CAAgD,GAAtE,EAAsE,CAAC,CAAhE,EAAA,YAA+D,SAA/D;CAEL,KAAA,wBAAA;CAA0C,EAAT,GAAA,EAAQ,CAAzC,CAAoD,oBAApD;CAEE,CAAO,EAAP,CAAA,mBAAA;CAJkE,GAEnC;CAFmC"
+}

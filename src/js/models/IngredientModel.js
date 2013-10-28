@@ -17,3 +17,7 @@ define(["underscore", "backbone"], function(_, Backbone) {
     urlRoot: "stores/storeAlias/ingredients/"
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientModel.js.map
+*/

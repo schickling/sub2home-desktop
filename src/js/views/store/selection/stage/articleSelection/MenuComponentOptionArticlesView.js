@@ -20,3 +20,7 @@ define(["jquery", "underscore", "backbone", "views/store/selection/stage/article
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MenuComponentOptionArticlesView.js.map
+*/

@@ -33,3 +33,7 @@ define(["underscore", "backbone", "models/ItemModel"], function(_, Backbone, Ite
     }
   });
 });
+
+/*
+//@ sourceMappingURL=ItemsCollection.js.map
+*/

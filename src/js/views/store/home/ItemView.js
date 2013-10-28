@@ -80,3 +80,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "serv
     }
   });
 });
+
+/*
+//@ sourceMappingURL=ItemView.js.map
+*/

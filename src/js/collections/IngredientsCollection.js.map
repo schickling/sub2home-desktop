@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "IngredientsCollection.js",
+  "sourceRoot": "",
+  "sources": [
+    "IngredientsCollection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAe,CAAuC,GAA7D,EAA6D,CAAC,CAAvD,EAAA,GAAsD,SAAtD;CAEL,KAAA,eAAA;CAAiC,EAAT,GAAA,EAAQ,CAAhC,CAA2C,WAA3C;CAEE,CAAO,EAAP,CAAA,UAAA;CAJyD,GAEnC;CAFmC"
+}

@@ -8,3 +8,7 @@ define(["underscore", "backbone", "models/OrderModel"], function(_, Backbone, Or
     }
   });
 });
+
+/*
+//@ sourceMappingURL=OrdersCollection.js.map
+*/

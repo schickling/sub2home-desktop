@@ -30,3 +30,7 @@ define(["jquery", "underscore", "backbone", "text!templates/store/selection/info
     }
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientView.js.map
+*/

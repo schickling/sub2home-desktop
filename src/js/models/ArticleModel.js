@@ -122,3 +122,7 @@ define(["underscore", "backbone", "collections/MenuUpgradesCollection", "collect
     }
   });
 });
+
+/*
+//@ sourceMappingURL=ArticleModel.js.map
+*/

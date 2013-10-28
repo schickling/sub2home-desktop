@@ -23,3 +23,7 @@ define(["jquery"], function($) {
     }
   };
 });
+
+/*
+//@ sourceMappingURL=server.js.map
+*/

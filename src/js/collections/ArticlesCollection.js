@@ -4,3 +4,7 @@ define(["underscore", "backbone", "models/ArticleModel"], function(_, Backbone, 
     model: ArticleModel
   });
 });
+
+/*
+//@ sourceMappingURL=ArticlesCollection.js.map
+*/

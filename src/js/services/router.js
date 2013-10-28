@@ -243,3 +243,7 @@ define(["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
   });
   return new Router();
 });
+
+/*
+//@ sourceMappingURL=router.js.map
+*/

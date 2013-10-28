@@ -21,3 +21,7 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
     }
   });
 });
+
+/*
+//@ sourceMappingURL=MainView.js.map
+*/

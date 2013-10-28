@@ -45,3 +45,7 @@ define(["underscore", "backbone", "collections/IngredientsCollection"], function
     }
   });
 });
+
+/*
+//@ sourceMappingURL=IngredientCategoryModel.js.map
+*/

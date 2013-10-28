@@ -26,3 +26,7 @@ define(["underscore", "backbone", "models/DeliveryTimeModel"], function(_, Backb
     }
   });
 });
+
+/*
+//@ sourceMappingURL=DeliveryTimesCollection.js.map
+*/
