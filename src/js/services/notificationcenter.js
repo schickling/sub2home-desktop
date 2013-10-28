@@ -1,4 +1,4 @@
-define(["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], function(notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) {
+define(["jquery", "tooltipster", "services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], function($, tooltipster, notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) {
   var Notificationcenter;
   return Notificationcenter = {
     lastNotificationAlias: null,
@@ -19,7 +19,6 @@ define(["services/notificationRepository", "services/tooltipRepository", "models
       var tooltipModel;
       tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'));
       return $el.tooltipster({
-        theme: "." + ($el.attr('data-tooltip-class')),
         functionBefore: function(origin, continueTooltip) {
           origin.tooltipster('update', tooltipModel.get('text'));
           return continueTooltip();

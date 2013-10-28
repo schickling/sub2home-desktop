@@ -12,7 +12,8 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
       "click #payment button.toggle": "_togglePaymentMethod"
     },
     initialize: function() {
-      return this._render();
+      this._render();
+      return this._enableTooltips();
     },
     _render: function() {
       var json;
@@ -30,6 +31,9 @@ define(["jquery", "underscore", "backbone", "services/notificationcenter", "view
         el: this.$("#storeAddress"),
         model: this.model
       });
+    },
+    _enableTooltips: function() {
+      return notificationcenter.tooltip(this.$("#bMail"));
     },
     _updateDescription: function(e) {
       var $textarea, description;

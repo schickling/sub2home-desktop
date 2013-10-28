@@ -55,6 +55,7 @@ define([
 
 		initialize: function () {
 			this._render();
+			this._enableTooltips();
 			this._listenToCurrentRoute();
 		},
 
@@ -64,6 +65,10 @@ define([
 
 			this._cacheDom();
 			this._selectViewFromCurrentRoute();
+
+		},
+
+		_enableTooltips: function() {
 
 		},
 

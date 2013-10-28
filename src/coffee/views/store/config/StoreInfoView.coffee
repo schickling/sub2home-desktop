@@ -14,6 +14,7 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
 
     initialize: ->
       @_render()
+      @_enableTooltips()
 
     _render: ->
       json =
@@ -30,6 +31,9 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
         el: @$("#storeAddress")
         model: @model
       )
+
+    _enableTooltips: ->
+      notificationcenter.tooltip(@$("#bMail"))
 
     _updateDescription: (e) ->
       $textarea = $(e.target)

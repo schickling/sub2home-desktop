@@ -1,7 +1,6 @@
 // Filename: src/js/views/header/CartView.js
 define([
 	'jquery',
-	'tooltipster',
 	'underscore',
 	'backbone',
 	'services/router',
@@ -9,7 +8,7 @@ define([
 	'models/stateModel',
 	'models/cartModel',
 	'text!templates/header/CartTemplate.html'
-], function ($, tooltipster, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
+], function ($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) {
 
 	"use strict";
 

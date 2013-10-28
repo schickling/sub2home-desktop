@@ -1,4 +1,4 @@
-define ["services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], (notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) ->
+define ["jquery", "tooltipster", "services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], ($, tooltipster, notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) ->
 
   Notificationcenter =
 
@@ -17,7 +17,7 @@ define ["services/notificationRepository", "services/tooltipRepository", "models
     tooltip: ($el) ->
       tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'))
       $el.tooltipster {
-        theme: ".#{$el.attr('data-tooltip-class')}"
+        # theme: ".#{$el.attr('data-tooltip-class')}"
         functionBefore: (origin, continueTooltip) ->
           origin.tooltipster('update', tooltipModel.get('text'))
           continueTooltip()
