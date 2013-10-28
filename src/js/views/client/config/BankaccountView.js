@@ -1,54 +1,36 @@
-// Filename: src/js/views/client/config/BankaccountView.js
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'services/notificationcenter',
-    'text!templates/client/config/BankaccountTemplate.html'
-    ], function ($, _, Backbone, notificationcenter, BankaccountTemplate) {
-
-	"use strict";
-
-	var BankaccountView = Backbone.View.extend({
-
-		template: _.template(BankaccountTemplate),
-
-		events: {
-			'focusout input': '_update'
-		},
-
-		initialize: function () {
-			this._render();
-		},
-
-		_render: function () {
-			this.$el.html(this.template(this.model.toJSON()));
-		},
-
-		_update: function (e) {
-			var $input = $(e.target),
-				field = $input.attr('data-field'),
-				val = $input.val();
-
-			// check if value really changed
-			if (val !== this.model.get(field)) {
-
-				this.model.set(field, val);
-
-				this.model.save({}, {
-					success: function () {
-						notificationcenter.notify('views.client.config.bankaccount.success');
-					},
-					error: function () {
-						notificationcenter.notify('views.client.config.bankaccount.error');
-					}
-				});
-			}
-
-		}
-
-	});
-
-	return BankaccountView;
-
+define(["jquery", "underscore", "backbone", "services/notificationcenter", "text!templates/client/config/BankaccountTemplate.html"], function($, _, Backbone, notificationcenter, BankaccountTemplate) {
+  var BankaccountView;
+  return BankaccountView = Backbone.View.extend({
+    template: _.template(BankaccountTemplate),
+    events: {
+      "focusout input": "_update"
+    },
+    initialize: function() {
+      return this._render();
+    },
+    _render: function() {
+      return this.$el.html(this.template(this.model.toJSON()));
+    },
+    _update: function(e) {
+      var $input, field, val;
+      $input = $(e.target);
+      field = $input.attr("data-field");
+      val = $input.val();
+      if (val !== this.model.get(field)) {
+        this.model.set(field, val);
+        return this.model.save({}, {
+          success: function() {
+            return notificationcenter.notify("views.client.config.bankaccount.success");
+          },
+          error: function() {
+            return notificationcenter.notify("views.client.config.bankaccount.error");
+          }
+        });
+      }
+    }
+  });
 });
+
+/*
+//@ sourceMappingURL=BankaccountView.js.map
+*/
