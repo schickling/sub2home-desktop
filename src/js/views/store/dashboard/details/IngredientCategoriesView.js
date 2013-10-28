@@ -1,35 +1,24 @@
-// Filename: src/js/views/store/dashboard/details/IngredientCategoriesView.js
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'views/store/dashboard/details/IngredientCategoryView'
-    ], function ($, _, Backbone, IngredientCategoryView) {
-
-	"use strict";
-
-	var IngredientCategoriesView = Backbone.View.extend({
-
-		initialize: function () {
-			this._render();
-		},
-
-		_render: function () {
-			_.each(this.collection.models, function (ingredientCategoryModel) {
-				this._renderIngredientCategory(ingredientCategoryModel);
-			}, this);
-		},
-
-		_renderIngredientCategory: function (ingredientCategoryModel) {
-			var ingredientCategoryView = new IngredientCategoryView({
-				model: ingredientCategoryModel
-			});
-
-			this.$el.append(ingredientCategoryView.el);
-		}
-
-	});
-
-	return IngredientCategoriesView;
-
+define(["jquery", "underscore", "backbone", "views/store/dashboard/details/IngredientCategoryView"], function($, _, Backbone, IngredientCategoryView) {
+  var IngredientCategoriesView;
+  return IngredientCategoriesView = Backbone.View.extend({
+    initialize: function() {
+      return this._render();
+    },
+    _render: function() {
+      return _.each(this.collection.models, (function(ingredientCategoryModel) {
+        return this._renderIngredientCategory(ingredientCategoryModel);
+      }), this);
+    },
+    _renderIngredientCategory: function(ingredientCategoryModel) {
+      var ingredientCategoryView;
+      ingredientCategoryView = new IngredientCategoryView({
+        model: ingredientCategoryModel
+      });
+      return this.$el.append(ingredientCategoryView.el);
+    }
+  });
 });
+
+/*
+//@ sourceMappingURL=IngredientCategoriesView.js.map
+*/
