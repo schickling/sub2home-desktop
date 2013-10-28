@@ -135,13 +135,16 @@ module.exports = (grunt) ->
 
   grunt.registerTask "server", [
     "clean:test"
+    "less"
     "coffee"
     "watch"
   ]
+
   grunt.registerTask "test", [
     "jshint"
     "karma:unit"
   ]
+
   grunt.registerTask "build", [
     "coffee"
     "clean:dist"
@@ -152,6 +155,7 @@ module.exports = (grunt) ->
     "usemin"
     "htmlmin"
   ]
+
   grunt.registerTask "default", [
     "build"
   ]

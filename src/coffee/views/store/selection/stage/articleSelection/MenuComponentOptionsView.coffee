@@ -1,4 +1,4 @@
-define ["jquery", "libs/jquery.lazyload", "underscore", "backbone", "views/store/selection/stage/SlideView", "views/store/selection/stage/articleSelection/MenuComponentOptionView"], ($, jqueryLazyload, _, Backbone, SlideView, MenuComponentOptionView) ->
+define ["jquery", "jqueryLazyload", "underscore", "backbone", "views/store/selection/stage/SlideView", "views/store/selection/stage/articleSelection/MenuComponentOptionView"], ($, jqueryLazyload, _, Backbone, SlideView, MenuComponentOptionView) ->
 
   MenuComponentOptionsView = SlideView.extend
 
