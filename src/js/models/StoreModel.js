@@ -1,6 +1,5 @@
 define(["underscore", "backbone", "services/notificationcenter", "models/AddressModel", "collections/DeliveryAreasCollection", "collections/DeliveryTimesCollection", "collections/InvoicesCollection"], function(_, Backbone, notificationcenter, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) {
   var StoreModel;
-  StoreModel = void 0;
   return StoreModel = Backbone.Model.extend({
     defaults: {
       title: "",
@@ -37,7 +36,6 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     },
     toJSON: function() {
       var attributes;
-      attributes = void 0;
       attributes = _.clone(this.attributes);
       if (attributes.hasOwnProperty("addressModel") && attributes.addressModel) {
         attributes.addressModel = attributes.addressModel.toJSON();
@@ -85,26 +83,21 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     },
     getNextDeliveryTimeModel: function() {
       var deliveryTimesCollection;
-      deliveryTimesCollection = void 0;
       deliveryTimesCollection = this.get("deliveryTimesCollection");
       return deliveryTimesCollection.getNextDeliveryTimeModel(new Date());
     },
     getMinimumValue: function() {
       var selectedDeliveryAreaModel;
-      selectedDeliveryAreaModel = void 0;
       selectedDeliveryAreaModel = this.getSelectedDeliveryAreaModel();
       return selectedDeliveryAreaModel.get("minimumValue");
     },
     getMinimumDuration: function() {
       var selectedDeliveryAreaModel;
-      selectedDeliveryAreaModel = void 0;
       selectedDeliveryAreaModel = this.getSelectedDeliveryAreaModel();
       return selectedDeliveryAreaModel.get("minimumDuration");
     },
     getSelectedDeliveryAreaModel: function() {
       var deliveryAreasCollection, selectedDeliveryAreaModel;
-      deliveryAreasCollection = void 0;
-      selectedDeliveryAreaModel = void 0;
       deliveryAreasCollection = this.get("deliveryAreasCollection");
       if (!deliveryAreasCollection) {
         return;
@@ -124,20 +117,17 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     },
     _getCurrentDeliveryTimeModel: function() {
       var currentDeliveryModel, deliveryTimesCollection;
-      currentDeliveryModel = void 0;
-      deliveryTimesCollection = void 0;
       currentDeliveryModel = null;
       deliveryTimesCollection = this.get("deliveryTimesCollection");
       _.each(deliveryTimesCollection.models, function(deliveryTimeModel) {
         if (deliveryTimeModel.checkIfNow()) {
-          return currentDeliveryModel = deliveryTimeModel;
+          currentDeliveryModel = deliveryTimeModel;
         }
       });
       return currentDeliveryModel;
     },
     _listenForDeliveryAreasCollectionChanges: function() {
       var deliveryAreasCollection;
-      deliveryAreasCollection = void 0;
       deliveryAreasCollection = this.get("deliveryAreasCollection");
       if (deliveryAreasCollection) {
         return deliveryAreasCollection.on("add remove change", (function() {
@@ -151,7 +141,6 @@ define(["underscore", "backbone", "services/notificationcenter", "models/Address
     },
     _listenForDeliveryTimesCollectionChanges: function() {
       var deliveryTimesCollection;
-      deliveryTimesCollection = void 0;
       deliveryTimesCollection = this.get("deliveryTimesCollection");
       if (deliveryTimesCollection) {
         return deliveryTimesCollection.on("add remove change", (function() {

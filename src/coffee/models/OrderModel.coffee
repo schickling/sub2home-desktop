@@ -12,7 +12,7 @@ define [
   # made global for performance reasons
   now = new Date()
 
-  OrderModel = Backbone.Model.extend(
+  OrderModel = Backbone.Model.extend
 
     defaults:
       # paymentMethod

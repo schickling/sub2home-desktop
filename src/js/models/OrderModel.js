@@ -1,7 +1,7 @@
 define(["jquery", "underscore", "backbone", "moment", "services/notificationcenter", "models/AddressModel", "models/CreditModel", "collections/OrderedItemsCollection"], function($, _, Backbone, moment, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) {
   var OrderModel, now;
   now = new Date();
-  OrderModel = Backbone.Model.extend({
+  return OrderModel = Backbone.Model.extend({
     defaults: {
       paymentMethod: "cash",
       subcardCode: "",
@@ -172,7 +172,6 @@ define(["jquery", "underscore", "backbone", "moment", "services/notificationcent
       return regex.test(code);
     }
   });
-  return OrderModel;
 });
 
 /*

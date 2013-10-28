@@ -1,5 +1,4 @@
 define(["underscore", "backbone", "backboneLocalStorage", "models/StoreModel", "services/server"], function(_, Backbone, backboneLocalStorage, StoreModel, server) {
-  "use strict";
   var StateModel;
   StateModel = Backbone.Model.extend({
     localStorage: new Backbone.LocalStorage("StateModel"),

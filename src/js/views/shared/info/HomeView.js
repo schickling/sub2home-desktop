@@ -1,27 +1,15 @@
-// Filename: src/js/views/shared/info/HomeView.js
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'text!templates/shared/info/HomeTemplate.html'
-    ], function ($, _, Backbone, HomeTemplate) {
-
-	"use strict";
-
-	var HomeView = Backbone.View.extend({
-
-		initialize: function () {
-			this._render();
-		},
-
-		_render: function () {
-
-			this.$el.html(HomeTemplate);
-
-		}
-
-	});
-
-	return HomeView;
-
+define(["jquery", "underscore", "backbone", "text!templates/shared/info/HomeTemplate.html"], function($, _, Backbone, HomeTemplate) {
+  var HomeView;
+  return HomeView = Backbone.View.extend({
+    initialize: function() {
+      return this._render();
+    },
+    _render: function() {
+      return this.$el.html(HomeTemplate);
+    }
+  });
 });
+
+/*
+//@ sourceMappingURL=HomeView.js.map
+*/

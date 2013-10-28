@@ -1,7 +1,6 @@
 define(["underscore", "backbone"], function(_, Backbone) {
-  "use strict";
   var TimelineItemModel;
-  TimelineItemModel = Backbone.Model.extend({
+  return TimelineItemModel = Backbone.Model.extend({
     defaults: {
       icon: "",
       image: "",
@@ -13,7 +12,6 @@ define(["underscore", "backbone"], function(_, Backbone) {
       menuUpgradeSelection: false
     }
   });
-  return TimelineItemModel;
 });
 
 /*
