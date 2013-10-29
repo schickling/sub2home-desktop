@@ -26,13 +26,6 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       "click #bStoreAssortment": "_navigateToStoreAssortment"
       "click #bStoreDashboard": "_navigateToStoreDashboard"
       "click #bClientDashboard": "_navigateToClientDashboard"
-      "mouseenter #bSignout": "_tooltipLogout"
-      "mouseenter #bStoreConfig": "_tooltipForStoreConfig"
-      "mouseenter #bClientConfig": "_tooltipForClientConfig"
-      "mouseenter #bStoreAssortment": "_tooltipForStoreAssortment"
-      "mouseenter #bStoreDashboard": "_tooltipForStoreDashboard"
-      "mouseenter #bClientDashboard": "_tooltipForClientDashboard"
-      "mouseleave .iBtn": "_dismissTooltip"
 
     initialize: ->
       @_render()
@@ -45,6 +38,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_selectViewFromCurrentRoute()
 
     _enableTooltips: ->
+      notificationcenter.tooltip(@$("#bSignout"))
+      notificationcenter.tooltip(@$("#bStoreConfig"))
+      notificationcenter.tooltip(@$("#bClientConfig"))
+      notificationcenter.tooltip(@$("#bStoreAssortment"))
+      notificationcenter.tooltip(@$("#bStoreDashboard"))
+      notificationcenter.tooltip(@$("#bClientDashboard"))
 
     _cacheDom: ->
       @$buttonLogout = @$("#bSignout")
@@ -170,30 +169,3 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     remove: ->
       stateModel.off "change:currentRoute", @_selectViewFromCurrentRoute, this
-
-    _tooltipLogout: ->
-      offset = @$buttonLogout.offset()
-      notificationcenter.tooltip "views.header.logout", offset.top + 64, offset.left + 34
-
-    _tooltipForStoreConfig: ->
-      offset = @$buttonStoreConfig.offset()
-      notificationcenter.tooltip "views.header.store.config", offset.top + 64, offset.left + 24
-
-    _tooltipForStoreAssortment: ->
-      offset = @$buttonStoreAssortment.offset()
-      notificationcenter.tooltip "views.header.store.assortment", offset.top + 64, offset.left + 24
-
-    _tooltipForStoreDashboard: ->
-      offset = @$buttonStoreDashboard.offset()
-      notificationcenter.tooltip "views.header.store.dashboard", offset.top + 64, offset.left + 23
-
-    _tooltipForClientDashboard: ->
-      offset = @$buttonClientDashboard.offset()
-      notificationcenter.tooltip "views.header.client.dashboard", offset.top + 64, offset.left + 34
-
-    _tooltipForClientConfig: ->
-      offset = @$buttonClientConfig.offset()
-      notificationcenter.tooltip "views.header.client.config", offset.top + 64, offset.left + 34
-
-    _dismissTooltip: ->
-      notificationcenter.hideTooltip()
