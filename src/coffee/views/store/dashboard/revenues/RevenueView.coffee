@@ -13,11 +13,6 @@ define [
 
     events:
       "click i": "_download"
-      "mouseenter i": "_showTooltip"
-      "mouseleave i": "_hideTooltip"
-      "mouseenter .bInvoiceCoin": "_tooltipForInvoice"
-      "mouseenter .bInvoiceList": "_tooltipForAttachment"
-      "mouseleave .iBtn": "_dismissTooltip"
 
     className: "turnover"
     isValidMonth: false
@@ -26,6 +21,7 @@ define [
     initialize: ->
       @_validateMonth()
       @_render()
+      @_enableTooltips()
       @_cacheDom()
 
     _render: ->
@@ -43,6 +39,10 @@ define [
 
       @$el.html @template(json)
 
+    _enableTooltips: ->
+      notificationcenter.tooltip @$(".bInvoiceCoin")
+      notificationcenter.tooltip @$(".bInvoiceList")
+
     _cacheDom: ->
       @$download = @$("i")
 
@@ -50,24 +50,5 @@ define [
       now = new Date()
       currentTotalNumberOfMonths = now.getFullYear() * 12 + now.getMonth() + 1
       @isValidMonth = (@model.get("timeSpan") isnt currentTotalNumberOfMonths)
-
-    _showTooltip: ->
-      if @isValidMonth
-        offset = @$download.offset()
-        notificationcenter.tooltip "views.store.dashboard.invoice.download", offset.top + 24, offset.left + 14
-
-    _hideTooltip: ->
-      notificationcenter.hideTooltip()  if @isValidMonth
-
-    _tooltipForInvoice: ->
-      offset = @$(".bInvoiceCoin").offset()
-      notificationcenter.tooltip "views.store.dashboard.invoice.invoice", offset.top + 24, offset.left + 15
-
-    _tooltipForAttachment: ->
-      offset = @$(".bInvoiceList").offset()
-      notificationcenter.tooltip "views.store.dashboard.invoice.attachment", offset.top + 24, offset.left + 15
-
-    _dismissTooltip: ->
-      notificationcenter.hideTooltip()
 
 
