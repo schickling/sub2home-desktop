@@ -120,7 +120,7 @@ img.cookie    { margin: 0 -10px;}
 
 @tooltipArrowWidth:   10px;
 
-.tooltipster-content {
+.tooltipster-base {
   .tooltipOuter {
     // position: fixed;
     color: darken(@onHeaderColor, 5%);
@@ -166,7 +166,7 @@ img.cookie    { margin: 0 -10px;}
   }
 
   &.left .tooltipOuter {
-    margin: 11px -23px 0 0;
+    // margin: 11px -23px 0 0;
     &:before, &:after {
       left: auto;
       right: 15px;
@@ -177,6 +177,18 @@ img.cookie    { margin: 0 -10px;}
   &.warning .tooltipOuter { color: @orange; }
   &.info .tooltipOuter { color: darken(@onHeaderColor, 5%); }
   &.success .tooltipOuter { color: @greenLight; }
+}
+
+.tooltipster-fade {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+}
+.tooltipster-fade-show {
+  opacity: 1;
 }
 
 // Handwritten Notices
