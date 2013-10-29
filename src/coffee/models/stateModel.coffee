@@ -114,14 +114,17 @@ define [
       if errorOccured
         @set "storeModel", null
       else
+        @set
+          # cache store changed in boolean
+          # needed if listener for storeAlias:change wasn't initialized yet in cartModel
+          changedStore: true
+
         storeModel = @_selectCachedStoreModel(storeModel)
         @set
           storeModel: storeModel
           storeFetchDate: new Date()
 
-          # cache store changed in boolean
-          # needed if listener for storeAlias:change wasn't initialized yet in cartModel
-          changedStore: true
+          
 
         @_listenForStoreInternalChanges()
 
@@ -138,7 +141,11 @@ define [
           newDeliveryAreaModel = newDeliveryAreasCollection.find((deliveryAreaModel) ->
             deliveryAreaModel.get("postal") is oldDeliveryAreaModel.get("postal") and (deliveryAreaModel.get("district") is oldDeliveryAreaModel.get("district") or deliveryAreaModel.get("city") is oldDeliveryAreaModel.get("district"))
           )
-          newDeliveryAreaModel.set "isSelected", true  if newDeliveryAreaModel
+          if newDeliveryAreaModel
+            @set
+              changedStore: false
+            newDeliveryAreaModel.set "isSelected", true
+
       storeModel
 
     _listenForStoreInternalChanges: ->
