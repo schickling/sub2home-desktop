@@ -18,15 +18,17 @@ define [
       "click .orderStatus": "_toggleIsDelivered"
       "click .resendmail": "_resendMail"
       "click .alertOrder": "_addCredit"
-      "mouseenter .bMail": "_showResendMailTooltip"
-      "mouseleave .bMail": "_dismissTooltip"
 
     creditView: null
 
     initialize: ->
       @creditView = @options.creditView
       @_render()
+      @_enableTooltips()
       @listenTo @model, "change", @_render
+
+    _enableTooltips: ->
+      notificationcenter.tooltip @$(".bMail")
 
     _render: ->
       orderModel = @model
@@ -96,9 +98,7 @@ define [
         success: ->
           $isDelivered.toggleClass "delivered", isDelivered
 
-
-      # prevent detail to toggle
-      false
+      false # prevent detail to toggle
 
     _resendMail: ->
       url = @model.url() + "/resendmail"
@@ -111,17 +111,7 @@ define [
         error: ->
           notificationcenter.notify "views.store.dashboard.resendMail.error"
 
-
-      # prevent detail to toggle
-      false
-
-    _showResendMailTooltip: (e) ->
-      $button = $(e.target)
-      offset = $button.offset()
-      notificationcenter.tooltip "views.store.dashboard.resendMail", offset.top + 23, offset.left - 84
-
-    _dismissTooltip: ->
-      notificationcenter.hideTooltip()
+      false # prevent detail to toggle
 
     _addCredit: ->
       unless @model.get("creditModel")

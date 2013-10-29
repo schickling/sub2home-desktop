@@ -38,12 +38,12 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_selectViewFromCurrentRoute()
 
     _enableTooltips: ->
-      notificationcenter.tooltip(@$("#bSignout"))
-      notificationcenter.tooltip(@$("#bStoreConfig"))
-      notificationcenter.tooltip(@$("#bClientConfig"))
-      notificationcenter.tooltip(@$("#bStoreAssortment"))
-      notificationcenter.tooltip(@$("#bStoreDashboard"))
-      notificationcenter.tooltip(@$("#bClientDashboard"))
+      notificationcenter.tooltip @$("#bSignout")
+      notificationcenter.tooltip @$("#bStoreConfig")
+      notificationcenter.tooltip @$("#bClientConfig")
+      notificationcenter.tooltip @$("#bStoreAssortment")
+      notificationcenter.tooltip @$("#bStoreDashboard")
+      notificationcenter.tooltip @$("#bClientDashboard")
 
     _cacheDom: ->
       @$buttonLogout = @$("#bSignout")
