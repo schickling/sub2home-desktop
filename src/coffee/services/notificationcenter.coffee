@@ -19,9 +19,9 @@ define ["jquery", "tooltipster", "services/notificationRepository", "services/to
       $el.tooltipster
         arrow: false
         theme: ".#{$el.attr('data-tooltip-class')}"
-        # functionBefore: (origin, continueTooltip) ->
-        #   origin.tooltipster('update', tooltipModel.get('text'))
-        #   continueTooltip()
+        functionBefore: (origin, continueTooltip) ->
+          origin.tooltipster "update", "<div class='tooltipOuter'><div class='tooltipInner'>#{tooltipModel.get("text")}</div></div>"
+          continueTooltip()
 
     destroyAllNotifications: ->
       @notificationsView.destroyAllNotificationViews()
