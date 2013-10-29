@@ -181,13 +181,9 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       stateModel.set "storeModel", storeModel
       router.navigate storeModel.get("alias"), true
 
-      # remove remaining tooltip
-      notificationcenter.hideTooltip()
-
     _centerMapToBounds: (latlngbounds) ->
       @map.fitBounds latlngbounds
       @map.setCenter latlngbounds.getCenter()
-      
 
     _centerMapToNotFoundPostal: ->
       @geocoder.geocode

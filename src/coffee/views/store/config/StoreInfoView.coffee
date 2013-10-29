@@ -1,4 +1,11 @@
-define ["jquery", "underscore", "backbone", "services/notificationcenter", "views/store/config/AddressView", "text!templates/store/config/StoreInfoTemplate.html"], ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/notificationcenter"
+  "views/store/config/AddressView"
+  "text!templates/store/config/StoreInfoTemplate.html"
+  ], ($, _, Backbone, notificationcenter, AddressView, StoreInfoTemplate) ->
 
   StoreInfoView = Backbone.View.extend
 
@@ -6,8 +13,6 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
       "focusout #storeDescriptionInput": "_updateDescription"
       "focusout #storeOrderingContactInput": "_updateOrderEmail"
       "focusout #storeFacebookInput": "_updateFacebookUrl"
-      "mouseenter #bMail": "_tooltipForTestOrder"
-      "mouseleave .iBtn": "_dismissTooltip"
       "click #bMail": "_sendTestOrder"
       "click #storeOpen": "_toggleOpen"
       "click #payment button.toggle": "_togglePaymentMethod" # payment methods
@@ -99,10 +104,3 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
           notificationcenter.notify "views.store.config.info.success"
         error: ->
           notificationcenter.notify "views.store.config.info.error"
-
-    _tooltipForTestOrder: ->
-      offset = @$("#bMail").offset()
-      notificationcenter.tooltip "views.store.config.testOrder", offset.top + 24, offset.left + 15
-
-    _dismissTooltip: ->
-      notificationcenter.hideTooltip()
