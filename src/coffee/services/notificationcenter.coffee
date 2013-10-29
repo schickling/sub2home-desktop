@@ -19,6 +19,7 @@ define ["jquery", "tooltipster", "services/notificationRepository", "services/to
       console.log $el.attr('data-tooltip-left')
       $el.tooltipster
         arrow: false
+        delay: 0
         theme: ".#{$el.attr('data-tooltip-class')}"
         offsetX: $el.attr('data-tooltip-left') || 0
         offsetY: - $el.attr('data-tooltip-top') || 0
