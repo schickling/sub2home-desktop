@@ -16,9 +16,12 @@ define ["jquery", "tooltipster", "services/notificationRepository", "services/to
 
     tooltip: ($el) ->
       tooltipModel = tooltipRepository.getTooltipModel($el.attr('data-tooltip-message'))
+      console.log $el.attr('data-tooltip-left')
       $el.tooltipster
         arrow: false
         theme: ".#{$el.attr('data-tooltip-class')}"
+        offsetX: $el.attr('data-tooltip-left') || 0
+        offsetY: - $el.attr('data-tooltip-top') || 0
         functionBefore: (origin, continueTooltip) ->
           origin.tooltipster "update", "<div class='tooltipOuter'><div class='tooltipInner'>#{tooltipModel.get("text")}</div></div>"
           continueTooltip()
