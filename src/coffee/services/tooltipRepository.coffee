@@ -2,13 +2,14 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
 
   TooltipRepository =
     _items:
+
       default:
-        text: "Hey"
+        text: "Ich bin ein Tooltip!"
         className: "info"
 
-      "views.home.home.input":
-        text: "Hier funktionieren nur Zahlen"
-        className: "warning"
+      # "views.home.home.input":
+      #   text: "Hier funktionieren nur Zahlen"
+      #   className: "warning"
 
       "views.header.client.config":
         text: "Stammdaten"
@@ -44,7 +45,7 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
 
       "views.store.config.testOrder":
         text: "Testbestellung"
-        className: "info"
+        className: "left"
 
       "views.store.dashboard.invoice.invoice":
         text: "Rechnung als PDF herunterladen"
@@ -55,6 +56,5 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         className: "info"
 
     getTooltipModel: (alias, data) ->
-      defaultItem = @_items["default"]
-      item = @_items[alias] or defaultItem
+      item = @_items[alias] or @_items["default"]
       new TooltipModel(item)

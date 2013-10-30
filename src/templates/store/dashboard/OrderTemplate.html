@@ -4,7 +4,7 @@
 	<div class="alertOrder iBtn bBell <% if (hasCredit) { %>claimed<% } %>"></div>
 	<div class="orderTime"><%= dateOrTime %></div>
 	<div class="orderDestination"><%= postal %> <%= city %><% if (district) { %> (<%= district %>)<% } %></div>
-	<div class="iBtn bMail resendmail" data-tooltip-message="views.store.dashboard.resendMail" data-tooltip-class="left" data-tooltip-top="90" data-tooltip-left="-28"></div>
+	<div class="iBtn bMail resendmail" data-tooltip-message="views.store.dashboard.resendMail" data-tooltip-top="90" data-tooltip-left="-28"></div>
 	<div class="orderValueContainer">
 		<div class="orderValue"><%= total.toFixed(2) %>€</div>
 		<% if (totalWithCredit < total) { %><div class="orderValueWithCredit"><%= totalWithCredit.toFixed(2) %>€</div><% } %>
