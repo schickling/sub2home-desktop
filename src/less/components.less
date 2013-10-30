@@ -1730,6 +1730,7 @@ input[type="text"]#locationSelectionInput {
 
   #deliveryAreaSelection {
     position: relative;
+    width: auto;
     border-top: 1px solid rgba(255,255,255,0.7);
     padding: 20px 30px;
     background: @darkNote;
@@ -1762,15 +1763,30 @@ input[type="text"]#locationSelectionInput {
         color: @onRlyDarkNoteColor !important;
       }
     }
+
+    &:after {
+      // border-left: 1px solid rgba(0,0,0,0.7)
+      content: "\e03d";
+      font-family: "Homicons";
+      font-size: 40px;
+      color: @onDarkNoteColor50;
+      position: absolute;
+      top: 11px;
+      right: 28px;
+      .transition(e('color .1s linear, right .2s ease'));
+    }
+
     &:hover {
       background: @rlyDarkNote !important;
       color: @onRlyDarkNoteColor;
       span {
         color: @onRlyDarkNoteColor !important;
       }
+      &:after {
+        color: @onDarkNoteColor;
+        right: 15px;
+      }
     }
-
-
   }
 
   .noDeliveryArea {
