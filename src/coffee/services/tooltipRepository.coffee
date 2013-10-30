@@ -55,6 +55,10 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         text: "Anhang als PDF herunterladen"
         className: "info"
 
+      "views.store.dashboard.checkallorders":
+        text: "Alle Bestellungen abhaken"
+        className: "info"
+
     getTooltipModel: (alias, data) ->
       item = @_items[alias] or @_items["default"]
       new TooltipModel(item)
