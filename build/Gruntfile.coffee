@@ -142,7 +142,7 @@ module.exports = (grunt) ->
     "clean:test"
     "less"
     "coffee"
-    "open"
+    # "open"
     "watch"
   ]
 
