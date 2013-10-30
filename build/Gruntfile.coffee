@@ -61,6 +61,11 @@ module.exports = (grunt) ->
       options:
         dirs: ["<%= config.dist %>"]
 
+    open:
+      server:
+        path: "https://sub2home.dev"
+        app: "Google Chrome Canary"
+
     htmlmin:
       dist:
         options:
@@ -137,6 +142,7 @@ module.exports = (grunt) ->
     "clean:test"
     "less"
     "coffee"
+    "open"
     "watch"
   ]
 

@@ -27,6 +27,7 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.2",
     "grunt-karma": "~0.6.2",
-    "phantomjs": "1.9.1-2"
+    "phantomjs": "1.9.1-2",
+    "grunt-open": "~0.2.2"
   }
 }

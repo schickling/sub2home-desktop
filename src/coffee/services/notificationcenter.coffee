@@ -1,4 +1,12 @@
-define ["jquery", "tooltipster", "services/notificationRepository", "services/tooltipRepository", "models/NotificationModel", "models/TooltipModel", "views/notifications/NotificationsView"], ($, tooltipster, notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) ->
+define [
+  "jquery"
+  "tooltipster"
+  "services/notificationRepository"
+  "services/tooltipRepository"
+  "models/NotificationModel"
+  "models/TooltipModel"
+  "views/notifications/NotificationsView"
+], ($, tooltipster, notificationRepository, tooltipRepository, NotificationModel, TooltipModel, NotificationsView) ->
 
   Notificationcenter =
 

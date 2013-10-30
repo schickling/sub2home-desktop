@@ -3,12 +3,13 @@ define [
   "underscore"
   "backbone"
   "services/router"
+  "services/notificationcenter"
   "models/stateModel"
   "views/PageView"
   "views/store/dashboard/OrdersView"
   "views/store/dashboard/revenues/RevenuesView"
   "text!templates/store/dashboard/MainTemplate.html"
-], ($, _, Backbone, router, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) ->
+], ($, _, Backbone, router, notificationcenter, stateModel, PageView, OrdersView, RevenuesView, MainTemplate) ->
 
   MainView = PageView.extend
 
@@ -16,8 +17,8 @@ define [
       ordersView: null
 
     template: _.template(MainTemplate)
-    initialize: ->
 
+    initialize: ->
       # for authentification reload the store model
       @model = stateModel.get("storeModel")
       @model.fetch
@@ -31,11 +32,11 @@ define [
       # check if client is allowed to view this page
       if stateModel.clientOwnsThisStore()
         @_render()
+        @_enableTooltips()
       else
         router.navigate "login",
           trigger: true
           replace: true
-
 
     _render: ->
       json = title: @model.get("title")
@@ -45,6 +46,9 @@ define [
       # needs to be appended first for overscroll to work
       @append()
       @_renderRevenues()
+
+    _enableTooltips: ->
+      notificationcenter.tooltip(@$("#checkAllOrders"))
 
     _renderOrders: ->
       @subViews.ordersView = new OrdersView(el: @$el)
