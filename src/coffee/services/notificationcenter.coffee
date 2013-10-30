@@ -27,7 +27,7 @@ define [
       $el.tooltipster
         arrow: false
         delay: 0
-        theme: ".#{tooltipModel.get("className")}"
+        theme: tooltipModel.get("className")
         offsetX: $el.attr('data-tooltip-left') || 0
         offsetY: - $el.attr('data-tooltip-top') || 0
         functionBefore: (origin, continueTooltip) ->
