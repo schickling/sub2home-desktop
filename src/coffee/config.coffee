@@ -1,7 +1,6 @@
-require.config 
-  paths:
+require.config
 
-    # bower components
+  paths:
     async: "../components/requirejs-plugins/src/async"
     text: "../components/requirejs-text/text"
     jquery: "../components/jquery/jquery"
@@ -19,8 +18,6 @@ require.config
     backboneLocalStorage: "../components/backbone.localStorage/backbone.localStorage"
     backboneAnalytics: "../components/backbone.analytics/backbone.analytics"
     moment: "../components/moment/moment"
-
-    # templates
     templates: "../templates"
 
   shim:
