@@ -21,6 +21,6 @@
     "tooltipster": "~2.1.4"
   },
   "devDependencies": {
-    "timemachine": "~0.1.1"
+    "timemachine": "~0.1.4"
   }
 }
