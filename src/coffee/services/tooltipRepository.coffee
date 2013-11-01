@@ -17,27 +17,27 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
 
       "views.header.client.dashboard":
         text: "Store-Übersicht"
-        className: "info"
+        className: "info header"
 
       "views.header.store.dashboard":
         text: "Bestellungen & Umsätze"
-        className: "info"
+        className: "info header"
 
       "views.header.store.assortment":
         text: "Sortiment-Einstellungen"
-        className: "info"
+        className: "info header"
 
       "views.header.store.config":
         text: "Store-Einstellungen"
-        className: "info"
+        className: "info header"
 
       "views.header.logout":
         text: "Logout"
-        className: "info"
+        className: "info header"
 
       "views.header.tray":
         text: "Hier gehts zum Tablett"
-        className: "info"
+        className: "info header"
 
       "views.store.dashboard.resendMail":
         text: "Erneut senden"
