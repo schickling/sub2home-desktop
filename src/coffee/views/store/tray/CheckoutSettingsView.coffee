@@ -62,8 +62,9 @@ define [
       if @model.validate(changedAttributes)
         $wrapper.addClass "invalid"
         $wrapper.removeClass "passed"
+        console.log 'jo'
       else
-        $wrapper.addClass "passed"  if value isnt ""
+        $wrapper.toggleClass "passed", value isnt ""
         $wrapper.removeClass "invalid"
 
       # gets saved later
