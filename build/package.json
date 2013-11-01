@@ -29,6 +29,7 @@
     "grunt-karma": "~0.6.2",
     "phantomjs": "1.9.1-2",
     "grunt-open": "~0.2.2",
-    "grunt-notify": "~0.2.14"
+    "grunt-notify": "~0.2.14",
+    "grunt-newer": "~0.5.4"
   }
 }

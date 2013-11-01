@@ -11,7 +11,6 @@ module.exports = (grunt) ->
     config: config
 
     coffee:
-
       src:
         files: [
           expand: true
@@ -112,26 +111,20 @@ module.exports = (grunt) ->
     watch:
       coffeeSrc:
         files: ["<%= config.src %>/coffee/**/*.coffee"]
-        tasks: ["coffee:src"]
+        tasks: ["newer:coffee:src"]
 
       coffeeTest:
         files: ["<%= config.test %>/spec/**/*.coffee"]
-        tasks: ["coffee:test"]
-
-      # js: {
-      #   files: ['<%= config.src %>/js/**/*.js'],
-      #   tasks: ['jshint'],
-      # },
+        tasks: ["newer:coffee:test"]
 
       less:
         files: ["<%= config.src %>/less/*.less"]
         tasks: ["less:src"]
 
       livereload:
+        files: ["<%= config.src %>/js/**/*.js", "<%= config.src %>/templates/**/*.html", "<%= config.src %>/css/*.css"]
         options:
           livereload: true
-
-        files: ["<%= config.src %>/js/**/*.js", "<%= config.src %>/templates/**/*.html", "<%= config.src %>/css/*.css"]
 
     karma:
       unit:
@@ -141,8 +134,7 @@ module.exports = (grunt) ->
   grunt.registerTask "server", [
     "clean:test"
     "less"
-    "coffee"
-    # "open"
+    "newer:coffee"
     "watch"
   ]
 
