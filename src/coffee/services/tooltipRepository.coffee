@@ -59,10 +59,6 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         text: "Alle Bestellungen abhaken"
         className: "info"
 
-      "views.store.tray.invalid":
-        text: "Falsche Eingabe"
-        className: "warning"
-
     getTooltipModel: (alias, data) ->
       item = @_items[alias] or @_items["default"]
       new TooltipModel(item)

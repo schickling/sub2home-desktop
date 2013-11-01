@@ -2,11 +2,10 @@ define [
   "jquery"
   "underscore"
   "backbone"
-  "services/notificationcenter"
   "models/stateModel"
   "models/cartModel"
   "text!templates/store/tray/CheckoutSettingsTemplate.html"
-], ($, _, Backbone, notificationcenter, stateModel, cartModel, CheckoutSettingsTemplate) ->
+], ($, _, Backbone, stateModel, cartModel, CheckoutSettingsTemplate) ->
 
   CheckoutSettingsView = Backbone.View.extend
 
@@ -21,8 +20,6 @@ define [
     initialize: ->
       @model = cartModel.getCustomerAddressModel()
       @_render()
-      @_enableTooltips()
-      @_listenToValidation()
 
     _render: ->
       storeModel = stateModel.get("storeModel")
@@ -44,18 +41,9 @@ define [
 
       @$el.html @template(json)
 
-    _enableTooltips: ->
-      $inputs = @$("input")
-      notificationcenter.tooltip $inputs
-      $inputs.tooltipster "disable"
-
-    _listenToValidation: ->
-      # @listenTo(@model, "invalid", (model, error) ->
-      #   console.log error
-      # )
-
     _saveAddressData: (e) ->
       $input = $(e.target)
+      $wrapper = $input.parent()
       attribute = $input.attr("data-attribute")
       value = $input.val()
 
@@ -64,13 +52,11 @@ define [
       changedAttributes[attribute] = value
 
       if @model.validate(changedAttributes)
-        $input.tooltipster "enable"
-        $input.tooltipster "show"
-        $input.addClass "invalid"
+        $wrapper.addClass "invalid"
+        $wrapper.removeClass "passed"
       else
-        $input.tooltipster "hide"
-        $input.tooltipster "disable"
-        $input.removeClass "invalid"
+        $wrapper.removeClass "invalid"
+        $wrapper.addClass "passed"
 
       # gets saved later
       @model.set changedAttributes,

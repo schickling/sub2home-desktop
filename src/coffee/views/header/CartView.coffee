@@ -33,9 +33,9 @@ define [
 
     _listenToNewArticle: ->
       cartModel.on "itemAdded", =>
-        @$el.tooltipster('show')
+        @$el.tooltipster "show"
         setTimeout (=>
-          @$el.tooltipster('hide')
+          @$el.tooltipster "hide"
           ), 3000
 
     _enableTooltips: ->
