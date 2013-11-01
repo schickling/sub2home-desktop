@@ -2,8 +2,9 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/imageSuffixer"
   "text!templates/store/tray/OrderedArticleSingleTemplate.html"
-], ($, _, Backbone, OrderedArticleSingleTemplate) ->
+], ($, _, Backbone, imageSuffixer, OrderedArticleSingleTemplate) ->
 
   OrderedArticleSingleView = Backbone.View.extend
 
@@ -33,6 +34,7 @@ define [
         description: @_getDescription()
 
       @$el.html @template(json)
+      @$el.addClass imageSuffixer.getClass(articleModel.get("largeImage"))
       @$el.addClass "orderedArticle"
 
     _cacheDom: ->
