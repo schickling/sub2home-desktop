@@ -14,12 +14,13 @@ define [
 
     events:
       "click #save": "_hide"
-      "focusout input": "_saveAddressData"
+      "focusout input": "_prepareSaveAddressData"
       "click #paymentSettings span": "_choosePayment"
 
     initialize: ->
       @model = cartModel.getCustomerAddressModel()
       @_render()
+      @_markFilledFields()
 
     _render: ->
       storeModel = stateModel.get("storeModel")
@@ -41,8 +42,15 @@ define [
 
       @$el.html @template(json)
 
-    _saveAddressData: (e) ->
-      $input = $(e.target)
+    _markFilledFields: ->
+      @$("input").each (index, element) =>
+        $element = $(element)
+        @_saveAddressData($element)  if $element.val() isnt ""
+
+    _prepareSaveAddressData: (e) ->
+      @_saveAddressData($(e.target))
+
+    _saveAddressData: ($input) ->
       $wrapper = $input.parent()
       attribute = $input.attr("data-attribute")
       value = $input.val()
@@ -55,8 +63,8 @@ define [
         $wrapper.addClass "invalid"
         $wrapper.removeClass "passed"
       else
+        $wrapper.addClass "passed"  if value isnt ""
         $wrapper.removeClass "invalid"
-        $wrapper.addClass "passed"
 
       # gets saved later
       @model.set changedAttributes,
@@ -69,6 +77,9 @@ define [
       cartModel.setPaymentMethod method
 
     _hide: ->
+      @$("input").each (index, element) =>
+        @_saveAddressData($(element))
+
       # trigger validation and save the address
       valid = !!@model.set({},
         validate: true
