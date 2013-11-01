@@ -1,4 +1,11 @@
-define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templates/store/selection/stage/articleSelection/MenuComponentOptionArticleTemplate.html"], ($, _, Backbone, ArticleModel, MenuComponentOptionArticleTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/imageSuffixer"
+  "models/ArticleModel"
+  "text!templates/store/selection/stage/articleSelection/MenuComponentOptionArticleTemplate.html"
+], ($, _, Backbone, imageSuffixer, ArticleModel, MenuComponentOptionArticleTemplate) ->
 
   MenuComponentOptionArticleView = Backbone.View.extend
 
@@ -26,12 +33,7 @@ define ["jquery", "underscore", "backbone", "models/ArticleModel", "text!templat
         description: @model.get("description")
 
       @$el.html @template(json)
-      @$el.addClass @_getImageClass()
-
-    _getImageClass: ->
-      image = @model.get("largeImage")
-      imageWithoutFileExtension = image.substr(0, image.lastIndexOf("."))
-      imageWithoutFileExtension.split("-").pop() or ""
+      @$el.addClass imageSuffixer.getClass(@model.get("largeImage"))
 
     _update: ->
       @$el.toggleClass "selected", @model.get("isSelected")

@@ -2,8 +2,9 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/imageSuffixer"
   "text!templates/store/selection/info/ingredientsSelection/ArticleTemplate.html"
-], ($, _, Backbone, ArticleTemplate) ->
+], ($, _, Backbone, imageSuffixer, ArticleTemplate) ->
 
   ArticleView = Backbone.View.extend
 
@@ -20,9 +21,4 @@ define [
         description: @model.get("description")
 
       @$el.html @template(json)
-      @$el.addClass @_getImageClass()
-
-    _getImageClass: ->
-      image = @model.get("largeImage")
-      imageWithoutFileExtension = image.substr(0, image.lastIndexOf("."))
-      imageWithoutFileExtension.split("-").pop() or ""
+      @$el.addClass imageSuffixer.getClass(@model.get("largeImage"))

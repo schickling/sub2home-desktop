@@ -1,4 +1,16 @@
-define ["jquery", "underscore", "backbone", "services/notificationcenter", "services/router", "models/cartModel", "models/ArticleModel", "models/OrderedItemModel", "views/store/home/ArticleDetailsView", "text!templates/store/home/ItemTemplate.html"], ($, _, Backbone, notificationcenter, router, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, ItemTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/notificationcenter"
+  "services/router"
+  "services/imageSuffixer"
+  "models/cartModel"
+  "models/ArticleModel"
+  "models/OrderedItemModel"
+  "views/store/home/ArticleDetailsView"
+  "text!templates/store/home/ItemTemplate.html"
+], ($, _, Backbone, notificationcenter, router, imageSuffixer, cartModel, ArticleModel, OrderedItemModel, ArticleDetailsView, ItemTemplate) ->
 
   ItemView = Backbone.View.extend
 
@@ -20,12 +32,7 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "serv
         deposit: (@model.get("deposit") or 0) * 100 # cent
 
       @$el.html @template(json)
-      @$el.addClass @_getImageClass()
-
-    _getImageClass: ->
-      image = @model.get("largeImage")
-      imageWithoutFileExtension = image.substr(0, image.lastIndexOf("."))
-      imageWithoutFileExtension.split("-").pop() or ""
+      @$el.addClass imageSuffixer.getClass(@model.get("largeImage"))
 
     _handleClick: ->
       if @model.has("allowsIngredients") # article model

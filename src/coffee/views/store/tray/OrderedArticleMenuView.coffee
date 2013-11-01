@@ -2,8 +2,9 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/imageSuffixer"
   "text!templates/store/tray/OrderedArticleMenuTemplate.html"
-], ($, _, Backbone, OrderedArticleMenuTemplate) ->
+], ($, _, Backbone, imageSuffixer, OrderedArticleMenuTemplate) ->
 
   OrderedArticleMenuView = Backbone.View.extend
 
@@ -24,12 +25,7 @@ define [
         description: @_getDescription()
 
       @$el.html @template(json)
-      @$el.addClass @_getImageClass()
-
-    _getImageClass: ->
-      image = @model.get("largeImage")
-      imageWithoutFileExtension = image.substr(0, image.lastIndexOf("."))
-      imageWithoutFileExtension.split("-").pop()
+      @$el.addClass imageSuffixer.getClass(@model.get("largeImage"))
 
     _getDescription: ->
       description = @model.get("description")
