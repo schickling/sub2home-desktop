@@ -1,4 +1,14 @@
-define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "services/notificationcenter", "services/localStorageVersioner", "models/stateModel", "models/authentificationModel"], (require, $, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
+define [
+  "require"
+  "jquery"
+  "underscore"
+  "backbone"
+  "backboneAnalytics"
+  "services/notificationcenter"
+  "services/localStorageVersioner"
+  "models/stateModel"
+  "models/authentificationModel"
+], (require, $, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -28,8 +38,7 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
 
     init: ->
       # init header
-      require ["views/header/HeaderView"], (HeaderView) ->
-        new HeaderView()
+      require ["views/header/HeaderView"], (HeaderView) -> new HeaderView()
 
       localStorageVersioner.initialize()
       notificationcenter.init()
@@ -171,10 +180,8 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
     _loadMainView: (pathToMainView, params) ->
       require [pathToMainView], (MainView) =>
         params ?= {}
-        # destory old page view to unbind listeners
-        params.currentPageView = @_pageView  if @_pageView
+        params.currentPageView = @_pageView  if @_pageView # destory old page view to unbind listeners
         @_pageView = new MainView(params)
-        # window.mouseflow.newPageView();
 
     _defaultAction: ->
       fragment = Backbone.history.fragment
@@ -185,7 +192,6 @@ define ["require", "jquery", "underscore", "backbone", "backboneAnalytics", "ser
         @navigate fragment,
           trigger: true
           replace: true
-
       else
         @navigate "404",
           trigger: true
