@@ -1,7 +1,18 @@
-define ["jquery", "underscore", "backbone", "services/router", "services/notificationcenter", "models/stateModel", "models/cartModel", "text!templates/header/CartTemplate.html"], ($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/router"
+  "services/notificationcenter"
+  "models/stateModel"
+  "models/cartModel"
+  "text!templates/header/CartTemplate.html"
+], ($, _, Backbone, router, notificationcenter, stateModel, cartModel, CartTemplate) ->
 
   CartView = Backbone.View.extend
+
     template: _.template(CartTemplate)
+
     events:
       click: "_goToTray"
 
@@ -10,6 +21,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       @_render()
       @_enableTooltips()
       @_listenToNewDeliveryArea()
+      @_listenToNewArticle()
       @model.on "change", @_render, this
 
     _listenToNewDeliveryArea: ->
@@ -18,6 +30,13 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       # listen to store model is enough since store models get changed
       # if a new delivery area is selected
       storeModel.on "change", @_render, this
+
+    _listenToNewArticle: ->
+      cartModel.on "itemAdded", =>
+        @$el.tooltipster('show')
+        setTimeout (=>
+          @$el.tooltipster('hide')
+          ), 3000
 
     _enableTooltips: ->
       notificationcenter.tooltip @$el

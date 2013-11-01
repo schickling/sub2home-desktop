@@ -59,6 +59,7 @@ define [
       orderedItemModel.trigger "recalculate"
       orderedItemsCollection.add orderedItemModel
       orderedItemModel.set "isInCart", true
+      @trigger "itemAdded"
 
     getPaymentMethod: ->
       orderModel = @get("orderModel")
