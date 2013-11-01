@@ -2,10 +2,11 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/notificationcenter"
   "models/stateModel"
   "models/cartModel"
   "text!templates/store/tray/CheckoutSettingsTemplate.html"
-], ($, _, Backbone, stateModel, cartModel, CheckoutSettingsTemplate) ->
+], ($, _, Backbone, notificationcenter, stateModel, cartModel, CheckoutSettingsTemplate) ->
 
   CheckoutSettingsView = Backbone.View.extend
 
@@ -13,27 +14,29 @@ define [
     template: _.template(CheckoutSettingsTemplate)
 
     events:
-      "click #save": "hide"
-      "focusout input": "saveAddressData"
-      "click #paymentSettings span": "choosePayment"
+      "click #save": "_hide"
+      "focusout input": "_saveAddressData"
+      "click #paymentSettings span": "_choosePayment"
 
     initialize: ->
-      @render()
+      @model = cartModel.getCustomerAddressModel()
+      @_render()
+      @_enableTooltips()
+      @_listenToValidation()
 
-    render: ->
-      addressModel = cartModel.getCustomerAddressModel()
+    _render: ->
       storeModel = stateModel.get("storeModel")
       json =
-        firstName: addressModel.get("firstName")
-        lastName: addressModel.get("lastName")
-        street: addressModel.get("street")
-        streetAdditional: addressModel.get("streetAdditional")
-        streetNumber: addressModel.get("streetNumber")
-        city: addressModel.get("city")
-        district: addressModel.get("district")
-        phone: addressModel.get("phone")
-        email: addressModel.get("email")
-        postal: addressModel.get("postal")
+        firstName: @model.get("firstName")
+        lastName: @model.get("lastName")
+        street: @model.get("street")
+        streetAdditional: @model.get("streetAdditional")
+        streetNumber: @model.get("streetNumber")
+        city: @model.get("city")
+        district: @model.get("district")
+        phone: @model.get("phone")
+        email: @model.get("email")
+        postal: @model.get("postal")
         selectedPaymentMethod: cartModel.getPaymentMethod()
         allowsPaymentCash: storeModel.get("allowsPaymentCash")
         allowsPaymentEc: storeModel.get("allowsPaymentEc")
@@ -41,36 +44,51 @@ define [
 
       @$el.html @template(json)
 
-    saveAddressData: (e) ->
+    _enableTooltips: ->
+      $inputs = @$("input")
+      notificationcenter.tooltip $inputs
+      $inputs.tooltipster "disable"
+
+    _listenToValidation: ->
+      # @listenTo(@model, "invalid", (model, error) ->
+      #   console.log error
+      # )
+
+    _saveAddressData: (e) ->
       $input = $(e.target)
       attribute = $input.attr("data-attribute")
       value = $input.val()
-      addressModel = cartModel.getCustomerAddressModel()
 
-      # array notation needed to interpolate dynamic attribute variable
-      changedAttributes = []
+      # notation needed to interpolate dynamic attribute variable
+      changedAttributes = {}
       changedAttributes[attribute] = value
 
+      if @model.validate(changedAttributes)
+        $input.tooltipster "enable"
+        $input.tooltipster "show"
+        $input.addClass "invalid"
+      else
+        $input.tooltipster "hide"
+        $input.tooltipster "disable"
+        $input.removeClass "invalid"
+
       # gets saved later
-      addressModel.set changedAttributes,
+      @model.set changedAttributes,
         silent: true
 
-
-    choosePayment: (e) ->
+    _choosePayment: (e) ->
       $span = $(e.target)
       method = $span.attr("data-method")
       $span.addClass("selected").siblings().removeClass "selected"
       cartModel.setPaymentMethod method
 
-    hide: ->
-      addressModel = cartModel.getCustomerAddressModel()
-
+    _hide: ->
       # trigger validation and save the address
-      valid = !!addressModel.set({},
+      valid = !!@model.set({},
         validate: true
       )
       if valid
-        addressModel.trigger "change"
+        @model.trigger "change"
         @$el.trigger "hide"
 
 
