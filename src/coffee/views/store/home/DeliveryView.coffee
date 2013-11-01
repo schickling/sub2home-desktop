@@ -62,6 +62,6 @@ define [
       @$el.toggleClass "shrink", tooLong
 
     _fixWidthOtherDay: (area, nextDeliveryTime) ->
-      tooLong = area.length + nextDeliveryTime.length > 21
+      tooLong = area.length + nextDeliveryTime.length > 19
       @$el.toggleClass "shrink", tooLong
 
