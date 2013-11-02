@@ -8,7 +8,7 @@
 		</div>
 		<div class="separator"></div>
 	</div>
-	<div class="notice leftHandAbove">
+	<div class="notice leftHandAbove double">
 		Das gleiche nochmal?
 	</div>
 	<div class="pricetag"><span><%= total.toFixed(2) %> €</span></div>
@@ -20,10 +20,10 @@
 
 <div class="menuItems"></div>
 
-
-
-<% if (amount > 1) { %><div class="amountOrderedItem">
-<div class="increaseAmount"></div>
-<div class="amount"><%= amount %></div>
-<div class="decreaseAmount"></div>
-</div><% } %>
+<% if (amount > 1) { %>
+<div class="amountOrderedItem">
+	<div class="increaseAmount"></div>
+	<div class="amount"><%= amount %></div>
+	<div class="decreaseAmount"></div>
+</div>
+<% } %>

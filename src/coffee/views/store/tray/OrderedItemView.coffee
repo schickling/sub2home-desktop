@@ -57,9 +57,16 @@ define [
 
     _increaseAmount: ->
       @model.set "amount", @model.get("amount") + 1
-      @_render()
+      @_adjustRenderedAmount()
+      @_hideNotice()
 
     _decreaseAmount: ->
       @model.set "amount", @model.get("amount") - 1
-      @_render()
+      @_adjustRenderedAmount()
+
+    _adjustRenderedAmount: ->
+      @$('.amount').text @model.get("amount")
+
+    _hideNotice: ->
+      @$('.double').fadeOut()
 
