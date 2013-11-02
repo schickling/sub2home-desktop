@@ -4,18 +4,18 @@
 	</header>
 
 	<div id="customerName">
-		<div id="customerFirstname">
+		<div id="customerFirstname" class="mandatory">
 			<label for="customerFirstnameInput">Vorname</label>
 			<input data-attribute="firstName" id="customerFirstnameInput" value="<%= firstName %>">
 		</div>
-		<div id="customerLastname">
+		<div id="customerLastname" class="mandatory">
 			<label for="customerLastnameInput">Nachname</label>
 			<input data-attribute="lastName" id="customerLastnameInput" value="<%= lastName %>">
 		</div>
 	</div>
 
 	<div id="customerContact">
-		<div id="customerPhone">
+		<div id="customerPhone" class="mandatory">
 			<label for="customerPhoneInput">Tel</label>
 			<input data-attribute="phone" id="customerPhoneInput" value="<%= phone %>">
 		</div>
@@ -26,11 +26,11 @@
 	</div>
 
 	<div id="customerAddress">
-		<div id="customerStreet">
+		<div id="customerStreet" class="mandatory">
 			<label for="customerStreetInput">Strasse</label>
 			<input data-attribute="street" id="customerStreetInput" value="<%= street %>">
 		</div>
-		<div id="customerStreetNumber">
+		<div id="customerStreetNumber" class="mandatory">
 			<label for="customerStreetNumberInput">Nr</label>
 			<input data-attribute="streetNumber" id="customerStreetNumberInput" value="<%= streetNumber %>">
 		</div>
