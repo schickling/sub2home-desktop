@@ -40,7 +40,7 @@ define [
       "click #refresh": "_refresh"
       "click #loadMore": "_loadMore"
       "click #bMail": "_sendTestOrder"
-      mousemove: "_resetAutoRefresh"
+      "mousemove": "_resetAutoRefresh"
       "click #checkAllOrders": "_checkAllOrders"
 
     initialize: ->
@@ -206,7 +206,15 @@ define [
 
     _checkAllOrders: ->
       _.each @collection.models, (orderModel) ->
-        orderModel.save isDelivered: true  unless orderModel.get("isDelivered")
+        unless orderModel.get("isDelivered")
+          orderModel.save {
+            isDelivered: true
+          }, {
+            success: ->
+              storeModel = stateModel.get("storeModel")
+              storeModel.fetch
+                url: "stores/storeAlias/auth" # use custom route
+          }
 
 
     destroy: ->
