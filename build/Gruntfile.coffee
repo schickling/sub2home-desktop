@@ -12,6 +12,9 @@ module.exports = (grunt) ->
 
     coffee:
       src:
+        options:
+          sourceMap: true
+          sourceRoot: ''
         files: [
           expand: true
           cwd: "<%= config.src %>/coffee"
@@ -29,9 +32,16 @@ module.exports = (grunt) ->
           ext: ".js"
         ]
 
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= config.src %>/coffee"
+          src: "**/*.coffee"
+          dest: "<%= config.src %>/js"
+          ext: ".js"
+        ]
+
       options:
-        sourceMap: true
-        sourceRoot: ''
         bare: true
 
     jshint:
@@ -135,7 +145,8 @@ module.exports = (grunt) ->
   grunt.registerTask "server", [
     "clean:test"
     "any-newer:less"
-    "newer:coffee"
+    "newer:coffee:src"
+    "newer:coffee:test"
     "watch"
   ]
 
@@ -145,7 +156,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "build", [
-    "coffee:src"
+    "coffee:dist"
     "clean:dist"
     "copy:dist"
     "requirejs:dist"
