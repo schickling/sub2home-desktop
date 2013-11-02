@@ -1,10 +1,15 @@
-define ["jquery", "underscore", "backbone", "services/router", "services/notificationcenter", "models/stateModel", "models/clientModel", "models/authentificationModel", "text!templates/header/ClientTemplate.html"], ($, _, Backbone, router, notificationcenter, stateModel, clientModel, authentificationModel, ClientTemplate) ->
-
-  $.objectOfArray = (a) ->
-    c = $()
-    for x of a
-      c = c.add(a[x])
-    c
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/router"
+  "services/helpers"
+  "services/notificationcenter"
+  "models/stateModel"
+  "models/clientModel"
+  "models/authentificationModel"
+  "text!templates/header/ClientTemplate.html"
+], ($, _, Backbone, router, helpers, notificationcenter, stateModel, clientModel, authentificationModel, ClientTemplate) ->
 
   ClientView = Backbone.View.extend
 
@@ -88,6 +93,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
     _showClientConfig: ->
       $neededButtons = @$buttonClientDashboard
+      console.log $neededButtons
       $unneededButtons = @$allButtons.not($neededButtons)
       title = clientModel.getName() + "'s sub2home"
       @$allButtons.removeClass "active"
@@ -98,7 +104,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       $neededButtons.delay(@animationTime + 10).fadeIn @animationTime + 50
 
     _showStoreDashboard: ->
-      $neededButtons = $.objectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
+      $neededButtons = $.makeObjectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
       $unneededButtons = @$allButtons.not($neededButtons)
       storeModel = stateModel.get("storeModel")
       title = "Dashboard: " + storeModel.get("title")
@@ -111,7 +117,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       $neededButtons.delay(@animationTime + 10).fadeIn @animationTime + 50
 
     _showStoreAssortment: ->
-      $neededButtons = $.objectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
+      $neededButtons = $.makeObjectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
       $unneededButtons = @$allButtons.not($neededButtons)
       storeModel = stateModel.get("storeModel")
       title = "Sortiment: " + storeModel.get("title")
@@ -124,7 +130,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       $neededButtons.delay(@animationTime + 10).fadeIn @animationTime + 50
 
     _showStoreConfig: ->
-      $neededButtons = $.objectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
+      $neededButtons = $.makeObjectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
       $unneededButtons = @$allButtons.not($neededButtons)
       storeModel = stateModel.get("storeModel")
       title = "Einstellungen: " + storeModel.get("title")
@@ -137,7 +143,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
       $neededButtons.delay(@animationTime + 10).fadeIn @animationTime + 50
 
     _showStoreGlobal: ->
-      $neededButtons = $.objectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
+      $neededButtons = $.makeObjectOfArray([@$buttonClientDashboard, @$buttonStoreConfig, @$buttonStoreAssortment, @$buttonStoreDashboard])
       $unneededButtons = @$allButtons.not($neededButtons)
       storeModel = stateModel.get("storeModel")
       title = storeModel.get("title")

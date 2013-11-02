@@ -100,13 +100,14 @@ module.exports = (grunt) ->
       src:
         files:
           "<%= config.src %>/css/main.css": "<%= config.src %>/less/main.less"
+        options:
+          sourceMap: true
 
       dist:
-        options:
-          yuicompress: true
-
         files:
           "<%= config.dist %>/css/main.css": "<%= config.src %>/less/main.less"
+        options:
+          yuicompress: true
 
     watch:
       coffeeSrc:

@@ -8,7 +8,7 @@
     "grunt-usemin": "~0.1.12",
     "grunt-requirejs": "0.4.x",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-less": "0.7.x",
+    "grunt-contrib-less": "~0.8.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "0.6.x",
     "grunt-contrib-htmlmin": "~0.1.3",

@@ -7,7 +7,8 @@
 				"dist",
 				"build/node_modules",
 				"src/css",
-				"src/js"
+				"src/js",
+				"test/.tmp"
 			],
 			"follow_symlinks": true,
 			"path": "."
