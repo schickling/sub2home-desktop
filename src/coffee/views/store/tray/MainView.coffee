@@ -34,18 +34,16 @@ define [
       deliveryTimeView: null
       minimumValueView: null
 
-
     # cached dom
     $checkoutSettings: null
     $trayNote: null
-    initialize: ->
 
+    initialize: ->
       # check if cart is not empty
       if cartModel.getNumberOfOrderedItems() is 0
         router.navigate "store",
           trigger: true
           replace: true
-
         return
       @_render()
 
@@ -85,7 +83,6 @@ define [
         scrollTop: scrollTop
       , ->
         $checkoutSettings.css height: 0
-
 
     _storeIsDelivering: ->
       stateModel.get("storeModel").isDeliveringToday()

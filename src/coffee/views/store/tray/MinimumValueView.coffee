@@ -15,12 +15,18 @@ define [
 
     initialize: ->
       @_render()
-      @listenTo cartModel, "change", @_render
+      @listenTo cartModel, "change", @_slide
 
     _render: ->
       json = minimumValue: cartModel.getMinimumValue()
       @$el.html @template(json)
       @$el.toggle not cartModel.isMinimumReached()
+
+    _slide: ->
+      if cartModel.isMinimumReached()
+        @$el.slideUp()
+      else
+        @$el.slideDown()
 
     _navigateToHome: ->
       router.navigate "store", true
