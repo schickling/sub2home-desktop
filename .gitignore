@@ -7,3 +7,4 @@
 .tmp
 .tern-port
 *.sublime-workspace
+npm-debug.log

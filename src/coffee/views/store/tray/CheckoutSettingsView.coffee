@@ -76,6 +76,7 @@ define [
       method = $span.attr("data-method")
       $span.addClass("selected").siblings().removeClass "selected"
       cartModel.setPaymentMethod method
+      @_hide()
 
     _hide: ->
       @$("input").each (index, element) =>
