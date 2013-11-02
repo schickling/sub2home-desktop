@@ -4,11 +4,12 @@ define [
   "underscore"
   "backbone"
   "services/notificationcenter"
+  "models/stateModel"
   "collections/OrdersCollection"
   "views/store/dashboard/OrderView"
   "views/store/dashboard/CreditView"
   "text!templates/store/dashboard/NoOrdersTemplate.html"
-], ($, jqueryRotate, _, Backbone, notificationcenter, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) ->
+], ($, jqueryRotate, _, Backbone, notificationcenter, stateModel, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) ->
 
   OrdersView = Backbone.View.extend
 
@@ -65,17 +66,15 @@ define [
       @listenTo @collection, "add remove", @_render
 
     _startAutoRefresh: ->
-      self = this
-      @autoRefreshInterval = setInterval(->
-        self._fetchCollectionAndRender true
-      , 20000)
+      @autoRefreshInterval = setInterval =>
+        @_fetchCollectionAndRender true
+      , 20000
 
     _resetAutoRefresh: ->
       clearInterval @autoRefreshInterval
       @_startAutoRefresh()
 
     _fetchCollectionAndRender: (viewShouldBeResetted) ->
-      self = this
       if @isReady
         @isReady = false
         @_startRotateRefresh()
@@ -84,28 +83,30 @@ define [
         @pageOffset = 0  if viewShouldBeResetted
         @collection.fetch
           parse: true
-          data: $.param(
+          data: $.param
             search: @search
             page: @pageOffset
-          )
-          success: (collection, receivedOrders) ->
-            self._stopRotateRefresh()
-            self._resetView()  if viewShouldBeResetted
-            self._renderOrders()
-            if receivedOrders.length is 0 or self.search
-              self._hideLoadMore()
+          success: (collection, receivedOrders) =>
+            @_stopRotateRefresh()
+            @_resetView()  if viewShouldBeResetted
+            @_renderOrders()
+            if receivedOrders.length is 0 or @search
+              @_hideLoadMore()
             else
-              self._showLoadMore()
-            if collection.length is 0 and not self.hasOrders
-              self._showNoOrders()
+              @_showLoadMore()
+            if collection.length is 0 and not @hasOrders
+              @_showNoOrders()
             else
-              self.hasOrders = true
-              self._showOrders()
-            self.isReady = true
+              @hasOrders = true
+              @_showOrders()
+            @isReady = true
+            storeModel = stateModel.get("storeModel")
+            storeModel.fetch
+              url: "stores/storeAlias/auth" # use custom route
 
           error: ->
-            self._stopRotateRefresh()
-            self._renderNoOrders()
+            @_stopRotateRefresh()
+            @_renderNoOrders()
 
 
     _showOrders: ->
@@ -138,11 +139,10 @@ define [
       @$noOrders.html NoOrdersTemplate
 
     _delayedSearch: ->
-      self = this
       clearTimeout @searchTimeout
-      @searchTimeout = setTimeout(->
-        self._search()
-      , 300)
+      @searchTimeout = setTimeout =>
+        @_search()
+      , 300
 
     _search: ->
       @search = @$search.val()
@@ -164,21 +164,18 @@ define [
       # clean old interval
       clearInterval @rotateInterval
       $refresh = @$refresh
-      self = this
-      @rotateInterval = setInterval(->
-        self.rotationDeg = (self.rotationDeg + 15) % 180
-        $refresh.rotate self.rotationDeg
-      , 20)
+      @rotateInterval = setInterval =>
+        @rotationDeg = (@rotationDeg + 15) % 180
+        $refresh.rotate @rotationDeg
+      , 20
 
     _stopRotateRefresh: ->
-      self = this
-
       # wait until rotation complete
-      checkInterval = setInterval(->
-        if self.rotationDeg is 0
-          clearInterval self.rotateInterval
+      checkInterval = setInterval =>
+        if @rotationDeg is 0
+          clearInterval @rotateInterval
           clearInterval checkInterval
-      , 10)
+      , 10
 
     _resetView: ->
       @$olderOrders.removeClass "opaque"
@@ -196,13 +193,12 @@ define [
       @search = ""
 
     _sendTestOrder: ->
-      self = this
       $.ajax
         url: "stores/storeAlias/testorder"
         type: "post"
-        success: ->
+        success: =>
           notificationcenter.notify "views.store.dashboard.testOrder.success"
-          self._fetchCollectionAndRender()
+          @_fetchCollectionAndRender()
 
         error: ->
           notificationcenter.notify "views.store.dashboard.testOrder.error"

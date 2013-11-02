@@ -134,7 +134,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "server", [
     "clean:test"
-    "less"
+    "any-newer:less"
     "newer:coffee"
     "watch"
   ]
