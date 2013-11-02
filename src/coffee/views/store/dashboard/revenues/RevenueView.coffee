@@ -38,6 +38,8 @@ define [
         attachmentUrl: documentsPath + @model.get("attachmentDocumentName")
 
       @$el.html @template(json)
+      @$(".bInvoiceCoin").toggle @model.get("invoiceDocumentName") isnt ""
+      @$(".bInvoiceList").toggle @model.get("attachmentDocumentName") isnt ""
 
     _enableTooltips: ->
       notificationcenter.tooltip @$(".bInvoiceCoin")
