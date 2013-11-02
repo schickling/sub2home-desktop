@@ -13,6 +13,8 @@ define [
 
     template: _.template(CartTemplate)
 
+    oldAmount : 0
+
     events:
       click: "_goToTray"
 
@@ -52,7 +54,8 @@ define [
 
       @$el.html @template(json)
       @$el.toggleClass "filled", (amount > 0)
-      if amount > 0
+      if amount > 0 and amount isnt @oldAmount
+        @oldAmount = amount
         @$el.addClass "justFilled"
         that = this
         setTimeout (->
