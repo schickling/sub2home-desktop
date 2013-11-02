@@ -99,7 +99,6 @@ define [
 
     _fetchStoreModelFromServer: ->
 
-      # console.log('fetched');
       errorOccured = false
       storeModel = new StoreModel(alias: @get("storeAlias"))
       storeModel.fetch
@@ -123,8 +122,6 @@ define [
         @set
           storeModel: storeModel
           storeFetchDate: new Date()
-
-          
 
         @_listenForStoreInternalChanges()
 

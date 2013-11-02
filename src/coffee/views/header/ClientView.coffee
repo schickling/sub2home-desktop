@@ -13,6 +13,8 @@ define [
 
   ClientView = Backbone.View.extend
 
+    template: _.template ClientTemplate
+
     # cached dom
     $buttonLogout: null
     $buttonClientDashboard: null
@@ -24,6 +26,7 @@ define [
     $currentIcon: null
     $title: null
     animationTime: 150
+
     events:
       "click #bSignout": "_logout"
       "click #bStoreConfig": "_navigateToStoreConfig"
@@ -36,10 +39,15 @@ define [
       @_render()
       @_enableTooltips()
       @_listenToCurrentRoute()
+      @_listenToNumberOfUndoneOrders()
 
     _render: ->
-      @$el.html ClientTemplate
+      storeModel = stateModel.get("storeModel")
+      numberOfUndoneOrders = storeModel.get("numberOfUndoneOrders")
+      json = numberOfUndoneOrders: numberOfUndoneOrders
+      @$el.html @template(json)
       @_cacheDom()
+      @$buttonStoreDashboard.toggleClass "unseenContent", numberOfUndoneOrders > 0
       @_selectViewFromCurrentRoute()
 
     _enableTooltips: ->
@@ -63,6 +71,10 @@ define [
 
     _listenToCurrentRoute: ->
       stateModel.on "change:currentRoute", @_selectViewFromCurrentRoute, this
+
+    _listenToNumberOfUndoneOrders: ->
+      storeModel = stateModel.get("storeModel")
+      storeModel.on "change:numberOfUndoneOrders", @_adjustNumberOfUndoneOrders, this
 
     _selectViewFromCurrentRoute: ->
       currentRoute = stateModel.get("currentRoute")
@@ -172,6 +184,10 @@ define [
 
     _navigateToClientConfig: ->
       router.navigate "einstellungen", true
+
+    _adjustNumberOfUndoneOrders: ->
+      storeModel = stateModel.get("storeModel")
+      @$(".numberOfUndoneOrders").text storeModel.get("numberOfUndoneOrders")
 
     remove: ->
       stateModel.off "change:currentRoute", @_selectViewFromCurrentRoute, this

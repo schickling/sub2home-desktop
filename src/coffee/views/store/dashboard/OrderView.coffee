@@ -4,9 +4,10 @@ define [
   "backbone"
   "moment"
   "services/notificationcenter"
+  "models/stateModel"
   "views/store/dashboard/details/OrderDetailsView"
   "text!templates/store/dashboard/OrderTemplate.html"
-], ($, _, Backbone, moment, notificationcenter, OrderDetailsView, OrderTemplate) ->
+], ($, _, Backbone, moment, notificationcenter, stateModel, OrderDetailsView, OrderTemplate) ->
 
   OrderView = Backbone.View.extend
 
@@ -97,6 +98,9 @@ define [
       ,
         success: ->
           $isDelivered.toggleClass "delivered", isDelivered
+          storeModel = stateModel.get("storeModel")
+          storeModel.fetch
+            url: "stores/storeAlias/auth" # use custom route
 
       false # prevent detail to toggle
 
