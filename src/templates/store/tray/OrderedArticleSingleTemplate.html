@@ -11,8 +11,9 @@
 <div class="notice leftHandAbove double">
 	Das gleiche nochmal?
 </div>
-<% if (amount > 1) { %><div class="amountOrderedItem">
-<div class="increaseAmount"></div>
-<div class="amount"><%= amount %></div>
-<div class="decreaseAmount"></div>
-</div><% } %>
+
+<div class="amountOrderedItem <% if (amount < 2) { %>hidden<% } %>">
+	<div class="increaseAmount"></div>
+	<div class="amount"><%= amount %></div>
+	<div class="decreaseAmount"></div>
+</div>

@@ -61,11 +61,13 @@ define [
       @_hideNotice()
 
     _decreaseAmount: ->
-      @model.set "amount", @model.get("amount") - 1
+      @model.set "amount", Math.max(@model.get("amount") - 1, 1)
       @_adjustRenderedAmount()
 
     _adjustRenderedAmount: ->
-      @$('.amount').text @model.get("amount")
+      amount = @model.get("amount")
+      @$('.amountOrderedItem').toggleClass("hidden", amount < 2)
+      @$('.amount').text amount
 
     _hideNotice: ->
       @$('.double').fadeOut()
