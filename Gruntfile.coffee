@@ -1,13 +1,36 @@
-backboneModules = ["main", "models/clientModel", "views/header/HeaderView", "views/header/ClientView", "views/home/home/MainView", "views/home/info/MainView", "views/home/404/MainView", "views/client/login/MainView", "views/client/dashboard/MainView", "views/client/config/MainView", "views/store/home/MainView", "views/store/info/MainView", "views/store/selection/MainView", "views/store/tray/MainView", "views/store/checkout/MainView", "views/store/dashboard/MainView", "views/store/assortment/MainView", "views/store/config/MainView"]
+backboneModules = [
+  "main"
+  "models/clientModel"
+  "views/header/HeaderView"
+  "views/header/ClientView"
+  "views/home/home/MainView"
+  "views/home/info/MainView"
+  "views/home/404/MainView"
+  "views/client/login/MainView"
+  "views/client/dashboard/MainView"
+  "views/client/config/MainView"
+  "views/store/home/MainView"
+  "views/store/info/MainView"
+  "views/store/selection/MainView"
+  "views/store/tray/MainView"
+  "views/store/checkout/MainView"
+  "views/store/dashboard/MainView"
+  "views/store/assortment/MainView"
+  "views/store/config/MainView"
+]
+
 config =
-  dist: "../dist"
-  src: "../src"
-  test: "../test"
+  dist: "./dist"
+  src: "./src"
+  test: "./test"
 
 module.exports = (grunt) ->
+
   require("load-grunt-tasks") grunt
   require("time-grunt") grunt
+
   grunt.initConfig
+
     config: config
 
     coffee:
@@ -48,7 +71,16 @@ module.exports = (grunt) ->
       options:
         jshintrc: ".jshintrc"
 
-      all: ["Gruntfile.js", "<%= config.src %>/js/main.js", "<%= config.src %>/js/config.js", "<%= config.src %>/js/services/*.js", "<%= config.src %>/js/models/*.js", "<%= config.src %>/js/collections/*.js", "<%= config.src %>/js/views/**/*.js", "test/spec/**/*.js"]
+      all: [
+        "Gruntfile.js"
+        "<%= config.src %>/js/main.js"
+        "<%= config.src %>/js/config.js"
+        "<%= config.src %>/js/services/*.js"
+        "<%= config.src %>/js/models/*.js"
+        "<%= config.src %>/js/collections/*.js"
+        "<%= config.src %>/js/views/**/*.js"
+        "test/spec/**/*.js"
+      ]
 
     requirejs:
       dist:
@@ -63,7 +95,10 @@ module.exports = (grunt) ->
     rev:
       dist:
         files:
-          src: ["<%= config.dist %>/js/main.js", "<%= config.dist %>/css/main.css"]
+          src: [
+            "<%= config.dist %>/js/main.js"
+            "<%= config.dist %>/css/main.css"
+          ]
 
     usemin:
       html: ["<%= config.dist %>/index.html"]
@@ -79,7 +114,6 @@ module.exports = (grunt) ->
       dist:
         options:
           collapseWhitespace: true
-
         files: ["<%= config.dist %>/index.html": "<%= config.dist %>/index.html"]
 
     clean:
@@ -133,7 +167,11 @@ module.exports = (grunt) ->
         tasks: ["less:src"]
 
       livereload:
-        files: ["<%= config.src %>/js/**/*.js", "<%= config.src %>/templates/**/*.html", "<%= config.src %>/css/*.css"]
+        files: [
+          "<%= config.src %>/js/**/*.js"
+          "<%= config.src %>/templates/**/*.html"
+          "<%= config.src %>/css/*.css"
+        ]
         options:
           livereload: true
 
