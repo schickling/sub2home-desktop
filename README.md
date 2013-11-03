@@ -16,7 +16,7 @@ $ bower install
 $ grunt
 ```
 
-## Server/Development
+## Development
 ```sh
 $ grunt server
 ```
