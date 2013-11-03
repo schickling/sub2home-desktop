@@ -1,4 +1,3 @@
-# Filename: src/js/views/store/selection/info/IngredientView.js
 define ["jquery", "underscore", "backbone", "text!templates/store/selection/info/ingredientsSelection/IngredientTemplate.html"], ($, _, Backbone, IngredientTemplate) ->
 
   IngredientView = Backbone.View.extend

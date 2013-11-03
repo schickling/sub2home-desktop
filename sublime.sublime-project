@@ -6,8 +6,8 @@
 			[
 				"dist",
 				"node_modules",
-				"src/css",
-				"src/js",
+				"app/css",
+				"app/js",
 				"test/.tmp"
 			],
 			"follow_symlinks": true,

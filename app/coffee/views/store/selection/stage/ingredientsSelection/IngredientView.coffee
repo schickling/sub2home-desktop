@@ -1,4 +1,3 @@
-# Filename: src/js/views/store/selection/stage/ingredientsSelection/IngredientView.js
 define ["jquery", "jqueryRotate", "underscore", "backbone", "text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html"], ($, jqueryRotate, _, Backbone, IngredientTemplate) ->
 
   IngredientView = Backbone.View.extend

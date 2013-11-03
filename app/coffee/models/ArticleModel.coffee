@@ -1,5 +1,10 @@
-# Filename: src/js/models/ArticleModel.js
-define ["underscore", "backbone", "collections/MenuUpgradesCollection", "collections/IngredientCategoriesCollection", "services/notificationcenter"], (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) ->
+define [
+  "underscore"
+  "backbone"
+  "collections/MenuUpgradesCollection"
+  "collections/IngredientCategoriesCollection"
+  "services/notificationcenter"
+], (_, Backbone, MenuUpgradesCollection, IngredientCategoriesCollection, notificationcenter) ->
 
   ArticleModel = Backbone.Model.extend
 

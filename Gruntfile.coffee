@@ -21,7 +21,7 @@ backboneModules = [
 
 config =
   dist: "./dist"
-  src: "./src"
+  src: "./app"
   test: "./test"
 
 module.exports = (grunt) ->

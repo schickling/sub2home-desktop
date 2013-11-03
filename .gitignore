@@ -1,8 +1,8 @@
 .DS_Store
 node_modules/
-/src/components/
-/src/js/
-/src/css/
+/app/components/
+/app/js/
+/app/css/
 /dist
 .tmp
 .tern-port
