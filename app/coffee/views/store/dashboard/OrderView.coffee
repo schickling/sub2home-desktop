@@ -32,6 +32,7 @@ define [
       notificationcenter.tooltip @$(".bMail")
 
     _render: ->
+      currentMoment = moment()
       orderModel = @model
       addressModel = orderModel.get("addressModel")
       dueDate = orderModel.get("dueDate")
@@ -57,6 +58,7 @@ define [
 
       @$el.html @template(json)
       @$el.addClass "balanced"  if totalWithCredit < total
+      @$(".alertOrder").toggleClass("disabled", createdMoment.month() isnt currentMoment.month())
 
     _toggleDetailsView: ->
       $orderContent = @$(".orderContent")
@@ -118,11 +120,10 @@ define [
       false # prevent detail to toggle
 
     _addCredit: ->
-      unless @model.get("creditModel")
+      if not @model.get("creditModel") and not @$(".alertOrder").hasClass("disabled")
         @creditView.createForOrder @model
 
-        # prevent detail to toggle
-        false
+        false # prevent detail to toggle
 
     _getTotalWithCredit: ->
       totalWithCredit = @model.get("total")
