@@ -13,7 +13,7 @@ define [
     template: _.template(RevenuesTemplate)
 
     $clientRecentMonthlyRevenues: null
-    
+
     initialize: ->
       @_render()
 
@@ -35,9 +35,12 @@ define [
 
     _renderRevenues: ->
       invoiceModels = @_getSummedUpInvoiceModels()
-      _.each invoiceModels, ((invoiceModel) ->
-        @_renderRevenue invoiceModel
-      ), this
+      now = new Date()
+      currentTimeSpan = now.getMonth() + 1 + now.getFullYear() * 12
+      _.each invoiceModels, (invoiceModel) ->
+        if invoiceModel.get("timeSpan") isnt currentTimeSpan
+          @_renderRevenue invoiceModel
+      , this
 
     _renderRevenue: (invoiceModel) ->
       revenueView = new RevenueView(model: invoiceModel)
