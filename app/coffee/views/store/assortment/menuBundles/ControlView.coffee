@@ -21,14 +21,3 @@ define [
       ), this
       @_updateLoadBar()
 
-    _showAllMenus: ->
-      _.each @collection.models, ((menuBundleModel) ->
-
-        # check if activation needed
-        unless menuBundleModel.get("isActive")
-          @_updateModel menuBundleModel,
-            isActive: true
-
-      ), this
-      @_updateLoadBar()
-

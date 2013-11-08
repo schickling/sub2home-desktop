@@ -28,18 +28,4 @@ define [
       ), this
       @_updateLoadBar()
 
-    _showAllIngredients: ->
-      _.each @collection.models, ((ingredientCategoryModel) ->
-        ingredientsCollection = ingredientCategoryModel.get("ingredientsCollection")
-        _.each ingredientsCollection.models, ((ingredientModel) ->
-
-          # check if activation needed
-          unless ingredientModel.get("isActive")
-            @_updateModel ingredientModel,
-              isActive: true
-
-        ), this
-      ), this
-      @_updateLoadBar()
-
 

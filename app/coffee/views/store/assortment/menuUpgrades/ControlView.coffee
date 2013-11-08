@@ -21,14 +21,3 @@ define [
       ), this
       @_updateLoadBar()
 
-    _showAllMenus: ->
-      _.each @collection.models, ((menuUpgradeModel) ->
-
-        # check if activation needed
-        unless menuUpgradeModel.get("isActive")
-          @_updateModel menuUpgradeModel,
-            isActive: true
-
-      ), this
-      @_updateLoadBar()
-

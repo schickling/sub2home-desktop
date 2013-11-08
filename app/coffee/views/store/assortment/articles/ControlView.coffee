@@ -28,18 +28,4 @@ define [
       ), this
       @_updateLoadBar()
 
-    _showAllArticles: ->
-      _.each @collection.models, ((categoryModel) ->
-        articlesCollection = categoryModel.get("articlesCollection")
-        _.each articlesCollection.models, ((articleModel) ->
-
-          # check if activation needed
-          unless articleModel.get("isActive")
-            @_updateModel articleModel,
-              isActive: true
-
-        ), this
-      ), this
-      @_updateLoadBar()
-
 
