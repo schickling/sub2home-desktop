@@ -19,6 +19,29 @@ backboneModules = [
   "views/store/config/MainView"
 ]
 
+serviceSnippet = """
+<!-- Analytics start -->
+<script>
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39743634-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+<!-- Analytics end -->
+<!-- Uservoice start -->
+<script>
+  (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/71mfZHGrfSGEFsFVRZ0YRg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
+</script>
+<!-- Uservoice end -->
+"""
+
 config =
   dist: "./dist"
   src: "./app"
@@ -173,12 +196,28 @@ module.exports = (grunt) ->
           "<%= config.src %>/css/*.css"
         ]
         options:
-          livereload: true
+          livereload:
+            port: 35730
+            key: grunt.file.read("env/sub2home.dev.key")
+            cert: grunt.file.read("env/sub2home.dev.crt")
 
     karma:
       unit:
         configFile: "<%= config.test %>/karma.conf.js"
         singleRun: true
+
+    replace:
+      dist:
+        src: ["<%= config.dist %>//index.html"]
+        overwrite: true
+        replacements: [
+          from: "<!-- serviceSnippet -->"
+          to: serviceSnippet
+        ]
+
+    htmlrefs:
+      dist:
+        src: "<%= config.dist %>/index.html"
 
   grunt.registerTask "server", [
     "clean:test"
@@ -199,6 +238,8 @@ module.exports = (grunt) ->
     "copy:dist"
     "requirejs:dist"
     "less:dist"
+    "replace:dist"
+    "htmlrefs:dist"
     "rev:dist"
     "usemin"
     "htmlmin"
