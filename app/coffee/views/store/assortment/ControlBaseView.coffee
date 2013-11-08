@@ -2,8 +2,9 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/notificationcenter"
   "text!templates/store/assortment/ControlTemplate.html"
-], ($, _, Backbone, ControlTemplate) ->
+], ($, _, Backbone, notificationcenter, ControlTemplate) ->
 
   ControlBaseView = Backbone.View.extend
 
@@ -13,9 +14,13 @@ define [
     $loader: null
     $loadbar: null
 
+    events:
+      "click .bReset": "_resetAll"
+
     initialize: ->
       @_render()
       @_cacheDom()
+      @_enableTooltips()
 
       # since collection is loaded async the number has to be calculated on complete
       @listenTo @collection, "sync", @_countItems
@@ -23,7 +28,12 @@ define [
     _render: ->
       @$el.html @template
 
+    _enableTooltips: ->
+      notificationcenter.tooltip(@$(".bReset"))
+
     _countItems: ->
+
+    _resetAll: ->
 
     _cacheDom: ->
       @$loader = @options.$loader

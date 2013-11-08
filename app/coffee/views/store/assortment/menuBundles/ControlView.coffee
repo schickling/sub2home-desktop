@@ -7,14 +7,10 @@ define [
 
   ControlView = ControlBaseView.extend
 
-    events:
-      "click .bReset": "_resetAllPrices"
-      "click .showAll": "_showAllMenus"
-
     _countItems: ->
       @numberOfItems = @collection.length
 
-    _resetAllPrices: ->
+    _resetAll: ->
       _.each @collection.models, ((menuBundleModel) ->
 
         # check if price reset is needed

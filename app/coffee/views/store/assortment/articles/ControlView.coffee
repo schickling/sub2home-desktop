@@ -7,10 +7,6 @@ define [
 
   ControlView = ControlBaseView.extend
 
-    events:
-      "click .bReset": "_resetAllPrices"
-      "click .showAll": "_showAllArticles"
-
     _countItems: ->
       numberOfItems = 0
       _.each @collection.models, (categoryModel) ->
@@ -18,7 +14,7 @@ define [
 
       @numberOfItems = numberOfItems
 
-    _resetAllPrices: ->
+    _resetAll: ->
       _.each @collection.models, ((categoryModel) ->
         articlesCollection = categoryModel.get("articlesCollection")
         _.each articlesCollection.models, ((articleModel) ->
