@@ -114,6 +114,9 @@ img.cookie    { margin: 0 -10px;}
   }
 }
 
+.confirmThatFirst {
+  
+}
 
 // Tooltips
 // -------------------
@@ -1001,13 +1004,19 @@ aside#header {
           color: @white;
           font-style: normal;
           position: absolute;
-          left: 25px;
+          right: 0px;
           top: 15px;
-          width: 15px;
+          line-height: 1;
           text-align: center;
           z-index: 2;
-          text-shadow: 0 1px 2px rgba(0,0,0,0.4);
           font-family: @baseFontFamily !important;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+          .border-radius(500px);
+          padding: 4px 3px 3px 4px;
+          background: @greenLight;
+          .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
+          display: block;
+          min-width: 9px;
         }
 
         &:before {
@@ -1020,22 +1029,22 @@ aside#header {
       }
 
       &.filled {
-        .iTray {
-          &:after {
-            content: " ";
-            .border-radius(500px);
-            width: 15px;
-            height: 15px;
-            position: absolute;
-            left: 25px;
-            top: 16px;
-            background: @greenLight;
-            .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-          }
-          span {
-            display: block;
-          }
-        }
+        // .iTray {
+        //   &:after {
+        //     content: " ";
+        //     .border-radius(500px);
+        //     width: 15px;
+        //     height: 15px;
+        //     position: absolute;
+        //     left: 25px;
+        //     top: 16px;
+        //     background: @greenLight;
+        //     .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
+        //   }
+        //   span {
+        //     display: block;
+        //   }
+        // }
 
         >span {
         color: darken(@onHeaderColor, 7%);
@@ -1114,38 +1123,26 @@ aside#header {
 #bStoreDashboard {
   margin-right: 10px;
   position: relative;
+
   span {
     display: none;
     font-size: 10px;
-
     color: @white;
     font-style: normal;
     position: absolute;
-    left: 25px;
+    right: 5px;
     top: 19px;
-    width: 15px;
+    line-height: 1;
     text-align: center;
     z-index: 2;
     text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    .border-radius(500px);
+    padding: 3px 3px 3px 4px;
+    background: @greenLight;
+    .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
+    display: block;
+    min-width: 9px;
   }
-
-  &.unseenContent {
-    &:after {
-      content: " ";
-      .border-radius(500px);
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      left: 24px;
-      top: 21px;
-      background: @greenLight;
-      .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-    }
-    span {
-      display: block;
-    }
-  }
-
 }
 
 div#roleSwitch {
@@ -1367,7 +1364,7 @@ input[type="text"]#locationSelectionInput {
     }
     &:first-child {
       &:before {
-        content: " ";
+        content: "";
       }
     }
     &:last-child {
@@ -1383,7 +1380,7 @@ input[type="text"]#locationSelectionInput {
 
       }
       &:first-child:before {
-        content: " ";
+        content: "";
       }
     }
   }
