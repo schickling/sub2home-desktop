@@ -4099,6 +4099,68 @@ header h2 {
   }
 }
 
+#storeInfoMessage {
+  margin: 20px 0 0;
+  padding: 0;
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    color: @onDarkNoteColor;
+    border-bottom: none;
+    padding: 20px 20px 0;
+    // margin-top: 20px;
+    &.announcement {
+      color: @greenLight;
+    }
+    &.danger {
+      color: @orange;
+    }
+    &.danger {
+      color: @red;
+    }
+  }
+  #storeInfoMessageClasses {
+    // margin-top: 20px;
+    padding: 20px 20px 20px;
+    background: @slightlyDarkNote;
+    div {
+      display: inline-block;
+      .border-radius(2px);
+      font-size: 16px;
+      padding: 5px 5px 2px;
+
+      color: @onDarkNoteColor;
+      cursor: pointer;
+      .transition(e('color .1s linear, background .1s linear'));
+
+      &.active, &:hover {
+        color: @white !important;
+        background: @onDarkNoteColor;
+      }
+
+      &.announcement {
+        color: @greenLight;
+        &.active, &:hover {
+          background: @greenLight;
+        }
+      }
+      &.warning {
+        color: @orange;
+        &.active, &:hover {
+          background: @orange;
+        }
+      }
+      &.danger {
+        color: @red;
+        &.active, &:hover {
+          background: @red;
+        }
+      }
+    }
+  }
+}
+
 #storeOrderingContact {
   margin: 30px 0 90px;
   height: 34px;
