@@ -2602,6 +2602,31 @@ input[type="text"]#locationSelectionInput {
 }
 
 
+#infoNote {
+  padding: 22px 70px 20px;
+  color: @onNoteColor;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: center;
+  #closeStoreInfo {
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    &:hover {
+      color: @red;
+    }
+  }
+  &.warning {
+    color: @orange;
+  }
+  &.announcement {
+    color: @green;
+  }
+  &.danger {
+    color: @red;
+  }
+}
+
 
 
 // ----------------------------------------------  CLIENT LOGIN  -----------------------------------------------------
