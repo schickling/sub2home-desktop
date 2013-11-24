@@ -54,15 +54,10 @@ define [
     _updateCustomPrice: ->
       $input = @$(".pricetag input")
       customPrice = parseFloat($input.val())
-      self = this
-      @model.set "customPrice", customPrice
-      @model.save {},
-        success: ->
-          notificationcenter.notify "Preis geaendert"
-
-          # rerender for reset button
-          self._render()
-
+      @model.save customPrice: customPrice,
+        success: =>
+          notificationcenter.notify "views.store.assortment.items.success.price"
+          @_render() # rerender for reset button
         error: ->
           notificationcenter.notify "views.store.assortment.items.error"
 
