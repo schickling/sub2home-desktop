@@ -1015,7 +1015,7 @@ aside#header {
           padding: 4px 3px 3px 4px;
           background: @greenLight;
           .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-          display: block;
+          // display: block;
           min-width: 9px;
         }
 
@@ -1029,26 +1029,12 @@ aside#header {
       }
 
       &.filled {
-        // .iTray {
-        //   &:after {
-        //     content: " ";
-        //     .border-radius(500px);
-        //     width: 15px;
-        //     height: 15px;
-        //     position: absolute;
-        //     left: 25px;
-        //     top: 16px;
-        //     background: @greenLight;
-        //     .box-shadow(inset 0 1px 1px 0 rgba(0,0,0,0.45), 0 1px 0 0 rgba(255,255,255,0.7));
-        //   }
-        //   span {
-        //     display: block;
-        //   }
-        // }
-
         >span {
         color: darken(@onHeaderColor, 7%);
         .transition(color .1s linear);
+        }
+        .iTray span {
+          display: block;
         }
       }
 
