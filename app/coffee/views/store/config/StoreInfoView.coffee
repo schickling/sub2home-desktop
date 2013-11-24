@@ -10,12 +10,14 @@ define [
   StoreInfoView = Backbone.View.extend
 
     events:
-      "focusout #storeDescriptionInput": "_updateDescription"
+      "focusout #storeInfoMessageInput": "_updateMessageText"
       "focusout #storeOrderingContactInput": "_updateOrderEmail"
       "focusout #storeFacebookInput": "_updateFacebookUrl"
       "click #bMail": "_sendTestOrder"
       "click #storeOpen": "_toggleOpen"
-      "click #payment button.toggle": "_togglePaymentMethod" # payment methods
+      "click #payment button.toggle": "_togglePaymentMethod"
+      "click #storeInfoMessageClasses div": "_setMessageType"
+      "click #storeInfoIsMessageActive": "_toggleIsMessageActive"
 
     initialize: ->
       @_render()
@@ -30,8 +32,12 @@ define [
         facebookUrl: @model.get("facebookUrl").replace('https://www.facebook.com/', '')
         allowsPaymentEc: @model.get("allowsPaymentEc")
         allowsPaymentCash: @model.get("allowsPaymentCash")
+        messageType: @model.get("messageType")
+        messageText: @model.get("messageText")
+        isMessageActive: @model.get("isMessageActive")
 
       @$el.html _.template(StoreInfoTemplate, json)
+
       new AddressView(
         el: @$("#storeAddress")
         model: @model
@@ -40,23 +46,27 @@ define [
     _enableTooltips: ->
       notificationcenter.tooltip(@$("#bMail"))
 
-    _updateDescription: (e) ->
-      $textarea = $(e.target)
-      description = $textarea.val()
-      @model.set "description", description
-      @_saveModel()
+    _updateMessageText: (e) ->
+      @model.save "messageText", e.target.value,
+        success: ->
+          notificationcenter.notify "views.store.config.messageText.success"
+        error: ->
+          notificationcenter.notify "views.store.config.messageText.error"
 
     _updateOrderEmail: (e) ->
-      $input = $(e.target)
-      val = $input.val()
-      @model.set "orderEmail", val
-      @_saveModel()
+      @model.save "orderEmail", e.target.value,
+        success: ->
+          notificationcenter.notify "views.store.config.orderEmail.success"
+        error: ->
+          notificationcenter.notify "views.store.config.orderEmail.error"
 
     _updateFacebookUrl: (e) ->
-      $input = $(e.target)
-      val = "https://www.facebook.com/#{$input.val()}"
-      @model.set "facebookUrl", val
-      @_saveModel()
+      facebookUrl = "https://www.facebook.com/#{e.target.value}"
+      @model.save "facebookUrl", facebookUrl,
+        success: ->
+          notificationcenter.notify "views.store.config.facebookUrl.success"
+        error: ->
+          notificationcenter.notify "views.store.config.facebookUrl.error"
 
     _sendTestOrder: ->
       $.ajax
@@ -98,9 +108,18 @@ define [
         error: ->
           notificationcenter.notify "views.store.config.paymentMethods.error"
 
-    _saveModel: ->
-      @model.save {},
+    _setMessageType: (e) ->
+      @model.save messageType: e.target.dataset.messageType,
         success: ->
-          notificationcenter.notify "views.store.config.info.success"
+          notificationcenter.notify "views.store.config.messageType.success"
+          $(e.target).addClass("active").siblings().removeClass("active")
         error: ->
-          notificationcenter.notify "views.store.config.info.error"
+          notificationcenter.notify "views.store.config.messageType.error"
+
+    _toggleIsMessageActive: (e) ->
+      @model.save isMessageActive: not @model.get("isMessageActive"),
+        success: ->
+          notificationcenter.notify "views.store.config.isMessageActive.success"
+          $(e.target).toggleClass("active")
+        error: ->
+          notificationcenter.notify "views.store.config.isMessageActive.error"

@@ -1,13 +1,13 @@
 <h1 id="storeName"><i id="storeOpen" <% if (isOpen) { %>class="isOpen"<% } %>></i><%= title %> <span>(<%= number %>)</span></h1>
 <div id="storeInfoMessage" class="well">
-	<textarea id="storeInfoMessageInput" placeholder="Haben Sie Ihren Kunden etwas wichtiges mitzuteilen?" value=""></textarea>
+	<textarea id="storeInfoMessageInput" placeholder="Haben Sie Ihren Kunden etwas wichtiges mitzuteilen?"><%= messageText %></textarea>
 	<div id="storeInfoMessageClasses">
-		<div class="active">Mitteilung</div>
-		<div class="announcement">Ankündigung</div>
-		<div class="warning">Warnung</div>
-		<div class="danger">Gefahr</div>
+		<div data-message-type="message" class="message <% if (messageType == "message") { %>active<% } %>">Mitteilung</div>
+		<div data-message-type="announcement" class="announcement <% if (messageType == "announcement") { %>active<% } %>">Ankündigung</div>
+		<div data-message-type="warning" class="warning <% if (messageType == "warning") { %>active<% } %>">Warnung</div>
+		<div data-message-type="danger" class="danger <% if (messageType == "danger") { %>active<% } %>">Gefahr</div>
 	</div>
-	<i class="iBtn bEye"></i>
+	<i id="storeInfoIsMessageActive" class="iBtn bEye <% if (isMessageActive) { %>active<% } %>"></i>
 </div>
 <div id="storeData">
 	<div id="storeAddress"></div>

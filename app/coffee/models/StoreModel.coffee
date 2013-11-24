@@ -11,6 +11,9 @@ define ["underscore", "backbone", "services/notificationcenter", "models/Address
       allowsPaymentEc: false
       allowsPaymentPaypal: false
       orderEmail: ""
+      messageType: ""
+      messageText: ""
+      isMessageActive: false
       deliveryAreasCollection: null
       deliveryTimesCollection: null
       invoicesCollection: null

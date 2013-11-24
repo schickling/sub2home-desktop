@@ -1,4 +1,17 @@
-define ["jquery", "jqueryLazyload", "underscore", "backbone", "models/stateModel", "views/PageView", "views/store/home/DeliveryPopupView", "views/store/home/DeliveryView", "views/store/home/CategoriesView", "views/store/home/CategoriesNavigationView", "text!templates/store/home/MainTemplate.html"], ($, jqueryLazyload, _, Backbone, stateModel, PageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
+define [
+  "jquery"
+  "jqueryLazyload"
+  "underscore"
+  "backbone"
+  "models/stateModel"
+  "views/PageView"
+  "views/store/home/MessageView"
+  "views/store/home/DeliveryPopupView"
+  "views/store/home/DeliveryView"
+  "views/store/home/CategoriesView"
+  "views/store/home/CategoriesNavigationView"
+  "text!templates/store/home/MainTemplate.html"
+], ($, jqueryLazyload, _, Backbone, stateModel, PageView, MessageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
 
   MainView = PageView.extend
 
@@ -13,9 +26,18 @@ define ["jquery", "jqueryLazyload", "underscore", "backbone", "models/stateModel
 
     _render: ->
       @$el.html MainTemplate
+      @_renderMessageView()
       @_renderDeliveryPopupView()  unless stateModel.get("storeModel").get("deliveryAreaWasSelected")
       @_renderDeliveryView()
       @_renderCategories()
+
+    _renderMessageView: ->
+      storeModel = stateModel.get("storeModel")
+      if storeModel.get("isMessageActive") and storeModel.get("messageText") isnt ""
+        new MessageView(
+          el: @$("#infoNote")
+          model: storeModel
+          )
 
     _renderDeliveryPopupView: ->
       new DeliveryPopupView(

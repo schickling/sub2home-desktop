@@ -275,12 +275,52 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Sie werden nun zu PayPal weitergeleitet."
         className: "info"
 
-      "views.store.config.info.success":
+      "views.store.config.orderEmail.success":
         title: "Bestell-Email aktualisiert"
         description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
         className: "success"
 
-      "views.store.config.info.error":
+      "views.store.config.orderEmail.error":
+        title: "Änderung fehlgeschlagen"
+        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.messageText.success":
+        title: "Bestell-Email aktualisiert"
+        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        className: "success"
+
+      "views.store.config.messageText.error":
+        title: "Änderung fehlgeschlagen"
+        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.messageType.success":
+        title: "Bestell-Email aktualisiert"
+        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        className: "success"
+
+      "views.store.config.messageType.error":
+        title: "Änderung fehlgeschlagen"
+        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.isMessageActive.success":
+        title: "Bestell-Email aktualisiert"
+        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        className: "success"
+
+      "views.store.config.isMessageActive.error":
+        title: "Änderung fehlgeschlagen"
+        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.facebookUrl.success":
+        title: "Bestell-Email aktualisiert"
+        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        className: "success"
+
+      "views.store.config.facebookUrl.error":
         title: "Änderung fehlgeschlagen"
         description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
