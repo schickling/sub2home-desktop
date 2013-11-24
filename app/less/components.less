@@ -4102,6 +4102,7 @@ header h2 {
 #storeInfoMessage {
   margin: 20px 0 0;
   padding: 0;
+  position: relative;
   textarea {
     width: 100%;
     box-sizing: border-box;
@@ -4120,16 +4121,17 @@ header h2 {
       color: @red;
     }
   }
+
+
   #storeInfoMessageClasses {
-    // margin-top: 20px;
     padding: 20px 20px 20px;
     background: @slightlyDarkNote;
+    height: 25px;
     div {
       display: inline-block;
       .border-radius(2px);
       font-size: 16px;
       padding: 5px 5px 2px;
-
       color: @onDarkNoteColor;
       cursor: pointer;
       .transition(e('color .1s linear, background .1s linear'));
@@ -4159,7 +4161,47 @@ header h2 {
       }
     }
   }
+
+  // #storeInfoMessagePublishing {
+  //   float: right;
+  //   height: 25px;
+  //   line-height: 1;
+  //   .iBtn {
+  //     &:before {
+  //       top: -1px;
+  //     }
+      
+  //     // padding: 5px 8px;
+  //     font-size: 24px;
+  //     .border-radius(2px);
+  //     color: @onDarkNoteColor50;
+  //     position: relative;
+  //     top: -2px;
+  //     right: -1px;
+
+
+  .bEye {
+    color: @onRlyDarkNoteColor;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 35px;
+    height: 46px;
+    width: 51px;
+    padding: 19px 0 0 14px;
+    .border-radius(2px);
+    .transition(e('color .1s linear, background .1s linear'));
+    &.active, &:hover {
+      background: @greenLighter;
+      color: @white;
+      &:before {
+        content: "\e080";
+      }
+    }
+  }
 }
+
+
 
 #storeOrderingContact {
   margin: 30px 0 90px;
