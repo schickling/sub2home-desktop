@@ -37,6 +37,7 @@ define [
         isMessageActive: @model.get("isMessageActive")
 
       @$el.html _.template(StoreInfoTemplate, json)
+      @$("#storeInfoMessageInput").addClass(@model.get("messageType"))
 
       new AddressView(
         el: @$("#storeAddress")
@@ -110,11 +111,9 @@ define [
 
     _setMessageType: (e) ->
       @model.save messageType: e.target.dataset.messageType,
-        success: ->
-          notificationcenter.notify "views.store.config.messageType.success"
+        success: =>
           $(e.target).addClass("active").siblings().removeClass("active")
-        error: ->
-          notificationcenter.notify "views.store.config.messageType.error"
+          @$("#storeInfoMessageInput").removeClass().addClass(@model.get("messageType"))
 
     _toggleIsMessageActive: (e) ->
       @model.save isMessageActive: not @model.get("isMessageActive"),
