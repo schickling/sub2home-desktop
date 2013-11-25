@@ -4101,7 +4101,7 @@ header h2 {
     &.announcement {
       color: @greenLight;
     }
-    &.danger {
+    &.warning {
       color: @orange;
     }
     &.danger {
@@ -4183,6 +4183,11 @@ header h2 {
       color: @white;
       &:before {
         content: "\e080";
+      }
+    }
+    &.active {
+      &:hover, &:active {
+        background: @red;
       }
     }
   }

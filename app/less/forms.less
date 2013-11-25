@@ -822,6 +822,21 @@ input[type="text"], textarea {
   &::-moz-placeholder { padding-top: 0px !important; }
   &:-ms-input-placeholder {  padding-top: 0px !important; }
 
+  &.announcement {
+    &::-webkit-input-placeholder { color: @greenLight50 !important;}
+    &::-moz-placeholder { color: @greenLight50 !important;}
+    &:-ms-input-placeholder {  color: @greenLight50 !important;}
+  }
+  &.warning {
+    &::-webkit-input-placeholder { color: @orange50 !important;}
+    &::-moz-placeholder { color: @orange50 !important;}
+    &:-ms-input-placeholder {  color: @orange50 !important;}
+  }
+  &.danger {
+    &::-webkit-input-placeholder { color: @red50 !important;}
+    &::-moz-placeholder { color: @red50 !important;}
+    &:-ms-input-placeholder {  color: @red50 !important;}
+  }
 }
 
 // Input Error Sign

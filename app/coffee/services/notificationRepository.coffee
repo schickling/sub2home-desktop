@@ -306,13 +306,13 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         className: "error"
 
       "views.store.config.isMessageActive.success":
-        title: "Bestell-Email aktualisiert"
-        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        title: "Nachricht veröffentlicht"
+        description: "Die Nachricht wurde auf der Startseite veröffentlicht"
         className: "success"
 
       "views.store.config.isMessageActive.error":
-        title: "Änderung fehlgeschlagen"
-        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        title: "Nachricht nicht veröffentlicht"
+        description: "Die Nachricht konnte nicht veröffentlicht werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
       "views.store.config.facebookUrl.success":
