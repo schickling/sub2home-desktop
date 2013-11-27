@@ -21,6 +21,12 @@ $ grunt
 $ grunt server
 ```
 
+## Deploy
+```sh
+$ cd deploy
+$ cap production deploy
+```
+
 ## Links
 
 * Style Guide: https://github.com/airbnb/javascript
