@@ -25,10 +25,10 @@ define [
       @$el.fadeOut()
 
     _submit: ->
+      @hide()
       input = @$("#suggestStoreMessage").val()
       postal = postalOracle.getPostal()
       text = "Message: \"" + input + "\" Postal:" + postal
-      self = this
       $.ajax
         url: "services/promotion"
         data: JSON.stringify(text: text)
@@ -36,7 +36,6 @@ define [
         dataType: "json"
         contentType: "application/json; charset=utf-8"
         success: (response) ->
-          self.hide()
           notificationcenter.notify "views.home.home.promotion.success"
 
         error: ->
