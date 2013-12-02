@@ -20,29 +20,29 @@ define [
 
     initialize: ->
       # set page title
-      storeModel = stateModel.get("storeModel")
-      @pageTitle = "SUBWAY® " + storeModel.get("title") + " - sub2home"
+      @model = stateModel.get("storeModel")
+      @pageTitle = "SUBWAY® " + @model.get("title") + " - sub2home"
       @_render()
 
     _render: ->
       @$el.html MainTemplate
+      @$("#storeClosed").toggle(not @model.get("isOpen"))
       @_renderMessageView()
-      @_renderDeliveryPopupView()  unless stateModel.get("storeModel").get("deliveryAreaWasSelected")
+      @_renderDeliveryPopupView()  unless @model.get("deliveryAreaWasSelected")
       @_renderDeliveryView()
       @_renderCategories()
 
     _renderMessageView: ->
-      storeModel = stateModel.get("storeModel")
-      if storeModel.get("isMessageActive") and storeModel.get("messageText") isnt ""
+      if @model.get("isMessageActive") and @model.get("messageText") isnt ""
         new MessageView(
           el: @$("#infoNote")
-          model: storeModel
+          model: @model
           )
 
     _renderDeliveryPopupView: ->
       new DeliveryPopupView(
         el: @$("#preSelectDeliveryArea")
-        model: stateModel.get("storeModel")
+        model: @model
       )
 
     _renderDeliveryView: ->
