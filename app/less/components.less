@@ -864,15 +864,27 @@ aside#header {
 
   #logo {
     display: block;
-    border: none;
-    .box-shadow(none);
-    width: 140px;
-    height: auto;
-    margin: 12px 0 0 -50px;
+    // .opacity(50);
+    // border: none;
+    // .box-shadow(none);
+    // width: 140px;
+    // height: auto;
+    margin: 22px 0 0 -47px;
+    color: darken(@headerTrayBackground, 5%);
+    // text-shadow: 0 1px 0 rgba(255,255,255,0.7);
     .positioned;
     z-index:8999;
     float: left;
     cursor: pointer;
+    font-size: 60px;
+    .transition(color .1s linear);
+    &:before {
+      content: "\e000";
+      font-family: "Homicons";
+    }
+    &:hover {
+      color: darken(@headerTrayBackground, 10%);
+    }
   }
 
 
@@ -912,7 +924,7 @@ aside#header {
   #headerClientContent, #headerCustomerContent {
     position: absolute;
     right: 60px;
-    left: 105px;
+    left: 27px;
 
     font-size: 15px;
     color: @onHeaderColor;
@@ -948,10 +960,22 @@ aside#header {
         display: inline-block;
         vertical-align: middle;
         white-space: normal;
-        max-width: 80%;
+        // max-width: 80%;
+        margin-top: 12px;
+        white-space: inherit;
+        &:before {
+          content: " ";
+          background: @subwaySmall;
+          width: 76px;
+          height: 23px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 5px;
+          position: relative;
+          top: -2px;
+        }
       }
     }
-
   }
 
   #headerCustomerContent {
@@ -1479,11 +1503,11 @@ input[type="text"]#locationSelectionInput {
     cursor: inherit;
   }
   .smallNote {
-    top: -6px;
+    top: 34px;
     position: relative;
     display: inline-block;
     cursor: inherit;
-    left: 23px;
+    left: -38px;
     .transition(margin-top .5s ease);
   }
   &.unavailable {
@@ -1647,6 +1671,29 @@ input[type="text"]#locationSelectionInput {
 // -------------------------------------------------------------------------------------------------------------------
 
 @sidemargin:    28px;
+
+
+#storeClosed {
+  background: rgba(255,255,255,0.95);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 8000;
+  text-align: center;
+  div {
+    position: absolute;
+    top: 50%;
+    margin-top: 10px;
+    font-size: 50px;
+    color: rgba(0,0,0,0.35);
+    line-height: 1.2;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 6%;
+  }
+}
 
 
 #preSelectDeliveryArea {

@@ -286,23 +286,13 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         className: "error"
 
       "views.store.config.messageText.success":
-        title: "Bestell-Email aktualisiert"
-        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        title: "Nachricht aktualisiert"
+        description: "Die Nachricht wurde erfolgreich geändert."
         className: "success"
 
       "views.store.config.messageText.error":
         title: "Änderung fehlgeschlagen"
-        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
-        className: "error"
-
-      "views.store.config.messageType.success":
-        title: "Bestell-Email aktualisiert"
-        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
-        className: "success"
-
-      "views.store.config.messageType.error":
-        title: "Änderung fehlgeschlagen"
-        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        description: "Die Nachricht konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
       "views.store.config.isMessageActive.success":
@@ -316,13 +306,13 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         className: "error"
 
       "views.store.config.facebookUrl.success":
-        title: "Bestell-Email aktualisiert"
-        description: "Die Email-Adresse für Bestellungen an diesen Store wurde erfolgreich geändert."
+        title: "Facebook-URL aktualisiert"
+        description: "Die Facebook-URL für diesen Store wurde erfolgreich geändert."
         className: "success"
 
       "views.store.config.facebookUrl.error":
         title: "Änderung fehlgeschlagen"
-        description: "Die Email-Adresse konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        description: "Die Facebook-URL konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
       "views.store.config.deliveryArea.change.error":
