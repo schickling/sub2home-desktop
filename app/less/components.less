@@ -961,19 +961,7 @@ aside#header {
         vertical-align: middle;
         white-space: normal;
         // max-width: 80%;
-        margin-top: 12px;
         white-space: inherit;
-        &:before {
-          content: " ";
-          background: @subwaySmall;
-          width: 76px;
-          height: 23px;
-          display: inline-block;
-          vertical-align: middle;
-          margin-right: 5px;
-          position: relative;
-          top: -2px;
-        }
       }
     }
   }
@@ -1002,6 +990,23 @@ aside#header {
       }
       &:hover {
         color: darken(@onHeaderColor, 10%);
+      }
+    }
+
+    #currentInfo {
+      span {
+        margin-top: 12px;
+        &:before {
+          content: " ";
+          background: @subwaySmall;
+          width: 76px;
+          height: 23px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 5px;
+          position: relative;
+          top: -2px;
+        }
       }
     }
 
@@ -1121,7 +1126,7 @@ aside#header {
   }
   &.isLoggedIn {
     #headerClientContent, #headerCustomerContent {
-      left: 120px;
+      left: 50px;
       #currentInfo {
         border-left: none;
         .box-shadow(none);
@@ -1157,7 +1162,7 @@ aside#header {
 
 div#roleSwitch {
   position: absolute;
-  left: 100px;
+  left: 26px;
   width: 21px;
   height: 46px;
   padding: 2px;
@@ -1692,6 +1697,9 @@ input[type="text"]#locationSelectionInput {
     width: 100%;
     box-sizing: border-box;
     padding: 0 6%;
+    .superscript {
+      font-size: 26px !important;
+    }
   }
 }
 
