@@ -142,6 +142,7 @@ module.exports = (grunt) ->
     clean:
       dist: "<%= config.dist %>"
       test: "<%= config.test %>/.tmp"
+      cache: "node_modules/grunt-newer/.cache"
       options:
         force: true
 
@@ -218,6 +219,10 @@ module.exports = (grunt) ->
     htmlrefs:
       dist:
         src: "<%= config.dist %>/index.html"
+
+  grunt.registerTask "reset", [
+    "clean:cache"
+  ]
 
   grunt.registerTask "server", [
     "clean:test"
