@@ -158,10 +158,14 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
         className: "success"
 
-      # da ist doch was doppelt oder ?
-      "views.store.assortment.articles.success.isNotActive":
-        title: "Artikel deaktiviert"
-        description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
+      "views.store.assortment.items.success.price":
+        title: "Preis aktualisiert"
+        description: "Der Preis wurde erfolgreich aktualisiert"
+        className: "success"
+
+      "views.store.assortment.items.error"
+        title: "Änderung fehlgeschlagen"
+        description: "Das Sortiment konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "success"
 
       "views.store.assortment.articles.error":
@@ -303,6 +307,16 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
       "views.store.config.isMessageActive.error":
         title: "Nachricht nicht veröffentlicht"
         description: "Die Nachricht konnte nicht veröffentlicht werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.isMessageInactive.success":
+        title: "Nachricht deaktiviert"
+        description: "Die Nachricht ist nun nichtmehr auf der Startseite zu sehen. "
+        className: "success"
+
+      "views.store.config.isMessageInactive.error":
+        title: "Nachricht nicht deaktiviert"
+        description: "Die Nachricht konnte nicht deaktiviert werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
       "views.store.config.facebookUrl.success":
