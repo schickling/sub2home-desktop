@@ -67,7 +67,7 @@ define [
       @$buttonStoreConfig = @$("#bStoreConfig")
       @$allButtons = @$("#clientAreaNavigation .iBtn").not(@$buttonLogout)
       @$currentIcon = @$("#currentIcon")
-      @$title = @$("#currentInfo span")
+      @$title = @$("#currentInfo")
 
     _listenToCurrentRoute: ->
       stateModel.on "change:currentRoute", @_selectViewFromCurrentRoute, this

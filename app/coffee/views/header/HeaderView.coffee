@@ -59,19 +59,16 @@ define ["jquery", "jqueryEasing", "underscore", "backbone", "services/router", "
       )
 
     _renderClientView: ->
-
       # require view when its needed
-      self = this
-      require ["views/header/ClientView"], (ClientView) ->
-        new ClientView(el: self.$("#headerClientContent"))
-
+      require ["views/header/ClientView"], (ClientView) =>
+        new ClientView(el: @$("#headerClientContent"))
 
     _showClientView: ->
       $handle = @$("#handle")
       $headerCustomerContent = @$("#headerCustomerContent")
       $headerClientContent = @$("#headerClientContent")
       $headerCustomerContent.fadeOut 100
-      $headerClientContent.fadeIn 150
+      $headerClientContent.delay(100).fadeIn 150
 
       # role switch
       $handle.animate
@@ -85,7 +82,7 @@ define ["jquery", "jqueryEasing", "underscore", "backbone", "services/router", "
       $headerCustomerContent = @$("#headerCustomerContent")
       $headerClientContent = @$("#headerClientContent")
       $headerClientContent.fadeOut 100
-      $headerCustomerContent.fadeIn 150
+      $headerCustomerContent.delay(100).fadeIn 150
 
       # role switch
       $handle.animate
