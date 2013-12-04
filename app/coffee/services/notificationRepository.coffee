@@ -158,6 +158,19 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
         className: "success"
 
+<<<<<<< HEAD
+=======
+      "views.store.assortment.items.success.price":
+        title: "Preis aktualisiert"
+        description: "Der Preis wurde erfolgreich aktualisiert"
+        className: "success"
+
+      "views.store.assortment.items.error"
+        title: "Änderung fehlgeschlagen"
+        description: "Das Sortiment konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
+        className: "success"
+
+>>>>>>> updated notifications for store.assortment + store.config
       "views.store.assortment.articles.error":
         title: "Artikel unverändert"
         description: "Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support."
@@ -297,6 +310,16 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
       "views.store.config.isMessageActive.error":
         title: "Nachricht nicht veröffentlicht"
         description: "Die Nachricht konnte nicht veröffentlicht werden. Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
+      "views.store.config.isMessageInactive.success":
+        title: "Nachricht deaktiviert"
+        description: "Die Nachricht ist nun nichtmehr auf der Startseite zu sehen. "
+        className: "success"
+
+      "views.store.config.isMessageInactive.error":
+        title: "Nachricht nicht deaktiviert"
+        description: "Die Nachricht konnte nicht deaktiviert werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
       "views.store.config.facebookUrl.success":
