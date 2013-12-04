@@ -141,7 +141,7 @@ module.exports = (grunt) ->
 
     clean:
       dist: "<%= config.dist %>"
-      test: "<%= config.test %>/.tmp"
+      #test: "<%= config.test %>/.tmp"
       cache: "node_modules/grunt-newer/.cache"
       options:
         force: true
@@ -225,7 +225,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "server", [
-    "clean:test"
+    #"clean:test"
     "any-newer:less"
     "newer:coffee:src"
     "newer:coffee:test"
