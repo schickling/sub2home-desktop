@@ -859,6 +859,7 @@ img.cookie    { margin: 0 -10px;}
 // -------------------------------------------------------------------------------------------------------------------
 
 aside#header {
+  min-width: 563px;
   .clearfix;
   .backface-visibility(hidden);
 
@@ -894,7 +895,7 @@ aside#header {
     width: 30px;
     float: right;
     cursor: pointer;
-    border-left: 1px solid @onNoteColor;
+    // border-left: 1px solid @onNoteColor;
     text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 darken(@onHeaderColor, 20%);
     height: 67px;
     .box-shadow(inset 1px 0 0 0 rgba(255,255,255,0.4));
@@ -922,10 +923,10 @@ aside#header {
   }
 
   #headerClientContent, #headerCustomerContent {
-    position: absolute;
-    right: 60px;
-    left: 27px;
-
+    // position: absolute;
+    // right: 60px;
+    // left: 27px;
+    float: left;
     font-size: 15px;
     color: @onHeaderColor;
     text-shadow: 0 1px 0 rgba(255,255,255,0.7);
@@ -950,19 +951,12 @@ aside#header {
     }
 
     #currentInfo {
-      height: 45px;
-      margin: 8px 0 0 0;
-      padding-top: 3px;
+      height: 33px;
+      margin: 8px 0 0 12px;
+      padding-top: 15px;
       white-space: nowrap;
-      max-width: 34%;
-      span {
-        //width: auto
-        display: inline-block;
-        vertical-align: middle;
-        white-space: normal;
-        // max-width: 80%;
-        white-space: inherit;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -994,20 +988,22 @@ aside#header {
     }
 
     #currentInfo {
-      span {
-        margin-top: 12px;
-        &:before {
+
+      // MIN-WIDTH FOR INITIAL DISPLAY
+
+      min-width: 170px;
+
+
+      &:before {
           content: " ";
           background: @subwaySmall;
           width: 76px;
           height: 23px;
           display: inline-block;
           vertical-align: middle;
-          margin-right: 5px;
           position: relative;
           top: -2px;
         }
-      }
     }
 
     // TRAY PREVIEW SECTION
@@ -1126,7 +1122,7 @@ aside#header {
   }
   &.isLoggedIn {
     #headerClientContent, #headerCustomerContent {
-      left: 50px;
+      margin-left: 35px;
       #currentInfo {
         border-left: none;
         .box-shadow(none);
