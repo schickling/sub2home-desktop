@@ -158,12 +158,6 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
         className: "success"
 
-      # da ist doch was doppelt oder ?
-      "views.store.assortment.articles.success.isNotActive":
-        title: "Artikel deaktiviert"
-        description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
-        className: "success"
-
       "views.store.assortment.articles.error":
         title: "Artikel unverändert"
         description: "Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support."
