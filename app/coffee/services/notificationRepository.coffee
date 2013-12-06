@@ -163,7 +163,7 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Der Preis wurde erfolgreich aktualisiert"
         className: "success"
 
-      "views.store.assortment.items.error"
+      "views.store.assortment.items.error":
         title: "Änderung fehlgeschlagen"
         description: "Das Sortiment konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "success"
