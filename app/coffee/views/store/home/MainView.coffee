@@ -15,6 +15,8 @@ define [
 
   MainView = PageView.extend
 
+    template: _.template(MainTemplate)
+
     events:
       "click #currentDeliveryArea": "_renderDeliveryPopupView"
 
@@ -25,7 +27,9 @@ define [
       @_render()
 
     _render: ->
-      @$el.html MainTemplate
+      json = 
+        title: @model.get("title")
+      @$el.html(this.template(json))
       @$("#storeClosed").toggle(not @model.get("isOpen"))
       @_renderMessageView()
       @_renderDeliveryPopupView()  unless @model.get("deliveryAreaWasSelected")
