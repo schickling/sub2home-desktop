@@ -43,8 +43,9 @@ define [
 
     _render: ->
       storeModel = stateModel.get("storeModel")
-      numberOfUndoneOrders = storeModel.get("numberOfUndoneOrders")
-      json = numberOfUndoneOrders: numberOfUndoneOrders
+      numberOfUndoneOrders = if storeModel then storeModel.get("numberOfUndoneOrders") else  0
+      json =
+        numberOfUndoneOrders: numberOfUndoneOrders
       @$el.html @template(json)
       @_cacheDom()
       @$buttonStoreDashboard.toggleClass "unseenContent", numberOfUndoneOrders > 0
@@ -74,7 +75,8 @@ define [
 
     _listenToNumberOfUndoneOrders: ->
       storeModel = stateModel.get("storeModel")
-      storeModel.on "change:numberOfUndoneOrders", @_adjustNumberOfUndoneOrders, this
+      if storeModel
+        storeModel.on "change:numberOfUndoneOrders", @_adjustNumberOfUndoneOrders, this
 
     _selectViewFromCurrentRoute: ->
       currentRoute = stateModel.get("currentRoute")
