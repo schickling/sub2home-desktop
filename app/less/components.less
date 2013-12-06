@@ -180,6 +180,12 @@ img.cookie    { margin: 0 -10px;}
   &.warning .tooltipOuter { color: @orange; }
   &.info .tooltipOuter { color: darken(@onHeaderColor, 5%); }
   &.success .tooltipOuter { color: @greenLight; }
+  &.header {
+    // position: relative;
+    // left: -10px;
+    // margin-left: -73px !important;
+    // margin-left: -10px;
+  }
 }
 
 .tooltipster-fade {
@@ -859,7 +865,7 @@ img.cookie    { margin: 0 -10px;}
 // -------------------------------------------------------------------------------------------------------------------
 
 aside#header {
-  min-width: 563px;
+  min-width: 430px;
   .clearfix;
   .backface-visibility(hidden);
 
@@ -998,15 +1004,15 @@ aside#header {
 
 
       &:before {
-          content: " ";
-          background: @subwaySmall;
-          width: 76px;
-          height: 23px;
-          display: inline-block;
-          vertical-align: middle;
-          position: relative;
-          top: -2px;
-        }
+        content: " ";
+        background: @subwaySmall;
+        width: 76px;
+        height: 23px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+      }
     }
 
     // TRAY PREVIEW SECTION
@@ -1088,6 +1094,24 @@ aside#header {
   }
 
   // CLIENT SECTION
+
+  #headerClientContent {
+    #currentInfo {
+      margin-top: 22px;
+      margin-left: 5px;
+      // &:before {
+      //   content: " ";
+      //   background: @storeIconSrc;
+      //   width: 56px;
+      //   height: 46px;
+      //   display: inline-block;
+      //   vertical-align: middle;
+      //   position: relative;
+      //   top: -2px;
+      // }
+    }
+  }
+
 
   div#clientAreaNavigation {
     float: right;
