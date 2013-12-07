@@ -859,6 +859,10 @@ img.cookie    { margin: 0 -10px;}
 // -------------------------------------------------------------------------------------------------------------------
 
 aside#header {
+<<<<<<< Updated upstream
+=======
+  // min-width: 430px;
+>>>>>>> Stashed changes
   .clearfix;
   .backface-visibility(hidden);
 
@@ -954,6 +958,7 @@ aside#header {
       margin: 8px 0 0 0;
       padding-top: 3px;
       white-space: nowrap;
+<<<<<<< Updated upstream
       max-width: 34%;
       span {
         //width: auto
@@ -963,6 +968,12 @@ aside#header {
         // max-width: 80%;
         white-space: inherit;
       }
+=======
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .transition(e('width .1s linear, max-width .1s linear'));
+      // min-width: 170px;
+>>>>>>> Stashed changes
     }
   }
 
@@ -994,6 +1005,7 @@ aside#header {
     }
 
     #currentInfo {
+<<<<<<< Updated upstream
       span {
         margin-top: 12px;
         &:before {
@@ -1007,6 +1019,26 @@ aside#header {
           position: relative;
           top: -2px;
         }
+=======
+
+      // MIN-WIDTH FOR INITIAL DISPLAY
+
+      height: 33px;
+      padding-top: 15px;
+      max-width: 470px;
+
+
+
+      &:before {
+        content: " ";
+        background: @subwaySmall;
+        width: 76px;
+        height: 23px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+>>>>>>> Stashed changes
       }
     }
 
@@ -1840,13 +1872,14 @@ input[type="text"]#locationSelectionInput {
 
 
 #categoriesNavigation, #sectionsNavigation {
-  width: 45%;
-  text-align: center;
+  // width: 45%;
+  text-align: left;
   height: inherit;
   height: 70px;
   .positioned;
   top: 0;
   margin-top: 32px;
+  margin-left: 35px;
   #categoriesNavigationContainer {
     display: inline-block;
     height: inherit;
