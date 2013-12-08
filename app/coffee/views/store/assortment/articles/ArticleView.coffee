@@ -27,9 +27,9 @@ define [
           $eye.toggleClass "open", isActive
           $el.toggleClass "inactive", not isActive
           if isActive
-            notificationcenter.notify "views.store.assortment.articles.success.isActive"
+            notificationcenter.notify "views.store.assortment.items.success.isActive"
           else
-            notificationcenter.notify "views.store.assortment.articles.success.isNotActive"
+            notificationcenter.notify "views.store.assortment.items.success.isNotActive"
 
         error: ->
           notificationcenter.notify "views.store.assortment.articles.error"
