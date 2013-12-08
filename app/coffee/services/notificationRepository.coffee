@@ -158,8 +158,6 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Die gewählten Artikel wurden aus Ihrem Sortiment entfernt."
         className: "success"
 
-<<<<<<< HEAD
-=======
       "views.store.assortment.items.success.price":
         title: "Preis aktualisiert"
         description: "Der Preis wurde erfolgreich aktualisiert"
@@ -170,7 +168,6 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Das Sortiment konnte nicht aktualisiert werden. Wenden Sie sich bitte an unseren Support."
         className: "success"
 
->>>>>>> updated notifications for store.assortment + store.config
       "views.store.assortment.articles.error":
         title: "Artikel unverändert"
         description: "Die Änderung konnte nicht ausgeführt werden. Wenden Sie sich bitte an unseren Support."
