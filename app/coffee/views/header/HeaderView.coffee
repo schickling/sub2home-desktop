@@ -32,6 +32,8 @@ define ["jquery", "jqueryEasing", "underscore", "backbone", "services/router", "
       else if isStoreSelected
         @_showStoreView()
         @$("#headerClientContent").hide()
+        if !isLoggedIn
+          @$el.removeClass "isLoggedIn"
         @_toggleInfoClose()
 
     _listenToInfo: ->
