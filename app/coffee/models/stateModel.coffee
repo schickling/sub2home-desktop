@@ -69,7 +69,7 @@ define [
         @_fetchStoreModelFromServer()  if not currentStoreModel or @get("storeAlias") isnt currentStoreModel.get("alias")
 
         # switch to store header
-        @set "isClientHeaderActive", false
+        # @set "isClientHeaderActive", false
       ), this
       @_setStoreAliasForServer()
 

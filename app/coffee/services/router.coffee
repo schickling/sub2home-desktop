@@ -97,17 +97,17 @@ define [
 
     _showStoreHome: (alias) ->
       stateModel.set
-        currentRoute: "store.home"
-        isClientHeaderActive: false
         storeAlias: alias
+        currentRoute: "store.home"
+        isClientHeaderActive: false       
 
       @_loadMainView "views/store/home/MainView"  if @_isValidStoreModel()
 
     _showStoreSelection: (alias, resourceType, resourceId) ->
       stateModel.set
-        currentRoute: "store.selection"
-        isClientHeaderActive: false
         storeAlias: alias
+        currentRoute: "store.selection"
+        isClientHeaderActive: false        
 
       params =
         selectionRessourceType: resourceType
@@ -117,52 +117,52 @@ define [
 
     _showStoreTray: (alias) ->
       stateModel.set
+        storeAlias: alias
         currentRoute: "store.tray"
         isClientHeaderActive: false
-        storeAlias: alias
 
       @_loadMainView "views/store/tray/MainView"  if @_isValidStoreModel()
 
     _showStoreCheckout: (alias) ->
       stateModel.set
+        storeAlias: alias
         currentRoute: "store.checkout"
         isClientHeaderActive: false
-        storeAlias: alias
 
       @_loadMainView "views/store/checkout/MainView"  if @_isValidStoreModel()
 
     _showStoreConfig: (alias) ->
       if @_isLoggedIn()
         stateModel.set
+          storeAlias: alias
           currentRoute: "store.config"
           isClientHeaderActive: true
-          storeAlias: alias
 
         @_loadMainView "views/store/config/MainView"  if @_isValidStoreModel()
 
     _showStoreAssortment: (alias) ->
       if @_isLoggedIn()
         stateModel.set
+          storeAlias: alias
           currentRoute: "store.assortment"
           isClientHeaderActive: true
-          storeAlias: alias
 
         @_loadMainView "views/store/assortment/MainView"  if @_isValidStoreModel()
 
     _showStoreDashboard: (alias) ->
       if @_isLoggedIn()
         stateModel.set
+          storeAlias: alias
           currentRoute: "store.dashboard"
           isClientHeaderActive: true
-          storeAlias: alias
 
         @_loadMainView "views/store/dashboard/MainView"  if @_isValidStoreModel()
 
     _showStoreInfo: (alias) ->
       stateModel.set
+        storeAlias: alias
         currentRoute: "store.info"
         isClientHeaderActive: false
-        storeAlias: alias
 
       @_loadMainView "views/store/info/MainView"  if @_isValidStoreModel()
 

@@ -25,8 +25,6 @@ define [
       # set page title
       @pageTitle = "Stores&Umsätze " + @model.getName() + " - sub2home"
       
-      # select store model if not already selected
-      @_selectFirstStoreModel()
       @_switchHeaderToClientView()
       @_render()
 
@@ -44,13 +42,4 @@ define [
 
     _switchHeaderToClientView: ->
       stateModel.set "isClientHeaderActive", true
-
-    _selectFirstStoreModel: ->
-      currentStoreModel = stateModel.get("storeModel")
-      unless currentStoreModel
-        storesCollection = @model.get("storesCollection")
-        currentStoreModel = storesCollection.first()
-        
-        # store models gets fetched on store alias change event
-        stateModel.set "storeAlias", currentStoreModel.get("alias")
 
