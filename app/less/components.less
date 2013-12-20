@@ -3155,7 +3155,7 @@ input[type="text"]#locationSelectionInput {
   >div {
     position: relative;
 
-    &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeFacebook, &#storeOrderingContact, &#storeOrderingContact {
+    &#storeStreet, &#clientStreet, &#storePostalCity, &#clientPostalCity, &#storeContact, &#clientContact, &#storeFacebook, &#storeOrderingContact {
       margin-top: 20px;
       overflow: hidden;
       height: 27px;
@@ -4175,7 +4175,7 @@ header h2 {
   position: relative;
   textarea {
     width: 100%;
-    box-sizing: border-box;
+    .border-box;
     resize: vertical;
     color: @onDarkNoteColor;
     border-bottom: none;
@@ -4296,9 +4296,10 @@ header h2 {
     color: @greenDark;
     position: absolute;
     top: 25px;
-    left: 20px;
-    right: 70px;
-    width: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    .border-box;
   }
 
   #bMail {
