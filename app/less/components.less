@@ -3648,6 +3648,13 @@ input[type="text"]#locationSelectionInput {
           }
 
           &.orderDestination {
+            position:absolute;
+            left: 395px;
+            right: 325px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             &:before {
               content: "nach ";
             }
@@ -3968,6 +3975,11 @@ input[type="text"]#locationSelectionInput {
             &:before {
                 content: "bis ";
             }
+          }
+
+          .orderDestination {
+            left: 315px;
+            right: 330px;
           }
         }
       }
@@ -6723,6 +6735,7 @@ div#payment {
     text-align: center;
     margin: 0 auto;
     cursor: default;
+    width: 400px;
     // height: ;
     span {
       .positioned;
