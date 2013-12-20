@@ -866,7 +866,7 @@ img.cookie    { margin: 0 -10px;}
 // -------------------------------------------------------------------------------------------------------------------
 
 aside#header {
-  min-width: 430px;
+  // min-width: 430px;
   .clearfix;
   .backface-visibility(hidden);
 
@@ -942,11 +942,14 @@ aside#header {
 
     #initial {
       font-size: 20px;
-      padding: 25px 15px 0 ;
+      padding: 25px 20px 0 15px;
       display: inline-block;
       .border-box;
       width: 100%;
       text-align: center;
+      border-right: 1px solid @onNoteColor;
+      border-left: none;
+      .box-shadow(none);
     }
 
     >div {
@@ -964,7 +967,7 @@ aside#header {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      min-width: 170px;
+      // min-width: 170px;
     }
   }
 
@@ -1864,13 +1867,13 @@ input[type="text"]#locationSelectionInput {
 
 
 #categoriesNavigation, #sectionsNavigation {
-  width: 45%;
-  text-align: center;
+  text-align: left;
   height: inherit;
   height: 70px;
+  display: inline-block;
   .positioned;
   top: 0;
-  margin-top: 32px;
+  margin: 32px 0 0 30px;
   #categoriesNavigationContainer {
     display: inline-block;
     height: inherit;
