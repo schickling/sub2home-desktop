@@ -222,6 +222,9 @@ module.exports = (grunt) ->
 
   grunt.registerTask "reset", [
     "clean:cache"
+    "any-newer:less"
+    "newer:coffee:src"
+    "newer:coffee:test"
   ]
 
   grunt.registerTask "server", [
