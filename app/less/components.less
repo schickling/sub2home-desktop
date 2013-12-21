@@ -6751,6 +6751,37 @@ div#payment {
   }
 }
 
+#socialLinkage {
+  .positioned;
+  margin-top: 30px;
+  background: @darkNote;
+  height: 19px;
+  padding: 17px 0 20px;
+
+  &:before {
+    content: " ";
+    height: 7px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: @noteBottom;
+  }
+
+  h3 {
+    color: @onDarkNoteColor50;
+    margin: 0;
+  }
+
+  iframe {
+    position: absolute;
+    right: 0;
+    width: 160px;
+    top: 20px;
+
+  }
+}
+
 
 .content.checkout {
   top: 0;
