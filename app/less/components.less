@@ -933,6 +933,7 @@ aside#header {
     // position: absolute;
     // right: 60px;
     // left: 27px;
+    display: none;
     float: left;
     font-size: 15px;
     color: @onHeaderColor;
@@ -6717,14 +6718,23 @@ div#payment {
         //padding: 0;
       }
     }
-    .notice {
-      position: relative;
-      margin-top: 20px;
-      width: 100%;
-      span{
-        color: darken(@onNoteColor, 20%);
+
+    p {
+      margin-top: 7px;
+      font-size: 16px;
+      a {
+        text-decoration: underline;
+        color: @onNoteColor;
       }
     }
+    // .notice {
+    //   position: relative;
+    //   margin-top: 20px;
+    //   width: 100%;
+    //   span{
+    //     color: darken(@onNoteColor, 20%);
+    //   }
+    // }
   }
 
   #countdown {
@@ -6735,7 +6745,8 @@ div#payment {
     text-align: center;
     margin: 0 auto;
     cursor: default;
-    width: 400px;
+    width: 500px;
+    height: 150px;
     // height: ;
     span {
       .positioned;
@@ -6753,7 +6764,7 @@ div#payment {
 
 #socialLinkage {
   .positioned;
-  margin-top: 30px;
+  margin-top: 25px;
   background: @darkNote;
   height: 19px;
   padding: 17px 20px 20px;
@@ -6769,7 +6780,7 @@ div#payment {
   }
 
   h3 {
-    color: @onDarkNoteColor50;
+    color: @onDarkNoteColor70;
     margin: 0;
   }
 
