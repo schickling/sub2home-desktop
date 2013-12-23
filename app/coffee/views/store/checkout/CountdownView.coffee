@@ -41,6 +41,7 @@ define [
         firstName: customerAddressModel.get("firstName")
         street: customerAddressModel.get("street")
         storePhone: storeAddressModel.get("phone")
+        storeEmail: storeAddressModel.get("email")
 
       @$el.html @template(json)
 

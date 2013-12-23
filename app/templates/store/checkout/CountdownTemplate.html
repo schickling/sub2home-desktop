@@ -9,10 +9,10 @@
 	<% } %>
 </div>
 <div id="thxText">
-	
+
 	<span>Danke für deine Bestellung, <%= firstName %>. Wir sind ca. <span class="emphasized"><%= dueTime %> Uhr</span> bei dir in der <%= street %>.</span>
 	<!-- <div class="notice">Wenn du noch Fragen hast, wähle <%= storePhone %>.</div> -->
-	<p>Wenn du noch Fragen hast, wähle <%= storePhone %> oder schreib eine Mail an <a href="mailto:kontakt@sub-mm.de">kontakt@sub-mm.de</a></p>
+	<p>Wenn du noch Fragen hast, wähle <%= storePhone %> oder schreib eine Mail an <a href="<%= storeEmail %>"><%= storeEmail %></a></p>
 </div>
 <div id="socialLinkage">
 <h3>Zufrieden mit der Onlinetheke? Schenk uns ein Like oder Share auf Facebook.</h3>
