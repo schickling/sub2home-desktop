@@ -35,6 +35,8 @@ define ["jquery", "jqueryEasing", "underscore", "backbone", "services/router", "
         if !isLoggedIn
           @$el.removeClass "isLoggedIn"
         @_toggleInfoClose()
+      else
+        @$("#headerCustomerContent").show()
 
     _listenToInfo: ->
       stateModel.on "change:currentRoute", @_toggleInfoClose, this
