@@ -1540,7 +1540,7 @@ input[type="text"]#locationSelectionInput {
     position: relative;
     display: inline-block;
     cursor: inherit;
-    left: -38px;
+    left: -70px;
     .transition(margin-top .5s ease);
   }
   &.unavailable {
@@ -6182,12 +6182,17 @@ div#payment {
 #subcardOption {
   .positioned;
   overflow: hidden;
-
+  cursor: pointer;
   font-size: 17px;
   color: @onNoteColor;
   display: inline-block;
   margin: 13px 0 0 8%;
   width: 450px;
+  &:hover {
+    .iBtn {
+      color: @onNoteColor;
+    }
+  }
   .iBtn {
     font-size: 80px;
     .transition(color .1s linear);
