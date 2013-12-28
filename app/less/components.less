@@ -1005,7 +1005,7 @@ aside#header {
 
       height: 33px;
       padding-top: 15px;
-
+      cursor: default;
 
 
       &:before {
@@ -1017,6 +1017,12 @@ aside#header {
         vertical-align: middle;
         position: relative;
         top: -2px;
+        .transition(margin-left .3s ease);
+      }
+      &:hover {
+        &:before {
+          margin-left: -55px;
+        }
       }
     }
 
@@ -5335,7 +5341,35 @@ div#payment {
   }
 }
 
+// INFO / ORDERING
 
+.articleSelectionInfo {
+  margin: 0px 20px !important;
+  height: 80px;
+
+  img {
+    display: inline-block;
+    margin-top: 5px;
+    height:70px;
+    .transition (margin-left .3s ease);
+    // width: 70px;
+  }
+  h3 {
+    display: inline-block;
+    margin: 26px 0 10px 15px;
+    vertical-align: top;
+    // width: 50%;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+  }
+  &:hover {
+    img {
+      margin-left: -70px;
+    }
+  }
+
+}
 
 // TIMELINE / ORDERING -----------------------------------------------------------------------------------------------
 
