@@ -36,8 +36,8 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         className: "info header"
 
       "views.header.tray":
-        text: "Hier gehts zum Tablett"
-        className: "info header"
+        text: "Hier geht's zum Tablett"
+        className: "info header trayTooltip"
 
       "views.store.dashboard.resendMail":
         text: "Erneut senden"
