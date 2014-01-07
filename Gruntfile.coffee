@@ -105,6 +105,13 @@ module.exports = (grunt) ->
         "test/spec/**/*.js"
       ]
 
+    connect:
+      server:
+        options:
+          port: 49000
+          base: 'app'
+          keepalive: true
+
     requirejs:
       dist:
         options:
@@ -232,7 +239,8 @@ module.exports = (grunt) ->
     "any-newer:less"
     "newer:coffee:src"
     "newer:coffee:test"
-    "watch"
+    "connect"
+    # "watch"
   ]
 
   grunt.registerTask "test", [
