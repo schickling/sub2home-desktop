@@ -108,9 +108,9 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
-          port: 49000
+          port: 8888
+          hostname: '0.0.0.0'
           base: 'app'
-          keepalive: true
 
     requirejs:
       dist:
@@ -234,14 +234,14 @@ module.exports = (grunt) ->
     "newer:coffee:test"
   ]
 
-  grunt.registerTask "server", [
-    #"clean:test"
-    "any-newer:less"
-    "newer:coffee:src"
-    "newer:coffee:test"
-    "connect"
-    # "watch"
-  ]
+  grunt.registerTask "server", ->
+    grunt.task.run [
+      "any-newer:less"
+      "newer:coffee:src"
+      "newer:coffee:test"
+      "connect:server"
+      "watch"
+    ]
 
   grunt.registerTask "test", [
     "jshint"
@@ -262,5 +262,5 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "default", [
-    "build"
+    "server"
   ]

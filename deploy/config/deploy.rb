@@ -22,7 +22,7 @@ namespace :deploy do
     end
     on roles(:app) do
       within release_path do
-        execute :grunt
+        execute :grunt, "build"
       end
     end
   end
