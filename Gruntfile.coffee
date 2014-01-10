@@ -234,14 +234,13 @@ module.exports = (grunt) ->
     "newer:coffee:test"
   ]
 
-  grunt.registerTask "server", ->
-    grunt.task.run [
-      "any-newer:less"
-      "newer:coffee:src"
-      "newer:coffee:test"
-      "connect:server"
-      "watch"
-    ]
+  grunt.registerTask "server", [
+    "any-newer:less"
+    "newer:coffee:src"
+    "newer:coffee:test"
+    #"connect:server"
+    "watch"
+  ]
 
   grunt.registerTask "test", [
     "jshint"
