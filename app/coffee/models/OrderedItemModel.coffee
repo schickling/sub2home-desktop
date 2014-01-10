@@ -79,15 +79,17 @@ define ["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
     # remove ordered articles belonging to an old menu upgrade
     reduceOrderedArticles: ->
       orderedArticlesCollection = @get("orderedArticlesCollection")
-      orderedArticleModel = undefined
       i = 0
 
+      # i syntax needed because of removing while iterating
       while i < orderedArticlesCollection.length
         orderedArticleModel = orderedArticlesCollection.models[i]
         unless orderedArticleModel.isMenuUpgradeBase()
           orderedArticleModel.destroy()
           i--
         i++
+
+      @_calculateTotal()
 
     getMenuTitle: ->
       if @isMenuBundle()
