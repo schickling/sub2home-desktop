@@ -42,11 +42,6 @@ _gaq.push(['_trackPageview']);
 <!-- Uservoice end -->
 """
 
-config =
-  dist: "./dist"
-  src: "./app"
-  test: "./test"
-
 module.exports = (grunt) ->
 
   require("load-grunt-tasks") grunt
@@ -54,7 +49,10 @@ module.exports = (grunt) ->
 
   grunt.initConfig
 
-    config: config
+    config:
+      dist: "./dist"
+      src: "./app"
+      test: "./test"
 
     coffee:
       src:
