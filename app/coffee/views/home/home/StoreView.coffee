@@ -57,7 +57,7 @@ define ["jquery", "underscore", "services/gmaps", "services/notificationcenter",
     position = projection.fromLatLngToDivPixel(@position)
     @$el.css
       left: position.x - @$el.width() / 2
-      top: position.y
+      top: position.y - 77
 
   # gets called when a delivery area is choosen
   StoreView::updateView = ->
