@@ -16,7 +16,8 @@ define ["jquery", "underscore", "services/gmaps", "services/notificationcenter",
     # render template
     isDelivering = @model.isDelivering()
     json =
-      title: @model.get("title")
+      title: @model.get "title"
+      isOpen: @model.get "isOpen"
       isDelivering: isDelivering
 
     unless isDelivering

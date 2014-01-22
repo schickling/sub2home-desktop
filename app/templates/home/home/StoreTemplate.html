@@ -4,11 +4,15 @@
 		<div class="centerContent">
 			<h4><%= title %></h4>
 			<div class="deliveryStatus">
-				<% if (isDelivering) { %>
-				<span class="deliveryIndicator delivering"></span>Liefert gerade</span>
-				<% } else { %>
-				<span class="deliveryIndicator notDelivering"></span>Liefert wieder ab <%= nextDeliveryTime %></span>
-				<% } %>
+                <% if (isOpen) { %>
+    				<% if (isDelivering) { %>
+    				<span class="deliveryIndicator delivering"></span>Liefert gerade
+    				<% } else { %>
+    				<span class="deliveryIndicator notDelivering"></span>Liefert wieder ab <%= nextDeliveryTime %>
+    				<% } %>
+                <% } else { %>
+                    <span class="deliveryIndicator closed"></span>Geschlossen
+                <% } %>
 			</div>
 		</div>
 	</div>
