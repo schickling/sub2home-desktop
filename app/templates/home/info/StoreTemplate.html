@@ -1,0 +1,10 @@
+<h3><a href="/<%= alias %>">SUBWAY<span class="superscript">®</span> <%= title %></a></h3>
+<% if (isOpen) { %>
+    <% if (isDelivering) { %>
+        <p class="deliveryStatus"><span class="deliveryIndicator delivering"></span>liefert gerade</p>
+    <% } else { %>
+        <p class="deliveryStatus"><span class="deliveryIndicator notDelivering"></span>liefert wieder ab <%= nextDeliveryTime %></p>
+    <% } %>
+<% } else { %>
+    <p class="deliveryStatus"><span class="deliveryIndicator closed"></span>geschlossen</p>
+<% } %>
