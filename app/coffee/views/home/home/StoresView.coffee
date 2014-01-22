@@ -88,7 +88,8 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
 
         # render delivery areas
         matchingDeliveryAreas = @_getMatchingDeliveryAreas(storesInRange)
-        if matchingDeliveryAreas.length > 1
+        numberOfOpenStores = storesInRange.reduce ((sum, storeModel) -> sum + storeModel.get("isOpen")), 0
+        if matchingDeliveryAreas.length > 1 && numberOfOpenStores > 0
           @_renderDeliveryAreas matchingDeliveryAreas
           @postalSearchView.showDeliveryAreaLabel()
         else
