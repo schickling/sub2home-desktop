@@ -55,6 +55,9 @@ module.exports = (grunt) ->
       test: "./test"
 
     coffee:
+      options:
+        bare: true
+
       src:
         options:
           sourceMap: true
@@ -84,9 +87,6 @@ module.exports = (grunt) ->
           dest: "<%= config.src %>/js"
           ext: ".js"
         ]
-
-      options:
-        bare: true
 
     jshint:
       options:
