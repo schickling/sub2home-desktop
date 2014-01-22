@@ -1491,32 +1491,37 @@ input[type="text"]#locationSelectionInput {
     margin-bottom: 2px;
     text-align: left;
   }
+}
 
-  .deliveryStatus {
-    text-align: left;
-    color: @onDarkNoteColor;
-    .deliveryIndicator {
-      .img-circle;
-      width: 9px;
-      height: 9px;
-      display: inline-block;
-      margin-right: 7px;
+// Outsourced because shared with #infoAvailableStores:
 
-      &.delivering {
-        background-color: @greenLighter;
-      }
-      &.notDelivering {
-        background-color: @orange;
-      }
+.deliveryStatus {
+  text-align: left;
+  color: @onDarkNoteColor;
+  .deliveryIndicator {
+    .img-circle;
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    margin-right: 7px;
+
+    &.delivering {
+      background-color: @greenLighter;
     }
-
-    .deliveryTime {
-      color: @greenLighter;
+    &.notDelivering {
+      background-color: @orange;
     }
-
-    .notDeliveryTime {
-      color: @orange;
+    &.closed {
+      background-color: @red;
     }
+  }
+
+  .deliveryTime {
+    color: @greenLighter;
+  }
+
+  .notDeliveryTime {
+    color: @orange;
   }
 }
 
@@ -1557,6 +1562,18 @@ input[type="text"]#locationSelectionInput {
 #suggestStore {
 
   background: none;
+
+  header {
+    text-align: left;
+    a {
+      color: @onNoteColor70;
+      text-decoration: underline;
+      .transition(color .1s linear);
+      &:hover {
+        color: @onNoteColor;
+      }
+    }
+  }
 
   #popupContainer #message {
     padding-bottom: 40px;
@@ -7017,8 +7034,17 @@ aside.infoNavigation {
             margin-right: 0;
           }
         }
+      }
 
+      &#infoAvailableStores {
+        h3 {
+          margin: 0
+        }
 
+        .deliveryStatus {
+          font-size: 16px;
+          line-height: 1.3;
+        }
       }
 
       &#howItWorks {
