@@ -368,7 +368,7 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
       # store.selection
       "views.store.selection.notReady":
         title: "Da fehlt noch was"
-        description: "Ein Schritt fehlt noch, um dein Sub aufs Tablett zu legen. Geh einfach nochmal zurück."
+        description: "Mindestens ein Schritt fehlt noch, um dein Sub aufs Tablett zu legen. Geh einfach nochmal zurück."
         className: "warning"
 
       # store.tray
