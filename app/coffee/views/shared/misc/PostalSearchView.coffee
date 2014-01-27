@@ -1,4 +1,12 @@
-define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificationcenter", "services/postalOracle", "text!templates/shared/misc/PostalSearchTemplate.html"], ($, jqueryRotate, _, Backbone, notificationcenter, postalOracle, PostalSearchTemplate) ->
+define [
+  "jquery",
+  "jqueryRotate",
+  "underscore",
+  "backbone",
+  "services/notificationcenter",
+  "services/postalOracle",
+  "text!templates/shared/misc/PostalSearchTemplate.html"
+], ($, jqueryRotate, _, Backbone, notificationcenter, postalOracle, PostalSearchTemplate) ->
 
   PostalSearchView = Backbone.View.extend
 
@@ -6,13 +14,11 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       "input #locationSelectionInput": "_checkInput"
 
     $input: null
-    $location: null
     $locationLoader: null
     $locationLabel: null
     $deliveryAreaLabel: null
     $storeSelectionLabel: null
     postal: null
-    rotateInterval: null
 
     initialize: ->
       @_render()
@@ -61,19 +67,17 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       @$input = @$("#locationSelectionInput")
       @$deliveryAreaLabel = @$("#deliveryAreaLabel")
       @$storeSelectionLabel = @$("#storeSelectionLabel")
-      @$location = @$("#location")
       @$locationLoader = @$("#locationLoader")
       @$locationLabel = @$("#locationLabel")
 
     _checkLocation: ->
-      @_startRotateLocation()
       postalOracle.calculate (=>
         notificationcenter.notify "views.home.home.lookupLocation"
-        @_stopRotationAndHideSpinner()
+        @_hideSpinner()
         @_focusSearch()
         @setPostal postalOracle.getPostal()
       ), =>
-        @_stopRotationAndHideSpinner()
+        @_hideSpinner()
         @_focusSearch()
 
     _focusSearch: ->
@@ -96,20 +100,9 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "services/notificati
       postal > 9999 and postal < 100000
 
     _hideSpinner: ->
+      notificationcenter.destroyAllNotifications()
       @$locationLoader.removeClass "active"
 
     _stopLocationDetermination: ->
-      @_stopRotationAndHideSpinner()
-      postalOracle.cancel()
-
-    _startRotateLocation: ->
-      deg = 0
-      @rotateInterval = setInterval(=>
-        deg = (deg + 5) % 180
-        @$location.rotate deg
-      , 20)
-
-    _stopRotationAndHideSpinner: ->
-      notificationcenter.destroyAllNotifications()
-      clearInterval @rotateInterval
       @_hideSpinner()
+      postalOracle.cancel()
