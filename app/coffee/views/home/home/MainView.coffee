@@ -2,7 +2,7 @@ define ["jquery", "underscore", "backbone", "services/notificationcenter", "view
 
   MainView = PageView.extend
 
-    pageTitle: "sub2home - Deine SUBWAY®-Onlinetheke"
+    pageTitle: "sub2home - Deine Onlinetheke für SUBWAY®-Lieferservices"
 
     subViews:
       storesView: null
