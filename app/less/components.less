@@ -1309,33 +1309,41 @@ input[type="text"]#locationSelectionInput {
     left: 50%;
     margin-left: -60px;
     bottom: 16px;
-    font-size: 52px;
-    height: 54px;
-    width: 54px;
-    color: @onNoteColor70;
-    font-family: "Homicons";
+    // GIF STYLES
+
+    background: @locationLoader;
+    background-size: 56px 61px;
+    width: 56px;
+    height: 61px;
+
+    // ICON STYLES
+    // font-size: 52px;
+    // height: 54px;
+    // width: 54px;
+    // color: @onNoteColor70;
+    // font-family: "Homicons";
     .transition(opacity .1s linear);
-    &:before {
-      content: "\e094";
-      position: absolute;
-      left: 0;
-      top: 18px;
-    }
+    // &:before {
+    //   content: "\e094";
+    //   position: absolute;
+    //   left: 0;
+    //   top: 18px;
+    // }
   }
-  #location {
-    font-size: inherit;
-    width: 54px;
-    height: 54px;
-    //display: block !important;
-    &:before {
-      content: "\e095";
-      position: absolute;
-      left: 0px;
-      top: 18px;
-      height:54px;
-      width: 54px;
-    }
-  }
+  // #location {
+  //   font-size: inherit;
+  //   width: 54px;
+  //   height: 54px;
+  //   //display: block !important;
+  //   &:before {
+  //     content: "\e095";
+  //     position: absolute;
+  //     left: 0px;
+  //     top: 18px;
+  //     height:54px;
+  //     width: 54px;
+  //   }
+  // }
 
 
   &[data-active="loading"] {
