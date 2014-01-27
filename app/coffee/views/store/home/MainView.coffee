@@ -23,11 +23,11 @@ define [
     initialize: ->
       # set page title
       @model = stateModel.get("storeModel")
-      @pageTitle = "SUBWAY® " + @model.get("title") + " - sub2home"
+      @pageTitle = "SUBWAY® " + @model.get("title") + " Lieferservice - sub2home"
       @_render()
 
     _render: ->
-      json = 
+      json =
         title: @model.get("title")
       @$el.html(this.template(json))
       @$("#storeClosed").toggle(not @model.get("isOpen"))
