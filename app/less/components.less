@@ -1001,6 +1001,10 @@ aside#header {
       padding-top: 15px;
       cursor: default;
 
+      span {
+        display: inline-block;
+        .transition(padding-right .3s ease);
+      }
 
       &:before {
         content: " ";
@@ -1013,9 +1017,14 @@ aside#header {
         top: -2px;
         .transition(margin-left .3s ease);
       }
+
+
       &:hover {
         &:before {
           margin-left: -55px;
+        }
+        span {
+        padding-right: 55px;
         }
       }
     }
