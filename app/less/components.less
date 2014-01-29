@@ -1018,13 +1018,14 @@ aside#header {
         .transition(margin-left .3s ease);
       }
 
-
-      &:hover {
-        &:before {
-          margin-left: -55px;
-        }
-        span {
-        padding-right: 55px;
+      &.isTooLarge {
+        &:hover {
+          &:before {
+            margin-left: -55px;
+          }
+          span {
+          padding-right: 55px;
+          }
         }
       }
     }
