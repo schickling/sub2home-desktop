@@ -1,4 +1,13 @@
-define ["jquery", "underscore", "backbone", "services/router", "services/notificationcenter", "models/stateModel", "views/header/CartView", "text!templates/header/StoreTemplate.html"], ($, _, Backbone, router, notificationcenter, stateModel, CartView, StoreTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/router"
+  "services/notificationcenter"
+  "models/stateModel"
+  "views/header/CartView"
+  "text!templates/header/StoreTemplate.html"
+], ($, _, Backbone, router, notificationcenter, stateModel, CartView, StoreTemplate) ->
 
   StoreView = Backbone.View.extend
 
