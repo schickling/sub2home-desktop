@@ -2,49 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sub2home.com/</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://sub2home.com/info</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/memmingen</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/memmingen/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/unterschleissheim</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/unterschleissheim/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/germering</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/germering/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/poing</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/poing/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/garmisch-partenkirchen</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/garmisch-partenkirchen/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sub2home.com/oberhausen</loc>
-    <lastmod>2014-01-23T08:24:11-07:00</lastmod>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sub2home.com/oberhausen/info</loc>
+    <lastmod>2014-01-29T08:24:11-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
