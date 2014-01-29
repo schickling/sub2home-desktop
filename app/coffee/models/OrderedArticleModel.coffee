@@ -1,4 +1,11 @@
-define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeModel", "models/MenuComponentBlockModel"], (_, Backbone, ArticleModel, MenuUpgradeModel, MenuComponentBlockModel) ->
+define [
+  "underscore"
+  "backbone"
+  "models/ArticleModel"
+  "models/MenuUpgradeModel"
+  "models/MenuBundleModel"
+  "models/MenuComponentBlockModel"
+], (_, Backbone, ArticleModel, MenuUpgradeModel, MenuBundleModel, MenuComponentBlockModel) ->
 
   OrderedArticleModel = Backbone.Model.extend
 
@@ -15,6 +22,9 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
 
       # not contained by a base article
       menuComponentBlockModel: null
+
+      # needed for info in store.selection
+      menuBundleModel: null
 
     initialize: ->
 
@@ -39,6 +49,7 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
       attributes = _.clone(@attributes)
       attributes.articleModel = attributes.articleModel.toJSON()  if @get("articleModel")
       attributes.menuUpgradeModel = attributes.menuUpgradeModel.toJSON()  if @get("menuUpgradeModel")
+      attributes.menuBundleModel = attributes.menuBundleModel.toJSON()  if @get("menuBundleModel")
       attributes.menuComponentBlockModel = attributes.menuComponentBlockModel.toJSON()  if @get("menuComponentBlockModel")
       delete attributes.orderedItemModel
 
@@ -46,17 +57,13 @@ define ["underscore", "backbone", "models/ArticleModel", "models/MenuUpgradeMode
 
     parse: (response) ->
       if response.hasOwnProperty("articleModel") and response.articleModel isnt null
-        response.articleModel = new ArticleModel(response.articleModel,
-          parse: true
-        )
+        response.articleModel = new ArticleModel response.articleModel, parse: true
       if response.hasOwnProperty("menuUpgradeModel") and response.menuUpgradeModel isnt null
-        response.menuUpgradeModel = new MenuUpgradeModel(response.menuUpgradeModel,
-          parse: true
-        )
+        response.menuUpgradeModel = new MenuUpgradeModel response.menuUpgradeModel, parse: true
       if response.hasOwnProperty("menuComponentBlockModel") and response.menuComponentBlockModel isnt null
-        response.menuComponentBlockModel = new MenuComponentBlockModel(response.menuComponentBlockModel,
-          parse: true
-        )
+        response.menuComponentBlockModel = new MenuComponentBlockModel response.menuComponentBlockModel, parse: true
+      if response.hasOwnProperty("menuBundleModel") and response.menuBundleModel isnt null
+        response.menuBundleModel = new MenuBundleModel response.menuBundleModel, parse: true
       response
 
     isMenuUpgradeBase: ->

@@ -7,5 +7,13 @@ define [
 ], ($, _, Backbone, InfoBaseView, InfoTemplate) ->
 
   InfoView = InfoBaseView.extend
-  	template: _.template(InfoTemplate)
 
+    template: _.template(InfoTemplate)
+
+    renderContent: ->
+      menuBundleModel = @model.get "menuBundleModel"
+      json =
+        title: menuBundleModel.get "title"
+        smallImage: menuBundleModel.get "smallImage"
+
+      @$el.html @template(json)

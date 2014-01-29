@@ -7,5 +7,5 @@ define [
 ], ($, _, Backbone, InfoBaseView, InfoTemplate) ->
 
   InfoView = InfoBaseView.extend
-  	template: _.template(InfoTemplate)
 
+    template: _.template(InfoTemplate)

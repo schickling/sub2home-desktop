@@ -1,4 +1,12 @@
-define ["jquery", "underscore", "backbone", "models/TimelineItemModel", "views/store/selection/info/articleSelection/InfoView", "views/store/selection/SelectionView", "views/store/selection/stage/articleSelection/MenuComponentOptionsView"], ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) ->
+define [
+  "jquery",
+  "underscore",
+  "backbone",
+  "models/TimelineItemModel",
+  "views/store/selection/info/articleSelection/InfoView",
+  "views/store/selection/SelectionView",
+  "views/store/selection/stage/articleSelection/MenuComponentOptionsView"
+], ($, _, Backbone, TimelineItemModel, InfoView, SelectionView, MenuComponentOptionsView) ->
 
   ArticleSelectionView = SelectionView.extend
 

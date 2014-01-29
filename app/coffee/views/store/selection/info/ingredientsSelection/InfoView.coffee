@@ -11,9 +11,8 @@ define [
 
   InfoView = InfoBaseView.extend
 
-    template: _.template(InfoTemplate)
-
     renderContent: ->
+      @$el.html InfoTemplate
       articleModel = @model.get("articleModel")
       if articleModel
         @renderArticleView()

@@ -96,6 +96,7 @@ define [
             orderedArticleModel = new OrderedArticleModel(
               menuComponentBlockModel: menuComponentBlockModel
               orderedItemModel: self.orderedItemModel
+              menuBundleModel: menuBundleModel
             )
             orderedArticlesCollection.add orderedArticleModel
 
