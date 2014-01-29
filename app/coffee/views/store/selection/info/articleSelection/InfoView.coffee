@@ -11,17 +11,9 @@ define [
     template: _.template(InfoTemplate)
 
     renderContent: ->
-      menuBundleModel = @model.get "menuBundleModel"
-
-      title = "Wähle deinen Artikel"
-      smallImage = ""
-
-      if menuBundleModel
-        title = menuBundleModel.get "title"
-        smallImage = menuBundleModel.get "smallImage"
-
+      menuModel = @model.get("menuBundleModel") || @model.get("menuUpgradeModel")
       json =
-        title: title
-        smallImage: smallImage
+        title: menuModel.get "title" || ""
+        smallImage: menuModel.get "smallImage" || ""
 
       @$el.html @template(json)

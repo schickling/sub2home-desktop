@@ -47,5 +47,6 @@ define [
         orderedArticlesCollection.add
           menuComponentBlockModel: menuComponentBlockModel
           orderedItemModel: orderedItemModel
+          menuUpgradeModel: menuUpgradeModel
 
 
