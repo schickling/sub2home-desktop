@@ -442,6 +442,15 @@ aside#header {
 @media (max-width: 1040px) {
   aside#header #headerCustomerContent #currentInfo {
     max-width: 90px + 50px;
+    &:hover {
+      &:before {
+        margin-left: -55px;
+      }
+      span {
+      padding-right: 55px;
+      }
+      // text-overflow: clip;
+    }
   }
 }
 
