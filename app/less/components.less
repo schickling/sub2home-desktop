@@ -1203,14 +1203,20 @@ div#roleSwitch {
   .box-shadow(0 1px 0 0 rgba(255,255,255,0.7), inset 0 1px 2px 0 #a1874d);
   z-index: 50;
   .icn {
+    vertical-align: top;
     color: @onHeaderColor;
     text-shadow: 0 1px 0 rgba(255,255,255,0.7);
     height: 15px;
     width: 15px;
-    margin: 4px 0 0 3px;
+    margin: 4px 0 8px 3px;
     &:before {
       font-size: 15px;
       top: -8px;
+    }
+    &.iSettings {
+      &:before {
+        top: -12px;
+      }
     }
   }
   #handle {
