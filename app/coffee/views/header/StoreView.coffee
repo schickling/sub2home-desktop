@@ -24,11 +24,14 @@ define [
       @_listenToCurrentRoute()
 
     _render: ->
+      title = @model.get "title"
       json =
-        title: @model.get("title")
+        title: title
         isBackButtonHidden: @_currentRouteIsStoreHome()
 
       @$el.html @template(json)
+      @$('#currentInfo').addClass "isTooLarge"  if title.length > 12
+
       @_cacheDom()
       @_renderCart()
 
