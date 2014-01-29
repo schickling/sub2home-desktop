@@ -12,8 +12,16 @@ define [
 
     renderContent: ->
       menuBundleModel = @model.get "menuBundleModel"
+
+      title = "Wähle deinen Artikel"
+      smallImage = ""
+
+      if menuBundleModel
+        title = menuBundleModel.get "title"
+        smallImage = menuBundleModel.get "smallImage"
+
       json =
-        title: menuBundleModel.get "title"
-        smallImage: menuBundleModel.get "smallImage"
+        title: title
+        smallImage: smallImage
 
       @$el.html @template(json)
