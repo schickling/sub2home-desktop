@@ -30,8 +30,6 @@ define [
         isBackButtonHidden: @_currentRouteIsStoreHome()
 
       @$el.html @template(json)
-      @$('#currentInfo').addClass "isTooLarge"  if title.length > 12
-
       @_cacheDom()
       @_renderCart()
 
