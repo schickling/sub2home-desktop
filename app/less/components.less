@@ -6257,14 +6257,13 @@ div#payment {
   margin: 13px 0 0 8%;
   width: 450px;
   &:hover {
-    .iBtn {
+    .bSubcard {
       color: @onNoteColor;
     }
   }
-  .iBtn {
+  .bSubcard {
     font-size: 80px;
     .transition(color .1s linear);
-
   }
 
   #uploadImage {
@@ -6273,10 +6272,26 @@ div#payment {
   }
 
   span {
+  }
+  &:after {
+    content: "Du hast eine Subcard? Fotografier deinen Code und lade ihn hier hoch, um Punkte zu kassieren.";
     width: 340px;
     display: inline-block;
     vertical-align: top;
     margin: 16px 0 0 8px;
+  }
+  &.success {
+    cursor: default;
+    .bSubcard {
+      color: @greenLighter;
+      cursor: default;
+      &:before {
+        content: "\e600";
+      }
+    }
+    &:after {
+      content: "Deine Subcard wurde akzeptiert, die Punkte dieser Bestellung werden dir gutgeschrieben.";
+    }
   }
 }
 
