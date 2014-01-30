@@ -53,10 +53,10 @@ define [
         type: "post"
         dataType: "json"
         contentType: "application/json; charset=utf-8"
-        success: (response) ->
+        success: (response) =>
           orderModel.set "subcardCode", response.info
           notificationcenter.notify "views.store.tray.subcard.success"
-
+          @$el.addClass "success"
         error: ->
           notificationcenter.notify "views.store.tray.subcard.invalidImage"
 
