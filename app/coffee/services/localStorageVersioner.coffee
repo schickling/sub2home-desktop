@@ -2,7 +2,7 @@ define [], () ->
 
   LocalStorageVersioner =
 
-    version: 1
+    version: 2
 
     initialize: ->
       cachedVersion = window.localStorage.getItem("version") || 0

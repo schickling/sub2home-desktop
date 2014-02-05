@@ -246,8 +246,8 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "build", [
-    "coffee:dist"
     "clean:dist"
+    "coffee:dist"
     "copy:dist"
     "requirejs:dist"
     "less:dist"
