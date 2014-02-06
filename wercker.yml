@@ -4,5 +4,4 @@ build:
     - npm-install:
         options: -g bower grunt-cli
     - npm-install
-    - bower-install
     - npm-test
