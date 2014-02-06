@@ -32,9 +32,5 @@
     "grunt-text-replace": "~0.3.9",
     "grunt-htmlrefs": "~0.4.2",
     "grunt-contrib-connect": "0.6.x"
-  },
-  "scripts": {
-    "postinstall": "bower install --allow-root",
-    "test": "grunt test"
   }
 }

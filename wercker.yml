@@ -2,7 +2,14 @@ box: wercker/nodejs
 build:
   steps:
     - script:
-        name: install global packages
+        name: install global dependencies
         code: sudo npm install -g grunt-cli bower phantomjs
-    - npm-install
-    - npm-test
+    - script:
+        name: install local dependencies
+        code: npm install
+    - script:
+        name: install bower components
+        code: bower install
+    - script:
+        name: run tests
+        code: grunt test
