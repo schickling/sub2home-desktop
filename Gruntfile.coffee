@@ -241,7 +241,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "test", [
-    "coffee:src"
+    "coffee"
     "karma:unit"
   ]
 
