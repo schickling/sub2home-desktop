@@ -1,7 +1,8 @@
 box: wercker/nodejs
 build:
   steps:
-    - npm-install:
-        options: -g bower grunt-cli
+    - script:
+        name: install global packages
+        code: sudo npm install -g grunt-cli bower
     - npm-install
     - npm-test
