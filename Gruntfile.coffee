@@ -209,7 +209,7 @@ module.exports = (grunt) ->
 
     karma:
       unit:
-        configFile: "<%= config.test %>/karma.conf.js"
+        configFile: "karma.conf.js"
         singleRun: true
 
     replace:
@@ -241,7 +241,6 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "test", [
-    "jshint"
     "karma:unit"
   ]
 
