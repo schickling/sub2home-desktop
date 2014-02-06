@@ -3,6 +3,6 @@ build:
   steps:
     - script:
         name: install global packages
-        code: sudo npm install -g grunt-cli bower
+        code: sudo npm install -g grunt-cli bower phantomjs
     - npm-install
     - npm-test
