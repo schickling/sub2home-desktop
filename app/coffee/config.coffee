@@ -9,7 +9,7 @@ require.config
     jqueryColor: "../components/jquery-color/jquery.color"
     jqueryLazyload: "libs/jquery-lazyload"
     jqueryOverscroll: "../components/jquery-overscroll/src/jquery.overscroll"
-    jqueryBrowserDetection: "../components/jquery-browser-detection/src/jquery.browser.detection"
+    browserDetection: "../components/browser-detection/src/browser-detection"
     jqueryPlaceholder: "../components/jquery-placeholder/jquery.placeholder"
     jqueryHiddenHeight: "../components/jquery-hidden-height/src/jquery.hidden.height"
     tooltipster: "../components/tooltipster/js/jquery.tooltipster"

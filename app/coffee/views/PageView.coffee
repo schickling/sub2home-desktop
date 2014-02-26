@@ -1,4 +1,15 @@
-define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder", "underscore", "backbone", "services/router", "services/notificationcenter", "models/stateModel", "views/assets/transitions"], ($, jqueryEasing, jqueryBrowserDetection, jqueryPlaceholder, _, Backbone, router, notificationcenter, stateModel, transitions) ->
+define [
+  "jquery"
+  "jqueryEasing"
+  "jqueryPlaceholder"
+  "browserDetection"
+  "underscore"
+  "backbone"
+  "services/router"
+  "services/notificationcenter"
+  "models/stateModel"
+  "views/assets/transitions"
+], ($, jqueryEasing, jqueryPlaceholder, browserDetection, _, Backbone, router, notificationcenter, stateModel, transitions) ->
 
   # "static" variable needed here
   pageWasInitialized = false
@@ -32,7 +43,7 @@ define ["jquery", "jqueryEasing", "jqueryBrowserDetection", "jqueryPlaceholder",
     _initializePage: ->
       @$el.appendTo $("body")
       @_finalizeLoad()
-      $.browserDetection addClasses: true
+      browserDetection addClasses: true
       pageWasInitialized = true
 
     _finalizeLoad: ->
