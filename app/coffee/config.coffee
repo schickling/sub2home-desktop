@@ -8,7 +8,7 @@ require.config
     jqueryEasing: "../components/jquery.easing/js/jquery.easing"
     jqueryColor: "../components/jquery-color/jquery.color"
     jqueryLazyload: "libs/jquery-lazyload"
-    jqueryOverscroll: "../components/jquery-overscroll/src/jquery.overscroll"
+    jqueryOverscroll: "../components/jquery-overscroll/dist/jquery.overscroll"
     browserDetection: "../components/browserdetection/src/browser-detection"
     jqueryPlaceholder: "../components/jquery-placeholder/jquery.placeholder"
     jqueryHiddenHeight: "../components/jquery-hidden-height/src/jquery.hidden.height"
