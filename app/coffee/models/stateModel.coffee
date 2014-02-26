@@ -99,14 +99,16 @@ define [
 
     _fetchStoreModelFromServer: ->
 
-      errorOccured = false
-      storeModel = new StoreModel(alias: @get("storeAlias"))
-      storeModel.fetch
+      errorOccured = @get("storeAlias") == "404"
 
-        # needed because other views depend on store models
-        async: false
-        error: ->
-          errorOccured = true
+      unless errorOccured
+        storeModel = new StoreModel(alias: @get("storeAlias"))
+        storeModel.fetch
+
+          # needed because other views depend on store models
+          async: false
+          error: ->
+            errorOccured = true
 
 
       # check if store was avaiable
