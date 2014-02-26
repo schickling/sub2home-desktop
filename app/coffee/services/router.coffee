@@ -42,6 +42,11 @@ define [
 
       localStorageVersioner.initialize()
       notificationcenter.init()
+
+      # strip query string
+      window.history.pushState(null, null, window.location.pathname)
+
+      # start router
       Backbone.history.start
         pushState: true
         root: "/"
@@ -49,10 +54,8 @@ define [
     navigate: (fragment, options) ->
       parts = fragment.split("/")
       if parts[0] is "store"
-
         # subsitute store alias
         parts[0] = stateModel.get("storeAlias")
-
         # reassemble frament
         fragment = parts.join("/")
       Backbone.history.navigate fragment, options
@@ -99,7 +102,7 @@ define [
       stateModel.set
         storeAlias: alias
         currentRoute: "store.home"
-        isClientHeaderActive: false       
+        isClientHeaderActive: false
 
       @_loadMainView "views/store/home/MainView"  if @_isValidStoreModel()
 
@@ -107,7 +110,7 @@ define [
       stateModel.set
         storeAlias: alias
         currentRoute: "store.selection"
-        isClientHeaderActive: false        
+        isClientHeaderActive: false
 
       params =
         selectionRessourceType: resourceType
