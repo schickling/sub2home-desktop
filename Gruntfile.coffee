@@ -204,8 +204,6 @@ module.exports = (grunt) ->
         options:
           livereload:
             port: 35730
-            key: grunt.file.read("env/sub2home.dev.key")
-            cert: grunt.file.read("env/sub2home.dev.crt")
 
     karma:
       unit:
@@ -236,7 +234,7 @@ module.exports = (grunt) ->
     "any-newer:less"
     "newer:coffee:src"
     "newer:coffee:test"
-    #"connect:server"
+    "connect:server"
     "watch"
   ]
 

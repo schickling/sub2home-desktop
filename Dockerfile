@@ -10,9 +10,6 @@ RUN apt-get update
 RUN add-apt-repository -y ppa:chris-lea/node.js
 RUN apt-get update && apt-get install -y nodejs
 
-# phantomjs
-RUN apt-get install -y phantomjs
-
 # npm packages
 RUN npm install -g grunt-cli bower
 RUN npm config set unsafe-perm true
