@@ -1,10 +1,10 @@
 define ["services/serverTime"], (serverTime) ->
 
   Date.prototype.addMinutes = (minutes) ->
-    this.setTime new Date this.getTime() + minutes * 60000
+    this.setTime(new Date(this.getTime() + minutes * 60000))
 
   Date.prototype.clone = ->
-    new Date this.getTime()
+    new Date(this.getTime())
 
   Date.prototype.getTotalMinutes = ->
     this.getHours() * 60 + this.getMinutes()
