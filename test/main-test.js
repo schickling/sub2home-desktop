@@ -10,7 +10,6 @@ for (var file in window.__karma__.files) {
 require(['/base/app/js/config.js'], function () {
 
   var paths = requirejs.s.contexts._.config.paths;
-  paths.timemachine = '../components/timemachine/timemachine';
   paths.resources = '../../test/resources';
 
   require.config({

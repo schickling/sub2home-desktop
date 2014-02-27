@@ -1,6 +1,6 @@
 define [], ->
 
-  DateOracle =
+  ServerTime =
 
     difference: 0
 

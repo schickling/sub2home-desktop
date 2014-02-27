@@ -19,8 +19,5 @@
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
     "browserdetection": "0.3.0",
     "tooltipster": "~2.1.4"
-  },
-  "devDependencies": {
-    "timemachine": "~0.2.3"
   }
 }

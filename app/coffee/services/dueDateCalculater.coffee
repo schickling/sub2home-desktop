@@ -1,4 +1,4 @@
-define [], ->
+define ["services/serverTime"], (serverTime) ->
 
   Date.prototype.addMinutes = (minutes) ->
     this.setTime new Date this.getTime() + minutes * 60000
@@ -11,8 +11,8 @@ define [], ->
 
   DueDateCalculater =
 
-    getDueDate: (deliveryTimesCollection, minimumDeliveryTime, dueDate = new Date(), minutesToAdd = 0) ->
-      @now = new Date()
+    getDueDate: (deliveryTimesCollection, minimumDeliveryTime, dueDate = serverTime.getCurrentDate(), minutesToAdd = 0) ->
+      @now = serverTime.getCurrentDate()
       @dueDate = if dueDate > @now then dueDate.clone() else @now.clone()
       @dueDate.addMinutes minutesToAdd
       @minimumDeliveryTime = minimumDeliveryTime
