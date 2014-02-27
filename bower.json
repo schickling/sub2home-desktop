@@ -12,7 +12,7 @@
     "jquery-overscroll": "1.7.7",
     "jquery-placeholder": "2.0.x",
     "jquery-hidden-height": "0.x",
-    "moment": "2.1.x",
+    "moment": "2.5.x",
     "underscore-amd": "1.4.x",
     "backbone-amd": "1.0.x",
     "backbone.localStorage": "1.1.x",
