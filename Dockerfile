@@ -1,10 +1,12 @@
 FROM ubuntu:12.04
+MAINTAINER Johannes Schickling "schickling.j@gmail.com"
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # base packages
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python-software-properties git
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise universe"
 RUN apt-get update
+RUN apt-get install -y python-software-properties git
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise universe" && apt-get update
 
 # node
 RUN add-apt-repository -y ppa:chris-lea/node.js && apt-get update
