@@ -1,15 +1,22 @@
-box: wercker/nodejs
+box: wercker-labs/docker
 build:
   steps:
     - script:
-        name: install global dependencies
-        code: sudo npm install -g grunt-cli bower phantomjs
-    - script:
-        name: install local dependencies
-        code: npm install
-    - script:
-        name: install bower components
-        code: bower install
+        name: Build image
+        code: docker build -t sub2home-desktop .
     - script:
         name: run tests
-        code: grunt test
+        code: docker run sub2home-desktop grunt test
+    - script:
+        name: export image
+        code: |
+            mkdir build
+            docker save sub2home-desktop > build/image.tar
+deploy:
+  steps:
+    - s3sync:
+        key-id: $KEY
+        key-secret: $SECRET
+        bucket-url: $BUCKET/desktop/
+        source-dir: ./build
+        opts: --reduced-redundancy --acl-private

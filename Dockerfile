@@ -2,19 +2,33 @@ FROM ubuntu:12.04
 
 # base packages
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python-software-properties wget
+RUN apt-get install -y python-software-properties git
 RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise universe"
 RUN apt-get update
 
 # node
-RUN add-apt-repository -y ppa:chris-lea/node.js
-RUN apt-get update && apt-get install -y nodejs
+RUN add-apt-repository -y ppa:chris-lea/node.js && apt-get update
+RUN apt-get install -y nodejs
 
 # npm packages
 RUN npm install -g grunt-cli bower
-RUN npm config set unsafe-perm true
 
-VOLUME ["/var/www"]
-WORKDIR /var/www
-EXPOSE 49000
-CMD grunt server
+# add ssh key
+ADD docker/.id_rsa /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+
+# configure git
+RUN git config --global user.name "Johannes Schickling"
+RUN git config --global user.email schickling.j@gmail.com
+
+# clone repo
+RUN git clone git@github.com:schickling/sub2home-desktop.git /var/www/desktop
+
+# build
+RUN cd /var/www/desktop && npm install && bower install
+
+WORKDIR /var/www/desktop
+EXPOSE 8888
+
+CMD ["grunt", "server"]
