@@ -4,13 +4,14 @@ define [
   "backbone"
   "moment"
   "services/notificationcenter"
+  "services/serverTime"
   "models/AddressModel"
   "models/CreditModel"
   "collections/OrderedItemsCollection"
-], ($, _, Backbone, moment, notificationcenter, AddressModel, CreditModel, OrderedItemsCollection) ->
+], ($, _, Backbone, moment, notificationcenter, serverTime, AddressModel, CreditModel, OrderedItemsCollection) ->
 
   # made global for performance reasons
-  now = new Date()
+  now = serverTime.getCurrentDate()
 
   OrderModel = Backbone.Model.extend
 
@@ -78,7 +79,7 @@ define [
       ), this
 
       # due date
-      @set "dueDate", new Date()  unless @get("dueDate")
+      @set "dueDate", serverTime.getCurrentDate()  unless @get("dueDate")
 
       # address model
       @set "addressModel", new AddressModel()  unless @get("addressModel")

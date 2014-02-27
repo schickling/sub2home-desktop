@@ -3,8 +3,9 @@ define [
   "backbone"
   "backboneLocalStorage"
   "models/StoreModel"
+  "services/serverTime"
   "services/server"
-], (_, Backbone, backboneLocalStorage, StoreModel, server) ->
+], (_, Backbone, backboneLocalStorage, StoreModel, serverTime, server) ->
 
   StateModel = Backbone.Model.extend
 
@@ -49,7 +50,7 @@ define [
       ), this
 
       # initialize store model if needed
-      minimumFetchTimestamp = new Date().getTime() - (3 * 60 * 60 * 1000)
+      minimumFetchTimestamp = serverTime.getCurrentDate().getTime() - (3 * 60 * 60 * 1000)
       realFetchDate = @get("storeFetchDate") or new Date(0)
       needsRefetch = realFetchDate.getTime() < minimumFetchTimestamp
       @_fetchStoreModelFromServer()  if @get("storeAlias") isnt ""
@@ -123,7 +124,7 @@ define [
         storeModel = @_selectCachedStoreModel(storeModel)
         @set
           storeModel: storeModel
-          storeFetchDate: new Date()
+          storeFetchDate: serverTime.getCurrentDate()
 
         @_listenForStoreInternalChanges()
 

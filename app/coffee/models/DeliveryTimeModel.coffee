@@ -1,8 +1,9 @@
 define [
   "underscore"
   "backbone"
+  "services/serverTime"
   "services/notificationcenter"
-], (_, Backbone, notificationcenter) ->
+], (_, Backbone, serverTime, notificationcenter) ->
 
   DeliveryTimeModel = Backbone.Model.extend
     defaults:
@@ -23,7 +24,7 @@ define [
           error: error
 
     checkIfNow: ->
-      date = new Date()
+      date = serverTime.getCurrentDate()
       dayOfWeek = date.getDay()
       currentMinutes = date.getMinutes() + date.getHours() * 60
       if dayOfWeek isnt @get("dayOfWeek") or currentMinutes < @get("startMinutes") or currentMinutes > @get("endMinutes")

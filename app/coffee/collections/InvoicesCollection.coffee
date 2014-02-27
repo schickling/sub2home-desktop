@@ -1,4 +1,9 @@
-define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceModel) ->
+define [
+  "underscore"
+  "backbone"
+  "services/serverTime"
+  "models/InvoiceModel"
+], (_, Backbone, serverTime, InvoiceModel) ->
 
   InvoicesCollection = Backbone.Collection.extend
 
@@ -16,7 +21,7 @@ define ["underscore", "backbone", "models/InvoiceModel"], (_, Backbone, InvoiceM
 
     getTotalOfCurrentYear: ->
       total = 0
-      currentYear = new Date().getFullYear()
+      currentYear = serverTime.getCurrentDate().getFullYear()
       _.each @models, (invoiceModel) ->
         total += invoiceModel.get("total")  if invoiceModel.getTimeSpanYear() is currentYear
 

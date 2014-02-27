@@ -1,4 +1,13 @@
-define ["underscore", "backbone", "services/notificationcenter", "models/AddressModel", "collections/DeliveryAreasCollection", "collections/DeliveryTimesCollection", "collections/InvoicesCollection"], (_, Backbone, notificationcenter, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) ->
+define [
+  "underscore"
+  "backbone"
+  "services/notificationcenter"
+  "services/serverTime"
+  "models/AddressModel"
+  "collections/DeliveryAreasCollection"
+  "collections/DeliveryTimesCollection"
+  "collections/InvoicesCollection"
+], (_, Backbone, notificationcenter, serverTime, AddressModel, DeliveryAreasCollection, DeliveryTimesCollection, InvoicesCollection) ->
 
   StoreModel = Backbone.Model.extend
 
@@ -70,11 +79,11 @@ define ["underscore", "backbone", "services/notificationcenter", "models/Address
       @_getCurrentDeliveryTimeModel() isnt null
 
     isDeliveringToday: ->
-      @getNextDeliveryTimeModel().get("dayOfWeek") is new Date().getDay()
+      @getNextDeliveryTimeModel().get("dayOfWeek") is serverTime.getCurrentDate().getDay()
 
     getNextDeliveryTimeModel: ->
       deliveryTimesCollection = @get("deliveryTimesCollection")
-      deliveryTimesCollection.getNextDeliveryTimeModel(new Date())
+      deliveryTimesCollection.getNextDeliveryTimeModel(serverTime.getCurrentDate())
 
     getMinimumValue: ->
       selectedDeliveryAreaModel = @getSelectedDeliveryAreaModel()

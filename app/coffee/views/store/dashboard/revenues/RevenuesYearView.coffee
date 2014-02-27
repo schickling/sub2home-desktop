@@ -2,9 +2,10 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "services/serverTime"
   "views/store/dashboard/revenues/RevenueView"
   "text!templates/store/dashboard/revenues/RevenuesYearTemplate.html"
-], ($, _, Backbone, RevenueView, RevenuesYearTemplate) ->
+], ($, _, Backbone, serverTime, RevenueView, RevenuesYearTemplate) ->
 
   RevenuesYearView = Backbone.View.extend
 
@@ -16,7 +17,7 @@ define [
 
     _render: ->
       # check if year has passed
-      currentYear = new Date().getFullYear()
+      currentYear = serverTime.getCurrentDate().getFullYear()
       invoiceYear = @collection.first().getTimeSpanYear()
       if invoiceYear < currentYear
         json =

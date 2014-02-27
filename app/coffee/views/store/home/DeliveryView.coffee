@@ -3,9 +3,10 @@ define [
   "underscore"
   "backbone"
   "moment"
+  "services/serverTime"
   "models/stateModel"
   "text!templates/store/home/DeliveryTemplate.html"
-], ($, _, Backbone, moment, stateModel, DeliveryTemplate) ->
+], ($, _, Backbone, moment, serverTime, stateModel, DeliveryTemplate) ->
 
   DeliveryView = Backbone.View.extend
 
@@ -23,7 +24,7 @@ define [
       nextDeliveryTime = ""
       unless isDelivering
         nextDeliveryTimeModel = storeModel.getNextDeliveryTimeModel()
-        now = new Date()
+        now = serverTime.getCurrentDate()
         currentDayOfWeek = now.getDay()
         nextDayOfWeek = nextDeliveryTimeModel.get("dayOfWeek")
         if currentDayOfWeek isnt nextDayOfWeek

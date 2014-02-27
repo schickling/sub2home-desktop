@@ -3,10 +3,11 @@ define [
   "underscore"
   "backbone"
   "moment"
+  "services/serverTime"
   "models/InvoiceModel"
   "views/client/dashboard/RevenueView"
   "text!templates/client/dashboard/RevenuesTemplate.html"
-], ($, _, Backbone, moment, InvoiceModel, RevenueView, RevenuesTemplate) ->
+], ($, _, Backbone, moment, serverTime, InvoiceModel, RevenueView, RevenuesTemplate) ->
 
   RevenuesView = Backbone.View.extend
 
@@ -35,7 +36,7 @@ define [
 
     _renderRevenues: ->
       invoiceModels = @_getSummedUpInvoiceModels()
-      now = new Date()
+      now = serverTime.getCurrentDate()
       currentTimeSpan = now.getMonth() + 1 + now.getFullYear() * 12
       _.each invoiceModels, (invoiceModel) ->
         if invoiceModel.get("timeSpan") isnt currentTimeSpan
@@ -66,7 +67,7 @@ define [
 
     _getSummedUpInvoiceModels: ->
       invoiceModels = []
-      now = new Date()
+      now = serverTime.getCurrentDate()
       currentTotalNumberOfMonths = now.getFullYear() * 12 + now.getMonth() + 1 # +1 since in js month numbers start with 0
       invoiceModel = undefined
       totalNumberOfMonths = undefined

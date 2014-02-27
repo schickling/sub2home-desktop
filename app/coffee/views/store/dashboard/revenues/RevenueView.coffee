@@ -4,8 +4,9 @@ define [
   "backbone"
   "moment"
   "services/notificationcenter"
+  "services/serverTime"
   "text!templates/store/dashboard/revenues/RevenueTemplate.html"
-], ($, _, Backbone, moment, notificationcenter, RevenueTemplate) ->
+], ($, _, Backbone, moment, notificationcenter, serverTime, RevenueTemplate) ->
 
   RevenueView = Backbone.View.extend
 
@@ -49,7 +50,7 @@ define [
       @$download = @$("i")
 
     _validateMonth: ->
-      now = new Date()
+      now = serverTime.getCurrentDate()
       currentTotalNumberOfMonths = now.getFullYear() * 12 + now.getMonth() + 1
       @isValidMonth = (@model.get("timeSpan") isnt currentTotalNumberOfMonths)
 
