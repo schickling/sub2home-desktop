@@ -224,6 +224,11 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Es konnte kein neues Liefergebiet hinzugefügt werden. Wenden Sie sich bitte an unseren Support."
         className: "error"
 
+      "views.store.config.deliveryTime.lastDeliveryTime":
+        title: "Letzte Lieferzeit"
+        description: "Das ist die letzte Lieferzeit und kann leider nicht entfernt werden."
+        className: "warning"
+
       "views.store.config.deliveryTime.wrongTimeFormat":
         title: "Falsches Zeitformat"
         description: "Vielleicht ein Tippfehler ? Sie müssen eine gültige Uhrzeit angeben."

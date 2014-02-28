@@ -29,11 +29,12 @@ define [
       @$el.html @template(json)
 
     _destroy: ->
-      self = this
-      @$el.fadeOut ->
-        self.model.destroy()
-        self.remove()
-
+      @model.destroy
+        success: =>
+          @$el.fadeOut =>
+            @remove()
+        error: =>
+          notificationcenter.notify "views.store.config.deliveryTime.lastDeliveryTime"
 
     _updateStartMinutes: (e) ->
       $input = @$(".deliveryTimeStartMinutes")
@@ -60,7 +61,7 @@ define [
 
         error: ->
           notificationcenter.notify "views.store.config.deliveryTime.change.error"
-          
+
           # rerender
           self._render()
 

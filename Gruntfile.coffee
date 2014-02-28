@@ -57,11 +57,10 @@ module.exports = (grunt) ->
     coffee:
       options:
         bare: true
+        sourceMap: true
+        sourceRoot: ""
 
       src:
-        options:
-          sourceMap: true
-          sourceRoot: ''
         files: [
           expand: true
           cwd: "<%= config.src %>/coffee"
