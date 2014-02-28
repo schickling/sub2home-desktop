@@ -30,7 +30,7 @@ RUN git config --global user.email schickling.j@gmail.com
 RUN git clone git@github.com:schickling/sub2home-desktop.git /var/www/desktop
 
 # build
-RUN cd /var/www/desktop && npm install && bower cache clean --allow-root && bower install --allow-root
+RUN cd /var/www/desktop && npm install && bower install --allow-root
 
 VOLUME ["/var/www/server"]
 WORKDIR /var/www/desktop
