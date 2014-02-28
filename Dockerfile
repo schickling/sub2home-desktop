@@ -32,7 +32,7 @@ RUN git clone git@github.com:schickling/sub2home-desktop.git /var/www/desktop
 # build
 RUN cd /var/www/desktop && npm install && bower install --allow-root
 
-VOLUME ["/var/www/server"]
+VOLUME ["/var/www/desktop"]
 WORKDIR /var/www/desktop
 
 EXPOSE 8888
