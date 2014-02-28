@@ -7,6 +7,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get install -y python-software-properties git fontconfig
 
+# set timezone to Europe/Berlin
+RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
 # node
 RUN add-apt-repository -y ppa:chris-lea/node.js && apt-get update
 RUN apt-get install -y nodejs
