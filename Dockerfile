@@ -5,8 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # base packages
 RUN apt-get update
-RUN apt-get install -y python-software-properties git
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise universe" && apt-get update
+RUN apt-get install -y python-software-properties git fontconfig
 
 # node
 RUN add-apt-repository -y ppa:chris-lea/node.js && apt-get update
@@ -30,7 +29,9 @@ RUN git clone git@github.com:schickling/sub2home-desktop.git /var/www/desktop
 # build
 RUN cd /var/www/desktop && npm install && bower cache clean --allow-root && bower install --allow-root
 
+VOLUME ["/var/www/server"]
 WORKDIR /var/www/desktop
+
 EXPOSE 8888
 
 CMD ["grunt", "server"]
