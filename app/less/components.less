@@ -3748,209 +3748,7 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
-      .orderContent {
-        font-family: @baseFontFamily;
-        width: 100%;
-        margin-top: 10px;
-        padding: 0 0 10px;
-        .border-box;
-        .positioned;
-        display: none;
-        .orderedItems {
-          width: 70%;
-          .border-box;
-          padding-right: 40px;
-        }
-
-        .mailOrder {
-          .border-box;
-          position: absolute;
-          overflow: hidden;
-          right: 0px;
-          top: 0;
-          bottom: 20px;
-          background: @separateStageArea;
-          border: 1px solid @grayLittleLight;
-          .border-radius(2px);
-          width: 30%;
-          cursor: pointer;
-
-          .transition(e('background .1s linear, border-color .1s linear'));
-
-          &:after {
-            content: "\e06b";
-            font-family: "Homicons";
-            font-size: 150px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: -5px 0 0 -75px;
-            color: @greenLighter;
-            .opacity(50);
-            .transition(opacity .1s linear);
-          }
-
-          &:hover {
-            background: darken(@separateStageArea, 5%);
-            border-color: darken(@grayLittleLight, 5%);
-            &:after {
-              .opacity(100);
-            }
-          }
-
-        }
-
-        .orderedArticle, .orderedMenu {
-
-          .border-radius(2px);
-          border: 1px solid @grayLighter;
-          padding: 20px 0;
-          margin-bottom: 10px;
-
-          padding: 20px 20px 20px 50px;
-          color: @black;
-
-          &.sub {
-            border-bottom: 1px solid @grayLighter;
-            padding-bottom: 10px;
-            &:last-child {
-              border: none;
-              padding-bottom: 0;
-            }
-          }
-
-          h3 {
-            padding: 0;
-            margin: 0 0 5px 10px;
-            display: inline-block;
-            color: inherit;
-            font-family: inherit;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 0.8;
-          }
-          .articleIngredients {
-            margin: 10px 0 0 0;
-            .clearfix;
-            >div {
-              float: left;
-              >div {
-                font-size: 16px;
-                padding: 5px;
-                margin: 0 20px 0 0;
-                &:first-child {
-                  border-bottom: 1px solid @grayEvenLighter;
-                }
-                // &.vegetables {
-                //   border: none;
-                // }
-                span {
-                  background: @black;
-                  font-family: @baseFontFamily;
-                  font-size: 13px;
-                  font-weight: bold;
-                  text-transform: uppercase;
-                  padding: 0 3px;
-                  color: @white;
-                }
-                >div {
-                  display: inline-block;
-                  &.sauce {
-                    margin-left: 10px;
-                    &:before {
-                      padding-right: 5px;
-                    }
-                  }
-                }
-              }
-              >div, >div>div {
-                &:before {
-                  font-family: "Homicons";
-                  color: @black;
-                  position: relative;
-                  top: 2px;
-                  padding: 0 10px 0 5px;
-                }
-              }
-            }
-
-          .bread:before       { content: "\e014"; }
-          .cheese:before      { content: "\e015"; }
-          .vegetables:before  { content: "\e016"; }
-          .sauce:before       { content: "\e017"; }
-          .extras:before      { content: "\e05c"; }
-          .toasted:before     { content: "\e074"; }
-          }
-
-          &.additional {
-            display: inline-block;
-            &:before {
-              content: "+";
-              margin: 0 10px 0 0;
-              font-size: 35px;
-              color: @gray;
-            }
-            padding:0 0 0 20px;
-            margin: 20px 0 0 0;
-          }
-
-          .menuPrice, .articleAmount {
-            font-size: 16px;
-            background: @grayLightest;
-            position: absolute;
-            top: 0;
-            padding: 5px;
-            span {
-              padding: 5px;
-            }
-          }
-
-          .menuPrice {
-            right: 0;
-            .border-radius(0 0 0 2px);
-            border-bottom: 1px solid @grayLighter;
-            border-left: 1px solid @grayLighter;
-            span.price {
-              padding-left: 10px;
-              margin-left: 5px;
-              border-left: 1px solid @grayLighter;
-              font-weight: bold;
-            }
-          }
-          .articleAmount {
-            left: 0;
-            .border-radius(0 0 2px 0);
-            border-bottom: 1px solid @grayLighter;
-            border-right: 1px solid @grayLighter;
-            font-weight: bold;
-          }
-
-        }
-      }
-      // &.balance {
-      //   color: @orange;
-
-      //   .orderHeader > div {
-
-      //     &.orderStatus {
-      //       color: inherit;
-      //       &:before {
-      //         content: "\e06f";
-      //         position: relative;
-      //         top: -7px;
-      //       }
-      //     }
-
-      //     &.orderTitle {
-      //       margin-left: 20px;
-      //     }
-
-      //     &.orderValue {
-      //       color: inherit;
-      //       margin: 0 70px;
-      //     }
-      //   }
-      // }
+                
       &.balanced {
         .orderHeader >div {
           &.orderValueContainer {
@@ -4033,6 +3831,145 @@ input[type="text"]#locationSelectionInput {
       }
     }
   }
+}
+    
+    
+.orderContent {
+    margin: 20px 0;
+    padding: 0;
+    border: 1px solid @grayLighter;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    .box-shadow(0 1px 5px 0 rgba(0,0,0,0.1));
+}
+    
+.orderDetailsHead {
+    
+    border-bottom: 1px solid @grayLighter;
+    padding: 20px;
+            
+    span {
+        font-weight: bold;
+    }
+}
+    
+.orderDetailsAbstract {
+    overflow: hidden;
+    
+    .ordererDetails, .orderDeliveryDetails {
+        display: inline-block;  
+        vertical-align: top;
+        
+        .border-box;
+        width: 50%;
+            
+//      True-Layout-Hack
+        margin-bottom: -99999px;
+	    padding-bottom: 99999px;
+    }
+        
+    .ordererDetails {
+        border-right: 1px solid @grayLighter;
+            
+        font-size: 24px;
+        line-height: 1.2;
+            
+        span {
+            font-weight: bold;
+        }
+            
+        .ordererDeliveryArea {
+            margin-top: 25px;
+            font-style: italic;
+        }
+    }
+        
+    .ordererAddress, .ordererContact, .ordererMessage {
+        padding: 20px;
+    }
+        
+    .ordererAddress, .ordererContact {
+        border-bottom: 1px solid @grayLighter;   
+    }
+        
+    .orderDeliveryDetails {
+            
+    }
+        
+    .orderTimeQrCode, .orderPaymentMethod, .orderedArticlesListing {
+        padding: 20px;    
+    }
+        
+    .orderTimeQrCode, .orderPaymentMethod {
+        border-bottom: 1px solid @grayLighter;
+    }
+        
+    .orderTimeQrCode {
+        position: relative;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: bold;
+    }
+        
+    .orderQrCode {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        background: @grayLightest;
+        border-left: 1px solid @grayLightest;
+    }
+        
+    .orderPaymentMethod {
+        font-size: 24px;    
+    }
+        
+    .orderedArticlesListing {
+        ol {
+            
+        }
+        li {
+           position: relative; 
+        }
+        h4 {
+            font-size: 16px;
+            color: inherit;
+            font-weight: bold;
+        }
+        p {
+            position: absolute;
+            right: 5px;
+            top: 0;
+        }
+        
+        .cat, .extra {
+            font-size: 11px;
+            font-weight: normal;
+            padding: 2px 3px;
+            .border-radius(2px);
+            position: relative;
+            top: -2px;
+        }
+        
+        .cat {
+            background: @grayDark;
+            text-transform: uppercase;
+            color: @white;
+        }
+        .extra {
+            border: 1px solid @grayDark;
+        }
+        
+        .overallSum {
+            text-align: right;
+            font-weight: bold;
+            border-top: 1px solid @grayDark;
+            padding: 5px;
+        }
+    }
+    
 }
 
 
