@@ -2,8 +2,9 @@ define [
   "jquery"
   "underscore"
   "backbone"
+  "moment"
   "text!templates/store/dashboard/details/InfoTemplate.html"
-], ($, _, Backbone, InfoTemplate) ->
+], ($, _, Backbone, moment, InfoTemplate) ->
 
   InfoView = Backbone.View.extend
 
@@ -18,6 +19,7 @@ define [
       dueMoment = moment @model.get("dueDate")
       json =
         comment: @model.get "comment"
+        total: @model.get "total"
         orderNumber: @model.getNumber()
         orderTime: createdMoment.format "HH:mm"
         orderDate: createdMoment.format "DD.MM.YYYY"
