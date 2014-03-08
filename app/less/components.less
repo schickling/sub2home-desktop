@@ -3611,13 +3611,15 @@ input[type="text"]#locationSelectionInput {
     .order {
 
       border-bottom: 1px solid @grayLighter;
-
+      height: auto;
       width: 100%;
 
       font-size: 24px;
       text-align: left;
       .backface-visibility(hidden);
       .clearfix;
+                    
+      .transition(height .3s ease);
 
       &:last-child {
         border-bottom: none;
@@ -3628,6 +3630,9 @@ input[type="text"]#locationSelectionInput {
         // cursor: pointer;
         height: 38px;
         padding-top: 20px;
+        
+        cursor: pointer;
+                    
         >div {
           float: left;
           &:before {
@@ -3836,12 +3841,13 @@ input[type="text"]#locationSelectionInput {
 
 .orderContent {
     display: none;
-    margin: 20px 0;
+    margin: 20px 10px;
     padding: 0;
     border: 1px solid @grayLighter;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     .box-shadow(0 1px 5px 0 rgba(0,0,0,0.1));
+    .border-radius(3px);
 }
 
 .orderDetailsHead {
