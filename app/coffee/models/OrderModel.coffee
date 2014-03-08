@@ -125,7 +125,6 @@ define [
       validPaymentMethods = [
         "cash"
         "ec"
-        "paypal"
       ]
       return "Keine erlaubte Bezahlmethode"  unless _.contains(validPaymentMethods, attributes.paymentMethod)
       comment = attributes.comment

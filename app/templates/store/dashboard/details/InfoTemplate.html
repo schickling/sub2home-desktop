@@ -1,1 +1,67 @@
-<%= comment %><br>
+<!-- BEST-NR & Logo -->
+
+<section class="orderDetailsHead">
+    Best.-Nr. <span><%= orderNumber %></span> (eingegangen um <span><%= orderTime %></span> - <%= orderDate %>)
+</section>
+
+<!-- Bestellungs-Übersicht -->
+
+<section class="orderDetailsAbstract">
+
+    <!-- Besteller-Details -->
+
+    <div class="ordererDetails">
+        <div class="ordererAddress">
+            <p>
+                An<br>
+                <span>
+                    <%= addressFirstName %> <%= addressLastName %><br>
+                    <%= addressStreet %> <%= addressStreetNumber %> <% if (addressStreetAdditional) { %>(<%= addressStreetAdditional %>)<% } %><br>
+                    <%= addressPostal %> <%= addressCity %><br>
+                </span>
+            </p>
+            <% if (addressDistrict) { %>
+            <p class="ordererDeliveryArea">
+                <%= addressDistrict %>
+            </p>
+            <% } %>
+        </div>
+        <div class="ordererContact">
+            Tel: <%= addressPhone %><br>
+            Mail: <%= addressEmail %>
+        </div>
+        <% if (comment) { %>
+        <div class="ordererMessage">
+            <%= comment %>
+        </div>
+        <% } %>
+
+        <!-- Artikel-Übersicht -->
+
+    </div>
+    <div class="orderDeliveryDetails">
+        <div class="orderTimeQrCode">
+            Bis <%= dueTime %>
+            <!-- <img class="orderQrCode" src="" alt=""> -->
+        </div>
+        <div class="orderPaymentMethod">
+            Bezahlmethode: <%= paymentMethod %>
+        </div>
+        <div class="orderedArticlesListing">
+            <ol>
+                <li>
+                    <header>
+                        <h4>2 Footlong Sandwiches</h4>
+                        <p>11.96 €</p>
+                    </header>
+                    <span class="cat">Subs</span> Chicken Teriyaki footlong, <span class="cat">Subs</span> Steak & Cheese footlong
+                </li>
+                <li>
+                    <h4><span class="cat">Subs</span> Tuna 6-inch <span class="extra">ExBc</span> <span class="extra">ExBc</span></h4>
+                    <p>4.45 €</p>
+                </li>
+            </ol>
+            <div class="overallSum">15.99 €</div>
+        </div>
+    </div>
+</section>
