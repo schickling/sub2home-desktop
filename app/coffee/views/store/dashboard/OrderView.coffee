@@ -25,11 +25,7 @@ define [
     initialize: ->
       @creditView = @options.creditView
       @_render()
-      @_enableTooltips()
       @listenTo @model, "change", @_render
-
-    _enableTooltips: ->
-      notificationcenter.tooltip @$(".bMail")
 
     _render: ->
       currentMoment = moment()
@@ -59,6 +55,10 @@ define [
       @$el.html @template(json)
       @$el.addClass "balanced"  if totalWithCredit < total
       @$(".alertOrder").toggleClass("disabled", createdMoment.month() isnt currentMoment.month())
+      @_enableTooltips()
+
+    _enableTooltips: ->
+      notificationcenter.tooltip @$(".bMail")
 
     _toggleDetailsView: ->
       $orderContent = @$(".orderContent")
