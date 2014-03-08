@@ -40,7 +40,7 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         className: "info header trayTooltip"
 
       "views.store.dashboard.resendMail":
-        text: "Erneut senden"
+        text: "Bestellmail erneut versenden"
         className: "info left"
 
       "views.store.config.testOrder":
