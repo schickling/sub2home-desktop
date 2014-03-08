@@ -15,9 +15,9 @@ define [
 
     _render: ->
       @$el.html OrderDetailsTemplate
-      @_renderAddress()
-      @_renderOrderedItems()
-      @_renderInfo()
+      # @_renderAddress()
+      # @_renderOrderedItems()
+      # @_renderInfo()
 
     _renderAddress: ->
       new AddressView(

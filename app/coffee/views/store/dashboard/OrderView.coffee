@@ -15,7 +15,7 @@ define [
     className: "order"
 
     events:
-      # 'click .orderHeader': '_toggleDetailsView',
+      "click .orderHeader": "_toggleDetailsView"
       "click .orderStatus": "_toggleIsDelivered"
       "click .resendmail": "_resendMail"
       "click .alertOrder": "_addCredit"
@@ -62,15 +62,17 @@ define [
 
     _toggleDetailsView: ->
       $orderContent = @$(".orderContent")
-      @_renderDetailsView()  unless $orderContent.html().trim()
-      $orderContent.toggle()
+      if $orderContent.html().trim()
+        $orderContent.toggle()
+      else
+        @_renderDetailsView()
 
     _renderDetailsView: ->
-      @model.fetch async: false
-      new OrderDetailsView(
-        el: @$(".orderContent")
-        model: @model
-      )
+      @model.fetch
+        success: =>
+          new OrderDetailsView
+            el: @$(".orderContent").show()
+            model: @model
 
     _getDateOrTime: ->
       createdDate = @model.get("createdDate")
@@ -84,8 +86,6 @@ define [
       paymentMethod = @model.get("paymentMethod")
       paymentMethodClass = undefined
       switch paymentMethod
-        when "paypal"
-          paymentMethodClass = "bPaypal"
         when "cash"
           paymentMethodClass = "bCash"
         when "ec"

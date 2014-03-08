@@ -1,198 +1,65 @@
-<div style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 0 0 20px 0; margin: 0;">
 
+<!-- ORDER DETAILS -->
 
-<!-- HEAD AREA -->
-<!-- - - - - - -->
+<!-- BEST-NR & Logo -->
 
-	<table cellpadding="0" cellspacing="0" width="100%" style="border-bottom: 3px double #000; table-layout:fixed;">
-		<tbody>
-			<tr>
-				<td>
-					<table style="border-right: 1px solid #000; font-size: 20px;" width="100%" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td style="padding: 30px; border-bottom: 1px solid #000;">
-									An<br/>
-									<b><%= firstName %> <%= lastName %><br/>
-									<%= street %> <%= streetNumber %> <%= streetAdditional %><br/>
-									<%= postal %> <%= city %></b><br/><br/>
-									<i><% if (district) { %> (<%= district %>)<% } %></i>
-								</td>
-							</tr>
-							<tr>
-								<td style="padding: 20px 30px; border-bottom: 1px solid #000;">
-									Tel: <%= phone %><br/>
-									Mail: <%= email %>
-								</td>
-							</tr>
-							<tr>
-								<td style="padding: 30px; font-size: 16px;"><%= comment %></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-				<td valign="top">
-					<table width="100%" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td style="border-bottom: 1px solid #000;">
-									<table width="100%" cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td style="padding: 15px 20px; font-size: 30px;"><b>Bis {{ $dueTime }}</b></td>
-												@if ($qrCodePath)
-												<td width="65" style="border-left: 1px solid #000;"><img src="<?php echo $message->embed($qrCodePath); ?>" alt="sub2home"></td>
-												@endif
-											</tr>
-										</tbody>
-									</table>
-									
-								</td>
-							</tr>
-							<tr>
-								<td style="padding: 15px 20px; font-size: 16px; border-bottom: 1px solid #000;">
-									Bezahlmethode: {{ $paymentMethod }}
-								</td>
-							</tr>
-							<tr>
-								<td style="padding: 20px; line-height: 2">
-								<!-- Ordered Items Overview -->
-									<table width="100%" cellpadding="0" cellspacing="0">
-										<tbody>
-											@foreach ($orderedItemsCollection as $orderedItemIndex => $orderedItemModel)
-											<tr style="line-height: 1.4;">
-												<td width="25" align="right" valign="top" style="padding: 0px 5px 7px 0px;">{{ $orderedItemIndex + 1 }})</td>
-												@if ($orderedItemModel->isMenu)
-													<td style="padding: 0px 0px 7px 5px;"><b>@if ($orderedItemModel->amount > 1){{ $orderedItemModel->amount }}x @endif {{ $orderedItemModel->menuModel->title }}</b>
-													<br/>
-													<span style="font-size: 16px">(
-													@foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleIndex => $orderedArticleModel)
-														{{ $orderedArticleModel->articleModel->categoryModel->title }}: {{ $orderedArticleModel->articleModel->title }} {{ $orderedArticleModel->articleModel->info }}
-														@foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel)
-															@if ($ingredientModel->price > 0)
-																<span style="font-size: 12px; border: 1px solid #000; padding: 1px 2px; background: #fff">{{ $ingredientModel->shortcut }}</span>
-															@endif
-														@endforeach
-														@if ($orderedArticleIndex < $orderedItemModel->orderedArticlesCollection->count() - 1)
-															, 
-														@endif
-													@endforeach
-													)</span>
-												@else
-													<?php $orderedArticleModel = $orderedItemModel->orderedArticlesCollection->first(); ?>
-													<td style="padding: 0px 0px 7px 5px;"><b>@if ($orderedItemModel->amount > 1){{ $orderedItemModel->amount }}x @endif {{ $orderedArticleModel->articleModel->categoryModel->title }}: {{ $orderedArticleModel->articleModel->title }} {{ $orderedArticleModel->articleModel->info }}</b>
-													@foreach ($orderedArticleModel->ingredientsCollection as $ingredientModel)
-														@if ($ingredientModel->price > 0)
-															<span style="font-size: 12px; border: 1px solid #000; padding: 1px 2px; background: #fff">{{ $ingredientModel->shortcut }}</span>
-														@endif
-													@endforeach
-												@endif
-												</td>
-												<td align="right" width="65" valign="top" style="padding: 0px 5px; 7px 0px">{{ $orderedItemModel->total }} €</td>
-											</tr>
-											@endforeach
-											<tr>
-												<td></td>
-												<td style="border-top: 1px solid #000; padding-right: 5px" colspan="2" align="right"><b>{{ $total }} €</b></td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <section class="orderDetailsHead">
+        Best.-Nr. <span>00002393</span> (eingegangen um <span>21:22</span> - 12.01.2014)
+    </section>
 
-	@foreach ($orderedItemsCollection as $orderedItemModel)
-	<table style="table-layout: auto; border-bottom: 1px dashed #000;" width="100%" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td>
-					@if ($orderedItemModel->isMenu)
-					<table width="100%" style="background: url('http://www.sub2home.com/img/mail/stripedBack.png') repeat-x;" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td style="padding: 10px 10px 10px 20px" width="10px">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td style="font-size: 16px; border: 2px solid #000; padding: 3px; background: #fff"><b>{{ $orderedItemModel->amount }}x</b></td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-								<td style="padding: 10px; font-size: 20px;"><b>{{ $orderedItemModel->menuModel->title }}</b>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+<!-- Bestellungs-Übersicht -->
 
-					@foreach ($orderedItemModel->orderedArticlesCollection as $orderedArticleModel)
-					<table width="100%" style="border-top: 1px solid #aaa" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td style="padding: 10px 10px 10px 30px; font-size: 20px;">{{ $orderedArticleModel->articleModel->categoryModel->title }}: <b>{{ $orderedArticleModel->articleModel->title }} @if ($orderedArticleModel->articleModel->info) ({{ $orderedArticleModel->articleModel->info }}) @endif</b></td>
-							</tr>
-						</tbody>
-					</table>
+    <section class="orderDetailsAbstract">
 
-					@if ($orderedArticleModel->hasIngredients)
-					@include('emails.client.order.ingredients', array('ingredientCategoriesCollection' => $orderedArticleModel->ingredientCategoriesCollection))
-					@endif
+<!-- Besteller-Details -->
 
-					@endforeach
+       <div class="ordererDetails">
+           <div class="ordererAddress">
+               <p>
+                    An<br>
+                    <span>
+                        Dennis Schnurrenberger<br>
+                        Erfurter Straße 17<br>
+                        87700 Memmingen<br>
+                    </span>
+               </p>
+               <p class="ordererDeliveryArea">
+                   Innenstadt
+               </p>
+            </div>
+            <div class="ordererContact">
+                Tel: 0151 116 611 48<br>
+                Mail: d.schnurrenberger@gmail.com
+            </div>
+            <div class="ordererMessage">
+               Super Käse und super Sandwiches. Ich mag euch.
+            </div>
 
-					@else
+<!-- Artikel-Übersicht -->
 
-					<?php $orderedArticleModel = $orderedItemModel->orderedArticlesCollection->first(); ?>
-
-					<table width="100%" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td style="padding: 20px 10px 20px 20px" width="10px">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td style="font-size: 16px; border: 2px solid #000; padding: 3px; background: #fff"><b>{{ $orderedItemModel->amount }}x</b></td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-								<td style="padding: 20px 10px; font-size: 20px;">&#9702;&nbsp;&nbsp;<span style="font-size: 16px">{{ $orderedArticleModel->articleModel->categoryModel->title }}</span><b>{{ $orderedArticleModel->articleModel->title }}</b>@if ($orderedArticleModel->articleModel->info) ({{ $orderedArticleModel->articleModel->info }}) @endif
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					@if ($orderedArticleModel->hasIngredients)
-					<table width="100%" cellpadding="0" cellspacing="0" style="line-height: 3;">
-						<tbody>
-							<tr>
-								<td style="padding: 0px 20px 10px 50px">
-									@foreach ($ingredientCategoriesCollection as $ingredientCategoryModel)
-									<span>
-										<span>{{ $ingredientCategoryModel->title }}</span>
-										<span style="padding: 0px 30px 0px 10px">
-											@foreach ($ingredientCategoryModel->ingredientsCollection as $ingredientModel)
-											<span style="font-size: 16px; border: 1px solid #000; padding: 3px; background: #fff">{{ $ingredientModel->shortcut }}</span>
-											@endforeach
-										</span>
-									</span>
-									@endforeach
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					@endif
-
-					@endif
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	@endforeach
-
-</div>
+       </div><div class="orderDeliveryDetails">
+           <div class="orderTimeQrCode">
+                Bis 21:55
+                <img class="orderQrCode" src="" alt="">
+           </div>
+           <div class="orderPaymentMethod">
+               Bezahlmethode: Bar
+           </div>
+           <div class="orderedArticlesListing">
+               <ol>
+                   <li>
+                       <header>
+                           <h4>2 Footlong Sandwiches</h4>
+                           <p>11.96 €</p>
+                       </header>
+                       <span class="cat">Subs</span> Chicken Teriyaki footlong, <span class="cat">Subs</span> Steak & Cheese footlong
+                   </li>
+                   <li>
+                       <h4><span class="cat">Subs</span> Tuna 6-inch <span class="extra">ExBc</span> <span class="extra">ExBc</span></h4>
+                       <p>4.45 €</p>
+                   </li>
+               </ol>
+               <div class="overallSum">15.99 €</div>
+           </div>
+       </div>
+    </section>

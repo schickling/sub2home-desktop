@@ -3748,7 +3748,7 @@ input[type="text"]#locationSelectionInput {
         }
       }
 
-                
+
       &.balanced {
         .orderHeader >div {
           &.orderValueContainer {
@@ -3832,9 +3832,10 @@ input[type="text"]#locationSelectionInput {
     }
   }
 }
-    
-    
+
+
 .orderContent {
+    display: none;
     margin: 20px 0;
     padding: 0;
     border: 1px solid @grayLighter;
@@ -3842,75 +3843,75 @@ input[type="text"]#locationSelectionInput {
     font-size: 16px;
     .box-shadow(0 1px 5px 0 rgba(0,0,0,0.1));
 }
-    
+
 .orderDetailsHead {
-    
+
     border-bottom: 1px solid @grayLighter;
     padding: 20px;
-            
+
     span {
         font-weight: bold;
     }
 }
-    
+
 .orderDetailsAbstract {
     overflow: hidden;
-    
+
     .ordererDetails, .orderDeliveryDetails {
-        display: inline-block;  
+        display: inline-block;
         vertical-align: top;
-        
+
         .border-box;
         width: 50%;
-            
+
 //      True-Layout-Hack
         margin-bottom: -99999px;
 	    padding-bottom: 99999px;
     }
-        
+
     .ordererDetails {
         border-right: 1px solid @grayLighter;
-            
+
         font-size: 24px;
         line-height: 1.2;
-            
+
         span {
             font-weight: bold;
         }
-            
+
         .ordererDeliveryArea {
             margin-top: 25px;
             font-style: italic;
         }
     }
-        
+
     .ordererAddress, .ordererContact, .ordererMessage {
         padding: 20px;
     }
-        
+
     .ordererAddress, .ordererContact {
-        border-bottom: 1px solid @grayLighter;   
+        border-bottom: 1px solid @grayLighter;
     }
-        
+
     .orderDeliveryDetails {
-            
+
     }
-        
+
     .orderTimeQrCode, .orderPaymentMethod, .orderedArticlesListing {
-        padding: 20px;    
+        padding: 20px;
     }
-        
+
     .orderTimeQrCode, .orderPaymentMethod {
         border-bottom: 1px solid @grayLighter;
     }
-        
+
     .orderTimeQrCode {
         position: relative;
         font-size: 30px;
         line-height: 1.2;
         font-weight: bold;
     }
-        
+
     .orderQrCode {
         display: block;
         position: absolute;
@@ -3921,17 +3922,17 @@ input[type="text"]#locationSelectionInput {
         background: @grayLightest;
         border-left: 1px solid @grayLightest;
     }
-        
+
     .orderPaymentMethod {
-        font-size: 24px;    
+        font-size: 24px;
     }
-        
+
     .orderedArticlesListing {
         ol {
-            
+
         }
         li {
-           position: relative; 
+           position: relative;
         }
         h4 {
             font-size: 16px;
@@ -3943,7 +3944,7 @@ input[type="text"]#locationSelectionInput {
             right: 5px;
             top: 0;
         }
-        
+
         .cat, .extra {
             font-size: 11px;
             font-weight: normal;
@@ -3952,7 +3953,7 @@ input[type="text"]#locationSelectionInput {
             position: relative;
             top: -2px;
         }
-        
+
         .cat {
             background: @grayDark;
             text-transform: uppercase;
@@ -3961,7 +3962,7 @@ input[type="text"]#locationSelectionInput {
         .extra {
             border: 1px solid @grayDark;
         }
-        
+
         .overallSum {
             text-align: right;
             font-weight: bold;
@@ -3969,7 +3970,7 @@ input[type="text"]#locationSelectionInput {
             padding: 5px;
         }
     }
-    
+
 }
 
 
@@ -5635,11 +5636,11 @@ div#payment {
         top: 5px;
 
       }
-                
+
       .flag {
         margin: -1px 3px 3px;
       }
-    
+
       .separator {
         height: 1px;
         background: @onNoteColor;
