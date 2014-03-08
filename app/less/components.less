@@ -3868,6 +3868,11 @@ input[type="text"]#locationSelectionInput {
         margin-bottom: -99999px;
 	    padding-bottom: 99999px;
     }
+        
+    .ordererAddress, .ordererContact, .ordererMessage {
+        padding: 20px;
+        border-bottom: 1px solid @grayLighter;
+    }
 
     .ordererDetails {
         border-right: 1px solid @grayLighter;
@@ -3883,18 +3888,10 @@ input[type="text"]#locationSelectionInput {
             margin-top: 25px;
             font-style: italic;
         }
-    }
-
-    .ordererAddress, .ordererContact, .ordererMessage {
-        padding: 20px;
-    }
-
-    .ordererAddress, .ordererContact {
-        border-bottom: 1px solid @grayLighter;
-    }
-
-    .orderDeliveryDetails {
-
+            
+        >div:last-child {
+            border-bottom: none;
+        }
     }
 
     .orderTimeQrCode, .orderPaymentMethod, .orderedArticlesListing {
