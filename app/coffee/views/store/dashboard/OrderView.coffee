@@ -69,6 +69,7 @@ define [
 
     _renderDetailsView: ->
       @model.fetch
+        parse: true
         success: =>
           new OrderDetailsView
             el: @$(".orderContent").show()

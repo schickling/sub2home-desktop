@@ -3,8 +3,9 @@ define [
   "underscore"
   "backbone"
   "moment"
+  "views/store/dashboard/details/InfoListItemView"
   "text!templates/store/dashboard/details/InfoTemplate.html"
-], ($, _, Backbone, moment, InfoTemplate) ->
+], ($, _, Backbone, moment, InfoListItemView, InfoTemplate) ->
 
   InfoView = Backbone.View.extend
 
@@ -12,6 +13,7 @@ define [
 
     initialize: ->
       @_render()
+      @_renderListItems()
 
     _render: ->
       addressModel = @model.get "addressModel"
@@ -38,6 +40,12 @@ define [
 
       @$el.html @template(json)
 
+    _renderListItems: ->
+      $list = @$(".orderedArticlesList")
+      orderedItemsCollection = @model.get "orderedItemsCollection"
+      orderedItemsCollection.each (orderedItemModel) ->
+        itemView = new InfoListItemView model: orderedItemModel
+        $list.append itemView.el
 
     _getPaymentMethod: ->
       switch @model.get "paymentMethod"

@@ -1,4 +1,11 @@
-define ["underscore", "backbone", "models/MenuBundleModel", "collections/TimelineItemsCollection", "collections/OrderedArticlesCollection"], (_, Backbone, MenuBundleModel, TimelineItemsCollection, OrderedArticlesCollection) ->
+define [
+  "underscore"
+  "backbone"
+  "models/MenuBundleModel"
+  "models/MenuUpgradeModel"
+  "collections/TimelineItemsCollection"
+  "collections/OrderedArticlesCollection"
+], (_, Backbone, MenuBundleModel, MenuUpgradeModel, TimelineItemsCollection, OrderedArticlesCollection) ->
 
   OrderedItemModel = Backbone.Model.extend
 
@@ -42,28 +49,23 @@ define ["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
     # copied to orderedItemCollection because of cyclic dependencies
     parse: (response) ->
       if response.hasOwnProperty("orderedArticlesCollection")
-        response.orderedArticlesCollection = new OrderedArticlesCollection(response.orderedArticlesCollection,
-
-          # parse needed for nested articleModel
-          parse: true
-        )
+        response.orderedArticlesCollection = new OrderedArticlesCollection response.orderedArticlesCollection, parse: true
 
         # set back reference
-        _.each response.orderedArticlesCollection.models, ((orderedArticleModel) ->
+        _.each response.orderedArticlesCollection.models, (orderedArticleModel) =>
           orderedArticleModel.set
             orderedItemModel: this
           ,
             silent: true
 
-        ), this
       if response.hasOwnProperty("menuBundleModel") and response.menuBundleModel
-        response.menuBundleModel = new MenuBundleModel(response.menuBundleModel,
+        response.menuBundleModel = new MenuBundleModel response.menuBundleModel, parse: true
 
-          # parse needed for nested articleModel
-          parse: true
-        )
+      if response.hasOwnProperty("menuUpgradeModel") and response.menuUpgradeModel
+        menuUpgradeModel = new MenuUpgradeModel response.menuUpgradeModel, parse: true
+        response.orderedArticlesCollection.at(0).set "menuUpgradeModel", menuUpgradeModel
+
       response
-
 
     # needed if an ordered items gets deleted from cart
     destroy: ->
@@ -108,9 +110,6 @@ define ["underscore", "backbone", "models/MenuBundleModel", "collections/Timelin
 
     canBeUpgraded: ->
       @get("orderedArticlesCollection").first().isMenuUpgradeBase()
-
-    isComplete: ->
-      true
 
     _initializeListeners: ->
       @_listenToAmount()
