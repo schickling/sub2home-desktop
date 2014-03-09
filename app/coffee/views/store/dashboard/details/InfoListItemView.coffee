@@ -31,4 +31,24 @@ define [
         articleModel.get "title"
 
     _getItemString: ->
-      '<span class="cat">Subs</span> Tuna 6-inch <span class="extra">ExBc</span> <span class="extra">ExBc</span>'
+      itemString = ""
+      orderedArticlesCollection = @model.get("orderedArticlesCollection")
+      orderedArticlesCollection.each (orderedArticleModel, index) ->
+        articleModel = orderedArticleModel.get "articleModel"
+        articleTitle = articleModel.get "title"
+        categoryModel = articleModel.get "categoryModel"
+        categoryTitle = categoryModel.get "title"
+        itemString += "<span class=\"cat\">#{categoryTitle}</span> #{articleTitle}"
+
+        ingredientsCollection = orderedArticleModel.get "ingredientsCollection"
+        # TODO
+        # if ingredientsCollection
+        #   ingredientsCollection.each (ingredientModel) ->
+        #     if ingredientModel.get("price") > 0
+        #       ingredientTitle = ingredientModel.get "title"
+        #       itemString += " <span class=\"extra\">#{ingredientTitle}"
+
+        if index isnt orderedArticlesCollection.length - 1
+          itemString += ", "
+
+      itemString
