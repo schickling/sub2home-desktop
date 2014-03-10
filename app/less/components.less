@@ -3848,6 +3848,35 @@ input[type="text"]#locationSelectionInput {
     font-size: 16px;
     .box-shadow(0 1px 5px 0 rgba(0,0,0,0.1));
     .border-radius(3px);
+        
+    a, a:hover {
+        color: @grayDark;
+    }
+        
+//    CLASSES USED IN WHOLE ORDER
+        
+    .cat, .extra, .amount {
+        font-size: 11px;
+        font-weight: normal;
+        padding: 2px 3px;
+        .border-radius(2px);
+        position: relative;
+        top: -2px;
+    }
+
+    .cat {
+        background: @grayDark;
+        text-transform: uppercase;
+        color: @white;
+    }
+    .extra {
+        border: 1px solid @grayDark;
+    }
+        
+    .amount {
+        border: 2px solid @grayDark;
+        font-weight: bold;
+    }
 }
 
 .orderDetailsHead {
@@ -3862,6 +3891,7 @@ input[type="text"]#locationSelectionInput {
 
 .orderDetailsAbstract {
     overflow: hidden;
+    border-bottom: 3px double @grayLighter;
 
     .ordererDetails, .orderDeliveryDetails {
         display: inline-block;
@@ -3948,24 +3978,6 @@ input[type="text"]#locationSelectionInput {
             top: 0;
         }
 
-        .cat, .extra {
-            font-size: 11px;
-            font-weight: normal;
-            padding: 2px 3px;
-            .border-radius(2px);
-            position: relative;
-            top: -2px;
-        }
-
-        .cat {
-            background: @grayDark;
-            text-transform: uppercase;
-            color: @white;
-        }
-        .extra {
-            border: 1px solid @grayDark;
-        }
-
         .overallSum {
             text-align: right;
             font-weight: bold;
@@ -3973,8 +3985,66 @@ input[type="text"]#locationSelectionInput {
             padding: 5px;
         }
     }
-
 }
+
+.articleInOrder, .menuInOrder {
+    padding: 10px 20px;  
+    border-bottom: 1px dashed @grayLighter;    
+    &:last-child {
+        border-bottom: none;
+    }
+        
+    h3 {
+        font-size: 24px;
+        color: @grayDark;
+        font-weight: inherit;
+            
+        .cat, .amount {
+            font-size: 19px;
+        }   
+        .amount {
+            background: @white;
+            margin-right: 10px;
+        }
+    }
+}
+    
+.menuInOrder {
+    padding: 0; 
+    header {
+        padding: 10px 20px 5px;
+        background: @orderStripedBackground;
+        font-weight: bold;
+    }
+    .articleInOrder {
+        border-top: 1px solid @grayLighter;
+        border-bottom: none;
+        padding: 20px 50px;
+    }
+}
+    
+.ingredientsInOrder {
+    padding: 20px 0 10px;
+    
+    div {
+        display: inline-block;
+        margin-left: 30px;
+        &:first-child {
+            margin-left: 0;
+        }
+        span {
+            font-size: 19px;
+            padding: 2px 3px;
+            border: 1px solid @grayDark;
+            .border-radius(2px);
+            &:first-child {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+    
+
 
 
 
