@@ -126,10 +126,7 @@ define [
       dueMoment.isAfter()
 
     validate: (attributes) ->
-      validPaymentMethods = [
-        "cash"
-        "ec"
-      ]
+      validPaymentMethods = ["cash", "ec"]
       return "Keine erlaubte Bezahlmethode"  unless _.contains(validPaymentMethods, attributes.paymentMethod)
       comment = attributes.comment
       return "Kommentar ist zu lang"  if comment.length > 1000 or comment.split(/\n|\f/).length > 6
