@@ -54,6 +54,7 @@ define [
 
       @$el.html @template(json)
       @$el.addClass "balanced"  if totalWithCredit < total
+      @$el.addClass "prevailing"  if orderModel.isPrevailing()
       @$(".alertOrder").toggleClass("disabled", createdMoment.month() isnt currentMoment.month())
       @_enableTooltips()
 

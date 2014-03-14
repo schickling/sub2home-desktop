@@ -121,6 +121,10 @@ define [
     wasCreatedToday: ->
       now.toDateString() is @get("createdDate").toDateString()
 
+    isPrevailing: ->
+      dueMoment = moment @get("dueDate")
+      dueMoment.isAfter()
+
     validate: (attributes) ->
       validPaymentMethods = [
         "cash"
