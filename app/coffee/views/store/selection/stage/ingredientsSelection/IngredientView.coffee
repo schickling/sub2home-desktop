@@ -1,4 +1,9 @@
-define ["jquery", "jqueryRotate", "underscore", "backbone", "text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html"], ($, jqueryRotate, _, Backbone, IngredientTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "text!templates/store/selection/stage/ingredientsSelection/IngredientTemplate.html"
+], ($, _, Backbone, IngredientTemplate) ->
 
   IngredientView = Backbone.View.extend
     className: "item ingredient"
@@ -13,8 +18,6 @@ define ["jquery", "jqueryRotate", "underscore", "backbone", "text!templates/stor
 
     _render: ->
       @$el.html @template(@model.toJSON())
-      # rotate circle
-      @$(".accentIngredient").rotate()
 
     _updateView: ->
       @$el.toggleClass "selected", !!@model.get("isSelected")

@@ -1,6 +1,5 @@
 define [
   "jquery"
-  "jqueryRotate"
   "underscore"
   "backbone"
   "services/notificationcenter"
@@ -9,7 +8,7 @@ define [
   "views/store/dashboard/OrderView"
   "views/store/dashboard/CreditView"
   "text!templates/store/dashboard/NoOrdersTemplate.html"
-], ($, jqueryRotate, _, Backbone, notificationcenter, stateModel, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) ->
+], ($, _, Backbone, notificationcenter, stateModel, OrdersCollection, OrderView, CreditView, NoOrdersTemplate) ->
 
   OrdersView = Backbone.View.extend
 
@@ -166,7 +165,7 @@ define [
       $refresh = @$refresh
       @rotateInterval = setInterval =>
         @rotationDeg = (@rotationDeg + 15) % 180
-        $refresh.rotate @rotationDeg
+        $refresh.transition rotate: "#{@rotationDeg}deg"
       , 20
 
     _stopRotateRefresh: ->

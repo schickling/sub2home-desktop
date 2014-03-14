@@ -6,19 +6,18 @@
     "requirejs-text": "2.0.x",
     "requirejs-plugins": "1.0.x",
     "jquery": "2.1.x",
-    "jquery-rotate": "0.1.x",
     "jquery.easing": "1.3.0",
     "jquery-color": "2.1.x",
     "jquery-overscroll": "1.7.7",
     "jquery-placeholder": "2.0.x",
     "jquery-hidden-height": "0.x",
-    "moment": "2.5.x",
-    "underscore-amd": "1.4.x",
-    "backbone-amd": "1.0.x",
+    "jquery.transit": "~0.9.9",
+    "tooltipster": "~2.1.4",
+    "underscore-amd": "1.6.x",
+    "backbone-amd": "1.1.x",
     "backbone.localStorage": "1.1.x",
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
     "browserdetection": "0.3.0",
-    "tooltipster": "~2.1.4",
-    "jquery.transit": "~0.9.9"
+    "moment": "2.5.x"
   }
 }

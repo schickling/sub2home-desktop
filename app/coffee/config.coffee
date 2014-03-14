@@ -4,7 +4,6 @@ require.config
     async: "../components/requirejs-plugins/src/async"
     text: "../components/requirejs-text/text"
     jquery: "../components/jquery/dist/jquery"
-    jqueryRotate: "../components/jquery-rotate/jquery.rotate"
     jqueryEasing: "../components/jquery.easing/js/jquery.easing"
     jqueryColor: "../components/jquery-color/jquery.color"
     jqueryTransit: "../components/jquery.transit/jquery.transit"

@@ -1,12 +1,11 @@
 define [
   "jquery",
-  "jqueryRotate",
   "underscore",
   "backbone",
   "services/notificationcenter",
   "services/postalOracle",
   "text!templates/shared/misc/PostalSearchTemplate.html"
-], ($, jqueryRotate, _, Backbone, notificationcenter, postalOracle, PostalSearchTemplate) ->
+], ($, _, Backbone, notificationcenter, postalOracle, PostalSearchTemplate) ->
 
   PostalSearchView = Backbone.View.extend
 
