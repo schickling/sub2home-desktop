@@ -14,7 +14,7 @@ define [
 
     _render: ->
       @$el.html OrderDetailsTemplate
-      # @_renderOrderedItems()
+      @_renderOrderedItems()
       @_renderInfo()
 
     _renderOrderedItems: ->

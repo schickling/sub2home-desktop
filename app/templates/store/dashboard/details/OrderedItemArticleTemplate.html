@@ -1,0 +1,4 @@
+<h3><% if (amount) { %><span class="amount"><%= amount %>x</span><% } %><span class="cat"><%= categoryTitle %></span> <%= articleTitle %><% if (info) { %> (<%= info %>)<% } %></h3>
+<% if (ingredientsString) { %>
+<div class="ingredientsInOrder"><%= ingredientsString %></div>
+<% } %>

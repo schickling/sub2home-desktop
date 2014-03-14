@@ -28,7 +28,7 @@
         </div>
         <div class="ordererContact">
             Tel: <%= addressPhone %><br>
-            Mail: <a href="mailto:<%= addressEmail %>"><%= addressEmail %></a>
+            <% if (addressEmail) { %>Mail: <a href="mailto:<%= addressEmail %>"><%= addressEmail %></a><% } %>
         </div>
         <% if (comment) { %>
         <div class="ordererMessage">

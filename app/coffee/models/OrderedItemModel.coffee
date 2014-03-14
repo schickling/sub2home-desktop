@@ -77,7 +77,6 @@ define [
     isMenu: ->
       @isMenuBundle() or @get("orderedArticlesCollection").first().hasBeenUpgraded()
 
-
     # remove ordered articles belonging to an old menu upgrade
     reduceOrderedArticles: ->
       orderedArticlesCollection = @get("orderedArticlesCollection")
