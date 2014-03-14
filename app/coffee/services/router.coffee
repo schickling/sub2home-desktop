@@ -1,6 +1,7 @@
 define [
   "require"
   "jquery"
+  "jqueryTransit"
   "underscore"
   "backbone"
   "backboneAnalytics"
@@ -8,7 +9,7 @@ define [
   "services/localStorageVersioner"
   "models/stateModel"
   "models/authentificationModel"
-], (require, $, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
+], (require, $, jqueryTransit, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -37,6 +38,8 @@ define [
       "*actions": "_defaultAction"
 
     init: ->
+      $.fn.transition = $.fn.animate  unless !$.support.transition
+
       # init header
       require ["views/header/HeaderView"], (HeaderView) -> new HeaderView()
 

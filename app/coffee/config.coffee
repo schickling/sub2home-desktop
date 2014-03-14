@@ -7,6 +7,7 @@ require.config
     jqueryRotate: "../components/jquery-rotate/jquery.rotate"
     jqueryEasing: "../components/jquery.easing/js/jquery.easing"
     jqueryColor: "../components/jquery-color/jquery.color"
+    jqueryTransit: "../components/jquery.transit/jquery.transit"
     jqueryLazyload: "libs/jquery-lazyload"
     jqueryOverscroll: "../components/jquery-overscroll/dist/jquery.overscroll"
     browserDetection: "../components/browserdetection/src/browser-detection"

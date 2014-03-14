@@ -18,6 +18,7 @@
     "backbone.localStorage": "1.1.x",
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
     "browserdetection": "0.3.0",
-    "tooltipster": "~2.1.4"
+    "tooltipster": "~2.1.4",
+    "jquery.transit": "~0.9.9"
   }
 }
