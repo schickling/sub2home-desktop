@@ -40,13 +40,14 @@ define [
         categoryTitle = categoryModel.get "title"
         itemString += "<span class=\"cat\">#{categoryTitle}</span> #{articleTitle}"
 
-        ingredientsCollection = orderedArticleModel.get "ingredientsCollection"
-        # TODO
-        # if ingredientsCollection
-        #   ingredientsCollection.each (ingredientModel) ->
-        #     if ingredientModel.get("price") > 0
-        #       ingredientTitle = ingredientModel.get "title"
-        #       itemString += " <span class=\"extra\">#{ingredientTitle}"
+        ingredientCategoriesCollection = articleModel.get "ingredientCategoriesCollection"
+        if ingredientCategoriesCollection
+          ingredientCategoriesCollection.each (ingredientsCategory) ->
+            ingredientsCollection = ingredientsCategory.get "ingredientsCollection"
+            ingredientsCollection.each (ingredientModel) ->
+              if ingredientModel.get("price") > 0
+                shortcut = ingredientModel.get "shortcut"
+                itemString += " <span class=\"extra\">#{shortcut}</span>"
 
         if index isnt orderedArticlesCollection.length - 1
           itemString += ", "
