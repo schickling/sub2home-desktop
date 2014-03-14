@@ -3694,7 +3694,7 @@ input[type="text"]#locationSelectionInput {
           &.orderDestination {
             position:absolute;
             left: 395px;
-            right: 325px;
+            right: 345px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -3706,7 +3706,7 @@ input[type="text"]#locationSelectionInput {
 
           // RIGHT ALIGNED CONTENT
 
-          &.orderTimeLimit, &.bMail, &.orderPaymentMethod, &.orderValueContainer {
+          &.orderTimeLimit, &.bMail, &.orderPaymentMethod, &.orderWithComment, &.orderValueContainer {
             float: right;
           }
 
@@ -3744,9 +3744,23 @@ input[type="text"]#locationSelectionInput {
               top: -7px;
             }
           }
+                        
           &.orderTimeLimit {
             margin-right: 20px;
             color: @orange;
+
+          }
+                        
+          &.orderWithComment {
+             display: none;
+             position: relative;
+             margin-right: 10px;
+             font-size: 20px;
+             
+             &:before {
+                 position: relative;
+                 top: 0;
+             }
 
           }
 
@@ -3785,6 +3799,26 @@ input[type="text"]#locationSelectionInput {
         }
 
       }
+                
+        &.prevailing {
+            .orderHeader div {
+                &.orderNumber, &.orderTime, &.orderDestination {
+                    color: @greenLighter;       
+                }
+                            
+                &.orderTime, &.orderDestination {
+                    &:before {
+                         color: @greenLighter40;           
+                    }
+                }
+            }
+        }
+                
+        &.hasComment {
+            .orderHeader div.orderWithComment {
+                display: block;
+            }
+        }
 
     }
 
@@ -3821,7 +3855,7 @@ input[type="text"]#locationSelectionInput {
 
           .orderDestination {
             left: 315px;
-            right: 330px;
+            right: 350px;
           }
         }
       }
