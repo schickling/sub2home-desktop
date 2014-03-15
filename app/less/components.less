@@ -1405,8 +1405,10 @@ input[type="text"]#locationSelectionInput {
   width: 60%;
   color: @onNoteColor;
   line-height: 1.2;
-  span {
+  a {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
     .transition(color .1s linear);
     &.selected {
       color: @green;
