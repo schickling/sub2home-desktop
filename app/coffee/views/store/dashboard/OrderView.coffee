@@ -30,33 +30,35 @@ define [
     _render: ->
       currentMoment = moment()
       orderModel = @model
-      addressModel = orderModel.get("addressModel")
-      dueDate = orderModel.get("dueDate")
-      createdDate = orderModel.get("createdDate")
+      addressModel = orderModel.get "addressModel"
+      dueDate = orderModel.get "dueDate"
+      createdDate = orderModel.get "createdDate"
       createdMoment = moment(createdDate)
       dueMoment = moment(dueDate)
       dueTime = dueMoment.format("HH:mm")
       dateOrTime = @_getDateOrTime()
-      total = orderModel.get("total")
+      total = orderModel.get "total"
       totalWithCredit = @_getTotalWithCredit()
+      isBalanced = totalWithCredit < total
+      isDelivered = orderModel.get "isDelivered"
       json =
         number: orderModel.getNumber()
         paymentMethodClass: @_getPaymentMethodClass()
         total: total
         totalWithCredit: totalWithCredit
-        postal: addressModel.get("postal")
-        city: addressModel.get("city")
-        district: addressModel.get("district")
+        postal: addressModel.get "postal"
+        city: addressModel.get "city"
+        district: addressModel.get "district"
         dueTime: dueTime
         dateOrTime: dateOrTime
-        isDelivered: orderModel.get("isDelivered")
+        isDelivered: isDelivered
         hasCredit: orderModel.hasCredit()
 
       @$el.html @template(json)
-      @$el.addClass "balanced"  if totalWithCredit < total
-      @$el.addClass "prevailing"  if orderModel.isPrevailing()
-      @$el.addClass "hasComment"  if orderModel.get "comment"
-      @$(".alertOrder").toggleClass("disabled", createdMoment.month() isnt currentMoment.month())
+      @$el.toggleClass "balanced", isBalanced
+      @$el.toggleClass "prevailing", orderModel.isPrevailing() and not isBalanced and not isDelivered
+      @$el.toggleClass "hasComment", orderModel.get("comment") isnt ""
+      @$(".alertOrder").toggleClass "disabled", createdMoment.month() isnt currentMoment.month()
       @_enableTooltips()
 
     _enableTooltips: ->
@@ -78,7 +80,7 @@ define [
             model: @model
 
     _getDateOrTime: ->
-      createdDate = @model.get("createdDate")
+      createdDate = @model.get "createdDate"
       createdMoment = moment(createdDate)
       if @model.wasCreatedToday()
         createdMoment.format "HH:mm"
@@ -86,7 +88,7 @@ define [
         createdMoment.format "DD.MM.YYYY"
 
     _getPaymentMethodClass: ->
-      paymentMethod = @model.get("paymentMethod")
+      paymentMethod = @model.get "paymentMethod"
       paymentMethodClass = undefined
       switch paymentMethod
         when "cash"
@@ -96,14 +98,14 @@ define [
       paymentMethodClass
 
     _toggleIsDelivered: ->
-      isDelivered = not @model.get("isDelivered")
+      isDelivered = not @model.get "isDelivered"
       $isDelivered = @$(".orderStatus")
       @model.save
         isDelivered: isDelivered
       ,
         success: ->
           $isDelivered.toggleClass "delivered", isDelivered
-          storeModel = stateModel.get("storeModel")
+          storeModel = stateModel.get "storeModel"
           storeModel.fetch
             url: "stores/storeAlias/auth" # use custom route
 
@@ -123,14 +125,14 @@ define [
       false # prevent detail to toggle
 
     _addCredit: ->
-      if not @model.get("creditModel") and not @$(".alertOrder").hasClass("disabled")
+      if not @model.get "creditModel" and not @$(".alertOrder").hasClass("disabled")
         @creditView.createForOrder @model
 
         false # prevent detail to toggle
 
     _getTotalWithCredit: ->
-      totalWithCredit = @model.get("total")
-      creditModel = @model.get("creditModel")
+      totalWithCredit = @model.get "total"
+      creditModel = @model.get "creditModel"
       totalWithCredit -= creditModel.get("total")  if creditModel and creditModel.get("isAccepted")
       totalWithCredit
 
