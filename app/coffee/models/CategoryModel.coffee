@@ -1,4 +1,10 @@
-define ["underscore", "backbone", "collections/ArticlesCollection", "collections/ItemsCollection"], (_, Backbone, ArticlesCollection, ItemsCollection) ->
+define [
+  "underscore"
+  "backbone"
+  "models/ArticleModel"
+  "collections/ArticlesCollection"
+  "collections/ItemsCollection"
+], (_, Backbone, ArticleModel, ArticlesCollection, ItemsCollection) ->
 
   CategoryModel = Backbone.Model.extend
 
