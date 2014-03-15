@@ -1,10 +1,10 @@
 <% if (isMenu) { %>
 <header>
-    <h4><%= itemTitle %></h4>
-    <p><%= itemTotal %> €</p>
+    <% if (amount > 1) { %><span class="amount"><%= amount %>x</span> <% } %><h4><%= title %></h4>
+    <p><%= total %> €</p>
 </header>
 <%= itemString %>
 <% } else { %>
-<h4><%= itemString %></h4>
-<p><%= itemTotal %> €</p>
+<% if (amount > 1) { %><span class="amount"><%= amount %>x</span> <% } %><h4><%= itemString %></h4>
+<p><%= total %> €</p>
 <% } %>

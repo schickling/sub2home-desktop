@@ -16,9 +16,10 @@ define [
     _render: ->
       json =
         isMenu: @model.isMenu()
-        itemTitle: @_getItemTitle()
+        title: @_getItemTitle()
         itemString: @_getItemString()
-        itemTotal: @model.get "total"
+        total: @model.get "total"
+        amount: @model.get "amount"
 
       @$el.html @template(json)
 
