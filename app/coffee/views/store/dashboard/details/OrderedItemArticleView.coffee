@@ -19,7 +19,7 @@ define [
       categoryModel = articleModel.get "categoryModel"
       json =
         amount: @options.amount
-        categoryTitle: categoryModel.get "title"
+        categoryTitle: categoryModel.title # category model not parsed because of circular dep issue
         articleTitle: articleModel.get "title"
         info: articleModel.get "info"
         ingredientsString: @_getIngredientsString()
