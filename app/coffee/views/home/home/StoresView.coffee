@@ -122,7 +122,7 @@ define ["jquery", "underscore", "backbone", "services/router", "services/notific
         district = deliveryAreaModel.get("district") or deliveryAreaModel.get("city")
         unless _.contains(renderedDistricts, district)
           renderedDistricts.push district
-          $deliveryArea = $("<span>").text(district)
+          $deliveryArea = $("<a>").text(district)
 
           # append to list
           @$deliveryAreaSelection.append $deliveryArea
