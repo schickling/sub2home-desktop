@@ -56,9 +56,6 @@ define [
 
     parse: (response) ->
       if response
-        if response.hasOwnProperty("categoryModel") and response.categoryModel isnt null
-          require ["models/CategoryModel"], (CategoryModel) =>
-            response.categoryModel = new CategoryModel response.categoryModel
         if response.hasOwnProperty("menuUpgradesCollection") and response.menuUpgradesCollection isnt null
           response.menuUpgradesCollection = new MenuUpgradesCollection response.menuUpgradesCollection, parse: true
         if response.hasOwnProperty("ingredientCategoriesCollection") and response.ingredientCategoriesCollection isnt null

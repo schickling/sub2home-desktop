@@ -38,7 +38,7 @@ define [
         articleModel = orderedArticleModel.get "articleModel"
         articleTitle = articleModel.get "title"
         categoryModel = articleModel.get "categoryModel"
-        categoryTitle = categoryModel.get "title"
+        categoryTitle = categoryModel.title # category model not parsed because of circular dep issue
         itemString += "<span class=\"cat\">#{categoryTitle}</span> #{articleTitle}"
 
         ingredientCategoriesCollection = articleModel.get "ingredientCategoriesCollection"
