@@ -23,3 +23,5 @@ require.config
   shim:
     tooltipster:
       deps: ["jquery"]
+    jqueryTransit:
+      deps: ["jquery"]

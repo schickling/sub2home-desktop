@@ -180,12 +180,11 @@ define [
       )
 
     _slideTimelineUp: ->
-      @$timelineNote.stop().animate
-        bottom: 0
+      @$timelineNote.stop().transition
+        y: -50
       , 300
 
     _slideTimelineDown: ->
-      @$timelineNote.stop().animate
-        bottom: -50
+      @$timelineNote.stop().transition
+        y: 0
       , 300
-
