@@ -21,7 +21,7 @@ define [
     pageTitle: ""
 
     # animation time for page switching
-    _animationTime: 600
+    _animationTime: 6000
 
     # referenced sub views
     subViews: {}
@@ -87,7 +87,6 @@ define [
       $currentNote = $current.find("#homeNote")
       $currentNoteContainer = $currentNote.children(".container")
       $currentContent = $current.find(".content")
-      self = this
 
       # load new note
       $currentNote.delay(300).animate
@@ -108,13 +107,13 @@ define [
       # slide old content down
       $currentContent.delay(300).animate
         top: "100%"
-      , @_animationTime, "easeInOutQuad", ->
+      , @_animationTime, "easeInOutQuad", =>
         $currentContent.remove()
 
         # reassign $el for events
-        self.$el = $current
-        self.delegateEvents()
-        self._finalizeLoad()
+        @$el = $current
+        @delegateEvents()
+        @_finalizeLoad()
 
     _transitionABackward: ->
       $new = @$el
@@ -151,41 +150,40 @@ define [
     _transitionBFoward: ->
       $new = @$el
       $current = $(".main")
-      self = this
       $new.addClass("bFwd").appendTo $("body")
-      $new.animate
-        top: 0
+      $new.transition
+        y: "100%"
       , @_animationTime, "easeInOutQuad", ->
         $new.removeClass "bFwd"
 
-      $current.stop().animate
-        top: "100%"
-      , @_animationTime, "easeInOutQuad", ->
+      $current.stop().transition
+        y: "100%"
+      , @_animationTime, "easeInOutQuad", =>
         $current.remove()
-        self._finalizeLoad()
+        $new.css y: 0
+        @_finalizeLoad()
 
     # Pages slides up
     _transitionBBackward: ->
       $new = @$el
       $current = $(".main")
-      self = this
       $new.addClass("bBwd").appendTo $("body")
-      $new.animate
-        top: 0
+      $new.transition
+        y: "-100%"
       , @_animationTime, "easeInOutQuad", ->
         $new.removeClass "bBwd"
 
       $current.stop().animate
-        top: "-100%"
-      , @_animationTime, "easeInOutQuad", ->
+        y: "-100%"
+      , @_animationTime, "easeInOutQuad", =>
         $current.remove()
-        self._finalizeLoad()
+        $new.css y: 0
+        @_finalizeLoad()
 
     # Pages slides left
     _transitionCFoward: ->
       $new = @$el
       $current = $(".main")
-      self = this
       $new.addClass("cFwd").appendTo $("body")
       $new.animate
         left: 0
@@ -194,15 +192,14 @@ define [
 
       $current.stop().animate
         left: "-100%"
-      , @_animationTime, "easeInOutQuad", ->
+      , @_animationTime, "easeInOutQuad", =>
         $current.remove()
-        self._finalizeLoad()
+        @_finalizeLoad()
 
     # Pages slides right
     _transitionCBackward: ->
       $new = @$el
       $current = $(".main")
-      self = this
       $new.addClass("cBwd").appendTo $("body")
       $new.animate
         left: 0
@@ -211,20 +208,19 @@ define [
 
       $current.stop().animate
         left: "100%"
-      , @_animationTime, "easeInOutQuad", ->
+      , @_animationTime, "easeInOutQuad", =>
         $current.remove()
-        self._finalizeLoad()
+        @_finalizeLoad()
 
     _transitionDefault: ->
       $new = @$el
       $current = $(".main")
-      self = this
       $new.css(opacity: 0).appendTo $("body")
       $new.animate
         opacity: 1
-      , @_animationTime, ->
+      , @_animationTime, =>
         $current.remove()
-        self._finalizeLoad()
+        @_finalizeLoad()
 
     destroy: ->
       @destroyAllSubViews()
