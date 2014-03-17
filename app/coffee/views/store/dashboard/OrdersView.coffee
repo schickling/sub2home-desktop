@@ -198,24 +198,18 @@ define [
         success: =>
           notificationcenter.notify "views.store.dashboard.testOrder.success"
           @_fetchCollectionAndRender()
-
         error: ->
           notificationcenter.notify "views.store.dashboard.testOrder.error"
 
-
     _checkAllOrders: ->
-      _.each @collection.models, (orderModel) ->
-        unless orderModel.get("isDelivered")
-          orderModel.save {
-            isDelivered: true
-          }, {
-            success: ->
-              storeModel = stateModel.get("storeModel")
-              storeModel.fetch
-                url: "stores/storeAlias/auth" # use custom route
-          }
-
+      $.ajax
+        url: "stores/storeAlias/checkall"
+        type: "post"
+        success: =>
+          notificationcenter.notify "views.store.dashboard.checkall.success"
+          @_fetchCollectionAndRender true
+        error: ->
+          notificationcenter.notify "views.store.dashboard.checkall.error"
 
     destroy: ->
       clearInterval @autoRefreshInterval
-
