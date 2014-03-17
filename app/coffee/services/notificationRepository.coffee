@@ -428,6 +428,16 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         className: "warning"
 
       # store.dashboard
+      "views.store.dashboard.checkall.success":
+        title: "Alle Bestellungen abgehakt"
+        description: "Alle Bestellungen wurden als geliefert markiert."
+        className: "success"
+
+      "views.store.dashboard.checkall.error":
+        title: "Abhaken fehlgeschlagen"
+        description: "Es konnten nicht alle Bestellungen abgehakt werden Wenden Sie sich bitte an unseren Support."
+        className: "error"
+
       "views.store.dashboard.testOrder.success":
         title: "Testbestellung gesendet"
         description: "Soeben wurde eine Testbestellung an die hinterlegte Email-Adresse versandt."
