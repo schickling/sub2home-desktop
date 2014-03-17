@@ -21,7 +21,7 @@ define [
     pageTitle: ""
 
     # animation time for page switching
-    _animationTime: 6000
+    _animationTime: 600
 
     # referenced sub views
     subViews: {}
