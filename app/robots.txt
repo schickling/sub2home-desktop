@@ -10,3 +10,4 @@ Disallow: /*/theke/*
 Disallow: /*/tablett/
 Disallow: /*/danke/
 Disallow: /login/
+Disallow: /test/

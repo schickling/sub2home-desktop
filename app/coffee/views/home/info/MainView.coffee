@@ -32,10 +32,13 @@ define [
       $columns = @$("#infoAvailableStores .fluidColumn")
       storesCollection.fetch
         success: ->
-          storesCollection.each (storeModel, index) ->
-            storeView = new StoreView
-              model: storeModel
-            $columns.eq(index % 2).append storeView.$el
+          index = 0
+          storesCollection.each (storeModel) ->
+            unless storeModel.get("alias") is "test"
+              storeView = new StoreView
+                model: storeModel
+              $columns.eq(index % 2).append storeView.$el
+              index++
 
     _renderNavigation: ->
       new NavigationView(el: @$el)
