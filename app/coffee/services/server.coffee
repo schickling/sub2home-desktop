@@ -3,7 +3,7 @@ define ["jquery"], ($) ->
   Server =
 
     storeAlias: ""
-    api: "/api/frontend"
+    api: "/api"
 
     initialize: ->
       $.ajaxSetup beforeSend: (xhr, settings) =>
