@@ -15,6 +15,7 @@ define [
 
     parse: (response) ->
       if response.hasOwnProperty("itemsCollection")
-        response.itemsCollection = new ItemsCollection(response.itemsCollection, parse: true)
-      response.articlesCollection = new ArticlesCollection(response.articlesCollection)  if response.hasOwnProperty("articlesCollection")
+        response.itemsCollection = new ItemsCollection response.itemsCollection, parse: true
+      if response.hasOwnProperty("articlesCollection")
+        response.articlesCollection = new ArticlesCollection response.articlesCollection, parse: true
       response

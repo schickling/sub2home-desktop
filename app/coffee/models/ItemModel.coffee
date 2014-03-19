@@ -12,6 +12,6 @@ define [
       chainedArticlesCollection: null
 
     parse: (response) ->
-      if response.hasOwnProperty("chainedArticlesCollection")
-        response.chainedArticlesCollection = new ArticlesCollection(response.chainedArticlesCollection)
+      if response.hasOwnProperty("chainedArticlesCollection") and response.chainedArticlesCollection isnt null
+        response.chainedArticlesCollection = new ArticlesCollection response.chainedArticlesCollection
       response
