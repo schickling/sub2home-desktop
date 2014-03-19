@@ -16,10 +16,10 @@ define [
       @render()
 
     render: ->
-      json = title: @model.get("title")
+      json = title: @model.get "title"
       @$el.html @template(json)
-      itemsView = new ItemsView(
-        collection: @model.get("itemsCollection")
+      itemsView = new ItemsView
+        collection: @model.get "itemsCollection"
         el: @$(".items")
-      )
+
 

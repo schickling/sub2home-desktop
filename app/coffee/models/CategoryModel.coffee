@@ -14,6 +14,7 @@ define [
       icon: ""
 
     parse: (response) ->
-      response.itemsCollection = new ItemsCollection(response.itemsCollection)  if response.hasOwnProperty("itemsCollection")
+      if response.hasOwnProperty("itemsCollection")
+        response.itemsCollection = new ItemsCollection(response.itemsCollection, parse: true)
       response.articlesCollection = new ArticlesCollection(response.articlesCollection)  if response.hasOwnProperty("articlesCollection")
       response

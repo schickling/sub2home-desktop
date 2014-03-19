@@ -8,15 +8,13 @@ define [
   ItemsView = Backbone.View.extend
 
     initialize: ->
-      @collection.groupItems()
-      @render()
+      @_render()
 
-    render: ->
-      _.each @collection.models, ((itemModel) ->
-        @renderItem itemModel  unless itemModel.get("isAttached")
-      ), this
+    _render: ->
+      _.each @collection.models, (itemModel) =>
+        @_renderItem itemModel
 
-    renderItem: (itemModel) ->
-      itemView = new ItemView(model: itemModel)
+    _renderItem: (itemModel) ->
+      itemView = new ItemView model: itemModel
       @$el.append itemView.el
 

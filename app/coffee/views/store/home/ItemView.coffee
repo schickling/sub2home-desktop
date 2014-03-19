@@ -37,7 +37,7 @@ define [
     _handleClick: ->
       if @model.has("allowsIngredients") # article model
         if @model.get("allowsIngredients")
-          if @model.get("attachedItemsCollection") # article has related article
+          if @model.get("chainedArticlesCollection")
             @_showDetails()
           else # just go to selection
             router.navigate "store/theke/artikel/" + @model.get("id"), true
@@ -47,9 +47,9 @@ define [
         router.navigate "store/theke/menu/" + @model.get("id"), true
 
     _showDetails: ->
-      articleDetailsView = new ArticleDetailsView(model: @model)
+      articleDetailsView = new ArticleDetailsView model: @model
       @$el.append articleDetailsView.el
-      # fix alginment
+      # adjust alignment
       rect = @el.getBoundingClientRect()
       defaultOffset = 99
       minimumMargin = 30

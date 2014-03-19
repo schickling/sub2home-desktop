@@ -1,13 +1,17 @@
 define [
   "underscore"
   "backbone"
-], (_, Backbone) ->
+  "collections/ArticlesCollection"
+], (_, Backbone, ArticlesCollection) ->
 
   ItemModel = Backbone.Model.extend
 
     idAttribute: "cid"
 
     defaults:
-      attachedItemsCollection: null
-      isAttached: false
+      chainedArticlesCollection: null
 
+    parse: (response) ->
+      if response.hasOwnProperty("chainedArticlesCollection")
+        response.chainedArticlesCollection = new ArticlesCollection(response.chainedArticlesCollection)
+      response

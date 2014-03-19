@@ -20,8 +20,8 @@ define ["jquery", "underscore", "backbone", "services/router", "models/stateMode
       @_render()
 
     _render: ->
-      attachedItemsCollection = @model.get("attachedItemsCollection")
-      footlongItemModel = attachedItemsCollection.first()
+      chainedArticlesCollection = @model.get("chainedArticlesCollection")
+      footlongItemModel = chainedArticlesCollection.first()
       json =
         title: @model.get("title")
         image: @model.get("largeImage")
@@ -34,8 +34,8 @@ define ["jquery", "underscore", "backbone", "services/router", "models/stateMode
       router.navigate "store/theke/artikel/" + @selectedItemModel.get("id"), true
 
     _makeFootlong: ->
-      attachedItemsCollection = @model.get("attachedItemsCollection")
-      footlongItemModel = attachedItemsCollection.first()
+      chainedArticlesCollection = @model.get("chainedArticlesCollection")
+      footlongItemModel = chainedArticlesCollection.first()
       $uncheckFootlong = @$(".uncheckFootlong")
       $footlongOption = @$(".footlongOption")
       $images = @$("img")
