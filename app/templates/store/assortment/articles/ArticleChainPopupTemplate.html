@@ -1,20 +1,17 @@
 <div id="popupContainer">
     <header>
-        <img src="https://d3uu6huyzvecb1.cloudfront.net/images/articles/smallimages/subs/bbqrib-st.png" alt="">
-        <h3>Dieser Artikel ist mit folgenden Artikeln verknüpft.<br>Wollen Sie diese auch deaktivieren / aktivieren ?</h3>
+        <img src="<%= image %>" alt="">
+        <h3>Dieser Artikel ist mit folgenden Artikeln verknüpft.<br>Wollen Sie diese auch <% if (isActive) { %>de<% } %>aktivieren ?</h3>
         <i class="iBtn bClose"></i>
     </header>
     <div id="chainedArticleList">
         <div id="editAllChainedArticles">
-            <div class="iBtn bEye"></div>
-            <h3>Alle aktivieren / deaktivieren</h3>
+            <div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
+            <h3>Alle <% if (isActive) { %>de<% } %>aktivieren</h3>
         </div>
-        <div class="chainedArticle">
-            <div class="iBtn bEye"></div>
-            <img src="https://d3uu6huyzvecb1.cloudfront.net/images/articles/smallimages/subs/bbqribFtlng-ft.png" alt="">
-            <h3>
-                BBQ-Rib<span class="sizeLabel">footlong</span>
-            </h3>
+        <div id="chainedArticleBase" class="chainedArticle">
+            <div class="iBtn bEye<% if (isActive) { %> open<% } %>"></div>
+            <h3>Nur <%= title %><% if (info) { %><span class="sizeLabel"><%= info %></span> <% } %><% if (isActive) { %>de<% } %>aktivieren</h3>
         </div>
     </div>
 </div>
