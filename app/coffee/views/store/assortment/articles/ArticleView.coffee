@@ -4,8 +4,9 @@ define [
   "backbone"
   "services/notificationcenter"
   "views/store/assortment/ItemBaseView"
+  "views/store/assortment/articles/ArticleChainPopupView"
   "text!templates/store/assortment/articles/ArticleTemplate.html"
-], ($, _, Backbone, notificationcenter, ItemBaseView, ArticleTemplate) ->
+], ($, _, Backbone, notificationcenter, ItemBaseView, ArticleChainPopupView, ArticleTemplate) ->
 
   ArticleView = ItemBaseView.extend
 
@@ -14,26 +15,30 @@ define [
     className: "article"
 
     _toggleIsActive: ->
-      articleModel = @model
+      if @model.get "chainedArticlesCollection"
+        new ArticleChainPopupView
+          el: $("#articleChainPopup")
+          model: @model
+        return
+
       $eye = @$(".bEye")
-      $el = @$el
       isActive = not @model.get("isActive")
       if not isActive and @_isLastActiveArticle()
         notificationcenter.notify "views.store.assortment.articles.oneActiveArticleNeeded"
         return
-      articleModel.set "isActive", isActive
-      articleModel.save {},
-        success: ->
+      @model.set "isActive", isActive
+      @model.save {},
+        success: =>
           $eye.toggleClass "open", isActive
-          $el.toggleClass "inactive", not isActive
+          @$el.toggleClass "inactive", not isActive
           if isActive
             notificationcenter.notify "views.store.assortment.items.success.isActive"
           else
             notificationcenter.notify "views.store.assortment.items.success.isNotActive"
 
-        error: ->
+        error: =>
           notificationcenter.notify "views.store.assortment.articles.error"
-          articleModel.set "isActive", not isActive
+          @model.set "isActive", not isActive
 
     _isLastActiveArticle: ->
       activeArticleCounter = 0
