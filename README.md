@@ -1,4 +1,4 @@
-# client-desktop [![wercker status](https://app.wercker.com/status/632b9941c98f988188237f4395abeade)](https://app.wercker.com/project/bykey/632b9941c98f988188237f4395abeade)
+# client-desktop [![wercker status](https://app.wercker.com/status/632b9941c98f988188237f4395abeade/m/)](https://app.wercker.com/project/bykey/632b9941c98f988188237f4395abeade)
 
 ## Dependencies
 * NPM
