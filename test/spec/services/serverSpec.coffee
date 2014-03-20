@@ -2,7 +2,7 @@ define ["services/server"], (server) ->
 
   describe "check server service", ->
 
-    prefix = "/api/frontend"
+    prefix = "/api"
 
     it "should prepend api prefix", ->
       expect(server.getComposedUrl "articles").toBe("#{prefix}/articles")
