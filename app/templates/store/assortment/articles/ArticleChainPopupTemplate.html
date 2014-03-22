@@ -1,17 +1,25 @@
 <div id="popupContainer">
     <header>
-        <img src="<%= image %>" alt="">
-        <h3>Dieser Artikel ist mit folgenden Artikeln verknüpft.<br>Wollen Sie diese auch <% if (isActive) { %>de<% } %>aktivieren ?</h3>
-        <i class="iBtn bClose"></i>
+        <h3>Dieser Artikel gehört der Gruppe <span>BBQ-Rib Sandwiches</span> an</h3>
+        <div id="articleChainPreview">
+        	
+			<div class="imgContainer">
+				<img src="https://s3-eu-west-1.amazonaws.com/sub2home-static/images/articles/smallimages/subs/bbqrib-st.png" alt="">
+			</div>
+			<div class="imgContainer">
+				<img src="https://s3-eu-west-1.amazonaws.com/sub2home-static/images/articles/smallimages/subs/bbqribFtlng-ft.png" alt="">
+			</div>
+			<i class="iBtn bCheck"></i>
+		</div>
     </header>
-    <div id="chainedArticleList">
-        <div id="editAllChainedArticles">
-            <div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
-            <h3>Alle <% if (isActive) { %>de<% } %>aktivieren</h3>
-        </div>
-        <div id="chainedArticleBase" class="chainedArticle">
-            <div class="iBtn bEye<% if (isActive) { %> open<% } %>"></div>
-            <h3>Nur <%= title %><% if (info) { %><span class="sizeLabel"><%= info %></span> <% } %><% if (isActive) { %>de<% } %>aktivieren</h3>
-        </div>
-    </div>
+    <div id="editAllChainedArticles">
+		<div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
+		<h3>Alle <% if (isActive) { %>de<% } %>aktivieren</h3>
+	</div>
+	<div id="editThisChainedArticle">
+		<div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
+		<h3>Nur <%= title %><% if (info) { %><span class="sizeLabel"><%= info %></span> <% } %><% if (isActive) { %>de<% } %>aktivieren</h3>
+	</div>
+    <h4 id="toggleChainedArticleList">Vollständige Artikelliste sehen</h4>
+    <div id="chainedArticleList"></div>
 </div>

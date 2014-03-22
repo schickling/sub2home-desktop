@@ -2714,44 +2714,133 @@ input[type="text"]#locationSelectionInput {
 #articleChainPopup {
 	overflow: scroll;
 //	display: block;
+	cursor: default;
+	
+	#popupContainer {
+		margin-bottom: 20px;
+	}
 	
 	header {
-		padding: 19px 40px 14px 30px;
+		padding: 19px 40px 15px;
 		white-space: nowrap;
-		img {
-			display: inline-block;
-			width: 70px;
-			height: auto;
-			margin-right: 20px;
-			
-		}
 		h3 {
 			display: inline-block;
 			vertical-align: top;
 			white-space: normal;
-		}
-		.bClose {
-			font-size: 40px;
-			color: @onNoteColor50;
-			.transition(color .1s linear);
-			&:hover {
-				color: @red;	
-			}
-			position: absolute;
-			right: 20px;
-			top: 27px;
-			&:before {
-				top: 0;
+			margin: 0;
+			padding: 10px 0 15px;
+			width: 100%;
+			.border-box;
+//			border-bottom: 1px solid @onNoteColor50;
+			span {
+				color: @onDarkNoteColor;
 			}
 		}
 	}
+		
+	#articleChainPreview {
+		padding: 15px;
+		.positioned;
+//		border-top: 1px solid rgba(255,255,255,0.9);
+		.border-radius(3px);
+		background: @onNoteColor30;
+		.box-shadow(inset 0 1px 4px 0 @onNoteColor60, 0 1px 0 rgba(255,255,255,0.5));
+		margin: 0 40px 10px 0;
+		.bCheck {
+			font-size: 40px;
+			color: @onNoteColor50;
+			position: absolute;
+			top: 30px;
+			right: -60px;
+			.transition(color .1s linear);
+			&:hover {
+				color: @greenLighter;
+			}
+		}
+	}
+		
+	.imgContainer {
+			position: relative;
+			display: inline-block;
+			width: 41px;
+			height: 41px;
+			margin-right: 5px;
+			padding: 5px;
+			.img-circle;
+			background: @onNoteColor20;
+			border: 2px solid @greenLighter;
+			cursor: pointer;
+			.transition(e('background .1s linear, border-color .1s linear'));
+			&:before {
+				content: " ";
+				position: absolute;
+				left: -16px;
+				top: 17px;
+				background: @noteBackground;
+				width: 15px;
+				height: 15px;
+				.img-circle;
+				border: 2px solid @onDarkNoteColor;
+			}
+			&:first-child:before {
+				display: none;	
+			}
+			
+			&:hover, &.disabled {
+				background: @onNoteColor10;
+				border-color: @onNoteColor50;
+				img {
+					.opacity(50);
+				}
+			}
+				
+			img {
+				width: 41px;
+				height: auto;
+				.opacity(100);
+				.transition(opacity .1s linear);
+			}
+			&.disabled {
+				&:hover {
+					background: @onNoteColor50;
+					border-color: @greenLighter;
+					img {
+						.opacity(100);
+					}
+				}
+//				&:after {
+//					content: "\e07f";
+//					font-size: 15px;
+//					color: @onNoteColor50;
+//					position: absolute;
+//					top: -5px;
+//					right: -5px;
+//				}
+				
+			}
+		}
+	
+	#toggleChainedArticleList {
+		padding: 20px 40px;	
+		margin: 0;
+		color: @onNoteColor;
+		text-decoration: underline;
+		cursor: pointer;
+		border-top: 1px solid rgba(255,255,255,0.9);
+		.transition(color .1s linear);
+		&:hover {
+			color: @onDarkNoteColor;	
+		}
+	}
+		
 	#chainedArticleList {
+		display: none;
 		padding: 0;
 		border-top: 1px solid rgba(255,255,255,0.9);
 	}
 		
-	.chainedArticle, #editAllChainedArticles {
-		cursor: default;
+	.chainedArticle, #editAllChainedArticles, #editThisChainedArticle {
+//		cursor: default;
 		width: 100%;
 		.border-box;
 		display: block;
@@ -2773,9 +2862,18 @@ input[type="text"]#locationSelectionInput {
 			.transition(e('color .1s linear, opacity .1s linear'));
 			&:hover {
 				color: @onNoteColor;
+//				&:before {
+//					content: "\e080";
+//				}
 			}
 			&.open {
-				color: @greenLighter;	
+				color: @greenLighter;
+				&:hover {
+					color: @onNoteColor;	
+//					&:before {
+//						content: "\e07f";
+//					}
+				}
 			}
 		}
 		img {
@@ -2794,7 +2892,7 @@ input[type="text"]#locationSelectionInput {
 			span {
 				padding: 3px 5px 0;
 				color: @onNoteColor;
-				margin-left: 15px;
+				margin-left: 8px;
 				display: inline-block;
 				font-size: 19px;
 				line-height: 1;
@@ -2811,29 +2909,32 @@ input[type="text"]#locationSelectionInput {
 		}
 	}
 		
-	#editAllChainedArticles {
+	#editAllChainedArticles, #editThisChainedArticle {
 		cursor: pointer;
 		padding: 0 40px 6px;
 		background: @slightlyDarkNote;
-		border-bottom: 3px double @onNoteColor50;
 			
 		.transition(background .1s linear);
 		h3 {
 			color: @onDarkNoteColor;
 		}
-		.bEye {
+		.bEye, .bEye.open {
 			color: @onNoteColor70;
 			&:hover {color: @onNoteColor70}
 		}
 		&:hover {
 			background: @darkNote;
 			.bEye {
-				color: @green;	
+				color: @orange;	
 				&.open {
-					color: @orange;
+					color: @greenLighter;
 				}
 			}
 		}
+	}
+	#editAllChainedArticles {
+		border-top: 1px solid rgba(255,255,255,0.9);
+		border-bottom: 3px double @onNoteColor50;
 	}
 }
 	
