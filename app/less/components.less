@@ -2794,11 +2794,31 @@ input[type="text"]#locationSelectionInput {
 			display: none;	
 		}
 		
-		&:hover, &.disabled {
+		
+			
+		
+			
+		&:hover {
+			background: @onNoteColor15;
+			border-color: @greenLighter60;
+			img {
+				.opacity(75);
+			}
+		}
+			
+		&.disabled {
 			background: @onNoteColor10;
 			border-color: @onNoteColor50;
 			img {
 				.opacity(50);
+			}
+			
+			&:hover {
+				background: @onNoteColor15;
+				border-color: @onNoteColor;
+				img {
+					.opacity(75);
+				}
 			}
 		}
 			
@@ -2808,14 +2828,22 @@ input[type="text"]#locationSelectionInput {
 			.opacity(100);
 			.transition(opacity .1s linear);
 		}
-		&.disabled {
-			&:hover {
-				background: @onNoteColor20;
-				border-color: @greenLighter;
-				img {
-					.opacity(100);
-				}
-			}
+//		&.disabled {
+//			&:hover {
+//				background: @onNoteColor20;
+//				border-color: @greenLighter;
+//				img {
+//					.opacity(100);
+//				}
+//			}
+//				
+//			&:active {
+//				background: @onNoteColor10;
+//				border-color: @onNoteColor50;
+//				img {
+//					.opacity(100);
+//				}
+//			}
 //				&:after {
 //					content: "\e07f";
 //					font-size: 15px;
@@ -2825,7 +2853,7 @@ input[type="text"]#locationSelectionInput {
 //					right: -5px;
 //				}
 			
-		}
+//		}
 	}
 }
 	
@@ -2872,7 +2900,7 @@ input[type="text"]#locationSelectionInput {
 		
 	.bEye {
 		display: inline-block;
-		margin: 15px 20px 0 0;
+		margin: 15px 10px 0 0;
 		color: @orange;
 		vertical-align: top;
 		.transition(e('color .1s linear, opacity .1s linear'));
@@ -2927,7 +2955,7 @@ input[type="text"]#locationSelectionInput {
 	
 #editAllChainedArticles {
 	cursor: pointer;
-	padding: 0 40px 6px;
+	padding: 0 20px 6px;
 	background: @slightlyDarkNote;
 		
 	.transition(background .1s linear);
