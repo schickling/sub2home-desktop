@@ -1,11 +1,12 @@
 define [
   "underscore"
   "backbone"
+  "models/ArticleChainModel"
   "collections/MenuUpgradesCollection"
   "collections/ArticleChainArticlesCollection"
   "collections/IngredientCategoriesCollection"
   "services/notificationcenter"
-], (_, Backbone, MenuUpgradesCollection, ArticleChainArticlesCollection, IngredientCategoriesCollection, notificationcenter) ->
+], (_, Backbone, ArticleChainModel, MenuUpgradesCollection, ArticleChainArticlesCollection, IngredientCategoriesCollection, notificationcenter) ->
 
   ArticleModel = Backbone.Model.extend
 
@@ -18,6 +19,7 @@ define [
       menuUpgradesCollection: null
       ingredientCategoriesCollection: null
       chainedArticlesCollection: null
+      articleChainModel: null
       price: 0
       total: 0
       ingredientsTotal: 0
@@ -58,6 +60,8 @@ define [
 
     parse: (response) ->
       if response
+        if response.hasOwnProperty("articleChainModel") and response.articleChainModel isnt null
+          response.articleChainModel = new ArticleChainModel response.articleChainModel, parse: true
         if response.hasOwnProperty("menuUpgradesCollection") and response.menuUpgradesCollection isnt null
           response.menuUpgradesCollection = new MenuUpgradesCollection response.menuUpgradesCollection, parse: true
         if response.hasOwnProperty("ingredientCategoriesCollection") and response.ingredientCategoriesCollection isnt null

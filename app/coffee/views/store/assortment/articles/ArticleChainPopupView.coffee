@@ -12,33 +12,39 @@ define [
     template: _.template(ArticleChainPopupTemplate)
 
     events:
-      "click .bClose": "_close"
       "click #editAllChainedArticles": "_toggleAll"
-      "click #chainedArticleBase": "_toggle"
+      "click #cancelArticleChainEdit": "_toggle"
+      "click #submitArticleChainEdit": "_submit"
 
     initialize: ->
       @_render()
+      @_listenToCollection()
 
     _render: ->
+      articleChainModel = @model.get "articleChainModel"
       json =
+        chainTitle: articleChainModel.get "title"
         isActive: @model.get "isActive"
-        title: @model.get "title"
+        articleTitle: @model.get "title"
         info: @model.get "info"
         image: @model.get "smallImage"
       @$el.html @template(json)
       @_renderChainedArticles()
       @$el.fadeIn()
 
-    _renderChainedArticles: ->
-      $chainedArticleList = @$("#chainedArticleList")
-      chainedArticlesCollection = @model.get "chainedArticlesCollection"
-      chainedArticlesCollection.each (chainedArticleModel) =>
-        chainedArticleView = new ChainedArticleView model: chainedArticleModel
-        $chainedArticleList.append chainedArticleView.el
+    _listenToCollection: ->
+      articleChainModel = @model.get "articleChainModel"
+      articlesCollection = articleChainModel.get "articlesCollection"
+      @listenToOnce articlesCollection, "change", =>
+        @$("#submitArticleChainEdit").removeClass "disabled"
 
-    _close: ->
-      @$el.fadeOut()
-      @undelegateEvents()
+    _renderChainedArticles: ->
+      $chainedArticleList = @$("#articleChainPreview")
+      articleChainModel = @model.get "articleChainModel"
+      articlesCollection = articleChainModel.get "articlesCollection"
+      articlesCollection.each (articleModel) ->
+        chainedArticleView = new ChainedArticleView model: articleModel
+        $chainedArticleList.append chainedArticleView.el
 
     _toggle: ->
       isActive = not @model.get "isActive"
@@ -47,16 +53,21 @@ define [
       @_close()
 
     _toggleAll: ->
+      articleChainModel = @model.get "articleChainModel"
+      articlesCollection = articleChainModel.get "articlesCollection"
+      articlesCollection.each (articleModel) =>
+        articleModel.set "isActive", not @model.get("isActive")
+
+    _close: ->
+      @$el.fadeOut()
+      @undelegateEvents()
+
+    _submit: ->
       deffereds = []
-      isActive = not @model.get "isActive"
-      deffereds.push @model.save(isActive: isActive)
-      @model.trigger "renderAgain"
-      chainedArticlesCollection = @model.get "chainedArticlesCollection"
-      chainedArticlesCollection.each (chainedArticleModel) =>
-        deffereds.push chainedArticleModel.save(isActive: isActive)
-        articleModel = @model.collection.findWhere id: chainedArticleModel.get "id"
-        if articleModel
-          articleModel.set isActive: isActive
-          articleModel.trigger "renderAgain"
+      articleChainModel = @model.get "articleChainModel"
+      articlesCollection = articleChainModel.get "articlesCollection"
+      articlesCollection.each (articleModel) =>
+        deffereds.push articleModel.save()
       $.when.apply($, deffereds).then =>
         @_close()
+        window.location.reload()

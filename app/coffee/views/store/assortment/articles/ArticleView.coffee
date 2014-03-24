@@ -15,7 +15,7 @@ define [
     className: "article"
 
     _toggleIsActive: ->
-      if @model.get "chainedArticlesCollection"
+      if @model.get "articleChainModel"
         new ArticleChainPopupView
           el: $("#articleChainPopup")
           model: @model

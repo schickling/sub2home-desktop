@@ -1,26 +1,16 @@
 <div id="popupContainer">
     <header>
-        <h3>Dieser Artikel gehört der Gruppe <span>BBQ-Rib Sandwiches</span> an:</h3>
+        <h3>Dieser Artikel gehört der Gruppe <span><%= chainTitle %></span> an:</h3>
         <div id="articleChainEditor">
-        	<div id="articleChainPreview">
-				<div class="imgContainer">
-					<img src="https://s3-eu-west-1.amazonaws.com/sub2home-static/images/articles/smallimages/subs/bbqrib-st.png" alt="">
-				</div>
-				<div class="imgContainer disabled">
-					<img src="https://s3-eu-west-1.amazonaws.com/sub2home-static/images/articles/smallimages/subs/bbqribFtlng-ft.png" alt="">
-				</div>
-			</div>
-			<div id="editAllChainedArticles">
-				<div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
-				<h3>Alle <% if (isActive) { %>de<% } %>aktivieren</h3>
-			</div>
+            <div id="articleChainPreview"></div>
+            <div id="editAllChainedArticles">
+                <div class="iBtn bEye<% if (!isActive) { %> open<% } %>"></div>
+                <h3>Alle <% if (isActive) { %>de<% } %>aktivieren</h3>
+            </div>
         </div>
     </header>
-   	<div id="articleChainEditControls">
-   		
-   		<div id="cancelArticleChainEdit">Nur <span><%= title %><% if (info) { %> (<%= info %>)<% } %></span> <% if (isActive) { %>de<% } %>aktivieren</div>
-   		<div id="submitArticleChainEdit" class="disabled">Gruppenänderungen bestätigen</div>
-   	</div>
-    
-    
+    <div id="articleChainEditControls">
+        <div id="cancelArticleChainEdit">Nur <span><%= articleTitle %><% if (info) { %> (<%= info %>)<% } %></span> <% if (isActive) { %>de<% } %>aktivieren</div>
+        <div id="submitArticleChainEdit" class="disabled">Gruppenänderungen bestätigen</div>
+    </div>
 </div>
