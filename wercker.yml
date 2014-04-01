@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: adjust timezone
-        code: ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+        code: sudo ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
     - script:
         name: install global dependencies
         code: sudo npm install -g grunt-cli bower
