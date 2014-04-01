@@ -3,16 +3,16 @@ define ["jquery"], ($) ->
   Server =
 
     storeAlias: ""
-    api: "/api"
 
     initialize: ->
       $.ajaxSetup beforeSend: (xhr, settings) =>
-        settings.url = @getComposedUrl settings.url
+        settings.url = @getComposedUrl settings.url, window.location.host
 
-    getComposedUrl: (url) ->
-      return url  if url.substring(0, 4) is "http"
-      url = url.replace("storeAlias", @storeAlias)
-      "#{@api}/#{url}"
+    getComposedUrl: (path, host) ->
+      return path  if path.substring(0, 4) is "http"
+
+      path = path.replace("storeAlias", @storeAlias)
+      "https://api.#{host}/#{path}"
 
     setStoreAlias: (storeAlias) ->
       @storeAlias = storeAlias
