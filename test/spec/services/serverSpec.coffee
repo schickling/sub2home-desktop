@@ -2,15 +2,15 @@ define ["services/server"], (server) ->
 
   describe "check server service", ->
 
-    host = "sub2home.dev"
+    prefix = "/api"
 
-    it "should consult subdomain", ->
-      expect(server.getComposedUrl "articles", host).toBe "https://api.#{host}/articles"
+    it "should prepend api prefix", ->
+      expect(server.getComposedUrl "articles").toBe("#{prefix}/articles")
 
     it "should adjust replace 'storeAlias'", ->
       server.setStoreAlias "test-store"
-      expect(server.getComposedUrl "storeAlias/articles", host).toBe "https://api.#{host}/test-store/articles"
-      expect(server.getComposedUrl "storealias/articles", host).toBe "https://api.#{host}/storealias/articles"
+      expect(server.getComposedUrl "storeAlias/articles").toBe("#{prefix}/test-store/articles")
+      expect(server.getComposedUrl "storealias/articles").toBe("#{prefix}/storealias/articles")
 
     it "should return full url", ->
       url = "http://www.google.com"
