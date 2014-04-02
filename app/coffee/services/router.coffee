@@ -47,7 +47,7 @@ define [
       notificationcenter.init()
 
       # strip query string
-      window.history.pushState(null, null, window.location.pathname)
+      window.history.pushState(null, null, window.location.pathname)  if window.history.pushState
 
       # start router
       Backbone.history.start
