@@ -163,7 +163,7 @@ module.exports = (grunt) ->
             "robots.txt"
             "favicon.ico"
             "components/requirejs/require.js"
-            "mobile/*"
+            "fonts/*"
             "browser/*"
           ]
         ]
