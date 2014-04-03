@@ -27,3 +27,11 @@ deploy:
         bucket-url: $BUCKET
         source-dir: $SOURCE
         opts: --acl-public
+    - bundle-install:
+        cwd: deploy
+    - add-ssh-key:
+        keyname: $SSH_KEY
+    - cap:
+        stage: production
+        cwd: deploy
+
