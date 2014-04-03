@@ -59,11 +59,11 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         text: "Alle Bestellungen abhaken"
         className: "info"
 
-			"views.store.assortment.activateonlythisarticle":
+      "views.store.assortment.activateonlythisarticle":
         text: "Nur den zuvor gewählten Artikel aktivieren"
         className: "info"
 
-			"views.store.assortment.deactivateonlythisarticle":
+      "views.store.assortment.deactivateonlythisarticle":
         text: "Nur den zuvor gewählten Artikel deaktivieren"
         className: "info"
 
