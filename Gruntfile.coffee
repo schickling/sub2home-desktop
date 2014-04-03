@@ -45,7 +45,6 @@ _gaq.push(['_trackPageview']);
 module.exports = (grunt) ->
 
   require("load-grunt-tasks") grunt
-  require("time-grunt") grunt
 
   grunt.initConfig
 
@@ -102,17 +101,10 @@ module.exports = (grunt) ->
         "test/spec/**/*.js"
       ]
 
-    connect:
-      server:
-        options:
-          port: 8888
-          hostname: '0.0.0.0'
-          base: 'app'
-
     requirejs:
       dist:
         options:
-          optimize: "uglify"
+          optimize: 'none'
           baseUrl: "<%= config.src %>/js"
           mainConfigFile: "<%= config.src %>/js/config.js"
           preserveLicenseComments: false
@@ -132,11 +124,6 @@ module.exports = (grunt) ->
       options:
         dirs: ["<%= config.dist %>"]
 
-    open:
-      server:
-        path: "https://sub2home.dev"
-        app: "Google Chrome Canary"
-
     htmlmin:
       dist:
         options:
@@ -148,6 +135,13 @@ module.exports = (grunt) ->
         files: [
           expand: true
           src: ["<%= config.dist %>/fonts/*.svg"]
+        ]
+
+    uglify:
+      dist:
+        files: [
+          expand: true
+          src: "<%= config.dist %>/**/*.js"
         ]
 
     clean:
@@ -246,7 +240,6 @@ module.exports = (grunt) ->
     "any-newer:less"
     "newer:coffee:src"
     "newer:coffee:test"
-    "connect:server"
     "watch"
   ]
 
@@ -260,6 +253,7 @@ module.exports = (grunt) ->
     "coffee:dist"
     "copy"
     "requirejs"
+    "uglify"
     "less:dist"
     "replace"
     "htmlrefs"
