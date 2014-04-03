@@ -1,4 +1,7 @@
-# client-desktop [![wercker status](https://app.wercker.com/status/632b9941c98f988188237f4395abeade/m/)](https://app.wercker.com/project/bykey/632b9941c98f988188237f4395abeade)
+desktop
+=======
+
+[![wercker status](https://app.wercker.com/status/632b9941c98f988188237f4395abeade/m/)](https://app.wercker.com/project/bykey/632b9941c98f988188237f4395abeade)
 
 ## Dependencies
 * NPM
@@ -7,26 +10,20 @@
 
 ## Usage
 
-### Install/Update
+#### Install & Update
 ```sh
 $ npm install
 $ bower install
 ```
 
-### Build
+#### Build
 ```sh
-$ grunt
+$ grunt build
 ```
 
-### Development
+#### Development
 ```sh
 $ grunt server
-```
-
-### Deploy
-```sh
-$ cd deploy
-$ cap production deploy
 ```
 
 ## Supported browsers
@@ -36,6 +33,3 @@ $ cap production deploy
 * Safari 5+
 * Opera
 
-## Links
-
-* Style Guide: https://github.com/airbnb/javascript
