@@ -25,6 +25,8 @@
     "grunt-karma": "^0.8.2",
     "karma-phantomjs-launcher": "^0.1.2",
     "karma-requirejs": "^0.2.1",
-    "karma-jasmine": "^0.1.5"
+    "karma-jasmine": "^0.1.5",
+    "grunt-cdn": "^0.5.2",
+    "grunt-svgmin": "^0.4.0"
   }
 }

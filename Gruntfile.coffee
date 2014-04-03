@@ -143,6 +143,13 @@ module.exports = (grunt) ->
           collapseWhitespace: true
         files: ["<%= config.dist %>/index.html": "<%= config.dist %>/index.html"]
 
+    svgmin:
+      dist:
+        files: [
+          expand: true
+          src: ["<%= config.dist %>/fonts/*.svg"]
+        ]
+
     clean:
       dist: "<%= config.dist %>"
       #test: "<%= config.test %>/.tmp"
@@ -163,8 +170,8 @@ module.exports = (grunt) ->
             "robots.txt"
             "favicon.ico"
             "components/requirejs/require.js"
-            "fonts/*"
             "browser/*"
+            "fonts/*"
           ]
         ]
 
@@ -211,12 +218,18 @@ module.exports = (grunt) ->
 
     replace:
       dist:
-        src: ["<%= config.dist %>//index.html"]
+        src: ["<%= config.dist %>/index.html"]
         overwrite: true
         replacements: [
           from: "<!-- serviceSnippet -->"
           to: serviceSnippet
         ]
+
+    cdn:
+      options:
+        cdn: "https://dqyt7vhnmwgw9.cloudfront.net"
+      dist:
+        src: "<%= config.dist %>/index.html"
 
     htmlrefs:
       dist:
@@ -245,14 +258,16 @@ module.exports = (grunt) ->
   grunt.registerTask "build", [
     "clean:dist"
     "coffee:dist"
-    "copy:dist"
-    "requirejs:dist"
+    "copy"
+    "requirejs"
     "less:dist"
-    "replace:dist"
-    "htmlrefs:dist"
-    "rev:dist"
+    "replace"
+    "htmlrefs"
+    "rev"
     "usemin"
+    "cdn"
     "htmlmin"
+    "svgmin"
   ]
 
   grunt.registerTask "default", [

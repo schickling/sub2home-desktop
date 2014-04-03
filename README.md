@@ -5,27 +5,36 @@
 * Bower
 * Grunt
 
-## Install/Update
+## Usage
+
+### Install/Update
 ```sh
 $ npm install
 $ bower install
 ```
 
-## Build
+### Build
 ```sh
 $ grunt
 ```
 
-## Development
+### Development
 ```sh
 $ grunt server
 ```
 
-## Deploy
+### Deploy
 ```sh
 $ cd deploy
 $ cap production deploy
 ```
+
+## Supported browsers
+* IE9+
+* Chrome 4+
+* Firefox 4+
+* Safari 5+
+* Opera
 
 ## Links
 
