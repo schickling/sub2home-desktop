@@ -59,6 +59,14 @@ define ["underscore", "models/TooltipModel"], (_, TooltipModel) ->
         text: "Alle Bestellungen abhaken"
         className: "info"
 
+			"views.store.assortment.activateonlythisarticle":
+        text: "Nur den zuvor gewählten Artikel aktivieren"
+        className: "info"
+
+			"views.store.assortment.deactivateonlythisarticle":
+        text: "Nur den zuvor gewählten Artikel deaktivieren"
+        className: "info"
+
     getTooltipModel: (alias, data) ->
       item = @_items[alias] or @_items["default"]
       new TooltipModel(item)
