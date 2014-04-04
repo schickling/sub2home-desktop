@@ -9,3 +9,10 @@ set :keep_releases, 8
 set :ssh_options, {
   user: "www-data"
 }
+
+desc 'Restart application'
+task :restart do
+  on roles(:app) do
+    # nothing to do
+  end
+end
