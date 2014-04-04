@@ -10,9 +10,13 @@ set :ssh_options, {
   user: "www-data"
 }
 
-desc 'Restart application'
-task :restart do
-  on roles(:app) do
-    # nothing to do
+namespace :deploy do
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app) do
+      # nothing to do
+    end
   end
+
 end
