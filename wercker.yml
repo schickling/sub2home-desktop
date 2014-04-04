@@ -30,7 +30,7 @@ deploy:
     - bundle-install:
         cwd: deploy
     - add-ssh-key:
-        keyname: $SSH_KEY
+        keyname: SSH_KEY
     - cap:
         stage: production
         cwd: deploy
