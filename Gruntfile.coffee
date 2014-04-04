@@ -262,8 +262,8 @@ module.exports = (grunt) ->
     "replace"
     "htmlrefs"
     "rev"
-    "cdn"
     "usemin"
+    "cdn"
     "htmlmin"
     "svgmin"
   ]
