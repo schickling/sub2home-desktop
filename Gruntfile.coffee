@@ -221,7 +221,7 @@ module.exports = (grunt) ->
 
     cdn:
       options:
-        cdn: "https://d2gxx6ff1gy5un.cloudfront.net"
+        cdn: "https://d1zknyeapm9tzb.cloudfront.net"
       dist:
         src: "<%= config.dist %>/index.html"
 
@@ -259,7 +259,7 @@ module.exports = (grunt) ->
     "htmlrefs"
     "rev"
     "usemin"
-    #"cdn"
+    "cdn"
     "htmlmin"
     "svgmin"
   ]
