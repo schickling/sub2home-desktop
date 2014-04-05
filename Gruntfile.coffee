@@ -221,7 +221,7 @@ module.exports = (grunt) ->
 
     cdn:
       options:
-        cdn: "https://dqyt7vhnmwgw9.cloudfront.net"
+        cdn: "https://d2gxx6ff1gy5un.cloudfront.net"
       dist:
         src: "<%= config.dist %>/index.html"
 
