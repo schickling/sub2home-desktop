@@ -21,12 +21,6 @@ build:
         code: grunt build:prod
 deploy:
   steps:
-    - s3sync:
-        key-id: $KEY
-        key-secret: $SECRET
-        bucket-url: $BUCKET
-        source-dir: ./dist
-        opts: --acl-public
     - add-to-known_hosts:
         hostname: sub2home.com
     - mktemp:
