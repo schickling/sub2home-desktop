@@ -162,16 +162,23 @@ define [
 
       # clean old interval
       clearInterval @rotateInterval
-      $refresh = @$refresh
+      @_rotate()
       @rotateInterval = setInterval =>
-        @rotationDeg = (@rotationDeg + 15) % 180
-        $refresh.transition rotate: "#{@rotationDeg}deg"
-      , 20
+        @_rotate()
+      , 700
+
+    _rotate: ->
+      @rotationDeg += 180
+      @$refresh.transition
+        rotate: "#{@rotationDeg}deg"
+      , 700
+      , "linear"
+
 
     _stopRotateRefresh: ->
       # wait until rotation complete
       checkInterval = setInterval =>
-        if @rotationDeg is 0
+        if @rotationDeg % 360 is 0
           clearInterval @rotateInterval
           clearInterval checkInterval
       , 10
