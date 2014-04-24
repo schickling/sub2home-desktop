@@ -50,7 +50,7 @@ module.exports = (grunt) ->
 
     config:
       dist: "./dist"
-      src: "./app"
+      app: "./app"
       test: "./test"
 
     coffee:
@@ -62,9 +62,9 @@ module.exports = (grunt) ->
       src:
         files: [
           expand: true
-          cwd: "<%= config.src %>/coffee"
+          cwd: "<%= config.app %>/coffee"
           src: "**/*.coffee"
-          dest: "<%= config.src %>/js"
+          dest: "<%= config.app %>/js"
           ext: ".js"
         ]
 
@@ -80,9 +80,9 @@ module.exports = (grunt) ->
       dist:
         files: [
           expand: true
-          cwd: "<%= config.src %>/coffee"
+          cwd: "<%= config.app %>/coffee"
           src: "**/*.coffee"
-          dest: "<%= config.src %>/js"
+          dest: "<%= config.app %>/js"
           ext: ".js"
         ]
 
@@ -92,12 +92,12 @@ module.exports = (grunt) ->
 
       all: [
         "Gruntfile.js"
-        "<%= config.src %>/js/main.js"
-        "<%= config.src %>/js/config.js"
-        "<%= config.src %>/js/services/*.js"
-        "<%= config.src %>/js/models/*.js"
-        "<%= config.src %>/js/collections/*.js"
-        "<%= config.src %>/js/views/**/*.js"
+        "<%= config.app %>/js/main.js"
+        "<%= config.app %>/js/config.js"
+        "<%= config.app %>/js/services/*.js"
+        "<%= config.app %>/js/models/*.js"
+        "<%= config.app %>/js/collections/*.js"
+        "<%= config.app %>/js/views/**/*.js"
         "test/spec/**/*.js"
       ]
 
@@ -105,8 +105,8 @@ module.exports = (grunt) ->
       dist:
         options:
           optimize: 'none'
-          baseUrl: "<%= config.src %>/js"
-          mainConfigFile: "<%= config.src %>/js/config.js"
+          baseUrl: "<%= config.app %>/js"
+          mainConfigFile: "<%= config.app %>/js/config.js"
           preserveLicenseComments: false
           include: backboneModules
           out: "<%= config.dist %>/js/main.js"
@@ -156,7 +156,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           dot: true
-          cwd: "<%= config.src %>"
+          cwd: "<%= config.app %>"
           dest: "<%= config.dist %>"
           src: [
             "index.html"
@@ -172,19 +172,19 @@ module.exports = (grunt) ->
     less:
       src:
         files:
-          "<%= config.src %>/css/main.css": "<%= config.src %>/less/main.less"
+          "<%= config.app %>/css/main.css": "<%= config.app %>/less/main.less"
         options:
           sourceMap: true
 
       dist:
         files:
-          "<%= config.dist %>/css/main.css": "<%= config.src %>/less/main.less"
+          "<%= config.dist %>/css/main.css": "<%= config.app %>/less/main.less"
         options:
           cleancss: true
 
     watch:
       coffeeSrc:
-        files: ["<%= config.src %>/coffee/**/*.coffee"]
+        files: ["<%= config.app %>/coffee/**/*.coffee"]
         tasks: ["newer:coffee:src"]
 
       coffeeTest:
@@ -192,14 +192,14 @@ module.exports = (grunt) ->
         tasks: ["newer:coffee:test"]
 
       less:
-        files: ["<%= config.src %>/less/*.less"]
+        files: ["<%= config.app %>/less/*.less"]
         tasks: ["less:src"]
 
       livereload:
         files: [
-          "<%= config.src %>/js/**/*.js"
-          "<%= config.src %>/templates/**/*.html"
-          "<%= config.src %>/css/*.css"
+          "<%= config.app %>/js/**/*.js"
+          "<%= config.app %>/templates/**/*.html"
+          "<%= config.app %>/css/*.css"
         ]
         options:
           livereload:
@@ -229,6 +229,47 @@ module.exports = (grunt) ->
       dist:
         src: "<%= config.dist %>/index.html"
 
+    connect:
+      server:
+        options:
+          port: 8081,
+          base: 'app'
+          protocol: 'https'
+          key: grunt.file.read("app/certs/localhost.key").toString()
+          cert: grunt.file.read("app/certs/localhost.crt").toString()
+          middleware: (connect, options) ->
+            middlewares = []
+            options.base = [options.base]  unless Array.isArray(options.base)
+            directory = options.directory or options.base[options.base.length - 1]
+            options.base.forEach (base) ->
+
+              # Serve static files.
+              middlewares.push connect.static(base)
+              return
+
+
+            # Make directory browse-able.
+            middlewares.push connect.directory(directory)
+
+            # ***
+            # Not found - just serve index.html
+            # ***
+            middlewares.push (req, res) ->
+              file = undefined
+              i = 0
+
+              while i < options.base.length
+                file = options.base + "/index.html"
+                if grunt.file.exists(file)
+                  require("fs").createReadStream(file).pipe res
+                  return # we're done
+                i++
+              res.statusCode 404 # where's index.html?
+              res.end()
+              return
+
+            middlewares
+
   grunt.registerTask "reset", [
     "clean:cache"
     "any-newer:less"
@@ -240,6 +281,7 @@ module.exports = (grunt) ->
     "any-newer:less"
     "newer:coffee:src"
     "newer:coffee:test"
+    "connect"
     "watch"
   ]
 
