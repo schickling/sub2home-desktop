@@ -3,7 +3,6 @@ define ["jquery"], ($) ->
   Server =
 
     storeAlias: ""
-    port: 1070
 
     initialize: ->
       $.ajaxSetup beforeSend: (xhr, settings) =>
@@ -13,7 +12,10 @@ define ["jquery"], ($) ->
       return path  if path.substring(0, 4) is "http"
 
       path = path.replace("storeAlias", @storeAlias)
-      "https://#{hostname}:#{@port}/#{path}"
+      if hostname is "sub2home.com"
+        "https://api.#{hostname}/#{path}"
+      else
+        "https://#{hostname}:1070/#{path}"
 
     setStoreAlias: (storeAlias) ->
       @storeAlias = storeAlias
