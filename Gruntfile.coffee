@@ -203,7 +203,9 @@ module.exports = (grunt) ->
         ]
         options:
           livereload:
-            port: 35730
+            port: 35732
+            key: grunt.file.read("app/certs/localhost.key").toString()
+            cert: grunt.file.read("app/certs/localhost.crt").toString()
 
     karma:
       unit:
@@ -232,9 +234,11 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
-          port: 8081,
-          base: 'app'
-          protocol: 'https'
+          port: 8081
+          livereload: 35732
+          open: true
+          base: "app"
+          protocol: "https"
           key: grunt.file.read("app/certs/localhost.key").toString()
           cert: grunt.file.read("app/certs/localhost.crt").toString()
           middleware: (connect, options) ->
