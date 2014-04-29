@@ -1,12 +1,16 @@
-define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView", "text!templates/store/home/DeliveryPopupTemplate.html"], ($, _, Backbone, PostalSearchView, DeliveryPopupTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "views/shared/misc/PostalSearchView"
+  "text!templates/store/home/DeliveryPopupTemplate.html"
+], ($, _, Backbone, PostalSearchView, DeliveryPopupTemplate) ->
 
   DeliveryPopupView = Backbone.View.extend
 
-    template: _.template(DeliveryPopupTemplate)
-
     events:
       "click #postalSelection span": "_selectPostal"
-      "input #locationSelectionInput": "_preselectPostals"
+      "input #locationSelectionInput": "_preselectPartialPostals"
       "click #deliveryAreaSelection.onlyOneDeliveryArea": "_transferClick"
       "click #deliveryAreaSelection span": "_selectDeliveryArea"
       "click": "_hide"
@@ -22,8 +26,9 @@ define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView"
       @_collectPostals()
       @_render()
       @_fadeIn()
-      @_preselectPostals()
+      @_preselectPartialPostals()
       @_runAndWaitForPostal()
+      @_optimizedOnePostalBehavior()  if @postals.length is 1
 
     _collectPostals: ->
       deliveryAreasCollection = @model.get("deliveryAreasCollection")
@@ -34,7 +39,7 @@ define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView"
       @postals = _.uniq(postals)
 
     _render: ->
-      @$el.html @template()
+      @$el.html DeliveryPopupTemplate
       @_cacheDom()
       @_renderPostals()
       @_renderPostalSearchView()
@@ -57,12 +62,16 @@ define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView"
       @listenTo @postalSearchView, "newPostal", @_newPostal
       @postalSearchView.run()
 
+    _optimizedOnePostalBehavior: ->
+      @postalSearchView.setPostal @postals[0]
+      @$postalSelection.addClass "hide"
+
     _selectPostal: (e) ->
       postal = e.target.textContent
       @postalSearchView.setPostal postal
 
     _newPostal: (postal) ->
-      @_preselectPostals()
+      @_preselectPartialPostals()
       deliveryAreasCollection = @model.get("deliveryAreasCollection")
       matchingDeliveryAreaModels = deliveryAreasCollection.where(postal: postal)
       if matchingDeliveryAreaModels.length is 1
@@ -91,16 +100,14 @@ define ["jquery", "underscore", "backbone", "views/shared/misc/PostalSearchView"
     _renderNoDeliveryArea: (postal) ->
       @$deliveryAreaSelection.html("SUBWAY<span class=\"superscript\">®</span> " + @model.get("title") + " liefert leider nicht nach " + postal).removeClass().addClass "noDeliveryArea"
 
-    _preselectPostals: ->
-      self = this
+    _preselectPartialPostals: ->
       clearTimeout @preselectionTimeout
-      @preselectionTimeout = setTimeout(->
-        postalPrefix = self.$("#locationSelectionInput").val()
-        $renderedPostals = self.$postalSelection.children()
+      @preselectionTimeout = setTimeout =>
+        postalPrefix = @$("#locationSelectionInput").val()
+        $renderedPostals = @$postalSelection.children()
         $renderedPostals.each ->
           $(this).toggleClass "preselected", @textContent.indexOf(postalPrefix) isnt -1
-
-      , 50)
+      , 50
 
     _selectDeliveryArea: (e) ->
       postal = parseInt(e.target.getAttribute("data-postal"), 10)
