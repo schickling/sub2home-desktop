@@ -5,8 +5,8 @@ desktop
 
 ## Dependencies
 * NPM
-* Bower
-* Grunt
+* Bower (`npm install -g bower`)
+* Grunt (`npm install -g grunt-cli`)
 
 ## Usage
 
@@ -16,14 +16,15 @@ $ npm install
 $ bower install
 ```
 
-#### Build
-```sh
-$ grunt build
-```
-
-#### Development
+#### Development / Server
+Starts webserver on `localhost:8081` with livereload.
 ```sh
 $ grunt server
+```
+
+#### Build (just needed for deployment)
+```sh
+$ grunt build
 ```
 
 ## Supported browsers
@@ -32,4 +33,3 @@ $ grunt server
 * Firefox 4+
 * Safari 5+
 * Opera
-
