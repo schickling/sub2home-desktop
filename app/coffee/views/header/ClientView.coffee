@@ -42,13 +42,9 @@ define [
       @_listenToNumberOfUndoneOrders()
 
     _render: ->
-      storeModel = stateModel.get("storeModel")
-      numberOfUndoneOrders = if storeModel then storeModel.get("numberOfUndoneOrders") else  0
-      json =
-        numberOfUndoneOrders: numberOfUndoneOrders
-      @$el.html @template(json)
+      @$el.html @template()
+      @_adjustNumberOfUndoneOrders()
       @_cacheDom()
-      @$buttonStoreDashboard.toggleClass "unseenContent", numberOfUndoneOrders > 0
       @_selectViewFromCurrentRoute()
 
     _enableTooltips: ->
@@ -189,7 +185,13 @@ define [
 
     _adjustNumberOfUndoneOrders: ->
       storeModel = stateModel.get("storeModel")
-      @$(".numberOfUndoneOrders").text storeModel.get("numberOfUndoneOrders")
+      numberOfUndoneOrders = if storeModel then storeModel.get("numberOfUndoneOrders") else  0
+      htmlElNumberOfUndoneOrders = @$(".numberOfUndoneOrders")
+      if numberOfUndoneOrders > 0
+        htmlElNumberOfUndoneOrders.show()
+        htmlElNumberOfUndoneOrders.text(numberOfUndoneOrders)
+      else
+        htmlElNumberOfUndoneOrders.hide()
 
     remove: ->
       stateModel.off "change:currentRoute", @_selectViewFromCurrentRoute, this

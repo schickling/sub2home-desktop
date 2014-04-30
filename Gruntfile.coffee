@@ -57,7 +57,6 @@ module.exports = (grunt) ->
       options:
         bare: true
         sourceMap: true
-        sourceRoot: ""
 
       src:
         files: [
