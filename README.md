@@ -26,10 +26,10 @@ $ grunt server
 ```sh
 $ grunt build
 ```
-
 ## Supported browsers
-* IE9+
-* Chrome 4+
-* Firefox 4+
-* Safari 5+
-* Opera
+
+Unsupported browsers will be redirected to `m.sub2home.com`
+
+IE  | Firefox | Chrome | Safari | Opera | iOS  | Android | Blackberry
+--- | ---     | ---    | ---    | ---   | ---  | ---     | ---
+9+  | 4+      | 4+     | 5+     | 10.5+ | -    | -       | -
