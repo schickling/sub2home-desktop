@@ -8,6 +8,6 @@ define [], ->
       now = new Date()
       new Date(now.getTime() + @difference)
 
-    setServerTime: (timestamp) ->
+    setServerTime: (jsTimestamp) ->
       now = new Date()
-      @difference = timestamp * 1000 - now.getTime()
+      @difference = jsTimestamp - now.getTime()
