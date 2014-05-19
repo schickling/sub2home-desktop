@@ -15,6 +15,10 @@ define ["jquery", "services/serverTime"], ($, ServerTime) ->
             serverDate = new Date(headerServerTime)
             serverTimestamp = serverDate.getTime()
             ServerTime.setServerTime(serverTimestamp)
+            headerTimeLength = headerServerTime.length
+            serverGMT = headerServerTime.substr(headerTimeLength-5 , headerTimeLength).split(':')[0]
+            ServerTime.setServerGMT(parseInt(serverGMT))
+
 
     getComposedUrl: (path, hostname) ->
       return path  if path.substring(0, 4) is "http"
