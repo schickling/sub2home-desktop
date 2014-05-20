@@ -8,9 +8,8 @@ define [], ->
       now = new Date()
       new Date(now.getTime() + @difference)
 
-    setServerTime: (jsTimestamp, serverGMT) ->
+    setServerTime: (jsTimestamp) ->
       now = new Date()
-      localGMT = now.getHours() - now.getUTCHours()
       @difference = (jsTimestamp - now.getTime())
 
     setServerGMT: (serverGMT) ->
