@@ -28,6 +28,7 @@ define [
         phone: @model.get("phone")
         email: @model.get("email")
         postal: @model.get("postal")
+        company: @model.get("company")
 
       @$el.html @template(json)
 
