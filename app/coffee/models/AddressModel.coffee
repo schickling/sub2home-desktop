@@ -16,6 +16,7 @@ define [
       phone: ""
       email: ""
       postal: 0
+      company: ""
 
     urlRoot: "addresses"
 

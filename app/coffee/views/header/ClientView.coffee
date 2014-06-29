@@ -103,7 +103,6 @@ define [
 
     _showClientConfig: ->
       $neededButtons = @$buttonClientDashboard
-      console.log $neededButtons
       $unneededButtons = @$allButtons.not($neededButtons)
       title = clientModel.getName() + "'s sub2home"
       @$allButtons.removeClass "active"
