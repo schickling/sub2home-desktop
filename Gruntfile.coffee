@@ -223,8 +223,8 @@ module.exports = (grunt) ->
         src: ["<%= config.dist %>/index.html"]
         overwrite: true
         replacements: [
-          from: "<!-- analyticsSnippet -->"
-          to: analyticsSnippet
+          from: "<!-- xdomainSnippet -->"
+          to: xdomainSnippet
         ,
           from: "<!-- analyticsSnippet -->"
           to: analyticsSnippet
