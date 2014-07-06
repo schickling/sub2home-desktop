@@ -18,6 +18,7 @@
     "backbone.localStorage": "~1.1.0",
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
     "browserdetection": "0.3.0",
-    "moment": "~2.5.0"
+    "moment": "~2.5.0",
+    "xdomain": "~0.6.11"
   }
 }

@@ -19,7 +19,7 @@ backboneModules = [
   "views/store/config/MainView"
 ]
 
-serviceSnippet = """
+analyticsSnippet = """
 <!-- Analytics start -->
 <script>
 
@@ -40,6 +40,12 @@ _gaq.push(['_trackPageview']);
   (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/71mfZHGrfSGEFsFVRZ0YRg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
 </script>
 <!-- Uservoice end -->
+"""
+
+xdomainSnippet = """
+<!--[if lte IE 9]>
+<script src="/components/xdomain/dist/0.6/xdomain.min.js" slave="https://api.sub2home.com/proxy.html"></script>
+<![endif]-->
 """
 
 module.exports = (grunt) ->
@@ -163,6 +169,7 @@ module.exports = (grunt) ->
             "robots.txt"
             "favicon.ico"
             "components/requirejs/require.js"
+            "components/xdomain/dist/0.6/xdomain.min.js"
             "browser/*"
             "fonts/*"
           ]
@@ -216,8 +223,11 @@ module.exports = (grunt) ->
         src: ["<%= config.dist %>/index.html"]
         overwrite: true
         replacements: [
-          from: "<!-- serviceSnippet -->"
-          to: serviceSnippet
+          from: "<!-- analyticsSnippet -->"
+          to: analyticsSnippet
+        ,
+          from: "<!-- analyticsSnippet -->"
+          to: analyticsSnippet
         ]
 
     cdn:
