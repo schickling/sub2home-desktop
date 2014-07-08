@@ -49,9 +49,7 @@ define [
 
       browserData = browserDetection()
       if browserData.browser is "ie" and browserData.version < 10
-        rootLength = Backbone.history.options.root.length
-        fragment = window.location.pathname.substr(rootLength)
-        Backbone.history.navigate(fragment, trigger: true)
+        Backbone.history.navigate(window.location.pathname, trigger: true)
       else
         # strip query string
         window.history.pushState(null, null, window.location.pathname)
