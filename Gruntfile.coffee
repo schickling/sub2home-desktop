@@ -42,8 +42,9 @@ _gaq.push(['_trackPageview']);
 <!-- Uservoice end -->
 """
 
-xdomainSnippet = """
+polyfillSnippet = """
 <!--[if lte IE 9]>
+<script src="/components/html5-history-api/history.js"></script>
 <script src="/components/xdomain/dist/0.6/xdomain.min.js" slave="https://api.sub2home.com/proxy.html"></script>
 <![endif]-->
 """
@@ -169,6 +170,7 @@ module.exports = (grunt) ->
             "robots.txt"
             "favicon.ico"
             "components/requirejs/require.js"
+            "components/html5-history-api/history.js"
             "components/xdomain/dist/0.6/xdomain.min.js"
             "browser/*"
             "fonts/*"
@@ -223,8 +225,8 @@ module.exports = (grunt) ->
         src: ["<%= config.dist %>/index.html"]
         overwrite: true
         replacements: [
-          from: "<!-- xdomainSnippet -->"
-          to: xdomainSnippet
+          from: "<!-- polyfillSnippet -->"
+          to: polyfillSnippet
         ,
           from: "<!-- analyticsSnippet -->"
           to: analyticsSnippet

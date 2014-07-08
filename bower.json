@@ -19,6 +19,7 @@
     "backbone.analytics": "git://github.com/sub2home/backbone.analytics.git",
     "browserdetection": "0.3.0",
     "moment": "~2.5.0",
-    "xdomain": "~0.6.11"
+    "xdomain": "~0.6.11",
+    "html5-history-api": "~4.1.0"
   }
 }
