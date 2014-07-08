@@ -5,12 +5,11 @@ define [
   "underscore"
   "backbone"
   "backboneAnalytics"
-  "browserDetection"
   "services/notificationcenter"
   "services/localStorageVersioner"
   "models/stateModel"
   "models/authentificationModel"
-], (require, $, jqueryTransit, _, Backbone, backboneAnalytics, browserDetection, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
+], (require, $, jqueryTransit, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -47,12 +46,8 @@ define [
       localStorageVersioner.initialize()
       notificationcenter.init()
 
-      browserData = browserDetection()
-      if browserData.browser is "ie" and browserData.version < 10
-        Backbone.history.navigate(window.location.pathname, trigger: true)
-      else
-        # strip query string
-        window.history.pushState(null, null, window.location.pathname)
+      # strip query string
+      window.history.pushState(null, null, window.location.pathname)
 
       # start router
       Backbone.history.start
