@@ -20,7 +20,7 @@ define [
       $ingredients = @$(".ingredients")
       $ingredients.empty()
       _.each @collection.models, ((ingredientModel) ->
-        @_renderIngredient ingredientModel
+        @_renderIngredient ingredientModel  unless ingredientModel.get("isDefault")
       ), this
       @$el.lazyload()
 
