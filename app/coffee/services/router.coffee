@@ -4,12 +4,12 @@ define [
   "jqueryTransit"
   "underscore"
   "backbone"
-  "backboneAnalytics"
+  "services/analytics"
   "services/notificationcenter"
   "services/localStorageVersioner"
   "models/stateModel"
   "models/authentificationModel"
-], (require, $, jqueryTransit, _, Backbone, backboneAnalytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
+], (require, $, jqueryTransit, _, Backbone, analytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -62,6 +62,10 @@ define [
         # reassemble frament
         fragment = parts.join("/")
       Backbone.history.navigate fragment, options
+
+      # analytics
+      analytics.page()
+
       this
 
     _showHomeHome: ->
