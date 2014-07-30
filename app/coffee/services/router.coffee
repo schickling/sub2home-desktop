@@ -43,9 +43,12 @@ define [
       browserData = browserDetection()
       browser = browserData.browser
       version = browserData.version
+      os = browserData.os
 
       if browser is "ie" and version < 9
         window.location.href = "http://browser.sub2home.com"
+      else if ["mobile", "iphone", "ipod", "ipad", "android", "blackberry"].indexOf(os) isnt -1
+        window.location.href = "http://m.sub2home.com"
 
       $.fn.transition = $.fn.animate  unless !$.support.transition
 
