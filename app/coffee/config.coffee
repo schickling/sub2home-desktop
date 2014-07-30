@@ -16,7 +16,6 @@ require.config
     underscore: "../components/underscore-amd/underscore"
     backbone: "../components/backbone-amd/backbone"
     backboneLocalStorage: "../components/backbone.localStorage/backbone.localStorage"
-    analytics: "../components/analytics/analytics"
     moment: "../components/moment/moment"
     templates: "../templates"
 
