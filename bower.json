@@ -19,6 +19,7 @@
     "browserdetection": "0.3.3",
     "moment": "~2.5.0",
     "xdomain": "~0.6.11",
-    "html5-history-api": "~4.1.0"
+    "html5-history-api": "~4.1.0",
+    "bowser": "~0.7.1"
   }
 }

@@ -4,13 +4,12 @@ define [
   "jqueryTransit"
   "underscore"
   "backbone"
-  "browserDetection"
   "services/analytics"
   "services/notificationcenter"
   "services/localStorageVersioner"
   "models/stateModel"
   "models/authentificationModel"
-], (require, $, jqueryTransit, _, Backbone, browserDetection, analytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
+], (require, $, jqueryTransit, _, Backbone, analytics, notificationcenter, localStorageVersioner, stateModel, authentificationModel) ->
 
   Router = Backbone.Router.extend
 
@@ -39,16 +38,6 @@ define [
       "*actions": "_defaultAction"
 
     init: ->
-
-      browserData = browserDetection()
-      browser = browserData.browser
-      version = browserData.version
-      os = browserData.os
-
-      if browser is "ie" and version < 9
-        window.location.href = "http://browser.sub2home.com"
-      else if ["mobile", "iphone", "ipod", "ipad", "android", "blackberry"].indexOf(os) isnt -1
-        window.location.href = "http://m.sub2home.com"
 
       $.fn.transition = $.fn.animate  unless !$.support.transition
 
