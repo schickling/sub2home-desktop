@@ -309,7 +309,7 @@ module.exports = (grunt) ->
     "htmlrefs"
     "rev"
     "usemin"
-    "cdn"
+    #"cdn"
     "htmlmin"
     "svgmin"
   ]
