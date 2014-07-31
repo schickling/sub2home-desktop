@@ -18,29 +18,11 @@ build:
         code: grunt test
     - script:
         name: build release
-        code: grunt build:prod
+        code: grunt build
 deploy:
   steps:
-    - add-to-known_hosts:
-        hostname: sub2home.com
-    - mktemp:
-        envvar: PRIVATEKEY_PATH
-    - script:
-        name: create timestamp
-        code: export ENV_TIMESTAMP=$(date +%s)
-    - create-file:
-        name: write key
-        filename: $PRIVATEKEY_PATH
-        content: $SSH_KEY_PRIVATE
-        overwrite: true
-        hide-from-log: true
-    - script:
-        name: make release dir
-        code: ssh -i $PRIVATEKEY_PATH -l www-data -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no sub2home.com mkdir -p /var/www/desktop/wercker/$ENV_TIMESTAMP
-    - script:
-        name: transfer application
-        code: scp -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=no -r . www-data@sub2home.com:/var/www/desktop/wercker/$ENV_TIMESTAMP
-        cwd: dist
-    - script:
-        name: link release
-        code: ssh -i $PRIVATEKEY_PATH -l www-data -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no sub2home.com ln -sfn /var/www/desktop/wercker/$ENV_TIMESTAMP /var/www/desktop/current
+    - s3sync:
+        key-id: $KEY
+        key-secret: $SECRET
+        bucket-url: $BUCKET
+        source-dir: ./dist
