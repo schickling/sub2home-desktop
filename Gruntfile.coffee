@@ -1,4 +1,5 @@
 backboneModules = [
+  "bowser"
   "main"
   "models/clientModel"
   "views/header/HeaderView"
