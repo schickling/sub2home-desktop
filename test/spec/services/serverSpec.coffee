@@ -5,6 +5,9 @@ define ["services/server"], (server) ->
     it "should map to subdomain in production", ->
       expect(server.getComposedUrl "articles", "sub2home.com").toBe "https://api.sub2home.com/articles"
 
+    it "should map to subdomain in production with www subdomain", ->
+      expect(server.getComposedUrl "articles", "www.sub2home.com").toBe "https://api.sub2home.com/articles"
+
     it "should map to port in development", ->
       expect(server.getComposedUrl "articles", "localhost").toBe "https://localhost:1070/articles"
 

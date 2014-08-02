@@ -24,8 +24,8 @@ define ["jquery", "services/serverTime"], ($, ServerTime) ->
       return path  if path.substring(0, 4) is "http"
 
       path = path.replace("storeAlias", @storeAlias)
-      if hostname is "sub2home.com"
-        "https://api.#{hostname}/#{path}"
+      if hostname.indexOf("sub2home.com") isnt -1
+        "https://api.sub2home.com/#{path}"
       else
         "https://#{hostname}:1070/#{path}"
 
