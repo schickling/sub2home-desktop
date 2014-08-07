@@ -21,7 +21,7 @@ build:
         code: grunt build
 deploy:
   steps:
-    - s3-website:
+    - schickling/s3-website:
         key: $KEY
         secret: $SECRET
         bucket: $BUCKET
