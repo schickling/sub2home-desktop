@@ -21,8 +21,8 @@ build:
         code: grunt build
 deploy:
   steps:
-    - s3sync:
-        key-id: $KEY
-        key-secret: $SECRET
-        bucket-url: $BUCKET
+    - s3-website:
+        key: $KEY
+        secret: $SECRET
+        bucket: $BUCKET
         source-dir: ./dist
