@@ -165,7 +165,6 @@ module.exports = (grunt) ->
             "components/requirejs/require.js"
             "components/html5-history-api/history.js"
             "components/xdomain/dist/0.6/xdomain.min.js"
-            "browser/*"
             "fonts/*"
           ]
         ]
