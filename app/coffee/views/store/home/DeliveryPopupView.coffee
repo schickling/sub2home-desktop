@@ -12,7 +12,7 @@ define [
       "click #postalSelection span": "_selectPostal"
       "input #locationSelectionInput": "_preselectPartialPostals"
       "click #deliveryAreaSelection.onlyOneDeliveryArea": "_transferClick"
-      "click #deliveryAreaSelection span": "_selectDeliveryArea"
+      "click #deliveryAreaSelection span": "_handleDeliveryAreaSelection"
       "click": "_hide"
 
     postals: []
@@ -75,27 +75,13 @@ define [
       deliveryAreasCollection = @model.get("deliveryAreasCollection")
       matchingDeliveryAreaModels = deliveryAreasCollection.where(postal: postal)
       if matchingDeliveryAreaModels.length is 1
-        @_renderOneDeliveryArea matchingDeliveryAreaModels[0]
-        @postalSearchView.showDeliveryAreaLabel()
+        @_selectDeliveryArea matchingDeliveryAreaModels[0]
       else if matchingDeliveryAreaModels.length > 1
         @_renderMultipleeDeliveryAreas matchingDeliveryAreaModels
         @postalSearchView.showDeliveryAreaLabel()
       else
         @_renderNoDeliveryArea postal
         @postalSearchView.showLocationLabel()
-
-    _renderOneDeliveryArea: (deliveryAreaModel) ->
-      html = "Nach <span data-postal=\"" + deliveryAreaModel.get("postal") + "\">" + deliveryAreaModel.get("city") + "</span> (" + deliveryAreaModel.get("postal") + ") liefern lassen"
-      @$deliveryAreaSelection.html(html).removeClass().addClass "onlyOneDeliveryArea"
-
-    _renderMultipleeDeliveryAreas: (deliveryAreaModels) ->
-      html = ""
-      district = undefined
-      _.each deliveryAreaModels, (deliveryAreaModel) ->
-        district = deliveryAreaModel.get("district") or deliveryAreaModel.get("city")
-        html += "<span  data-postal=\"" + deliveryAreaModel.get("postal") + "\">" + district + "</span>"
-
-      @$deliveryAreaSelection.html(html).removeClass()
 
     _renderNoDeliveryArea: (postal) ->
       @$deliveryAreaSelection.html("SUBWAY<span class=\"superscript\">®</span> " + @model.get("title") + " liefert leider nicht nach " + postal).removeClass().addClass "noDeliveryArea"
@@ -109,21 +95,24 @@ define [
           $(this).toggleClass "preselected", @textContent.indexOf(postalPrefix) isnt -1
       , 50
 
-    _selectDeliveryArea: (e) ->
-      postal = parseInt(e.target.getAttribute("data-postal"), 10)
-      district = e.target.textContent
+    _selectDeliveryArea: (deliveryAreaModel) ->
       oldSelectedDeliveryAreaModel = @model.getSelectedDeliveryAreaModel()
-      deliveryAreasCollection = @model.get("deliveryAreasCollection")
-      newDeliveryAreaModel = deliveryAreasCollection.find((deliveryAreaModel) ->
-        deliveryAreaModel.get("postal") is postal and (deliveryAreaModel.get("district") is district or deliveryAreaModel.get("city") is district)
-      )
       oldSelectedDeliveryAreaModel.set
         isSelected: false
       ,
         silent: true
 
-      newDeliveryAreaModel.set "isSelected", true
+      deliveryAreaModel.set "isSelected", true
       @_fadeOut()
+
+    _handleDeliveryAreaSelection: (e) ->
+      postal = parseInt(e.target.getAttribute("data-postal"), 10)
+      district = e.target.textContent
+      deliveryAreasCollection = @model.get("deliveryAreasCollection")
+      newDeliveryAreaModel = deliveryAreasCollection.find((deliveryAreaModel) ->
+        deliveryAreaModel.get("postal") is postal and (deliveryAreaModel.get("district") is district or deliveryAreaModel.get("city") is district)
+      )
+      @_selectDeliveryArea newDeliveryAreaModel
 
     _transferClick: (e) ->
       $(e.target).children("span").trigger "click"
