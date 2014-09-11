@@ -5,20 +5,14 @@ build:
         name: adjust timezone
         code: sudo ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
     - script:
-        name: install global dependencies
-        code: sudo npm install -g grunt-cli bower
-    - script:
-        name: install local dependencies
+        name: install dependencies
         code: npm install
     - script:
-        name: install bower components
-        code: bower install
+        name: test
+        code: npm test
     - script:
-        name: run tests
-        code: grunt test
-    - script:
-        name: build release
-        code: grunt build
+        name: build
+        code: npm run-script build
 deploy:
   steps:
     - schickling/s3-website:

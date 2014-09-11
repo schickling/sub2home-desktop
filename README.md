@@ -5,15 +5,12 @@ desktop
 
 ## Dependencies
 * NPM
-* Bower (`npm install -g bower`)
-* Grunt (`npm install -g grunt-cli`)
 
 ## Usage
 
 #### Install & Update
 ```sh
 $ npm install
-$ bower install
 ```
 
 #### Development / Server
