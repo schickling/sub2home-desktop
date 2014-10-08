@@ -21,7 +21,7 @@ $ npm start
 
 #### Build (just needed for deployment)
 ```sh
-$ npm build
+$ npm run-script build
 ```
 ## Supported browsers
 
