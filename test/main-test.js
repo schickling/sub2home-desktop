@@ -7,10 +7,9 @@ for (var file in window.__karma__.files) {
   }
 }
 
-require(['/base/app/js/config.js'], function () {
+require(['/base/app/js/config.js'], function() {
 
   var paths = requirejs.s.contexts._.config.paths;
-  paths.resources = '../../test/resources';
 
   require.config({
     baseUrl: '/base/app/js',

@@ -4,7 +4,9 @@
 module.exports = function(config) {
   config.set({
 
-    preprocessors: {'*/.html': [] },
+    preprocessors: {
+      '*/.html': []
+    },
 
     // frameworks to use
     frameworks: ['jasmine', 'requirejs'],
@@ -12,12 +14,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/main-test.js',
-      {pattern: 'app/templates/**/*.html', included: false},
-      {pattern: 'app/components/**/*.js', included: false},
-      {pattern: 'app/js/**/*.js', included: false},
-      {pattern: 'test/resources/**/*', included: false},
-      {pattern: 'test/.tmp/spec/**/*.js', included: false},
+      'test/main-test.js', {
+        pattern: 'app/templates/**/*.html',
+        included: false
+      }, {
+        pattern: 'app/components/**/*.js',
+        included: false
+      }, {
+        pattern: 'app/js/**/*.js',
+        included: false
+      }, {
+        pattern: 'test/.tmp/spec/**/*.js',
+        included: false
+      },
     ],
 
 
