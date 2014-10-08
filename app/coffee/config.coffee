@@ -17,7 +17,6 @@ require.config
     backbone: "../components/backbone-amd/backbone"
     backboneLocalStorage: "../components/backbone.localStorage/backbone.localStorage"
     moment: "../components/moment/moment"
-    bowser: "../components/bowser/bowser"
     templates: "../templates"
 
   shim:

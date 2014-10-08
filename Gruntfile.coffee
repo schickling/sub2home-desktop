@@ -1,5 +1,4 @@
 backboneModules = [
-  "bowser"
   "main"
   "models/clientModel"
   "views/header/HeaderView"
@@ -162,6 +161,7 @@ module.exports = (grunt) ->
             "sitemap.xml"
             "robots.txt"
             "favicon.ico"
+            "components/bowser/bowser.js"
             "components/requirejs/require.js"
             "components/html5-history-api/history.js"
             "components/xdomain/dist/0.6/xdomain.min.js"

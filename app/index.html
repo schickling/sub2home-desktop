@@ -6,6 +6,10 @@
     <title>sub2home - Deine Onlinetheke für SUBWAY®-Lieferservices</title>
     <meta name="description" content="Bei SUBWAY® bestellen war noch nie so einfach: Lieferservice wählen, Sandwich belegen, Lieferadresse angeben, zurücklehnen und liefern lassen.">
     <link rel="stylesheet" href="/css/main.css">
+    <script data-main="/js/main" src="/components/bowser/bowser.js"></script>
+    <script>
+      if (bowser.mobile || bowser.tablet || (bowser.msie && bowser.version < 9)) window.location.href = "http://m.sub2home.com";
+    </script>
     <noscript>
         <meta http-equiv="refresh" content="1; URL=http://browser.sub2home.com" />
     </noscript>
