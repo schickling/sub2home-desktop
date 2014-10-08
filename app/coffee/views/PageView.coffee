@@ -30,6 +30,7 @@ define [
         @_transition()
       else
         @_initializePage()
+        notificationcenter.notify "mobile"
 
       # set page title
       document.title = @pageTitle

@@ -26,6 +26,8 @@ define [
       @pageTitle = "SUBWAY® " + @model.get("title") + " Lieferservice - sub2home"
       @_render()
 
+      notificationcenter.notify "mobile"
+
     _render: ->
       json =
         title: @model.get("title")

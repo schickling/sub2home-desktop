@@ -5,6 +5,7 @@
   "scripts": {
     "install": "bower install",
     "build": "grunt build",
+    "start": "grunt server",
     "test": "grunt test"
   },
   "devDependencies": {

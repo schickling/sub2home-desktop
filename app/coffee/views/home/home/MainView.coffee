@@ -1,4 +1,12 @@
-define ["jquery", "underscore", "backbone", "services/notificationcenter", "views/PageView", "views/home/home/StoresView", "text!templates/home/home/MainTemplate.html"], ($, _, Backbone, notificationcenter, PageView, StoresView, MainTemplate) ->
+define [
+  "jquery"
+  "underscore"
+  "backbone"
+  "services/notificationcenter"
+  "views/PageView"
+  "views/home/home/StoresView"
+  "text!templates/home/home/MainTemplate.html"
+], ($, _, Backbone, notificationcenter, PageView, StoresView, MainTemplate) ->
 
   MainView = PageView.extend
 

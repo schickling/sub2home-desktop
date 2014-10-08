@@ -483,6 +483,11 @@ define ["underscore", "models/NotificationModel"], (_, NotificationModel) ->
         description: "Der Reklamationsbetrag ist zu niedrig."
         className: "warning"
 
+      "mobile":
+        title: "Wir machen dich mobil"
+        description: "Deine Onlinetheke ist jetzt auch ganz bequem von deinem Smartphone oder Tablet erreichbar!"
+        className: "info"
+
     getNotificationModel: (alias, data) ->
       defaultItem = title: alias
       item = @_items[alias] or defaultItem
