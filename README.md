@@ -16,12 +16,12 @@ $ npm install
 #### Development / Server
 Starts webserver on `localhost:8081` with livereload.
 ```sh
-$ grunt server
+$ npm start
 ```
 
 #### Build (just needed for deployment)
 ```sh
-$ grunt build
+$ npm build
 ```
 ## Supported browsers
 

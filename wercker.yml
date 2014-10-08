@@ -12,7 +12,7 @@ build:
         code: npm test
     - script:
         name: build
-        code: npm run-script build
+        code: npm build
 deploy:
   steps:
     - schickling/s3-website:
