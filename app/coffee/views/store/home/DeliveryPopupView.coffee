@@ -83,6 +83,15 @@ define [
         @_renderNoDeliveryArea postal
         @postalSearchView.showLocationLabel()
 
+    _renderMultipleeDeliveryAreas: (deliveryAreaModels) ->
+      html = ""
+      district = undefined
+      _.each deliveryAreaModels, (deliveryAreaModel) ->
+        district = deliveryAreaModel.get("district") or deliveryAreaModel.get("city")
+        html += "<span  data-postal=\"" + deliveryAreaModel.get("postal") + "\">" + district + "</span>"
+
+      @$deliveryAreaSelection.html(html).removeClass()
+
     _renderNoDeliveryArea: (postal) ->
       @$deliveryAreaSelection.html("SUBWAY<span class=\"superscript\">®</span> " + @model.get("title") + " liefert leider nicht nach " + postal).removeClass().addClass "noDeliveryArea"
 
