@@ -3,7 +3,6 @@ define [
   "jqueryLazyload"
   "underscore"
   "backbone"
-  "services/notificationcenter"
   "models/stateModel"
   "views/PageView"
   "views/store/home/MessageView"
@@ -12,7 +11,7 @@ define [
   "views/store/home/CategoriesView"
   "views/store/home/CategoriesNavigationView"
   "text!templates/store/home/MainTemplate.html"
-], ($, jqueryLazyload, _, Backbone, notificationcenter, stateModel, PageView, MessageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
+], ($, jqueryLazyload, _, Backbone, stateModel, PageView, MessageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
 
   MainView = PageView.extend
 
@@ -26,8 +25,6 @@ define [
       @model = stateModel.get("storeModel")
       @pageTitle = "SUBWAY® " + @model.get("title") + " Lieferservice - sub2home"
       @_render()
-
-      notificationcenter.notify "mobile"
 
     _render: ->
       json =
