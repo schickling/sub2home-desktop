@@ -5,12 +5,13 @@ define [
   "backbone"
   "models/stateModel"
   "views/PageView"
+  "views/store/home/MessageView"
   "views/store/home/DeliveryPopupView"
   "views/store/home/DeliveryView"
   "views/store/home/CategoriesView"
   "views/store/home/CategoriesNavigationView"
   "text!templates/store/home/MainTemplate.html"
-], ($, jqueryLazyload, _, Backbone, stateModel, PageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
+], ($, jqueryLazyload, _, Backbone, stateModel, PageView, MessageView, DeliveryPopupView, DeliveryView, CategoriesView, CategoriesNavigationView, MainTemplate) ->
 
   MainView = PageView.extend
 
@@ -38,6 +39,7 @@ define [
 
       @$el.html(this.template(json))
       @$("#storeClosed").toggle(not @model.get("isOpen"))
+      @_renderMessageView()
       @_renderDeliveryPopupView()  unless @model.get("deliveryAreaWasSelected")
       @_renderDeliveryView()
       @_renderCategories()
@@ -47,6 +49,13 @@ define [
         el: @$("#preSelectDeliveryArea")
         model: @model
       )
+
+    _renderMessageView: ->
+      if @model.get("isMessageActive") and @model.get("messageText") isnt ""
+        new MessageView(
+          el: @$("#infoNote")
+          model: @model
+          )
 
     _renderDeliveryView: ->
       new DeliveryView(el: @$("#storeDeliveryDetails"))
