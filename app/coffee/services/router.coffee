@@ -65,7 +65,7 @@ define [
       Backbone.history.navigate fragment, options
 
       # analytics
-      analytics.page()
+      analytics.page()  if analytics
 
       this
 

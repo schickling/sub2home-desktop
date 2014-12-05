@@ -117,7 +117,7 @@ define [
 
     _toggleIsMessageActive: (e) ->
       @model.save isMessageActive: not @model.get("isMessageActive"),
-        success: ->
+        success: =>
           if @model.get("isMessageActive")
             notificationcenter.notify "views.store.config.isMessageActive.success"
           else
