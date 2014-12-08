@@ -38,7 +38,7 @@ define [
         messageType: @model.get("messageType")
 
       @$el.html(this.template(json))
-      @$("#storeClosed").toggle(not @model.get("isOpen"))
+      @$("#storeClosedPopup").toggle(not @model.get("isOpen"))
       @_renderMessageView()
       @_renderDeliveryPopupView()  unless @model.get("deliveryAreaWasSelected")
       @_renderDeliveryView()
