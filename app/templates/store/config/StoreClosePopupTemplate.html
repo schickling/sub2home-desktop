@@ -1,0 +1,15 @@
+<div id="popupContainer">
+  <div id="storeClosedMessage">
+    <h3>
+      Sie sind dabei, Ihren Store vorübergehend zu schließen. Um Ihre Gäste über Gründe und/oder eine Wiedereröffnung zu informieren, geben Sie im folgenden Feld eine Nachricht an:
+    </h3>
+    <p>Die Schließung tritt unmittelbar in Kraft, es erfolgt keine weitere Überprüfung, sie können dies jedoch durch erneuten Klick auf den Button wieder rückgängig machen.</p>
+
+    <textarea cols="10" rows="5" placeholder="Eine Nachricht an Ihre Gäste" class="closedInfoInput">Hallo <%= messageText %></textarea>
+    <div class="buttonContainer">
+      <div class="btn btnWarning" id="closeStoreCancel">Abbrechen</div>
+      <div class="btn btnWarning" id="closeStoreConfirm">Store vorrübergehend schließen</div>
+    </div>
+  </div>
+</div>
+

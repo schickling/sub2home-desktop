@@ -9,27 +9,28 @@ define [
   "views/store/config/StoreInfoView"
   "views/store/config/DeliveryAreasView"
   "views/store/config/DeliveryTimesView"
+  "views/store/config/StoreClosePopupView"
   "text!templates/store/config/MainTemplate.html"
-], ($, _, Backbone, router, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, MainTemplate) ->
+], ($, _, Backbone, router, stateModel, PageView, MapView, StoreInfoView, DeliveryAreasView, DeliveryTimesView, StoreClosePopupView, MainTemplate) ->
 
   MainView = PageView.extend
-    
+
     # referenced sub views
     subViews:
       mapView: null
 
     initialize: ->
-      
+
       # for authentification reload the store model
       @model = stateModel.get("storeModel")
       @model.fetch
         url: "stores/storeAlias/auth" # use custom route
         async: false
 
-      
+
       # set page title
       @pageTitle = "Storeeinstellungen " + @model.get("title") + " - sub2home"
-      
+
       # check if client is allowed to view this page
       if stateModel.clientOwnsThisStore()
         @_render()
@@ -44,6 +45,10 @@ define [
       @subViews.mapView = new MapView(
         el: @$("#storeMap")
         model: @model.get("addressModel")
+      )
+      @subViews.storeClosePopupView = new StoreClosePopupView(
+        el: @$("#storeClosePopup")
+        model: @model
       )
       new StoreInfoView(
         el: @$("#storeInfo")

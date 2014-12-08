@@ -79,18 +79,16 @@ define [
           notificationcenter.notify "views.store.config.testOrder.error"
 
     _toggleOpen: ->
-      $button = @$("#storeOpen")
-      isOpen = not @model.get("isOpen")
-      @model.set "isOpen", isOpen
-      @model.save {},
-        success: ->
-          if isOpen
+      if @model.get("isOpen")
+        @model.trigger("popupClose")
+      else
+        @model.set "isOpen", true
+        @model.save {},
+          success: ->
             notificationcenter.notify "views.store.config.isOpen"
-          else
-            notificationcenter.notify "views.store.config.isClosed"
-          $button.toggleClass "isOpen"
-        error: ->
-          notificationcenter.notify "views.store.config.isOpenError"
+            @$("#storeOpen").toggleClass "isOpen"
+          error: ->
+            notificationcenter.notify "views.store.config.isOpenError"
 
     _togglePaymentMethod: (e) ->
       storeModel = @model
