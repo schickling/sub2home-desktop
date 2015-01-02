@@ -19,4 +19,5 @@ deploy:
         key: $KEY
         secret: $SECRET
         bucket: $BUCKET
+        region: $REGION
         source-dir: ./dist
